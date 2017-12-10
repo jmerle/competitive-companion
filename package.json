@@ -1,0 +1,41 @@
+{
+  "name": "chelper-companion",
+  "version": "1.0.0",
+  "description": "A webextension which parses competitive programming problems and sends them to CHelper.",
+  "repository": "https://github.com/jmerle/chelper-companion",
+  "author": "Jasper van Merle",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "web-ext run -s build/",
+    "build": "webpack --progress --colors",
+    "watch": "yarn build --watch",
+    "package": "yarn build && web-ext build -s build/ -a dist/ -o",
+    "lint": "yarn build && web-ext lint -s build/ -o text",
+    "dev": "yarn build && concurrently \"yarn start\" \"yarn watch\" -n web-ext,webpack -c blue,yellow --kill-others"
+  },
+  "devDependencies": {
+    "@types/clean-css": "^3.4.30",
+    "@types/copy-webpack-plugin": "^4.0.1",
+    "@types/jquery": "^3.2.16",
+    "@types/node": "^8.0.54",
+    "@types/nprogress": "^0.0.29",
+    "axios": "^0.17.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "clean-css": "^4.1.9",
+    "concurrently": "^3.5.1",
+    "copy-webpack-plugin": "^4.2.3",
+    "jquery": "^3.2.1",
+    "noty": "^3.1.3",
+    "nprogress": "^0.2.0",
+    "ts-loader": "^3.2.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "web-ext": "^2.2.2",
+    "web-ext-types": "^1.1.1",
+    "webpack": "^3.9.1"
+  }
+}

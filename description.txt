@@ -1,0 +1,38 @@
+CHelper Companion parses programming problems and contests and sends them to the CHelper plugin for IntelliJ IDEA.
+
+Problem parsers are available for the following websites:
+- Atcoder
+- Bayan
+- CodeChef*
+- Codeforces
+- CSAcademy*
+- E-Olymp*
+- Facebook Hacker Cup
+- HackerEarth*
+- HackerRank*
+- Kattis
+- Timus*
+- USACO
+- Yandex
+
+Contest parsers are available for the following websites:
+- AtCoder*
+- CodeChef*
+- Codeforces*
+- E-Olymp*
+- Google Code Jam
+- HackerEarth*
+- HackerRank*
+- Kattis*
+- Timus*
+
+* Not available (or working properly) in the original CHelper extension (v4.1.11.1)
+
+Changelog
+
+1.0.0 - December 10th, 2017
+- Initial release
+
+Credits
+
+This extension was made by Jasper van Merle. Much thanks to Egor Kulikov for making the CHelper plugin and the original extension.

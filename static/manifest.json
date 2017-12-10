@@ -1,0 +1,57 @@
+{
+  "manifest_version": 2,
+
+  "name": "CHelper Companion",
+  "description": "Parses programming problems and sends them to the CHelper plugin for IntelliJ IDEA.",
+  "version": "Filled by build script",
+
+  "author": "Filled by build script",
+  "homepage_url": "Filled by build script",
+
+  "permissions": [
+    "tabs",
+    "http://localhost/"
+  ],
+
+  "icons": {
+    "16": "icons/icon-16.png",
+    "19": "icons/icon-19.png",
+    "20": "icons/icon-20.png",
+    "24": "icons/icon-24.png",
+    "32": "icons/icon-32.png",
+    "38": "icons/icon-38.png",
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["Filled by build script"],
+      "exclude_matches": ["Filled by build script"],
+      "css": ["css/nprogress.css", "css/noty.css"],
+      "js": ["js/globals.js", "js/browser-polyfill.js", "js/content.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["js/globals.js", "js/browser-polyfill.js", "js/background.js"]
+  },
+
+  "page_action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "19": "icons/icon-19.png",
+      "20": "icons/icon-20.png",
+      "24": "icons/icon-24.png",
+      "32": "icons/icon-32.png",
+      "38": "icons/icon-38.png",
+      "48": "icons/icon-48.png",
+      "64": "icons/icon-64.png",
+      "96": "icons/icon-96.png"
+    },
+    "default_title": "Parse task",
+    "browser_style": false
+  }
+}
