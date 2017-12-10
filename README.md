@@ -1,6 +1,8 @@
 # CHelper Companion
 An alternative to the original CHelper extension. It fixes several broken parsers in the original extension and adds contest parsers.
 
+Available for [Chrome](https://chrome.google.com/webstore/detail/chelper-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/chelper-companion/).
+
 ## Supported websites
 | Website             | Problem parser | Contest parser | 
 |---------------------|----------------|----------------| 
