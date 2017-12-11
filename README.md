@@ -1,5 +1,5 @@
 # CHelper Companion
-An alternative to the original CHelper extension. It fixes several broken parsers in the original extension and adds contest parsers.
+An alternative to the original CHelper extension. It fixes several broken problem parsers in the original extension and adds contest parsers.
 
 Available for [Chrome](https://chrome.google.com/webstore/detail/chelper-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/chelper-companion/).
 
@@ -26,10 +26,10 @@ Available for [Chrome](https://chrome.google.com/webstore/detail/chelper-compani
 ## Packaging
 This section is meant for anyone who wants to package the extension manually, but is especially written for the Mozilla volunteers who need to re-package the extension to be able to diff-check it with what I submit to AMO.
 
-Verions used:
+Versions used:  
 Node.js: 9.0.0  
 Yarn: 1.3.2  
-Windows 10 Pro
+Windows: 10 Pro
 
 ```bash
 # Clone the repository (if you are not a Mozilla reviewer)
@@ -41,7 +41,7 @@ cd chelper-companion
 # Install the dependencies
 yarn
 
-# Package the app
+# Package the extension
 yarn package
 ```
 
