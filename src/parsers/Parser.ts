@@ -1,4 +1,4 @@
-import {enableParsing} from "../utils";
+import { enableParsing } from "../utils";
 import matchPatternToRegExp from "../vendor/match-pattern-to-reg-exp";
 import * as NProgress from 'nprogress';
 import Sendable from "../models/Sendable";

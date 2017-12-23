@@ -1,10 +1,9 @@
-import {Message, MessageAction} from "./models/messaging";
+import { Message, MessageAction } from "./models/messaging";
 import Parser from "./parsers/Parser";
 import parsers from "./parsers/parsers";
 import * as NProgress from 'nprogress';
-import {disableParsing, enableParsing, init} from "./utils";
+import { disableParsing, enableParsing, init } from "./utils";
 import * as Noty from 'noty';
-import Sendable from "./models/Sendable";
 
 NProgress.configure({
   trickle: false,

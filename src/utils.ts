@@ -1,4 +1,4 @@
-import {MessageAction} from "./models/messaging";
+import { MessageAction } from "./models/messaging";
 
 let id: number;
 

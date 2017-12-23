@@ -1,5 +1,5 @@
 import DefaultParser from "../DefaultParser";
-import {DefaultWebsite} from "../../../models/DefaultTask";
+import { DefaultWebsite } from "../../../models/DefaultTask";
 
 export default class CodeforcesProblemParser extends DefaultParser {
   website: DefaultWebsite = DefaultWebsite.Codeforces;

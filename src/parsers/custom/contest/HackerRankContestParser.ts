@@ -16,7 +16,7 @@ export default class HackerRankContestParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
-      const urls = $('#contest-challenges-problem a.btn')
+      const urls = $('#contest-challenges-problem').find('a.btn')
         .toArray()
         .map(elem => $(elem).prop('href').replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'));
 
