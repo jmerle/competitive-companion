@@ -8,19 +8,24 @@ export default class CustomTask extends Task {
 
   toString(): string {
     const tests = this.tests.map(test => `
-      <td><pre>${test.input}</pre></td>
-      <td><pre>${test.output}</pre></td>
+      <table class="sample" summary="sample data">
+        <pre>${test.input}</pre>
+        <pre>${test.output}</pre>
+      </table>
     `).join('');
 
-    return `csacademy
-      <div class="text-center"><h1>${this.taskName}</h1></div>
+    return `kattis
+      <div id="contest_time">
+        <h2 class="title">${this.contestName}</h2>
+      </div>
       
-      <br>Memory limit: <em>${this.memoryLimit} </em>
+      <div class="headline-wrapper"><h1>${this.taskName}</h1></div>
+      
+      <div class="text-center"><h1>${this.taskName}</h1></div>
       
       ${tests}
       
-      "contest":""
-      "longName":"${this.contestName}"
+      <p><strong>Memory limit: </strong>${this.memoryLimit} MB</p>
     `;
   }
 }
