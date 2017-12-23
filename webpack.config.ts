@@ -80,10 +80,6 @@ const config = {
         to: path.resolve(__dirname, 'build/icons'),
       },
       {
-        from: path.resolve(__dirname, 'src/globals.js'),
-        to: path.resolve(__dirname, 'build/js'),
-      },
-      {
         from: path.resolve(__dirname, 'src/vendor/browser-polyfill.js'),
         to: path.resolve(__dirname, 'build/js'),
       },

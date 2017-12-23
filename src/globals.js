@@ -1,1 +1,0 @@
-window.hasChromeAPIs = chrome !== 'undefined';

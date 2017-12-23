@@ -31,12 +31,12 @@
       "matches": ["Filled by build script"],
       "exclude_matches": ["Filled by build script"],
       "css": ["css/nprogress.css", "css/noty.css"],
-      "js": ["js/globals.js", "js/browser-polyfill.js", "js/content.js"]
+      "js": ["js/browser-polyfill.js", "js/content.js"]
     }
   ],
 
   "background": {
-    "scripts": ["js/globals.js", "js/browser-polyfill.js", "js/background.js"]
+    "scripts": ["js/browser-polyfill.js", "js/background.js"]
   },
 
   "page_action": {

@@ -5,6 +5,8 @@ declare global {
   const chrome: any;
 }
 
+const isChrome = window.navigator.userAgent.toLowerCase().includes('chrome');
+
 function checkTab(tabId: number, changeInfo: object, tab: browser.tabs.Tab) {
   browser.tabs.sendMessage(tabId, {
     action: MessageAction.CheckTab,
@@ -31,23 +33,31 @@ function send(tabId: number, message: string) {
   });
 }
 
+function enablePageAction(tabId: number) {
+  if (isChrome) {
+    chrome.pageAction.show(tabId);
+  } else {
+    browser.pageAction.show(tabId);
+  }
+}
+
+function disablePageAction(tabId: number) {
+  if (isChrome) {
+    chrome.pageAction.hide(tabId);
+  } else {
+    browser.pageAction.hide(tabId);
+  }
+}
+
 function handleMessage(message: Message, sender: browser.runtime.MessageSender) {
   if (!sender.tab) return;
 
   switch (message.action) {
     case MessageAction.EnableParsing:
-      if ((window as any).hasChromeAPIs) {
-        chrome.pageAction.show(message.payload.tabId);
-      } else {
-        browser.pageAction.show(message.payload.tabId);
-      }
+      enablePageAction(message.payload.tabId);
       break;
     case MessageAction.DisableParsing:
-      if ((window as any).hasChromeAPIs) {
-        chrome.pageAction.hide(message.payload.tabId);
-      } else {
-        browser.pageAction.hide(message.payload.tabId);
-      }
+      disablePageAction(message.payload.tabId);
       break;
     case MessageAction.SendTask:
       send(sender.tab.id, message.payload.message);
