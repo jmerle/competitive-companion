@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "web-ext run -s build/",
+    "start": "web-ext run -s build/ --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "build": "webpack --progress --colors",
     "watch": "yarn build --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
