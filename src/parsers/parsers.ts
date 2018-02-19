@@ -1,7 +1,6 @@
 import Parser from './Parser';
 import AtCoderProblemParser from './default/problem/AtCoderProblemParser';
 import BayanProblemParser from './default/problem/BayanProblemParser';
-import CodeforcesProblemParser from './default/problem/CodeforcesProblemParser';
 import FacebookHackerCupProblemParser from './default/problem/FacebookHackerCupProblemParser';
 import KattisProblemParser from './default/problem/KattisProblemParser';
 import UsacoProblemParser from './default/problem/UsacoProblemParser';
@@ -22,12 +21,12 @@ import HackerEarthContestParser from './custom/contest/HackerEarthContestParser'
 import HackerRankContestParser from './custom/contest/HackerRankContestParser';
 import AtCoderContestParser from './custom/contest/AtCoderContestParser';
 import CSAcademyProblemParser from './custom/problem/CSAcademyProblemParser';
+import CodeforcesProblemParser from './custom/problem/CodeforcesProblemParser';
 
 const parsers: Parser[] = [
   // Default problem parsers
   new AtCoderProblemParser(),
   new BayanProblemParser(),
-  new CodeforcesProblemParser(),
   new FacebookHackerCupProblemParser(),
   new KattisProblemParser(),
   new UsacoProblemParser(),
@@ -44,6 +43,7 @@ const parsers: Parser[] = [
   new EOlympProblemParser(),
   new CodeChefProblemParser(),
   new CSAcademyProblemParser(),
+  new CodeforcesProblemParser(),
 
   // Custom contest parsers
   new KattisContestParser(),
