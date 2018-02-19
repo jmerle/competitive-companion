@@ -1,34 +1,33 @@
 # CHelper Companion
+
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/chelper-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
+[![Mozilla Add-on](https://img.shields.io/amo/v/chelper-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/chelper-companion/)
+
 An alternative to the original CHelper extension. It fixes several broken problem parsers in the original extension and adds contest parsers.
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg?style=for-the-badge)](https://chrome.google.com/webstore/detail/chelper-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
-[![Mozilla Add-on](https://img.shields.io/amo/v/chelper-companion.svg?style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/chelper-companion/)
-
 ## Supported websites
-| Website             | Problem parser | Contest parser | 
-|---------------------|----------------|----------------| 
-| AtCoder             | ✔              | ✔*            | 
-| Bayan               | ✔              |               | 
-| CodeChef            | ✔*             | ✔*            | 
-| Codeforces          | ✔              | ✔*            | 
-| CSAcademy           | ✔*             |               | 
-| E-Olymp             | ✔*             | ✔*            | 
-| Facebook Hacker Cup | ✔              |               | 
-| Google Code Jam     |                | ✔             | 
-| HackerEarth         | ✔*             | ✔*            | 
-| HackerRank          | ✔*             | ✔*            | 
-| Kattis              | ✔              | ✔*            | 
-| Timus               | ✔*             | ✔*            | 
-| USACO               | ✔              |               | 
-| Yandex              | ✔              |               | 
-
-\* Not available (or working properly) in the original CHelper extension (v4.1.11.1)
+| Website             	| Problem parser 	| Contest parser 	|
+|-----------------------|-----------------|-----------------|
+| AtCoder             	| ✔              	| ✔              	|
+| Bayan               	| ✔              	|                	|
+| CodeChef            	| ✔              	| ✔              	|
+| Codeforces          	| ✔              	| ✔              	|
+| CSAcademy           	| ✔              	|                	|
+| E-Olymp             	| ✔              	| ✔              	|
+| Facebook Hacker Cup 	| ✔              	|                	|
+| Google Code Jam     	|                	| ✔              	|
+| HackerEarth         	| ✔              	| ✔              	|
+| HackerRank          	| ✔              	| ✔              	|
+| Kattis              	| ✔              	| ✔              	|
+| Timus               	| ✔              	| ✔              	|
+| USACO               	| ✔              	|                	|
+| Yandex              	| ✔              	|                	|
 
 ## Packaging
 This section is meant for anyone who wants to package the extension manually, but is especially written for the Mozilla volunteers who need to re-package the extension to be able to diff-check it with what I submit to AMO.
 
-Versions used:  
-Node.js: 9.0.0  
+Software versions:  
+Node.js: 8.9.4  
 Yarn: 1.3.2  
 Windows: 10 Pro
 
