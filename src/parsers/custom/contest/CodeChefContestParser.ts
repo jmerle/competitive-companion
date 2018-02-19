@@ -1,9 +1,9 @@
 import * as $ from 'jquery';
-import Parser from "../../Parser";
-import Sendable from "../../../models/Sendable";
-import CustomTask from "../../../models/CustomTask";
-import Contest from "../../../models/Contest";
-import Test from "../../../models/Test";
+import Parser from '../../Parser';
+import Sendable from '../../../models/Sendable';
+import CustomTask from '../../../models/CustomTask';
+import Contest from '../../../models/Contest';
+import Test from '../../../models/Test';
 
 export default class CodeChefContestParser extends Parser {
   getMatchPatterns(): string[] {
@@ -40,7 +40,7 @@ export default class CodeChefContestParser extends Parser {
           const div = document.createElement('div');
           div.innerHTML = data.body;
 
-          $(div).find('pre:has(b)').each(function() {
+          $(div).find('pre:has(b)').each(function () {
             const input = $(this).contents().eq(1).text().trim();
             const output = $(this).contents().eq(3).text().trim();
 

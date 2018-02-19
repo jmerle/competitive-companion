@@ -1,7 +1,7 @@
 import * as $ from 'jquery';
-import Parser from "../Parser";
-import Sendable from "../../models/Sendable";
-import Contest from "../../models/Contest";
+import Parser from '../Parser';
+import Sendable from '../../models/Sendable';
+import Contest from '../../models/Contest';
 
 export default abstract class ContestParser extends Parser {
   abstract problemParser: Parser;

@@ -1,5 +1,5 @@
-import { Message, MessageAction } from "./messaging";
-import Sendable from "./Sendable";
+import { Message, MessageAction } from './messaging';
+import Sendable from './Sendable';
 
 export default abstract class Task implements Sendable {
   send(): Promise<void> {

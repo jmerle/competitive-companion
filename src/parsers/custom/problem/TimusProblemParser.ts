@@ -1,8 +1,8 @@
 import * as $ from 'jquery';
-import Parser from "../../Parser";
-import Sendable from "../../../models/Sendable";
-import Test from "../../../models/Test";
-import CustomTask from "../../../models/CustomTask";
+import Parser from '../../Parser';
+import Sendable from '../../../models/Sendable';
+import Test from '../../../models/Test';
+import CustomTask from '../../../models/CustomTask';
 
 export default class TimusProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -28,7 +28,7 @@ export default class TimusProblemParser extends Parser {
 
       const tests: Test[] = [];
 
-      $('.sample tbody tr:not(:first)').each(function() {
+      $('.sample tbody tr:not(:first)').each(function () {
         const input = $(this).find('td').eq(0).text().trim();
         const output = $(this).find('td').eq(1).text().trim();
 

@@ -1,8 +1,8 @@
 import * as $ from 'jquery';
-import Parser from "../../Parser";
-import CustomTask from "../../../models/CustomTask";
-import Test from "../../../models/Test";
-import Sendable from "../../../models/Sendable";
+import Parser from '../../Parser';
+import CustomTask from '../../../models/CustomTask';
+import Test from '../../../models/Test';
+import Sendable from '../../../models/Sendable';
 
 export default class HackerRankProblemParser extends Parser {
   getMatchPatterns(): string[] {

@@ -1,8 +1,8 @@
 import * as $ from 'jquery';
-import Parser from "../../Parser";
-import Sendable from "../../../models/Sendable";
-import Test from "../../../models/Test";
-import CustomTask from "../../../models/CustomTask";
+import Parser from '../../Parser';
+import Sendable from '../../../models/Sendable';
+import Test from '../../../models/Test';
+import CustomTask from '../../../models/CustomTask';
 
 export default class EOlympProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -27,7 +27,7 @@ export default class EOlympProblemParser extends Parser {
 
       const tests: Test[] = [];
 
-      $html.find('.mdl-grid').has('.eo-code').each(function() {
+      $html.find('.mdl-grid').has('.eo-code').each(function () {
         const input = $(this).find('.eo-code').eq(0).text().trim();
         const output = $(this).find('.eo-code').eq(1).text().trim();
 

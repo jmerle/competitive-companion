@@ -1,4 +1,4 @@
-import Task from "./Task";
+import Task from './Task';
 
 export class DefaultTask extends Task {
   constructor(public website: DefaultWebsite, public body: string) {

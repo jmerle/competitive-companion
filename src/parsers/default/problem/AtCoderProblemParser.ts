@@ -1,5 +1,5 @@
-import DefaultParser from "../DefaultParser";
-import { DefaultWebsite } from "../../../models/DefaultTask";
+import DefaultParser from '../DefaultParser';
+import { DefaultWebsite } from '../../../models/DefaultTask';
 
 export default class AtCoderProblemParser extends DefaultParser {
   website: DefaultWebsite = DefaultWebsite.AtCoder;

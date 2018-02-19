@@ -1,6 +1,6 @@
-import ContestParser from "../ContestParser";
-import Parser from "../../Parser";
-import HackerEarthProblemParser from "../problem/HackerEarthProblemParser";
+import ContestParser from '../ContestParser';
+import Parser from '../../Parser';
+import HackerEarthProblemParser from '../problem/HackerEarthProblemParser';
 
 export default class HackerEarthContestParser extends ContestParser {
   problemParser: Parser = new HackerEarthProblemParser();

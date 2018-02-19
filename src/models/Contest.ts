@@ -1,5 +1,5 @@
-import Sendable from "./Sendable";
-import Task from "./Task";
+import Sendable from './Sendable';
+import Task from './Task';
 
 export default class Contest implements Sendable {
   constructor(public tasks: Task[]) {

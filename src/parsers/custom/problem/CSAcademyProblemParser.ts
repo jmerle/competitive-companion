@@ -1,8 +1,8 @@
 import * as $ from 'jquery';
-import Parser from "../../Parser";
-import Sendable from "../../../models/Sendable";
-import Test from "../../../models/Test";
-import CustomTask from "../../../models/CustomTask";
+import Parser from '../../Parser';
+import Sendable from '../../../models/Sendable';
+import Test from '../../../models/Test';
+import CustomTask from '../../../models/CustomTask';
 
 export default class CSAcademyProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -20,7 +20,7 @@ export default class CSAcademyProblemParser extends Parser {
 
       const tests: Test[] = [];
 
-      $('table tbody tr').each(function() {
+      $('table tbody tr').each(function () {
         const input = $(this).find('pre').eq(0).text().trim();
         const output = $(this).find('pre').eq(1).text().trim();
 

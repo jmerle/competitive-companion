@@ -1,4 +1,4 @@
-import { Message, MessageAction } from "./models/messaging";
+import { Message, MessageAction } from './models/messaging';
 import axios from 'axios';
 
 declare global {

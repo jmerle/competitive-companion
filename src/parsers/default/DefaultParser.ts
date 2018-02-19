@@ -1,6 +1,6 @@
-import Parser from "../Parser";
-import { DefaultTask, DefaultWebsite } from "../../models/DefaultTask";
-import Sendable from "../../models/Sendable";
+import Parser from '../Parser';
+import { DefaultTask, DefaultWebsite } from '../../models/DefaultTask';
+import Sendable from '../../models/Sendable';
 
 export default abstract class DefaultParser extends Parser {
   abstract website: DefaultWebsite;

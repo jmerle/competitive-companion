@@ -1,6 +1,6 @@
-import ContestParser from "../ContestParser";
-import Parser from "../../Parser";
-import KattisProblemParser from "../../default/problem/KattisProblemParser";
+import ContestParser from '../ContestParser';
+import Parser from '../../Parser';
+import KattisProblemParser from '../../default/problem/KattisProblemParser';
 
 export default class KattisContestParser extends ContestParser {
   problemParser: Parser = new KattisProblemParser();

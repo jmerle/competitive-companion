@@ -671,7 +671,7 @@
           }
 
           return new Promise((resolve, reject) => {
-            target[name](...args, makeCallback({ resolve, reject }, metadata));
+            target[name](...args, makeCallback({resolve, reject}, metadata));
           });
         };
       };

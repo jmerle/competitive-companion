@@ -1,5 +1,5 @@
-import Task from "./Task";
-import Test from "./Test";
+import Task from './Task';
+import Test from './Test';
 
 export default class CustomTask extends Task {
   constructor(public taskName: string, public contestName: string, public tests: Test[], public memoryLimit: number) {
@@ -18,13 +18,13 @@ export default class CustomTask extends Task {
       <div id="contest_time">
         <h2 class="title">${this.contestName}</h2>
       </div>
-      
+
       <div class="headline-wrapper"><h1>${this.taskName}</h1></div>
-      
+
       <div class="text-center"><h1>${this.taskName}</h1></div>
-      
+
       ${tests}
-      
+
       <p><strong>Memory limit: </strong>${this.memoryLimit} MB</p>
     `;
   }

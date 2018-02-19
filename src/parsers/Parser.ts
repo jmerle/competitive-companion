@@ -1,7 +1,7 @@
-import { enableParsing } from "../utils";
-import matchPatternToRegExp from "../vendor/match-pattern-to-reg-exp";
+import { enableParsing } from '../utils';
+import matchPatternToRegExp from '../vendor/match-pattern-to-reg-exp';
 import * as NProgress from 'nprogress';
-import Sendable from "../models/Sendable";
+import Sendable from '../models/Sendable';
 
 export default abstract class Parser {
   /**
