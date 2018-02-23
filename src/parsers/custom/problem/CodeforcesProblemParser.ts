@@ -10,9 +10,7 @@ export default class CodeforcesProblemParser extends Parser {
       'http://codeforces.com/contest/*/problem/*',
       'http://codeforces.com/problemset/problem/*/*',
       'http://codeforces.com/gym/*/problem/*',
-      'http://codeforces.ru/contest/*/problem/*',
-      'http://codeforces.ru/problemset/problem/*/*',
-      'http://codeforces.ru/gym/*/problem/*',
+      'http://codeforces.com/group/*/contest/*/problem/*',
     ];
   }
 
@@ -24,7 +22,7 @@ export default class CodeforcesProblemParser extends Parser {
       taskName = taskName.replace('.', ' -');
       taskName = 'Problem ' + taskName;
 
-      const contestName = $html.find('.rtable > tbody > tr > th').text();
+      const contestName = $html.find('.rtable > tbody > tr > th').first().text();
 
       let memoryLimit = $html
         .find('.problem-statement > .header > .memory-limit')

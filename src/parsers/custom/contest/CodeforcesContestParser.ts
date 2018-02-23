@@ -10,10 +10,11 @@ export default class CodeforcesContestParser extends ContestParser {
     return [
       'http://codeforces.com/contest/*',
       'http://codeforces.com/gym/*',
+      'http://codeforces.com/group/*/contest/*',
     ];
   }
 
   getRegularExpressions(): RegExp[] {
-    return [/^http:\/\/codeforces[.](ru|com)\/(contest|gym)\/(\d+)$/];
+    return [/^http:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)$/];
   }
 }
