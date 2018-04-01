@@ -1,29 +1,30 @@
-import Parser from './Parser';
-import AtCoderProblemParser from './default/problem/AtCoderProblemParser';
-import BayanProblemParser from './default/problem/BayanProblemParser';
-import FacebookHackerCupProblemParser from './default/problem/FacebookHackerCupProblemParser';
-import KattisProblemParser from './default/problem/KattisProblemParser';
-import UsacoProblemParser from './default/problem/UsacoProblemParser';
-import YandexProblemParser from './default/problem/YandexProblemParser';
-import GoogleCodeJamContestParser from './default/contest/GoogleCodeJamContestParser';
-import HackerRankProblemParser from './custom/problem/HackerRankProblemParser';
-import KattisContestParser from './custom/contest/KattisContestParser';
-import CodeforcesContestParser from './custom/contest/CodeforcesContestParser';
-import HackerEarthProblemParser from './custom/problem/HackerEarthProblemParser';
-import HackerEarthCodeArenaParser from './custom/problem/HackerEarthCodeArenaParser';
-import TimusProblemParser from './custom/problem/TimusProblemParser';
-import TimusContestParser from './custom/contest/TimusContestParser';
-import EOlympProblemParser from './custom/problem/EOlympProblemParser';
-import EOlympContestParser from './custom/contest/EOlympContestParser';
-import CodeChefProblemParser from './custom/problem/CodeChefProblemParser';
-import CodeChefContestParser from './custom/contest/CodeChefContestParser';
-import HackerEarthContestParser from './custom/contest/HackerEarthContestParser';
-import HackerRankContestParser from './custom/contest/HackerRankContestParser';
-import AtCoderContestParser from './custom/contest/AtCoderContestParser';
-import CSAcademyProblemParser from './custom/problem/CSAcademyProblemParser';
-import CodeforcesProblemParser from './custom/problem/CodeforcesProblemParser';
+import { Parser } from './Parser';
+import { AtCoderProblemParser } from './default/problem/AtCoderProblemParser';
+import { BayanProblemParser } from './default/problem/BayanProblemParser';
+import { FacebookHackerCupProblemParser } from './default/problem/FacebookHackerCupProblemParser';
+import { KattisProblemParser } from './default/problem/KattisProblemParser';
+import { UsacoProblemParser } from './default/problem/UsacoProblemParser';
+import { YandexProblemParser } from './default/problem/YandexProblemParser';
+import { GoogleCodeJamOldContestParser } from './default/contest/GoogleCodeJamOldContestParser';
+import { HackerRankProblemParser } from './custom/problem/HackerRankProblemParser';
+import { KattisContestParser } from './custom/contest/KattisContestParser';
+import { CodeforcesContestParser } from './custom/contest/CodeforcesContestParser';
+import { HackerEarthProblemParser } from './custom/problem/HackerEarthProblemParser';
+import { HackerEarthCodeArenaParser } from './custom/problem/HackerEarthCodeArenaParser';
+import { TimusProblemParser } from './custom/problem/TimusProblemParser';
+import { TimusContestParser } from './custom/contest/TimusContestParser';
+import { EOlympProblemParser } from './custom/problem/EOlympProblemParser';
+import { EOlympContestParser } from './custom/contest/EOlympContestParser';
+import { CodeChefProblemParser } from './custom/problem/CodeChefProblemParser';
+import { CodeChefContestParser } from './custom/contest/CodeChefContestParser';
+import { HackerEarthContestParser } from './custom/contest/HackerEarthContestParser';
+import { HackerRankContestParser } from './custom/contest/HackerRankContestParser';
+import { AtCoderContestParser } from './custom/contest/AtCoderContestParser';
+import { CSAcademyProblemParser } from './custom/problem/CSAcademyProblemParser';
+import { CodeforcesProblemParser } from './custom/problem/CodeforcesProblemParser';
+import { GoogleCodeJamNewProblemParser } from './custom/problem/GoogleCodeJamNewProblemParser';
 
-const parsers: Parser[] = [
+export const parsers: Parser[] = [
   // Default problem parsers
   new AtCoderProblemParser(),
   new BayanProblemParser(),
@@ -33,7 +34,7 @@ const parsers: Parser[] = [
   new YandexProblemParser(),
 
   // Default contest parsers
-  new GoogleCodeJamContestParser(),
+  new GoogleCodeJamOldContestParser(),
 
   // Custom problem parsers
   new HackerRankProblemParser(),
@@ -44,6 +45,7 @@ const parsers: Parser[] = [
   new CodeChefProblemParser(),
   new CSAcademyProblemParser(),
   new CodeforcesProblemParser(),
+  new GoogleCodeJamNewProblemParser(),
 
   // Custom contest parsers
   new KattisContestParser(),
@@ -55,5 +57,3 @@ const parsers: Parser[] = [
   new HackerRankContestParser(),
   new AtCoderContestParser(),
 ];
-
-export default parsers;

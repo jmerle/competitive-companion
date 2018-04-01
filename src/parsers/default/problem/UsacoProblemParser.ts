@@ -1,7 +1,7 @@
-import DefaultParser from '../DefaultParser';
+import { DefaultParser } from '../DefaultParser';
 import { DefaultWebsite } from '../../../models/DefaultTask';
 
-export default class UsacoProblemParser extends DefaultParser {
+export class UsacoProblemParser extends DefaultParser {
   website: DefaultWebsite = DefaultWebsite.Usaco;
 
   getMatchPatterns(): string[] {

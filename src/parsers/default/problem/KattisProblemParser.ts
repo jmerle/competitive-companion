@@ -1,7 +1,7 @@
-import DefaultParser from '../DefaultParser';
+import { DefaultParser } from '../DefaultParser';
 import { DefaultWebsite } from '../../../models/DefaultTask';
 
-export default class KattisProblemParser extends DefaultParser {
+export class KattisProblemParser extends DefaultParser {
   website: DefaultWebsite = DefaultWebsite.Kattis;
 
   getMatchPatterns(): string[] {

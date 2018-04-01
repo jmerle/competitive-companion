@@ -1,10 +1,10 @@
 import * as $ from 'jquery';
-import Parser from '../../Parser';
-import Sendable from '../../../models/Sendable';
-import Test from '../../../models/Test';
-import CustomTask from '../../../models/CustomTask';
+import { Parser } from '../../Parser';
+import { Sendable } from '../../../models/Sendable';
+import { Test } from '../../../models/Test';
+import { CustomTask } from '../../../models/CustomTask';
 
-export default class TimusProblemParser extends Parser {
+export class TimusProblemParser extends Parser {
   getMatchPatterns(): string[] {
     return ['http://acm.timus.ru/problem.aspx*'];
   }

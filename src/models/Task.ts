@@ -1,7 +1,7 @@
 import { Message, MessageAction } from './messaging';
-import Sendable from './Sendable';
+import { Sendable } from './Sendable';
 
-export default abstract class Task implements Sendable {
+export abstract class Task implements Sendable {
   send(): Promise<void> {
     return new Promise(resolve => {
       const handleMessage = (message: Message, sender: browser.runtime.MessageSender) => {

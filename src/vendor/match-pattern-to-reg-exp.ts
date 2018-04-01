@@ -8,7 +8,7 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns}
  */
-export default function matchPatternToRegExp(pattern: string): RegExp {
+export function matchPatternToRegExp(pattern: string): RegExp {
   if (pattern === '') {
     return (/^(?:http|https|file|ftp|app):\/\//);
   }

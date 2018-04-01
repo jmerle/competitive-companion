@@ -1,11 +1,11 @@
 import * as $ from 'jquery';
-import Parser from '../../Parser';
-import Sendable from '../../../models/Sendable';
-import Test from '../../../models/Test';
-import CustomTask from '../../../models/CustomTask';
-import Contest from '../../../models/Contest';
+import { Parser } from '../../Parser';
+import { Sendable } from '../../../models/Sendable';
+import { Test } from '../../../models/Test';
+import { CustomTask } from '../../../models/CustomTask';
+import { Contest } from '../../../models/Contest';
 
-export default class HackerRankContestParser extends Parser {
+export class HackerRankContestParser extends Parser {
   getMatchPatterns(): string[] {
     return ['https://www.hackerrank.com/contests/*/challenges*'];
   }
@@ -52,6 +52,7 @@ export default class HackerRankContestParser extends Parser {
 
           return new CustomTask(taskName, contestName, tests, 256);
         });
+
       resolve(new Contest(tasks));
     });
   }

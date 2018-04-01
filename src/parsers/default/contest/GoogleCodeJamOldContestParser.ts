@@ -1,7 +1,7 @@
-import DefaultParser from '../DefaultParser';
+import { DefaultParser } from '../DefaultParser';
 import { DefaultWebsite } from '../../../models/DefaultTask';
 
-export default class GoogleCodeJamContestParser extends DefaultParser {
+export class GoogleCodeJamOldContestParser extends DefaultParser {
   website: DefaultWebsite = DefaultWebsite.GoogleCodeJam;
 
   getMatchPatterns(): string[] {

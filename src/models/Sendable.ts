@@ -1,3 +1,3 @@
-export default interface Sendable {
+export interface Sendable {
   send(): Promise<void>;
 }

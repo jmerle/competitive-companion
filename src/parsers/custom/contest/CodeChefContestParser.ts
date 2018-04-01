@@ -1,11 +1,11 @@
 import * as $ from 'jquery';
-import Parser from '../../Parser';
-import Sendable from '../../../models/Sendable';
-import CustomTask from '../../../models/CustomTask';
-import Contest from '../../../models/Contest';
-import Test from '../../../models/Test';
+import { Parser } from '../../Parser';
+import { Sendable } from '../../../models/Sendable';
+import { CustomTask } from '../../../models/CustomTask';
+import { Contest } from '../../../models/Contest';
+import { Test } from '../../../models/Test';
 
-export default class CodeChefContestParser extends Parser {
+export class CodeChefContestParser extends Parser {
   getMatchPatterns(): string[] {
     return ['https://www.codechef.com/*'];
   }

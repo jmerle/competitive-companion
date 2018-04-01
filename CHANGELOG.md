@@ -1,3 +1,8 @@
+# 1.1.0 - April 1st, 2018
+- Added support for the new Google Code Jam website
+- Updated all dependencies
+- Removed all default exports
+
 # 1.0.4 - February 23rd, 2018
 - Added support for contests and problems in CodeForces groups
 

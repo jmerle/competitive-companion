@@ -1,4 +1,4 @@
-export default class Test {
+export class Test {
   private _input: string;
   private _output: string;
 

@@ -15,7 +15,8 @@ An alternative to the original CHelper extension. It fixes several broken proble
 | CSAcademy           	| ✔              	|                	|
 | E-Olymp             	| ✔              	| ✔              	|
 | Facebook Hacker Cup 	| ✔              	|                	|
-| Google Code Jam     	|                	| ✔              	|
+| Google Code Jam (old)	|                	| ✔              	|
+| Google Code Jam (new)	| ✔              	|                	|
 | HackerEarth         	| ✔              	| ✔              	|
 | HackerRank          	| ✔              	| ✔              	|
 | Kattis              	| ✔              	| ✔              	|
@@ -27,9 +28,9 @@ An alternative to the original CHelper extension. It fixes several broken proble
 This section is meant for anyone who wants to package the extension manually, but is especially written for the Mozilla volunteers who need to re-package the extension to be able to diff-check it with what I submit to AMO.
 
 Software versions:  
-Node.js: 8.9.4  
-Yarn: 1.3.2  
-Windows: 10 Pro
+Node.js: 9.10.1  
+Yarn: 1.5.1  
+Ubuntu: 17.10
 
 ```bash
 # Clone the repository (if you are not a Mozilla reviewer)

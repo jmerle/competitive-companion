@@ -1,8 +1,8 @@
-import ContestParser from '../ContestParser';
-import Parser from '../../Parser';
-import EOlympProblemParser from '../problem/EOlympProblemParser';
+import { ContestParser } from '../ContestParser';
+import { Parser } from '../../Parser';
+import { EOlympProblemParser } from '../problem/EOlympProblemParser';
 
-export default class EOlympContestParser extends ContestParser {
+export class EOlympContestParser extends ContestParser {
   problemParser: Parser = new EOlympProblemParser();
   linkSelector: string = '.eo-problem-row__name';
 

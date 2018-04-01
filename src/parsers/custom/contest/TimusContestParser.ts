@@ -1,8 +1,8 @@
-import ContestParser from '../ContestParser';
-import Parser from '../../Parser';
-import TimusProblemParser from '../problem/TimusProblemParser';
+import { ContestParser } from '../ContestParser';
+import { Parser } from '../../Parser';
+import { TimusProblemParser } from '../problem/TimusProblemParser';
 
-export default class TimusContestParser extends ContestParser {
+export class TimusContestParser extends ContestParser {
   problemParser: Parser = new TimusProblemParser();
   linkSelector: string = '.problemset td.name > a';
 

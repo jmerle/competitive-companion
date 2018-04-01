@@ -1,7 +1,7 @@
-import DefaultParser from '../DefaultParser';
+import { DefaultParser } from '../DefaultParser';
 import { DefaultWebsite } from '../../../models/DefaultTask';
 
-export default class FacebookHackerCupProblemParser extends DefaultParser {
+export class FacebookHackerCupProblemParser extends DefaultParser {
   website: DefaultWebsite = DefaultWebsite.FacebookHackerCup;
 
   getMatchPatterns(): string[] {

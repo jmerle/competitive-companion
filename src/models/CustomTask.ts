@@ -1,7 +1,7 @@
-import Task from './Task';
-import Test from './Test';
+import { Task } from './Task';
+import { Test } from './Test';
 
-export default class CustomTask extends Task {
+export class CustomTask extends Task {
   constructor(public taskName: string, public contestName: string, public tests: Test[], public memoryLimit: number) {
     super();
   }

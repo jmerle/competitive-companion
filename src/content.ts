@@ -1,9 +1,8 @@
 import { Message, MessageAction } from './models/messaging';
-import Parser from './parsers/Parser';
-import parsers from './parsers/parsers';
+import { Parser } from './parsers/Parser';
+import { parsers } from './parsers/parsers';
 import * as NProgress from 'nprogress';
-import { disableParsing, enableParsing, init } from './utils';
-import * as Noty from 'noty';
+import { init, disableParsing, enableParsing, notify } from './utils';
 
 NProgress.configure({
   trickle: false,
@@ -38,14 +37,7 @@ async function parse() {
     await sendable.send();
   } catch (err) {
     console.error(err);
-
-    new Noty({
-      type: 'error',
-      layout: 'bottomRight',
-      theme: 'metroui',
-      text: '<b>CHelper Companion</b><br>Something went wrong while retrieving the problems. Please try again.',
-      timeout: 5000,
-    }).show();
+    notify('Something went wrong while retrieving the problems. Please try again.', 'error');
   }
 
   NProgress.done();

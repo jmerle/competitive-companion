@@ -1,8 +1,8 @@
-import ContestParser from '../ContestParser';
-import Parser from '../../Parser';
-import CodeforcesProblemParser from '../problem/CodeforcesProblemParser';
+import { ContestParser } from '../ContestParser';
+import { Parser } from '../../Parser';
+import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
 
-export default class CodeforcesContestParser extends ContestParser {
+export class CodeforcesContestParser extends ContestParser {
   problemParser: Parser = new CodeforcesProblemParser();
   linkSelector: string = '.problems > tbody > tr > td:first-child > a';
 

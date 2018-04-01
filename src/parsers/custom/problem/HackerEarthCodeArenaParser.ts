@@ -1,9 +1,9 @@
-import Parser from '../../Parser';
-import Sendable from '../../../models/Sendable';
-import HackerEarthProblemParser from './HackerEarthProblemParser';
-import CustomTask from '../../../models/CustomTask';
+import { Parser } from '../../Parser';
+import { Sendable } from '../../../models/Sendable';
+import { HackerEarthProblemParser } from './HackerEarthProblemParser';
+import { CustomTask } from '../../../models/CustomTask';
 
-export default class HackerEarthCodeArenaParser extends Parser {
+export class HackerEarthCodeArenaParser extends Parser {
   problemParser: Parser = new HackerEarthProblemParser();
 
   getMatchPatterns(): string[] {

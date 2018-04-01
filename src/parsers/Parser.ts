@@ -1,9 +1,9 @@
 import { enableParsing } from '../utils';
-import matchPatternToRegExp from '../vendor/match-pattern-to-reg-exp';
+import { matchPatternToRegExp } from '../vendor/match-pattern-to-reg-exp';
 import * as NProgress from 'nprogress';
-import Sendable from '../models/Sendable';
+import { Sendable } from '../models/Sendable';
 
-export default abstract class Parser {
+export abstract class Parser {
   /**
    * Returns the match patterns which this problemParser can handle. These are the
    * patterns that are used for the matches key of the content script in the manifest.
@@ -48,7 +48,7 @@ export default abstract class Parser {
 
   /**
    * The method called when the parse button is clicked.
-   * If it rejects, an error will be shown to the user.
+   * If it rejects, an notify will be shown to the user.
    */
   abstract parse(html: string): Promise<Sendable>;
 
@@ -65,12 +65,8 @@ export default abstract class Parser {
 
           throw new Error(`The network response was not ok (status code: ${response.status}).`);
         })
-        .then(text => {
-          resolve(text);
-        })
-        .catch(error => {
-          reject(error);
-        });
+        .then(resolve)
+        .catch(reject);
     });
   }
 

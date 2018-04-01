@@ -1,8 +1,8 @@
-import ContestParser from '../ContestParser';
-import Parser from '../../Parser';
-import HackerEarthProblemParser from '../problem/HackerEarthProblemParser';
+import { ContestParser } from '../ContestParser';
+import { Parser } from '../../Parser';
+import { HackerEarthProblemParser } from '../problem/HackerEarthProblemParser';
 
-export default class HackerEarthContestParser extends ContestParser {
+export class HackerEarthContestParser extends ContestParser {
   problemParser: Parser = new HackerEarthProblemParser();
   linkSelector: string = '.problems-table .prob a, .problems-table a.track-problem-link';
 

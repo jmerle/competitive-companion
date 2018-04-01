@@ -1,10 +1,10 @@
 import * as $ from 'jquery';
-import Parser from '../../Parser';
-import Sendable from '../../../models/Sendable';
-import Test from '../../../models/Test';
-import CustomTask from '../../../models/CustomTask';
+import { Parser } from '../../Parser';
+import { Sendable } from '../../../models/Sendable';
+import { Test } from '../../../models/Test';
+import { CustomTask } from '../../../models/CustomTask';
 
-export default class HackerEarthProblemParser extends Parser {
+export class HackerEarthProblemParser extends Parser {
   getMatchPatterns(): string[] {
     return [
       'https://www.hackerearth.com/*/algorithm/*',

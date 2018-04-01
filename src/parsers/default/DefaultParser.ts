@@ -1,8 +1,8 @@
-import Parser from '../Parser';
+import { Parser } from '../Parser';
 import { DefaultTask, DefaultWebsite } from '../../models/DefaultTask';
-import Sendable from '../../models/Sendable';
+import { Sendable } from '../../models/Sendable';
 
-export default abstract class DefaultParser extends Parser {
+export abstract class DefaultParser extends Parser {
   abstract website: DefaultWebsite;
 
   parse(html: string): Promise<Sendable> {
