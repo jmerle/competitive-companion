@@ -6,10 +6,14 @@ export class UsacoProblemParser extends DefaultParser {
 
   getMatchPatterns(): string[] {
     return [
-      'http://www.usaco.org/current/index.php?page=viewproblem*',
-      'http://www.usaco.org/index.php?page=viewproblem*',
-      'http://usaco.org/current/index.php?page=viewproblem*',
-      'http://usaco.org/index.php?page=viewproblem*',
+      'http://www.usaco.org/current/index.php*',
+      'http://www.usaco.org/index.php*',
+      'http://usaco.org/current/index.php*',
+      'http://usaco.org/index.php*',
     ];
+  }
+
+  canHandlePage(): boolean {
+    return window.location.search.includes('page=viewproblem');
   }
 }

@@ -22,13 +22,14 @@ An alternative to the original CHelper extension. It fixes several broken proble
 | Kattis              	| ✔              	| ✔              	|
 | Timus               	| ✔              	| ✔              	|
 | USACO               	| ✔              	|                	|
+| USACO Training        | ✔              	|                	|
 | Yandex              	| ✔              	|                	|
 
 ## Packaging
 This section is meant for anyone who wants to package the extension manually, but is especially written for the Mozilla volunteers who need to re-package the extension to be able to diff-check it with what I submit to AMO.
 
 Software versions:  
-Node.js: 9.10.1  
+Node.js: 9.11.1  
 Yarn: 1.5.1  
 Ubuntu: 17.10
 

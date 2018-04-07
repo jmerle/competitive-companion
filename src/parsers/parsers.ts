@@ -23,6 +23,7 @@ import { AtCoderContestParser } from './custom/contest/AtCoderContestParser';
 import { CSAcademyProblemParser } from './custom/problem/CSAcademyProblemParser';
 import { CodeforcesProblemParser } from './custom/problem/CodeforcesProblemParser';
 import { GoogleCodeJamNewProblemParser } from './custom/problem/GoogleCodeJamNewProblemParser';
+import { UsacoTrainingProblemParser } from './custom/problem/UsacoTrainingProblemParser';
 
 export const parsers: Parser[] = [
   // Default problem parsers
@@ -46,6 +47,7 @@ export const parsers: Parser[] = [
   new CSAcademyProblemParser(),
   new CodeforcesProblemParser(),
   new GoogleCodeJamNewProblemParser(),
+  new UsacoTrainingProblemParser(),
 
   // Custom contest parsers
   new KattisContestParser(),
