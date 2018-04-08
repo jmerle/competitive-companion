@@ -88,16 +88,6 @@ const config = {
         to: path.resolve(__dirname, 'build/css'),
         transform: minifyCSS,
       },
-      {
-        from: path.resolve(__dirname, 'node_modules/noty/lib/noty.css'),
-        to: path.resolve(__dirname, 'build/css'),
-        transform: minifyCSS,
-      },
-      {
-        from: path.resolve(__dirname, 'node_modules/noty/lib/themes/metroui.css'),
-        to: path.resolve(__dirname, 'build/css'),
-        transform: minifyCSS,
-      },
     ]),
     new UglifyJsPlugin(),
   ]
