@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/clean-css": "^3.4.30",
     "@types/copy-webpack-plugin": "^4.4.1",
-    "@types/node": "^9.6.1",
+    "@types/node": "^9.6.2",
     "@types/nprogress": "^0.0.29",
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
@@ -28,13 +28,13 @@
     "copy-webpack-plugin": "^4.5.1",
     "noty": "^3.2.0-beta",
     "nprogress": "^0.2.0",
-    "ts-loader": "^4.1.0",
+    "ts-loader": "^4.2.0",
     "ts-node": "^5.0.1",
     "typescript": "^2.8.1",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "web-ext": "^2.6.0",
     "web-ext-types": "^2.0.1",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
   }
 }
