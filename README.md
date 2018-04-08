@@ -13,6 +13,8 @@ An alternative to the original CHelper extension. It fixes several broken proble
 | CodeChef            	| ✔              	| ✔              	|
 | Codeforces          	| ✔              	| ✔              	|
 | CSAcademy           	| ✔              	|                	|
+| DevSkill            	| ✔              	| ✔              	|
+| DMOJ                	| ✔              	| ✔              	|
 | E-Olymp             	| ✔              	| ✔              	|
 | Facebook Hacker Cup 	| ✔              	|                	|
 | Google Code Jam (old)	|                	| ✔              	|
@@ -20,7 +22,9 @@ An alternative to the original CHelper extension. It fixes several broken proble
 | HackerEarth         	| ✔              	| ✔              	|
 | HackerRank          	| ✔              	| ✔              	|
 | Kattis              	| ✔              	| ✔              	|
+| LightOJ              	| ✔              	| ✔              	|
 | Timus               	| ✔              	| ✔              	|
+| URI Online Judge     	| ✔              	| ✔              	|
 | USACO               	| ✔              	|                	|
 | USACO Training        | ✔              	|                	|
 | Yandex              	| ✔              	|                	|

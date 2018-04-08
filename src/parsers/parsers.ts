@@ -24,6 +24,14 @@ import { CSAcademyProblemParser } from './custom/problem/CSAcademyProblemParser'
 import { UsacoTrainingProblemParser } from './custom/problem/UsacoTrainingProblemParser';
 import { CodeforcesProblemParser } from './default/problem/CodeforcesProblemParser';
 import { NewGoogleCodeJamProblemParser } from './default/problem/NewGoogleCodeJamProblemParser';
+import { DevSkillProblemParser } from './custom/problem/DevSkillProblemParser';
+import { DevSkillContestParser } from './custom/contest/DevSkillContestParser';
+import { DMOJProblemParser } from './custom/problem/DMOJProblemParser';
+import { DMOJContestParser } from './custom/contest/DMOJContestParser';
+import { URIOnlineJudgeProblemParser } from './custom/problem/URIOnlineJudgeProblemParser';
+import { URIOnlineJudgeContestParser } from './custom/contest/URIOnlineJudgeContestParser';
+import { LightOJProblemParser } from './custom/problem/LightOJProblemParser';
+import { LightOJContestParser } from './custom/contest/LightOJContestParser';
 
 export const parsers: Parser[] = [
   // Default problem parsers
@@ -48,6 +56,10 @@ export const parsers: Parser[] = [
   new CodeChefProblemParser(),
   new CSAcademyProblemParser(),
   new UsacoTrainingProblemParser(),
+  new DevSkillProblemParser(),
+  new DMOJProblemParser(),
+  new URIOnlineJudgeProblemParser(),
+  new LightOJProblemParser(),
 
   // Custom contest parsers
   new KattisContestParser(),
@@ -58,4 +70,8 @@ export const parsers: Parser[] = [
   new HackerEarthContestParser(),
   new HackerRankContestParser(),
   new AtCoderContestParser(),
+  new DevSkillContestParser(),
+  new DMOJContestParser(),
+  new URIOnlineJudgeContestParser(),
+  new LightOJContestParser(),
 ];
