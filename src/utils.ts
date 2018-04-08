@@ -1,6 +1,4 @@
 import { MessageAction } from './models/messaging';
-import * as Noty from 'noty';
-import { Type } from 'noty';
 
 let id: number;
 
@@ -37,21 +35,3 @@ export function htmlToElement(html: string): Element {
   div.innerHTML = html.trim();
   return div;
 }
-
-export function notify(message: string, type: Type, timeout: number = 5000) {
-  new Noty({
-    type: type,
-    layout: 'bottomRight',
-    theme: 'metroui',
-    text: '<b>CHelper Companion</b><br>' + message,
-    timeout: timeout,
-  }).show();
-}
-
-export const NotificationType = {
-  Alert: 'alert',
-  Success: 'success',
-  Error: 'error',
-  Warning: 'warning',
-  Info: 'info',
-};

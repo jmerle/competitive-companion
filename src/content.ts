@@ -2,7 +2,7 @@ import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
 import * as NProgress from 'nprogress';
-import { init, disableParsing, enableParsing, notify } from './utils';
+import { disableParsing, enableParsing, init } from './utils';
 
 NProgress.configure({
   trickle: false,
@@ -37,7 +37,6 @@ async function parse() {
     await sendable.send();
   } catch (err) {
     console.error(err);
-    notify('Something went wrong while retrieving the problems. Please try again.', 'error');
   }
 
   NProgress.done();

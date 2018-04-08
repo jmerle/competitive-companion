@@ -26,7 +26,6 @@
     "clean-css": "^4.1.11",
     "concurrently": "^3.5.1",
     "copy-webpack-plugin": "^4.5.1",
-    "noty": "^3.2.0-beta",
     "nprogress": "^0.2.0",
     "ts-loader": "^4.2.0",
     "ts-node": "^5.0.1",
