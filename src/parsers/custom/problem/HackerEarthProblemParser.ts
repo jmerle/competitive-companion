@@ -1,8 +1,8 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { Test } from '../../../models/Test';
 import { CustomTask } from '../../../models/CustomTask';
+import { htmlToElement } from '../../../utils';
 
 export class HackerEarthProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -14,25 +14,26 @@ export class HackerEarthProblemParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(resolve => {
-      const $html = $(html);
+      const elem = htmlToElement(html);
 
-      const taskName = $html.find('#problem-title').text().trim();
+      const taskName = elem.querySelector('#problem-title').textContent.trim();
 
       let contestNameSuffix: string[] = [];
 
-      if ($html.find('.timings').length > 0) {
-        contestNameSuffix = [$html.find('.cover .title').text().trim()];
+      if (elem.querySelector('.timings') !== null) {
+        contestNameSuffix = [elem.querySelector('.cover .title').textContent.trim()];
       } else {
-        contestNameSuffix = $html.find('.breadcrumb a').toArray().map(elem => $(elem).text()).slice(1);
+        contestNameSuffix = [...elem.querySelectorAll('.breadcrumb a')].map(el => el.textContent).slice(1);
       }
 
       const contestName = ['HackerEarth', ...contestNameSuffix].join(' - ');
 
       const tests: Test[] = [];
 
-      $html.find('.input-output-container').each(function () {
-        const input = $(this).find('pre').eq(0).text().trim();
-        const output = $(this).find('pre').eq(1).text().trim();
+      elem.querySelectorAll('.input-output-container').forEach(container => {
+        const blocks = container.querySelectorAll('pre');
+        const input = blocks[0].textContent.trim();
+        const output = blocks[1].textContent.trim();
 
         tests.push(new Test(input, output));
       });

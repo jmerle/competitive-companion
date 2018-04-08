@@ -1,8 +1,8 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { Test } from '../../../models/Test';
 import { CustomTask } from '../../../models/CustomTask';
+import { htmlToElement } from '../../../utils';
 
 export class TimusProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -11,14 +11,14 @@ export class TimusProblemParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(resolve => {
-      const $html = $(html);
+      const elem = htmlToElement(html);
 
-      const taskName = $html.find('.problem_title').text();
+      const taskName = elem.querySelector('.problem_title').textContent;
 
-      const limits = $html.find('.problem_limits').text().trim();
+      const limits = elem.querySelector('.problem_limits').textContent.trim();
       const memoryLimit = parseInt(/(\d+) (.){2}$/.exec(limits)[1]);
 
-      const source = $html.find('.problem_source').text();
+      const source = elem.querySelector('.problem_source').textContent;
 
       let contestName = 'Timus';
 
@@ -28,9 +28,10 @@ export class TimusProblemParser extends Parser {
 
       const tests: Test[] = [];
 
-      $('.sample tbody tr:not(:first)').each(function () {
-        const input = $(this).find('td').eq(0).text().trim();
-        const output = $(this).find('td').eq(1).text().trim();
+      [...elem.querySelectorAll('.sample tbody tr')].slice(1).forEach(tr => {
+        const columns = tr.querySelectorAll('td');
+        const input = columns[0].textContent.trim();
+        const output = columns[1].textContent.trim();
 
         tests.push(new Test(input, output));
       });

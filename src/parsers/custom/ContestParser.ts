@@ -1,24 +1,26 @@
-import * as $ from 'jquery';
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { Contest } from '../../models/Contest';
+import { htmlToElement } from '../../utils';
 
 export abstract class ContestParser extends Parser {
   abstract problemParser: Parser;
   abstract linkSelector: string;
 
   canHandlePage(): boolean {
-    return $(this.linkSelector).length > 0;
+    return document.querySelector(this.linkSelector) !== null;
   }
 
   parse(html: string): Promise<Sendable> {
-    return this.parseLinks($(html).find(this.linkSelector));
+    const elem = htmlToElement(html);
+    const links = [...elem.querySelectorAll(this.linkSelector)].map(el => (el as any).href);
+    return this.parseLinks(links);
   }
 
-  protected parseLinks(links: JQuery): Promise<Sendable> {
+  protected parseLinks(links: string[]): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
       try {
-        const bodies = await this.fetchAll(links.toArray().map(link => $(link).prop('href')));
+        const bodies = await this.fetchAll(links);
         const tasks = [];
 
         for (let i = 0; i < bodies.length; i++) {

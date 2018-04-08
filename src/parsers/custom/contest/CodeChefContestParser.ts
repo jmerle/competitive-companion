@@ -1,9 +1,9 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { CustomTask } from '../../../models/CustomTask';
 import { Contest } from '../../../models/Contest';
 import { Test } from '../../../models/Test';
+import { htmlToElement } from '../../../utils';
 
 export class CodeChefContestParser extends Parser {
   getMatchPatterns(): string[] {
@@ -11,19 +11,20 @@ export class CodeChefContestParser extends Parser {
   }
 
   canHandlePage(): boolean {
-    return $('.cc-problem-name a').length > 0;
+    return document.querySelector('.cc-problem-name a') !== null;
   }
 
   parse(html: string): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
-      const urls = $('.cc-problem-name a')
-        .toArray()
-        .map(elem => $(elem).prop('href').replace('www.codechef.com/', 'www.codechef.com/api/contests/'));
+      const elem = htmlToElement(html);
+
+      const links = [...elem.querySelectorAll('.cc-problem-name a')]
+        .map(el => (el as any).href.replace('www.codechef.com/', 'www.codechef.com/api/contests/'));
 
       let bodies: string[];
 
       try {
-        bodies = await this.fetchAll(urls);
+        bodies = await this.fetchAll(links);
       } catch (err) {
         reject(err);
         return;
@@ -37,14 +38,15 @@ export class CodeChefContestParser extends Parser {
 
           const tests: Test[] = [];
 
-          const div = document.createElement('div');
-          div.innerHTML = data.body;
+          const div = htmlToElement(data.body);
 
-          $(div).find('pre:has(b)').each(function () {
-            const input = $(this).contents().eq(1).text().trim();
-            const output = $(this).contents().eq(3).text().trim();
+          div.querySelectorAll('pre').forEach(pre => {
+            if (pre.querySelector('b') !== null) {
+              const input = pre.childNodes[1].textContent.trim();
+              const output = pre.childNodes[3].textContent.trim();
 
-            tests.push(new Test(input, output));
+              tests.push(new Test(input, output));
+            }
           });
 
           return new CustomTask(taskName, contestName, tests, 256);

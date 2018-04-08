@@ -5,7 +5,7 @@ import { FacebookHackerCupProblemParser } from './default/problem/FacebookHacker
 import { KattisProblemParser } from './default/problem/KattisProblemParser';
 import { UsacoProblemParser } from './default/problem/UsacoProblemParser';
 import { YandexProblemParser } from './default/problem/YandexProblemParser';
-import { GoogleCodeJamOldContestParser } from './default/contest/GoogleCodeJamOldContestParser';
+import { OldGoogleCodeJamContestParser } from './default/contest/OldGoogleCodeJamContestParser';
 import { HackerRankProblemParser } from './custom/problem/HackerRankProblemParser';
 import { KattisContestParser } from './custom/contest/KattisContestParser';
 import { CodeforcesContestParser } from './custom/contest/CodeforcesContestParser';
@@ -21,9 +21,9 @@ import { HackerEarthContestParser } from './custom/contest/HackerEarthContestPar
 import { HackerRankContestParser } from './custom/contest/HackerRankContestParser';
 import { AtCoderContestParser } from './custom/contest/AtCoderContestParser';
 import { CSAcademyProblemParser } from './custom/problem/CSAcademyProblemParser';
-import { CodeforcesProblemParser } from './custom/problem/CodeforcesProblemParser';
-import { GoogleCodeJamNewProblemParser } from './custom/problem/GoogleCodeJamNewProblemParser';
 import { UsacoTrainingProblemParser } from './custom/problem/UsacoTrainingProblemParser';
+import { CodeforcesProblemParser } from './default/problem/CodeforcesProblemParser';
+import { NewGoogleCodeJamProblemParser } from './default/problem/NewGoogleCodeJamProblemParser';
 
 export const parsers: Parser[] = [
   // Default problem parsers
@@ -33,9 +33,11 @@ export const parsers: Parser[] = [
   new KattisProblemParser(),
   new UsacoProblemParser(),
   new YandexProblemParser(),
+  new CodeforcesProblemParser(),
+  new NewGoogleCodeJamProblemParser(),
 
   // Default contest parsers
-  new GoogleCodeJamOldContestParser(),
+  new OldGoogleCodeJamContestParser(),
 
   // Custom problem parsers
   new HackerRankProblemParser(),
@@ -45,8 +47,6 @@ export const parsers: Parser[] = [
   new EOlympProblemParser(),
   new CodeChefProblemParser(),
   new CSAcademyProblemParser(),
-  new CodeforcesProblemParser(),
-  new GoogleCodeJamNewProblemParser(),
   new UsacoTrainingProblemParser(),
 
   // Custom contest parsers

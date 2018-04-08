@@ -1,8 +1,8 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { UsacoTask } from '../../../models/UsacoTask';
 import { Test } from '../../../models/Test';
+import { htmlToElement } from '../../../utils';
 
 export class UsacoTrainingProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -11,17 +11,29 @@ export class UsacoTrainingProblemParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(resolve => {
-      const $html = $('<div/>').append(html);
+      const elem = htmlToElement(html);
 
-      const taskId = $html.find('h3:contains("PROGRAM NAME")').text().substr(14);
-      const taskName = $html.find('center > h1').text();
+      const taskId = [...elem.querySelectorAll('h3')]
+        .find(el => el.textContent.includes('PROGRAM NAME'))
+        .textContent
+        .substr(14);
+
+      const taskName = elem.querySelector('center > h1').textContent;
       const contestName = 'USACO Training';
 
-      const input = $html.find('h3:contains("SAMPLE INPUT")').next('pre').text();
-      const output = $html.find('h3:contains("SAMPLE OUTPUT")').next('pre').text();
+      const input = [...elem.querySelectorAll('h3')]
+        .find(el => el.textContent.includes('SAMPLE INPUT'))
+        .nextElementSibling
+        .textContent;
+
+      const output = [...elem.querySelectorAll('h3')]
+        .find(el => el.textContent.includes('SAMPLE OUTPUT'))
+        .nextElementSibling
+        .textContent;
+
       const test = new Test(input, output);
 
-      resolve(new UsacoTask(taskId, taskName,  contestName, test));
+      resolve(new UsacoTask(taskId, taskName, contestName, test));
     });
   }
 }

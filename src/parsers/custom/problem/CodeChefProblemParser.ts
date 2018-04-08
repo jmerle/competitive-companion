@@ -1,8 +1,8 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { Test } from '../../../models/Test';
 import { CustomTask } from '../../../models/CustomTask';
+import { htmlToElement } from '../../../utils';
 
 export class CodeChefProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -25,18 +25,20 @@ export class CodeChefProblemParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(resolve => {
-      const $html = $(html);
+      const elem = htmlToElement(html);
 
-      const taskName = $html.find('h1').last().text().trim().split('\n')[0];
-      const contestName = 'CodeChef - ' + $html.find('.breadcrumbs a').last().text();
+      const taskName = [...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0];
+      const contestName = 'CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent;
 
       const tests: Test[] = [];
 
-      $html.find('pre:has(b)').each(function () {
-        const input = $(this).contents().eq(1).text().trim();
-        const output = $(this).contents().eq(3).text().trim();
+      elem.querySelectorAll('pre').forEach(pre => {
+        if (pre.querySelector('b') !== null) {
+          const input = pre.childNodes[1].textContent.trim();
+          const output = pre.childNodes[3].textContent.trim();
 
-        tests.push(new Test(input, output));
+          tests.push(new Test(input, output));
+        }
       });
 
       resolve(new CustomTask(taskName, contestName, tests, 256));

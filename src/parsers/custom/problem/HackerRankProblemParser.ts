@@ -1,8 +1,8 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { CustomTask } from '../../../models/CustomTask';
 import { Test } from '../../../models/Test';
 import { Sendable } from '../../../models/Sendable';
+import { htmlToElement } from '../../../utils';
 
 export class HackerRankProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -14,24 +14,22 @@ export class HackerRankProblemParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(resolve => {
-      const $html = $(html);
+      const elem = htmlToElement(html);
 
-      const taskName = $html.find('.challenge-view h2:first').text().trim();
+      const taskName = elem.querySelector('.challenge-view h2').textContent.trim();
 
-      const breadCrumbs = $html.find('ol.bcrumb li').map((i, e) => $(e).find('a span').text()).toArray();
+      const breadCrumbs = [...elem.querySelectorAll('ol.bcrumb li a span')].map(el => el.textContent);
       const contestName = ['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - ');
 
       const tests: Test[] = [];
 
-      $html.find('.challenge_sample_input pre, .challenge_sample_output pre').each((i, e) => {
-        const content = $(e).text().trim();
+      const blocks = elem.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
+      for (let i = 0; i < blocks.length; i += 2) {
+        const input = blocks[i].textContent.trim();
+        const output = blocks[i + 1].textContent.trim();
 
-        if (i % 2 === 0) {
-          tests.push(new Test(content, ''));
-        } else {
-          tests[tests.length - 1].output = content;
-        }
-      });
+        tests.push(new Test(input, output));
+      }
 
       resolve(new CustomTask(taskName, contestName, tests, 512));
     });

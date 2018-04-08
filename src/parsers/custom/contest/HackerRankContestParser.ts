@@ -1,9 +1,9 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { Test } from '../../../models/Test';
 import { CustomTask } from '../../../models/CustomTask';
 import { Contest } from '../../../models/Contest';
+import { htmlToElement } from '../../../utils';
 
 export class HackerRankContestParser extends Parser {
   getMatchPatterns(): string[] {
@@ -16,14 +16,15 @@ export class HackerRankContestParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
-      const urls = $('#contest-challenges-problem').find('a.btn')
-        .toArray()
-        .map(elem => $(elem).prop('href').replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'));
+      const elem = htmlToElement(html);
+
+      const links = [...elem.querySelectorAll('.challenges-list a.btn')]
+        .map(el => (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'));
 
       let bodies: string[];
 
       try {
-        bodies = await this.fetchAll(urls);
+        bodies = await this.fetchAll(links);
       } catch (err) {
         reject(err);
         return;
@@ -37,18 +38,15 @@ export class HackerRankContestParser extends Parser {
 
           const tests: Test[] = [];
 
-          const div = document.createElement('div');
-          div.innerHTML = data.model.body_html;
+          const div = htmlToElement(data.model.body_html);
 
-          $(div).find('.challenge_sample_input pre, .challenge_sample_output pre').each((i, e) => {
-            const content = $(e).text().trim();
+          const blocks = div.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
+          for (let i = 0; i < blocks.length; i += 2) {
+            const input = blocks[i].textContent.trim();
+            const output = blocks[i + 1].textContent.trim();
 
-            if (i % 2 === 0) {
-              tests.push(new Test(content, ''));
-            } else {
-              tests[tests.length - 1].output = content;
-            }
-          });
+            tests.push(new Test(input, output));
+          }
 
           return new CustomTask(taskName, contestName, tests, 256);
         });

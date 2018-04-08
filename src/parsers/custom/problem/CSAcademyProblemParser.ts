@@ -1,8 +1,8 @@
-import * as $ from 'jquery';
 import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { Test } from '../../../models/Test';
 import { CustomTask } from '../../../models/CustomTask';
+import { htmlToElement } from '../../../utils';
 
 export class CSAcademyProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -11,18 +11,22 @@ export class CSAcademyProblemParser extends Parser {
 
   parse(html: string): Promise<Sendable> {
     return new Promise(resolve => {
-      const $html = $(html);
+      const elem = htmlToElement(html);
 
-      const taskName = $html.find('h1').text();
+      const taskName = elem.querySelector('h1').textContent;
       const contestName = 'CSAcademy';
 
-      const memoryLimit = parseInt(/(\d+) MB/.exec($html.find('em:contains("MB")').text())[1]);
+      const memoryLimitStr = [...elem.querySelectorAll('em')]
+        .find(el => el.textContent.includes('MB'))
+        .textContent;
+      const memoryLimit = parseInt(/(\d+) MB/.exec(memoryLimitStr)[1]);
 
       const tests: Test[] = [];
 
-      $('table tbody tr').each(function () {
-        const input = $(this).find('pre').eq(0).text().trim();
-        const output = $(this).find('pre').eq(1).text().trim();
+      elem.querySelectorAll('table tbody tr').forEach(tr => {
+        const blocks = tr.querySelectorAll('pre');
+        const input = blocks[0].textContent.trim();
+        const output = blocks[1].textContent.trim();
 
         tests.push(new Test(input, output));
       });

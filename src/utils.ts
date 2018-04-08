@@ -32,6 +32,12 @@ export function disableParsing() {
   });
 }
 
+export function htmlToElement(html: string): Element {
+  const div = document.createElement('div');
+  div.innerHTML = html.trim();
+  return div;
+}
+
 export function notify(message: string, type: Type, timeout: number = 5000) {
   new Noty({
     type: type,
