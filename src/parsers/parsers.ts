@@ -34,7 +34,6 @@ import { LightOJProblemParser } from './custom/problem/LightOJProblemParser';
 import { LightOJContestParser } from './custom/contest/LightOJContestParser';
 import { SPOJProblemParser } from './custom/problem/SPOJProblemParser';
 import { PandaOnlineJudgeProblemParser } from './custom/problem/PandaOnlineJudgeProblemParser';
-import { PandaOnlineJudgeContestParser } from './custom/contest/PandaOnlineJudgeContestParser';
 
 export const parsers: Parser[] = [
   // Default problem parsers
