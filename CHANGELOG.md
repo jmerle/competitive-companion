@@ -1,4 +1,4 @@
-# 1.2.0 - Unknown
+# 1.2.0 - April 9th, 2018
 - Fixed USACO parser
 - Reverted CodeForces parser back to the CHelper one
 - Switched the new Google Code Jam parser to the CHelper one

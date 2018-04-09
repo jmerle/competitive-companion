@@ -1,6 +1,6 @@
 {
   "name": "chelper-companion",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A webextension which parses competitive programming problems and sends them to CHelper.",
   "repository": "https://github.com/jmerle/chelper-companion",
   "author": "Jasper van Merle",
