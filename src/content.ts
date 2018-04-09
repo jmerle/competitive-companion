@@ -1,12 +1,10 @@
 import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
-import * as NProgress from 'nprogress';
 import { disableParsing, enableParsing, init } from './utils';
 
-NProgress.configure({
-  trickle: false,
-});
+// This package has no types
+const Nanobar = require('nanobar');
 
 let activeParser: Parser = null;
 
@@ -30,16 +28,20 @@ function checkTab(tabId: number, url: string): void {
 
 async function parse() {
   disableParsing();
-  NProgress.start();
+  (window as any).nanoBar = new Nanobar();
+
+  document.querySelectorAll('.bar').forEach(bar => {
+    (bar as HTMLElement).style.backgroundColor = '#3498db';
+  });
 
   try {
     const sendable = await activeParser.parse(document.body.innerHTML);
+    (window as any).nanoBar.go(100);
     await sendable.send();
   } catch (err) {
     console.error(err);
   }
 
-  NProgress.done();
   enableParsing();
 }
 

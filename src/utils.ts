@@ -31,7 +31,5 @@ export function disableParsing() {
 }
 
 export function htmlToElement(html: string): Element {
-  const div = document.createElement('div');
-  div.innerHTML = html.trim();
-  return div;
+  return new DOMParser().parseFromString(html, 'text/html').body;
 }

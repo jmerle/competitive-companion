@@ -1,7 +1,8 @@
 import { enableParsing } from '../utils';
 import { matchPatternToRegExp } from '../vendor/match-pattern-to-reg-exp';
-import * as NProgress from 'nprogress';
 import { Sendable } from '../models/Sendable';
+
+
 
 export abstract class Parser {
   /**
@@ -91,7 +92,7 @@ export abstract class Parser {
         }
 
         if (urls.length > 0) {
-          NProgress.set(1 - (urls.length / totalUrls));
+          (window as any).nanoBar.go((1 - urls.length / totalUrls) * 100);
           setTimeout(doFetching, timeout);
         } else {
           resolve(results);

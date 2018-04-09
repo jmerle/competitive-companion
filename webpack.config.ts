@@ -1,7 +1,6 @@
 import * as path from 'path';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
-import * as CleanCSS from 'clean-css';
-import { Parser } from "./src/parsers/Parser";
+import { Parser } from './src/parsers/Parser';
 
 // There are no types for this package
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -32,10 +31,6 @@ function transformManifest(content: string): string {
   manifest.homepage_url = packageData.repository;
 
   return JSON.stringify(manifest, null, 2);
-}
-
-function minifyCSS(content: string): string {
-  return new CleanCSS().minify(content).styles;
 }
 
 const config = {
@@ -82,11 +77,6 @@ const config = {
       {
         from: path.resolve(__dirname, 'src/vendor/browser-polyfill.js'),
         to: path.resolve(__dirname, 'build/js'),
-      },
-      {
-        from: path.resolve(__dirname, 'node_modules/nprogress/nprogress.css'),
-        to: path.resolve(__dirname, 'build/css'),
-        transform: minifyCSS,
       },
     ]),
     new UglifyJsPlugin(),

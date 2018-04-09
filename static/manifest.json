@@ -30,7 +30,6 @@
     {
       "matches": ["Filled by build script"],
       "exclude_matches": ["Filled by build script"],
-      "css": ["css/nprogress.css", "css/noty.css", "css/metroui.css"],
       "js": ["js/browser-polyfill.js", "js/content.js"]
     }
   ],
