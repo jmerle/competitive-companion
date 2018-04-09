@@ -2,7 +2,7 @@
 - Fixed USACO parser
 - Reverted CodeForces parser back to the CHelper one
 - Switched the new Google Code Jam parser to the CHelper one
-- Added parsers for USACO Training, DevSkill, DMOJ, URI Online Judge and LightOJ
+- Added parsers for USACO Training, DevSkill, DMOJ, URI Online Judge, LightOJ, SPOJ and Panda Online Judge
 
 # 1.1.0 - April 1st, 2018
 - Added support for the new Google Code Jam website

@@ -23,6 +23,8 @@ An alternative to the original CHelper extension. It fixes several broken proble
 | HackerRank          	| ✔              	| ✔              	|
 | Kattis              	| ✔              	| ✔              	|
 | LightOJ              	| ✔              	| ✔              	|
+| Panda Online Judge   	| ✔              	|                	|
+| SPOJ                	| ✔              	|                	|
 | Timus               	| ✔              	| ✔              	|
 | URI Online Judge     	| ✔              	| ✔              	|
 | USACO               	| ✔              	|                	|

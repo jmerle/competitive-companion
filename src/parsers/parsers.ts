@@ -32,6 +32,9 @@ import { URIOnlineJudgeProblemParser } from './custom/problem/URIOnlineJudgeProb
 import { URIOnlineJudgeContestParser } from './custom/contest/URIOnlineJudgeContestParser';
 import { LightOJProblemParser } from './custom/problem/LightOJProblemParser';
 import { LightOJContestParser } from './custom/contest/LightOJContestParser';
+import { SPOJProblemParser } from './custom/problem/SPOJProblemParser';
+import { PandaOnlineJudgeProblemParser } from './custom/problem/PandaOnlineJudgeProblemParser';
+import { PandaOnlineJudgeContestParser } from './custom/contest/PandaOnlineJudgeContestParser';
 
 export const parsers: Parser[] = [
   // Default problem parsers
@@ -60,6 +63,8 @@ export const parsers: Parser[] = [
   new DMOJProblemParser(),
   new URIOnlineJudgeProblemParser(),
   new LightOJProblemParser(),
+  new SPOJProblemParser(),
+  new PandaOnlineJudgeProblemParser(),
 
   // Custom contest parsers
   new KattisContestParser(),
