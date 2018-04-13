@@ -22,7 +22,6 @@ import { HackerRankContestParser } from './custom/contest/HackerRankContestParse
 import { AtCoderContestParser } from './custom/contest/AtCoderContestParser';
 import { CSAcademyProblemParser } from './custom/problem/CSAcademyProblemParser';
 import { UsacoTrainingProblemParser } from './custom/problem/UsacoTrainingProblemParser';
-import { CodeforcesProblemParser } from './default/problem/CodeforcesProblemParser';
 import { NewGoogleCodeJamProblemParser } from './default/problem/NewGoogleCodeJamProblemParser';
 import { DevSkillProblemParser } from './custom/problem/DevSkillProblemParser';
 import { DevSkillContestParser } from './custom/contest/DevSkillContestParser';
@@ -34,6 +33,7 @@ import { LightOJProblemParser } from './custom/problem/LightOJProblemParser';
 import { LightOJContestParser } from './custom/contest/LightOJContestParser';
 import { SPOJProblemParser } from './custom/problem/SPOJProblemParser';
 import { PandaOnlineJudgeProblemParser } from './custom/problem/PandaOnlineJudgeProblemParser';
+import { CodeforcesProblemParser } from './custom/problem/CodeforcesProblemParser';
 
 export const parsers: Parser[] = [
   // Default problem parsers
@@ -43,7 +43,6 @@ export const parsers: Parser[] = [
   new KattisProblemParser(),
   new UsacoProblemParser(),
   new YandexProblemParser(),
-  new CodeforcesProblemParser(),
   new NewGoogleCodeJamProblemParser(),
 
   // Default contest parsers
@@ -64,6 +63,7 @@ export const parsers: Parser[] = [
   new LightOJProblemParser(),
   new SPOJProblemParser(),
   new PandaOnlineJudgeProblemParser(),
+  new CodeforcesProblemParser(),
 
   // Custom contest parsers
   new KattisContestParser(),

@@ -1,3 +1,6 @@
+# 1.2.1 - April 13th, 2018
+- Reverted CodeForces parser back to my own implementation
+
 # 1.2.0 - April 9th, 2018
 - Fixed USACO parser
 - Reverted CodeForces parser back to the CHelper one

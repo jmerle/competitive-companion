@@ -1,6 +1,6 @@
 import { ContestParser } from '../ContestParser';
 import { Parser } from '../../Parser';
-import { CodeforcesProblemParser } from '../../default/problem/CodeforcesProblemParser';
+import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
 
 export class CodeforcesContestParser extends ContestParser {
   problemParser: Parser = new CodeforcesProblemParser();
