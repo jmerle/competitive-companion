@@ -1,26 +1,26 @@
 export class Test {
-  private _input: string;
-  private _output: string;
+  private input: string;
+  private output: string;
 
   constructor(input: string, output: string) {
-    this.input = input;
-    this.output = output;
+    this.setInput(input);
+    this.setOutput(output);
   }
 
-  get input(): string {
-    return this._input;
+  getInput(): string {
+    return this.input;
   }
 
-  set input(newInput: string) {
-    this._input = this.correctData(newInput);
+  setInput(input: string) {
+    this.input = this.correctData(input);
   }
 
-  get output(): string {
-    return this._output;
+  getOutput(): string {
+    return this.output;
   }
 
-  set output(newOutput: string) {
-    this._output = this.correctData(newOutput);
+  setOutput(output: string) {
+    this.output = this.correctData(output);
   }
 
   private correctData(data: string): string {

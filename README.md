@@ -9,7 +9,6 @@ An alternative to the original CHelper extension. It fixes several broken proble
 | Website             	| Problem parser 	| Contest parser 	|
 |-----------------------|-----------------|-----------------|
 | AtCoder             	| ✔              	| ✔              	|
-| Bayan               	| ✔              	|                	|
 | CodeChef            	| ✔              	| ✔              	|
 | Codeforces          	| ✔              	| ✔              	|
 | CSAcademy           	| ✔              	|                	|
