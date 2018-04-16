@@ -20,7 +20,7 @@ export class HackerRankProblemParser extends Parser {
       task.setName(elem.querySelector('.challenge-view h2').textContent.trim());
 
       const breadCrumbs = [...elem.querySelectorAll('ol.bcrumb li a span')].map(el => el.textContent);
-      task.setName(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
+      task.setGroup(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
 
       const blocks = elem.querySelectorAll('.challenge-body-html pre');
       for (let i = 0; i < blocks.length; i += 2) {
