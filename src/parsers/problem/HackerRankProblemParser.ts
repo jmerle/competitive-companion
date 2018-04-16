@@ -22,7 +22,7 @@ export class HackerRankProblemParser extends Parser {
       const breadCrumbs = [...elem.querySelectorAll('ol.bcrumb li a span')].map(el => el.textContent);
       task.setName(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
 
-      const blocks = elem.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
+      const blocks = elem.querySelectorAll('.challenge-body-html pre');
       for (let i = 0; i < blocks.length; i += 2) {
         const input = blocks[i].textContent.trim();
         const output = blocks[i + 1].textContent.trim();
