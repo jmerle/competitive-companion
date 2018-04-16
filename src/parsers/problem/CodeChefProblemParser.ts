@@ -23,10 +23,10 @@ export class CodeChefProblemParser extends Parser {
     ];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       task.setName([...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0]);
       task.setGroup('CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);

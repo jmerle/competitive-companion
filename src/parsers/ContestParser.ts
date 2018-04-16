@@ -11,7 +11,7 @@ export abstract class ContestParser extends Parser {
     return document.querySelector(this.linkSelector) !== null;
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const links = [...elem.querySelectorAll(this.linkSelector)].map(el => (el as any).href);
     return this.parseLinks(links);
@@ -24,7 +24,7 @@ export abstract class ContestParser extends Parser {
         const tasks = [];
 
         for (let i = 0; i < bodies.length; i++) {
-          const task = await this.problemParser.parse(bodies[i]);
+          const task = await this.problemParser.parse(links[i], bodies[i]);
           tasks.push(task);
         }
 

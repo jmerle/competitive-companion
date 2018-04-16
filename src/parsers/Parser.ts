@@ -51,7 +51,7 @@ export abstract class Parser {
    * The method called when the parse button is clicked.
    * If it rejects, an notify will be shown to the user.
    */
-  abstract parse(html: string): Promise<Sendable>;
+  abstract parse(url: string, html: string): Promise<Sendable>;
 
   /**
    * Fetches a url using a GET request and resolves into the HTML body.
@@ -78,6 +78,8 @@ export abstract class Parser {
   protected fetchAll(urls: string[], timeout: number = 500): Promise<string[]> {
     return new Promise((resolve, reject) => {
       const results: string[] = [];
+
+      urls = [...urls];
       const totalUrls = urls.length;
 
       const doFetching = async () => {

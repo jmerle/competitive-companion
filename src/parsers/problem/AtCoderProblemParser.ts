@@ -9,10 +9,10 @@ export class AtCoderProblemParser extends Parser {
     return ['https://*.contest.atcoder.jp/tasks/*'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('h2').textContent);
       task.setGroup(elem.querySelector('.contest-name').textContent);

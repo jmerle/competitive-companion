@@ -9,10 +9,10 @@ export class USACOTrainingProblemParser extends Parser {
     return ['http://train.usaco.org/usacoprob2*'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       const taskId = [...elem.querySelectorAll('h3')]
         .find(el => el.textContent.includes('PROGRAM NAME'))

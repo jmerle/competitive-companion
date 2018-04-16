@@ -18,10 +18,10 @@ export class USACOProblemParser extends Parser {
     return window.location.search.includes('page=viewproblem');
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       const headers = elem.querySelectorAll('.panel > h2');
       task.setName(headers[1].textContent.trim());

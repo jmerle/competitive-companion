@@ -9,10 +9,10 @@ export class DMOJProblemParser extends Parser {
     return ['https://dmoj.ca/problem/*'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('.problem-title').childNodes[1].textContent);
       task.setGroup('DMOJ');

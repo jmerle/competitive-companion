@@ -14,10 +14,10 @@ export class CodeforcesProblemParser extends Parser {
     ];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       let name = elem.querySelector('.problem-statement > .header > .title').textContent;
       name = name.replace('.', ' -');

@@ -10,10 +10,10 @@ export class FacebookHackerCupProblemParser extends Parser {
     return ['https://www.facebook.com/hackercup/problem/*'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('#content .clearfix > .lfloat').textContent);
       task.setGroup(elem.querySelector('h2.uiHeaderTitle').textContent);

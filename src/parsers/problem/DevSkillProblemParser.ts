@@ -12,10 +12,10 @@ export class DevSkillProblemParser extends Parser {
     ];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       const header = elem.querySelector('h1.page-title').childNodes[0].textContent.trim();
       task.setName(header.substr(header.indexOf(':') + 2));

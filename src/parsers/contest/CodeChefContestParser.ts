@@ -14,11 +14,11 @@ export class CodeChefContestParser extends Parser {
     return document.querySelector('.cc-problem-name a') !== null;
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
       const elem = htmlToElement(html);
 
-      const links = [...elem.querySelectorAll('.cc-problem-name a')]
+      const links: string[] = [...elem.querySelectorAll('.cc-problem-name a')]
         .map(el => (el as any).href.replace('www.codechef.com/', 'www.codechef.com/api/contests/'));
 
       let bodies: string[];
@@ -30,30 +30,32 @@ export class CodeChefContestParser extends Parser {
         return;
       }
 
-      const tasks = bodies
-        .map(body => JSON.parse(body))
-        .map(data => {
-          const task = new TaskBuilder();
+      const models = bodies.map(body => JSON.parse(body));
+      const tasks = [];
 
-          task.setName(data.problem_name);
-          task.setGroup('CodeChef - ' + data.contest_name);
+      for (let i = 0; i < models.length; i++) {
+        const model = models[i];
+        const task = new TaskBuilder().setUrl(links[i].replace('www.codechef.com/api/contests/', 'www.codechef.com/'));
 
-          const div = htmlToElement(data.body);
+        task.setName(model.problem_name);
+        task.setGroup('CodeChef - ' + model.contest_name);
 
-          div.querySelectorAll('pre').forEach(pre => {
-            if (pre.querySelector('b') !== null) {
-              const input = pre.childNodes[1].textContent.trim();
-              const output = pre.childNodes[3].textContent.trim();
+        const div = htmlToElement(model.body);
 
-              task.addTest(new Test(input, output));
-            }
-          });
+        div.querySelectorAll('pre').forEach(pre => {
+          if (pre.querySelector('b') !== null) {
+            const input = pre.childNodes[1].textContent.trim();
+            const output = pre.childNodes[3].textContent.trim();
 
-          task.setTimeLimit(parseFloat(data.max_timelimit) * 1000);
-          task.setMemoryLimit(256);
-
-          return task.build();
+            task.addTest(new Test(input, output));
+          }
         });
+
+        task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);
+        task.setMemoryLimit(256);
+
+        tasks.push(task.build());
+      }
 
       resolve(new Contest(tasks));
     });

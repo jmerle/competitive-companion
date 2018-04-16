@@ -9,10 +9,10 @@ export class PandaOnlineJudgeProblemParser extends Parser {
     return ['https://pandaoj.com/problem/*'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('panda-problem-description > h2').textContent.split(' - ')[1]);
       task.setGroup('Panda Online Judge');

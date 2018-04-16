@@ -12,7 +12,7 @@ export class OldGoogleCodeJamContestParser extends Parser {
     return ['https://code.google.com/codejam/contest/*/dashboard*'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const tasks: Task[] = [];
@@ -21,7 +21,7 @@ export class OldGoogleCodeJamContestParser extends Parser {
 
       const problemCount = document.querySelectorAll('#dsb-problem-pages > div').length;
       for (let i = 0; i < problemCount; i++) {
-        const task = new TaskBuilder();
+        const task = new TaskBuilder().setUrl(url);
 
         task.setName(document.querySelector('#dsb-problem-title' + i).textContent.trim());
         task.setGroup(group);

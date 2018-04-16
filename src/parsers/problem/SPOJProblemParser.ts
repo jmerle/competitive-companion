@@ -9,10 +9,10 @@ export class SPOJProblemParser extends Parser {
     return ['http://www.spoj.com/problems/*/'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('#problem-name').textContent.split(' - ')[1]);
 

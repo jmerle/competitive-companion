@@ -10,9 +10,9 @@ export class HackerEarthCodeArenaParser extends Parser {
     return ['https://www.hackerearth.com/codearena/ring/*/*'];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
-      this.problemParser.parse(html).then(task => {
+      this.problemParser.parse(url, html).then(task => {
         const t = task as Task;
 
         const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(window.location.href)[1];

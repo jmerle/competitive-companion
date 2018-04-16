@@ -8,6 +8,8 @@ export class TaskBuilder {
   public name: string = '';
   public group: string = '';
 
+  public url: string = '';
+
   public memoryLimit: number = 1024;
   public timeLimit: number = 1000;
 
@@ -31,6 +33,11 @@ export class TaskBuilder {
 
   setGroup(group: string): TaskBuilder {
     this.group = group;
+    return this;
+  }
+
+  setUrl(url: string): TaskBuilder {
+    this.url = url;
     return this;
   }
 
@@ -101,7 +108,7 @@ export class TaskBuilder {
   }
 
   build(): Task {
-    return new Task(this.name, this.group, this.memoryLimit, this.timeLimit,
+    return new Task(this.name, this.group, this.url, this.memoryLimit, this.timeLimit,
       this.tests, this.testType, this.input, this.output, this.languages);
   }
 }

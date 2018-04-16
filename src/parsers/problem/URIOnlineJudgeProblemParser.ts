@@ -12,7 +12,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
     ];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise((resolve, reject) => {
       const elem = htmlToElement(html);
 
@@ -20,17 +20,17 @@ export class URIOnlineJudgeProblemParser extends Parser {
         const link = (elem.querySelector('ul.information > li:nth-child(2) > a') as any).href;
 
         this.fetch(link)
-          .then(data => resolve(this.parseFullscreen(data)))
+          .then(data => resolve(this.parseFullscreen(url, data)))
           .catch(reject);
       } else {
-        resolve(this.parseFullscreen(html));
+        resolve(this.parseFullscreen(url, html));
       }
     });
   }
 
-  private parseFullscreen(html: string): Sendable {
+  private parseFullscreen(url: string, html: string): Sendable {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder();
+    const task = new TaskBuilder().setUrl(url);
 
     task.setName(elem.querySelector('.header > h1').textContent);
     task.setGroup('URI Online Judge');

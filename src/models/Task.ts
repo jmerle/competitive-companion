@@ -6,7 +6,7 @@ import { LanguageConfiguration } from './LanguageConfiguration';
 import { TestType } from './TestType';
 
 export class Task implements Sendable {
-  constructor(public name: string, public group: string, public memoryLimit: number, public timeLimit: number,
+  constructor(public name: string, public group: string, public url: string, public memoryLimit: number, public timeLimit: number,
               public tests: Test[], public testType: TestType, public input: InputConfiguration, public output: OutputConfiguration,
               public languages: LanguageConfiguration) {
   }

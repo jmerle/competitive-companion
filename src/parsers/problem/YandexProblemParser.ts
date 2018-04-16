@@ -14,10 +14,10 @@ export class YandexProblemParser extends Parser {
     ];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
-      const task = new TaskBuilder();
+      const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('h1.title').textContent);
       task.setGroup(elem.querySelector('.contest-head__item.contest-head__item_role_title').textContent);

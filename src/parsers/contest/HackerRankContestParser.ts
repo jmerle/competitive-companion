@@ -14,11 +14,11 @@ export class HackerRankContestParser extends Parser {
     return [/https:\/\/www[.]hackerrank[.]com\/contests\/([a-z0-9-]+)\/challenges(\?(.*))?$/];
   }
 
-  parse(html: string): Promise<Sendable> {
+  parse(url: string, html: string): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
       const elem = htmlToElement(html);
 
-      const links = [...elem.querySelectorAll('.challenges-list a.btn')]
+      const links: string[] = [...elem.querySelectorAll('.challenges-list a.btn')]
         .map(el => (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'));
 
       let bodies: string[];
@@ -30,29 +30,31 @@ export class HackerRankContestParser extends Parser {
         return;
       }
 
-      const tasks = bodies
-        .map(body => JSON.parse(body))
-        .map(data => {
-          const task = new TaskBuilder();
+      const models = bodies.map(body => JSON.parse(body).model);
+      const tasks = [];
 
-          task.setName(data.model.name);
-          task.setGroup('HackerRank - ' + data.model.primary_contest.name);
+      for (let i = 0; i < models.length; i++) {
+        const model = models[i];
+        const task = new TaskBuilder().setUrl(links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'));
 
-          const div = htmlToElement(data.model.body_html);
+        task.setName(model.name);
+        task.setGroup('HackerRank - ' + model.primary_contest.name);
 
-          const blocks = div.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
-          for (let i = 0; i < blocks.length; i += 2) {
-            const input = blocks[i].textContent.trim();
-            const output = blocks[i + 1].textContent.trim();
+        const div = htmlToElement(model.body_html);
 
-            task.addTest(new Test(input, output));
-          }
+        const blocks = div.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
+        for (let i = 0; i < blocks.length; i += 2) {
+          const input = blocks[i].textContent.trim();
+          const output = blocks[i + 1].textContent.trim();
 
-          task.setTimeLimit(4000);
-          task.setMemoryLimit(512);
+          task.addTest(new Test(input, output));
+        }
 
-          return task.build();
-        });
+        task.setTimeLimit(4000);
+        task.setMemoryLimit(512);
+
+        tasks.push(task.build());
+      }
 
       resolve(new Contest(tasks));
     });
