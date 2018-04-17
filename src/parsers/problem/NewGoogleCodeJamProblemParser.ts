@@ -34,6 +34,7 @@ export class NewGoogleCodeJamProblemParser extends Parser {
       task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limits)[1]) * 1000);
       task.setMemoryLimit(parseInt(/(\d+)GB/.exec(limits)[1]) * 1024);
 
+      task.setJavaMainClass('Solution');
       task.setTestType(TestType.MultiNumber);
 
       resolve(task.build());
