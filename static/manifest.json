@@ -10,6 +10,7 @@
 
   "permissions": [
     "tabs",
+    "storage",
     "http://localhost/"
   ],
 
@@ -36,6 +37,10 @@
 
   "background": {
     "scripts": ["js/browser-polyfill.js", "js/background.js"]
+  },
+
+  "options_ui": {
+    "page": "options.html"
   },
 
   "page_action": {

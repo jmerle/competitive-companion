@@ -37,6 +37,7 @@ const config = {
   entry: {
     content: path.resolve(__dirname, 'src/content.ts'),
     background: path.resolve(__dirname, 'src/background.ts'),
+    options: path.resolve(__dirname, 'src/options.ts'),
   },
   output: {
     filename: '[name].js',
@@ -77,6 +78,10 @@ const config = {
       {
         from: path.resolve(__dirname, 'src/vendor/browser-polyfill.js'),
         to: path.resolve(__dirname, 'build/js'),
+      },
+      {
+        from: path.resolve(__dirname, 'src/options.html'),
+        to: path.resolve(__dirname, 'build'),
       },
     ]),
     new UglifyJsPlugin(),

@@ -1,8 +1,6 @@
-import { enableParsing } from '../utils';
 import { matchPatternToRegExp } from '../vendor/match-pattern-to-reg-exp';
 import { Sendable } from '../models/Sendable';
-
-
+import { enablePageAction } from '../utils/page-action';
 
 export abstract class Parser {
   /**
@@ -44,7 +42,7 @@ export abstract class Parser {
    * By default, it automatically enables the ability to parse the page.
    */
   load(): void {
-    enableParsing();
+    enablePageAction();
   }
 
   /**

@@ -2,7 +2,7 @@ import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { Test } from '../../models/Test';
 import { Contest } from '../../models/Contest';
-import { htmlToElement } from '../../utils';
+import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
 export class HackerRankContestParser extends Parser {

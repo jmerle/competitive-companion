@@ -1,16 +1,16 @@
 import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
-import { disableParsing, enableParsing, init } from './utils';
+import { disablePageAction, enablePageAction } from './utils/page-action';
 
 // This package has no types
 const Nanobar = require('nanobar');
 
+(window as any).isContentScript = true;
+
 let activeParser: Parser = null;
 
 function checkTab(tabId: number, url: string): void {
-  init(tabId);
-
   for (let i = 0; i < parsers.length; i++) {
     const parser = parsers[i];
 
@@ -27,7 +27,7 @@ function checkTab(tabId: number, url: string): void {
 }
 
 async function parse() {
-  disableParsing();
+  disablePageAction();
   (window as any).nanoBar = new Nanobar();
 
   document.querySelectorAll('.bar').forEach(bar => {
@@ -42,7 +42,7 @@ async function parse() {
     console.error(err);
   }
 
-  enableParsing();
+  enablePageAction();
 }
 
 function handleMessage(message: Message, sender: browser.runtime.MessageSender) {

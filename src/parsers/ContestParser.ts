@@ -1,7 +1,7 @@
 import { Parser } from './Parser';
 import { Sendable } from '../models/Sendable';
 import { Contest } from '../models/Contest';
-import { htmlToElement } from '../utils';
+import { htmlToElement } from '../utils/dom';
 
 export abstract class ContestParser extends Parser {
   abstract problemParser: Parser;

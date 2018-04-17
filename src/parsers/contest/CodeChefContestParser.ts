@@ -2,7 +2,7 @@ import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { Contest } from '../../models/Contest';
 import { Test } from '../../models/Test';
-import { htmlToElement } from '../../utils';
+import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
 export class CodeChefContestParser extends Parser {

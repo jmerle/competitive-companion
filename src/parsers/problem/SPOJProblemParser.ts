@@ -1,7 +1,7 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { Test } from '../../models/Test';
-import { htmlToElement } from '../../utils';
+import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
 export class SPOJProblemParser extends Parser {

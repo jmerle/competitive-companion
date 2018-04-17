@@ -1,6 +1,6 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils';
+import { htmlToElement } from '../../utils/dom';
 import { Test } from '../../models/Test';
 import { TaskBuilder } from '../../models/TaskBuilder';
 

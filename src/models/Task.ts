@@ -4,6 +4,7 @@ import { Test } from './Test';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
 import { TestType } from './TestType';
+import { sendToBackground } from '../utils/messaging';
 
 export class Task implements Sendable {
   constructor(public name: string, public group: string, public url: string, public memoryLimit: number, public timeLimit: number,
@@ -13,8 +14,7 @@ export class Task implements Sendable {
 
   send(): Promise<void> {
     return new Promise(resolve => {
-      console.dir(JSON.stringify(this, null, 4));
-      resolve();
+      console.log(JSON.stringify(this, null, 4));
 
       const handleMessage = (message: Message, sender: browser.runtime.MessageSender) => {
         if (sender.tab) return;
@@ -27,12 +27,7 @@ export class Task implements Sendable {
 
       browser.runtime.onMessage.addListener(handleMessage);
 
-      browser.runtime.sendMessage({
-        action: MessageAction.SendTask,
-        payload: {
-          message: JSON.stringify(this),
-        },
-      });
+      sendToBackground(MessageAction.SendTask, { message: JSON.stringify(this) });
     });
   }
 }

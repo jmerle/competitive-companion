@@ -1,7 +1,7 @@
 import { Parser } from '../Parser';
 import { Test } from '../../models/Test';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils';
+import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
 export class HackerRankProblemParser extends Parser {
