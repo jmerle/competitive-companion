@@ -22,7 +22,7 @@ export class YandexProblemParser extends Parser {
       task.setName(elem.querySelector('h1.title').textContent);
       task.setGroup(elem.querySelector('.contest-head__item.contest-head__item_role_title').textContent);
 
-      const tableSource = document.querySelector('table').textContent;
+      const tableSource = elem.querySelector('table').textContent;
       task.setTimeLimit(parseFloat(/([0-9.]+)\ssecond/.exec(tableSource)[1]) * 1000);
       task.setMemoryLimit(parseInt(/(\d+)Mb/i.exec(tableSource)[1]));
 

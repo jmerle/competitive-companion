@@ -37,8 +37,8 @@ export class USACOProblemParser extends Parser {
         fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
       });
 
-      const input = document.querySelector('pre.in').textContent;
-      const output = document.querySelector('pre.out').textContent;
+      const input = elem.querySelector('pre.in').textContent;
+      const output = elem.querySelector('pre.out').textContent;
       task.addTest(new Test(input, output));
 
       task.setTimeLimit(4000);

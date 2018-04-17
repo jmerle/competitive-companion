@@ -55,7 +55,7 @@ export class DevSkillProblemParser extends Parser {
         task.addTest(new Test(input, output));
       }
 
-      const timeLimits = [...document.querySelectorAll('#limits > tbody > tr:not(:nth-child(1)) > td:nth-child(2)')]
+      const timeLimits = [...elem.querySelectorAll('#limits > tbody > tr:not(:nth-child(1)) > td:nth-child(2)')]
         .map(el => parseFloat(el.textContent) * 1000);
 
       task.setTimeLimit(timeLimits.reduce((a, b) => a > b ? a : b));

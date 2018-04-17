@@ -28,10 +28,8 @@ function save() {
 }
 
 function load() {
-  Config.get<number[]>('customPorts').then(ports => {
-    if (ports !== undefined) {
-      customPortsInput().value = ports.join(' ');
-    }
+  Config.get<number[]>('customPorts', []).then(ports => {
+    customPortsInput().value = ports.join(' ');
   }).catch(console.error);
 }
 

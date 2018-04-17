@@ -17,13 +17,13 @@ export class OldGoogleCodeJamContestParser extends Parser {
       const elem = htmlToElement(html);
       const tasks: Task[] = [];
 
-      const group = document.querySelector('#dsb-contest-title').textContent;
+      const group = elem.querySelector('#dsb-contest-title').textContent;
 
-      const problemCount = document.querySelectorAll('#dsb-problem-pages > div').length;
+      const problemCount = elem.querySelectorAll('#dsb-problem-pages > div').length;
       for (let i = 0; i < problemCount; i++) {
         const task = new TaskBuilder().setUrl(url);
 
-        task.setName(document.querySelector('#dsb-problem-title' + i).textContent.trim());
+        task.setName(elem.querySelector('#dsb-problem-title' + i).textContent.trim());
         task.setGroup(group);
 
         const blocks = elem.querySelectorAll(`#dsb-problem-page${i} .problem-io-wrapper pre.io-content`);

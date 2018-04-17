@@ -21,7 +21,7 @@ export class NewGoogleCodeJamProblemParser extends Parser {
       task.setName(elem.querySelector('.task-statement').previousElementSibling.textContent);
       task.setGroup(elem.querySelector('.challenge__title').childNodes[0].textContent);
 
-      const blocks = document.querySelectorAll('.problem-io-wrapper pre.io-content');
+      const blocks = elem.querySelectorAll('.problem-io-wrapper pre.io-content');
       const input = blocks[0].textContent.trim();
       const output = blocks[1].textContent.trim();
       task.addTest(new Test(input, output));
