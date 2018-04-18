@@ -5,6 +5,7 @@
 - The extension now works out-of-the-box with CHelper, JHelper and Hightail
 - Converted all parsers that relied on CHelper to a JavaScript implementation
 - Added Jutge parser and removed the Bayan parser
+- Fixed the issue in Chrome where the console would be filled with "The message port closed before a reponse was received." messages
 
 # 1.2.1 - April 13th, 2018
 - Reverted CodeForces parser back to my own implementation
