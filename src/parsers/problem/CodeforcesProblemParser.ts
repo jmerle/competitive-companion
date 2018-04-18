@@ -19,11 +19,7 @@ export class CodeforcesProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      let name = elem.querySelector('.problem-statement > .header > .title').textContent;
-      name = name.replace('.', ' -');
-      name = 'Problem ' + name;
-      task.setName(name);
-
+      task.setName(elem.querySelector('.problem-statement > .header > .title').textContent);
       task.setGroup(elem.querySelector('.rtable > tbody > tr > th').textContent);
 
       const timeLimitStr = elem
