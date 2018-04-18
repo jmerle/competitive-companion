@@ -1,9 +1,10 @@
 # 1.3.0 - Unknown
 - Tasks are now sent as JSON-encoded strings
 - The extension can now be used with any tool that can receive and parse the JSON data
-- Added the functionality to choose which ports to send the JSON too
+- Added an options page where custom ports to send the JSON data to can be set
+- The extension now works out-of-the-box with CHelper, JHelper and Hightail
 - Converted all parsers that relied on CHelper to a JavaScript implementation
-- Removed the Bayan parser
+- Added Jutge parser and removed the Bayan parser
 
 # 1.2.1 - April 13th, 2018
 - Reverted CodeForces parser back to my own implementation

@@ -20,6 +20,7 @@ An alternative to the original CHelper extension. It fixes several broken proble
 | Google Code Jam (new)	| ✔              	|                	|
 | HackerEarth         	| ✔              	| ✔              	|
 | HackerRank          	| ✔              	| ✔              	|
+| Jutge               	| ✔              	|                	|
 | Kattis              	| ✔              	| ✔              	|
 | LightOJ              	| ✔              	| ✔              	|
 | Panda Online Judge   	| ✔              	|                	|

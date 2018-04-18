@@ -33,6 +33,7 @@ import { USACOProblemParser } from './problem/USACOProblemParser';
 import { FacebookHackerCupProblemParser } from './problem/FacebookHackerCupProblemParser';
 import { OldGoogleCodeJamContestParser } from './contest/OldGoogleCodeJamContestParser';
 import { NewGoogleCodeJamProblemParser } from './problem/NewGoogleCodeJamProblemParser';
+import { JutgeProblemParser } from './problem/JutgeProblemParser';
 
 export const parsers: Parser[] = [
   // Problem parsers
@@ -57,6 +58,7 @@ export const parsers: Parser[] = [
   new USACOProblemParser(),
   new FacebookHackerCupProblemParser(),
   new NewGoogleCodeJamProblemParser(),
+  new JutgeProblemParser(),
 
   // Contest parsers
   new KattisContestParser(),

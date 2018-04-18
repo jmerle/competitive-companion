@@ -8,7 +8,7 @@ export class CustomHost implements Host {
   send(data: string): Promise<void> {
     return new Promise((resolve, reject) => {
       axios.post(`http://localhost:${this.port}/`, data, {
-        timeout: 3000,
+        timeout: 500,
         headers: {
           'Content-Type': 'application/json',
         },
