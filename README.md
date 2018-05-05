@@ -36,8 +36,8 @@ This section is meant for anyone who wants to package the extension manually, bu
 
 Software versions:  
 Node.js: 9.11.1  
-Yarn: 1.5.1  
-Ubuntu: 17.10
+Yarn: 1.6.0  
+Ubuntu: 18.04
 
 ```bash
 # Clone the repository (if you are not a Mozilla reviewer)

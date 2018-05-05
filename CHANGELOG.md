@@ -1,9 +1,12 @@
+# 1.2.2 - May 5th, 2018
+- Fixed the Codeforces and the CodeChef parser
+
 # 1.2.1 - April 13th, 2018
-- Reverted CodeForces parser back to my own implementation
+- Reverted Codeforces parser back to my own implementation
 
 # 1.2.0 - April 9th, 2018
 - Fixed USACO parser
-- Reverted CodeForces parser back to the CHelper one
+- Reverted Codeforces parser back to the CHelper one
 - Switched the new Google Code Jam parser to the CHelper one
 - Added parsers for USACO Training, DevSkill, DMOJ, URI Online Judge, LightOJ, SPOJ and Panda Online Judge
 
@@ -13,10 +16,10 @@
 - Removed all default exports
 
 # 1.0.4 - February 23rd, 2018
-- Added support for contests and problems in CodeForces groups
+- Added support for contests and problems in Codeforces groups
 
 # 1.0.3 - February 19th, 2018
-- Switched the CodeForces problem parser from the default one in the CHelper plugin to a custom one, because the one in the CHelper plugin is not working properly at the moment
+- Switched the Codeforces problem parser from the default one in the CHelper plugin to a custom one, because the one in the CHelper plugin is not working properly at the moment
 
 # 1.0.2 - December 31th, 2017
 - Fixed a bug in the HackerEarth contest parser where it couldn't parse contests where the problems were divided into sets
