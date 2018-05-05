@@ -33,8 +33,8 @@ export class CodeforcesProblemParser extends Parser {
 
       const tests: Test[] = [];
 
-      const inputs = document.querySelectorAll('.input pre');
-      const outputs = document.querySelectorAll('.output pre');
+      const inputs = elem.querySelectorAll('.input pre');
+      const outputs = elem.querySelectorAll('.output pre');
 
       for (let i = 0; i < inputs.length; i++) {
         const input = inputs[i].innerHTML;

@@ -30,18 +30,39 @@ export class CodeChefProblemParser extends Parser {
       const taskName = [...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0];
       const contestName = 'CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent;
 
-      const tests: Test[] = [];
-
-      elem.querySelectorAll('pre').forEach(pre => {
-        if (pre.querySelector('b') !== null) {
-          const input = pre.childNodes[1].textContent.trim();
-          const output = pre.childNodes[3].textContent.trim();
-
-          tests.push(new Test(input, output));
-        }
-      });
+      const tests = this.parseTests(html);
 
       resolve(new CustomTask(taskName, contestName, tests, 256));
     });
+  }
+
+  parseTests(html: string): Test[] {
+    const tests: Test[] = [];
+    const elem = htmlToElement(html);
+
+    elem.querySelectorAll('pre').forEach(pre => {
+      if (pre.querySelector('b') !== null) {
+        const input = pre.childNodes[1].textContent.trim();
+        const output = pre.childNodes[3].textContent.trim();
+
+        tests.push(new Test(input, output));
+      }
+    });
+
+    if (tests.length === 0) {
+      const inputHeader = [...elem.querySelectorAll('h3')]
+        .find(x => x.textContent.toLowerCase().includes('example input'));
+      const outputHeader = [...elem.querySelectorAll('h3')]
+        .find(x => x.textContent.toLowerCase().includes('example output'));
+
+      if (inputHeader !== null && outputHeader !== null) {
+        const input = inputHeader.nextElementSibling.textContent;
+        const output = outputHeader.nextElementSibling.textContent;
+
+        tests.push(new Test(input, output));
+      }
+    }
+
+    return tests;
   }
 }

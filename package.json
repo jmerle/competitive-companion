@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/copy-webpack-plugin": "^4.4.1",
     "@types/node": "^9.6.2",
+    "@types/showdown": "^1.7.3",
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
@@ -24,6 +25,7 @@
     "concurrently": "^3.5.1",
     "copy-webpack-plugin": "^4.5.1",
     "nanobar": "^0.4.2",
+    "showdown": "^1.8.6",
     "ts-loader": "^4.2.0",
     "ts-node": "^5.0.1",
     "typescript": "^2.8.1",

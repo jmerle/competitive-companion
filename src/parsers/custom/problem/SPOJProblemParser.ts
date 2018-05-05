@@ -15,7 +15,7 @@ export class SPOJProblemParser extends Parser {
 
       const taskName = elem.querySelector('#problem-name').textContent.split(' - ')[1];
 
-      const breadcrumb = document.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
+      const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
       const contestName = 'SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1);
 
       const tests: Test[] = [];

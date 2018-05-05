@@ -2,8 +2,8 @@ import { Parser } from '../../Parser';
 import { Sendable } from '../../../models/Sendable';
 import { CustomTask } from '../../../models/CustomTask';
 import { Contest } from '../../../models/Contest';
-import { Test } from '../../../models/Test';
-import { htmlToElement } from '../../../utils';
+import { htmlToElement, markdownToHtml } from '../../../utils';
+import { CodeChefProblemParser } from '../problem/CodeChefProblemParser';
 
 export class CodeChefContestParser extends Parser {
   getMatchPatterns(): string[] {
@@ -36,18 +36,8 @@ export class CodeChefContestParser extends Parser {
           const taskName = data.problem_name;
           const contestName = 'CodeChef - ' + data.contest_name;
 
-          const tests: Test[] = [];
-
-          const div = htmlToElement(data.body);
-
-          div.querySelectorAll('pre').forEach(pre => {
-            if (pre.querySelector('b') !== null) {
-              const input = pre.childNodes[1].textContent.trim();
-              const output = pre.childNodes[3].textContent.trim();
-
-              tests.push(new Test(input, output));
-            }
-          });
+          const html = markdownToHtml(data.body);
+          const tests = new CodeChefProblemParser().parseTests(html);
 
           return new CustomTask(taskName, contestName, tests, 256);
         });
