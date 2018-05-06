@@ -155,7 +155,7 @@ yarn dev:chrome
 ## Mozilla reviewers
 The information provided below is meant for Mozilla volunteers.
 
-Versions used:  
+Software versions used:  
 Node.js: 9.11.1  
 Yarn: 1.6.0  
 Ubuntu: 18.04  
