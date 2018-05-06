@@ -160,10 +160,10 @@ Node.js: 9.11.1
 Yarn: 1.6.0  
 Ubuntu: 18.04  
 
-Third-party libraries that can be found in the minified extension:
-nanobar 0.4.2 - https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js
-snarkdown 1.2.2 - https://github.com/developit/snarkdown/blob/1.2.2/src/index.js
-webextension-polyfill 0.2.1 - https://github.com/mozilla/webextension-polyfill/blob/0.2.1/src/browser-polyfill.js
+Third-party libraries that can be found in the minified extension:  
+- [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
+- [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
+- [webextension-polyfill 0.2.1](https://github.com/mozilla/webextension-polyfill/blob/0.2.1/src/browser-polyfill.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
 
