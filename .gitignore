@@ -65,3 +65,6 @@ typings/
 # Generated files
 build/
 dist/
+
+# NPM (Yarn is used)
+.package-lock.json

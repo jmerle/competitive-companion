@@ -1,9 +1,9 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { Contest } from '../../models/Contest';
-import { Test } from '../../models/Test';
-import { htmlToElement } from '../../utils/dom';
+import { htmlToElement, markdownToHtml } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { CodeChefProblemParser } from '../problem/CodeChefProblemParser';
 
 export class CodeChefContestParser extends Parser {
   getMatchPatterns(): string[] {
@@ -40,16 +40,8 @@ export class CodeChefContestParser extends Parser {
         task.setName(model.problem_name);
         task.setGroup('CodeChef - ' + model.contest_name);
 
-        const div = htmlToElement(model.body);
-
-        div.querySelectorAll('pre').forEach(pre => {
-          if (pre.querySelector('b') !== null) {
-            const input = pre.childNodes[1].textContent.trim();
-            const output = pre.childNodes[3].textContent.trim();
-
-            task.addTest(new Test(input, output));
-          }
-        });
+        const html = markdownToHtml(model.body);
+        new CodeChefProblemParser().parseTests(html, task);
 
         task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);
         task.setMemoryLimit(256);

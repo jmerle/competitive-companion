@@ -17,7 +17,7 @@ export class TimusProblemParser extends Parser {
       task.setName(elem.querySelector('.problem_title').textContent);
 
       const limits = elem.querySelector('.problem_limits').textContent.trim();
-      task.setTimeLimit(parseFloat(/([0-9.]+ second)/.exec(limits)[1]) * 1000);
+      task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limits)[1]) * 1000);
       task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limits)[1]));
 
       const source = elem.querySelector('.problem_source').textContent;

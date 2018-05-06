@@ -24,12 +24,8 @@ function send(tabId: number, message: string) {
         }
       );
 
-      Promise.all(promises).then(results => {
-        if (results.some(x => x)) {
-          sendToContent(tabId, MessageAction.TaskSent);
-        } else {
-          // Error, no host worked
-        }
+      Promise.all(promises).then(() => {
+        sendToContent(tabId, MessageAction.TaskSent);
       });
     }
   );

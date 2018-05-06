@@ -45,7 +45,7 @@ export class FacebookHackerCupProblemParser extends Parser {
       task.setTestType(TestType.MultiNumber);
 
       task.setTimeLimit(360000);
-      task.setMemoryLimit(8192);
+      task.setMemoryLimit(1024);
 
       resolve(task.build());
     });

@@ -1,5 +1,4 @@
 import { Host } from './Host';
-import axios from 'axios';
 
 export class CustomHost implements Host {
   constructor(public port: number) {
@@ -7,12 +6,16 @@ export class CustomHost implements Host {
 
   send(data: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      axios.post(`http://localhost:${this.port}/`, data, {
-        timeout: 500,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }).then(() => resolve()).catch(reject);
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', `http://localhost:${this.port}`, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+
+      xhr.timeout = 500;
+      xhr.ontimeout = () => reject();
+      xhr.onload = () => resolve();
+
+      xhr.send(data);
+      xhr.send(null);
     });
   }
 }

@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "CHelper Companion",
-  "description": "Parses programming problems and sends them to the CHelper plugin for IntelliJ IDEA.",
+  "name": "Filled by build script",
+  "description": "Filled by build script",
   "version": "Filled by build script",
 
   "author": "Filled by build script",
@@ -31,12 +31,12 @@
     {
       "matches": ["Filled by build script"],
       "exclude_matches": ["Filled by build script"],
-      "js": ["js/browser-polyfill.js", "js/content.js"]
+      "js": ["js/browser-polyfill.min.js", "js/content.js"]
     }
   ],
 
   "background": {
-    "scripts": ["js/browser-polyfill.js", "js/background.js"]
+    "scripts": ["js/browser-polyfill.min.js", "js/background.js"]
   },
 
   "options_ui": {

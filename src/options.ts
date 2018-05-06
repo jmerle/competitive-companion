@@ -1,48 +1,39 @@
 import { Config } from './utils/Config';
 
-const customPortsInput = () => document.querySelector('#custom-ports') as HTMLInputElement;
+const customPortsInput = document.querySelector('#custom-ports') as HTMLInputElement;
+const debugModeInput = document.querySelector('#debug-mode') as HTMLInputElement;
 
-let timeout: any = -1;
-
-function save() {
-  const ports = customPortsInput()
+customPortsInput.addEventListener('input', function () {
+  const ports = this
     .value
     .split(',')
     .map(x => x.trim())
     .filter(x => x.length > 0)
-    .map(x => parseInt(x, 10));
+    .map(x => Number(x));
 
   const uniquePorts = [...new Set(ports)];
 
-  if (uniquePorts.some(isNaN)) {
-    setStatus('Please make sure all ports are valid, and multiple ports are separated by commas.');
+  if (uniquePorts.some(isNaN) || uniquePorts.some(x => x < 0)) {
+    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'block';
   } else {
-    Config.set('customPorts', uniquePorts).then(() => {
-      if (timeout === -1) {
-        setStatus('Saved!');
+    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'none';
 
-        timeout = setTimeout(() => {
-          timeout = -1;
-          setStatus('');
-        }, 1500);
-      }
-    }).catch(console.error);
+    Config.set('customPorts', uniquePorts)
+      .then(() => {})
+      .catch(() => {});
   }
-}
-
-function setStatus(status: string) {
-  document.querySelector('#status').textContent = status;
-}
-
-function load() {
-  Config.get<number[]>('customPorts', []).then(ports => {
-    customPortsInput().value = ports.join(',');
-  }).catch(console.error);
-}
-
-document.querySelector('form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  save();
 });
 
-load();
+debugModeInput.addEventListener('input', function () {
+  Config.set('debugMode', this.checked)
+    .then(() => {})
+    .catch(() => {});
+});
+
+Config.get<number[]>('customPorts').then(value => {
+  customPortsInput.value = value.join(',');
+}).catch(() => {});
+
+Config.get<boolean>('debugMode').then(value => {
+  debugModeInput.checked = value;
+}).catch(() => {});

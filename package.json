@@ -1,36 +1,39 @@
 {
-  "name": "chelper-companion",
-  "version": "1.2.1",
-  "description": "A webextension which parses competitive programming problems and sends them to CHelper.",
-  "repository": "https://github.com/jmerle/chelper-companion",
+  "name": "competitive-companion",
+  "productName": "Competitive Companion",
+  "version": "2.0.0",
+  "description": "Parses programming problems and sends them to various tools like CHelper and Hightail.",
+  "repository": "https://github.com/jmerle/competitive-companion",
   "author": "Jasper van Merle",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "web-ext run -s build/ --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "build": "webpack --progress --colors --mode=production",
     "watch": "yarn build --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "lint": "yarn build && web-ext lint -s build/ -o text",
-    "dev": "yarn build && concurrently \"yarn start\" \"yarn watch\" -n web-ext,webpack -c blue,yellow --kill-others"
+    "start:firefox": "web-ext run -s build/ --start-url http://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
+    "start:chrome": "node scripts/chrome-launch.js",
+    "dev:firefox": "yarn build && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
+    "dev:chrome": "yarn build && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others"
+  },
+  "dependencies": {
+    "nanobar": "0.4.2",
+    "snarkdown": "1.2.2",
+    "webextension-polyfill": "0.2.1"
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^4.4.1",
-    "@types/node": "^9.6.2",
-    "axios": "^0.18.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
+    "@types/node": "^10.0.4",
+    "chrome-launch": "^1.1.4",
     "concurrently": "^3.5.1",
     "copy-webpack-plugin": "^4.5.1",
-    "nanobar": "^0.4.2",
     "ts-loader": "^4.2.0",
-    "ts-node": "^5.0.1",
-    "typescript": "^2.8.1",
-    "uglifyjs-webpack-plugin": "^1.2.4",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3",
     "web-ext": "^2.6.0",
-    "web-ext-types": "^2.0.1",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14"
+    "web-ext-types": "^2.1.0",
+    "webpack": "^4.7.0",
+    "webpack-cli": "^2.1.3"
   }
 }

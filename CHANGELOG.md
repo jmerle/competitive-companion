@@ -1,18 +1,20 @@
-# 1.3.0 - Unknown
-- Tasks are now sent as JSON-encoded strings
-- The extension can now be used with any tool that can receive and parse the JSON data
-- Added an options page where custom ports to send the JSON data to can be set
-- The extension now works out-of-the-box with CHelper, JHelper and Hightail
-- Converted all parsers that relied on CHelper to a JavaScript implementation
-- Added Jutge parser and removed the Bayan parser
-- Fixed the issue in Chrome where the console would be filled with "The message port closed before a reponse was received." messages
+# 2.0.0 - May 6th, 2018
+- Renamed CHelper Companion to Competitive Companion
+- Moved all parsers over to a TypeScript implementation
+- Tasks can now be sent in a universal JSON format, making it possible to support more than just CHelper
+- Added the option to specify custom ports which makes it possible to send the JSON format to any port on localhost, making it possible to send the parsed problem data to private tools
+- Added support for the acm.sgu.ru problems on Codeforces and added a parser for Jutge
+- Removed the Bayan parser
+
+# 1.2.2 - May 5th, 2018
+- Fixed the Codeforces and the CodeChef parser
 
 # 1.2.1 - April 13th, 2018
-- Reverted CodeForces parser back to my own implementation
+- Reverted Codeforces parser back to my own implementation
 
 # 1.2.0 - April 9th, 2018
 - Fixed USACO parser
-- Reverted CodeForces parser back to the CHelper one
+- Reverted Codeforces parser back to the CHelper one
 - Switched the new Google Code Jam parser to the CHelper one
 - Added parsers for USACO Training, DevSkill, DMOJ, URI Online Judge, LightOJ, SPOJ and Panda Online Judge
 
@@ -22,10 +24,10 @@
 - Removed all default exports
 
 # 1.0.4 - February 23rd, 2018
-- Added support for contests and problems in CodeForces groups
+- Added support for contests and problems in Codeforces groups
 
 # 1.0.3 - February 19th, 2018
-- Switched the CodeForces problem parser from the default one in the CHelper plugin to a custom one, because the one in the CHelper plugin is not working properly at the moment
+- Switched the Codeforces problem parser from the default one in the CHelper plugin to a custom one, because the one in the CHelper plugin is not working properly at the moment
 
 # 1.0.2 - December 31th, 2017
 - Fixed a bug in the HackerEarth contest parser where it couldn't parse contests where the problems were divided into sets

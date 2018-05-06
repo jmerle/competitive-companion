@@ -2,9 +2,6 @@ import * as path from 'path';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import { Parser } from './src/parsers/Parser';
 
-// There are no types for this package
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
 function transformManifest(content: string): string {
   const manifest = JSON.parse(content);
 
@@ -26,6 +23,8 @@ function transformManifest(content: string): string {
 
   const packageData = require('./package.json');
 
+  manifest.name = packageData.productName;
+  manifest.description = packageData.description;
   manifest.version = packageData.version;
   manifest.author = packageData.author;
   manifest.homepage_url = packageData.repository;
@@ -44,23 +43,14 @@ const config = {
     path: path.resolve(__dirname, 'build/js'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         exclude: /(node_modules)/,
-        use: {
-          loader: 'ts-loader',
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-        }
+        loader: 'ts-loader',
       },
     ],
   },
@@ -76,16 +66,19 @@ const config = {
         to: path.resolve(__dirname, 'build/icons'),
       },
       {
-        from: path.resolve(__dirname, 'src/vendor/browser-polyfill.js'),
+        from: path.resolve(__dirname, 'node_modules/webextension-polyfill/dist/browser-polyfill.min.js'),
         to: path.resolve(__dirname, 'build/js'),
       },
       {
         from: path.resolve(__dirname, 'src/options.html'),
         to: path.resolve(__dirname, 'build'),
       },
+      {
+        from: path.resolve(__dirname, 'LICENSE'),
+        to: path.resolve(__dirname, 'build'),
+      }
     ]),
-    new UglifyJsPlugin(),
-  ]
+  ],
 };
 
 export default config;
