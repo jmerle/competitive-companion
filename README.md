@@ -32,12 +32,11 @@ A browser extension which parses programming problems from various online judges
 | Yandex              	| ✔              	|                	|
 
 ## Supported tools
-- CHelper Beta
+- CHelper
 - Any other tool that can parse the data that is being sent, read more about that below
 
 ## Soon supported tools
-- CHelper Stable, works when the changes from 4.3.1b1 go into the stable channel
-- JHelper, will be added shortly after CHelper Stable works
+- JHelper, will be added shortly after the changes from CHelper Beta 4.3.1b1 move into CHelper Stable
 - Hightail, works when [this PR](https://github.com/dj3500/hightail/pull/107) is merged
 
 ## Custom tools
