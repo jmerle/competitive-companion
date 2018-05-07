@@ -42,7 +42,7 @@ export class HackerRankContestParser extends Parser {
 
         const div = htmlToElement(model.body_html);
 
-        const blocks = div.querySelectorAll('.challenge-body-html pre');
+        const blocks = div.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
         for (let i = 0; i < blocks.length; i += 2) {
           const input = blocks[i].textContent.trim();
           const output = blocks[i + 1].textContent.trim();
