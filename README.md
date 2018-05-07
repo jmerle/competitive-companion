@@ -32,12 +32,13 @@ A browser extension which parses programming problems from various online judges
 | Yandex              	| ✔              	|                	|
 
 ## Supported tools
-- CHelper
+- [CHelper](https://plugins.jetbrains.com/plugin/7091-chelper)
+- [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
 - Any other tool that can parse the data that is being sent, read more about that below
 
 ## Soon supported tools
-- JHelper, will be added shortly after the changes from CHelper Beta 4.3.1b1 move into CHelper Stable
-- Hightail, works when [this PR](https://github.com/dj3500/hightail/pull/107) is merged
+- [JHelper](https://plugins.jetbrains.com/plugin/7541-jhelper), will be added shortly after the changes from CHelper Beta 4.3.1b1 move into CHelper Stable
+- [Hightail](https://github.com/dj3500/hightail), works when [this PR](https://github.com/dj3500/hightail/pull/107) is merged
 
 ## Custom tools
 Competitive Companion can send the parsed data in JSON format to your own tools. An example on how to accomplish this can be found [here](https://github.com/jmerle/competitive-companion-example).
@@ -115,7 +116,7 @@ It's not required for a tool to parse all these options, since some of them are 
 - **tests**: An array of objects containing testcase-data. The JSON objects in the array all have two keys: **input** and **output**. Both the input and the output need to end with a newline character.
 
 ## Running locally
-The following commands can be used to start working on Competitive Companion locally.
+The following commands can be used to start working on Competitive Companion locally. Additionally, make sure you got [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) installed.
 
 ```bash
 # Clone the repository

@@ -1,3 +1,7 @@
+# 2.0.1 - May 8th, 2018
+- Fixed the HackerRank parser
+- Added support for Mind Sport
+
 # 2.0.0 - May 6th, 2018
 - Renamed CHelper Companion to Competitive Companion
 - Moved all parsers over to a TypeScript implementation
