@@ -22,18 +22,24 @@ export class HackerRankProblemParser extends Parser {
       const breadCrumbs = [...elem.querySelectorAll('ol.bcrumb li a span')].map(el => el.textContent);
       task.setGroup(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
 
-      const blocks = elem.querySelectorAll('.problem-statement pre');
-      for (let i = 0; i < blocks.length; i += 2) {
-        const input = blocks[i].textContent.trim();
-        const output = blocks[i + 1].textContent.trim();
-
-        task.addTest(new Test(input, output));
-      }
+      this.parseTests(html, task);
 
       task.setTimeLimit(4000);
       task.setMemoryLimit(512);
 
       resolve(task.build());
     });
+  }
+
+  parseTests(html: string, task: TaskBuilder) {
+    const elem = htmlToElement(html);
+
+    const blocks = elem.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
+    for (let i = 0; i < blocks.length; i += 2) {
+      const input = blocks[i].textContent.trim();
+      const output = blocks[i + 1].textContent.trim();
+
+      task.addTest(new Test(input, output));
+    }
   }
 }

@@ -4,6 +4,7 @@ import { Test } from '../../models/Test';
 import { Contest } from '../../models/Contest';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { HackerRankProblemParser } from '../problem/HackerRankProblemParser';
 
 export class HackerRankContestParser extends Parser {
   getMatchPatterns(): string[] {
@@ -40,15 +41,7 @@ export class HackerRankContestParser extends Parser {
         task.setName(model.name);
         task.setGroup('HackerRank - ' + model.primary_contest.name);
 
-        const div = htmlToElement(model.body_html);
-
-        const blocks = div.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
-        for (let i = 0; i < blocks.length; i += 2) {
-          const input = blocks[i].textContent.trim();
-          const output = blocks[i + 1].textContent.trim();
-
-          task.addTest(new Test(input, output));
-        }
+        new HackerRankProblemParser().parseTests(model.body_html, task);
 
         task.setTimeLimit(4000);
         task.setMemoryLimit(512);
