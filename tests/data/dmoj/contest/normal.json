@@ -1,0 +1,170 @@
+{
+  "url": "https://dmoj.ca/contest/tle17c8",
+  "parser": "contest/DMOJContestParser",
+  "result": [
+    {
+      "name": "TLE '17 Contest 8 P1 - Artificial Intelligence",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/tle17c8p1",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2\n1 2\n2 4\n",
+          "output": "yes\n"
+        },
+        {
+          "input": "3\n1 2\n2 1\n3 5\n",
+          "output": "no\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "TLE17Contest8P1ArtificialIntelligence"
+        }
+      }
+    },
+    {
+      "name": "TLE '17 Contest 8 P2 - Ship Defense",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/tle17c8p2",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "100 2 2\n50 0\n0 10\n0 10 11\n5 1 50\n",
+          "output": "60.50\n"
+        },
+        {
+          "input": "10 1 1\n50 10\n3 1 50\n",
+          "output": "DO A BARREL ROLL!\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "TLE17Contest8P2ShipDefense"
+        }
+      }
+    },
+    {
+      "name": "TLE '17 Contest 8 P3 - Curious Numbers",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/tle17c8p3",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2 2\n10 50\n100 300\n",
+          "output": "2\n10\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "TLE17Contest8P3CuriousNumbers"
+        }
+      }
+    },
+    {
+      "name": "TLE '17 Contest 8 P4 - Gamma Waves",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/tle17c8p4",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "5 10\n1 1\n2 32\n12 33\n50 61\n51 70\n",
+          "output": "5\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "TLE17Contest8P4GammaWaves"
+        }
+      }
+    },
+    {
+      "name": "TLE '17 Contest 8 P5 - Battle Plan 2",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/tle17c8p5",
+      "memoryLimit": 512,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "6 2 3\n1\n3\n2\n5\n1\n2\n4\n6\n1 1 3\n1 3 6\n2 1 6\n",
+          "output": "2\n-1\n3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "TLE17Contest8P5BattlePlan2"
+        }
+      }
+    },
+    {
+      "name": "TLE '17 Contest 8 P6 - Willson and Nesting Season",
+      "group": "DMOJ",
+      "url": "https://dmoj.ca/problem/tle17c8p6",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2 6\n6\n15\n",
+          "output": "16\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "TLE17Contest8P6WillsonAndNestingSeason"
+        }
+      }
+    }
+  ]
+}

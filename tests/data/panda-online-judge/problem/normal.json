@@ -1,0 +1,34 @@
+{
+  "url": "https://pandaoj.com/problem/AB",
+  "parser": "problem/PandaOnlineJudgeProblemParser",
+  "result": {
+    "name": "A + B + ...",
+    "group": "Panda Online Judge",
+    "url": "https://pandaoj.com/problem/AB",
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 -184\n",
+        "output": "-184\n"
+      },
+      {
+        "input": "10 439 298 -935 72 636 774 -509 -568 228 47\n",
+        "output": "482\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

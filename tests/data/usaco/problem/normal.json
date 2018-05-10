@@ -1,0 +1,32 @@
+{
+  "url": "http://usaco.org/index.php?page=viewproblem2&cpid=840",
+  "parser": "problem/USACOProblemParser",
+  "result": {
+    "name": "Problem 1. Out of Sorts",
+    "group": "USACO 2018 US Open Contest, Platinum",
+    "url": "http://usaco.org/index.php?page=viewproblem2&cpid=840",
+    "memoryLimit": 256,
+    "timeLimit": 4000,
+    "tests": [
+      {
+        "input": "7\n20\n2\n3\n4\n9\n8\n7\n",
+        "output": "12\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "sort.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "sort.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Problem1OutOfSorts"
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "url": "http://acm.timus.ru/problemset.aspx?space=340",
+  "parser": "contest/TimusContestParser",
+  "result": [
+    {
+      "name": "A. Timus problems classifier",
+      "group": "Timus",
+      "url": "http://acm.timus.ru/problem.aspx?space=340&num=1",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "1. graphs\n1022\n1065\n2. geometry\n1020\n2.1. idea\n1130\n2.2. technique\n1111 1065\n1265\n2.2.1. convex hull\n1271\n3. dynamic programming\n1244\n",
+          "output": "1020 : geometry\n1022 : graphs\n1065 : geometry.technique, graphs\n1111, 1265 : geometry.technique\n1130 : geometry.idea\n1244 : dynamic programming\n1271 : geometry.technique.convex hull\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ATimusProblemsClassifier"
+        }
+      }
+    },
+    {
+      "name": "B. Take care of your eyebrows!",
+      "group": "Timus",
+      "url": "http://acm.timus.ru/problem.aspx?space=340&num=2",
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "7\n1 kahlua 1\n2 baileys 1\n3 cointreau 1\n4 Oleg 0\n5 kahlua 3\n6 fire\n20 Oleg 0\n",
+          "output": "4-5 baileys\n5-6 cointreau\n20-24 kahlua\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BTakeCareOfYourEyebrows"
+        }
+      }
+    },
+    {
+      "name": "C. Vasiana",
+      "group": "Timus",
+      "url": "http://acm.timus.ru/problem.aspx?space=340&num=3",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "1\n0 1 0\n1 0 0\n2 1 1\n",
+          "output": "YES\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CVasiana"
+        }
+      }
+    },
+    {
+      "name": "D. Reductions",
+      "group": "Timus",
+      "url": "http://acm.timus.ru/problem.aspx?space=340&num=4",
+      "memoryLimit": 32,
+      "timeLimit": 500,
+      "tests": [
+        {
+          "input": "4\naba\nabaca\nadd\ndd\n",
+          "output": "aba\na-ca\nadd\ndd\n"
+        },
+        {
+          "input": "2\naa\naaaaa\n",
+          "output": "aa\naaa.\n"
+        },
+        {
+          "input": "2\nabc\nabcdabc\n",
+          "output": "abc\nabcd.\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DReductions"
+        }
+      }
+    }
+  ]
+}

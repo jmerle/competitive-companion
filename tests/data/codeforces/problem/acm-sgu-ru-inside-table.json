@@ -1,0 +1,30 @@
+{
+  "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/100",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "100. A+B",
+    "group": "Codeforces - acm.sgu.ru archive",
+    "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/100",
+    "memoryLimit": 65,
+    "timeLimit": 250,
+    "tests": [
+      {
+        "input": "5 3\n",
+        "output": "8\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

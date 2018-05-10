@@ -1,0 +1,31 @@
+{
+  "url": "http://lightoj.com/volume_showproblem.php?problem=1001",
+  "parser": "problem/LightOJProblemParser",
+  "before": "beforeLightOJ",
+  "result": {
+    "name": "1001 - Opposite Task",
+    "group": "LightOJ",
+    "url": "http://lightoj.com/volume_showproblem.php?problem=1001",
+    "memoryLimit": 32,
+    "timeLimit": 500,
+    "tests": [
+      {
+        "input": "3\n10\n7\n7\n",
+        "output": "0 10\n0 7\n1 6\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "OppositeTask"
+      }
+    }
+  }
+}

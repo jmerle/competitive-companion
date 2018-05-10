@@ -1,0 +1,38 @@
+{
+  "url": "http://codeforces.com/problemset/problem/118/A",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "A. String Task",
+    "group": "Codeforces Beta Round #89 (Div. 2)",
+    "url": "http://codeforces.com/problemset/problem/118/A",
+    "memoryLimit": 256,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "tour\n",
+        "output": ".t.r\n"
+      },
+      {
+        "input": "Codeforces\n",
+        "output": ".c.d.f.r.c.s\n"
+      },
+      {
+        "input": "aBAcAba\n",
+        "output": ".b.c.b\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AStringTask"
+      }
+    }
+  }
+}

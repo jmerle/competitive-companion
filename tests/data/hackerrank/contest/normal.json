@@ -1,0 +1,85 @@
+{
+  "url": "https://www.hackerrank.com/contests/hourrank-27/challenges",
+  "parser": "contest/HackerRankContestParser",
+  "before": "beforeHackerRank",
+  "result": [
+    {
+      "name": "Impressing the Boss",
+      "group": "HackerRank - HourRank 27",
+      "url": "https://www.hackerrank.com/contests/hourrank-27/challenges/impressing-the-boss",
+      "memoryLimit": 512,
+      "timeLimit": 4000,
+      "tests": [
+        {
+          "input": "2\n8\n5 7 7 11 15 12 22 24\n9\n20 19 18 16 14 15 14 13 11\n",
+          "output": "YES\nNO\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ImpressingTheBoss"
+        }
+      }
+    },
+    {
+      "name": "Maximizing the Profit",
+      "group": "HackerRank - HourRank 27",
+      "url": "https://www.hackerrank.com/contests/hourrank-27/challenges/maximizing-the-profit",
+      "memoryLimit": 512,
+      "timeLimit": 4000,
+      "tests": [
+        {
+          "input": "7\n10 2 -10 6 1 0 8\n",
+          "output": "96\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "MaximizingTheProfit"
+        }
+      }
+    },
+    {
+      "name": "Moving the Kings",
+      "group": "HackerRank - HourRank 27",
+      "url": "https://www.hackerrank.com/contests/hourrank-27/challenges/moving-the-kings",
+      "memoryLimit": 512,
+      "timeLimit": 4000,
+      "tests": [
+        {
+          "input": "5 2\n3 3\n5 1\n2 4\n2 1\n2 3\n4 2\n5 3\n",
+          "output": "8\n13\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "MovingTheKings"
+        }
+      }
+    }
+  ]
+}

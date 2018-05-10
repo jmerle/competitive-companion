@@ -7,6 +7,9 @@ export class DevSkillContestParser extends ContestParser {
   problemParser: Parser = new DevSkillProblemParser();
 
   getMatchPatterns(): string[] {
-    return ['https://www.devskill.com/ContestArchive/ContestDetail/*'];
+    return [
+      'https://devskill.com/ContestArchive/ContestDetail/*',
+      'https://www.devskill.com/ContestArchive/ContestDetail/*',
+    ];
   }
 }

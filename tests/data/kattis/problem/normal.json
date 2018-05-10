@@ -1,0 +1,38 @@
+{
+  "url": "https://open.kattis.com/problems/twostones",
+  "parser": "problem/KattisProblemParser",
+  "result": {
+    "name": "Take Two Stones",
+    "group": "Kattis Archive",
+    "url": "https://open.kattis.com/problems/twostones",
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1\n",
+        "output": "Alice\n"
+      },
+      {
+        "input": "2\n",
+        "output": "Bob\n"
+      },
+      {
+        "input": "5\n",
+        "output": "Alice\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "TakeTwoStones"
+      }
+    }
+  }
+}

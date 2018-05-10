@@ -1,0 +1,168 @@
+{
+  "url": "http://codeforces.com/contest/118",
+  "parser": "contest/CodeforcesContestParser",
+  "result": [
+    {
+      "name": "A. String Task",
+      "group": "Codeforces Beta Round #89 (Div. 2)",
+      "url": "http://codeforces.com/contest/118/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "tour\n",
+          "output": ".t.r\n"
+        },
+        {
+          "input": "Codeforces\n",
+          "output": ".c.d.f.r.c.s\n"
+        },
+        {
+          "input": "aBAcAba\n",
+          "output": ".b.c.b\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "AStringTask"
+        }
+      }
+    },
+    {
+      "name": "B. Present from Lena",
+      "group": "Codeforces Beta Round #89 (Div. 2)",
+      "url": "http://codeforces.com/contest/118/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2\n",
+          "output": "    0\n  0 1 0\n0 1 2 1 0\n  0 1 0\n    0\n"
+        },
+        {
+          "input": "3\n",
+          "output": "      0\n    0 1 0\n  0 1 2 1 0\n0 1 2 3 2 1 0\n  0 1 2 1 0\n    0 1 0\n      0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BPresentFromLena"
+        }
+      }
+    },
+    {
+      "name": "C. Fancy Number",
+      "group": "Codeforces Beta Round #89 (Div. 2)",
+      "url": "http://codeforces.com/contest/118/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "6 5\n898196\n",
+          "output": "4\n888188\n"
+        },
+        {
+          "input": "3 2\n533\n",
+          "output": "0\n533\n"
+        },
+        {
+          "input": "10 6\n0001112223\n",
+          "output": "3\n0000002223\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CFancyNumber"
+        }
+      }
+    },
+    {
+      "name": "D. Caesar's Legions",
+      "group": "Codeforces Beta Round #89 (Div. 2)",
+      "url": "http://codeforces.com/contest/118/problem/D",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2 1 1 10\n",
+          "output": "1\n"
+        },
+        {
+          "input": "2 3 1 2\n",
+          "output": "5\n"
+        },
+        {
+          "input": "2 4 1 1\n",
+          "output": "0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DCaesarSLegions"
+        }
+      }
+    },
+    {
+      "name": "E. Bertown roads",
+      "group": "Codeforces Beta Round #89 (Div. 2)",
+      "url": "http://codeforces.com/contest/118/problem/E",
+      "memoryLimit": 256,
+      "timeLimit": 5000,
+      "tests": [
+        {
+          "input": "6 8\n1 2\n2 3\n1 3\n4 5\n4 6\n5 6\n2 4\n3 5\n",
+          "output": "1 2\n2 3\n3 1\n4 5\n5 6\n6 4\n4 2\n3 5\n"
+        },
+        {
+          "input": "6 7\n1 2\n2 3\n1 3\n4 5\n4 6\n5 6\n2 4\n",
+          "output": "0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "EBertownRoads"
+        }
+      }
+    }
+  ]
+}

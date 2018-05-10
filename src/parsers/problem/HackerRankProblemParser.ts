@@ -34,7 +34,12 @@ export class HackerRankProblemParser extends Parser {
   parseTests(html: string, task: TaskBuilder) {
     const elem = htmlToElement(html);
 
-    const blocks = elem.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
+    let blocks = elem.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');
+
+    if (blocks.length === 0) {
+      blocks = elem.querySelectorAll('.challenge-body-html pre');
+    }
+
     for (let i = 0; i < blocks.length; i += 2) {
       const input = blocks[i].textContent.trim();
       const output = blocks[i + 1].textContent.trim();

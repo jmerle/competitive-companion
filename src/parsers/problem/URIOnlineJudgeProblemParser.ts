@@ -38,8 +38,8 @@ export class URIOnlineJudgeProblemParser extends Parser {
     elem.querySelectorAll('table').forEach(table => {
       const columns = table.querySelectorAll('tbody > tr > td');
 
-      const input = columns[0].textContent.split('\n').map(x => x.trim()).join('\n');
-      const output = columns[1].textContent.split('\n').map(x => x.trim()).join('\n');
+      const input = columns[0].textContent.split('\n').map(x => x.trim()).join('\n').trim();
+      const output = columns[1].textContent.split('\n').map(x => x.trim()).join('\n').trim();
 
       task.addTest(new Test(input, output));
     });

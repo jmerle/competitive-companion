@@ -1,0 +1,31 @@
+{
+  "url": "https://codejam.withgoogle.com/2018/challenges",
+  "parser": "problem/NewGoogleCodeJamProblemParser",
+  "before": "beforeNewGoogleCodeJam",
+  "result": {
+    "name": "Senate Evacuation",
+    "group": "Practice Session 2018",
+    "url": "https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard/00000000000004c0",
+    "memoryLimit": 1024,
+    "timeLimit": 30000,
+    "tests": [
+      {
+        "input": "4\n2\n2 2\n3\n3 2 2\n3\n1 1 2\n3\n2 3 1\n",
+        "output": "Case #1: AB BA\nCase #2: AA BC C BA\nCase #3: C C AB\nCase #4: BA BB CA\n"
+      }
+    ],
+    "testType": "multiNumber",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Solution",
+        "taskClass": "SenateEvacuation"
+      }
+    }
+  }
+}

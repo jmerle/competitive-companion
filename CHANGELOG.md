@@ -1,3 +1,8 @@
+# 2.x.x - TBD
+- Fixed bugs in the HackerRank, CodeChef, DevSkill, LightOJ, Timus and URI Online Judge parsers
+- Added tests for nearly all parsers which automatically test whether they are still working
+- Cyrillic characters are now removed from Java class names
+
 # 2.0.1 - May 8th, 2018
 - Fixed the HackerRank parser
 - Added support for Mind Sport

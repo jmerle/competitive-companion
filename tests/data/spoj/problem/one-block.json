@@ -1,0 +1,30 @@
+{
+  "url": "http://www.spoj.com/problems/TEST/",
+  "parser": "problem/SPOJProblemParser",
+  "result": {
+    "name": "Life, the Universe, and Everything",
+    "group": "SPOJ - Classical",
+    "url": "http://www.spoj.com/problems/TEST/",
+    "memoryLimit": 1536,
+    "timeLimit": 10000,
+    "tests": [
+      {
+        "input": "1\n2\n88\n42\n99\n",
+        "output": "1\n2\n88\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "LifeTheUniverseAndEverything"
+      }
+    }
+  }
+}

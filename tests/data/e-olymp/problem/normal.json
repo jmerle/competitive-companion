@@ -1,0 +1,34 @@
+{
+  "url": "https://www.e-olymp.com/en/problems/5",
+  "parser": "problem/EOlympProblemParser",
+  "result": {
+    "name": "Two factors",
+    "group": "E-Olymp - Problems",
+    "url": "https://www.e-olymp.com/en/problems/5",
+    "memoryLimit": 128,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n",
+        "output": "4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "TwoFactors"
+      }
+    }
+  }
+}

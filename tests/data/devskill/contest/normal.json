@@ -1,0 +1,162 @@
+{
+  "url": "https://devskill.com/ContestArchive/ContestDetail/0fef9d09-fcb7-cb96-6a03-08d58fa46501",
+  "parser": "contest/DevSkillContestParser",
+  "result": [
+    {
+      "name": "Only '1' Substrings !!",
+      "group": "DevSkill",
+      "url": "https://devskill.com/CodingProblems/ViewProblem/496",
+      "memoryLimit": 1024,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2\n1001\n1101\n",
+          "output": "2\n4\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Only1Substrings"
+        }
+      }
+    },
+    {
+      "name": "Three Circles",
+      "group": "DevSkill",
+      "url": "https://devskill.com/CodingProblems/ViewProblem/512",
+      "memoryLimit": 1024,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "3\n100 100 10\n100 100 20\n100 100 30\n14 14 2\n16 16 1\n18 18 2\n120 120 120\n60 60 80\n180 60 80\n",
+          "output": "Case 1: 3\nCase 2: 5\nCase 3: 7\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ThreeCircles"
+        }
+      }
+    },
+    {
+      "name": "Parenthesis",
+      "group": "DevSkill",
+      "url": "https://devskill.com/CodingProblems/ViewProblem/514",
+      "memoryLimit": 1024,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4\n6 2\n7 1\n50 25\n50 30\n",
+          "output": "Case 1: 3\nCase 2: 0\nCase 3: 1\nCase 4: 0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Parenthesis"
+        }
+      }
+    },
+    {
+      "name": "Simple Graph",
+      "group": "DevSkill",
+      "url": "https://devskill.com/CodingProblems/ViewProblem/502",
+      "memoryLimit": 1024,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "3\n1\n2\n3\n",
+          "output": "2\n16\n50\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "SimpleGraph"
+        }
+      }
+    },
+    {
+      "name": "Charming Numbers",
+      "group": "DevSkill",
+      "url": "https://devskill.com/CodingProblems/ViewProblem/513",
+      "memoryLimit": 1024,
+      "timeLimit": 4000,
+      "tests": [
+        {
+          "input": "3\n1 100\n1 200\n199998160 199998170\n",
+          "output": "Case 1: 0\nCase 2: 3\nCase 3: 3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CharmingNumbers"
+        }
+      }
+    },
+    {
+      "name": "Strange Equation",
+      "group": "DevSkill",
+      "url": "https://devskill.com/CodingProblems/ViewProblem/511",
+      "memoryLimit": 1024,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "5\n2 1 1\n4 1 1\n97 97 11\n100 64 9\n100 101 1\n",
+          "output": "Case 1: 20\nCase 2: 340\nCase 3: 1870887\nCase 4: 11368593\nCase 5: 0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "StrangeEquation"
+        }
+      }
+    }
+  ]
+}

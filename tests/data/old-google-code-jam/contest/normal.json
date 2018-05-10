@@ -1,0 +1,119 @@
+{
+  "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+  "parser": "contest/OldGoogleCodeJamContestParser",
+  "before": "beforeOldGoogleCodeJam",
+  "result": [
+    {
+      "name": "A - Oversized Pancake Flipper",
+      "group": "Google Code Jam Qualification Round 2017",
+      "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "memoryLimit": 512,
+      "timeLimit": 180000,
+      "tests": [
+        {
+          "input": "3\n---+-++- 3\n+++++ 4\n-+-+- 4\n",
+          "output": "Case #1: 3\nCase #2: 0\nCase #3: IMPOSSIBLE\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "regex",
+        "pattern": "A-(small|large).*[.]in"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "a.out"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "AOversizedPancakeFlipper"
+        }
+      }
+    },
+    {
+      "name": "B - Tidy Numbers",
+      "group": "Google Code Jam Qualification Round 2017",
+      "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "memoryLimit": 512,
+      "timeLimit": 180000,
+      "tests": [
+        {
+          "input": "4\n132\n1000\n7\n111111111111111110\n",
+          "output": "Case #1: 129\nCase #2: 999\nCase #3: 7\nCase #4: 99999999999999999\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "regex",
+        "pattern": "B-(small|large).*[.]in"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "b.out"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BTidyNumbers"
+        }
+      }
+    },
+    {
+      "name": "C - Bathroom Stalls",
+      "group": "Google Code Jam Qualification Round 2017",
+      "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "memoryLimit": 512,
+      "timeLimit": 180000,
+      "tests": [
+        {
+          "input": "5\n4 2\n5 2\n6 2\n1000 1000\n1000 1\n",
+          "output": "Case #1: 1 0\nCase #2: 1 0\nCase #3: 1 1\nCase #4: 0 0\nCase #5: 500 499\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "regex",
+        "pattern": "C-(small|large).*[.]in"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "c.out"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CBathroomStalls"
+        }
+      }
+    },
+    {
+      "name": "D - Fashion Show",
+      "group": "Google Code Jam Qualification Round 2017",
+      "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "memoryLimit": 512,
+      "timeLimit": 180000,
+      "tests": [
+        {
+          "input": "3\n2 0\n1 1\no 1 1\n3 4\n+ 2 3\n+ 2 1\nx 3 1\n+ 2 2\n",
+          "output": "Case #1: 4 3\no 2 2\n+ 2 1\nx 1 1\nCase #2: 2 0\nCase #3: 6 2\no 2 3\nx 1 2\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "regex",
+        "pattern": "D-(small|large).*[.]in"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "d.out"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DFashionShow"
+        }
+      }
+    }
+  ]
+}

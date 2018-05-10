@@ -1,0 +1,163 @@
+{
+  "url": "https://www.codechef.com/LTIME58A",
+  "parser": "contest/CodeChefContestParser",
+  "before": "beforeCodeChef",
+  "result": [
+    {
+      "name": "Magic Elements",
+      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
+      "memoryLimit": 256,
+      "timeLimit": 500,
+      "tests": [
+        {
+          "input": "2\n4 4\n2 1 6 7\n4 2\n2 1 5 4\n",
+          "output": "1\n0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "MagicElements"
+        }
+      }
+    },
+    {
+      "name": "Three Integers",
+      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "url": "https://www.codechef.com/LTIME58A/problems/AFK",
+      "memoryLimit": 256,
+      "timeLimit": 500,
+      "tests": [
+        {
+          "input": "5\n-5 0 5\n-5 7 6\n-10 -100 20\n1 -1 1\n51 23 10\n",
+          "output": "0\n7\n105\n2\n8\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ThreeIntegers"
+        }
+      }
+    },
+    {
+      "name": "Partitions",
+      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "url": "https://www.codechef.com/LTIME58A/problems/ARRP",
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "3\n5\n1 4 2 3 5\n4\n1 1 1 1\n4\n1 1 2 2\n",
+          "output": "10100\n1101\n1010\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Partitions"
+        }
+      }
+    },
+    {
+      "name": "Queries with GCD",
+      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "url": "https://www.codechef.com/LTIME58A/problems/GQR",
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4 6\n4 2 1 8\n1 2\n1 3\n1 4\n2 3\n2 4\n3 4\n",
+          "output": "2\n2\n4\n1\n2\n1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "QueriesWithGCD"
+        }
+      }
+    },
+    {
+      "name": "Queries on Tree",
+      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "url": "https://www.codechef.com/LTIME58A/problems/TRS",
+      "memoryLimit": 256,
+      "timeLimit": 3500,
+      "tests": [
+        {
+          "input": "1\n5 5\n10 15 20 15 10\n1 2\n1 3\n2 4\n2 5\n2 5 3 3\n1 2 5 10\n2 1 4 4\n1 5 2 17\n2 1 5 100\n",
+          "output": "10\n10\n-1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "QueriesOnTree"
+        }
+      }
+    },
+    {
+      "name": "Chef and Friends",
+      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "url": "https://www.codechef.com/LTIME58A/problems/FRK",
+      "memoryLimit": 256,
+      "timeLimit": 500,
+      "tests": [
+        {
+          "input": "4\ngennady.korotkevich\nkefaa\nfhlasek\nchemthan\n",
+          "output": "3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ChefAndFriends"
+        }
+      }
+    }
+  ]
+}

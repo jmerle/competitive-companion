@@ -1,0 +1,92 @@
+{
+  "url": "https://open.kattis.com/contests/nhty9t",
+  "parser": "contest/KattisContestParser",
+  "result": [
+    {
+      "name": "Problem A - Oktalni",
+      "group": "Coco Contest V",
+      "url": "https://open.kattis.com/contests/nhty9t/problems/oktalni",
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1010\n",
+          "output": "12\n"
+        },
+        {
+          "input": "11001100\n",
+          "output": "314\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ProblemAOktalni"
+        }
+      }
+    },
+    {
+      "name": "Problem B - Alien Numbers",
+      "group": "Coco Contest V",
+      "url": "https://open.kattis.com/contests/nhty9t/problems/aliennumbers",
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4\n9 0123456789 oF8\nFoo oF8 0123456789\n13 0123456789abcdef 01\nCODE O!CDE? A?JM!.\n",
+          "output": "Case #1: Foo\nCase #2: 9\nCase #3: 10011\nCase #4: JAM!\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ProblemBAlienNumbers"
+        }
+      }
+    },
+    {
+      "name": "Problem C - Help Me With The Game",
+      "group": "Coco Contest V",
+      "url": "https://open.kattis.com/contests/nhty9t/problems/helpme",
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "+---+---+---+---+---+---+---+---+\n|.r.|:::|.b.|:q:|.k.|:::|.n.|:r:|\n+---+---+---+---+---+---+---+---+\n|:p:|.p.|:p:|.p.|:p:|.p.|:::|.p.|\n+---+---+---+---+---+---+---+---+\n|...|:::|.n.|:::|...|:::|...|:p:|\n+---+---+---+---+---+---+---+---+\n|:::|...|:::|...|:::|...|:::|...|\n+---+---+---+---+---+---+---+---+\n|...|:::|...|:::|.P.|:::|...|:::|\n+---+---+---+---+---+---+---+---+\n|:P:|...|:::|...|:::|...|:::|...|\n+---+---+---+---+---+---+---+---+\n|.P.|:::|.P.|:P:|...|:P:|.P.|:P:|\n+---+---+---+---+---+---+---+---+\n|:R:|.N.|:B:|.Q.|:K:|.B.|:::|.R.|\n+---+---+---+---+---+---+---+---+\n",
+          "output": "White: Ke1,Qd1,Ra1,Rh1,Bc1,Bf1,Nb1,a2,c2,d2,f2,g2,h2,a3,e4\nBlack: Ke8,Qd8,Ra8,Rh8,Bc8,Ng8,Nc6,a7,b7,c7,d7,e7,f7,h7,h6\n"
+        },
+        {
+          "input": "+---+---+---+---+---+---+---+---+\n|...|:::|...|:::|...|:::|...|:::|\n+---+---+---+---+---+---+---+---+\n|:::|...|:::|...|:::|...|:::|...|\n+---+---+---+---+---+---+---+---+\n|...|:::|...|:::|...|:::|...|:::|\n+---+---+---+---+---+---+---+---+\n|:::|...|:::|...|:::|...|:::|.k.|\n+---+---+---+---+---+---+---+---+\n|...|:::|...|:::|...|:::|...|:::|\n+---+---+---+---+---+---+---+---+\n|:::|...|:::|...|:::|...|:::|...|\n+---+---+---+---+---+---+---+---+\n|...|:::|...|:::|...|:::|...|:::|\n+---+---+---+---+---+---+---+---+\n|:::|...|:::|...|:k:|...|:::|...|\n+---+---+---+---+---+---+---+---+\n",
+          "output": "White: \nBlack: Kh5,Ke1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ProblemCHelpMeWithTheGame"
+        }
+      }
+    }
+  ]
+}

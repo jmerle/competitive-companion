@@ -1,0 +1,38 @@
+{
+  "url": "https://www.urionlinejudge.com.br/judge/en/problems/view/1001",
+  "parser": "problem/URIOnlineJudgeProblemParser",
+  "result": {
+    "name": "Extremely Basic",
+    "group": "URI Online Judge",
+    "url": "https://www.urionlinejudge.com.br/judge/en/problems/view/1001",
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "10\n9\n",
+        "output": "X = 19\n"
+      },
+      {
+        "input": "-10\n4\n",
+        "output": "X = -6\n"
+      },
+      {
+        "input": "15\n-7\n",
+        "output": "X = 8\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ExtremelyBasic"
+      }
+    }
+  }
+}

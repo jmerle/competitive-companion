@@ -45,8 +45,9 @@ export class CodeChefProblemParser extends Parser {
 
     elem.querySelectorAll('pre').forEach(pre => {
       if (pre.querySelector('b') !== null) {
-        const input = pre.childNodes[1].textContent.trim();
-        const output = pre.childNodes[3].textContent.trim();
+        const textNodes = [...pre.childNodes].filter(x => x.nodeType == Node.TEXT_NODE);
+        const input = textNodes[textNodes.length - 2].textContent.trim();
+        const output = textNodes[textNodes.length - 1].textContent.trim();
 
         task.addTest(new Test(input, output));
       }

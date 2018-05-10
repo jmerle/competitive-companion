@@ -1,0 +1,30 @@
+{
+  "url": "http://acm.timus.ru/problem.aspx?space=1&num=1027",
+  "parser": "problem/TimusProblemParser",
+  "result": {
+    "name": "1027. D++ Again",
+    "group": "Timus - Ural State University Internal Contest October'2000 Junior Session",
+    "url": "http://acm.timus.ru/problem.aspx?space=1&num=1027",
+    "memoryLimit": 64,
+    "timeLimit": 500,
+    "tests": [
+      {
+        "input": "Hello, here is a sample D++ program. It contains some arithmetical expressions like\n(2+2=4), (2+-/*) and ((3+3)*3=20(*this is not true, but you don’t have to verify it :-) *)+8)\n (* the closing bracket in the previous comment is also in order, since this bracket\ndoes not belong to any arithmetical expression*)\n",
+        "output": "YES\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "DAgain"
+      }
+    }
+  }
+}

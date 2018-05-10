@@ -153,6 +153,9 @@ yarn dev:firefox
 yarn dev:chrome
 ```
 
+## Testing
+Nearly all parsers are automatically tested weekly. To run tests locally, copy `.env.example` to `.env` and fill it with your credentials. To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with the Chrome instance visible. All other arguments are automatically passed on to Jest.
+
 ## Mozilla reviewers
 The information provided below is meant for Mozilla volunteers.
 

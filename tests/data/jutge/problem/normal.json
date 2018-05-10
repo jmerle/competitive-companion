@@ -1,0 +1,34 @@
+{
+  "url": "https://jutge.org/problems/P14130_en",
+  "parser": "problem/JutgeProblemParser",
+  "result": {
+    "name": "Equal to the last one",
+    "group": "Jutge",
+    "url": "https://jutge.org/problems/P14130_en",
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "9\n1 7 3 2 4 7 5 8 7\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5\n-3 10 0 -2 7\n",
+        "output": "0\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "EqualToTheLastOne"
+      }
+    }
+  }
+}

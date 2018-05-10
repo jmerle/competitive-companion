@@ -1,0 +1,230 @@
+{
+  "url": "https://www.e-olymp.com/en/contests/7837",
+  "parser": "contest/EOlympContestParser",
+  "result": [
+    {
+      "name": "What is the Median?",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65223",
+      "memoryLimit": 122,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1\n3\n4\n60\n70\n50\n2\n",
+          "output": "1\n2\n3\n3\n4\n27\n4\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "WhatIsTheMedian"
+        }
+      }
+    },
+    {
+      "name": "Rank",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65224",
+      "memoryLimit": 122,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "8\n165 163 160 160 157 157 155 154 \n162\n",
+          "output": "3\n"
+        },
+        {
+          "input": "8\n165 163 160 160 157 157 155 154 \n160\n",
+          "output": "5\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Rank"
+        }
+      }
+    },
+    {
+      "name": "Square root",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65225",
+      "memoryLimit": 122,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2.0000000000\n",
+          "output": "1.000000000\n"
+        },
+        {
+          "input": "18.0000000000\n",
+          "output": "4.000000000\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "SquareRoot"
+        }
+      }
+    },
+    {
+      "name": "Ice-Cream",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65226",
+      "memoryLimit": 122,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "5 3\n1 2 3 100 1000\n",
+          "output": "99\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "IceCream"
+        }
+      }
+    },
+    {
+      "name": "The root of a cubic equation",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65227",
+      "memoryLimit": 122,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1 -3 3 -1\n",
+          "output": "1.0000003749\n"
+        },
+        {
+          "input": "-1 -6 -12 -7\n",
+          "output": "-1.0000000111\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "TheRootOfACubicEquation"
+        }
+      }
+    },
+    {
+      "name": "Segments",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65228",
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "3\n1 2\n2 3\n3 4\n4\n1 6\n2 3\n4 5\n7 8\n0\n",
+          "output": "Case 1: 1 2 1\nCase 2: 2 1 1 0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Segments"
+        }
+      }
+    },
+    {
+      "name": "Drying",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65229",
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "3\n2 3 9\n5\n",
+          "output": "3\n"
+        },
+        {
+          "input": "3\n2 3 6\n5\n",
+          "output": "2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Drying"
+        }
+      }
+    },
+    {
+      "name": "Construction",
+      "group": "E-Olymp - Competitions",
+      "url": "https://www.e-olymp.com/en/contests/7837/problems/65230",
+      "memoryLimit": 122,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4 4\n5 5 3 6\n",
+          "output": "3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Construction"
+        }
+      }
+    }
+  ]
+}

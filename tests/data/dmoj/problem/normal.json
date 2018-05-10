@@ -1,0 +1,30 @@
+{
+  "url": "https://dmoj.ca/problem/aplusb",
+  "parser": "problem/DMOJProblemParser",
+  "result": {
+    "name": "A Plus B",
+    "group": "DMOJ",
+    "url": "https://dmoj.ca/problem/aplusb",
+    "memoryLimit": 256,
+    "timeLimit": 5000,
+    "tests": [
+      {
+        "input": "2\n1 1\n-1 0\n",
+        "output": "2\n-1\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "APlusB"
+      }
+    }
+  }
+}
