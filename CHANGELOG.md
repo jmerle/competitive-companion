@@ -1,7 +1,6 @@
 # 2.x.x - TBD
 - Fixed bugs in the HackerRank, CodeChef, Codeforces, DevSkill, LightOJ, Timus and URI Online Judge parsers
 - Added tests for nearly all parsers
-- Configured Travis-CI to automatically run all tests weekly to quickly spot broken parsers
 - Cyrillic characters are now removed from Java class names
 
 # 2.0.1 - May 8th, 2018
