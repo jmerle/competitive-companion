@@ -9,8 +9,11 @@ export class CodeforcesContestParser extends ContestParser {
   getMatchPatterns(): string[] {
     return [
       'http://codeforces.com/contest/*',
+      'https://codeforces.com/contest/*',
       'http://codeforces.com/gym/*',
+      'https://codeforces.com/gym/*',
       'http://codeforces.com/group/*/contest/*',
+      'https://codeforces.com/group/*/contest/*',
     ];
   }
 

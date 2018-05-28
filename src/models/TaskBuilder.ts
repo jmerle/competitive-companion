@@ -112,8 +112,6 @@ export class TaskBuilder {
   removeCyrillics(str: string): string {
     // Taken from https://github.com/EgorKulikov/idea-chelper/blob/7974d411497da0cc087dc29164553d266974b068/src/net/egork/chelper/util/TaskUtilities.java#L40
     return str.split('').map(char => {
-      console.log(char);
-
       switch (char) {
         case 'а':
           return 'a';
