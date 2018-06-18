@@ -1,4 +1,4 @@
-# 2.2.0 - TBD
+# 2.2.0 - June 18th, 2018
 - Added parsers for A2OJ, HDU Online Judge, Toph, PEG Judge, POJ, omegaUp and COJ
 - Fixed the HackerRank and the SPOJ parsers
 
