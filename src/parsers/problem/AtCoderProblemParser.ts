@@ -2,7 +2,6 @@ import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
-import { Test } from '../../models/Test';
 
 export class AtCoderProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -33,7 +32,7 @@ export class AtCoderProblemParser extends Parser {
         const input = inputs[i].textContent;
         const output = outputs[i].textContent;
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       }
 
       resolve(task.build());

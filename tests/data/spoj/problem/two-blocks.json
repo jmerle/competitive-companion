@@ -1,10 +1,10 @@
 {
-  "url": "http://www.spoj.com/problems/CMPLS/",
+  "url": "https://www.spoj.com/problems/CMPLS/",
   "parser": "problem/SPOJProblemParser",
   "result": {
     "name": "Complete the Sequence!",
     "group": "SPOJ - Classical",
-    "url": "http://www.spoj.com/problems/CMPLS/",
+    "url": "https://www.spoj.com/problems/CMPLS/",
     "memoryLimit": 1536,
     "timeLimit": 5000,
     "tests": [

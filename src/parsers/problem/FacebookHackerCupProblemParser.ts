@@ -2,7 +2,6 @@ import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
-import { Test } from '../../models/Test';
 import { TestType } from '../../models/TestType';
 
 export class FacebookHackerCupProblemParser extends Parser {
@@ -21,7 +20,7 @@ export class FacebookHackerCupProblemParser extends Parser {
       const blocks = elem.querySelectorAll('.uiBoxGray > pre');
       const input = blocks[0].textContent;
       const output = blocks[1].textContent;
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
 
       let inputPattern = '';
       for (let i = 0; i < task.name.length; i++) {

@@ -4,7 +4,6 @@ import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { Contest } from '../../models/Contest';
 import { Task } from '../../models/Task';
-import { Test } from '../../models/Test';
 import { TestType } from '../../models/TestType';
 
 export class OldGoogleCodeJamContestParser extends Parser {
@@ -32,7 +31,7 @@ export class OldGoogleCodeJamContestParser extends Parser {
         const blocks = elem.querySelectorAll(`#dsb-problem-page${i} .problem-io-wrapper pre.io-content`);
         const input = blocks[0].textContent.trim();
         const output = blocks[1].textContent.trim();
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
 
         task.setInput({
           type: 'regex',

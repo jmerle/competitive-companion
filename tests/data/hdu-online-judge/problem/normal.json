@@ -1,0 +1,30 @@
+{
+  "url": "http://acm.hdu.edu.cn/showproblem.php?pid=1000",
+  "parser": "problem/HDUOnlineJudgeProblemParser",
+  "result": {
+    "name": "A + B Problem",
+    "group": "HDU Online Judge",
+    "url": "http://acm.hdu.edu.cn/showproblem.php?pid=1000",
+    "memoryLimit": 65,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "1 1\n",
+        "output": "2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblem"
+      }
+    }
+  }
+}

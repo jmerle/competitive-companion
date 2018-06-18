@@ -130,7 +130,7 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "DCaesarSLegions"
+          "taskClass": "DCaesarsLegions"
         }
       }
     },

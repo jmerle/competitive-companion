@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -49,7 +48,7 @@ export class CodeChefProblemParser extends Parser {
         const input = textNodes[textNodes.length - 2].textContent.trim();
         const output = textNodes[textNodes.length - 1].textContent.trim();
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       }
     });
 
@@ -63,7 +62,7 @@ export class CodeChefProblemParser extends Parser {
         const input = inputHeader.nextElementSibling.textContent;
         const output = outputHeader.nextElementSibling.textContent;
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       }
     }
   }

@@ -2,7 +2,6 @@ import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
-import { Test } from '../../models/Test';
 
 export class YandexProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -31,7 +30,7 @@ export class YandexProblemParser extends Parser {
         const input = blocks[0].textContent;
         const output = blocks[1].textContent;
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       });
 
       resolve(task.build());

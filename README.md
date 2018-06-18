@@ -8,6 +8,7 @@ A browser extension which parses programming problems from various online judges
 ## Supported websites
 | Website             	| Problem parser 	| Contest parser 	|
 |-----------------------|-------------------|-------------------|
+| A2OJ               	| ✔              	|                	|
 | AtCoder             	| ✔              	| ✔              	|
 | CodeChef            	| ✔              	| ✔              	|
 | Codeforces          	| ✔              	| ✔              	|
@@ -20,6 +21,7 @@ A browser extension which parses programming problems from various online judges
 | Google Code Jam (new)	| ✔              	|                	|
 | HackerEarth         	| ✔              	| ✔              	|
 | HackerRank          	| ✔              	| ✔              	|
+| HDU Online Judge     	| ✔              	| ✔              	|
 | Jutge               	| ✔              	|                	|
 | Kattis              	| ✔              	| ✔              	|
 | LightOJ              	| ✔              	| ✔              	|

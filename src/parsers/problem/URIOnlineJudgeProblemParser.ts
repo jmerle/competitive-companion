@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -41,7 +40,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
       const input = columns[0].textContent.split('\n').map(x => x.trim()).join('\n').trim();
       const output = columns[1].textContent.split('\n').map(x => x.trim()).join('\n').trim();
 
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
     });
 
     task.setTimeLimit(parseInt(elem.querySelector('.header > strong').textContent.split(' ')[1]) * 1000);

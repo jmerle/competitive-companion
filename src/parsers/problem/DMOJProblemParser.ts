@@ -1,7 +1,6 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { htmlToElement } from '../../utils/dom';
-import { Test } from '../../models/Test';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
 export class DMOJProblemParser extends Parser {
@@ -36,7 +35,7 @@ export class DMOJProblemParser extends Parser {
         const input = inputElem.textContent;
         const output = outputElem.textContent;
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       }
 
       const timeLimitStr = [...elem.querySelectorAll('.problem-info-entry')]

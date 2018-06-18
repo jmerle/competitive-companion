@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -42,7 +41,7 @@ export class USACOTrainingProblemParser extends Parser {
         .nextElementSibling
         .textContent;
 
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
 
       task.setTimeLimit(1000);
       task.setMemoryLimit(16);

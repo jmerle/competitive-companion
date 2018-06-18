@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -22,7 +21,7 @@ export class PandaOnlineJudgeProblemParser extends Parser {
         const input = blocks[i].textContent.trim();
         const output = blocks[i + 1].textContent.trim();
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       }
 
       const headers = elem.querySelectorAll('panda-problem-description > h4');

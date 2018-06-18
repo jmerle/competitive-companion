@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -35,7 +34,7 @@ export class TimusProblemParser extends Parser {
           const input = columns[0].textContent.trim();
           const output = columns[1].textContent.trim();
 
-          task.addTest(new Test(input, output));
+          task.addTest(input, output);
         });
       } else {
         const blocks = [...elem.querySelectorAll('.sample tbody tr pre')];
@@ -44,7 +43,7 @@ export class TimusProblemParser extends Parser {
           const input = blocks[i].textContent.trim();
           const output = blocks[i + 1].textContent.trim();
 
-          task.addTest(new Test(input, output));
+          task.addTest(input, output);
         }
       }
 

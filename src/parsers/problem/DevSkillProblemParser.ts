@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -40,7 +39,7 @@ export class DevSkillProblemParser extends Parser {
           output.push(lines[i].trim());
         }
 
-        task.addTest(new Test(input.join('\n'), output.join('\n')));
+        task.addTest(input.join('\n'), output.join('\n'));
       } else {
         const input = [...elem.querySelectorAll('h2')]
           .find(el => el.textContent.includes('Sample Input'))
@@ -52,7 +51,7 @@ export class DevSkillProblemParser extends Parser {
           .nextElementSibling
           .textContent;
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       }
 
       const timeLimits = [...elem.querySelectorAll('#limits > tbody > tr:not(:nth-child(1)) > td:nth-child(2)')]

@@ -2,7 +2,6 @@ import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
-import { Test } from '../../models/Test';
 
 export class USACOProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -39,7 +38,7 @@ export class USACOProblemParser extends Parser {
 
       const input = elem.querySelector('pre.in').textContent;
       const output = elem.querySelector('pre.out').textContent;
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
 
       task.setTimeLimit(4000);
       task.setMemoryLimit(256);

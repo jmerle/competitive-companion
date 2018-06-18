@@ -6,7 +6,7 @@
       "name": "What is the Median?",
       "group": "E-Olymp - Competitions",
       "url": "https://www.e-olymp.com/en/contests/7837/problems/65223",
-      "memoryLimit": 122,
+      "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {
@@ -32,7 +32,7 @@
       "name": "Rank",
       "group": "E-Olymp - Competitions",
       "url": "https://www.e-olymp.com/en/contests/7837/problems/65224",
-      "memoryLimit": 122,
+      "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {
@@ -62,7 +62,7 @@
       "name": "Square root",
       "group": "E-Olymp - Competitions",
       "url": "https://www.e-olymp.com/en/contests/7837/problems/65225",
-      "memoryLimit": 122,
+      "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {
@@ -92,7 +92,7 @@
       "name": "Ice-Cream",
       "group": "E-Olymp - Competitions",
       "url": "https://www.e-olymp.com/en/contests/7837/problems/65226",
-      "memoryLimit": 122,
+      "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {
@@ -118,7 +118,7 @@
       "name": "The root of a cubic equation",
       "group": "E-Olymp - Competitions",
       "url": "https://www.e-olymp.com/en/contests/7837/problems/65227",
-      "memoryLimit": 122,
+      "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {
@@ -204,7 +204,7 @@
       "name": "Construction",
       "group": "E-Olymp - Competitions",
       "url": "https://www.e-olymp.com/en/contests/7837/problems/65230",
-      "memoryLimit": 122,
+      "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {

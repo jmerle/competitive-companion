@@ -4,8 +4,8 @@ import { Contest } from '../models/Contest';
 import { htmlToElement } from '../utils/dom';
 
 export abstract class ContestParser extends Parser {
-  abstract problemParser: Parser;
   abstract linkSelector: string;
+  abstract problemParser: Parser;
 
   canHandlePage(): boolean {
     return document.querySelector(this.linkSelector) !== null;

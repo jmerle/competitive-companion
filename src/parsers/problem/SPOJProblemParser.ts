@@ -1,12 +1,11 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
 export class SPOJProblemParser extends Parser {
   getMatchPatterns(): string[] {
-    return ['http://www.spoj.com/problems/*/'];
+    return ['https://www.spoj.com/problems/*/'];
   }
 
   parse(url: string, html: string): Promise<Sendable> {
@@ -35,11 +34,13 @@ export class SPOJProblemParser extends Parser {
 
       if (blocks.length === 1) {
         const lines = blocks[0].textContent.trim().split('\n');
-        task.addTest(this.parseTestDataSingleBlock(lines));
+        const [input, output] = this.parseTestDataSingleBlock(lines);
+        task.addTest(input, output);
       } else if (blocks.length === 2) {
         const lines1 = blocks[0].textContent.trim().split('\n');
         const lines2 = blocks[1].textContent.trim().split('\n');
-        task.addTest(this.parseTestDataTwoBlocks(lines1, lines2));
+        const [input, output] = this.parseTestDataTwoBlocks(lines1, lines2);
+        task.addTest(input, output);
       }
 
       const timeLimitStr = [...elem.querySelectorAll('#problem-meta > tbody > tr')]
@@ -57,7 +58,7 @@ export class SPOJProblemParser extends Parser {
     });
   }
 
-  private parseTestDataSingleBlock(lines: string[]): Test {
+  private parseTestDataSingleBlock(lines: string[]): string[] {
     const inputLines: string[] = [];
     const outputLines: string[] = [];
 
@@ -83,10 +84,10 @@ export class SPOJProblemParser extends Parser {
       }
     }
 
-    return new Test(inputLines.join('\n').trim(), outputLines.join('\n').trim());
+    return [inputLines.join('\n').trim(), outputLines.join('\n').trim()];
   }
 
-  private parseTestDataTwoBlocks(lines1: string[], lines2: string[]): Test {
+  private parseTestDataTwoBlocks(lines1: string[], lines2: string[]): string[] {
     if (lines1[0].toLowerCase().includes('input')) {
       lines1 = lines1.slice(1);
     }
@@ -95,6 +96,6 @@ export class SPOJProblemParser extends Parser {
       lines2 = lines2.slice(1);
     }
 
-    return new Test(lines1.join('\n'), lines2.join('\n'));
+    return [lines1.join('\n'), lines2.join('\n')];
   }
 }

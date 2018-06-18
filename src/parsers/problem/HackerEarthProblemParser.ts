@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -33,7 +32,7 @@ export class HackerEarthProblemParser extends Parser {
         const input = blocks[0].textContent.trim();
         const output = blocks[1].textContent.trim();
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       });
 
       const guidelines = elem.querySelector('.problem-guidelines').textContent;

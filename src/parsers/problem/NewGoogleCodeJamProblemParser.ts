@@ -3,7 +3,6 @@ import { Sendable } from '../../models/Sendable';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { TestType } from '../../models/TestType';
-import { Test } from '../../models/Test';
 
 export class NewGoogleCodeJamProblemParser extends Parser {
   getMatchPatterns(): string[] {
@@ -24,7 +23,7 @@ export class NewGoogleCodeJamProblemParser extends Parser {
       const blocks = elem.querySelectorAll('.problem-io-wrapper pre.io-content');
       const input = blocks[0].textContent.trim();
       const output = blocks[1].textContent.trim();
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
 
       const limits = [...elem.querySelectorAll('h3')]
         .find(el => el.textContent === 'Limits')

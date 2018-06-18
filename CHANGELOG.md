@@ -1,3 +1,7 @@
+# 2.2.0 - TBD
+- Added parsers for A2OJ and HDU Online Judge
+- Fixed the HackerRank and the SPOJ parsers
+
 # 2.1.1 - June 2nd, 2018
 - Switched the CHelper implementation to send all tasks to the JSONParser, instead of disguising them as Kattis tasks
 

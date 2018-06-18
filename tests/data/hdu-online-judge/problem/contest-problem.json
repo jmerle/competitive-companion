@@ -1,0 +1,30 @@
+{
+  "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=798",
+  "parser": "problem/HDUOnlineJudgeProblemParser",
+  "result": {
+    "name": "Circular Coloring",
+    "group": "HDU Online Judge",
+    "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=798",
+    "memoryLimit": 132,
+    "timeLimit": 6000,
+    "tests": [
+      {
+        "input": "1 2\n2 3\n5000 5000\n",
+        "output": "6\n40\n975597525\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "CircularColoring"
+      }
+    }
+  }
+}

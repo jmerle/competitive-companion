@@ -1,5 +1,4 @@
 import { Parser } from '../Parser';
-import { Test } from '../../models/Test';
 import { Sendable } from '../../models/Sendable';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
@@ -17,9 +16,9 @@ export class HackerRankProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('.challenge-view h2').textContent.trim());
+      task.setName(elem.querySelector('h1.page-label').textContent.trim());
 
-      const breadCrumbs = [...elem.querySelectorAll('ol.bcrumb li a span')].map(el => el.textContent);
+      const breadCrumbs = [...elem.querySelectorAll('.breadcrumb-item-text')].map(el => el.textContent);
       task.setGroup(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
 
       this.parseTests(html, task);
@@ -44,7 +43,7 @@ export class HackerRankProblemParser extends Parser {
       const input = blocks[i].textContent.trim();
       const output = blocks[i + 1].textContent.trim();
 
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
     }
   }
 }

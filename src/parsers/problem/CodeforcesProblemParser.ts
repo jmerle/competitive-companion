@@ -1,6 +1,5 @@
 import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
 
@@ -67,7 +66,7 @@ export class CodeforcesProblemParser extends Parser {
       const input = inputs[i].innerHTML;
       const output = outputs[i].innerHTML;
 
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
     }
   }
 
@@ -86,7 +85,7 @@ export class CodeforcesProblemParser extends Parser {
       const input = blocks[i].textContent;
       const output = blocks[i + 1].textContent;
 
-      task.addTest(new Test(input, output));
+      task.addTest(input, output);
     }
   }
 
@@ -106,7 +105,7 @@ export class CodeforcesProblemParser extends Parser {
         const input = blocks[2].textContent;
         const output = blocks[3].textContent;
 
-        task.addTest(new Test(input, output));
+        task.addTest(input, output);
       }
     });
   }

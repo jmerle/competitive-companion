@@ -1,10 +1,10 @@
 {
-  "url": "http://www.spoj.com/problems/TEST/",
+  "url": "https://www.spoj.com/problems/TEST/",
   "parser": "problem/SPOJProblemParser",
   "result": {
     "name": "Life, the Universe, and Everything",
     "group": "SPOJ - Classical",
-    "url": "http://www.spoj.com/problems/TEST/",
+    "url": "https://www.spoj.com/problems/TEST/",
     "memoryLimit": 1536,
     "timeLimit": 10000,
     "tests": [
