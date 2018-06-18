@@ -6,6 +6,8 @@ import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
+import { COJProblemParser } from './problem/COJProblemParser';
+import { COJContestParser } from './contest/COJContestParser';
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { DevSkillProblemParser } from './problem/DevSkillProblemParser';
 import { DevSkillContestParser } from './contest/DevSkillContestParser';
@@ -28,10 +30,16 @@ import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LightOJContestParser } from './contest/LightOJContestParser';
 import { OldGoogleCodeJamContestParser } from './contest/OldGoogleCodeJamContestParser';
 import { NewGoogleCodeJamProblemParser } from './problem/NewGoogleCodeJamProblemParser';
+import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
+import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
+import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
+import { POJProblemParser } from './problem/POJProblemParser';
+import { POJContestParser } from './contest/POJContestParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { TimusProblemParser } from './problem/TimusProblemParser';
 import { TimusContestParser } from './contest/TimusContestParser';
+import { TophProblemParser } from './problem/TophProblemParser';
 import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemParser';
 import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestParser';
 import { USACOProblemParser } from './problem/USACOProblemParser';
@@ -49,6 +57,9 @@ export const parsers: Parser[] = [
 
   new CodeforcesProblemParser(),
   new CodeforcesContestParser(),
+
+  new COJProblemParser(),
+  new COJContestParser(),
 
   new CSAcademyProblemParser(),
 
@@ -84,12 +95,22 @@ export const parsers: Parser[] = [
   new OldGoogleCodeJamContestParser(),
   new NewGoogleCodeJamProblemParser(),
 
+  new OmegaUpProblemParser(),
+
   new PandaOnlineJudgeProblemParser(),
+
+  new PEGJudgeProblemParser(),
+  new PEGJudgeContestParser(),
+
+  new POJProblemParser(),
+  new POJContestParser(),
 
   new SPOJProblemParser(),
 
   new TimusProblemParser(),
   new TimusContestParser(),
+
+  new TophProblemParser(),
 
   new URIOnlineJudgeProblemParser(),
   new URIOnlineJudgeContestParser(),

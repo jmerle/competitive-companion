@@ -2,9 +2,17 @@ import { Page } from 'puppeteer';
 import { ParserTestData } from './parsers.spec';
 import { Task } from '../src/models/Task';
 
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default {
   async beforeCodeChef(page: Page, data: ParserTestData) {
     await page.waitFor('.breadcrumbs a');
+  },
+
+  async beforeCOJContest(page: Page, data: ParserTestData) {
+    await page.waitFor('#problem td > a');
   },
 
   async beforeCSAcademy(page: Page, data: ParserTestData) {

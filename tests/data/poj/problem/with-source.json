@@ -1,0 +1,30 @@
+{
+  "url": "http://poj.org/problem?id=1042",
+  "parser": "problem/POJProblemParser",
+  "result": {
+    "name": "Gone Fishing",
+    "group": "POJ - East Central North America 1999",
+    "url": "http://poj.org/problem?id=1042",
+    "memoryLimit": 32,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "2 \n1 \n10 1 \n2 5 \n2 \n4 \n4 \n10 15 20 17 \n0 3 4 3 \n1 2 3 \n4 \n4 \n10 15 50 30 \n0 3 4 3 \n1 2 3 \n0 \n",
+        "output": "45, 5 \nNumber of fish expected: 31 \n\n240, 0, 0, 0 \nNumber of fish expected: 480 \n\n115, 10, 50, 35 \nNumber of fish expected: 724 \n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "GoneFishing"
+      }
+    }
+  }
+}

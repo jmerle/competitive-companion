@@ -5,40 +5,45 @@
 
 A browser extension which parses programming problems from various online judges and sends them to various tools. Capable of parsing problems and contests and extracting the data necessary to solve the problem like the example testcases and the time and memory constraints.
 
-## Supported websites
-| Website             	| Problem parser 	| Contest parser 	|
-|-----------------------|-------------------|-------------------|
-| A2OJ               	| ✔              	|                	|
-| AtCoder             	| ✔              	| ✔              	|
-| CodeChef            	| ✔              	| ✔              	|
-| Codeforces          	| ✔              	| ✔              	|
-| CSAcademy           	| ✔              	|                	|
-| DevSkill            	| ✔              	| ✔              	|
-| DMOJ                	| ✔              	| ✔              	|
-| E-Olymp             	| ✔              	| ✔              	|
-| Facebook Hacker Cup 	| ✔              	|                	|
-| Google Code Jam (old)	|                	| ✔              	|
-| Google Code Jam (new)	| ✔              	|                	|
-| HackerEarth         	| ✔              	| ✔              	|
-| HackerRank          	| ✔              	| ✔              	|
-| HDU Online Judge     	| ✔              	| ✔              	|
-| Jutge               	| ✔              	|                	|
-| Kattis              	| ✔              	| ✔              	|
-| LightOJ              	| ✔              	| ✔              	|
-| Panda Online Judge   	| ✔              	|                	|
-| SPOJ                	| ✔              	|                	|
-| Timus               	| ✔              	| ✔              	|
-| URI Online Judge     	| ✔              	| ✔              	|
-| USACO               	| ✔              	|                	|
-| USACO Training        | ✔              	|                	|
-| Yandex              	| ✔              	|                	|
-
 ## Supported tools
 - [CHelper](https://plugins.jetbrains.com/plugin/7091-chelper)
 - [JHelper](https://plugins.jetbrains.com/plugin/7541-jhelper)
 - [Hightail](https://github.com/dj3500/hightail)
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
 - Any other tool that can parse the data that is being sent, read more about that below
+
+## Supported websites
+| Website               | Problem parser | Contest parser |
+|-----------------------|----------------|----------------|
+| A2OJ                  | ✔              |                |
+| AtCoder               | ✔              | ✔              |
+| CodeChef              | ✔              | ✔              |
+| Codeforces            | ✔              | ✔              |
+| COJ                   | ✔              | ✔              |
+| CSAcademy             | ✔              |                |
+| DevSkill              | ✔              | ✔              |
+| DMOJ                  | ✔              | ✔              |
+| E-Olymp               | ✔              | ✔              |
+| Facebook Hacker Cup   | ✔              |                |
+| HackerEarth           | ✔              | ✔              |
+| HackerRank            | ✔              | ✔              |
+| HDU Online Judge      | ✔              | ✔              |
+| Jutge                 | ✔              |                |
+| Kattis                | ✔              | ✔              |
+| LightOJ               | ✔              | ✔              |
+| Google Code Jam (old) |                | ✔              |
+| Google Code Jam (new) | ✔              |                |
+| omegaUp               | ✔              |                |
+| Panda Online Judge    | ✔              |                |
+| PEG Judge             | ✔              | ✔              |
+| POJ                   | ✔              | ✔              |
+| SPOJ                  | ✔              |                |
+| Timus                 | ✔              | ✔              |
+| Toph                  | ✔              |                |
+| URI Online Judge      | ✔              | ✔              |
+| USACO                 | ✔              |                |
+| USACO Training        | ✔              |                |
+| Yandex                | ✔              |                |
 
 ## Custom tools
 Competitive Companion can send the parsed data in JSON format to your own tools. An example on how to accomplish this can be found [here](https://github.com/jmerle/competitive-companion-example).
@@ -160,8 +165,8 @@ Nearly all parsers are automatically tested weekly. To run tests locally, copy `
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 9.11.1  
-Yarn: 1.6.0  
+Node.js: 10.4.0  
+Yarn: 1.7.0  
 Ubuntu: 18.04  
 
 Third-party libraries that can be found in the minified extension:  
@@ -172,4 +177,4 @@ Third-party libraries that can be found in the minified extension:
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
 
 ## Credits
-This extension was made by [Jasper van Merle](https://github.com/jmerle). Much thanks to [Egor Kulikov](https://github.com/EgorKulikov) for making the CHelper plugin and the original extension, which was the reason this extension was created.
+This extension was made by [Jasper van Merle](https://github.com/jmerle). Much thanks to [Egor Kulikov](https://github.com/EgorKulikov) for making the CHelper plugin and the original CHelper extension, which was the reason this extension was created.

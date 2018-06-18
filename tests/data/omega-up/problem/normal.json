@@ -1,0 +1,34 @@
+{
+  "url": "https://omegaup.com/arena/problem/A-jugar-2048",
+  "parser": "problem/OmegaUpProblemParser",
+  "result": {
+    "name": "A jugar 2048",
+    "group": "omegaUp",
+    "url": "https://omegaup.com/arena/problem/A-jugar-2048#problems",
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n2\n2\n2\n2\n16\n",
+        "output": "2\n16\n8\n"
+      },
+      {
+        "input": "6\n2\n8\n4\n2\n2\n4\n",
+        "output": "3\n4\n16\n2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AJugar2048"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "url": "http://poj.org/showcontest?contest_id=1525",
+  "parser": "contest/POJContestParser",
+  "result": [
+    {
+      "name": "A+B Problem",
+      "group": "POJ",
+      "url": "http://poj.org/problem?id=1000",
+      "memoryLimit": 10,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1 2\n",
+          "output": "3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ABProblem"
+        }
+      }
+    }
+  ]
+}

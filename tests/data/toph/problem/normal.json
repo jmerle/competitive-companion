@@ -1,0 +1,38 @@
+{
+  "url": "https://toph.co/p/book-worm",
+  "parser": "problem/TophProblemParser",
+  "result": {
+    "name": "Book Worm",
+    "group": "Toph",
+    "url": "https://toph.co/p/book-worm",
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1000 1\n100 201\n",
+        "output": "1 99\n201 1001\n"
+      },
+      {
+        "input": "100 3\n11 21\n51 56\n54 61\n",
+        "output": "1 11\n21 51\n61 101\n"
+      },
+      {
+        "input": "200 1\n1 201\n",
+        "output": "Sheldon ate it all !!!\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "BookWorm"
+      }
+    }
+  }
+}

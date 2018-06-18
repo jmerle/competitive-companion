@@ -1,0 +1,30 @@
+{
+  "url": "http://coj.uci.cu/24h/problem.xhtml?pid=1000",
+  "parser": "problem/COJProblemParser",
+  "result": {
+    "name": "A+B Problem",
+    "group": "COJ",
+    "url": "http://coj.uci.cu/24h/problem.xhtml?pid=1000",
+    "memoryLimit": 62,
+    "timeLimit": 10000,
+    "tests": [
+      {
+        "input": "1 2\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblem"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "url": "https://toph.co/p/partition-magic",
+  "parser": "problem/TophProblemParser",
+  "result": {
+    "name": "Partition Magic",
+    "group": "Toph",
+    "url": "https://toph.co/p/partition-magic",
+    "memoryLimit": 32,
+    "timeLimit": 10000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "PartitionMagic"
+      }
+    }
+  }
+}
