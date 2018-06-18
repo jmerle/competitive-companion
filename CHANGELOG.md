@@ -1,4 +1,4 @@
-# 2.2.1 - Unknown
+# 2.2.1 - June 18th, 2018
 - Added a shortcut (default: Ctrl+Shift+U) to parse the problem/contest without having to click the green plus icon
 
 # 2.2.0 - June 18th, 2018
