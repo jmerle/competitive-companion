@@ -57,5 +57,13 @@
     },
     "default_title": "Parse task",
     "browser_style": false
+  },
+
+  "commands": {
+    "_execute_page_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U"
+      }
+    }
   }
 }

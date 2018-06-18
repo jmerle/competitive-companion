@@ -1,3 +1,6 @@
+# 2.2.1 - Unknown
+- Added a shortcut (default: Ctrl+Shift+U) to parse the problem/contest without having to click the green plus icon
+
 # 2.2.0 - June 18th, 2018
 - Added parsers for A2OJ, HDU Online Judge, Toph, PEG Judge, POJ, omegaUp and COJ
 - Fixed the HackerRank and the SPOJ parsers
