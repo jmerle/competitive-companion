@@ -1,3 +1,6 @@
+# 2.2.2 - June 19th, 2018
+- Fixed the CodeChef parser
+
 # 2.2.1 - June 18th, 2018
 - Added a shortcut (default: Ctrl+Shift+U) to parse the problem/contest without having to click the green plus icon
 

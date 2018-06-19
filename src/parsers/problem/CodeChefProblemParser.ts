@@ -54,11 +54,11 @@ export class CodeChefProblemParser extends Parser {
 
     if (task.tests.length === 0) {
       const inputHeader = [...elem.querySelectorAll('h3')]
-        .find(x => x.textContent.toLowerCase().includes('example input'));
+        .find(x => x.textContent.toLowerCase().includes('ample input'));
       const outputHeader = [...elem.querySelectorAll('h3')]
-        .find(x => x.textContent.toLowerCase().includes('example output'));
+        .find(x => x.textContent.toLowerCase().includes('ample output'));
 
-      if (inputHeader !== null && outputHeader !== null) {
+      if (inputHeader !== undefined && outputHeader !== undefined) {
         const input = inputHeader.nextElementSibling.textContent;
         const output = outputHeader.nextElementSibling.textContent;
 

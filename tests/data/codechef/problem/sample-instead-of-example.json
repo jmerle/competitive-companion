@@ -1,0 +1,31 @@
+{
+  "url": "https://www.codechef.com/LOCAPR18/problems/CRICSCR",
+  "parser": "problem/CodeChefProblemParser",
+  "before": "beforeCodeChef",
+  "result": {
+    "name": "Cricket Score",
+    "group": "CodeChef - LoC April 2018 (Rated for Division 2)",
+    "url": "https://www.codechef.com/LOCAPR18/problems/CRICSCR",
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3\n1 1\n4 1\n7 6\n",
+        "output": "YES\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "CricketScore"
+      }
+    }
+  }
+}
