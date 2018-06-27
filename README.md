@@ -165,7 +165,7 @@ Nearly all parsers are automatically tested weekly. To run tests locally, copy `
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 10.4.0  
+Node.js: 10.5.0  
 Yarn: 1.7.0  
 Ubuntu: 18.04  
 

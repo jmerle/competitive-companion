@@ -17,9 +17,26 @@ export class DMOJProblemParser extends Parser {
       task.setGroup('DMOJ');
 
       const inputs = [...elem.querySelectorAll('h4')]
-        .filter(el => el.textContent.includes('Sample Input'));
+        .filter(el => {
+          const text = el.textContent.toLowerCase();
+
+          if (text.includes('output') || text.includes('explanation')) {
+            return false;
+          }
+
+          return text.includes('sample input');
+        });
+
       const outputs = [...elem.querySelectorAll('h4')]
-        .filter(el => el.textContent.includes('Sample Output'));
+        .filter(el => {
+          const text = el.textContent.toLowerCase();
+
+          if (text.includes('explanation')) {
+            return false;
+          }
+
+          return text.includes('sample output') || text.includes('output for sample input');
+        });
 
       for (let i = 0; i < inputs.length; i++) {
         let inputElem: Element = inputs[i];

@@ -1,3 +1,6 @@
+# 2.2.3 - June 27th, 2018
+- Fixed a bug in the DMOJ parser
+
 # 2.2.2 - June 19th, 2018
 - Fixed the CodeChef parser
 
