@@ -1,3 +1,6 @@
+# 2.2.4 - June 30th, 2018
+- Added support for AtCoder Beta
+
 # 2.2.3 - June 27th, 2018
 - Fixed a bug in the DMOJ parser
 
