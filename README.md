@@ -1,7 +1,12 @@
 # Competitive Companion
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/chelper-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)  
 [![Mozilla Add-on](https://img.shields.io/amo/v/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
+[![Mozilla Add-on Users](https://img.shields.io/amo/users/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
+[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)  
+[![License](https://img.shields.io/github/license/jmerle/competitive-companion.svg)](LICENSE)
 
 A browser extension which parses programming problems from various online judges and sends them to various tools. Capable of parsing problems and contests and extracting the data necessary to solve the problem like the example testcases and the time and memory constraints.
 
