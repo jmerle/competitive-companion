@@ -3,14 +3,14 @@ import { Parser } from '../Parser';
 import { COJProblemParser } from '../problem/COJProblemParser';
 
 export class COJContestParser extends ContestParser {
-  linkSelector: string = '#problem td > a';
-  problemParser: Parser = new COJProblemParser();
+  public linkSelector: string = '#problem td > a';
+  public problemParser: Parser = new COJProblemParser();
 
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['http://coj.uci.cu/contest/cproblems.xhtml*'];
   }
 
-  canHandlePage(): boolean {
+  public canHandlePage(): boolean {
     return true;
   }
 }

@@ -1,10 +1,9 @@
 import { Host } from './Host';
 
 export class CustomHost implements Host {
-  constructor(public port: number) {
-  }
+  constructor(public port: number) {}
 
-  send(data: string): Promise<void> {
+  public send(data: string): Promise<void> {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open('POST', `http://localhost:${this.port}`, true);
@@ -15,7 +14,7 @@ export class CustomHost implements Host {
       xhr.onload = () => resolve();
 
       xhr.send(data);
-      xhr.send(null);
+      xhr.send();
     });
   }
 }

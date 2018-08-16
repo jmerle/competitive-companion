@@ -3,10 +3,10 @@ import { Parser } from '../Parser';
 import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
 
 export class CodeforcesContestParser extends ContestParser {
-  problemParser: Parser = new CodeforcesProblemParser();
-  linkSelector: string = '.problems > tbody > tr > td:first-child > a';
+  public problemParser: Parser = new CodeforcesProblemParser();
+  public linkSelector: string = '.problems > tbody > tr > td:first-child > a';
 
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return [
       'http://codeforces.com/contest/*',
       'https://codeforces.com/contest/*',
@@ -17,7 +17,9 @@ export class CodeforcesContestParser extends ContestParser {
     ];
   }
 
-  getRegularExpressions(): RegExp[] {
-    return [/^http:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)$/];
+  public getRegularExpressions(): RegExp[] {
+    return [
+      /^http:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)$/,
+    ];
   }
 }

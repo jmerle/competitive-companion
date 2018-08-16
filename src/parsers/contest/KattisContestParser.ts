@@ -3,14 +3,17 @@ import { Parser } from '../Parser';
 import { KattisProblemParser } from '../problem/KattisProblemParser';
 
 export class KattisContestParser extends ContestParser {
-  problemParser: Parser = new KattisProblemParser();
-  linkSelector: string = '#standings > thead > tr > th.problemcolheader-standings > a';
+  public problemParser: Parser = new KattisProblemParser();
+  public linkSelector: string =
+    '#standings > thead > tr > th.problemcolheader-standings > a';
 
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['https://open.kattis.com/contests/*'];
   }
 
-  getRegularExpressions(): RegExp[] {
-    return [/^https:\/\/.*[.]kattis[.]com\/contests\/([a-z0-9]+)(\/standings)?$/];
+  public getRegularExpressions(): RegExp[] {
+    return [
+      /^https:\/\/.*[.]kattis[.]com\/contests\/([a-z0-9]+)(\/standings)?$/,
+    ];
   }
 }

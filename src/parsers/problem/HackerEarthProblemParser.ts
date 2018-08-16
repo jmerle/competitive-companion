@@ -1,29 +1,29 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class HackerEarthProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return [
       'https://www.hackerearth.com/*/algorithm/*',
       'https://www.hackerearth.com/*/approximate/*',
     ];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('#problem-title').textContent.trim());
 
-      let groupSuffix: string[] = [];
-      if (elem.querySelector('.timings') !== null) {
-        groupSuffix = [elem.querySelector('.cover .title').textContent.trim()];
-      } else {
-        groupSuffix = [...elem.querySelectorAll('.breadcrumb a')].map(el => el.textContent).slice(1);
-      }
+      const groupSuffix: string[] =
+        elem.querySelector('.timings') !== null
+          ? [elem.querySelector('.cover .title').textContent.trim()]
+          : [...elem.querySelectorAll('.breadcrumb a')]
+              .map(el => el.textContent)
+              .slice(1);
 
       task.setGroup(['HackerEarth', ...groupSuffix].join(' - '));
 
@@ -37,7 +37,7 @@ export class HackerEarthProblemParser extends Parser {
 
       const guidelines = elem.querySelector('.problem-guidelines').textContent;
       task.setTimeLimit(parseFloat(/([0-9.]+) sec/.exec(guidelines)[1]) * 1000);
-      task.setMemoryLimit(parseInt(/(\d+) MB/.exec(guidelines)[1]));
+      task.setMemoryLimit(parseInt(/(\d+) MB/.exec(guidelines)[1], 10));
 
       resolve(task.build());
     });

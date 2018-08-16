@@ -10,22 +10,25 @@
  */
 export function matchPatternToRegExp(pattern: string): RegExp {
   if (pattern === '') {
-    return (/^(?:http|https|file|ftp|app):\/\//);
+    return /^(?:http|https|file|ftp|app):\/\//;
   }
 
   const schemeSegment = '(\\*|http|https|file|ftp)';
   const hostSegment = '(\\*|(?:\\*\\.)?(?:[^/*]+))?';
   const pathSegment = '(.*)';
   const matchPatternRegExp = new RegExp(
-    `^${schemeSegment}://${hostSegment}/${pathSegment}$`
+    `^${schemeSegment}://${hostSegment}/${pathSegment}$`,
   );
 
-  let match = matchPatternRegExp.exec(pattern);
+  const match = matchPatternRegExp.exec(pattern);
   if (!match) {
     throw new TypeError(`"${pattern}" is not a valid MatchPattern`);
   }
 
-  let [, scheme, host, path] = match;
+  const scheme = match[1];
+  let host = match[2];
+  const path = match[3];
+
   if (!host) {
     throw new TypeError(`"${pattern}" does not have a valid host`);
   }

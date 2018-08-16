@@ -1,14 +1,14 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class TimusProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['http://acm.timus.ru/problem.aspx*'];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
@@ -17,7 +17,7 @@ export class TimusProblemParser extends Parser {
 
       const limits = elem.querySelector('.problem_limits').textContent.trim();
       task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limits)[1]) * 1000);
-      task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limits)[1]));
+      task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limits)[1], 10));
 
       const source = elem.querySelector('.problem_source').textContent;
 

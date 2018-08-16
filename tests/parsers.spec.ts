@@ -4,15 +4,16 @@
 require('dotenv').config();
 
 import * as fs from 'fs';
+import { JSDOM } from 'jsdom';
+import fetch from 'node-fetch';
 import * as path from 'path';
+import { Contest } from '../src/models/Contest';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
-import { JSDOM } from 'jsdom';
-import { Contest } from '../src/models/Contest';
-import fetch from 'node-fetch';
 
 const parserFunctions = require('./parser-functions').default;
 
+// tslint:disable-next-line no-console
 console.log('Ignore the "Could not parse CSS stylesheet" errors');
 
 export interface ParserTestData {
@@ -47,18 +48,16 @@ function runTests(website: string, type: string) {
 
       data.name = path.basename(file, '.json');
 
-      if (Array.isArray(data.result)) {
-        data.result = data.result.map((t: any) => Task.fromJSON(JSON.stringify(t)));
-      } else {
-        data.result = Task.fromJSON(JSON.stringify(data.result));
-      }
+      data.result = Array.isArray(data.result)
+        ? data.result.map((t: any) => Task.fromJSON(JSON.stringify(t)))
+        : Task.fromJSON(JSON.stringify(data.result));
 
       return data;
     });
 
   describe(type, () => {
     tests.forEach(data => {
-      test(data.name, () => {
+      test(data.name!, () => {
         return runTest(data);
       });
     });
@@ -117,12 +116,12 @@ beforeAll(async () => {
     (global as any).window = {
       ...dom.window,
       nanoBar: {
-        go: () => {},
+        go: (percentage: number) => {},
       },
     };
 
-    (global as any).DOMParser = function () {
-      this.parseFromString = function (source: string, mimeType: string): Document {
+    (global as any).DOMParser = function() {
+      this.parseFromString = (source: string, mimeType: string): Document => {
         return new JSDOM(source, { url }).window.document;
       };
     };

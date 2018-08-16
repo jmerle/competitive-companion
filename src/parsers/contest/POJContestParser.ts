@@ -3,10 +3,10 @@ import { Parser } from '../Parser';
 import { POJProblemParser } from '../problem/POJProblemParser';
 
 export class POJContestParser extends ContestParser {
-  linkSelector: string = 'div[align=center] > table tr a';
-  problemParser: Parser = new POJProblemParser();
+  public linkSelector: string = 'div[align=center] > table tr a';
+  public problemParser: Parser = new POJProblemParser();
 
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['http://poj.org/showcontest*'];
   }
 }

@@ -1,10 +1,10 @@
 export class Config {
-  static defaultValues: any = {
-    'debugMode': false,
-    'customPorts': [],
+  public static defaultValues: any = {
+    customPorts: [],
+    debugMode: false,
   };
 
-  static get<T>(key: string): Promise<T> {
+  public static get<T>(key: string): Promise<T> {
     return new Promise((resolve, reject) => {
       browser.storage.local
         .get(key)
@@ -13,7 +13,10 @@ export class Config {
     });
   }
 
-  static set(key: string, value: browser.storage.StorageValue): Promise<void> {
+  public static set(
+    key: string,
+    value: browser.storage.StorageValue,
+  ): Promise<void> {
     return browser.storage.local.set({ [key]: value });
   }
 }

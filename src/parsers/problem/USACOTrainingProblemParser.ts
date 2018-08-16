@@ -1,45 +1,42 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class USACOTrainingProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['http://train.usaco.org/usacoprob2*'];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
       const taskId = [...elem.querySelectorAll('h3')]
         .find(el => el.textContent.includes('PROGRAM NAME'))
-        .textContent
-        .substr(14);
+        .textContent.substr(14);
 
       task.setInput({
-        type: 'file',
         fileName: taskId + '.in',
+        type: 'file',
       });
 
       task.setOutput({
-        type: 'file',
         fileName: taskId + '.out',
+        type: 'file',
       });
 
       task.setName(elem.querySelector('center > h1').textContent);
       task.setGroup('USACO Training');
 
-      const input = [...elem.querySelectorAll('h3')]
-        .find(el => el.textContent.includes('SAMPLE INPUT'))
-        .nextElementSibling
-        .textContent;
+      const input = [...elem.querySelectorAll('h3')].find(el =>
+        el.textContent.includes('SAMPLE INPUT'),
+      ).nextElementSibling.textContent;
 
-      const output = [...elem.querySelectorAll('h3')]
-        .find(el => el.textContent.includes('SAMPLE OUTPUT'))
-        .nextElementSibling
-        .textContent;
+      const output = [...elem.querySelectorAll('h3')].find(el =>
+        el.textContent.includes('SAMPLE OUTPUT'),
+      ).nextElementSibling.textContent;
 
       task.addTest(input, output);
 

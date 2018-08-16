@@ -3,23 +3,23 @@ export class Test {
   private output: string;
 
   constructor(input: string, output: string) {
-    this.setInput(input);
-    this.setOutput(output);
+    this.input = this.correctData(input);
+    this.output = this.correctData(output);
   }
 
-  getInput(): string {
+  public getInput(): string {
     return this.input;
   }
 
-  setInput(input: string) {
+  public setInput(input: string) {
     this.input = this.correctData(input);
   }
 
-  getOutput(): string {
+  public getOutput(): string {
     return this.output;
   }
 
-  setOutput(output: string) {
+  public setOutput(output: string) {
     this.output = this.correctData(output);
   }
 

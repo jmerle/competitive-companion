@@ -1,22 +1,24 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class DevSkillProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return [
       'https://devskill.com/CodingProblems/ViewProblem/*',
       'https://www.devskill.com/CodingProblems/ViewProblem/*',
     ];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      const header = elem.querySelector('h1.page-title').childNodes[0].textContent.trim();
+      const header = elem
+        .querySelector('h1.page-title')
+        .childNodes[0].textContent.trim();
       task.setName(header.substr(header.indexOf(':') + 2));
 
       task.setGroup('DevSkill');
@@ -41,23 +43,24 @@ export class DevSkillProblemParser extends Parser {
 
         task.addTest(input.join('\n'), output.join('\n'));
       } else {
-        const input = [...elem.querySelectorAll('h2')]
-          .find(el => el.textContent.includes('Sample Input'))
-          .nextElementSibling
-          .textContent;
+        const input = [...elem.querySelectorAll('h2')].find(el =>
+          el.textContent.includes('Sample Input'),
+        ).nextElementSibling.textContent;
 
-        const output = [...elem.querySelectorAll('h2')]
-          .find(el => el.textContent.includes('Sample Output'))
-          .nextElementSibling
-          .textContent;
+        const output = [...elem.querySelectorAll('h2')].find(el =>
+          el.textContent.includes('Sample Output'),
+        ).nextElementSibling.textContent;
 
         task.addTest(input, output);
       }
 
-      const timeLimits = [...elem.querySelectorAll('#limits > tbody > tr:not(:nth-child(1)) > td:nth-child(2)')]
-        .map(el => parseFloat(el.textContent) * 1000);
+      const timeLimits = [
+        ...elem.querySelectorAll(
+          '#limits > tbody > tr:not(:nth-child(1)) > td:nth-child(2)',
+        ),
+      ].map(el => parseFloat(el.textContent) * 1000);
 
-      task.setTimeLimit(timeLimits.reduce((a, b) => a > b ? a : b));
+      task.setTimeLimit(timeLimits.reduce((a, b) => (a > b ? a : b)));
       task.setMemoryLimit(1024);
 
       resolve(task.build());

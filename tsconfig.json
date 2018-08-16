@@ -2,10 +2,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2015",
-    "noImplicitAny": true,
-    "typeRoots": [
-      "@types",
-      "node_modules/web-ext-types"
-    ]
+    "strict": true,
+    "strictNullChecks": false,
+    "typeRoots": ["@types", "node_modules/web-ext-types"]
   }
 }

@@ -1,14 +1,14 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class OmegaUpProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['https://omegaup.com/arena/*'];
   }
 
-  getRegularExpressions(): RegExp[] {
+  public getRegularExpressions(): RegExp[] {
     return [
       /https:\/\/omegaup\.com\/arena\/problem\/([^\/]+)/,
       /https:\/\/omegaup\.com\/arena\/([^\/]+)\/practice\/#problems\/([^\/]+)/,
@@ -16,7 +16,7 @@ export class OmegaUpProblemParser extends Parser {
     ];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
@@ -34,8 +34,12 @@ export class OmegaUpProblemParser extends Parser {
 
       task.setGroup(group.join(' - '));
 
-      task.setTimeLimit(parseFloat(problem.querySelector('.time_limit').textContent) * 1000);
-      task.setMemoryLimit(parseInt(problem.querySelector('.memory_limit').textContent));
+      task.setTimeLimit(
+        parseFloat(problem.querySelector('.time_limit').textContent) * 1000,
+      );
+      task.setMemoryLimit(
+        parseInt(problem.querySelector('.memory_limit').textContent, 10),
+      );
 
       const testTable = problem.querySelector('.sample_io');
       if (testTable !== null) {

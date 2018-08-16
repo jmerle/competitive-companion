@@ -1,21 +1,23 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { HackerEarthProblemParser } from './HackerEarthProblemParser';
 import { Task } from '../../models/Task';
+import { Parser } from '../Parser';
+import { HackerEarthProblemParser } from './HackerEarthProblemParser';
 
 export class HackerEarthCodeArenaParser extends Parser {
-  problemParser: Parser = new HackerEarthProblemParser();
+  public problemParser: Parser = new HackerEarthProblemParser();
 
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['https://www.hackerearth.com/codearena/ring/*/*'];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       this.problemParser.parse(url, html).then(task => {
         const t = task as Task;
 
-        const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(window.location.href)[1];
+        const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(
+          window.location.href,
+        )[1];
         t.name = `CodeArena ${id}`;
 
         t.group = 'HackerEarth - CodeArena';

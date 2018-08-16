@@ -1,19 +1,24 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class A2OJProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['https://a2oj.com/p*'];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('#page center div').childNodes[4].textContent.trim().split('. ')[1]);
+      task.setName(
+        elem
+          .querySelector('#page center div')
+          .childNodes[4].textContent.trim()
+          .split('. ')[1],
+      );
       task.setGroup('A2 Online Judge');
 
       task.setTimeLimit(2000);
@@ -28,8 +33,16 @@ export class A2OJProblemParser extends Parser {
         .map(el => el.nextElementSibling);
 
       for (let i = 0; i < inputs.length; i++) {
-        const input = inputs[i].textContent.split('\n').map(x => x.trim()).join('\n').trim();
-        const output = outputs[i].textContent.split('\n').map(x => x.trim()).join('\n').trim();
+        const input = inputs[i].textContent
+          .split('\n')
+          .map(x => x.trim())
+          .join('\n')
+          .trim();
+        const output = outputs[i].textContent
+          .split('\n')
+          .map(x => x.trim())
+          .join('\n')
+          .trim();
 
         task.addTest(input, output);
       }

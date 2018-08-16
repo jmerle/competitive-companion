@@ -1,10 +1,10 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class CodeforcesProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return [
       'http://codeforces.com/contest/*/problem/*',
       'https://codeforces.com/contest/*/problem/*',
@@ -19,14 +19,18 @@ export class CodeforcesProblemParser extends Parser {
     ];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const task = new TaskBuilder().setUrl(url);
 
       if (url.includes('/problemsets/acmsguru')) {
         const elem = htmlToElement(html);
 
-        if (elem.querySelector('.problemindexholder > .ttypography > .bordertable') !== null) {
+        if (
+          elem.querySelector(
+            '.problemindexholder > .ttypography > .bordertable',
+          ) !== null
+        ) {
           this.parseAcmSguRuProblemInsideTable(html, task);
         } else {
           this.parseAcmSguRuProblemNotInsideTable(html, task);
@@ -42,22 +46,20 @@ export class CodeforcesProblemParser extends Parser {
   private parseMainProblem(html: string, task: TaskBuilder) {
     const elem = htmlToElement(html);
 
-    task.setName(elem.querySelector('.problem-statement > .header > .title').textContent);
+    task.setName(
+      elem.querySelector('.problem-statement > .header > .title').textContent,
+    );
     task.setGroup(elem.querySelector('.rtable > tbody > tr > th').textContent);
 
     const timeLimitStr = elem
       .querySelector('.problem-statement > .header > .time-limit')
-      .childNodes[1]
-      .textContent
-      .split(' ')[0];
+      .childNodes[1].textContent.split(' ')[0];
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
     const memoryLimitStr = elem
       .querySelector('.problem-statement > .header > .memory-limit')
-      .childNodes[1]
-      .textContent
-      .split(' ')[0];
-    task.setMemoryLimit(parseInt(memoryLimitStr));
+      .childNodes[1].textContent.split(' ')[0];
+    task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
     const inputs = elem.querySelectorAll('.input pre');
     const outputs = elem.querySelectorAll('.output pre');
@@ -73,11 +75,19 @@ export class CodeforcesProblemParser extends Parser {
   private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder) {
     const elem = htmlToElement(html);
 
-    task.setName(elem.querySelector('.problemindexholder h3').textContent.trim());
+    task.setName(
+      elem.querySelector('.problemindexholder h3').textContent.trim(),
+    );
     task.setGroup('Codeforces - acm.sgu.ru archive');
 
-    task.setTimeLimit(parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000);
-    task.setMemoryLimit(Math.floor(parseInt(/memory limit per test: (\d+)\s+ KB/.exec(html)[1]) / 1000));
+    task.setTimeLimit(
+      parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000,
+    );
+    task.setMemoryLimit(
+      Math.floor(
+        parseInt(/memory limit per test: (\d+)\s+ KB/.exec(html)[1], 10) / 1000,
+      ),
+    );
 
     const blocks = elem.querySelectorAll('font > pre');
 
@@ -95,8 +105,17 @@ export class CodeforcesProblemParser extends Parser {
     task.setName(elem.querySelector('.problemindexholder h4').textContent);
     task.setGroup('Codeforces - acm.sgu.ru archive');
 
-    task.setTimeLimit(parseFloat(/Time limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000);
-    task.setMemoryLimit(Math.floor(parseInt(/Memory limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1]) / 1000));
+    task.setTimeLimit(
+      parseFloat(/Time limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000,
+    );
+    task.setMemoryLimit(
+      Math.floor(
+        parseInt(
+          /Memory limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1],
+          10,
+        ) / 1000,
+      ),
+    );
 
     elem.querySelectorAll('table').forEach(table => {
       const blocks = table.querySelectorAll('pre');

@@ -1,19 +1,23 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class PandaOnlineJudgeProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['https://pandaoj.com/problem/*'];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('panda-problem-description > h2').textContent.split(' - ')[1]);
+      task.setName(
+        elem
+          .querySelector('panda-problem-description > h2')
+          .textContent.split(' - ')[1],
+      );
       task.setGroup('Panda Online Judge');
 
       const blocks = elem.querySelectorAll('panda-testcase-sample pre');
@@ -25,8 +29,12 @@ export class PandaOnlineJudgeProblemParser extends Parser {
       }
 
       const headers = elem.querySelectorAll('panda-problem-description > h4');
-      task.setTimeLimit(parseInt(/Time Limit: (\d+) ms/.exec(headers[1].textContent)[1]));
-      task.setMemoryLimit(parseInt(/Memory Limit: (\d+) MB/.exec(headers[0].textContent)[1]));
+      task.setTimeLimit(
+        parseInt(/Time Limit: (\d+) ms/.exec(headers[1].textContent)[1], 10),
+      );
+      task.setMemoryLimit(
+        parseInt(/Memory Limit: (\d+) MB/.exec(headers[0].textContent)[1], 10),
+      );
 
       resolve(task.build());
     });

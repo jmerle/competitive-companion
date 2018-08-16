@@ -1,7 +1,7 @@
-import { Test } from './Test';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
 import { Task } from './Task';
+import { Test } from './Test';
 import { TestType } from './TestType';
 
 export class TaskBuilder {
@@ -26,75 +26,73 @@ export class TaskBuilder {
     },
   };
 
-  setName(name: string): TaskBuilder {
+  public setName(name: string): TaskBuilder {
     this.name = name;
     return this.setJavaTaskClassFromName();
   }
 
-  setGroup(group: string): TaskBuilder {
+  public setGroup(group: string): TaskBuilder {
     this.group = group;
     return this;
   }
 
-  setUrl(url: string): TaskBuilder {
+  public setUrl(url: string): TaskBuilder {
     this.url = url;
     return this;
   }
 
-  setMemoryLimit(memoryLimit: number): TaskBuilder {
+  public setMemoryLimit(memoryLimit: number): TaskBuilder {
     this.memoryLimit = memoryLimit;
     return this;
   }
 
-  setTimeLimit(timeLimit: number): TaskBuilder {
+  public setTimeLimit(timeLimit: number): TaskBuilder {
     this.timeLimit = timeLimit;
     return this;
   }
 
-  setTests(tests: Test[]): TaskBuilder {
+  public setTests(tests: Test[]): TaskBuilder {
     this.tests = tests;
     return this;
   }
 
-  addTest(input: string, output: string): TaskBuilder {
+  public addTest(input: string, output: string): TaskBuilder {
     this.tests.push(new Test(input, output));
     return this;
   }
 
-  setTestType(type: TestType): TaskBuilder {
+  public setTestType(type: TestType): TaskBuilder {
     this.testType = type;
     return this;
   }
 
-  setInput(input: InputConfiguration): TaskBuilder {
+  public setInput(input: InputConfiguration): TaskBuilder {
     this.input = input;
     return this;
   }
 
-  setOutput(output: OutputConfiguration): TaskBuilder {
+  public setOutput(output: OutputConfiguration): TaskBuilder {
     this.output = output;
     return this;
   }
 
-  setJavaMainClass(mainClass: string): TaskBuilder {
+  public setJavaMainClass(mainClass: string): TaskBuilder {
     this.languages.java.mainClass = mainClass;
     return this;
   }
 
-  setJavaTaskClass(taskClass: string): TaskBuilder {
+  public setJavaTaskClass(taskClass: string): TaskBuilder {
     this.languages.java.taskClass = taskClass;
     return this;
   }
 
-  setJavaTaskClassFromName(): TaskBuilder {
+  public setJavaTaskClassFromName(): TaskBuilder {
     const name = this.name.replace(/[^a-zA-Z0-9_ -]/g, '');
 
     let taskClass = '';
     let nextCapital = true;
 
-    for (let i = 0; i < name.length; i++) {
-      const char = name[i];
-
+    for (const char of name) {
       const isLetter = /[a-z]/i.test(char);
       const isDigit = /[0-9]/.test(char);
 
@@ -109,8 +107,18 @@ export class TaskBuilder {
     return this.setJavaTaskClass(taskClass || 'Task');
   }
 
-  build(): Task {
-    return new Task(this.name, this.group, this.url, this.memoryLimit, this.timeLimit,
-      this.tests, this.testType, this.input, this.output, this.languages);
+  public build(): Task {
+    return new Task(
+      this.name,
+      this.group,
+      this.url,
+      this.memoryLimit,
+      this.timeLimit,
+      this.tests,
+      this.testType,
+      this.input,
+      this.output,
+      this.languages,
+    );
   }
 }

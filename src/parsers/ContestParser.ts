@@ -1,19 +1,21 @@
-import { Parser } from './Parser';
-import { Sendable } from '../models/Sendable';
 import { Contest } from '../models/Contest';
+import { Sendable } from '../models/Sendable';
 import { htmlToElement } from '../utils/dom';
+import { Parser } from './Parser';
 
 export abstract class ContestParser extends Parser {
-  abstract linkSelector: string;
-  abstract problemParser: Parser;
+  public abstract linkSelector: string;
+  public abstract problemParser: Parser;
 
-  canHandlePage(): boolean {
+  public canHandlePage(): boolean {
     return document.querySelector(this.linkSelector) !== null;
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const links = [...elem.querySelectorAll(this.linkSelector)].map(el => (el as any).href);
+    const links = [...elem.querySelectorAll(this.linkSelector)].map(
+      el => (el as any).href,
+    );
     return this.parseLinks(links);
   }
 

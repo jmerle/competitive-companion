@@ -1,7 +1,7 @@
 import { Host } from './Host';
 
 export class CHelperHost implements Host {
-  send(data: string): Promise<void> {
+  public send(data: string): Promise<void> {
     return new Promise(resolve => {
       const message = 'json\n' + data;
 
@@ -13,7 +13,7 @@ export class CHelperHost implements Host {
       xhr.ontimeout = () => resolve();
 
       xhr.send(message);
-      xhr.send(null);
+      xhr.send();
     });
   }
 }

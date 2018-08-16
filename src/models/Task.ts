@@ -1,43 +1,15 @@
-import { Message, MessageAction } from './messaging';
-import { Sendable } from './Sendable';
-import { Test } from './Test';
+import { Config } from '../utils/Config';
+import { sendToBackground } from '../utils/messaging';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
-import { TestType } from './TestType';
-import { sendToBackground } from '../utils/messaging';
-import { Config } from '../utils/Config';
+import { Message, MessageAction } from './messaging';
+import { Sendable } from './Sendable';
 import { TaskBuilder } from './TaskBuilder';
+import { Test } from './Test';
+import { TestType } from './TestType';
 
 export class Task implements Sendable {
-  constructor(public name: string, public group: string, public url: string, public memoryLimit: number, public timeLimit: number,
-              public tests: Test[], public testType: TestType, public input: InputConfiguration, public output: OutputConfiguration,
-              public languages: LanguageConfiguration) {
-  }
-
-  send(): Promise<void> {
-    return new Promise(resolve => {
-      Config.get<boolean>('debugMode').then(debug => {
-        if (debug) {
-          console.log(JSON.stringify(this, null, 4));
-        }
-      }).catch(console.error);
-
-      const handleMessage = (message: Message, sender: browser.runtime.MessageSender) => {
-        if (sender.tab) return;
-
-        if (message.action === MessageAction.TaskSent) {
-          browser.runtime.onMessage.removeListener(handleMessage);
-          resolve();
-        }
-      };
-
-      browser.runtime.onMessage.addListener(handleMessage);
-
-      sendToBackground(MessageAction.SendTask, { message: JSON.stringify(this) });
-    });
-  }
-
-  static fromJSON(data: string) {
+  public static fromJSON(data: string) {
     const task = new TaskBuilder();
 
     const obj = JSON.parse(data);
@@ -61,5 +33,52 @@ export class Task implements Sendable {
     });
 
     return task.build();
+  }
+  constructor(
+    public name: string,
+    public group: string,
+    public url: string,
+    public memoryLimit: number,
+    public timeLimit: number,
+    public tests: Test[],
+    public testType: TestType,
+    public input: InputConfiguration,
+    public output: OutputConfiguration,
+    public languages: LanguageConfiguration,
+  ) {}
+
+  public send(): Promise<void> {
+    return new Promise(resolve => {
+      Config.get<boolean>('debugMode')
+        .then(debug => {
+          if (debug) {
+            // tslint:disable-next-line no-console
+            console.log(JSON.stringify(this, null, 4));
+          }
+
+          // tslint:disable-next-line no-console
+        })
+        .catch(console.error);
+
+      const handleMessage = (
+        message: Message | any,
+        sender: browser.runtime.MessageSender,
+      ) => {
+        if (sender.tab) {
+          return;
+        }
+
+        if (message.action === MessageAction.TaskSent) {
+          browser.runtime.onMessage.removeListener(handleMessage);
+          resolve();
+        }
+      };
+
+      browser.runtime.onMessage.addListener(handleMessage);
+
+      sendToBackground(MessageAction.SendTask, {
+        message: JSON.stringify(this),
+      });
+    });
   }
 }

@@ -1,22 +1,27 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class SPOJProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['https://www.spoj.com/problems/*/'];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('#problem-name').textContent.split(' - ')[1]);
+      task.setName(
+        elem.querySelector('#problem-name').textContent.split(' - ')[1],
+      );
 
-      const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
-      task.setGroup('SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1));
+      const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)')
+        .textContent;
+      task.setGroup(
+        'SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1),
+      );
 
       const blocks: Element[] = [];
       let current: Element = elem.querySelector('#problem-body').children[0];
@@ -43,16 +48,22 @@ export class SPOJProblemParser extends Parser {
         task.addTest(input, output);
       }
 
-      const timeLimitStr = [...elem.querySelectorAll('#problem-meta > tbody > tr')]
+      const timeLimitStr = [
+        ...elem.querySelectorAll('#problem-meta > tbody > tr'),
+      ]
         .map(el => el.textContent)
-        .find(x => x.startsWith("Time limit:"))
+        .find(x => x.startsWith('Time limit:'))
         .trim();
       task.setTimeLimit(parseFloat(/([0-9.]+)s$/.exec(timeLimitStr)[1]) * 1000);
 
-      const memoryLimitStr = [...elem.querySelectorAll('#problem-meta > tbody > tr')]
+      const memoryLimitStr = [
+        ...elem.querySelectorAll('#problem-meta > tbody > tr'),
+      ]
         .map(el => el.textContent)
-        .find(x => x.startsWith("Memory limit:"));
-      task.setMemoryLimit(parseInt(/Memory limit:(\d+)MB/.exec(memoryLimitStr)[1]));
+        .find(x => x.startsWith('Memory limit:'));
+      task.setMemoryLimit(
+        parseInt(/Memory limit:(\d+)MB/.exec(memoryLimitStr)[1], 10),
+      );
 
       resolve(task.build());
     });
@@ -65,18 +76,22 @@ export class SPOJProblemParser extends Parser {
     let isInput = false;
     let isOutput = false;
 
-    for (let i = 0; i < lines.length; i++) {
-      if (isInput) inputLines.push(lines[i]);
-      if (isOutput) outputLines.push(lines[i]);
+    for (const line of lines) {
+      if (isInput) {
+        inputLines.push(line);
+      }
+      if (isOutput) {
+        outputLines.push(line);
+      }
 
       if (!isInput && inputLines.length === 0) {
-        if (lines[i].toLowerCase().includes('input')) {
+        if (line.toLowerCase().includes('input')) {
           isInput = true;
         }
       }
 
       if (!isOutput && outputLines.length === 0) {
-        if (lines[i].toLowerCase().includes('output')) {
+        if (line.toLowerCase().includes('output')) {
           isInput = false;
           isOutput = true;
           inputLines.pop();

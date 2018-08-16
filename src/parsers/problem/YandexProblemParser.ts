@@ -1,10 +1,10 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class YandexProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return [
       'https://*.contest.yandex.com/*/contest/*/problems/*/',
       'https://*.contest2.yandex.com/*/contest/*/problems/*/',
@@ -13,17 +13,22 @@ export class YandexProblemParser extends Parser {
     ];
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('h1.title').textContent);
-      task.setGroup(elem.querySelector('.contest-head__item.contest-head__item_role_title').textContent);
+      task.setGroup(
+        elem.querySelector('.contest-head__item.contest-head__item_role_title')
+          .textContent,
+      );
 
       const tableSource = elem.querySelector('table').textContent;
-      task.setTimeLimit(parseFloat(/([0-9.]+)\ssecond/.exec(tableSource)[1]) * 1000);
-      task.setMemoryLimit(parseInt(/(\d+)Mb/i.exec(tableSource)[1]));
+      task.setTimeLimit(
+        parseFloat(/([0-9.]+)\ssecond/.exec(tableSource)[1]) * 1000,
+      );
+      task.setMemoryLimit(parseInt(/(\d+)Mb/i.exec(tableSource)[1], 10));
 
       elem.querySelectorAll('.sample-tests').forEach(table => {
         const blocks = table.querySelectorAll('pre');

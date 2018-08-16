@@ -1,7 +1,7 @@
 import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
-import { disablePageAction, enablePageAction } from './utils/page-action';
+import { sendToBackground } from './utils/messaging';
 
 // This package has no types
 const Nanobar = require('nanobar');
@@ -11,23 +11,21 @@ const Nanobar = require('nanobar');
 let activeParser: Parser = null;
 
 function checkTab(tabId: number, url: string): void {
-  for (let i = 0; i < parsers.length; i++) {
-    const parser = parsers[i];
-
+  for (const parser of parsers) {
     const hasMatchingPattern = parser
       .getRegularExpressions()
       .some(r => r.test(url));
 
     if (hasMatchingPattern && parser.canHandlePage()) {
       activeParser = parser;
-      activeParser.load();
+      sendToBackground(MessageAction.EnablePageAction);
       break;
     }
   }
 }
 
 async function parse() {
-  disablePageAction();
+  sendToBackground(MessageAction.DisablePageAction);
   (window as any).nanoBar = new Nanobar();
 
   document.querySelectorAll('.bar').forEach(bar => {
@@ -35,18 +33,28 @@ async function parse() {
   });
 
   try {
-    const sendable = await activeParser.parse(window.location.href, document.body.innerHTML);
+    const sendable = await activeParser.parse(
+      window.location.href,
+      document.body.innerHTML,
+    );
     (window as any).nanoBar.go(100);
     await sendable.send();
   } catch (err) {
+    // tslint:disable-next-line no-console
     console.error(err);
   }
 
-  enablePageAction();
+  sendToBackground(MessageAction.EnablePageAction);
 }
 
-function handleMessage(message: Message, sender: browser.runtime.MessageSender) {
-  if (sender.tab) return;
+function handleMessage(
+  message: Message | any,
+  sender: browser.runtime.MessageSender,
+  sendResponse: (response: object) => Promise<void>,
+) {
+  if (sender.tab) {
+    return;
+  }
 
   switch (message.action) {
     case MessageAction.CheckTab:

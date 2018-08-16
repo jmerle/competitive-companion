@@ -1,5 +1,5 @@
-import * as path from 'path';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as path from 'path';
 import { Parser } from './src/parsers/Parser';
 
 function transformManifest(content: string): string {
@@ -34,25 +34,22 @@ function transformManifest(content: string): string {
 
 const config = {
   entry: {
-    content: path.resolve(__dirname, 'src/content.ts'),
     background: path.resolve(__dirname, 'src/background.ts'),
+    content: path.resolve(__dirname, 'src/content.ts'),
     options: path.resolve(__dirname, 'src/options.ts'),
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'build/js'),
-  },
-  resolve: {
-    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
         exclude: /(node_modules)/,
         loader: 'ts-loader',
+        test: /\.tsx?$/,
       },
     ],
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'build/js'),
   },
   plugins: [
     new CopyWebpackPlugin([
@@ -66,7 +63,10 @@ const config = {
         to: path.resolve(__dirname, 'build/icons'),
       },
       {
-        from: path.resolve(__dirname, 'node_modules/webextension-polyfill/dist/browser-polyfill.min.js'),
+        from: path.resolve(
+          __dirname,
+          'node_modules/webextension-polyfill/dist/browser-polyfill.min.js',
+        ),
         to: path.resolve(__dirname, 'build/js'),
       },
       {
@@ -76,9 +76,12 @@ const config = {
       {
         from: path.resolve(__dirname, 'LICENSE'),
         to: path.resolve(__dirname, 'build'),
-      }
+      },
     ]),
   ],
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
 };
 
 export default config;

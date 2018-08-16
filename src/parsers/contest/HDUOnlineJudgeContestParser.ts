@@ -3,10 +3,10 @@ import { Parser } from '../Parser';
 import { HDUOnlineJudgeProblemParser } from '../problem/HDUOnlineJudgeProblemParser';
 
 export class HDUOnlineJudgeContestParser extends ContestParser {
-  linkSelector: string = 'tr.table_text a';
-  problemParser: Parser = new HDUOnlineJudgeProblemParser();
+  public linkSelector: string = 'tr.table_text a';
+  public problemParser: Parser = new HDUOnlineJudgeProblemParser();
 
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return ['http://acm.hdu.edu.cn/contests/contest_show.php*'];
   }
 }

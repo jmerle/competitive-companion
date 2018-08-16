@@ -1,10 +1,10 @@
-import { Parser } from '../Parser';
 import { Sendable } from '../../models/Sendable';
-import { htmlToElement } from '../../utils/dom';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
 export class USACOProblemParser extends Parser {
-  getMatchPatterns(): string[] {
+  public getMatchPatterns(): string[] {
     return [
       'http://www.usaco.org/current/index.php*',
       'http://www.usaco.org/index.php*',
@@ -13,11 +13,11 @@ export class USACOProblemParser extends Parser {
     ];
   }
 
-  canHandlePage(): boolean {
+  public canHandlePage(): boolean {
     return window.location.search.includes('page=viewproblem');
   }
 
-  parse(url: string, html: string): Promise<Sendable> {
+  public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(resolve => {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
@@ -27,13 +27,17 @@ export class USACOProblemParser extends Parser {
       task.setGroup(headers[0].textContent.trim());
 
       task.setInput({
+        fileName: /\(file (.*)\)/.exec(
+          elem.querySelector('.prob-in-spec h4').textContent,
+        )[1],
         type: 'file',
-        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],
       });
 
       task.setOutput({
+        fileName: /\(file (.*)\)/.exec(
+          elem.querySelector('.prob-out-spec h4').textContent,
+        )[1],
         type: 'file',
-        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
       });
 
       const input = elem.querySelector('pre.in').textContent;
