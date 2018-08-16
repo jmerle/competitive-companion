@@ -27,7 +27,7 @@ export default {
   },
 
   async beforeHackerRankContest(page: Page, data: ParserTestData) {
-    await page.waitFor('.login');
+    await page.waitFor('h3.inline');
     await page.click('.login');
     await page.type('#legacy-login input[name=login]', process.env.HACKER_RANK_EMAIL);
     await page.type('#legacy-login input[name=password]', process.env.HACKER_RANK_PASSWORD);
