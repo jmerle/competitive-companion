@@ -16,7 +16,7 @@ export class HackerRankProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('h1.page-label').textContent.trim());
+      task.setName(elem.querySelector('h1.page-label, h2.hr_tour-challenge-name').textContent.trim());
 
       const breadCrumbs = [...elem.querySelectorAll('.breadcrumb-item-text')].map(el => el.textContent);
       task.setGroup(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));

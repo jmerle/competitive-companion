@@ -1,7 +1,7 @@
 {
   "url": "https://www.hackerrank.com/contests/hourrank-27/challenges",
   "parser": "contest/HackerRankContestParser",
-  "before": "beforeHackerRank",
+  "before": "beforeHackerRankContest",
   "result": [
     {
       "name": "Impressing the Boss",

@@ -1,6 +1,6 @@
-import { Page } from 'puppeteer';
-import { ParserTestData } from './parsers.spec';
-import { Task } from '../src/models/Task';
+import {Page} from 'puppeteer';
+import {ParserTestData} from './parsers.spec';
+import {Task} from '../src/models/Task';
 
 export default {
   async beforeCodeChef(page: Page, data: ParserTestData) {
@@ -19,10 +19,14 @@ export default {
     await page.type('#id_login', process.env.HACKER_EARTH_EMAIL);
     await page.type('#id_password', process.env.HACKER_EARTH_PASSWORD);
     await page.click('.track-login');
-    await page.waitForNavigation({ waitUntil: 'load' });
+    await page.waitForNavigation({waitUntil: 'load'});
   },
 
-  async beforeHackerRank(page: Page, data: ParserTestData) {
+  async beforeHackerRankProblem(page: Page, data: ParserTestData) {
+    await page.waitFor('.problem-statement');
+  },
+
+  async beforeHackerRankContest(page: Page, data: ParserTestData) {
     await page.waitFor('.login');
     await page.click('.login');
     await page.type('#legacy-login input[name=login]', process.env.HACKER_RANK_EMAIL);
