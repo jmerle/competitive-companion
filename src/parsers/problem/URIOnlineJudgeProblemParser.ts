@@ -8,6 +8,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
     return [
       'https://www.urionlinejudge.com.br/judge/*/problems/view/*',
       'https://www.urionlinejudge.com.br/repository/*.html',
+      'https://www.urionlinejudge.com.br/judge/*/challenges/view/*/4',
     ];
   }
 

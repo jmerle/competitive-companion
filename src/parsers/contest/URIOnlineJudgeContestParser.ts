@@ -3,10 +3,10 @@ import { Parser } from '../Parser';
 import { URIOnlineJudgeProblemParser } from '../problem/URIOnlineJudgeProblemParser';
 
 export class URIOnlineJudgeContestParser extends ContestParser {
-  public linkSelector: string = '#contest-rank > thead > tr > th > a';
+  public linkSelector: string = '#table td.large > a';
   public problemParser: Parser = new URIOnlineJudgeProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://www.urionlinejudge.com.br/judge/*/tournaments/rank/*'];
+    return ['https://www.urionlinejudge.com.br/judge/*/challenges/contest/*'];
   }
 }
