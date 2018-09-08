@@ -44,6 +44,7 @@ import { TophProblemParser } from './problem/TophProblemParser';
 import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemParser';
 import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
+import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
 
 export const parsers: Parser[] = [
@@ -117,6 +118,8 @@ export const parsers: Parser[] = [
 
   new USACOProblemParser(),
   new USACOTrainingProblemParser(),
+
+  new UVaOnlineJudgeProblemParser(),
 
   new YandexProblemParser(),
 ];

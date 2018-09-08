@@ -11,7 +11,7 @@
     "build": "webpack --progress --colors --mode=production",
     "lint:code": "tslint -p tsconfig.json -c tslint.json -t stylish",
     "lint:package": "yarn build && web-ext lint -s build/ -o text",
-    "watch": "yarn build --watch",
+    "watch": "cross-env NO_MINIMIZE=true yarn build --watch --watch-poll",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "test": "jest",
     "test:no-headless": "cross-env HEADLESS=false jest",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "nanobar": "0.4.2",
+    "pdfjs-dist": "^2.0.489",
     "snarkdown": "1.2.2",
     "webextension-polyfill": "0.3.1"
   },
@@ -55,7 +56,8 @@
     "web-ext": "^2.9.1",
     "web-ext-types": "^2.1.0",
     "webpack": "^4.17.2",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "worker-loader": "^2.0.0"
   },
   "jest": {
     "preset": "jest-puppeteer",

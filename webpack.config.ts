@@ -1,5 +1,6 @@
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
+import * as webpack from 'webpack';
 import { Parser } from './src/parsers/Parser';
 
 function transformManifest(content: string): string {
@@ -32,7 +33,7 @@ function transformManifest(content: string): string {
   return JSON.stringify(manifest, null, 2);
 }
 
-const config = {
+const config: webpack.Configuration = {
   entry: {
     background: path.resolve(__dirname, 'src/background.ts'),
     content: path.resolve(__dirname, 'src/content.ts'),
@@ -45,11 +46,24 @@ const config = {
         loader: 'ts-loader',
         test: /\.tsx?$/,
       },
+      {
+        loader: 'worker-loader',
+        options: {
+          inline: true,
+        },
+        test: /\.worker\.js$/,
+      },
     ],
+  },
+  optimization: {
+    minimize: process.env.NO_MINIMIZE === undefined,
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build/js'),
+  },
+  performance: {
+    hints: false,
   },
   plugins: [
     new CopyWebpackPlugin([

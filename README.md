@@ -33,6 +33,7 @@ A browser extension which parses programming problems from various online judges
 | HackerEarth           | ✔              | ✔              |
 | HackerRank            | ✔              | ✔              |
 | HDU Online Judge      | ✔              | ✔              |
+| ICPC Live Archive     | ✔              |                |
 | Jutge                 | ✔              |                |
 | Kattis                | ✔              | ✔              |
 | LightOJ               | ✔              | ✔              |
@@ -48,6 +49,7 @@ A browser extension which parses programming problems from various online judges
 | URI Online Judge      | ✔              | ✔              |
 | USACO                 | ✔              |                |
 | USACO Training        | ✔              |                |
+| UVa Online Judge      | ✔              |                |
 | Yandex                | ✔              |                |
 
 ## Custom tools
