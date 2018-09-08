@@ -49,6 +49,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setName(
       elem.querySelector('.problem-statement > .header > .title').textContent,
     );
+
     task.setGroup(elem.querySelector('.rtable > tbody > tr > th').textContent);
 
     const timeLimitStr = elem
@@ -78,11 +79,13 @@ export class CodeforcesProblemParser extends Parser {
     task.setName(
       elem.querySelector('.problemindexholder h3').textContent.trim(),
     );
+
     task.setGroup('Codeforces - acm.sgu.ru archive');
 
     task.setTimeLimit(
       parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000,
     );
+
     task.setMemoryLimit(
       Math.floor(
         parseInt(/memory limit per test: (\d+)\s+ KB/.exec(html)[1], 10) / 1000,
@@ -108,6 +111,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setTimeLimit(
       parseFloat(/Time limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000,
     );
+
     task.setMemoryLimit(
       Math.floor(
         parseInt(

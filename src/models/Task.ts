@@ -34,6 +34,7 @@ export class Task implements Sendable {
 
     return task.build();
   }
+
   constructor(
     public name: string,
     public group: string,
@@ -55,10 +56,8 @@ export class Task implements Sendable {
             // tslint:disable-next-line no-console
             console.log(JSON.stringify(this, null, 4));
           }
-
-          // tslint:disable-next-line no-console
         })
-        .catch(console.error);
+        .catch(console.error); // tslint:disable-line no-console
 
       const handleMessage = (
         message: Message | any,

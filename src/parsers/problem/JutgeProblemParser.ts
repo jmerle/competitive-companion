@@ -25,6 +25,7 @@ export class JutgeProblemParser extends Parser {
           .textContent.trim()
           .split('\n')[0],
       );
+
       task.setGroup('Jutge');
 
       const blocks = elem.querySelectorAll('.list-group-item pre');

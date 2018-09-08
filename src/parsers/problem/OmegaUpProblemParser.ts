@@ -37,6 +37,7 @@ export class OmegaUpProblemParser extends Parser {
       task.setTimeLimit(
         parseFloat(problem.querySelector('.time_limit').textContent) * 1000,
       );
+
       task.setMemoryLimit(
         parseInt(problem.querySelector('.memory_limit').textContent, 10),
       );

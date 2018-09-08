@@ -18,8 +18,8 @@ export class HackerEarthCodeArenaParser extends Parser {
         const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(
           window.location.href,
         )[1];
-        t.name = `CodeArena ${id}`;
 
+        t.name = `CodeArena ${id}`;
         t.group = 'HackerEarth - CodeArena';
 
         resolve(t);

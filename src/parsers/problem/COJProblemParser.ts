@@ -27,6 +27,7 @@ export class COJProblemParser extends Parser {
       const contestTitleElem = elem.querySelector(
         'h2.postheader > a.linkheader',
       );
+
       if (contestTitleElem !== null) {
         group.push(contestTitleElem.textContent);
       }
@@ -34,9 +35,11 @@ export class COJProblemParser extends Parser {
       task.setGroup(group.join(' - '));
 
       const limitsStr = content.querySelector('.limit.lang2').textContent;
+
       task.setTimeLimit(
         parseInt(/Total Time: (\d+) MS/.exec(limitsStr)[1], 10),
       );
+
       task.setMemoryLimit(parseInt(/Memory: (\d+) MB/.exec(limitsStr)[1], 10));
 
       const inputs = [...elem.querySelectorAll('h4.text-primary')]

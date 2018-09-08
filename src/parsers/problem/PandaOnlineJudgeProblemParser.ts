@@ -18,6 +18,7 @@ export class PandaOnlineJudgeProblemParser extends Parser {
           .querySelector('panda-problem-description > h2')
           .textContent.split(' - ')[1],
       );
+
       task.setGroup('Panda Online Judge');
 
       const blocks = elem.querySelectorAll('panda-testcase-sample pre');
@@ -29,9 +30,11 @@ export class PandaOnlineJudgeProblemParser extends Parser {
       }
 
       const headers = elem.querySelectorAll('panda-problem-description > h4');
+
       task.setTimeLimit(
         parseInt(/Time Limit: (\d+) ms/.exec(headers[1].textContent)[1], 10),
       );
+
       task.setMemoryLimit(
         parseInt(/Memory Limit: (\d+) MB/.exec(headers[0].textContent)[1], 10),
       );

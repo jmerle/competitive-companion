@@ -17,6 +17,7 @@ export class FacebookHackerCupProblemParser extends Parser {
       task.setName(
         elem.querySelector('#content .clearfix > .lfloat').textContent,
       );
+
       task.setGroup(elem.querySelector('h2.uiHeaderTitle').textContent);
 
       const blocks = elem.querySelectorAll('.uiBoxGray > pre');

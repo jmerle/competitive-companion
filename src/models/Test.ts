@@ -7,16 +7,8 @@ export class Test {
     this.output = this.correctData(output);
   }
 
-  public getInput(): string {
-    return this.input;
-  }
-
   public setInput(input: string) {
     this.input = this.correctData(input);
-  }
-
-  public getOutput(): string {
-    return this.output;
   }
 
   public setOutput(output: string) {

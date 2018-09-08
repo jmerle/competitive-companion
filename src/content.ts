@@ -37,6 +37,7 @@ async function parse() {
       window.location.href,
       document.body.innerHTML,
     );
+
     (window as any).nanoBar.go(100);
     await sendable.send();
   } catch (err) {

@@ -20,12 +20,15 @@ export class LightOJProblemParser extends Parser {
       task.setGroup('LightOJ');
 
       const columns = elem.querySelectorAll('.MsoTableGrid > tbody > tr > td');
+
       const input = [...columns[2].querySelectorAll('span')]
         .map(el => el.textContent.replace(/\n /g, ''))
         .join('\n');
+
       const output = [...columns[3].querySelectorAll('span')]
         .map(el => el.textContent.replace(/\n /g, ''))
         .join('\n');
+
       task.addTest(input, output);
 
       const timeLimitStr = elem

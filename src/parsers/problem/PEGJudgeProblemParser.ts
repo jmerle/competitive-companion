@@ -21,6 +21,7 @@ export class PEGJudgeProblemParser extends Parser {
       task.setTimeLimit(
         parseFloat(/Time Limit:<\/b> ([0-9.]+)s/.exec(html)[1]) * 1000,
       );
+
       task.setMemoryLimit(
         parseInt(/Memory Limit:<\/b> (\d+)/.exec(html)[1], 10),
       );

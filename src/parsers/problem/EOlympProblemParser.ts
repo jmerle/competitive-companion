@@ -19,6 +19,7 @@ export class EOlympProblemParser extends Parser {
         'E-Olymp',
         elem.querySelector('.eo-title__header').textContent,
       ];
+
       if (contestNameParts[1] === task.name) {
         contestNameParts.pop();
       }
@@ -30,6 +31,7 @@ export class EOlympProblemParser extends Parser {
           elem.querySelectorAll('.eo-message__text b')[0].textContent,
         ) * 1000,
       );
+
       task.setMemoryLimit(
         parseInt(
           elem.querySelectorAll('.eo-message__text b')[1].textContent,

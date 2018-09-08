@@ -33,6 +33,7 @@ export class CodeChefProblemParser extends Parser {
           .textContent.trim()
           .split('\n')[0],
       );
+
       task.setGroup(
         'CodeChef - ' +
           [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent,
@@ -47,6 +48,7 @@ export class CodeChefProblemParser extends Parser {
           )[1],
         ) * 1000,
       );
+
       task.setMemoryLimit(256);
 
       resolve(task.build());
@@ -61,6 +63,7 @@ export class CodeChefProblemParser extends Parser {
         const textNodes = [...pre.childNodes].filter(
           x => x.nodeType === Node.TEXT_NODE,
         );
+
         const input = textNodes[textNodes.length - 2].textContent.trim();
         const output = textNodes[textNodes.length - 1].textContent.trim();
 
@@ -72,6 +75,7 @@ export class CodeChefProblemParser extends Parser {
       const inputHeader = [...elem.querySelectorAll('h3')].find(x =>
         x.textContent.toLowerCase().includes('ample input'),
       );
+
       const outputHeader = [...elem.querySelectorAll('h3')].find(x =>
         x.textContent.toLowerCase().includes('ample output'),
       );

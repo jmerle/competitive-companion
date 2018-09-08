@@ -19,6 +19,7 @@ export class A2OJProblemParser extends Parser {
           .childNodes[4].textContent.trim()
           .split('. ')[1],
       );
+
       task.setGroup('A2 Online Judge');
 
       task.setTimeLimit(2000);
@@ -38,6 +39,7 @@ export class A2OJProblemParser extends Parser {
           .map(x => x.trim())
           .join('\n')
           .trim();
+
         const output = outputs[i].textContent
           .split('\n')
           .map(x => x.trim())

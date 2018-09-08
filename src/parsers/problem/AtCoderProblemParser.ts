@@ -17,12 +17,14 @@ export class AtCoderProblemParser extends Parser {
       const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('h2, .h2').textContent);
+
       task.setGroup(
         elem.querySelector('.contest-name, .contest-title').textContent,
       );
 
       const limitNodes = elem.querySelector('h2, .h2').nextElementSibling
         .nextElementSibling.childNodes;
+
       task.setTimeLimit(
         parseFloat(
           /([0-9.]+) ?sec/.exec(
@@ -30,6 +32,7 @@ export class AtCoderProblemParser extends Parser {
           )[1],
         ) * 1000,
       );
+
       task.setMemoryLimit(
         parseInt(
           /(\d+) ?MB/.exec(

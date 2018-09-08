@@ -25,9 +25,11 @@ export class YandexProblemParser extends Parser {
       );
 
       const tableSource = elem.querySelector('table').textContent;
+
       task.setTimeLimit(
         parseFloat(/([0-9.]+)\ssecond/.exec(tableSource)[1]) * 1000,
       );
+
       task.setMemoryLimit(parseInt(/(\d+)Mb/i.exec(tableSource)[1], 10));
 
       elem.querySelectorAll('.sample-tests').forEach(table => {

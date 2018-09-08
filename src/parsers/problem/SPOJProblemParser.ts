@@ -48,19 +48,19 @@ export class SPOJProblemParser extends Parser {
         task.addTest(input, output);
       }
 
-      const timeLimitStr = [
-        ...elem.querySelectorAll('#problem-meta > tbody > tr'),
-      ]
+      const timeElems = elem.querySelectorAll('#problem-meta > tbody > tr');
+      const timeLimitStr = [...timeElems]
         .map(el => el.textContent)
         .find(x => x.startsWith('Time limit:'))
         .trim();
+
       task.setTimeLimit(parseFloat(/([0-9.]+)s$/.exec(timeLimitStr)[1]) * 1000);
 
-      const memoryLimitStr = [
-        ...elem.querySelectorAll('#problem-meta > tbody > tr'),
-      ]
+      const memoryElems = elem.querySelectorAll('#problem-meta > tbody > tr');
+      const memoryLimitStr = [...memoryElems]
         .map(el => el.textContent)
         .find(x => x.startsWith('Memory limit:'));
+
       task.setMemoryLimit(
         parseInt(/Memory limit:(\d+)MB/.exec(memoryLimitStr)[1], 10),
       );
@@ -80,6 +80,7 @@ export class SPOJProblemParser extends Parser {
       if (isInput) {
         inputLines.push(line);
       }
+
       if (isOutput) {
         outputLines.push(line);
       }

@@ -4,7 +4,9 @@ export class Config {
     debugMode: false,
   };
 
-  public static get<T>(key: string): Promise<T> {
+  public static get<T extends browser.storage.StorageValue>(
+    key: string,
+  ): Promise<T> {
     return new Promise((resolve, reject) => {
       browser.storage.local
         .get(key)

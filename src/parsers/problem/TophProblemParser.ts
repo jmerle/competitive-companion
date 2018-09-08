@@ -16,11 +16,13 @@ export class TophProblemParser extends Parser {
       task.setName(
         elem.querySelector('.problem-statement-portlet h2').textContent,
       );
+
       task.setGroup('Toph');
 
       const limitsStr = elem.querySelector(
         '.problem-statement-portlet div > span',
       ).textContent;
+
       task.setTimeLimit(
         parseFloat(/Limits: ([0-9.]+)s/.exec(limitsStr)[1]) * 1000,
       );
@@ -31,6 +33,7 @@ export class TophProblemParser extends Parser {
       const table = elem.querySelector(
         '.problem-statement-portlet table:last-child',
       );
+
       if (table !== null) {
         table.querySelectorAll('tbody tr').forEach(row => {
           const blocks = row.querySelectorAll('td');
