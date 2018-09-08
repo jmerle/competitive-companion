@@ -7,8 +7,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
       'https://www.urionlinejudge.com.br/judge/*/problems/view/*',
-      'https://www.urionlinejudge.com.br/repository/*.html',
-      'https://www.urionlinejudge.com.br/judge/*/challenges/view/*/4',
+      'https://www.urionlinejudge.com.br/judge/*/challenges/view/*',
     ];
   }
 
@@ -40,16 +39,8 @@ export class URIOnlineJudgeProblemParser extends Parser {
     elem.querySelectorAll('table').forEach(table => {
       const columns = table.querySelectorAll('tbody > tr > td');
 
-      const input = columns[0].textContent
-        .split('\n')
-        .map(x => x.trim())
-        .join('\n')
-        .trim();
-      const output = columns[1].textContent
-        .split('\n')
-        .map(x => x.trim())
-        .join('\n')
-        .trim();
+      const input = this.getContent(columns[0]);
+      const output = this.getContent(columns[1]);
 
       task.addTest(input, output);
     });
@@ -60,8 +51,21 @@ export class URIOnlineJudgeProblemParser extends Parser {
         10,
       ) * 1000,
     );
+
     task.setMemoryLimit(1024);
 
     return task.build();
+  }
+
+  private getContent(col: Element): string {
+    return [...col.children]
+      .map(x => {
+        return (x.textContent as string)
+          .split('\n')
+          .map(y => y.trim())
+          .join('\n')
+          .trim();
+      })
+      .join('\n');
   }
 }
