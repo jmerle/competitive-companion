@@ -170,14 +170,14 @@ To run tests locally, copy `.env.example` to `.env` and fill it with your creden
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 10.8.0  
+Node.js: 10.10.0  
 Yarn: 1.9.4  
 Ubuntu: 18.04.1  
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
-- [webextension-polyfill 0.3.0](https://github.com/mozilla/webextension-polyfill/blob/0.3.0/src/browser-polyfill.js)
+- [webextension-polyfill 0.3.1](https://github.com/mozilla/webextension-polyfill/blob/0.3.1/src/browser-polyfill.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
 
