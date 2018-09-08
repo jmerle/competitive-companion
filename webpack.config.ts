@@ -46,13 +46,6 @@ const config: webpack.Configuration = {
         loader: 'ts-loader',
         test: /\.tsx?$/,
       },
-      {
-        loader: 'worker-loader',
-        options: {
-          inline: true,
-        },
-        test: /\.worker\.js$/,
-      },
     ],
   },
   optimization: {

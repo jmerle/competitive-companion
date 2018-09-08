@@ -4,6 +4,6 @@
     "target": "es2015",
     "strict": true,
     "strictNullChecks": false,
-    "typeRoots": ["node_modules/@types", "node_modules/web-ext-types"]
+    "typeRoots": ["node_modules/web-ext-types"]
   }
 }

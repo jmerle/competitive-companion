@@ -55,6 +55,7 @@ export class UVaOnlineJudgeProblemParser extends Parser {
         const inputStart = lines.findIndex(
           line => line.toLowerCase() === 'sample input',
         );
+
         const outputStart = lines.findIndex(
           line => line.toLowerCase() === 'sample output',
         );
