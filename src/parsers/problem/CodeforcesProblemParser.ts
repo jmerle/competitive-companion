@@ -47,10 +47,14 @@ export class CodeforcesProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     task.setName(
-      elem.querySelector('.problem-statement > .header > .title').textContent,
+      elem
+        .querySelector('.problem-statement > .header > .title')
+        .textContent.trim(),
     );
 
-    task.setGroup(elem.querySelector('.rtable > tbody > tr > th').textContent);
+    task.setGroup(
+      elem.querySelector('.rtable > tbody > tr > th').textContent.trim(),
+    );
 
     const timeLimitStr = elem
       .querySelector('.problem-statement > .header > .time-limit')
@@ -127,7 +131,10 @@ export class CodeforcesProblemParser extends Parser {
   private parseAcmSguRuProblemNotInsideTable(html: string, task: TaskBuilder) {
     const elem = htmlToElement(html);
 
-    task.setName(elem.querySelector('.problemindexholder h4').textContent);
+    task.setName(
+      elem.querySelector('.problemindexholder h4').textContent.trim(),
+    );
+
     task.setGroup('Codeforces - acm.sgu.ru archive');
 
     task.setTimeLimit(
