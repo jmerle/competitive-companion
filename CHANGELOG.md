@@ -1,5 +1,5 @@
 # 2.3.0 - September 8th, 2018
-- Fixed bugs in the HackerRank and the URI Online Judge parsers
+- Fixed bugs in the HackerRank, URI Online Judge and Codeforces parsers
 
 # 2.2.4 - June 30th, 2018
 - Added support for AtCoder Beta

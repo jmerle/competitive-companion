@@ -29,14 +29,17 @@ export default {
   async beforeHackerRankContest(page: Page, data: ParserTestData) {
     await page.waitFor('h3.inline');
     await page.click('.login');
+
     await page.type(
       '#legacy-login input[name=login]',
       process.env.HACKER_RANK_EMAIL!,
     );
+
     await page.type(
       '#legacy-login input[name=password]',
       process.env.HACKER_RANK_PASSWORD!,
     );
+
     await page.click('.login-button');
     await page.waitFor('.avatar');
     await page.goto(data.url);
@@ -67,10 +70,12 @@ export default {
 
   async beforeUSACOTraining(page: Page, data: ParserTestData) {
     await page.type('input[name=NAME]', process.env.USACO_TRAINING_USERNAME!);
+
     await page.type(
       'input[name=PASSWORD]',
       process.env.USACO_TRAINING_PASSWORD!,
     );
+
     await page.click('input[name=SUBMIT]');
 
     const linkSelector = 'table > tbody > tr > td:nth-child(3) > table a';

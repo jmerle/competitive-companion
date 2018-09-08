@@ -62,6 +62,28 @@ export class CodeforcesProblemParser extends Parser {
       .childNodes[1].textContent.split(' ')[0];
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
+    const inputFile = elem.querySelector(
+      '.problem-statement > .header > .input-file',
+    ).childNodes[1].textContent;
+
+    if (inputFile !== 'standard input') {
+      task.setInput({
+        fileName: inputFile,
+        type: 'file',
+      });
+    }
+
+    const outputFile = elem.querySelector(
+      '.problem-statement > .header > .output-file',
+    ).childNodes[1].textContent;
+
+    if (outputFile !== 'standard output') {
+      task.setOutput({
+        fileName: outputFile,
+        type: 'file',
+      });
+    }
+
     const inputs = elem.querySelectorAll('.input pre');
     const outputs = elem.querySelectorAll('.output pre');
 

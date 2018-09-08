@@ -1,0 +1,36 @@
+{
+  "url": "https://codeforces.com/problemset/problem/234/A",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "A. Lefthanders and Righthanders ",
+    "group": "Codeforces Round #145 (Div. 2, ACM-ICPC Rules)",
+    "url": "https://codeforces.com/problemset/problem/234/A",
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "6\nLLRLLL\n",
+        "output": "1 4\n2 5\n6 3\n"
+      },
+      {
+        "input": "4\nRRLL\n",
+        "output": "3 1\n4 2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "fileName": "input.txt",
+      "type": "file"
+    },
+    "output": {
+      "fileName": "output.txt",
+      "type": "file"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ALefthandersAndRighthanders"
+      }
+    }
+  }
+}
