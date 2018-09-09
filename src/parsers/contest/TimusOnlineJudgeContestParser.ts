@@ -1,9 +1,9 @@
 import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
-import { TimusProblemParser } from '../problem/TimusProblemParser';
+import { TimusOnlineJudgeProblemParser } from '../problem/TimusOnlineJudgeProblemParser';
 
-export class TimusContestParser extends ContestParser {
-  public problemParser: Parser = new TimusProblemParser();
+export class TimusOnlineJudgeContestParser extends ContestParser {
+  public problemParser: Parser = new TimusOnlineJudgeProblemParser();
   public linkSelector: string = '.problemset td.name > a';
 
   public getMatchPatterns(): string[] {

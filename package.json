@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "nanobar": "0.4.2",
-    "pdfjs-dist": "^2.0.489",
+    "pdfjs-dist": "2.0.489",
     "snarkdown": "1.2.2",
     "webextension-polyfill": "0.3.1"
   },
@@ -38,7 +38,6 @@
     "concurrently": "^4.0.1",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
-    "dotenv": "^6.0.0",
     "husky": "^1.0.0-rc.13",
     "jest": "^23.2.0",
     "jest-puppeteer": "^3.3.1",

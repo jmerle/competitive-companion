@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class TimusProblemParser extends Parser {
+export class TimusOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['http://acm.timus.ru/problem.aspx*'];
   }

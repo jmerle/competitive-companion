@@ -1,0 +1,30 @@
+{
+  "url": "http://acm.hrbust.edu.cn/index.php?m=ProblemSet&a=showProblem&problem_id=1000",
+  "parser": "problem/HrbustOnlineJudgeProblemParser",
+  "result": {
+    "name": "A + B Problem",
+    "group": "Hrbust Online Judge",
+    "url": "http://acm.hrbust.edu.cn/index.php?m=ProblemSet&a=showProblem&problem_id=1000",
+    "memoryLimit": 65,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 2\n2 3\n",
+        "output": "3\n5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblem"
+      }
+    }
+  }
+}

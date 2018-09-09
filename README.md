@@ -26,13 +26,18 @@ A browser extension which parses programming problems from various online judges
 | Codeforces            | ✔              | ✔              |
 | COJ                   | ✔              | ✔              |
 | CSAcademy             | ✔              |                |
+| CSU-ACM Online Judge  | ✔              | ✔              |
 | DevSkill              | ✔              | ✔              |
 | DMOJ                  | ✔              | ✔              |
 | E-Olymp               | ✔              | ✔              |
 | Facebook Hacker Cup   | ✔              |                |
+| FZU Online Judge      | ✔              | ✔              |
 | HackerEarth           | ✔              | ✔              |
 | HackerRank            | ✔              | ✔              |
 | HDU Online Judge      | ✔              | ✔              |
+| HIT Online Judge      | ✔              |                |
+| hihoCoder             | ✔              | ✔              |
+| Hrbust Online Judge   | ✔              |                |
 | ICPC Live Archive     | ✔              |                |
 | Jutge                 | ✔              |                |
 | Kattis                | ✔              | ✔              |
@@ -166,7 +171,7 @@ yarn dev:chrome
 ```
 
 ## Testing
-To run tests locally, copy `.env.example` to `.env` and fill it with your credentials. To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with the Chrome instance visible. All other arguments are automatically passed on to Jest.
+To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with the Chrome instance visible. All other arguments are automatically passed on to Jest.
 
 ## Mozilla reviewers
 The information provided below is meant for Mozilla volunteers.
@@ -180,6 +185,7 @@ Third-party libraries that can be found in the minified extension:
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
 - [webextension-polyfill 0.3.1](https://github.com/mozilla/webextension-polyfill/blob/0.3.1/src/browser-polyfill.js)
+- [PDF.js 2.0.489](https://github.com/mozilla/pdfjs-dist/blob/75d0c0c6a541d865d7fa127acd0e2148f59de152/build/pdf.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
 

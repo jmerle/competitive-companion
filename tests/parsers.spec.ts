@@ -1,8 +1,6 @@
 /// <reference types="jest" />
 /// <reference types="jest-environment-puppeteer" />
 
-require('dotenv').config();
-
 import * as fs from 'fs';
 import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
@@ -72,7 +70,7 @@ async function runTest(data: ParserTestData) {
   await page.goto(data.url);
 
   if (data.before) {
-    await parserFunctions[data.before](page, data);
+    await parserFunctions[data.before](page);
   }
 
   const url = page.url();

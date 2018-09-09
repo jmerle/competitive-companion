@@ -1,0 +1,30 @@
+{
+  "url": "http://acm.csu.edu.cn/csuoj/problemset/problem?pid=1092",
+  "parser": "problem/CSUACMOnlineJudgeProblemParser",
+  "result": {
+    "name": "1092: Barricade",
+    "group": "CSU-ACM Online Judge",
+    "url": "http://acm.csu.edu.cn/csuoj/problemset/problem?pid=1092",
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3 4\n1 1\n1 2\n1 3\n1 3\n\n3 2\n1 3\n3 2\n\n2 0\n",
+        "output": "3\n0\n-1\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Barricade"
+      }
+    }
+  }
+}

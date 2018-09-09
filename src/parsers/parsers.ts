@@ -2,18 +2,21 @@ import { AtCoderContestParser } from './contest/AtCoderContestParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { COJContestParser } from './contest/COJContestParser';
+import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DevSkillContestParser } from './contest/DevSkillContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { EOlympContestParser } from './contest/EOlympContestParser';
+import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
 import { HackerRankContestParser } from './contest/HackerRankContestParser';
 import { HDUOnlineJudgeContestParser } from './contest/HDUOnlineJudgeContestParser';
+import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
 import { LightOJContestParser } from './contest/LightOJContestParser';
 import { OldGoogleCodeJamContestParser } from './contest/OldGoogleCodeJamContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
-import { TimusContestParser } from './contest/TimusContestParser';
+import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestParser';
 import { Parser } from './Parser';
 import { A2OJProblemParser } from './problem/A2OJProblemParser';
@@ -22,14 +25,19 @@ import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
+import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
 import { DevSkillProblemParser } from './problem/DevSkillProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { EOlympProblemParser } from './problem/EOlympProblemParser';
 import { FacebookHackerCupProblemParser } from './problem/FacebookHackerCupProblemParser';
+import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
 import { HackerEarthProblemParser } from './problem/HackerEarthProblemParser';
 import { HackerRankProblemParser } from './problem/HackerRankProblemParser';
 import { HDUOnlineJudgeProblemParser } from './problem/HDUOnlineJudgeProblemParser';
+import { HihoCoderProblemParser } from './problem/HihoCoderProblemParser';
+import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemParser';
+import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
@@ -39,7 +47,7 @@ import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblem
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
-import { TimusProblemParser } from './problem/TimusProblemParser';
+import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
 import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemParser';
 import { USACOProblemParser } from './problem/USACOProblemParser';
@@ -64,6 +72,9 @@ export const parsers: Parser[] = [
 
   new CSAcademyProblemParser(),
 
+  new CSUACMOnlineJudgeProblemParser(),
+  new CSUACMOnlineJudgeContestParser(),
+
   new DevSkillProblemParser(),
   new DevSkillContestParser(),
 
@@ -75,6 +86,9 @@ export const parsers: Parser[] = [
 
   new FacebookHackerCupProblemParser(),
 
+  new FZUOnlineJudgeProblemParser(),
+  new FZUOnlineJudgeContestParser(),
+
   new HackerEarthProblemParser(),
   new HackerEarthCodeArenaParser(),
   new HackerEarthContestParser(),
@@ -84,6 +98,13 @@ export const parsers: Parser[] = [
 
   new HDUOnlineJudgeProblemParser(),
   new HDUOnlineJudgeContestParser(),
+
+  new HITOnlineJudgeProblemParser(),
+
+  new HihoCoderProblemParser(),
+  new HihoCoderContestParser(),
+
+  new HrbustOnlineJudgeProblemParser(),
 
   new JutgeProblemParser(),
 
@@ -108,8 +129,8 @@ export const parsers: Parser[] = [
 
   new SPOJProblemParser(),
 
-  new TimusProblemParser(),
-  new TimusContestParser(),
+  new TimusOnlineJudgeProblemParser(),
+  new TimusOnlineJudgeContestParser(),
 
   new TophProblemParser(),
 

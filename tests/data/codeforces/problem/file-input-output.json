@@ -2,7 +2,7 @@
   "url": "https://codeforces.com/problemset/problem/234/A",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
-    "name": "A. Lefthanders and Righthanders ",
+    "name": "A. Lefthanders and Righthanders",
     "group": "Codeforces Round #145 (Div. 2, ACM-ICPC Rules)",
     "url": "https://codeforces.com/problemset/problem/234/A",
     "memoryLimit": 256,

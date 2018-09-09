@@ -1,0 +1,30 @@
+{
+  "url": "http://acm.hrbust.edu.cn/index.php?m=ProblemSet&a=showProblem&problem_id=1054",
+  "parser": "problem/HrbustOnlineJudgeProblemParser",
+  "result": {
+    "name": "Brackets! Brackets!",
+    "group": "Hrbust Online Judge",
+    "url": "http://acm.hrbust.edu.cn/index.php?m=ProblemSet&a=showProblem&problem_id=1054",
+    "memoryLimit": 65,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n{{[[(())]]}}\n({[}])\n",
+        "output": "Valid\nInvalid\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "BracketsBrackets"
+      }
+    }
+  }
+}

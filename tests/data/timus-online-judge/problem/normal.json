@@ -1,6 +1,6 @@
 {
   "url": "http://acm.timus.ru/problem.aspx?space=1&num=1098",
-  "parser": "problem/TimusProblemParser",
+  "parser": "problem/TimusOnlineJudgeProblemParser",
   "result": {
     "name": "1098. Questions",
     "group": "Timus",

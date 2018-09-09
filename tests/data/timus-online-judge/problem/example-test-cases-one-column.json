@@ -1,6 +1,6 @@
 {
   "url": "http://acm.timus.ru/problem.aspx?space=1&num=1027",
-  "parser": "problem/TimusProblemParser",
+  "parser": "problem/TimusOnlineJudgeProblemParser",
   "result": {
     "name": "1027. D++ Again",
     "group": "Timus - Ural State University Internal Contest October'2000 Junior Session",

@@ -1,0 +1,136 @@
+{
+  "url": "http://acm.csu.edu.cn/csuoj/contest/problemset?cid=2165",
+  "parser": "contest/CSUACMOnlineJudgeContestParser",
+  "result": [
+    {
+      "name": "A: 商",
+      "group": "CSU-ACM Online Judge - 2165: 2018年7月月赛",
+      "url": "http://acm.csu.edu.cn/csuoj/contest/problem?cid=2165&pid=A",
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "6 7 9\n",
+          "output": "0.857142857\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "A"
+        }
+      }
+    },
+    {
+      "name": "B: 平衡等式",
+      "group": "CSU-ACM Online Judge - 2165: 2018年7月月赛",
+      "url": "http://acm.csu.edu.cn/csuoj/contest/problem?cid=2165&pid=B",
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "20\n",
+          "output": "30\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "B"
+        }
+      }
+    },
+    {
+      "name": "C: 卷积",
+      "group": "CSU-ACM Online Judge - 2165: 2018年7月月赛",
+      "url": "http://acm.csu.edu.cn/csuoj/contest/problem?cid=2165&pid=C",
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "5 2\n50 56 85 43 60\n",
+          "output": "2500 5600 8500 7436 6000\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "C"
+        }
+      }
+    },
+    {
+      "name": "D: 神奇的金字塔",
+      "group": "CSU-ACM Online Judge - 2165: 2018年7月月赛",
+      "url": "http://acm.csu.edu.cn/csuoj/contest/problem?cid=2165&pid=D",
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "9 3 8 10\n",
+          "output": "2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "D"
+        }
+      }
+    },
+    {
+      "name": "E: 疯狂的企鹅",
+      "group": "CSU-ACM Online Judge - 2165: 2018年7月月赛",
+      "url": "http://acm.csu.edu.cn/csuoj/contest/problem?cid=2165&pid=E",
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4\n4 2 1 3\n",
+          "output": "2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "E"
+        }
+      }
+    }
+  ]
+}
