@@ -77,6 +77,9 @@ async function runTest(data: ParserTestData) {
   const html = await page.content();
 
   expect(parser.getRegularExpressions().some(r => r.test(url))).toBeTruthy();
+  expect(
+    parser.getExcludedRegularExpressions().some(r => r.test(url)),
+  ).toBeFalsy();
   expect(parser.canHandlePage()).toBeTruthy();
 
   const result = await parser.parse(url, html);

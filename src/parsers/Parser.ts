@@ -27,23 +27,17 @@ export abstract class Parser {
     return this.getMatchPatterns().map(matchPatternToRegExp);
   }
 
-  /*/!**
-   * Returns the regular expressions which the content script will match against the url.
-   * If it's a match, this parser will be used on the given url.
-   *!/
-  public abstract getRegularExpressions(): RegExp[];
-
-  /!**
-   * The excluded version of getRegularExpressions(). If the url matches one of the
-   * regular expressions returned by this method, this parser will explicitly not
-   * be used, even if there is a match in one of the regular expressions in getRegularExpressions().
-   *!/
+  /**
+   * The excluded version of getRegularExpressions(). If a regular expression coming
+   * from this method matches the url, this parser will explicitly not be used,
+   * even if a regular expression from getRegularExpressions() does match.
+   */
   public getExcludedRegularExpressions(): RegExp[] {
-    return [];
-  }*/
+    return this.getExcludedMatchPatterns().map(matchPatternToRegExp);
+  }
 
   /**
-   * When one of the regular expressions of this parser match the current url, this method is called.
+   * When one of the regular expressions of this problemParser match the current url, this method is called.
    * If it returns true, it is assumed this page can load this page. This is useful for contest
    * parsers where the url might not give away whether the contest problems are already available.
    */

@@ -18,11 +18,9 @@ function checkTab(tabId: number, url: string): void {
       .getRegularExpressions()
       .some(r => r.test(url));
 
-    const hasMatchingExcludedPattern = false;
-
-    /*const hasMatchingExcludedPattern = parser
+    const hasMatchingExcludedPattern = parser
       .getExcludedRegularExpressions()
-      .some(r => r.test(url));*/
+      .some(r => r.test(url));
 
     if (
       hasMatchingPattern &&
