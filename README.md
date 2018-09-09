@@ -48,9 +48,9 @@ A browser extension which parses programming problems from various online judges
 | NYTD Online Judge     | ✔              | ✔              |
 | omegaUp               | ✔              |                |
 | Panda Online Judge    | ✔              |                |
-| QDUOJ                 | ✔              | ✔              |
 | PEG Judge             | ✔              | ✔              |
 | POJ                   | ✔              | ✔              |
+| QDUOJ                 | ✔              | ✔              |
 | SPOJ                  | ✔              |                |
 | SUSTech Online Judge  | ✔              | ✔              |
 | Timus                 | ✔              | ✔              |
