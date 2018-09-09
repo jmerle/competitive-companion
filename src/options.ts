@@ -1,11 +1,14 @@
-import { Config } from './utils/Config';
+import { config } from './utils/config';
 
-const customPortsInput = document.querySelector('#custom-ports') as HTMLInputElement;
-const debugModeInput = document.querySelector('#debug-mode') as HTMLInputElement;
+const customPortsInput = document.querySelector(
+  '#custom-ports',
+) as HTMLInputElement;
+const debugModeInput = document.querySelector(
+  '#debug-mode',
+) as HTMLInputElement;
 
-customPortsInput.addEventListener('input', function () {
-  const ports = this
-    .value
+customPortsInput.addEventListener('input', function() {
+  const ports = this.value
     .split(',')
     .map(x => x.trim())
     .filter(x => x.length > 0)
@@ -14,26 +17,38 @@ customPortsInput.addEventListener('input', function () {
   const uniquePorts = [...new Set(ports)];
 
   if (uniquePorts.some(isNaN) || uniquePorts.some(x => x < 0)) {
-    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'block';
+    (document.querySelector(
+      '#custom-ports-error',
+    ) as HTMLElement).style.display = 'block';
   } else {
-    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'none';
+    (document.querySelector(
+      '#custom-ports-error',
+    ) as HTMLElement).style.display = 'none';
 
-    Config.set('customPorts', uniquePorts)
+    config
+      .set('customPorts', uniquePorts)
       .then(() => {})
       .catch(() => {});
   }
 });
 
-debugModeInput.addEventListener('input', function () {
-  Config.set('debugMode', this.checked)
+debugModeInput.addEventListener('input', function() {
+  config
+    .set('debugMode', this.checked)
     .then(() => {})
     .catch(() => {});
 });
 
-Config.get<number[]>('customPorts').then(value => {
-  customPortsInput.value = value.join(',');
-}).catch(() => {});
+config
+  .get<number[]>('customPorts')
+  .then(value => {
+    customPortsInput.value = value.join(',');
+  })
+  .catch(() => {});
 
-Config.get<boolean>('debugMode').then(value => {
-  debugModeInput.checked = value;
-}).catch(() => {});
+config
+  .get<boolean>('debugMode')
+  .then(value => {
+    debugModeInput.checked = value;
+  })
+  .catch(() => {});

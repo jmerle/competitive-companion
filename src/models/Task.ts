@@ -1,4 +1,4 @@
-import { Config } from '../utils/Config';
+import { config } from '../utils/config';
 import { sendToBackground } from '../utils/messaging';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
@@ -50,7 +50,8 @@ export class Task implements Sendable {
 
   public send(): Promise<void> {
     return new Promise(resolve => {
-      Config.get<boolean>('debugMode')
+      config
+        .get<boolean>('debugMode')
         .then(debug => {
           if (debug) {
             // tslint:disable-next-line no-console

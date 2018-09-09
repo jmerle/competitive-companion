@@ -1,4 +1,4 @@
-import { Config } from '../utils/Config';
+import { config } from '../utils/config';
 import { CHelperHost } from './CHelperHost';
 import { CustomHost } from './CustomHost';
 import { Host } from './Host';
@@ -11,7 +11,8 @@ const defaultPorts = [
 
 export function getHosts(): Promise<Host[]> {
   return new Promise((resolve, reject) => {
-    Config.get<number[]>('customPorts')
+    config
+      .get<number[]>('customPorts')
       .then(ports => {
         const uniquePorts = [...new Set(defaultPorts.concat(ports))];
 

@@ -12,6 +12,14 @@ export class QDUOJContestParser extends Parser {
     ];
   }
 
+  public canHandlePage(): boolean {
+    return (
+      document.querySelector(
+        '#contest-main tr.ivu-table-row > td:first-child > div > span',
+      ) !== null
+    );
+  }
+
   public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
       const elem = htmlToElement(html);

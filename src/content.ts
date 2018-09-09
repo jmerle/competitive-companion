@@ -11,12 +11,24 @@ const Nanobar = require('nanobar');
 let activeParser: Parser = null;
 
 function checkTab(tabId: number, url: string): void {
+  sendToBackground(MessageAction.DisablePageAction);
+
   for (const parser of parsers) {
     const hasMatchingPattern = parser
       .getRegularExpressions()
       .some(r => r.test(url));
 
-    if (hasMatchingPattern && parser.canHandlePage()) {
+    const hasMatchingExcludedPattern = false;
+
+    /*const hasMatchingExcludedPattern = parser
+      .getExcludedRegularExpressions()
+      .some(r => r.test(url));*/
+
+    if (
+      hasMatchingPattern &&
+      !hasMatchingExcludedPattern &&
+      parser.canHandlePage()
+    ) {
       activeParser = parser;
       sendToBackground(MessageAction.EnablePageAction);
       break;

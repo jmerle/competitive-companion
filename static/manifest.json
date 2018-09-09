@@ -8,11 +8,7 @@
   "author": "Filled by build script",
   "homepage_url": "Filled by build script",
 
-  "permissions": [
-    "tabs",
-    "storage",
-    "http://localhost/"
-  ],
+  "permissions": ["tabs", "storage", "webNavigation", "http://localhost/"],
 
   "icons": {
     "16": "icons/icon-16.png",
@@ -29,8 +25,7 @@
 
   "content_scripts": [
     {
-      "matches": ["Filled by build script"],
-      "exclude_matches": ["Filled by build script"],
+      "matches": ["<all_urls>"],
       "js": ["js/browser-polyfill.min.js", "js/content.js"]
     }
   ],

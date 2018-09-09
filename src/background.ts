@@ -9,6 +9,15 @@ function checkTab(tabId: number, changeInfo: any, tab: browser.tabs.Tab) {
   });
 }
 
+function handleHistoryStateUpdate(details: any) {
+  const { tabId, url } = details;
+
+  sendToContent(tabId, MessageAction.CheckTab, {
+    tabId,
+    url,
+  });
+}
+
 function parse(tab: browser.tabs.Tab) {
   sendToContent(tab.id, MessageAction.Parse);
 }
@@ -50,5 +59,8 @@ function handleMessage(
 }
 
 browser.tabs.onUpdated.addListener(checkTab);
+browser.webNavigation.onHistoryStateUpdated.addListener(
+  handleHistoryStateUpdate,
+);
 browser.pageAction.onClicked.addListener(parse);
 browser.runtime.onMessage.addListener(handleMessage);
