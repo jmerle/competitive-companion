@@ -1,7 +1,7 @@
 {
   "url": "https://www.hackerrank.com/contests/codeknight-1/challenges/road-trip-3-1",
   "parser": "problem/HackerRankProblemParser",
-  "before": "beforeHackerRankProblem",
+  "before": "beforeHackerRank",
   "result": {
     "name": "Magical Cards",
     "group": "HackerRank",

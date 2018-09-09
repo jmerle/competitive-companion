@@ -11,7 +11,7 @@
     "build": "webpack --progress --colors --mode=production",
     "lint:code": "tslint -p tsconfig.json -c tslint.json -t stylish",
     "lint:package": "yarn build && web-ext lint -s build/ -o text",
-    "watch": "cross-env NO_MINIMIZE=true yarn build --watch --watch-poll",
+    "watch": "cross-env NO_MINIMIZE=true yarn build --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "test": "jest",
     "test:no-headless": "cross-env HEADLESS=false jest",

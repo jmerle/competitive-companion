@@ -8,7 +8,7 @@
 [![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)  
 [![License](https://img.shields.io/github/license/jmerle/competitive-companion.svg)](LICENSE)
 
-A browser extension which parses programming problems from various online judges and sends them to various tools. Capable of parsing problems and contests and extracting the data necessary to solve the problem like the example testcases and the time and memory constraints.
+A browser extension which parses programming problems from various online judges (like Codeforces and UVa) and sends them to various tools (like CHelper and Hightail). Capable of parsing problems and contests and extracting data like the example testcases and the time and memory constraints.
 
 ## Supported tools
 - [CHelper](https://plugins.jetbrains.com/plugin/7091-chelper)
@@ -30,8 +30,11 @@ A browser extension which parses programming problems from various online judges
 | DevSkill              | ✔              | ✔              |
 | DMOJ                  | ✔              | ✔              |
 | E-Olymp               | ✔              | ✔              |
+| ECNU Online Judge     | ✔              | ✔              |
 | Facebook Hacker Cup   | ✔              |                |
 | FZU Online Judge      | ✔              | ✔              |
+| Google Code Jam (new) | ✔              |                |
+| Google Code Jam (old) |                | ✔              |
 | HackerEarth           | ✔              | ✔              |
 | HackerRank            | ✔              | ✔              |
 | HDU Online Judge      | ✔              | ✔              |
@@ -42,13 +45,14 @@ A browser extension which parses programming problems from various online judges
 | Jutge                 | ✔              |                |
 | Kattis                | ✔              | ✔              |
 | LightOJ               | ✔              | ✔              |
-| Google Code Jam (old) |                | ✔              |
-| Google Code Jam (new) | ✔              |                |
+| NYTD Online Judge     | ✔              | ✔              |
 | omegaUp               | ✔              |                |
 | Panda Online Judge    | ✔              |                |
+| QDUOJ                 | ✔              | ✔              |
 | PEG Judge             | ✔              | ✔              |
 | POJ                   | ✔              | ✔              |
 | SPOJ                  | ✔              |                |
+| SUSTech Online Judge  | ✔              | ✔              |
 | Timus                 | ✔              | ✔              |
 | Toph                  | ✔              |                |
 | URI Online Judge      | ✔              | ✔              |
@@ -185,7 +189,7 @@ Third-party libraries that can be found in the minified extension:
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
 - [webextension-polyfill 0.3.1](https://github.com/mozilla/webextension-polyfill/blob/0.3.1/src/browser-polyfill.js)
-- [PDF.js 2.0.489](https://github.com/mozilla/pdfjs-dist/blob/75d0c0c6a541d865d7fa127acd0e2148f59de152/build/pdf.js)
+- [pdfjs-dist 2.0.489](https://github.com/mozilla/pdfjs-dist/blob/75d0c0c6a541d865d7fa127acd0e2148f59de152/build/pdf.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
 

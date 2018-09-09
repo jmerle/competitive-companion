@@ -1,0 +1,30 @@
+{
+  "url": "http://acm.sustc.edu.cn/onlinejudge/problem.php?id=1000",
+  "parser": "problem/SUSTechOnlineJudgeProblemParser",
+  "result": {
+    "name": "1000: A+B",
+    "group": "SUSTech Online Judge",
+    "url": "http://acm.sustc.edu.cn/onlinejudge/problem.php?id=1000",
+    "memoryLimit": 576,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "50 50\n",
+        "output": "100\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

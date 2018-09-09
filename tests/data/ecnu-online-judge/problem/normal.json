@@ -1,0 +1,38 @@
+{
+  "url": "https://acm.ecnu.edu.cn/problem/3632/",
+  "parser": "problem/ECNUOnlineJudgeProblemParser",
+  "result": {
+    "name": "3632. Establishment Of Primes",
+    "group": "ECNU Online Judge",
+    "url": "https://acm.ecnu.edu.cn/problem/3632/",
+    "memoryLimit": 256,
+    "timeLimit": 500,
+    "tests": [
+      {
+        "input": "2\n",
+        "output": "1\n2\n"
+      },
+      {
+        "input": "5\n",
+        "output": "2\n2 3\n"
+      },
+      {
+        "input": "10\n",
+        "output": "3\n2 1 4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "EstablishmentOfPrimes"
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
 import { sendToContent } from './utils/messaging';
 
-function checkTab(tabId: number, changeInfo: object, tab: browser.tabs.Tab) {
+function checkTab(tabId: number, changeInfo: any, tab: browser.tabs.Tab) {
   sendToContent(tabId, MessageAction.CheckTab, {
     tabId,
     url: tab.url,

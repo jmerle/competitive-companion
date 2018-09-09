@@ -38,13 +38,13 @@ async function parse() {
       document.body.innerHTML,
     );
 
-    (window as any).nanoBar.go(100);
     await sendable.send();
   } catch (err) {
     // tslint:disable-next-line no-console
     console.error(err);
   }
 
+  (window as any).nanoBar.go(100);
   sendToBackground(MessageAction.EnablePageAction);
 }
 

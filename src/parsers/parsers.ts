@@ -5,6 +5,7 @@ import { COJContestParser } from './contest/COJContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DevSkillContestParser } from './contest/DevSkillContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
+import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
 import { EOlympContestParser } from './contest/EOlympContestParser';
 import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
@@ -16,6 +17,8 @@ import { LightOJContestParser } from './contest/LightOJContestParser';
 import { OldGoogleCodeJamContestParser } from './contest/OldGoogleCodeJamContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
+import { QDUOJContestParser } from './contest/QDUOJContestParser';
+import { SUSTechOnlineJudgeContestParser } from './contest/SUSTechOnlineJudgeContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestParser';
 import { Parser } from './Parser';
@@ -28,6 +31,7 @@ import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
 import { DevSkillProblemParser } from './problem/DevSkillProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
+import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EOlympProblemParser } from './problem/EOlympProblemParser';
 import { FacebookHackerCupProblemParser } from './problem/FacebookHackerCupProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
@@ -46,7 +50,9 @@ import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
+import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
+import { SUSTechOnlineJudgeProblemParser } from './problem/SUSTechOnlineJudgeProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
 import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemParser';
@@ -80,6 +86,9 @@ export const parsers: Parser[] = [
 
   new DMOJProblemParser(),
   new DMOJContestParser(),
+
+  new ECNUOnlineJudgeProblemParser(),
+  new ECNUOnlineJudgeContestParser(),
 
   new EOlympProblemParser(),
   new EOlympContestParser(),
@@ -127,7 +136,13 @@ export const parsers: Parser[] = [
   new POJProblemParser(),
   new POJContestParser(),
 
+  new QDUOJProblemParser(),
+  new QDUOJContestParser(),
+
   new SPOJProblemParser(),
+
+  new SUSTechOnlineJudgeProblemParser(),
+  new SUSTechOnlineJudgeContestParser(),
 
   new TimusOnlineJudgeProblemParser(),
   new TimusOnlineJudgeContestParser(),

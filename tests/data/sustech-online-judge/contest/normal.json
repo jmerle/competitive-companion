@@ -1,0 +1,84 @@
+{
+  "url": "http://acm.sustc.edu.cn/onlinejudge/contest.php?cid=1028",
+  "parser": "contest/SUSTechOnlineJudgeContestParser",
+  "result": [
+    {
+      "name": "Problem A: Binary search tree",
+      "group": "SUSTech Online Judge",
+      "url": "http://acm.sustc.edu.cn/onlinejudge/problem.php?cid=1028&pid=0",
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1\n2 6\n5 6 7 4 3 2 \n5 4 3 2 6 7 \n5 7 6 3 4 2\n",
+          "output": "YES\nNO\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ProblemABinarySearchTree"
+        }
+      }
+    },
+    {
+      "name": "Problem B: Judgement",
+      "group": "SUSTech Online Judge",
+      "url": "http://acm.sustc.edu.cn/onlinejudge/problem.php?cid=1028&pid=1",
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1\n3\n1 2 3\n2 1 \n2 3\n",
+          "output": "Yes\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ProblemBJudgement"
+        }
+      }
+    },
+    {
+      "name": "Problem C: Balanced Binary Tree",
+      "group": "SUSTech Online Judge",
+      "url": "http://acm.sustc.edu.cn/onlinejudge/problem.php?cid=1028&pid=2",
+      "memoryLimit": 1024,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "1\n9 10\nI 60\nI 70\nS 50\nQ 2\nI 30\nS 15\nA 5\nQ 1\nQ 2\n",
+          "output": "10\n20\n-1\n2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ProblemCBalancedBinaryTree"
+        }
+      }
+    }
+  ]
+}

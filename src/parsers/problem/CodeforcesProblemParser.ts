@@ -26,11 +26,11 @@ export class CodeforcesProblemParser extends Parser {
       if (url.includes('/problemsets/acmsguru')) {
         const elem = htmlToElement(html);
 
-        if (
-          elem.querySelector(
-            '.problemindexholder > .ttypography > .bordertable',
-          ) !== null
-        ) {
+        const table = elem.querySelector(
+          '.problemindexholder > .ttypography > .bordertable',
+        );
+
+        if (table) {
           this.parseAcmSguRuProblemInsideTable(html, task);
         } else {
           this.parseAcmSguRuProblemNotInsideTable(html, task);

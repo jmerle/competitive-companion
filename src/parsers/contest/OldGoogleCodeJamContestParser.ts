@@ -25,6 +25,7 @@ export class OldGoogleCodeJamContestParser extends Parser {
 
       const problemCount = elem.querySelectorAll('#dsb-problem-pages > div')
         .length;
+
       for (let i = 0; i < problemCount; i++) {
         const task = new TaskBuilder().setUrl(url);
 
@@ -34,11 +35,13 @@ export class OldGoogleCodeJamContestParser extends Parser {
             .textContent.trim()
             .replace('. ', ' - '),
         );
+
         task.setGroup(group);
 
         const blocks = elem.querySelectorAll(
           `#dsb-problem-page${i} .problem-io-wrapper pre.io-content`,
         );
+
         const input = blocks[0].textContent.trim();
         const output = blocks[1].textContent.trim();
         task.addTest(input, output);

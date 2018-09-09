@@ -1,6 +1,7 @@
 {
   "url": "https://www.hackerrank.com/challenges/30-conditional-statements/problem",
   "parser": "problem/HackerRankProblemParser",
+  "before": "beforeHackerRank",
   "result": {
     "name": "Day 3: Intro to Conditional Statements",
     "group": "HackerRank - Tutorials - 30 Days of Code",
