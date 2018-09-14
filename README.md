@@ -52,7 +52,6 @@ A browser extension which parses programming problems from various online judges
 | POJ                   | ✔              | ✔              |
 | QDUOJ                 | ✔              | ✔              |
 | SPOJ                  | ✔              |                |
-| SUSTech Online Judge  | ✔              | ✔              |
 | Timus                 | ✔              | ✔              |
 | Toph                  | ✔              |                |
 | URI Online Judge      | ✔              | ✔              |

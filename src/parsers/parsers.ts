@@ -18,7 +18,6 @@ import { OldGoogleCodeJamContestParser } from './contest/OldGoogleCodeJamContest
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
-import { SUSTechOnlineJudgeContestParser } from './contest/SUSTechOnlineJudgeContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestParser';
 import { Parser } from './Parser';
@@ -52,7 +51,6 @@ import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
-import { SUSTechOnlineJudgeProblemParser } from './problem/SUSTechOnlineJudgeProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
 import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemParser';
@@ -140,9 +138,6 @@ export const parsers: Parser[] = [
   new QDUOJContestParser(),
 
   new SPOJProblemParser(),
-
-  new SUSTechOnlineJudgeProblemParser(),
-  new SUSTechOnlineJudgeContestParser(),
 
   new TimusOnlineJudgeProblemParser(),
   new TimusOnlineJudgeContestParser(),

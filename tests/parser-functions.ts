@@ -33,6 +33,6 @@ export default {
   },
 
   async beforeQDUOJ(page: Page) {
-    await page.waitFor('#problem-main');
+    await page.waitFor(() => /(\d+)MS/.test(document.body.innerHTML));
   },
 };

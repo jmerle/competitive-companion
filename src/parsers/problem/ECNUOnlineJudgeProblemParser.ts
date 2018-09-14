@@ -16,7 +16,7 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      if (elem.querySelector('.item.active[href="/contest/"]')) {
+      if (elem.querySelector('a.active.item[href^="/contest/"]')) {
         const contest = elem.querySelector('.ui.header').textContent;
 
         task.setName(elem.querySelector('div.ui.header').textContent);

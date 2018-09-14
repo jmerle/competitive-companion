@@ -1,3 +1,7 @@
+# 2.3.1 - September 14th, 2018
+- Fixed bugs in the HackerRank, ECNU Online Judge, QDUOJ and NYTD Online Judge parsers
+- Removed the SUSTech Online Judge parser
+
 # 2.3.0 - September 9th, 2018
 - Fixed bugs in the HackerRank, URI Online Judge and Codeforces parsers
 - Added parsers for UVa Online Judge, ICPC Live Archive, FZU Online Judge, CSU-ACM Online Judge, Hrbust Online Judge, HIT Online Judge, hihoCoder, ECNU Online Judge, SUSTech Online Judge, QDUOJ and NYTD Online Judge
