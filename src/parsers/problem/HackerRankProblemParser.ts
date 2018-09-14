@@ -6,7 +6,7 @@ import { Parser } from '../Parser';
 export class HackerRankProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
-      'https://www.hackerrank.com/challenges/*/problem',
+      'https://www.hackerrank.com/challenges/*/problem*',
       'https://www.hackerrank.com/contests/*/challenges/*',
     ];
   }
