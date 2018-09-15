@@ -1,3 +1,6 @@
+# 2.3.2 - September 15th, 2018
+- Fixed a bug in the UVa Online Judge and the ICPC Live Archive parsers
+
 # 2.3.1 - September 14th, 2018
 - Fixed bugs in the HackerRank, ECNU Online Judge, QDUOJ and NYTD Online Judge parsers
 - Removed the SUSTech Online Judge parser

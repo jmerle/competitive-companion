@@ -7264,9 +7264,9 @@ ts-jest@^23.1.4:
     json5 "^0.5.0"
     lodash "^4.17.10"
 
-ts-loader@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-5.1.0.tgz#ac13facb9360af4a4b072c851a120d17cbcaf1fa"
+ts-loader@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-5.1.1.tgz#361eeae3cc3c6f63d2e9f421dba90c4b14659aa6"
   dependencies:
     chalk "^2.3.0"
     enhanced-resolve "^4.0.0"
