@@ -19,7 +19,7 @@ export class CodeforcesContestParser extends ContestParser {
 
   public getRegularExpressions(): RegExp[] {
     return [
-      /^http:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)$/,
+      /^https?:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)$/,
     ];
   }
 }
