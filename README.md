@@ -180,9 +180,8 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 10.10.0  
-Yarn: 1.9.4  
-Ubuntu: 18.04.1  
+Node.js: 10.12.0  
+Yarn: 1.10.1
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
