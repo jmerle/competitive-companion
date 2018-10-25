@@ -1,3 +1,6 @@
+# 2.3.3 - TBD
+- Fixed the Codeforces parser and the Panda Online Judge parser
+
 # 2.3.2 - September 15th, 2018
 - Fixed a bug in the UVa Online Judge and the ICPC Live Archive parsers
 

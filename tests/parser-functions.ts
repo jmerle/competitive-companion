@@ -32,6 +32,11 @@ export default {
     await page.waitFor('#dsb-problem-title0');
   },
 
+  async beforePandaOnlineJudge(page: Page) {
+    await page.waitFor('.mat-card-title');
+    await page.waitFor('pre.sample-item');
+  },
+
   async beforeQDUOJ(page: Page) {
     await page.waitFor(() => /(\d+)MS/.test(document.body.innerHTML));
   },

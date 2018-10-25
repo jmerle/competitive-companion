@@ -1,6 +1,7 @@
 {
   "url": "https://pandaoj.com/problem/AB",
   "parser": "problem/PandaOnlineJudgeProblemParser",
+  "before": "beforePandaOnlineJudge",
   "result": {
     "name": "A + B + ...",
     "group": "Panda Online Judge",

@@ -4,7 +4,7 @@
   "before": "beforeQDUOJ",
   "result": {
     "name": "A+B Problem",
-    "group": "NYTD - Online Judge",
+    "group": "NYTD OnlineJudge",
     "url": "https://nytdoj.com/problem/1000",
     "memoryLimit": 512,
     "timeLimit": 1000,
