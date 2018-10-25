@@ -21,6 +21,7 @@ A browser extension which parses programming problems from various online judges
 | Website               | Problem parser | Contest parser |
 |-----------------------|----------------|----------------|
 | A2OJ                  | ✔              |                |
+| ACMP                  | ✔              |                |
 | AtCoder               | ✔              | ✔              |
 | CodeChef              | ✔              | ✔              |
 | Codeforces            | ✔              | ✔              |
@@ -42,6 +43,7 @@ A browser extension which parses programming problems from various online judges
 | hihoCoder             | ✔              | ✔              |
 | Hrbust Online Judge   | ✔              |                |
 | ICPC Live Archive     | ✔              |                |
+| MSK Informatics       | ✔              |                |
 | Jutge                 | ✔              |                |
 | Kattis                | ✔              | ✔              |
 | LightOJ               | ✔              | ✔              |
@@ -188,6 +190,7 @@ Third-party libraries that can be found in the minified extension:
 - [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
 - [webextension-polyfill 0.3.1](https://github.com/mozilla/webextension-polyfill/blob/0.3.1/src/browser-polyfill.js)
 - [pdfjs-dist 2.0.489](https://github.com/mozilla/pdfjs-dist/blob/75d0c0c6a541d865d7fa127acd0e2148f59de152/build/pdf.js)
+- [cyrillic-to-translit-js 2.1.0](https://github.com/greybax/cyrillic-to-translit-js/blob/1f628f39ee173361d60bbdf7b55c04762f2f943b/CyrillicToTranslit.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
 

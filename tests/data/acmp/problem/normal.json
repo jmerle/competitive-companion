@@ -1,0 +1,30 @@
+{
+  "url": "http://acmp.ru/index.asp?main=task&id_task=1",
+  "parser": "problem/ACMPProblemParser",
+  "result": {
+    "name": "A+B",
+    "group": "ACMP",
+    "url": "http://acmp.ru/index.asp?main=task&id_task=1",
+    "memoryLimit": 16,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2 3\n",
+        "output": "5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

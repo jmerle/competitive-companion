@@ -1,4 +1,5 @@
-# 2.3.3 - TBD
+# 2.4.0 - October 26th, 2018
+- Added parsers for ACMP and MSK Informatics
 - Fixed the Codeforces parser and the Panda Online Judge parser
 
 # 2.3.2 - September 15th, 2018

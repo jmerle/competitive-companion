@@ -1,8 +1,11 @@
+import CyrillicToTranslit = require('cyrillic-to-translit-js');
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
 import { Task } from './Task';
 import { Test } from './Test';
 import { TestType } from './TestType';
+
+const cyrillicToLatin = new CyrillicToTranslit();
 
 export class TaskBuilder {
   public name: string = '';
@@ -87,7 +90,8 @@ export class TaskBuilder {
   }
 
   public setJavaTaskClassFromName(): TaskBuilder {
-    const name = this.name.replace(/[^a-zA-Z0-9_ -]/g, '');
+    const latin = cyrillicToLatin.transform(this.name);
+    const name = latin.replace(/[^a-zA-Z0-9_ -]/g, '');
 
     let taskClass = '';
     let nextCapital = true;

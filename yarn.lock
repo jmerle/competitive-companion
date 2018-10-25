@@ -1977,6 +1977,11 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
+cyrillic-to-translit-js@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/cyrillic-to-translit-js/-/cyrillic-to-translit-js-2.1.0.tgz#14e3eb9097da2d63009c7c6ffc9fb790e8159392"
+  integrity sha512-dpqqF2M9pwwHeMROWWQUIMQXcjj2cQ/LxCgTV5Lb5td9UvH8CkppiPcvVh//imHs9kQZORQLG9x7vm6IxJ2XUA==
+
 d@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d/-/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
