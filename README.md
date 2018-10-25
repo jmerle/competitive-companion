@@ -43,10 +43,10 @@ A browser extension which parses programming problems from various online judges
 | hihoCoder             | ✔              | ✔              |
 | Hrbust Online Judge   | ✔              |                |
 | ICPC Live Archive     | ✔              |                |
-| MSK Informatics       | ✔              |                |
 | Jutge                 | ✔              |                |
 | Kattis                | ✔              | ✔              |
 | LightOJ               | ✔              | ✔              |
+| MSK Informatics       | ✔              |                |
 | NYTD Online Judge     | ✔              | ✔              |
 | omegaUp               | ✔              |                |
 | Panda Online Judge    | ✔              |                |
