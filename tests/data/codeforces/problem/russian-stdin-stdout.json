@@ -1,0 +1,38 @@
+{
+  "url": "http://codeforces.com/problemset/problem/954/G?locale=ru",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "G. Оборона крепости",
+    "group": "Educational Codeforces Round 40 (рейтинговый для Див. 2)",
+    "url": "http://codeforces.com/problemset/problem/954/G?locale=ru",
+    "memoryLimit": 256,
+    "timeLimit": 1500,
+    "tests": [
+      {
+        "input": "5 0 6\n5 4 3 4 9\n",
+        "output": "5\n"
+      },
+      {
+        "input": "4 2 0\n1 2 3 4\n",
+        "output": "6\n"
+      },
+      {
+        "input": "5 1 1\n2 1 2 1 2\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "GOboronaKreposti"
+      }
+    }
+  }
+}
