@@ -1,6 +1,6 @@
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
-import * as webpack from 'webpack';
+import webpack = require('webpack');
 
 function transformManifest(content: string): string {
   const manifest = JSON.parse(content);
@@ -46,7 +46,7 @@ const config: webpack.Configuration = {
     ],
   },
   optimization: {
-    minimize: process.env.NO_MINIMIZE === undefined,
+    minimize: false,
   },
   output: {
     filename: '[name].js',
