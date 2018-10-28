@@ -1,5 +1,5 @@
 {
-  "url": "https://codeforces.com/problemset/problem/234/A",
+  "url": "https://codeforces.com/problemset/problem/234/A?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "A. Lefthanders and Righthanders",

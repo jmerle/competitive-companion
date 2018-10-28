@@ -1,5 +1,5 @@
 {
-  "url": "http://codeforces.com/problemset/problem/118/A",
+  "url": "http://codeforces.com/problemset/problem/118/A?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "A. String Task",

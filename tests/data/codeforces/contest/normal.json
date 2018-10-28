@@ -1,5 +1,5 @@
 {
-  "url": "http://codeforces.com/contest/118",
+  "url": "http://codeforces.com/contest/118?locale=en",
   "parser": "contest/CodeforcesContestParser",
   "result": [
     {

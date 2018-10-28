@@ -1,5 +1,5 @@
 {
-  "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/100",
+  "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/100?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "100. A+B",

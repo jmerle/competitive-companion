@@ -1,5 +1,5 @@
 {
-  "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/553",
+  "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/553?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "553. Sultan's Pearls",
