@@ -70,7 +70,7 @@ export class CodeforcesProblemParser extends Parser {
       '.problem-statement > .header > .input-file',
     ).childNodes[1].textContent;
 
-    if (inputFile !== 'standard input') {
+    if (inputFile !== 'standard input' && inputFile !== 'стандартный ввод') {
       task.setInput({
         fileName: inputFile,
         type: 'file',
@@ -81,7 +81,7 @@ export class CodeforcesProblemParser extends Parser {
       '.problem-statement > .header > .output-file',
     ).childNodes[1].textContent;
 
-    if (outputFile !== 'standard output') {
+    if (outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
       task.setOutput({
         fileName: outputFile,
         type: 'file',
