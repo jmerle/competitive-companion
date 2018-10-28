@@ -1,3 +1,6 @@
+# 2.4.1 - October 29th, 2018
+- Fixed the Codeforces parser when browsing the Russian version of Codeforces (thanks [@AlexeyDmitriev](https://github.com/AlexeyDmitriev))
+
 # 2.4.0 - October 26th, 2018
 - Added parsers for ACMP and MSK Informatics
 - Fixed the Codeforces parser and the Panda Online Judge parser
