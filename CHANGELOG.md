@@ -1,3 +1,6 @@
+# 2.4.2 - TBD
+- Fixed the Yandex parser
+
 # 2.4.1 - October 29th, 2018
 - Fixed the Codeforces parser when browsing the Russian version of Codeforces (thanks [@AlexeyDmitriev](https://github.com/AlexeyDmitriev))
 - Made the extension compliant with Chrome Web Store's new requirements by disabling minimization of it's source code

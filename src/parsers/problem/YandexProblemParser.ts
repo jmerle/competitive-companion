@@ -24,13 +24,11 @@ export class YandexProblemParser extends Parser {
           .textContent,
       );
 
-      const tableSource = elem.querySelector('table').textContent;
+      const timeLimitStr = elem.querySelector('.time-limit').textContent;
+      task.setTimeLimit(parseFloat(/([0-9.]+)\s/.exec(timeLimitStr)[1]) * 1000);
 
-      task.setTimeLimit(
-        parseFloat(/([0-9.]+)\ssecond/.exec(tableSource)[1]) * 1000,
-      );
-
-      task.setMemoryLimit(parseInt(/(\d+)Mb/i.exec(tableSource)[1], 10));
+      const memoryLimitStr = elem.querySelector('.memory-limit').textContent;
+      task.setMemoryLimit(parseInt(/(\d+)Mb/i.exec(memoryLimitStr)[1], 10));
 
       elem.querySelectorAll('.sample-tests').forEach(table => {
         const blocks = table.querySelectorAll('pre');
