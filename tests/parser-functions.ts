@@ -1,12 +1,28 @@
 import { Page } from 'puppeteer';
 
 export default {
+  async beforeACMP(page: Page) {
+    await page.setRequestInterception(true);
+
+    page.on('request', interceptedRequest => {
+      if (interceptedRequest.url().includes('digitaltarget.ru')) {
+        interceptedRequest.abort();
+      } else {
+        interceptedRequest.continue();
+      }
+    });
+  },
+
   async beforeCodeChef(page: Page) {
     await page.waitFor('.breadcrumbs a');
   },
 
   async beforeCOJContest(page: Page) {
     await page.waitFor('#problem td > a');
+  },
+
+  async beforeECNU(page: Page) {
+    await page.waitFor('.property');
   },
 
   async beforeCSAcademy(page: Page) {
@@ -34,7 +50,7 @@ export default {
 
   async beforePandaOnlineJudge(page: Page) {
     await page.waitFor('.mat-card-title');
-    await page.waitFor('pre.sample-item');
+    await page.waitFor('pre.sample-box');
   },
 
   async beforeQDUOJ(page: Page) {

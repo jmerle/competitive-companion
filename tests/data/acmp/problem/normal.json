@@ -1,6 +1,7 @@
 {
   "url": "http://acmp.ru/index.asp?main=task&id_task=1",
   "parser": "problem/ACMPProblemParser",
+  "before": "beforeACMP",
   "result": {
     "name": "A+B",
     "group": "ACMP",

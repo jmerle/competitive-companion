@@ -1,6 +1,7 @@
 {
   "url": "https://acm.ecnu.edu.cn/problem/3632/",
   "parser": "problem/ECNUOnlineJudgeProblemParser",
+  "before": "beforeECNU",
   "result": {
     "name": "3632. Establishment Of Primes",
     "group": "ECNU Online Judge",

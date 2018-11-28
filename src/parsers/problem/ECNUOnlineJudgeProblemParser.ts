@@ -32,7 +32,7 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
         parseFloat(/([0-9.]+) seconds/.exec(limitsStr)[1]) * 1000,
       );
 
-      task.setMemoryLimit(parseInt(/(\d+) megabytes/.exec(limitsStr)[1], 10));
+      task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
 
       const blocks = elem.querySelectorAll('pre.sample-content');
 
