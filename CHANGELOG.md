@@ -1,5 +1,5 @@
 # 2.4.2 - TBD
-- Fixed bugs in the Yandex, Panda Online Judge, ECNU Online Judge and Toph parsers
+- Fixed bugs in the Yandex, Panda Online Judge, ECNU Online Judge, Toph and Codeforces parsers
 
 # 2.4.1 - October 29th, 2018
 - Fixed the Codeforces parser when browsing the Russian version of Codeforces (thanks [@AlexeyDmitriev](https://github.com/AlexeyDmitriev))
