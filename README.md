@@ -123,7 +123,7 @@ It's not required for a tool to parse all these options, since some of them are 
 - **url**: A link to the problem on the judge's website.
 - **memoryLimit**: The memory limit in MB.
 - **timeLimit**: The time limit in ms.
-- **testType**: The type of the tests. Supports three options: "single", "multiNumber" and "multiEOF". Explanation of these three can be found on the [JHelper wiki](https://github.com/AlexeyDmitriev/JHelper/wiki/Usage).
+- **testType**: The type of the tests. Supports two options: "single" and "multiNumber". Explanation of these two can be found on the [JHelper wiki](https://github.com/AlexeyDmitriev/JHelper/wiki/Usage).
 - **input**: An object which is used to configure how to receive input. Supported types:
     - **stdin**: Receive input via stdin. No additional options required.
     - **file**: Receive input via a file. The file name has to be given via the **fileName** option.
