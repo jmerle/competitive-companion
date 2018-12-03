@@ -1,6 +1,6 @@
 # 2.4.2 - December 4th, 2018
 - Fixed bugs in the Yandex, Panda Online Judge, ECNU Online Judge, Toph and Codeforces parsers
-- Removed the MultiEOF test type because it wasn't being used by any parser.
+- Removed the MultiEOF test type because it wasn't being used by any parser
 
 # 2.4.1 - October 29th, 2018
 - Fixed the Codeforces parser when browsing the Russian version of Codeforces (thanks [@AlexeyDmitriev](https://github.com/AlexeyDmitriev))
