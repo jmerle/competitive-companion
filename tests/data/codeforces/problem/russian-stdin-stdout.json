@@ -1,10 +1,10 @@
 {
-  "url": "http://codeforces.com/problemset/problem/954/G?locale=ru",
+  "url": "https://codeforces.com/problemset/problem/954/G?locale=ru",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "G. Оборона крепости",
     "group": "Educational Codeforces Round 40 (рейтинговый для Див. 2)",
-    "url": "http://codeforces.com/problemset/problem/954/G?locale=ru",
+    "url": "https://codeforces.com/problemset/problem/954/G?locale=ru",
     "memoryLimit": 256,
     "timeLimit": 1500,
     "tests": [

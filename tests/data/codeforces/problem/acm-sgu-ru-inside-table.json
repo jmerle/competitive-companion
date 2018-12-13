@@ -1,10 +1,10 @@
 {
-  "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/100?locale=en",
+  "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/100?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "100. A+B",
     "group": "Codeforces - acm.sgu.ru archive",
-    "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/100",
+    "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/100?locale=en",
     "memoryLimit": 65,
     "timeLimit": 250,
     "tests": [

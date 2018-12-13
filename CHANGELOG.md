@@ -1,5 +1,5 @@
 # 2.4.3 - December 14th, 2018
-- Fixed the ACMP parser
+- Fixed bugs in the ACMP and the Toph parsers
 
 # 2.4.2 - December 4th, 2018
 - Fixed bugs in the Yandex, Panda Online Judge, ECNU Online Judge, Toph and Codeforces parsers

@@ -1,11 +1,11 @@
 {
-  "url": "http://codeforces.com/contest/118?locale=en",
+  "url": "https://codeforces.com/contest/118?locale=en",
   "parser": "contest/CodeforcesContestParser",
   "result": [
     {
       "name": "A. String Task",
       "group": "Codeforces Beta Round #89 (Div. 2)",
-      "url": "http://codeforces.com/contest/118/problem/A",
+      "url": "https://codeforces.com/contest/118/problem/A",
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -39,7 +39,7 @@
     {
       "name": "B. Present from Lena",
       "group": "Codeforces Beta Round #89 (Div. 2)",
-      "url": "http://codeforces.com/contest/118/problem/B",
+      "url": "https://codeforces.com/contest/118/problem/B",
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -69,7 +69,7 @@
     {
       "name": "C. Fancy Number",
       "group": "Codeforces Beta Round #89 (Div. 2)",
-      "url": "http://codeforces.com/contest/118/problem/C",
+      "url": "https://codeforces.com/contest/118/problem/C",
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -103,7 +103,7 @@
     {
       "name": "D. Caesar's Legions",
       "group": "Codeforces Beta Round #89 (Div. 2)",
-      "url": "http://codeforces.com/contest/118/problem/D",
+      "url": "https://codeforces.com/contest/118/problem/D",
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -137,7 +137,7 @@
     {
       "name": "E. Bertown roads",
       "group": "Codeforces Beta Round #89 (Div. 2)",
-      "url": "http://codeforces.com/contest/118/problem/E",
+      "url": "https://codeforces.com/contest/118/problem/E",
       "memoryLimit": 256,
       "timeLimit": 5000,
       "tests": [

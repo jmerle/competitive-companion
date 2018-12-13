@@ -31,7 +31,7 @@ export class TophProblemParser extends Parser {
 
       if (table !== null) {
         table.querySelectorAll('tbody tr').forEach(row => {
-          const blocks = row.querySelectorAll('td');
+          const blocks = row.querySelectorAll('td > pre');
           task.addTest(
             blocks[0].textContent.trim(),
             blocks[1].textContent.trim(),

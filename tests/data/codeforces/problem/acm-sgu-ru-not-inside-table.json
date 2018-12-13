@@ -1,10 +1,10 @@
 {
-  "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/553?locale=en",
+  "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/553?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "553. Sultan's Pearls",
     "group": "Codeforces - acm.sgu.ru archive",
-    "url": "http://codeforces.com/problemsets/acmsguru/problem/99999/553",
+    "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/553?locale=en",
     "memoryLimit": 262,
     "timeLimit": 1000,
     "tests": [
