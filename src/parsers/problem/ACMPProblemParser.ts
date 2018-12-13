@@ -5,12 +5,12 @@ import { Parser } from '../Parser';
 
 export class ACMPProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://acmp.ru/*/index.asp*'];
+    return ['http://acmp.ru/*/index.asp*', 'https://acmp.ru/*/index.asp*'];
   }
 
   public getRegularExpressions(): RegExp[] {
     return [
-      /http:\/\/acmp\.ru\/.*\/?index\.asp\?.*((id_task=\d+)|(id_problem=\d+)).*/,
+      /https?:\/\/acmp\.ru\/.*\/?index\.asp\?.*((id_task=\d+)|(id_problem=\d+)).*/,
     ];
   }
 

@@ -1,3 +1,6 @@
+# 2.4.3 - December 14th, 2018
+- Fixed the ACMP parser
+
 # 2.4.2 - December 4th, 2018
 - Fixed bugs in the Yandex, Panda Online Judge, ECNU Online Judge, Toph and Codeforces parsers
 - Removed the MultiEOF test type because it wasn't being used by any parser
