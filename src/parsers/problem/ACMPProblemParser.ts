@@ -34,8 +34,8 @@ export class ACMPProblemParser extends Parser {
       elem
         .querySelectorAll('table.main tbody > tr:not(:first-child)')
         .forEach(row => {
-          const input = row.querySelector('td:nth-child(2)').textContent;
-          const output = row.querySelector('td:nth-child(3)').textContent;
+          const input = row.querySelector('td:nth-child(2)').innerHTML;
+          const output = row.querySelector('td:nth-child(3)').innerHTML;
 
           task.addTest(input.trim(), output.trim());
         });
