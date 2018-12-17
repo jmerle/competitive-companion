@@ -6,6 +6,7 @@
     "name": "A+B Problem",
     "group": "NYTD OnlineJudge",
     "url": "https://nytdoj.com/problem/1000",
+    "interactive": false,
     "memoryLimit": 512,
     "timeLimit": 1000,
     "tests": [

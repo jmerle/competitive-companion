@@ -7,6 +7,7 @@
       "name": "A - Oversized Pancake Flipper",
       "group": "Google Code Jam Qualification Round 2017",
       "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 180000,
       "tests": [
@@ -35,6 +36,7 @@
       "name": "B - Tidy Numbers",
       "group": "Google Code Jam Qualification Round 2017",
       "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 180000,
       "tests": [
@@ -63,6 +65,7 @@
       "name": "C - Bathroom Stalls",
       "group": "Google Code Jam Qualification Round 2017",
       "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 180000,
       "tests": [
@@ -91,6 +94,7 @@
       "name": "D - Fashion Show",
       "group": "Google Code Jam Qualification Round 2017",
       "url": "https://code.google.com/codejam/contest/3264486/dashboard",
+      "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 180000,
       "tests": [

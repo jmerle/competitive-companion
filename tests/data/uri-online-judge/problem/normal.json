@@ -5,6 +5,7 @@
     "name": "Extremely Basic",
     "group": "URI Online Judge",
     "url": "https://www.urionlinejudge.com.br/judge/en/problems/view/1001",
+    "interactive": false,
     "memoryLimit": 1024,
     "timeLimit": 1000,
     "tests": [

@@ -5,6 +5,7 @@
     "name": "CCC '16 S4 - Combining Riceballs",
     "group": "DMOJ",
     "url": "https://dmoj.ca/problem/ccc16s4",
+    "interactive": false,
     "memoryLimit": 128,
     "timeLimit": 3000,
     "tests": [

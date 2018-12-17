@@ -6,6 +6,7 @@
       "name": "TLE '17 Contest 8 P1 - Artificial Intelligence",
       "group": "DMOJ",
       "url": "https://dmoj.ca/problem/tle17c8p1",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -36,6 +37,7 @@
       "name": "TLE '17 Contest 8 P2 - Ship Defense",
       "group": "DMOJ",
       "url": "https://dmoj.ca/problem/tle17c8p2",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -66,6 +68,7 @@
       "name": "TLE '17 Contest 8 P3 - Curious Numbers",
       "group": "DMOJ",
       "url": "https://dmoj.ca/problem/tle17c8p3",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -92,6 +95,7 @@
       "name": "TLE '17 Contest 8 P4 - Gamma Waves",
       "group": "DMOJ",
       "url": "https://dmoj.ca/problem/tle17c8p4",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -118,6 +122,7 @@
       "name": "TLE '17 Contest 8 P5 - Battle Plan 2",
       "group": "DMOJ",
       "url": "https://dmoj.ca/problem/tle17c8p5",
+      "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 3000,
       "tests": [
@@ -144,6 +149,7 @@
       "name": "TLE '17 Contest 8 P6 - Willson and Nesting Season",
       "group": "DMOJ",
       "url": "https://dmoj.ca/problem/tle17c8p6",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [

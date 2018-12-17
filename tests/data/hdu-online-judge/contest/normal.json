@@ -6,6 +6,7 @@
       "name": "Lowest Common Multiple Plus",
       "group": "HDU Online Judge",
       "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1001&cid=26",
+      "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
       "tests": [
@@ -32,6 +33,7 @@
       "name": "Palindromes _easy version",
       "group": "HDU Online Judge",
       "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1002&cid=26",
+      "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
       "tests": [
@@ -58,6 +60,7 @@
       "name": "����ͳ��",
       "group": "HDU Online Judge",
       "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1003&cid=26",
+      "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
       "tests": [
@@ -84,6 +87,7 @@
       "name": "����ת��",
       "group": "HDU Online Judge",
       "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=26",
+      "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
       "tests": [
@@ -110,6 +114,7 @@
       "name": "�������",
       "group": "HDU Online Judge",
       "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1005&cid=26",
+      "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
       "tests": [

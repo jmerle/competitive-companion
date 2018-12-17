@@ -5,6 +5,7 @@
     "name": "Problem 1. Out of Sorts",
     "group": "USACO 2018 US Open Contest, Platinum",
     "url": "http://usaco.org/index.php?page=viewproblem2&cpid=840",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 4000,
     "tests": [

@@ -6,6 +6,7 @@
     "name": "A + B + ...",
     "group": "Panda Online Judge",
     "url": "https://pandaoj.com/problem/AB",
+    "interactive": false,
     "memoryLimit": 32,
     "timeLimit": 1000,
     "tests": [

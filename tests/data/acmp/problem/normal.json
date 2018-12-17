@@ -6,6 +6,7 @@
     "name": "Числа - 2",
     "group": "ACMP",
     "url": "http://acmp.ru/index.asp?main=task&id_task=536",
+    "interactive": false,
     "memoryLimit": 16,
     "timeLimit": 1000,
     "tests": [

@@ -1,0 +1,31 @@
+{
+  "url": "https://codeforces.com/contest/810/problem/D?locale=en",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "D. Glad to see you!",
+    "group": "Codeforces Round #415 (Div. 2)",
+    "url": "https://codeforces.com/contest/810/problem/D?locale=en",
+    "interactive": true,
+    "memoryLimit": 256,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "3 2\nNIE\nTAK\nNIE\nTAK\nTAK\nTAK\n",
+        "output": "1 1 2\n1 2 1\n1 1 3\n1 3 1\n1 2 3\n1 3 2\n2 2 3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "DGladToSeeYou"
+      }
+    }
+  }
+}

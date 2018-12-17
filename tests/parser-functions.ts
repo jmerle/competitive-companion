@@ -23,6 +23,7 @@ export default {
 
   async beforeECNU(page: Page) {
     await page.waitFor('.property');
+    await page.waitFor(1000);
   },
 
   async beforeCSAcademy(page: Page) {

@@ -5,6 +5,7 @@
     "name": "Palindromic String",
     "group": "HackerEarth - Basic Programming - Input/Output - Basics of Input/Output",
     "url": "https://www.hackerearth.com/practice/basic-programming/input-output/basics-of-input-output/practice-problems/algorithm/palindrome-check-2/",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,
     "tests": [

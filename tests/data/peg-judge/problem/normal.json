@@ -5,6 +5,7 @@
     "name": "Problem 4: Alpha Nerd",
     "group": "PEG Judge - Woburn Challenge 2017-18 Round 4 - Senior Division",
     "url": "https://wcipeg.com/problem/wc174s4",
+    "interactive": false,
     "memoryLimit": 64,
     "timeLimit": 4000,
     "tests": [

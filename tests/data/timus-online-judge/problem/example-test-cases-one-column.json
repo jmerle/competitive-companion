@@ -5,6 +5,7 @@
     "name": "1027. D++ Again",
     "group": "Timus - Ural State University Internal Contest October'2000 Junior Session",
     "url": "http://acm.timus.ru/problem.aspx?space=1&num=1027",
+    "interactive": false,
     "memoryLimit": 64,
     "timeLimit": 500,
     "tests": [

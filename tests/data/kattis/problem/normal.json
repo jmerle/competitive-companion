@@ -5,6 +5,7 @@
     "name": "Take Two Stones",
     "group": "Kattis Archive",
     "url": "https://open.kattis.com/problems/twostones",
+    "interactive": false,
     "memoryLimit": 1024,
     "timeLimit": 1000,
     "tests": [

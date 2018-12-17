@@ -5,6 +5,7 @@
     "name": "Complete the Sequence!",
     "group": "SPOJ - Classical",
     "url": "https://www.spoj.com/problems/CMPLS/",
+    "interactive": false,
     "memoryLimit": 1536,
     "timeLimit": 5000,
     "tests": [

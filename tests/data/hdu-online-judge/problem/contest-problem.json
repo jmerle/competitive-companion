@@ -5,6 +5,7 @@
     "name": "Circular Coloring",
     "group": "HDU Online Judge",
     "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=798",
+    "interactive": false,
     "memoryLimit": 132,
     "timeLimit": 6000,
     "tests": [

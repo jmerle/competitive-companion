@@ -5,6 +5,7 @@
     "name": "Equal to the last one",
     "group": "Jutge",
     "url": "https://jutge.org/problems/P14130_en",
+    "interactive": false,
     "memoryLimit": 1024,
     "timeLimit": 1000,
     "tests": [

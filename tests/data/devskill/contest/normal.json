@@ -6,6 +6,7 @@
       "name": "Only '1' Substrings !!",
       "group": "DevSkill",
       "url": "https://devskill.com/CodingProblems/ViewProblem/496",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
@@ -32,6 +33,7 @@
       "name": "Three Circles",
       "group": "DevSkill",
       "url": "https://devskill.com/CodingProblems/ViewProblem/512",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
@@ -58,6 +60,7 @@
       "name": "Parenthesis",
       "group": "DevSkill",
       "url": "https://devskill.com/CodingProblems/ViewProblem/514",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
@@ -84,6 +87,7 @@
       "name": "Simple Graph",
       "group": "DevSkill",
       "url": "https://devskill.com/CodingProblems/ViewProblem/502",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
@@ -110,6 +114,7 @@
       "name": "Charming Numbers",
       "group": "DevSkill",
       "url": "https://devskill.com/CodingProblems/ViewProblem/513",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 4000,
       "tests": [
@@ -136,6 +141,7 @@
       "name": "Strange Equation",
       "group": "DevSkill",
       "url": "https://devskill.com/CodingProblems/ViewProblem/511",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 3000,
       "tests": [

@@ -6,6 +6,7 @@
     "name": "1001 - A+B",
     "group": "HIT Online Judge",
     "url": "http://acm.hit.edu.cn/problemset/1001",
+    "interactive": false,
     "memoryLimit": 32,
     "timeLimit": 10000,
     "tests": [

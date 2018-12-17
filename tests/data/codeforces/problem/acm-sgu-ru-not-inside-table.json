@@ -5,6 +5,7 @@
     "name": "553. Sultan's Pearls",
     "group": "Codeforces - acm.sgu.ru archive",
     "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/553?locale=en",
+    "interactive": false,
     "memoryLimit": 262,
     "timeLimit": 1000,
     "tests": [

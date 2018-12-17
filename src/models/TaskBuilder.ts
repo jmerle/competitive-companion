@@ -12,6 +12,7 @@ export class TaskBuilder {
   public group: string = '';
 
   public url: string = '';
+  public interactive: boolean = false;
 
   public memoryLimit: number = 1024;
   public timeLimit: number = 1000;
@@ -41,6 +42,11 @@ export class TaskBuilder {
 
   public setUrl(url: string): TaskBuilder {
     this.url = url;
+    return this;
+  }
+
+  public setInteractive(interactive: boolean): TaskBuilder {
+    this.interactive = interactive;
     return this;
   }
 
@@ -116,6 +122,7 @@ export class TaskBuilder {
       this.name,
       this.group,
       this.url,
+      this.interactive,
       this.memoryLimit,
       this.timeLimit,
       this.tests,

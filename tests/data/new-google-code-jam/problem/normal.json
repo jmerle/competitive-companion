@@ -6,6 +6,7 @@
     "name": "Senate Evacuation",
     "group": "Practice Session 2018",
     "url": "https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard/00000000000004c0",
+    "interactive": false,
     "memoryLimit": 1024,
     "timeLimit": 30000,
     "tests": [

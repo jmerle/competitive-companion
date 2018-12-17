@@ -5,6 +5,7 @@
     "name": "Two factors",
     "group": "E-Olymp - Problems",
     "url": "https://www.e-olymp.com/en/problems/5",
+    "interactive": false,
     "memoryLimit": 128,
     "timeLimit": 1000,
     "tests": [

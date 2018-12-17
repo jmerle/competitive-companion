@@ -5,6 +5,7 @@
     "name": "Gone Fishing",
     "group": "POJ - East Central North America 1999",
     "url": "http://poj.org/problem?id=1042",
+    "interactive": false,
     "memoryLimit": 32,
     "timeLimit": 2000,
     "tests": [

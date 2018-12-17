@@ -5,6 +5,7 @@
     "name": "1098. Questions",
     "group": "Timus",
     "url": "http://acm.timus.ru/problem.aspx?space=1&num=1098",
+    "interactive": false,
     "memoryLimit": 64,
     "timeLimit": 1000,
     "tests": [

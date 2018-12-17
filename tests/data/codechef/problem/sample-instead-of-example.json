@@ -6,6 +6,7 @@
     "name": "Cricket Score",
     "group": "CodeChef - LoC April 2018 (Rated for Division 2)",
     "url": "https://www.codechef.com/LOCAPR18/problems/CRICSCR",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,
     "tests": [

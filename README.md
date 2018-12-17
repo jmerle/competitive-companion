@@ -75,13 +75,14 @@ Steps:
 If you want your own tool added to the released version of Competitive Companion, [create an issue](https://github.com/jmerle/competitive-companion/issues/new) in this repository specifying on what port your tool listens and a link to the tool.
 
 ### The format
-Here's an example of the data sent when parsing [this](http://codeforces.com/problemset/problem/954/G) problem:
+Here's an example of the data sent when parsing [this](https://codeforces.com/problemset/problem/954/G) problem:
 
 ```json
 {
     "name": "G. Castle Defense",
     "group": "Educational Codeforces Round 40 (Rated for Div. 2)",
-    "url": "http://codeforces.com/problemset/problem/954/G",
+    "url": "https://codeforces.com/problemset/problem/954/G",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1500,
     "testType": "single",
@@ -121,6 +122,7 @@ It's not required for a tool to parse all these options, since some of them are 
 - **name**: The full name of the problem. Can be used for display purposes.
 - **group**: Used to group problems together, which can be useful for archiving purposes.
 - **url**: A link to the problem on the judge's website.
+- **interactive** (optional): Whether this is an interactive problem or not.
 - **memoryLimit**: The memory limit in MB.
 - **timeLimit**: The time limit in ms.
 - **testType**: The type of the tests. Supports two options: "single" and "multiNumber". Explanation of these two can be found on the [JHelper wiki](https://github.com/AlexeyDmitriev/JHelper/wiki/Usage).

@@ -5,6 +5,7 @@
     "name": "Life, the Universe, and Everything",
     "group": "SPOJ - Classical",
     "url": "https://www.spoj.com/problems/TEST/",
+    "interactive": false,
     "memoryLimit": 1536,
     "timeLimit": 10000,
     "tests": [

@@ -5,6 +5,7 @@
     "name": "Book Worm",
     "group": "Toph",
     "url": "https://toph.co/p/book-worm",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,
     "tests": [

@@ -6,6 +6,7 @@
       "name": "A. A Simple Convolution",
       "group": "ECNU Online Judge - EOJ Monthly 2018.8",
       "url": "https://acm.ecnu.edu.cn/contest/103/problem/A/",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -40,6 +41,7 @@
       "name": "B. Bad Queen",
       "group": "ECNU Online Judge - EOJ Monthly 2018.8",
       "url": "https://acm.ecnu.edu.cn/contest/103/problem/B/",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 1000,
       "tests": [
@@ -66,6 +68,7 @@
       "name": "C. Channel On Live",
       "group": "ECNU Online Judge - EOJ Monthly 2018.8",
       "url": "https://acm.ecnu.edu.cn/contest/103/problem/C/",
+      "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 3000,
       "tests": [
@@ -100,6 +103,7 @@
       "name": "D. Delivery Service",
       "group": "ECNU Online Judge - EOJ Monthly 2018.8",
       "url": "https://acm.ecnu.edu.cn/contest/103/problem/D/",
+      "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 2500,
       "tests": [
@@ -126,6 +130,7 @@
       "name": "E. Establishment Of Primes",
       "group": "ECNU Online Judge - EOJ Monthly 2018.8",
       "url": "https://acm.ecnu.edu.cn/contest/103/problem/E/",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 500,
       "tests": [

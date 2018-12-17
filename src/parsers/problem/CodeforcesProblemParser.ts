@@ -56,6 +56,14 @@ export class CodeforcesProblemParser extends Parser {
       elem.querySelector('.rtable > tbody > tr > th').textContent.trim(),
     );
 
+    task.setInteractive(
+      [...elem.querySelectorAll('.section-title')].some(
+        el =>
+          el.textContent === 'Interaction' ||
+          el.textContent === 'Протокол взаимодействия',
+      ),
+    );
+
     const timeLimitStr = elem
       .querySelector('.problem-statement > .header > .time-limit')
       .childNodes[1].textContent.split(' ')[0];
@@ -81,7 +89,10 @@ export class CodeforcesProblemParser extends Parser {
       '.problem-statement > .header > .output-file',
     ).childNodes[1].textContent;
 
-    if (outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
+    if (
+      outputFile !== 'standard output' &&
+      outputFile !== 'стандартный вывод'
+    ) {
       task.setOutput({
         fileName: outputFile,
         type: 'file',

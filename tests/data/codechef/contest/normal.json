@@ -7,6 +7,7 @@
       "name": "Magic Elements",
       "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
       "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 500,
       "tests": [
@@ -33,6 +34,7 @@
       "name": "Three Integers",
       "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
       "url": "https://www.codechef.com/LTIME58A/problems/AFK",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 500,
       "tests": [
@@ -59,6 +61,7 @@
       "name": "Partitions",
       "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
       "url": "https://www.codechef.com/LTIME58A/problems/ARRP",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 1000,
       "tests": [
@@ -85,6 +88,7 @@
       "name": "Queries with GCD",
       "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
       "url": "https://www.codechef.com/LTIME58A/problems/GQR",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -111,6 +115,7 @@
       "name": "Queries on Tree",
       "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
       "url": "https://www.codechef.com/LTIME58A/problems/TRS",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 3500,
       "tests": [
@@ -137,6 +142,7 @@
       "name": "Chef and Friends",
       "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
       "url": "https://www.codechef.com/LTIME58A/problems/FRK",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 500,
       "tests": [

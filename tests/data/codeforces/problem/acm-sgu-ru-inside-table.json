@@ -5,6 +5,7 @@
     "name": "100. A+B",
     "group": "Codeforces - acm.sgu.ru archive",
     "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/100?locale=en",
+    "interactive": false,
     "memoryLimit": 65,
     "timeLimit": 250,
     "tests": [

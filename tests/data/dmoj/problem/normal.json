@@ -5,6 +5,7 @@
     "name": "A Plus B",
     "group": "DMOJ",
     "url": "https://dmoj.ca/problem/aplusb",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 5000,
     "tests": [

@@ -6,6 +6,7 @@
     "name": "Magical Cards",
     "group": "HackerRank",
     "url": "https://www.hackerrank.com/contests/codeknight-1/challenges/road-trip-3-1",
+    "interactive": false,
     "memoryLimit": 512,
     "timeLimit": 4000,
     "tests": [

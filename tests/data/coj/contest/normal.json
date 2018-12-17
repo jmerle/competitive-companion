@@ -7,6 +7,7 @@
       "name": "A+B Problem",
       "group": "COJ - III Liga Cubana de Programación 2018 (Etapa no. 6 - Práctica)",
       "url": "http://coj.uci.cu/contest/cproblem.xhtml?pid=1000&cid=1664",
+      "interactive": false,
       "memoryLimit": 62,
       "timeLimit": 10000,
       "tests": [
@@ -33,6 +34,7 @@
       "name": "Arranging Amplifiers",
       "group": "COJ - III Liga Cubana de Programación 2018 (Etapa no. 6 - Práctica)",
       "url": "http://coj.uci.cu/contest/cproblem.xhtml?pid=1009&cid=1664",
+      "interactive": false,
       "memoryLimit": 62,
       "timeLimit": 5000,
       "tests": [
@@ -59,6 +61,7 @@
       "name": "ACM contest and Blackout",
       "group": "COJ - III Liga Cubana de Programación 2018 (Etapa no. 6 - Práctica)",
       "url": "http://coj.uci.cu/contest/cproblem.xhtml?pid=1010&cid=1664",
+      "interactive": false,
       "memoryLimit": 62,
       "timeLimit": 10000,
       "tests": [

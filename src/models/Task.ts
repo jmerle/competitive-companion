@@ -14,9 +14,11 @@ export class Task implements Sendable {
 
     const obj = JSON.parse(data);
 
-    task.setUrl(obj.url);
     task.setName(obj.name);
     task.setGroup(obj.group);
+
+    task.setUrl(obj.url);
+    task.setInteractive(obj.interactive);
 
     task.setMemoryLimit(obj.memoryLimit);
     task.setTimeLimit(obj.timeLimit);
@@ -39,6 +41,7 @@ export class Task implements Sendable {
     public name: string,
     public group: string,
     public url: string,
+    public interactive: boolean,
     public memoryLimit: number,
     public timeLimit: number,
     public tests: Test[],

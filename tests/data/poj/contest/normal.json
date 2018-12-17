@@ -6,6 +6,7 @@
       "name": "A+B Problem",
       "group": "POJ",
       "url": "http://poj.org/problem?id=1000",
+      "interactive": false,
       "memoryLimit": 10,
       "timeLimit": 1000,
       "tests": [

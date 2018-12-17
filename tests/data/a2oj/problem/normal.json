@@ -5,6 +5,7 @@
     "name": "Omar",
     "group": "A2 Online Judge",
     "url": "https://a2oj.com/p?ID=1",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 2000,
     "tests": [

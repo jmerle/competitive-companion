@@ -6,6 +6,7 @@
       "name": "Problem A - Oktalni",
       "group": "Coco Contest V",
       "url": "https://open.kattis.com/contests/nhty9t/problems/oktalni",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 1000,
       "tests": [
@@ -36,6 +37,7 @@
       "name": "Problem B - Alien Numbers",
       "group": "Coco Contest V",
       "url": "https://open.kattis.com/contests/nhty9t/problems/aliennumbers",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 1000,
       "tests": [
@@ -62,6 +64,7 @@
       "name": "Problem C - Help Me With The Game",
       "group": "Coco Contest V",
       "url": "https://open.kattis.com/contests/nhty9t/problems/helpme",
+      "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 1000,
       "tests": [

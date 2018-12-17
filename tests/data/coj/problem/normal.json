@@ -5,6 +5,7 @@
     "name": "A+B Problem",
     "group": "COJ",
     "url": "http://coj.uci.cu/24h/problem.xhtml?pid=1000",
+    "interactive": false,
     "memoryLimit": 62,
     "timeLimit": 10000,
     "tests": [

@@ -6,6 +6,7 @@
       "name": "A. Timus problems classifier",
       "group": "Timus",
       "url": "http://acm.timus.ru/problem.aspx?space=340&num=1",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -32,6 +33,7 @@
       "name": "B. Take care of your eyebrows!",
       "group": "Timus",
       "url": "http://acm.timus.ru/problem.aspx?space=340&num=2",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 1000,
       "tests": [
@@ -58,6 +60,7 @@
       "name": "C. Vasiana",
       "group": "Timus",
       "url": "http://acm.timus.ru/problem.aspx?space=340&num=3",
+      "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
@@ -84,6 +87,7 @@
       "name": "D. Reductions",
       "group": "Timus",
       "url": "http://acm.timus.ru/problem.aspx?space=340&num=4",
+      "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 500,
       "tests": [

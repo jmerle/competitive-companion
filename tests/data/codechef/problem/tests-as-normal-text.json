@@ -6,6 +6,7 @@
     "name": "Total Graphs (keteki)",
     "group": "CodeChef - Keteki Quick Match 10",
     "url": "https://www.codechef.com/KQ102018/problems/QM10B",
+    "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,
     "tests": [],

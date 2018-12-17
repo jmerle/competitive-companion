@@ -5,6 +5,7 @@
     "name": "E. МКАД",
     "group": "MSK Informatics",
     "url": "https://informatics.msk.ru/mod/statements/view3.php?id=2296&chapterid=2940",
+    "interactive": false,
     "memoryLimit": 64,
     "timeLimit": 1000,
     "tests": [

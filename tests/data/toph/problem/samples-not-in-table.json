@@ -5,6 +5,7 @@
     "name": "Partition Magic",
     "group": "Toph",
     "url": "https://toph.co/p/partition-magic",
+    "interactive": false,
     "memoryLimit": 32,
     "timeLimit": 10000,
     "tests": [],

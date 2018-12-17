@@ -6,6 +6,7 @@
     "name": "Day 3: Intro to Conditional Statements",
     "group": "HackerRank - Tutorials - 30 Days of Code",
     "url": "https://www.hackerrank.com/challenges/30-conditional-statements/problem",
+    "interactive": false,
     "memoryLimit": 512,
     "timeLimit": 4000,
     "tests": [

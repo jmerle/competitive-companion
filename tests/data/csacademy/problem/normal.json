@@ -6,6 +6,7 @@
     "name": "Addition",
     "group": "CSAcademy",
     "url": "https://csacademy.com/contest/archive/task/addition/",
+    "interactive": false,
     "memoryLimit": 128,
     "timeLimit": 500,
     "tests": [
