@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class AtCoderProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://*.contest.atcoder.jp/tasks/*',
-      'https://beta.atcoder.jp/contests/*/tasks/*',
-    ];
+    return ['https://atcoder.jp/contests/*/tasks/*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -44,20 +41,18 @@ export class AtCoderProblemParser extends Parser {
 
       const inputs = [...elem.querySelectorAll('h3')]
         .filter(el => el.textContent.includes('Sample Input'))
-        .map(
-          el =>
-            el.nextElementSibling.tagName === 'DIV'
-              ? el.nextElementSibling.nextElementSibling
-              : el.nextElementSibling,
+        .map(el =>
+          el.nextElementSibling.tagName === 'DIV'
+            ? el.nextElementSibling.nextElementSibling
+            : el.nextElementSibling,
         );
 
       const outputs = [...elem.querySelectorAll('h3')]
         .filter(el => el.textContent.includes('Sample Output'))
-        .map(
-          el =>
-            el.nextElementSibling.tagName === 'DIV'
-              ? el.nextElementSibling.nextElementSibling
-              : el.nextElementSibling,
+        .map(el =>
+          el.nextElementSibling.tagName === 'DIV'
+            ? el.nextElementSibling.nextElementSibling
+            : el.nextElementSibling,
         );
 
       for (let i = 0; i < inputs.length; i++) {
