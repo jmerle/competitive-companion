@@ -41,8 +41,8 @@ export class OldGoogleCodeJamContestParser extends Parser {
         task.addTest(input, output);
 
         task.setInput({
-          pattern: task.name[0] + '-(small|large).*[.]in',
-          type: 'regex',
+          fileName: task.name[0].toLowerCase() + '.in',
+          type: 'file',
         });
 
         task.setOutput({

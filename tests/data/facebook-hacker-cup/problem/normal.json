@@ -16,12 +16,12 @@
     ],
     "testType": "multiNumber",
     "input": {
-      "type": "regex",
-      "pattern": "boomerang.*constellations.*[.]txt"
+      "type": "file",
+      "pattern": "boomerang_constellations.txt"
     },
     "output": {
       "type": "file",
-      "fileName": "boomerangconstellations.out"
+      "fileName": "boomerang_constellations.out"
     },
     "languages": {
       "java": {

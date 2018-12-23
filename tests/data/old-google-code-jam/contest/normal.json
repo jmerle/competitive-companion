@@ -18,8 +18,8 @@
       ],
       "testType": "multiNumber",
       "input": {
-        "type": "regex",
-        "pattern": "A-(small|large).*[.]in"
+        "type": "file",
+        "fileName": "a.in"
       },
       "output": {
         "type": "file",
@@ -47,8 +47,8 @@
       ],
       "testType": "multiNumber",
       "input": {
-        "type": "regex",
-        "pattern": "B-(small|large).*[.]in"
+        "type": "file",
+        "fileName": "b.in"
       },
       "output": {
         "type": "file",
@@ -76,8 +76,8 @@
       ],
       "testType": "multiNumber",
       "input": {
-        "type": "regex",
-        "pattern": "C-(small|large).*[.]in"
+        "type": "file",
+        "fileName": "c.in"
       },
       "output": {
         "type": "file",
@@ -105,8 +105,8 @@
       ],
       "testType": "multiNumber",
       "input": {
-        "type": "regex",
-        "pattern": "D-(small|large).*[.]in"
+        "type": "file",
+        "fileName": "d.in"
       },
       "output": {
         "type": "file",

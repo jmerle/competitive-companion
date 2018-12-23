@@ -22,22 +22,15 @@ export class FacebookHackerCupProblemParser extends Parser {
       const output = blocks[1].textContent;
       task.addTest(input, output);
 
-      let inputPattern = '';
-      for (const char of task.name) {
-        if (/[a-z]/i.test(char)) {
-          inputPattern += char.toLowerCase();
-        } else {
-          inputPattern += '.*';
-        }
-      }
+      const filename = task.name.toLowerCase().replace(/ /g, '_');
 
       task.setInput({
-        pattern: inputPattern + '.*[.]txt',
-        type: 'regex',
+        pattern: filename + '.txt',
+        type: 'file',
       });
 
       task.setOutput({
-        fileName: task.name.toLowerCase().replace(/ /g, '') + '.out',
+        fileName: filename + '.out',
         type: 'file',
       });
 
