@@ -24,8 +24,9 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
       }
 
       const limitsStr = elem.querySelector('.property').textContent;
-      task.setTimeLimit(parseFloat(/([0-9.]+) seconds/.exec(limitsStr)[1]) * 1000);
-      task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
+      const limits = limitsStr.match(/([0-9.]+)/g);
+      task.setTimeLimit(parseFloat(limits[0]) * 1000);
+      task.setMemoryLimit(parseFloat(limits[1]));
 
       const blocks = elem.querySelectorAll('pre.sample-content');
       for (let i = 0; i < blocks.length; i += 2) {

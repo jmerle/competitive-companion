@@ -22,8 +22,7 @@ export default {
   },
 
   async beforeECNU(page: Page) {
-    await page.waitFor('.property');
-    await page.waitFor(1000);
+    await page.waitFor('.property > p > strong');
   },
 
   async beforeCSAcademy(page: Page) {

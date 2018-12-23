@@ -1,5 +1,6 @@
 # 2.5.0 - TBD
-- Fixed the ACMP parser
+- Fixed bugs in the ACMP, ECNU Online Judge and AtCoder parser (thanks [@m1kit](https://github.com/m1kit) for the AtCoder fix)
+- Add "interactive" to the output format which specifies whether the problem is interactive or not
 
 # 2.4.3 - December 14th, 2018
 - Fixed bugs in the ACMP and the Toph parsers
