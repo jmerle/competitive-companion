@@ -15,11 +15,7 @@ export function getHosts(): Promise<Host[]> {
       .get<number[]>('customPorts')
       .then(ports => {
         const uniquePorts = [...new Set(defaultPorts.concat(ports))];
-
-        const hosts = defaultHosts.concat(
-          uniquePorts.map(port => new CustomHost(port)),
-        );
-
+        const hosts = defaultHosts.concat(uniquePorts.map(port => new CustomHost(port)));
         resolve(hosts);
       })
       .catch(reject);

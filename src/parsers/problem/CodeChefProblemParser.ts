@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class CodeChefProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://www.codechef.com/problems/*',
-      'https://www.codechef.com/*/problems/*',
-    ];
+    return ['https://www.codechef.com/problems/*', 'https://www.codechef.com/*/problems/*'];
   }
 
   public getExcludedMatchPatterns(): string[] {
@@ -34,21 +31,12 @@ export class CodeChefProblemParser extends Parser {
           .split('\n')[0],
       );
 
-      task.setGroup(
-        'CodeChef - ' +
-          [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent,
-      );
+      task.setGroup('CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);
+      task.setInteractive(html.includes('This is an interactive problem'));
 
       this.parseTests(html, task);
 
-      task.setTimeLimit(
-        parseFloat(
-          /([0-9.]+) secs/.exec(
-            elem.querySelector('.problem-info').textContent,
-          )[1],
-        ) * 1000,
-      );
-
+      task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(elem.querySelector('.problem-info').textContent)[1]) * 1000);
       task.setMemoryLimit(256);
 
       resolve(task.build());
@@ -60,9 +48,7 @@ export class CodeChefProblemParser extends Parser {
 
     elem.querySelectorAll('pre').forEach(pre => {
       if (pre.querySelector('b') !== null) {
-        const textNodes = [...pre.childNodes].filter(
-          x => x.nodeType === Node.TEXT_NODE,
-        );
+        const textNodes = [...pre.childNodes].filter(x => x.nodeType === Node.TEXT_NODE);
 
         const input = textNodes[textNodes.length - 2].textContent.trim();
         const output = textNodes[textNodes.length - 1].textContent.trim();

@@ -1,0 +1,26 @@
+{
+  "url": "https://open.kattis.com/problems/guess",
+  "parser": "problem/KattisProblemParser",
+  "result": {
+    "name": "Guess the Number",
+    "group": "Kattis Archive",
+    "url": "https://open.kattis.com/problems/guess",
+    "interactive": true,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "GuessTheNumber"
+      }
+    }
+  }
+}

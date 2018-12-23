@@ -19,10 +19,7 @@ export class YandexProblemParser extends Parser {
       const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('h1.title').textContent);
-      task.setGroup(
-        elem.querySelector('.contest-head__item.contest-head__item_role_title')
-          .textContent,
-      );
+      task.setGroup(elem.querySelector('.contest-head__item.contest-head__item_role_title').textContent);
 
       const timeLimitStr = elem.querySelector('.time-limit').textContent;
       task.setTimeLimit(parseFloat(/([0-9.]+)\s/.exec(timeLimitStr)[1]) * 1000);

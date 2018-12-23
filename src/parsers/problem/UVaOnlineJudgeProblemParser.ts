@@ -6,10 +6,7 @@ import { Parser } from '../Parser';
 
 export class UVaOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://uva.onlinejudge.org/index.php*',
-      'https://icpcarchive.ecs.baylor.edu/index.php*',
-    ];
+    return ['https://uva.onlinejudge.org/index.php*', 'https://icpcarchive.ecs.baylor.edu/index.php*'];
   }
 
   public getRegularExpressions(): RegExp[] {
@@ -33,14 +30,7 @@ export class UVaOnlineJudgeProblemParser extends Parser {
       task.setName(header.textContent);
       task.setGroup(isUVa ? 'UVa Online Judge' : 'ICPC Live Archive');
 
-      task.setTimeLimit(
-        parseFloat(
-          /Time limit: ([0-9.]+) seconds/.exec(
-            header.nextSibling.textContent,
-          )[1],
-        ) * 1000,
-      );
-
+      task.setTimeLimit(parseFloat(/Time limit: ([0-9.]+) seconds/.exec(header.nextSibling.textContent)[1]) * 1000);
       task.setMemoryLimit(32);
 
       try {
@@ -52,13 +42,14 @@ export class UVaOnlineJudgeProblemParser extends Parser {
 
         const lines = await readPdf(pdfUrl);
 
-        const inputStart = lines.findIndex(
-          line => line.toLowerCase() === 'sample input',
+        task.setInteractive(
+          lines.some(
+            line => line.toLowerCase() === 'interaction protocol' || line.toLowerCase() === 'sample interaction',
+          ),
         );
 
-        const outputStart = lines.findIndex(
-          line => line.toLowerCase() === 'sample output',
-        );
+        const inputStart = lines.findIndex(line => line.toLowerCase() === 'sample input');
+        const outputStart = lines.findIndex(line => line.toLowerCase() === 'sample output');
 
         if (inputStart !== -1 && outputStart !== -1) {
           const input = lines.slice(inputStart + 1, outputStart).join('\n');

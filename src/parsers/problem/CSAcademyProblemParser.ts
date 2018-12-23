@@ -16,14 +16,12 @@ export class CSAcademyProblemParser extends Parser {
       task.setName(elem.querySelector('h1').textContent);
       task.setGroup('CSAcademy');
 
-      const timeLimitStr = [...elem.querySelectorAll('em')].find(el =>
-        el.textContent.includes('ms'),
-      ).textContent;
+      task.setInteractive(elem.querySelector('span[title="This task is interactive"]') !== null);
+
+      const timeLimitStr = [...elem.querySelectorAll('em')].find(el => el.textContent.includes('ms')).textContent;
       task.setTimeLimit(parseInt(/(\d+) ms/.exec(timeLimitStr)[1], 10));
 
-      const memoryLimitStr = [...elem.querySelectorAll('em')].find(el =>
-        el.textContent.includes('MB'),
-      ).textContent;
+      const memoryLimitStr = [...elem.querySelectorAll('em')].find(el => el.textContent.includes('MB')).textContent;
       task.setMemoryLimit(parseInt(/(\d+) MB/.exec(memoryLimitStr)[1], 10));
 
       elem.querySelectorAll('table tbody tr').forEach(tr => {

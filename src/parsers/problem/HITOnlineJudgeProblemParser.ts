@@ -19,24 +19,16 @@ export class HITOnlineJudgeProblemParser extends Parser {
       task.setGroup('HIT Online Judge');
 
       const mainStr = main.textContent;
-
-      task.setTimeLimit(
-        parseInt(/Time limit : (\d+) s/.exec(mainStr)[1], 10) * 1000,
-      );
-
-      task.setMemoryLimit(
-        parseInt(/Memory limit : (\d+) mb/.exec(mainStr)[1], 10),
-      );
+      task.setTimeLimit(parseInt(/Time limit : (\d+) s/.exec(mainStr)[1], 10) * 1000);
+      task.setMemoryLimit(parseInt(/Memory limit : (\d+) mb/.exec(mainStr)[1], 10));
 
       const input = [...main.querySelectorAll('.ant-card-head-title')]
         .find((x: Element) => x.textContent === 'Sample Input')
-        .parentElement.parentElement.nextElementSibling.querySelector('pre')
-        .textContent;
+        .parentElement.parentElement.nextElementSibling.querySelector('pre').textContent;
 
       const output = [...main.querySelectorAll('.ant-card-head-title')]
         .find((x: Element) => x.textContent === 'Sample Output')
-        .parentElement.parentElement.nextElementSibling.querySelector('pre')
-        .textContent;
+        .parentElement.parentElement.nextElementSibling.querySelector('pre').textContent;
 
       task.addTest(input, output);
 

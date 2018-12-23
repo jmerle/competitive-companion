@@ -9,9 +9,7 @@ export class HrbustOnlineJudgeProblemParser extends Parser {
   }
 
   public getRegularExpressions(): RegExp[] {
-    return [
-      /http:\/\/acm\.hrbust\.edu\.cn\/index\.php\?(.*)a=showProblem(.*)problem_id=(\d+)(.*)/,
-    ];
+    return [/http:\/\/acm\.hrbust\.edu\.cn\/index\.php\?(.*)a=showProblem(.*)problem_id=(\d+)(.*)/];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -26,9 +24,7 @@ export class HrbustOnlineJudgeProblemParser extends Parser {
 
       const limitsStr = main.querySelector('.problem_mod_info tr').textContent;
       task.setTimeLimit(parseInt(/(\d+) MS/.exec(limitsStr)[1], 10));
-      task.setMemoryLimit(
-        Math.floor(parseInt(/(\d+) K/.exec(limitsStr)[1], 10) / 1000),
-      );
+      task.setMemoryLimit(Math.floor(parseInt(/(\d+) K/.exec(limitsStr)[1], 10) / 1000));
 
       const inputs = [...main.querySelectorAll('.problem_mod_title')]
         .filter((x: Element) => x.textContent.toLowerCase() === 'sample input')

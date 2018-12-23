@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class COJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'http://coj.uci.cu/24h/problem.xhtml*',
-      'http://coj.uci.cu/contest/cproblem.xhtml*',
-    ];
+    return ['http://coj.uci.cu/24h/problem.xhtml*', 'http://coj.uci.cu/contest/cproblem.xhtml*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -18,15 +15,10 @@ export class COJProblemParser extends Parser {
 
       const content = elem.querySelector('.postcontent');
 
-      task.setName(
-        content.querySelector('h3.text-center > b').textContent.split('- ')[1],
-      );
+      task.setName(content.querySelector('h3.text-center > b').textContent.split('- ')[1]);
 
       const group = ['COJ'];
-
-      const contestTitleElem = elem.querySelector(
-        'h2.postheader > a.linkheader',
-      );
+      const contestTitleElem = elem.querySelector('h2.postheader > a.linkheader');
 
       if (contestTitleElem !== null) {
         group.push(contestTitleElem.textContent);
@@ -35,11 +27,7 @@ export class COJProblemParser extends Parser {
       task.setGroup(group.join(' - '));
 
       const limitsStr = content.querySelector('.limit.lang2').textContent;
-
-      task.setTimeLimit(
-        parseInt(/Total Time: (\d+) MS/.exec(limitsStr)[1], 10),
-      );
-
+      task.setTimeLimit(parseInt(/Total Time: (\d+) MS/.exec(limitsStr)[1], 10));
       task.setMemoryLimit(parseInt(/Memory: (\d+) MB/.exec(limitsStr)[1], 10));
 
       const inputs = [...elem.querySelectorAll('h4.text-primary')]

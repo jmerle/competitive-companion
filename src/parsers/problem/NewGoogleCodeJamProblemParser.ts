@@ -17,26 +17,26 @@ export class NewGoogleCodeJamProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(
-        elem.querySelector('.task-statement').previousElementSibling
-          .textContent,
+      task.setName(elem.querySelector('.task-statement').previousElementSibling.textContent);
+      task.setGroup(elem.querySelector('.challenge__title').childNodes[0].textContent);
+
+      const interactiveText = html.includes('This problem is interactive');
+      const interactiveHeader = [...elem.querySelectorAll('h3')].some(
+        el => (el as any).textContent === 'Sample interaction',
       );
 
-      task.setGroup(
-        elem.querySelector('.challenge__title').childNodes[0].textContent,
-      );
+      task.setInteractive(interactiveText || interactiveHeader);
 
-      const blocks = elem.querySelectorAll(
-        '.problem-io-wrapper pre.io-content',
-      );
+      const blocks = elem.querySelectorAll('.problem-io-wrapper pre.io-content');
+      if (blocks.length !== 0) {
+        const input = blocks[0].textContent.trim();
+        const output = blocks[1].textContent.trim();
 
-      const input = blocks[0].textContent.trim();
-      const output = blocks[1].textContent.trim();
-      task.addTest(input, output);
+        task.addTest(input, output);
+      }
 
-      const limits = [...elem.querySelectorAll('h3')].find(
-        el => el.textContent === 'Limits',
-      ).nextElementSibling.textContent;
+      const limits = [...elem.querySelectorAll('h3')].find(el => el.textContent === 'Limits').nextElementSibling
+        .textContent;
 
       task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limits)[1]) * 1000);
       task.setMemoryLimit(parseInt(/(\d+)GB/.exec(limits)[1], 10) * 1024);

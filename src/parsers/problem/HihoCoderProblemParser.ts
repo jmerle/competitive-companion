@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class HihoCoderProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://hihocoder.com/problemset/problem/*',
-      'https://hihocoder.com/contest/*/problem/*',
-    ];
+    return ['https://hihocoder.com/problemset/problem/*', 'https://hihocoder.com/contest/*/problem/*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -21,10 +18,7 @@ export class HihoCoderProblemParser extends Parser {
       task.setName(main.querySelector('h3').textContent.replace(':', '-'));
 
       if (elem.querySelector('.tl-site-header-title')) {
-        const contest = elem
-          .querySelector('.tl-site-header-title > h3')
-          .childNodes[0].textContent.trim();
-
+        const contest = elem.querySelector('.tl-site-header-title > h3').childNodes[0].textContent.trim();
         task.setGroup(`hihoCoder - ${contest}`);
       } else {
         task.setGroup('hihoCoder');
@@ -35,7 +29,6 @@ export class HihoCoderProblemParser extends Parser {
       task.setMemoryLimit(parseInt(/(\d+)MB/.exec(limits)[1], 10));
 
       const blocks = main.querySelectorAll('pre');
-
       for (let i = 0; i < blocks.length; i += 2) {
         const input = blocks[i].textContent;
         const output = blocks[i + 1].textContent;

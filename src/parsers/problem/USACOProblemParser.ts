@@ -27,16 +27,12 @@ export class USACOProblemParser extends Parser {
       task.setGroup(headers[0].textContent.trim());
 
       task.setInput({
-        fileName: /\(file (.*)\)/.exec(
-          elem.querySelector('.prob-in-spec h4').textContent,
-        )[1],
+        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],
         type: 'file',
       });
 
       task.setOutput({
-        fileName: /\(file (.*)\)/.exec(
-          elem.querySelector('.prob-out-spec h4').textContent,
-        )[1],
+        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
         type: 'file',
       });
 

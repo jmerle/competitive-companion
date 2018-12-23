@@ -6,18 +6,11 @@ import { Parser } from '../Parser';
 
 export class QDUOJContestParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://qduoj.com/contest/*/problems',
-      'https://nytdoj.com/contest/*/problems',
-    ];
+    return ['https://qduoj.com/contest/*/problems', 'https://nytdoj.com/contest/*/problems'];
   }
 
   public canHandlePage(): boolean {
-    return (
-      document.querySelector(
-        '#contest-main tr.ivu-table-row > td:first-child > div > span',
-      ) !== null
-    );
+    return document.querySelector('#contest-main tr.ivu-table-row > td:first-child > div > span') !== null;
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -26,16 +19,9 @@ export class QDUOJContestParser extends Parser {
 
       const contestId = /contest\/(\d+)\/problems/.exec(url)[1];
 
-      const links: string[] = [
-        ...elem.querySelectorAll(
-          '#contest-main tr.ivu-table-row > td:first-child > div > span',
-        ),
-      ]
+      const links: string[] = [...elem.querySelectorAll('#contest-main tr.ivu-table-row > td:first-child > div > span')]
         .map(el => el.textContent)
-        .map(
-          problemId =>
-            `https://qduoj.com/api/contest/problem?contest_id=${contestId}&problem_id=${problemId}`,
-        );
+        .map(problemId => `https://qduoj.com/api/contest/problem?contest_id=${contestId}&problem_id=${problemId}`);
 
       let bodies: string[];
 
@@ -52,9 +38,7 @@ export class QDUOJContestParser extends Parser {
         const data = JSON.parse(bodies[i]).data;
         const task = new TaskBuilder();
 
-        task.setUrl(
-          `https://qduoj.com/contest/${data.contest}/problem/${data._id}`,
-        );
+        task.setUrl(`https://qduoj.com/contest/${data.contest}/problem/${data._id}`);
 
         task.setName(data.title);
         task.setGroup(elem.querySelector('.logo > span').textContent);

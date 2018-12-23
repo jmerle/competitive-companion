@@ -23,8 +23,6 @@ export class OmegaUpProblemParser extends Parser {
 
       const problem = elem.querySelector('#problem');
 
-      task.setName(problem.querySelector('.title').textContent.trim());
-
       const group = ['omegaUp'];
 
       const contestTitleElem = elem.querySelector('.contest-title');
@@ -32,15 +30,11 @@ export class OmegaUpProblemParser extends Parser {
         group.push(contestTitleElem.textContent.trim());
       }
 
+      task.setName(problem.querySelector('.title').textContent.trim());
       task.setGroup(group.join(' - '));
 
-      task.setTimeLimit(
-        parseFloat(problem.querySelector('.time_limit').textContent) * 1000,
-      );
-
-      task.setMemoryLimit(
-        parseInt(problem.querySelector('.memory_limit').textContent, 10),
-      );
+      task.setTimeLimit(parseFloat(problem.querySelector('.time_limit').textContent) * 1000);
+      task.setMemoryLimit(parseInt(problem.querySelector('.memory_limit').textContent, 10));
 
       const testTable = problem.querySelector('.sample_io');
       if (testTable !== null) {

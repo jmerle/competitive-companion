@@ -18,13 +18,8 @@ export class CodeChefContestParser extends Parser {
     return new Promise(async (resolve, reject) => {
       const elem = htmlToElement(html);
 
-      const links: string[] = [
-        ...elem.querySelectorAll('.cc-problem-name a'),
-      ].map(el =>
-        (el as any).href.replace(
-          'www.codechef.com/',
-          'www.codechef.com/api/contests/',
-        ),
+      const links: string[] = [...elem.querySelectorAll('.cc-problem-name a')].map(el =>
+        (el as any).href.replace('www.codechef.com/', 'www.codechef.com/api/contests/'),
       );
 
       let bodies: string[];
@@ -41,15 +36,12 @@ export class CodeChefContestParser extends Parser {
 
       for (let i = 0; i < models.length; i++) {
         const model = models[i];
-        const task = new TaskBuilder().setUrl(
-          links[i].replace(
-            'www.codechef.com/api/contests/',
-            'www.codechef.com/',
-          ),
-        );
+        const task = new TaskBuilder().setUrl(links[i].replace('www.codechef.com/api/contests/', 'www.codechef.com/'));
 
         task.setName(model.problem_name);
         task.setGroup('CodeChef - ' + model.contest_name);
+
+        task.setInteractive(html.includes('This is an interactive problem'));
 
         const body = markdownToHtml(model.body);
         new CodeChefProblemParser().parseTests(body, task);

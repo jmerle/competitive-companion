@@ -25,14 +25,8 @@ export class PandaOnlineJudgeProblemParser extends Parser {
       }
 
       const headers = elem.querySelectorAll('.mat-card-subtitle');
-
-      task.setTimeLimit(
-        parseInt(/Time Limit: (\d+) ms/.exec(headers[0].textContent)[1], 10),
-      );
-
-      task.setMemoryLimit(
-        parseInt(/Memory Limit: (\d+) MB/.exec(headers[1].textContent)[1], 10),
-      );
+      task.setTimeLimit(parseInt(/Time Limit: (\d+) ms/.exec(headers[0].textContent)[1], 10));
+      task.setMemoryLimit(parseInt(/Memory Limit: (\d+) MB/.exec(headers[1].textContent)[1], 10));
 
       resolve(task.build());
     });

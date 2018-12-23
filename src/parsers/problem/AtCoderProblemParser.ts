@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class AtCoderProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://atcoder.jp/contests/*/tasks/*'];
+    return ['https://atcoder.jp/contests/*/tasks/*', 'https://*.contest.atcoder.jp/tasks/*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -14,45 +14,29 @@ export class AtCoderProblemParser extends Parser {
       const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('h2, .h2').textContent);
+      task.setGroup(elem.querySelector('.contest-name, .contest-title').textContent);
 
-      task.setGroup(
-        elem.querySelector('.contest-name, .contest-title').textContent,
-      );
+      const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];
+      task.setInteractive(interactiveSentences.some(x => html.includes(x)));
 
-      const limitNodes = elem.querySelector('h2, .h2').nextElementSibling
-        .nextElementSibling.childNodes;
+      const limitNodes = elem.querySelector('h2, .h2').nextElementSibling.nextElementSibling.childNodes;
 
       task.setTimeLimit(
-        parseFloat(
-          /([0-9.]+) ?sec/.exec(
-            limitNodes[limitNodes.length === 1 ? 0 : 1].textContent,
-          )[1],
-        ) * 1000,
+        parseFloat(/([0-9.]+) ?sec/.exec(limitNodes[limitNodes.length === 1 ? 0 : 1].textContent)[1]) * 1000,
       );
 
-      task.setMemoryLimit(
-        parseInt(
-          /(\d+) ?MB/.exec(
-            limitNodes[limitNodes.length === 1 ? 0 : 3].textContent,
-          )[1],
-          10,
-        ),
-      );
+      task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(limitNodes[limitNodes.length === 1 ? 0 : 3].textContent)[1], 10));
 
       const inputs = [...elem.querySelectorAll('h3')]
         .filter(el => el.textContent.includes('Sample Input'))
         .map(el =>
-          el.nextElementSibling.tagName === 'DIV'
-            ? el.nextElementSibling.nextElementSibling
-            : el.nextElementSibling,
+          el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
         );
 
       const outputs = [...elem.querySelectorAll('h3')]
         .filter(el => el.textContent.includes('Sample Output'))
         .map(el =>
-          el.nextElementSibling.tagName === 'DIV'
-            ? el.nextElementSibling.nextElementSibling
-            : el.nextElementSibling,
+          el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
         );
 
       for (let i = 0; i < inputs.length; i++) {

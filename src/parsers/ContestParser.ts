@@ -13,11 +13,7 @@ export abstract class ContestParser extends Parser {
 
   public parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-
-    const links = [...elem.querySelectorAll(this.linkSelector)].map(
-      el => (el as any).href,
-    );
-
+    const links = [...elem.querySelectorAll(this.linkSelector)].map(el => (el as any).href);
     return this.parseLinks(links);
   }
 

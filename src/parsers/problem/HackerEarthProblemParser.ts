@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class HackerEarthProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://www.hackerearth.com/*/algorithm/*',
-      'https://www.hackerearth.com/*/approximate/*',
-    ];
+    return ['https://www.hackerearth.com/*/algorithm/*', 'https://www.hackerearth.com/*/approximate/*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -21,9 +18,7 @@ export class HackerEarthProblemParser extends Parser {
       const groupSuffix: string[] =
         elem.querySelector('.timings') !== null
           ? [elem.querySelector('.cover .title').textContent.trim()]
-          : [...elem.querySelectorAll('.breadcrumb a')]
-              .map(el => el.textContent)
-              .slice(1);
+          : [...elem.querySelectorAll('.breadcrumb a')].map(el => el.textContent).slice(1);
 
       task.setGroup(['HackerEarth', ...groupSuffix].join(' - '));
 

@@ -14,15 +14,11 @@ export class TophProblemParser extends Parser {
       const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('.problem-statement h2').textContent);
-
       task.setGroup('Toph');
 
-      const limitsStr = elem.querySelector('.problem-statement div > span')
-        .textContent;
+      const limitsStr = elem.querySelector('.problem-statement div > span').textContent;
 
-      task.setTimeLimit(
-        parseFloat(/Limits: ([0-9.]+)s/.exec(limitsStr)[1]) * 1000,
-      );
+      task.setTimeLimit(parseFloat(/Limits: ([0-9.]+)s/.exec(limitsStr)[1]) * 1000);
 
       const [, amount, unit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
       task.setMemoryLimit(parseFloat(amount) * (unit === 'MB' ? 1 : 1024));
@@ -32,10 +28,7 @@ export class TophProblemParser extends Parser {
       if (table !== null) {
         table.querySelectorAll('tbody tr').forEach(row => {
           const blocks = row.querySelectorAll('td > pre');
-          task.addTest(
-            blocks[0].textContent.trim(),
-            blocks[1].textContent.trim(),
-          );
+          task.addTest(blocks[0].textContent.trim(), blocks[1].textContent.trim());
         });
       }
 

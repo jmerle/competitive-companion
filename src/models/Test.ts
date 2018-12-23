@@ -7,14 +7,6 @@ export class Test {
     this.output = this.correctData(output);
   }
 
-  public setInput(input: string) {
-    this.input = this.correctData(input);
-  }
-
-  public setOutput(output: string) {
-    this.output = this.correctData(output);
-  }
-
   private correctData(data: string): string {
     const correctedData = data.replace(/<br>/g, '\n');
     return correctedData.endsWith('\n') ? correctedData : correctedData + '\n';

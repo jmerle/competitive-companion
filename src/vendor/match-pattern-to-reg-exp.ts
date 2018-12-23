@@ -16,9 +16,7 @@ export function matchPatternToRegExp(pattern: string): RegExp {
   const schemeSegment = '(\\*|http|https|file|ftp)';
   const hostSegment = '(\\*|(?:\\*\\.)?(?:[^/*]+))?';
   const pathSegment = '(.*)';
-  const matchPatternRegExp = new RegExp(
-    `^${schemeSegment}://${hostSegment}/${pathSegment}$`,
-  );
+  const matchPatternRegExp = new RegExp(`^${schemeSegment}://${hostSegment}/${pathSegment}$`);
 
   const match = matchPatternRegExp.exec(pattern);
   if (!match) {

@@ -1,0 +1,26 @@
+{
+  "url": "https://atcoder.jp/contests/arc070/tasks/arc070_d",
+  "parser": "problem/AtCoderProblemParser",
+  "result": {
+    "name": "F - HonestOrUnkind",
+    "group": "AtCoder Regular Contest 070",
+    "url": "https://atcoder.jp/contests/arc070/tasks/arc070_d",
+    "interactive": true,
+    "memoryLimit": 256,
+    "timeLimit": 2000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "FHonestOrUnkind"
+      }
+    }
+  }
+}

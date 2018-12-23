@@ -11,22 +11,15 @@ export class HackerRankContestParser extends Parser {
   }
 
   public getRegularExpressions(): RegExp[] {
-    return [
-      /https:\/\/www[.]hackerrank[.]com\/contests\/([a-z0-9-]+)\/challenges(\?(.*))?$/,
-    ];
+    return [/https:\/\/www[.]hackerrank[.]com\/contests\/([a-z0-9-]+)\/challenges(\?(.*))?$/];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
     return new Promise(async (resolve, reject) => {
       const elem = htmlToElement(html);
 
-      const links: string[] = [
-        ...elem.querySelectorAll('.challenges-list a.btn'),
-      ].map(el =>
-        (el as any).href.replace(
-          'www.hackerrank.com/',
-          'www.hackerrank.com/rest/',
-        ),
+      const links: string[] = [...elem.querySelectorAll('.challenges-list a.btn')].map(el =>
+        (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'),
       );
 
       let bodies: string[];
@@ -43,9 +36,7 @@ export class HackerRankContestParser extends Parser {
 
       for (let i = 0; i < models.length; i++) {
         const model = models[i];
-        const task = new TaskBuilder().setUrl(
-          links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'),
-        );
+        const task = new TaskBuilder().setUrl(links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'));
 
         task.setName(model.name);
         task.setGroup('HackerRank - ' + model.primary_contest.name);

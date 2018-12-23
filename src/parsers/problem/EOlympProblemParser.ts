@@ -13,31 +13,16 @@ export class EOlympProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('.eo-paper__header').textContent);
-
-      const contestNameParts = [
-        'E-Olymp',
-        elem.querySelector('.eo-title__header').textContent,
-      ];
-
+      const contestNameParts = ['E-Olymp', elem.querySelector('.eo-title__header').textContent];
       if (contestNameParts[1] === task.name) {
         contestNameParts.pop();
       }
 
+      task.setName(elem.querySelector('.eo-paper__header').textContent);
       task.setGroup(contestNameParts.join(' - '));
 
-      task.setTimeLimit(
-        parseFloat(
-          elem.querySelectorAll('.eo-message__text b')[0].textContent,
-        ) * 1000,
-      );
-
-      task.setMemoryLimit(
-        parseInt(
-          elem.querySelectorAll('.eo-message__text b')[1].textContent,
-          10,
-        ),
-      );
+      task.setTimeLimit(parseFloat(elem.querySelectorAll('.eo-message__text b')[0].textContent) * 1000);
+      task.setMemoryLimit(parseInt(elem.querySelectorAll('.eo-message__text b')[1].textContent, 10));
 
       const blocks = elem.querySelectorAll('.mdl-grid .eo-code');
       for (let i = 0; i < blocks.length; i += 2) {

@@ -9,9 +9,7 @@ export class JutgeProblemParser extends Parser {
   }
 
   public canHandlePage(): boolean {
-    return [...document.querySelectorAll('.panel-heading')].some(el =>
-      el.textContent.includes('Statement'),
-    );
+    return [...document.querySelectorAll('.panel-heading')].some(el => el.textContent.includes('Statement'));
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -19,14 +17,14 @@ export class JutgeProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(
-        elem
-          .querySelector('h1.my-trim')
-          .textContent.trim()
-          .split('\n')[0],
-      );
+      const name = elem
+        .querySelector('h1.my-trim')
+        .textContent.trim()
+        .split('\n')[0];
 
+      task.setName(name);
       task.setGroup('Jutge');
+      task.setInteractive(name.includes('(Interactivo)'));
 
       const blocks = elem.querySelectorAll('.list-group-item pre');
       for (let i = 0; i < blocks.length; i += 4) {

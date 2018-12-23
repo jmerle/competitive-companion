@@ -11,8 +11,6 @@ export class TimusOnlineJudgeContestParser extends ContestParser {
   }
 
   public getRegularExpressions(): RegExp[] {
-    return [
-      /^http:\/\/acm[.]timus[.]ru\/problemset[.]aspx\?space=(\d+)(&locale=(en|ru))?$/,
-    ];
+    return [/^http:\/\/acm[.]timus[.]ru\/problemset[.]aspx\?space=(\d+)(&locale=(en|ru))?$/];
   }
 }

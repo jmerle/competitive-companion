@@ -5,16 +5,11 @@ import { Parser } from '../Parser';
 
 export class CSUACMOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'http://acm.csu.edu.cn/csuoj/problemset/problem*',
-      'http://acm.csu.edu.cn/csuoj/contest/problem*',
-    ];
+    return ['http://acm.csu.edu.cn/csuoj/problemset/problem*', 'http://acm.csu.edu.cn/csuoj/contest/problem*'];
   }
 
   public getRegularExpressions(): RegExp[] {
-    return [
-      /http:\/\/acm\.csu\.edu\.cn\/csuoj\/(problemset|contest)\/problem\?(.*)/,
-    ];
+    return [/http:\/\/acm\.csu\.edu\.cn\/csuoj\/(problemset|contest)\/problem\?(.*)/];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -44,7 +39,6 @@ export class CSUACMOnlineJudgeProblemParser extends Parser {
       task.setMemoryLimit(parseInt(/(\d+) Mb/.exec(mainStr)[1], 10));
 
       const blocks = main.querySelectorAll('pre');
-
       for (let i = 0; i < blocks.length; i += 2) {
         const input = blocks[i].textContent;
         const output = blocks[i + 1].textContent;

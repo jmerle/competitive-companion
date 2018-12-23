@@ -13,9 +13,7 @@ export class DMOJProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(
-        elem.querySelector('.problem-title').childNodes[1].textContent,
-      );
+      task.setName(elem.querySelector('.problem-title').childNodes[1].textContent);
       task.setGroup('DMOJ');
 
       const inputs = [...elem.querySelectorAll('h4')].filter(el => {
@@ -35,10 +33,7 @@ export class DMOJProblemParser extends Parser {
           return false;
         }
 
-        return (
-          text.includes('sample output') ||
-          text.includes('output for sample input')
-        );
+        return text.includes('sample output') || text.includes('output for sample input');
       });
 
       for (let i = 0; i < inputs.length; i++) {

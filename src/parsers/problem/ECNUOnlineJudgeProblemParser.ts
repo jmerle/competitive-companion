@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class ECNUOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://acm.ecnu.edu.cn/problem/*/',
-      'https://acm.ecnu.edu.cn/contest/*/problem/*/',
-    ];
+    return ['https://acm.ecnu.edu.cn/problem/*/', 'https://acm.ecnu.edu.cn/contest/*/problem/*/'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -27,15 +24,10 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
       }
 
       const limitsStr = elem.querySelector('.property').textContent;
-
-      task.setTimeLimit(
-        parseFloat(/([0-9.]+) seconds/.exec(limitsStr)[1]) * 1000,
-      );
-
+      task.setTimeLimit(parseFloat(/([0-9.]+) seconds/.exec(limitsStr)[1]) * 1000);
       task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
 
       const blocks = elem.querySelectorAll('pre.sample-content');
-
       for (let i = 0; i < blocks.length; i += 2) {
         const input = blocks[i].textContent;
         const output = blocks[i + 1].textContent;

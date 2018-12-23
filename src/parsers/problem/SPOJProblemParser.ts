@@ -13,15 +13,10 @@ export class SPOJProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(
-        elem.querySelector('#problem-name').textContent.split(' - ')[1],
-      );
+      task.setName(elem.querySelector('#problem-name').textContent.split(' - ')[1]);
 
-      const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)')
-        .textContent;
-      task.setGroup(
-        'SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1),
-      );
+      const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
+      task.setGroup('SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1));
 
       const blocks: Element[] = [];
       let current: Element = elem.querySelector('#problem-body').children[0];
@@ -57,13 +52,9 @@ export class SPOJProblemParser extends Parser {
       task.setTimeLimit(parseFloat(/([0-9.]+)s$/.exec(timeLimitStr)[1]) * 1000);
 
       const memoryElems = elem.querySelectorAll('#problem-meta > tbody > tr');
-      const memoryLimitStr = [...memoryElems]
-        .map(el => el.textContent)
-        .find(x => x.startsWith('Memory limit:'));
+      const memoryLimitStr = [...memoryElems].map(el => el.textContent).find(x => x.startsWith('Memory limit:'));
 
-      task.setMemoryLimit(
-        parseInt(/Memory limit:(\d+)MB/.exec(memoryLimitStr)[1], 10),
-      );
+      task.setMemoryLimit(parseInt(/Memory limit:(\d+)MB/.exec(memoryLimitStr)[1], 10));
 
       resolve(task.build());
     });

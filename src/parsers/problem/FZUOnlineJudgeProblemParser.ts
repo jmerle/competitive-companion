@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class FZUOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'http://acm.fzu.edu.cn/problem.php*',
-      'http://acm.fzu.edu.cn/contest/problem.php*',
-    ];
+    return ['http://acm.fzu.edu.cn/problem.php*', 'http://acm.fzu.edu.cn/contest/problem.php*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -27,14 +24,10 @@ export class FZUOnlineJudgeProblemParser extends Parser {
       task.setGroup('Fuzhou University Online Judge');
 
       const limitsStr = container.querySelector('h3').textContent;
-
       task.setTimeLimit(parseInt(/(\d+) mSec/.exec(limitsStr)[1], 10));
-      task.setMemoryLimit(
-        Math.floor(parseInt(/(\d+) KB/.exec(limitsStr)[1], 10) / 1000),
-      );
+      task.setMemoryLimit(Math.floor(parseInt(/(\d+) KB/.exec(limitsStr)[1], 10) / 1000));
 
       const blocks = container.querySelectorAll('.data');
-
       for (let i = 0; i < blocks.length; i += 2) {
         const input = blocks[i].textContent;
         const output = blocks[i + 1].textContent;

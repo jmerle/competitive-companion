@@ -16,9 +16,7 @@ export class DevSkillProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      const header = elem
-        .querySelector('h1.page-title')
-        .childNodes[0].textContent.trim();
+      const header = elem.querySelector('h1.page-title').childNodes[0].textContent.trim();
       task.setName(header.substr(header.indexOf(':') + 2));
 
       task.setGroup('DevSkill');
@@ -43,22 +41,18 @@ export class DevSkillProblemParser extends Parser {
 
         task.addTest(input.join('\n'), output.join('\n'));
       } else {
-        const input = [...elem.querySelectorAll('h2')].find(el =>
-          el.textContent.includes('Sample Input'),
-        ).nextElementSibling.textContent;
+        const input = [...elem.querySelectorAll('h2')].find(el => el.textContent.includes('Sample Input'))
+          .nextElementSibling.textContent;
 
-        const output = [...elem.querySelectorAll('h2')].find(el =>
-          el.textContent.includes('Sample Output'),
-        ).nextElementSibling.textContent;
+        const output = [...elem.querySelectorAll('h2')].find(el => el.textContent.includes('Sample Output'))
+          .nextElementSibling.textContent;
 
         task.addTest(input, output);
       }
 
-      const timeLimits = [
-        ...elem.querySelectorAll(
-          '#limits > tbody > tr:not(:nth-child(1)) > td:nth-child(2)',
-        ),
-      ].map(el => parseFloat(el.textContent) * 1000);
+      const timeLimits = [...elem.querySelectorAll('#limits > tbody > tr:not(:nth-child(1)) > td:nth-child(2)')].map(
+        el => parseFloat(el.textContent) * 1000,
+      );
 
       task.setTimeLimit(timeLimits.reduce((a, b) => (a > b ? a : b)));
       task.setMemoryLimit(1024);

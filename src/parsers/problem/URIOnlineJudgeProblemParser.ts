@@ -16,9 +16,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
       const elem = htmlToElement(html);
 
       if (elem.querySelector('#description-html') !== null) {
-        const link = (elem.querySelector(
-          'ul.information > li:nth-child(2) > a',
-        ) as any).href;
+        const link = (elem.querySelector('ul.information > li:nth-child(2) > a') as any).href;
 
         this.fetch(link)
           .then(data => resolve(this.parseFullscreen(url, data)))
@@ -45,13 +43,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
       task.addTest(input, output);
     });
 
-    task.setTimeLimit(
-      parseInt(
-        elem.querySelector('.header > strong').textContent.split(' ')[1],
-        10,
-      ) * 1000,
-    );
-
+    task.setTimeLimit(parseInt(elem.querySelector('.header > strong').textContent.split(' ')[1], 10) * 1000);
     task.setMemoryLimit(1024);
 
     return task.build();

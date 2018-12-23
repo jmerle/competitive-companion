@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class KattisProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://*.kattis.com/problems/*',
-      'https://*.kattis.com/contests/*/problems/*',
-    ];
+    return ['https://*.kattis.com/problems/*', 'https://*.kattis.com/contests/*/problems/*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -19,9 +16,9 @@ export class KattisProblemParser extends Parser {
       task.setName(elem.querySelector('h1').innerHTML.replace(/<br>/, ' - '));
 
       const contestNode = elem.querySelector('h2.title');
-      task.setGroup(
-        contestNode !== null ? contestNode.textContent : 'Kattis Archive',
-      );
+      task.setGroup(contestNode !== null ? contestNode.textContent : 'Kattis Archive');
+
+      task.setInteractive([...elem.querySelectorAll('h2')].some(el => (el as any).textContent === 'Interaction'));
 
       elem.querySelectorAll('.sample').forEach(table => {
         const blocks = table.querySelectorAll('pre');

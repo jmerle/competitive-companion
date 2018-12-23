@@ -25,10 +25,7 @@ export class CodeforcesProblemParser extends Parser {
 
       if (url.includes('/problemsets/acmsguru')) {
         const elem = htmlToElement(html);
-
-        const table = elem.querySelector(
-          '.problemindexholder > .ttypography > .bordertable',
-        );
+        const table = elem.querySelector('.problemindexholder > .ttypography > .bordertable');
 
         if (table) {
           this.parseAcmSguRuProblemInsideTable(html, task);
@@ -46,21 +43,12 @@ export class CodeforcesProblemParser extends Parser {
   private parseMainProblem(html: string, task: TaskBuilder) {
     const elem = htmlToElement(html);
 
-    task.setName(
-      elem
-        .querySelector('.problem-statement > .header > .title')
-        .textContent.trim(),
-    );
-
-    task.setGroup(
-      elem.querySelector('.rtable > tbody > tr > th').textContent.trim(),
-    );
+    task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
+    task.setGroup(elem.querySelector('.rtable > tbody > tr > th').textContent.trim());
 
     task.setInteractive(
       [...elem.querySelectorAll('.section-title')].some(
-        el =>
-          el.textContent === 'Interaction' ||
-          el.textContent === 'Протокол взаимодействия',
+        el => el.textContent === 'Interaction' || el.textContent === 'Протокол взаимодействия',
       ),
     );
 
@@ -74,10 +62,7 @@ export class CodeforcesProblemParser extends Parser {
       .childNodes[1].textContent.split(' ')[0];
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
-    const inputFile = elem.querySelector(
-      '.problem-statement > .header > .input-file',
-    ).childNodes[1].textContent;
-
+    const inputFile = elem.querySelector('.problem-statement > .header > .input-file').childNodes[1].textContent;
     if (inputFile !== 'standard input' && inputFile !== 'стандартный ввод') {
       task.setInput({
         fileName: inputFile,
@@ -85,14 +70,8 @@ export class CodeforcesProblemParser extends Parser {
       });
     }
 
-    const outputFile = elem.querySelector(
-      '.problem-statement > .header > .output-file',
-    ).childNodes[1].textContent;
-
-    if (
-      outputFile !== 'standard output' &&
-      outputFile !== 'стандартный вывод'
-    ) {
+    const outputFile = elem.querySelector('.problem-statement > .header > .output-file').childNodes[1].textContent;
+    if (outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
       task.setOutput({
         fileName: outputFile,
         type: 'file',
@@ -113,24 +92,13 @@ export class CodeforcesProblemParser extends Parser {
   private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder) {
     const elem = htmlToElement(html);
 
-    task.setName(
-      elem.querySelector('.problemindexholder h3').textContent.trim(),
-    );
-
+    task.setName(elem.querySelector('.problemindexholder h3').textContent.trim());
     task.setGroup('Codeforces - acm.sgu.ru archive');
 
-    task.setTimeLimit(
-      parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000,
-    );
-
-    task.setMemoryLimit(
-      Math.floor(
-        parseInt(/memory limit per test: (\d+)\s+ KB/.exec(html)[1], 10) / 1000,
-      ),
-    );
+    task.setTimeLimit(parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000);
+    task.setMemoryLimit(Math.floor(parseInt(/memory limit per test: (\d+)\s+ KB/.exec(html)[1], 10) / 1000));
 
     const blocks = elem.querySelectorAll('font > pre');
-
     for (let i = 0; i < blocks.length; i += 2) {
       const input = blocks[i].textContent;
       const output = blocks[i + 1].textContent;
@@ -142,23 +110,13 @@ export class CodeforcesProblemParser extends Parser {
   private parseAcmSguRuProblemNotInsideTable(html: string, task: TaskBuilder) {
     const elem = htmlToElement(html);
 
-    task.setName(
-      elem.querySelector('.problemindexholder h4').textContent.trim(),
-    );
-
+    task.setName(elem.querySelector('.problemindexholder h4').textContent.trim());
     task.setGroup('Codeforces - acm.sgu.ru archive');
 
-    task.setTimeLimit(
-      parseFloat(/Time limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000,
-    );
+    task.setTimeLimit(parseFloat(/Time limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000);
 
     task.setMemoryLimit(
-      Math.floor(
-        parseInt(
-          /Memory limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1],
-          10,
-        ) / 1000,
-      ),
+      Math.floor(parseInt(/Memory limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1], 10) / 1000),
     );
 
     elem.querySelectorAll('table').forEach(table => {

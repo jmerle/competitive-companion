@@ -62,11 +62,7 @@ export abstract class Parser {
             return response.text();
           }
 
-          throw new Error(
-            `The network response was not ok (status code: ${
-              response.status
-            }).`,
-          );
+          throw new Error(`The network response was not ok (status code: ${response.status}).`);
         })
         .then(resolve)
         .catch(reject);

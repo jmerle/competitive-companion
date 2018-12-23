@@ -63,10 +63,7 @@ export class Task implements Sendable {
         })
         .catch(console.error); // tslint:disable-line no-console
 
-      const handleMessage = (
-        message: Message | any,
-        sender: browser.runtime.MessageSender,
-      ) => {
+      const handleMessage = (message: Message | any, sender: browser.runtime.MessageSender) => {
         if (sender.tab) {
           return;
         }

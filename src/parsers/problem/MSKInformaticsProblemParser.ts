@@ -16,22 +16,14 @@ export class MSKInformaticsProblemParser extends Parser {
       const title = elem.querySelector('.statements_toc_alpha strong');
       const text = title.textContent;
       const regex = / ([A-Z])\. /;
-      const name = regex.exec(text)
-        ? regex.exec(text)[1] + '. ' + text.split('. ')[1]
-        : text;
+      const name = regex.exec(text) ? regex.exec(text)[1] + '. ' + text.split('. ')[1] : text;
 
       task.setName(name);
       task.setGroup('MSK Informatics');
 
       const limitsTable = elem.querySelector('.statements_content > table');
-
-      const timeLimitStr = limitsTable.querySelector(
-        'tbody > tr:first-child > td:last-child',
-      ).textContent;
-
-      const memoryLimitStr = limitsTable.querySelector(
-        'tbody > tr:last-child > td:last-child',
-      ).textContent;
+      const timeLimitStr = limitsTable.querySelector('tbody > tr:first-child > td:last-child').textContent;
+      const memoryLimitStr = limitsTable.querySelector('tbody > tr:last-child > td:last-child').textContent;
 
       task.setTimeLimit(parseInt(timeLimitStr, 10) * 1000);
       task.setMemoryLimit(parseInt(memoryLimitStr, 10));

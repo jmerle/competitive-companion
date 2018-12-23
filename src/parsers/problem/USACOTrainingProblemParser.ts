@@ -30,13 +30,10 @@ export class USACOTrainingProblemParser extends Parser {
       task.setName(elem.querySelector('center > h1').textContent);
       task.setGroup('USACO Training');
 
-      const input = [...elem.querySelectorAll('h3')].find(el =>
-        el.textContent.includes('SAMPLE INPUT'),
-      ).nextElementSibling.textContent;
-
-      const output = [...elem.querySelectorAll('h3')].find(el =>
-        el.textContent.includes('SAMPLE OUTPUT'),
-      ).nextElementSibling.textContent;
+      const input = [...elem.querySelectorAll('h3')].find(el => el.textContent.includes('SAMPLE INPUT'))
+        .nextElementSibling.textContent;
+      const output = [...elem.querySelectorAll('h3')].find(el => el.textContent.includes('SAMPLE OUTPUT'))
+        .nextElementSibling.textContent;
 
       task.addTest(input, output);
 

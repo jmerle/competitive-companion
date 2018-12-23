@@ -14,17 +14,10 @@ export class PEGJudgeProblemParser extends Parser {
       const task = new TaskBuilder().setUrl(url);
 
       task.setName(elem.querySelector('#descContent h2').textContent);
-      task.setGroup(
-        'PEG Judge - ' + elem.querySelector('#descContent h3').textContent,
-      );
+      task.setGroup('PEG Judge - ' + elem.querySelector('#descContent h3').textContent);
 
-      task.setTimeLimit(
-        parseFloat(/Time Limit:<\/b> ([0-9.]+)s/.exec(html)[1]) * 1000,
-      );
-
-      task.setMemoryLimit(
-        parseInt(/Memory Limit:<\/b> (\d+)/.exec(html)[1], 10),
-      );
+      task.setTimeLimit(parseFloat(/Time Limit:<\/b> ([0-9.]+)s/.exec(html)[1]) * 1000);
+      task.setMemoryLimit(parseInt(/Memory Limit:<\/b> (\d+)/.exec(html)[1], 10));
 
       const inputs = [...elem.querySelectorAll('h3')]
         .filter(el => el.textContent.trim().startsWith('Sample Input'))

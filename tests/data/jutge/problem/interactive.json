@@ -1,0 +1,26 @@
+{
+  "url": "https://jutge.org/problems/P75481_es",
+  "parser": "problem/JutgeProblemParser",
+  "result": {
+    "name": "Adivina un número (Interactivo)",
+    "group": "Jutge",
+    "url": "https://jutge.org/problems/P75481_es",
+    "interactive": true,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AdivinaUnNmeroInteractivo"
+      }
+    }
+  }
+}
