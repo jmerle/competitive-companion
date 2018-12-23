@@ -1,6 +1,6 @@
 export class Test {
-  private input: string;
-  private output: string;
+  public input: string;
+  public output: string;
 
   constructor(input: string, output: string) {
     this.input = this.correctData(input);

@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/POJ-2391",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Ombrophobic Bovines",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/POJ-2391",
+    "interactive": false,
+    "memoryLimit": 65,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3 4\n7 2\n0 4\n2 6\n1 2 40\n3 2 70\n2 3 90\n1 3 120\n",
+        "output": "110\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "OmbrophobicBovines"
+      }
+    }
+  }
+}

@@ -59,6 +59,7 @@ import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemPars
 import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
 import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemParser';
+import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
 
 export const parsers: Parser[] = [
@@ -157,6 +158,8 @@ export const parsers: Parser[] = [
   new USACOTrainingProblemParser(),
 
   new UVaOnlineJudgeProblemParser(),
+
+  new VirtualJudgeProblemParser(),
 
   new YandexProblemParser(),
 ];

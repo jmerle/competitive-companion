@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/UESTC_old-1629",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Nearby Cows",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/UESTC_old-1629",
+    "interactive": false,
+    "memoryLimit": 65,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "6 2\n5 1\n3 6\n2 4\n2 1\n3 2\n1\n2\n3\n4\n5\n6\n",
+        "output": "15\n21\n16\n10\n8\n11\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "NearbyCows"
+      }
+    }
+  }
+}

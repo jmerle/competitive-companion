@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/NBUT-1222",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "English Game",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/NBUT-1222",
+    "interactive": false,
+    "memoryLimit": 131,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 aaaa\na 2\n3 aaa\na 2\naa 5\naaa 6\n4 abc\na 1\nbc 2\nab 4\nc 1\n3 abcd\nab 10\nbc 20\ncd 30\n3 abcd\ncd 100\nabc 1000\nbcd 10000\n",
+        "output": "8\n7\n5\n40\n-1\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "EnglishGame"
+      }
+    }
+  }
+}

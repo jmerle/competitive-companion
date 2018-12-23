@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/Z_trening-10",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "trka",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/Z_trening-10",
+    "interactive": false,
+    "memoryLimit": 1,
+    "timeLimit": 2500,
+    "tests": [
+      {
+        "input": "3 16 0 0 \n5 15 0 0 \n10 15 1 0 \n12 15 1 15\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Trka"
+      }
+    }
+  }
+}

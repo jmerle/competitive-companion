@@ -1,0 +1,26 @@
+{
+  "url": "https://vjudge.net/problem/UVA-1210",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Sum of Consecutive Prime Numbers",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/UVA-1210",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 3000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SumOfConsecutivePrimeNumbers"
+      }
+    }
+  }
+}

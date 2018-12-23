@@ -1,0 +1,47 @@
+{
+  "url": "https://vjudge.net/problem/EIJudge-059",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "CD",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/EIJudge-059",
+    "interactive": false,
+    "memoryLimit": 33,
+    "timeLimit": 5000,
+    "tests": [
+      {
+        "input": "5 3 \n1 3 4\n",
+        "output": "5\n"
+      },
+      {
+        "input": "10 4\n9 8 4 2\n",
+        "output": "10\n"
+      },
+      {
+        "input": "20 4 \n10 5 7 4\n",
+        "output": "19\n"
+      },
+      {
+        "input": "90 8\n10 23 1 2 3 4 5 7\n",
+        "output": "55\n"
+      },
+      {
+        "input": "45 8\n4 10 44 43 12 9 8 2\n",
+        "output": "45\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "CD"
+      }
+    }
+  }
+}

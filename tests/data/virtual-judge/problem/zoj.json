@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/ZOJ-3496",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Assignment",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/ZOJ-3496",
+    "interactive": false,
+    "memoryLimit": 65,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "1\n5 5 0 4 1\n0 3 1\n0 2 1\n3 1 1\n2 1 1\n1 4 1\n",
+        "output": "1 0\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Assignment"
+      }
+    }
+  }
+}

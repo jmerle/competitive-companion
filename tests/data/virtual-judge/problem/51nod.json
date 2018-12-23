@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/51Nod-1289",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "大鱼吃小鱼",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/51Nod-1289",
+    "interactive": false,
+    "memoryLimit": 131,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n4 0\n3 1\n2 0\n1 0\n5 0\n",
+        "output": "2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

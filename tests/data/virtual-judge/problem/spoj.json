@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/SPOJ-LCMSUM",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "LCM Sum",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/SPOJ-LCMSUM",
+    "interactive": false,
+    "memoryLimit": 1572,
+    "timeLimit": 527,
+    "tests": [
+      {
+        "input": "3\n1\n2\n5\n",
+        "output": "1\n4\n55\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "LCMSum"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "url": "https://vjudge.net/problem/AtCoder-3535",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Restoring Road Network",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/AtCoder-3535",
+    "interactive": false,
+    "memoryLimit": 262,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "3\n0 1 3\n1 0 2\n3 2 0\n",
+        "output": "3\n"
+      },
+      {
+        "input": "3\n0 1 3\n1 0 1\n3 1 0\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "5\n0 21 18 11 28\n21 0 13 10 26\n18 13 0 23 13\n11 10 23 0 17\n28 26 13 17 0\n",
+        "output": "82\n"
+      },
+      {
+        "input": "3\n0 1000000000 1000000000\n1000000000 0 1000000000\n1000000000 1000000000 0\n",
+        "output": "3000000000\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "RestoringRoadNetwork"
+      }
+    }
+  }
+}

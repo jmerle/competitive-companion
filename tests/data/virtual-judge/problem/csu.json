@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/CSU-2085",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "手游大佬",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/CSU-2085",
+    "interactive": false,
+    "memoryLimit": 131,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "4\n2018-04-12 0 100\n2017-04-22 100 365000\n2018-04-22 1000000 10\n2018-03-22 10000 23333\n",
+        "output": "O\nG\nH\nGH\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

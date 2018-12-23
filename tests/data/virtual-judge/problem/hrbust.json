@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/HRBUST-1743",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Word Search",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/HRBUST-1743",
+    "interactive": false,
+    "memoryLimit": 65,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n3 4 3\nABCE\nSFCS\nADEE\nABCCED\nSEE\nABCB\n5 5 5\nYYBDC\nPMFNJ\nKGJKD\nHUAOP\nJMUSB\nMFMYBDCJN\nBXIPOUCIMFVOHFNWO\nKOAUMUSB\nGJNNOB\nCJC\n",
+        "output": "Yes\nYes\nNo\n\nNo\nNo\nYes\nNo\nNo\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "WordSearch"
+      }
+    }
+  }
+}

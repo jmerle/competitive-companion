@@ -1,0 +1,26 @@
+{
+  "url": "https://vjudge.net/problem/TopCoder-14265",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "AnyNumber",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/TopCoder-14265",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AnyNumber"
+      }
+    }
+  }
+}

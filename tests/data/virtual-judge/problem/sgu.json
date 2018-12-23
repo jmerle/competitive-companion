@@ -1,0 +1,35 @@
+{
+  "url": "https://vjudge.net/problem/SGU-140",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Integer Sequences",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/SGU-140",
+    "interactive": false,
+    "memoryLimit": 4,
+    "timeLimit": 250,
+    "tests": [
+      {
+        "input": "2 7 4\n7 3\n",
+        "output": "YES\n0 6\n"
+      },
+      {
+        "input": "3 10 1\n2 4 6\n",
+        "output": "NO\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "IntegerSequences"
+      }
+    }
+  }
+}

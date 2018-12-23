@@ -1,0 +1,39 @@
+{
+  "url": "https://vjudge.net/problem/CodeForces-406C",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Graph Cutting",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/CodeForces-406C",
+    "interactive": false,
+    "memoryLimit": 262,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "8 12\n1 2\n2 3\n3 4\n4 1\n1 3\n2 4\n3 5\n3 6\n5 6\n6 7\n6 8\n7 8\n",
+        "output": "1 2 4\n1 3 2\n1 4 3\n5 3 6\n5 6 8\n6 7 8\n"
+      },
+      {
+        "input": "3 3\n1 2\n2 3\n3 1\n",
+        "output": "No solution\n"
+      },
+      {
+        "input": "3 2\n1 2\n2 3\n",
+        "output": "1 2 3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "GraphCutting"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/Gym-101375G",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "MaratonIME does a competition",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/Gym-101375G",
+    "interactive": false,
+    "memoryLimit": 262,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "4\n1 2 3 4\n",
+        "output": "D\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "MaratonIMEDoesACompetition"
+      }
+    }
+  }
+}

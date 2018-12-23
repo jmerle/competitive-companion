@@ -60,6 +60,7 @@ A browser extension which parses programming problems from various online judges
 | USACO                 | ✔              |                |
 | USACO Training        | ✔              |                |
 | UVa Online Judge      | ✔              |                |
+| Virtual Judge         | ✔              |                |
 | Yandex                | ✔              |                |
 
 ## Custom tools

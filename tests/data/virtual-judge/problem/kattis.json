@@ -1,0 +1,35 @@
+{
+  "url": "https://vjudge.net/problem/Kattis-dasblinkenlights",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Das Blinkenlights",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/Kattis-dasblinkenlights",
+    "interactive": false,
+    "memoryLimit": 1048,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2 5 20\n",
+        "output": "yes\n"
+      },
+      {
+        "input": "4 3 11\n",
+        "output": "no\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "DasBlinkenlights"
+      }
+    }
+  }
+}

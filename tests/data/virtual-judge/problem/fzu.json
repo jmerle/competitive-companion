@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/FZU-1402",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "猪的安家",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/FZU-1402",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3\n3 1\n5 1\n7 2\n",
+        "output": "16\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

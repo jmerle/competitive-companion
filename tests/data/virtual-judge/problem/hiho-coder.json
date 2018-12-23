@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/HihoCoder-1413",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Rikka with String",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/HihoCoder-1413",
+    "interactive": false,
+    "memoryLimit": 262,
+    "timeLimit": 20000,
+    "tests": [
+      {
+        "input": "5\nabcab\n",
+        "output": "14 14 12 14 14\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "RikkaWithString"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/HUST-1010",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "The Minimum Length",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/HUST-1010",
+    "interactive": false,
+    "memoryLimit": 131,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "bcabcab\nefgabcdefgabcde\n",
+        "output": "3\n7\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "TheMinimumLength"
+      }
+    }
+  }
+}

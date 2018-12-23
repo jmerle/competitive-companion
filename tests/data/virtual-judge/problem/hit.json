@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/HIT-1917",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Peaceful Commission",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/HIT-1917",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 10000,
+    "tests": [
+      {
+        "input": "3 2\n1 3\n2 4\n",
+        "output": "1\n4\n5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "PeacefulCommission"
+      }
+    }
+  }
+}

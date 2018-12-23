@@ -40,26 +40,28 @@ export class UVaOnlineJudgeProblemParser extends Parser {
         const secondPart = /(?:.*)\/(.*)\.html/.exec(iframeUrl)[1];
         const pdfUrl = firstPart + '/p' + secondPart + '.pdf';
 
-        const lines = await readPdf(pdfUrl);
-
-        task.setInteractive(
-          lines.some(
-            line => line.toLowerCase() === 'interaction protocol' || line.toLowerCase() === 'sample interaction',
-          ),
-        );
-
-        const inputStart = lines.findIndex(line => line.toLowerCase() === 'sample input');
-        const outputStart = lines.findIndex(line => line.toLowerCase() === 'sample output');
-
-        if (inputStart !== -1 && outputStart !== -1) {
-          const input = lines.slice(inputStart + 1, outputStart).join('\n');
-          const output = lines.slice(outputStart + 1).join('\n');
-
-          task.addTest(input, output);
-        }
+        await this.parseTestsFromPdf(task, pdfUrl);
       } catch (err) {}
 
       resolve(task.build());
     });
+  }
+
+  public async parseTestsFromPdf(task: TaskBuilder, pdfUrl: string): Promise<void> {
+    const lines = await readPdf(pdfUrl);
+
+    task.setInteractive(
+      lines.some(line => line.toLowerCase() === 'interaction protocol' || line.toLowerCase() === 'sample interaction'),
+    );
+
+    const inputStart = lines.findIndex(line => line.toLowerCase() === 'sample input');
+    const outputStart = lines.findIndex(line => line.toLowerCase() === 'sample output');
+
+    if (inputStart !== -1 && outputStart !== -1) {
+      const input = lines.slice(inputStart + 1, outputStart).join('\n');
+      const output = lines.slice(outputStart + 1).join('\n');
+
+      task.addTest(input, output);
+    }
   }
 }

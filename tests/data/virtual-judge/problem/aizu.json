@@ -1,0 +1,35 @@
+{
+  "url": "https://vjudge.net/problem/Aizu-ALDS1_1_C",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Prime Numbers",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/Aizu-ALDS1_1_C",
+    "interactive": false,
+    "memoryLimit": 131,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n2\n3\n4\n5\n6\n",
+        "output": "3\n"
+      },
+      {
+        "input": "11\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n",
+        "output": "4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "PrimeNumbers"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/HackerRank-coin-change-revisited",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Coin Change Revisited",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/HackerRank-coin-change-revisited",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3\n5\n10\n15\n",
+        "output": "2\n4\n6\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "CoinChangeRevisited"
+      }
+    }
+  }
+}

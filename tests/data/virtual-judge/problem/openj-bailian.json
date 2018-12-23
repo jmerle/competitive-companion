@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net/problem/OpenJ_Bailian-3406",
+  "parser": "problem/VirtualJudgeProblemParser",
+  "result": {
+    "name": "Bookshelf",
+    "group": "Virtual Judge",
+    "url": "https://vjudge.net/problem/OpenJ_Bailian-3406",
+    "interactive": false,
+    "memoryLimit": 65,
+    "timeLimit": 20000,
+    "tests": [
+      {
+        "input": "6 40\n6\n18\n11\n13\n19\n11\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Bookshelf"
+      }
+    }
+  }
+}
