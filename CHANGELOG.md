@@ -1,4 +1,4 @@
-# 2.5.0 - TBD
+# 2.5.0 - December 24th, 2018
 - Added a parser for Virtual Judge
 - Fixed bugs in the ACMP, ECNU Online Judge, UVa Online Judge, ICPC Live Archive and AtCoder parsers (thanks [@m1kit](https://github.com/m1kit) for the AtCoder fix)
 - Added "interactive" to the output format which specifies whether the problem is interactive or not
