@@ -12,7 +12,7 @@ export function readPdf(pdfUrl: string): Promise<string[]> {
 
       const lines: string[] = [];
 
-      for (let i = 0; i < pdf.pdfInfo.numPages; i++) {
+      for (let i = 0; i < pdf._pdfInfo.numPages; i++) {
         const page = await pdf.getPage(i + 1);
         const textContent = await page.getTextContent();
 

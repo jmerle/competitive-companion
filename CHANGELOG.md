@@ -1,5 +1,5 @@
 # 2.5.0 - TBD
-- Fixed bugs in the ACMP, ECNU Online Judge and AtCoder parser (thanks [@m1kit](https://github.com/m1kit) for the AtCoder fix)
+- Fixed bugs in the ACMP, ECNU Online Judge, UVa Online Judge, ICPC Live Archive and AtCoder parsers (thanks [@m1kit](https://github.com/m1kit) for the AtCoder fix)
 - Add "interactive" to the output format which specifies whether the problem is interactive or not
 
 # 2.4.3 - December 14th, 2018
