@@ -49,11 +49,19 @@ export class CodeChefProblemParser extends Parser {
     elem.querySelectorAll('pre').forEach(pre => {
       if (pre.querySelector('b') !== null) {
         const textNodes = [...pre.childNodes].filter(x => x.nodeType === Node.TEXT_NODE);
+        const codeBlocks: HTMLElement[] = [...pre.querySelectorAll('code')];
 
-        const input = textNodes[textNodes.length - 2].textContent.trim();
-        const output = textNodes[textNodes.length - 1].textContent.trim();
+        if (codeBlocks.length >= 2) {
+          const input = codeBlocks[0].textContent.trim();
+          const output = codeBlocks[1].textContent.trim();
 
-        task.addTest(input, output);
+          task.addTest(input, output);
+        } else if (textNodes.length >= 2) {
+          const input = textNodes[textNodes.length - 2].textContent.trim();
+          const output = textNodes[textNodes.length - 1].textContent.trim();
+
+          task.addTest(input, output);
+        }
       }
     });
 

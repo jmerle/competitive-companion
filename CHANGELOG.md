@@ -1,3 +1,6 @@
+# 2.5.1 - TBD
+- Fixed the CodeChef parser
+
 # 2.5.0 - December 24th, 2018
 - Added a parser for Virtual Judge
 - Fixed bugs in the ACMP, ECNU Online Judge, UVa Online Judge, ICPC Live Archive and AtCoder parsers (thanks [@m1kit](https://github.com/m1kit) for the AtCoder fix)
