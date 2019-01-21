@@ -1,4 +1,4 @@
-# 2.5.1 - TBD
+# 2.5.1 - January 21th, 2019
 - Fixed the CodeChef parser
 
 # 2.5.0 - December 24th, 2018
