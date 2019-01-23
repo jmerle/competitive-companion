@@ -1,3 +1,6 @@
+# 2.5.2 - January 23th, 2019
+- Improved the Virtual Judge parser
+
 # 2.5.1 - January 21th, 2019
 - Fixed the CodeChef parser
 

@@ -130,7 +130,26 @@ export class VirtualJudgeProblemParser extends Parser {
         })
         .filter(str => str.length > 0);
 
-      return [].concat(preTags, paragraphs, spanTags);
+      const codeBlocks = [].concat(preTags, paragraphs, spanTags);
+
+      if (codeBlocks.length > 0) {
+        return codeBlocks;
+      }
+
+      return blocks.map((el: Element) => {
+        return this.getTextFromElement(el);
+      });
     }
+  }
+
+  private getTextFromElement(el: Element): string {
+    if (el.childNodes.length === 0 || el.nodeType === Node.TEXT_NODE) {
+      return el.textContent.replace(/<br>/g, '\n').trim();
+    }
+
+    return [...el.childNodes]
+      .map(child => this.getTextFromElement(child as any))
+      .filter(str => str.length > 0)
+      .join('\n');
   }
 }
