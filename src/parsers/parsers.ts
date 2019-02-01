@@ -24,6 +24,7 @@ import { Parser } from './Parser';
 import { A2OJProblemParser } from './problem/A2OJProblemParser';
 import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
+import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
 import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
@@ -70,6 +71,8 @@ export const parsers: Parser[] = [
   new AtCoderProblemParser(),
   new AtCoderContestParser(),
 
+  new BloombergCodeConProblemParser(),
+  
   new CodeChefProblemParser(),
   new CodeChefContestParser(),
 
