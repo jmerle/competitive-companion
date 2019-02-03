@@ -23,6 +23,7 @@ A browser extension which parses programming problems from various online judges
 | A2OJ                  | ✔              |                |
 | ACMP                  | ✔              |                |
 | AtCoder               | ✔              | ✔              |
+| Bloomberg CodeCon     | ✔              |                |
 | CodeChef              | ✔              | ✔              |
 | Codeforces            | ✔              | ✔              |
 | COJ                   | ✔              | ✔              |

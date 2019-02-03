@@ -1,3 +1,6 @@
+# 2.6.0 - February 3rd, 2019
+- Added a parser for Bloomberg CodeCon (thanks [@kessido](https://github.com/kessido))
+
 # 2.5.2 - January 23th, 2019
 - Improved the Virtual Judge parser
 
