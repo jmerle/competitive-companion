@@ -6,10 +6,7 @@ import { Parser } from '../Parser';
 
 export class NewGoogleCodeJamProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://codejam.withgoogle.com/*/challenges/*/dashboard',
-      'https://codejam.withgoogle.com/*/challenges/*/dashboard/*',
-    ];
+    return ['https://codingcompetitions.withgoogle.com/codejam/round/*/*'];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {
@@ -17,17 +14,19 @@ export class NewGoogleCodeJamProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('.task-statement').previousElementSibling.textContent);
-      task.setGroup(elem.querySelector('.challenge__title').childNodes[0].textContent);
+      task.setName(elem.querySelector('.competition-nav p.headline-5').textContent);
+      task.setGroup(elem.querySelector('#problem-select-selected-text').textContent.split(' (')[0]);
+
+      const container = elem.querySelector('.problem-description');
 
       const interactiveText = html.includes('This problem is interactive');
-      const interactiveHeader = [...elem.querySelectorAll('h3')].some(
+      const interactiveHeader = [...container.querySelectorAll('h3')].some(
         el => (el as any).textContent === 'Sample interaction',
       );
 
       task.setInteractive(interactiveText || interactiveHeader);
 
-      const blocks = elem.querySelectorAll('.problem-io-wrapper pre.io-content');
+      const blocks = container.querySelectorAll('.problem-io-wrapper pre.io-content');
       if (blocks.length !== 0) {
         const input = blocks[0].textContent.trim();
         const output = blocks[1].textContent.trim();
@@ -35,11 +34,17 @@ export class NewGoogleCodeJamProblemParser extends Parser {
         task.addTest(input, output);
       }
 
-      const limits = [...elem.querySelectorAll('h3')].find(el => el.textContent === 'Limits').nextElementSibling
-        .textContent;
+      try {
+        task.setTimeLimit(parseFloat(/Time limit: ([0-9.]+) second/.exec(container.textContent)[1]) * 1000);
+      } catch (err) {
+        task.setTimeLimit(30000);
+      }
 
-      task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limits)[1]) * 1000);
-      task.setMemoryLimit(parseInt(/(\d+)GB/.exec(limits)[1], 10) * 1024);
+      try {
+        task.setMemoryLimit(parseInt(/Memory limit: (\d+)GB/.exec(container.textContent)[1], 10) * 1024);
+      } catch (err) {
+        task.setMemoryLimit(1024);
+      }
 
       task.setJavaMainClass('Solution');
       task.setTestType(TestType.MultiNumber);

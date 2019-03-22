@@ -38,10 +38,7 @@ export default {
   },
 
   async beforeNewGoogleCodeJam(page: Page) {
-    await page.waitFor('.adventures > tr:last-child > td:nth-child(4) > a');
-    await page.click('.adventures > tr:last-child > td:nth-child(4) > a');
-    await page.waitFor('.collection > a:nth-child(2)');
-    await page.click('.collection > a:nth-child(2)');
+    await page.waitFor('.problem-description');
   },
 
   async beforeOldGoogleCodeJam(page: Page) {

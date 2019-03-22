@@ -1,18 +1,18 @@
 {
-  "url": "https://codejam.withgoogle.com/2018/challenges",
+  "url": "https://codingcompetitions.withgoogle.com/codejam/round/0000000000007766/000000000004dbbd",
   "parser": "problem/NewGoogleCodeJamProblemParser",
   "before": "beforeNewGoogleCodeJam",
   "result": {
-    "name": "Senate Evacuation",
-    "group": "Practice Session 2018",
-    "url": "https://codejam.withgoogle.com/2018/challenges/0000000000000130/dashboard/00000000000004c0",
+    "name": "World Finals 2018 - Google Code Jam 2018",
+    "group": "Jurisdiction Restrictions",
+    "url": "https://codingcompetitions.withgoogle.com/codejam/round/0000000000007766/000000000004dbbd",
     "interactive": false,
     "memoryLimit": 1024,
     "timeLimit": 30000,
     "tests": [
       {
-        "input": "4\n2\n2 2\n3\n3 2 2\n3\n1 1 2\n3\n2 3 1\n",
-        "output": "Case #1: AB BA\nCase #2: AA BC C BA\nCase #3: C C AB\nCase #4: BA BB CA\n"
+        "input": "2\n3 4 2\n1 1 1\n3 3 2\n5 5 2\n4 1 2\n3 2 2\n",
+        "output": "Case #1: 4\nCase #2: 0\n"
       }
     ],
     "testType": "multiNumber",
@@ -25,7 +25,7 @@
     "languages": {
       "java": {
         "mainClass": "Solution",
-        "taskClass": "SenateEvacuation"
+        "taskClass": "WorldFinals2018GoogleCodeJam2018"
       }
     }
   }
