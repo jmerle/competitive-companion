@@ -27,7 +27,7 @@ export class HackerRankProblemParser extends Parser {
     });
   }
 
-  public parseTests(html: string, task: TaskBuilder) {
+  public parseTests(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
 
     let blocks = elem.querySelectorAll('.challenge_sample_input pre, .challenge_sample_output pre');

@@ -14,19 +14,11 @@ function checkTab(tabId: number, url: string): void {
   sendToBackground(MessageAction.DisablePageAction);
 
   for (const parser of parsers) {
-    const hasMatchingPattern = parser
-      .getRegularExpressions()
-      .some(r => r.test(url));
+    const hasMatchingPattern = parser.getRegularExpressions().some(r => r.test(url));
 
-    const hasMatchingExcludedPattern = parser
-      .getExcludedRegularExpressions()
-      .some(r => r.test(url));
+    const hasMatchingExcludedPattern = parser.getExcludedRegularExpressions().some(r => r.test(url));
 
-    if (
-      hasMatchingPattern &&
-      !hasMatchingExcludedPattern &&
-      parser.canHandlePage()
-    ) {
+    if (hasMatchingPattern && !hasMatchingExcludedPattern && parser.canHandlePage()) {
       activeParser = parser;
       sendToBackground(MessageAction.EnablePageAction);
       break;
@@ -34,7 +26,7 @@ function checkTab(tabId: number, url: string): void {
   }
 }
 
-async function parse() {
+async function parse(): Promise<void> {
   sendToBackground(MessageAction.DisablePageAction);
   (window as any).nanoBar = new Nanobar();
 
@@ -43,10 +35,7 @@ async function parse() {
   });
 
   try {
-    const sendable = await activeParser.parse(
-      window.location.href,
-      document.body.innerHTML,
-    );
+    const sendable = await activeParser.parse(window.location.href, document.body.innerHTML);
 
     await sendable.send();
   } catch (err) {
@@ -62,7 +51,7 @@ function handleMessage(
   message: Message | any,
   sender: browser.runtime.MessageSender,
   sendResponse: (response: object) => Promise<void>,
-) {
+): void {
   if (sender.tab) {
     return;
   }

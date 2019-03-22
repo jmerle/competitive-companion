@@ -41,7 +41,9 @@ export class UVaOnlineJudgeProblemParser extends Parser {
         const pdfUrl = firstPart + '/p' + secondPart + '.pdf';
 
         await this.parseTestsFromPdf(task, pdfUrl);
-      } catch (err) {}
+      } catch (err) {
+        // Do nothing
+      }
 
       resolve(task.build());
     });

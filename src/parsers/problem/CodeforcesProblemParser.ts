@@ -40,7 +40,7 @@ export class CodeforcesProblemParser extends Parser {
     });
   }
 
-  private parseMainProblem(html: string, task: TaskBuilder) {
+  private parseMainProblem(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
@@ -89,7 +89,7 @@ export class CodeforcesProblemParser extends Parser {
     }
   }
 
-  private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder) {
+  private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problemindexholder h3').textContent.trim());
@@ -107,7 +107,7 @@ export class CodeforcesProblemParser extends Parser {
     }
   }
 
-  private parseAcmSguRuProblemNotInsideTable(html: string, task: TaskBuilder) {
+  private parseAcmSguRuProblemNotInsideTable(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problemindexholder h4').textContent.trim());

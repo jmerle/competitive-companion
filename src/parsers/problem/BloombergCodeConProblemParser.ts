@@ -16,7 +16,7 @@ export class BloombergCodeConProblemParser extends Parser {
     });
   }
 
-  private parseMainProblem(html: string, task: TaskBuilder) {
+  private parseMainProblem(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problem-page-pane > h1').textContent.trim());

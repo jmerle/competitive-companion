@@ -1,3 +1,5 @@
+// tslint:disable no-implicit-dependencies
+
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
 import webpack = require('webpack');
@@ -67,10 +69,7 @@ const config: webpack.Configuration = {
         to: path.resolve(__dirname, 'build/icons'),
       },
       {
-        from: path.resolve(
-          __dirname,
-          'node_modules/webextension-polyfill/dist/browser-polyfill.min.js',
-        ),
+        from: path.resolve(__dirname, 'node_modules/webextension-polyfill/dist/browser-polyfill.min.js'),
         to: path.resolve(__dirname, 'build/js'),
       },
       {

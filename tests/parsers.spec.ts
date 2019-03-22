@@ -1,6 +1,8 @@
 /// <reference types="jest" />
 /// <reference types="jest-environment-puppeteer" />
 
+// tslint:disable no-implicit-dependencies
+
 import * as fs from 'fs';
 import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
@@ -8,6 +10,7 @@ import * as path from 'path';
 import { Contest } from '../src/models/Contest';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
+import { noop } from '../src/utils/noop';
 
 const parserFunctions = require('./parser-functions').default;
 
@@ -25,12 +28,10 @@ export interface ParserTestData {
 function getWebsites(): string[] {
   const directory = path.resolve(__dirname, 'data/');
 
-  return fs
-    .readdirSync(directory)
-    .filter(file => fs.statSync(path.join(directory, file)).isDirectory());
+  return fs.readdirSync(directory).filter(file => fs.statSync(path.join(directory, file)).isDirectory());
 }
 
-function runTests(website: string, type: string) {
+function runTests(website: string, type: string): void {
   const directory = path.resolve(__dirname, `data/${website}/${type}/`);
 
   if (!fs.existsSync(directory)) {
@@ -62,7 +63,7 @@ function runTests(website: string, type: string) {
   });
 }
 
-async function runTest(data: ParserTestData) {
+async function runTest(data: ParserTestData): Promise<void> {
   const parserObj = require(`../src/parsers/${data.parser}`);
   const parserClass = parserObj[Object.keys(parserObj)[0]];
   const parser: Parser = new parserClass();
@@ -77,9 +78,7 @@ async function runTest(data: ParserTestData) {
   const html = await page.content();
 
   expect(parser.getRegularExpressions().some(r => r.test(url))).toBeTruthy();
-  expect(
-    parser.getExcludedRegularExpressions().some(r => r.test(url)),
-  ).toBeFalsy();
+  expect(parser.getExcludedRegularExpressions().some(r => r.test(url))).toBeFalsy();
   expect(parser.canHandlePage()).toBeTruthy();
 
   const result = await parser.parse(url, html);
@@ -117,11 +116,11 @@ beforeAll(async () => {
     (global as any).window = {
       ...dom.window,
       nanoBar: {
-        go: (percentage: number) => {},
+        go: noop,
       },
     };
 
-    (global as any).DOMParser = function() {
+    (global as any).DOMParser = function(): any {
       this.parseFromString = (source: string, mimeType: string): Document => {
         return new JSDOM(source, { url }).window.document;
       };

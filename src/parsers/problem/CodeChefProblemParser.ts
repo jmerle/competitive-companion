@@ -43,7 +43,7 @@ export class CodeChefProblemParser extends Parser {
     });
   }
 
-  public parseTests(html: string, task: TaskBuilder) {
+  public parseTests(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
 
     elem.querySelectorAll('pre').forEach(pre => {

@@ -76,7 +76,9 @@ export class VirtualJudgeProblemParser extends Parser {
           for (let i = 0; i + 1 < codeBlocks.length; i += 2) {
             task.addTest(codeBlocks[i], codeBlocks[i + 1]);
           }
-        } catch (err) {}
+        } catch (err) {
+          // Do nothing
+        }
       }
 
       resolve(task.build());

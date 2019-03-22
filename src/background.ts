@@ -2,14 +2,14 @@ import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
 import { sendToContent } from './utils/messaging';
 
-function checkTab(tabId: number, changeInfo: any, tab: browser.tabs.Tab) {
+function checkTab(tabId: number, changeInfo: any, tab: browser.tabs.Tab): void {
   sendToContent(tabId, MessageAction.CheckTab, {
     tabId,
     url: tab.url,
   });
 }
 
-function handleHistoryStateUpdate(details: any) {
+function handleHistoryStateUpdate(details: any): void {
   const { tabId, url } = details;
 
   sendToContent(tabId, MessageAction.CheckTab, {
@@ -18,11 +18,11 @@ function handleHistoryStateUpdate(details: any) {
   });
 }
 
-function parse(tab: browser.tabs.Tab) {
+function parse(tab: browser.tabs.Tab): void {
   sendToContent(tab.id, MessageAction.Parse);
 }
 
-function send(tabId: number, message: string) {
+function send(tabId: number, message: string): void {
   getHosts().then(hosts => {
     const promises = hosts.map(host => {
       return host
@@ -37,10 +37,7 @@ function send(tabId: number, message: string) {
   });
 }
 
-function handleMessage(
-  message: Message | any,
-  sender: browser.runtime.MessageSender,
-) {
+function handleMessage(message: Message | any, sender: browser.runtime.MessageSender): void {
   if (!sender.tab) {
     return;
   }
@@ -59,8 +56,6 @@ function handleMessage(
 }
 
 browser.tabs.onUpdated.addListener(checkTab);
-browser.webNavigation.onHistoryStateUpdated.addListener(
-  handleHistoryStateUpdate,
-);
+browser.webNavigation.onHistoryStateUpdated.addListener(handleHistoryStateUpdate);
 browser.pageAction.onClicked.addListener(parse);
 browser.runtime.onMessage.addListener(handleMessage);

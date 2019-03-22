@@ -1,13 +1,10 @@
 import { config } from './utils/config';
+import { noop } from './utils/noop';
 
-const customPortsInput = document.querySelector(
-  '#custom-ports',
-) as HTMLInputElement;
-const debugModeInput = document.querySelector(
-  '#debug-mode',
-) as HTMLInputElement;
+const customPortsInput = document.querySelector('#custom-ports') as HTMLInputElement;
+const debugModeInput = document.querySelector('#debug-mode') as HTMLInputElement;
 
-customPortsInput.addEventListener('input', function() {
+customPortsInput.addEventListener('input', function(): void {
   const ports = this.value
     .split(',')
     .map(x => x.trim())
@@ -17,26 +14,22 @@ customPortsInput.addEventListener('input', function() {
   const uniquePorts = [...new Set(ports)];
 
   if (uniquePorts.some(isNaN) || uniquePorts.some(x => x < 0)) {
-    (document.querySelector(
-      '#custom-ports-error',
-    ) as HTMLElement).style.display = 'block';
+    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'block';
   } else {
-    (document.querySelector(
-      '#custom-ports-error',
-    ) as HTMLElement).style.display = 'none';
+    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'none';
 
     config
       .set('customPorts', uniquePorts)
-      .then(() => {})
-      .catch(() => {});
+      .then(noop)
+      .catch(noop);
   }
 });
 
-debugModeInput.addEventListener('input', function() {
+debugModeInput.addEventListener('input', function(): void {
   config
     .set('debugMode', this.checked)
-    .then(() => {})
-    .catch(() => {});
+    .then(noop)
+    .catch(noop);
 });
 
 config
@@ -44,11 +37,11 @@ config
   .then(value => {
     customPortsInput.value = value.join(',');
   })
-  .catch(() => {});
+  .catch(noop);
 
 config
   .get<boolean>('debugMode')
   .then(value => {
     debugModeInput.checked = value;
   })
-  .catch(() => {});
+  .catch(noop);

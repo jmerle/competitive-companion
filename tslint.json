@@ -2,8 +2,7 @@
   "extends": ["tslint:latest", "tslint-config-prettier"],
   "rules": {
     "interface-name": [true, "never-prefix"],
-    "no-empty": false,
     "no-var-requires": false,
-    "no-implicit-dependencies": false
+    "typedef": [true, "call-signature", "parameter", "property-declaration"]
   }
 }
