@@ -1,4 +1,4 @@
-/// <reference types="jest" />
+/// <reference types="@types/jest" />
 /// <reference types="jest-environment-puppeteer" />
 
 // tslint:disable no-implicit-dependencies
