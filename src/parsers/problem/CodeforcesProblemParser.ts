@@ -82,8 +82,8 @@ export class CodeforcesProblemParser extends Parser {
     const outputs = elem.querySelectorAll('.output pre');
 
     for (let i = 0; i < inputs.length; i++) {
-      const input = inputs[i].innerHTML;
-      const output = outputs[i].innerHTML;
+      const input = this.decodeHtml(inputs[i].innerHTML);
+      const output = this.decodeHtml(outputs[i].innerHTML);
 
       task.addTest(input, output);
     }
@@ -129,5 +129,11 @@ export class CodeforcesProblemParser extends Parser {
         task.addTest(input, output);
       }
     });
+  }
+
+  private decodeHtml(html: string): string {
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = html;
+    return textarea.value;
   }
 }
