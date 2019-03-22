@@ -216,7 +216,7 @@
       "timeLimit": 1000,
       "tests": [
         {
-          "input": "4 4\n5 5 3 6\n",
+          "input": "4 4\n5 \n5 \n3 \n6\n",
           "output": "3\n"
         }
       ],

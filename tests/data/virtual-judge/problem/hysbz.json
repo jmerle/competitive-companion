@@ -8,7 +8,12 @@
     "interactive": false,
     "memoryLimit": 131,
     "timeLimit": 20000,
-    "tests": [],
+    "tests": [
+      {
+        "input": "5\n1 2 3 4 5\n4 3 2 1\n3 4 5\n2 1\n5\n",
+        "output": "7\n"
+      }
+    ],
     "testType": "single",
     "input": {
       "type": "stdin"
