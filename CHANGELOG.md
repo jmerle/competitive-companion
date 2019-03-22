@@ -1,3 +1,6 @@
+# 2.6.1 - March 22th, 2019
+- Fixed the Codeforces and the new Google Code Jam parser
+
 # 2.6.0 - February 3rd, 2019
 - Added a parser for Bloomberg CodeCon (thanks [@kessido](https://github.com/kessido))
 
