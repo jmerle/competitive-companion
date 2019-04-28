@@ -1,5 +1,5 @@
 # 2.7.0 - April 28th, 2019
-- Added a parser for Baekjoon Online Judge
+- Added parsers for Baekjoon Online Judge
 - Fixed the CodeChef and the new Google Code Jam parser (thanks [@andrewduffy](https://github.com/andrewduffey) for the Google Code Jam fix)
 - Added support for Google Kick Start (thanks [@Ziklon](https://github.com/Ziklon))
 
