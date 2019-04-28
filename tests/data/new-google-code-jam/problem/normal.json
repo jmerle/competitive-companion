@@ -3,8 +3,8 @@
   "parser": "problem/NewGoogleCodeJamProblemParser",
   "before": "beforeNewGoogleCodeJam",
   "result": {
-    "name": "World Finals 2018 - Google Code Jam 2018",
-    "group": "Jurisdiction Restrictions",
+    "name": "Jurisdiction Restrictions",
+    "group": "World Finals 2018 - Google Code Jam 2018",
     "url": "https://codingcompetitions.withgoogle.com/codejam/round/0000000000007766/000000000004dbbd",
     "interactive": false,
     "memoryLimit": 1024,
@@ -25,7 +25,7 @@
     "languages": {
       "java": {
         "mainClass": "Solution",
-        "taskClass": "WorldFinals2018GoogleCodeJam2018"
+        "taskClass": "JurisdictionRestrictions"
       }
     }
   }
