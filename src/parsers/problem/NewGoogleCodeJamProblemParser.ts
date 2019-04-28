@@ -14,8 +14,8 @@ export class NewGoogleCodeJamProblemParser extends Parser {
       const elem = htmlToElement(html);
       const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('.competition-nav p.headline-5').textContent);
-      task.setGroup(elem.querySelector('#problem-select-selected-text').textContent.split(' (')[0]);
+      task.setName(elem.querySelector('#problem-select-selected-text').textContent.split(' (')[0]);
+      task.setGroup(elem.querySelector('.competition-nav p.headline-5').textContent);
 
       const container = elem.querySelector('.problem-description');
 
