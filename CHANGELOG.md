@@ -1,18 +1,18 @@
-# 2.7.0 - TBD
+# 2.7.0 - April 28th, 2019
 - Added a parser for Baekjoon Online Judge
 - Fixed the CodeChef and the new Google Code Jam parser (thanks [@andrewduffy](https://github.com/andrewduffey) for the Google Code Jam fix)
 - Added support for Google Kick Start (thanks [@Ziklon](https://github.com/Ziklon))
 
-# 2.6.1 - March 22th, 2019
+# 2.6.1 - March 22nd, 2019
 - Fixed the Codeforces and the new Google Code Jam parser
 
 # 2.6.0 - February 3rd, 2019
 - Added a parser for Bloomberg CodeCon (thanks [@kessido](https://github.com/kessido))
 
-# 2.5.2 - January 23th, 2019
+# 2.5.2 - January 23rd, 2019
 - Improved the Virtual Judge parser
 
-# 2.5.1 - January 21th, 2019
+# 2.5.1 - January 21st, 2019
 - Fixed the CodeChef parser
 
 # 2.5.0 - December 24th, 2018
@@ -106,7 +106,7 @@
 # 1.0.3 - February 19th, 2018
 - Switched the Codeforces problem parser from the default one in the CHelper plugin to a custom one, because the one in the CHelper plugin is not working properly at the moment
 
-# 1.0.2 - December 31th, 2017
+# 1.0.2 - December 31st, 2017
 - Fixed a bug in the HackerEarth contest parser where it couldn't parse contests where the problems were divided into sets
 
 # 1.0.1 - December 23rd, 2017
