@@ -1,0 +1,35 @@
+{
+  "url": "https://www.acmicpc.net/problem/1008",
+  "parser": "problem/BaekjoonOnlineJudgeProblemParser",
+  "result": {
+    "name": "A/B",
+    "group": "Baekjoon Online Judge",
+    "url": "https://www.acmicpc.net/problem/1008",
+    "interactive": false,
+    "memoryLimit": 128,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "1 3\n",
+        "output": "0.33333333333333333333333333333333\n"
+      },
+      {
+        "input": "4 5\n",
+        "output": "0.8\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

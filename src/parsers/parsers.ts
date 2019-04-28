@@ -1,4 +1,5 @@
 import { AtCoderContestParser } from './contest/AtCoderContestParser';
+import { BaekjoonOnlineJudgeContestParser } from './contest/BaekjoonOnlineJudgeContestParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { COJContestParser } from './contest/COJContestParser';
@@ -24,6 +25,7 @@ import { Parser } from './Parser';
 import { A2OJProblemParser } from './problem/A2OJProblemParser';
 import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
+import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeProblemParser';
 import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
 import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
@@ -71,8 +73,11 @@ export const parsers: Parser[] = [
   new AtCoderProblemParser(),
   new AtCoderContestParser(),
 
+  new BaekjoonOnlineJudgeProblemParser(),
+  new BaekjoonOnlineJudgeContestParser(),
+
   new BloombergCodeConProblemParser(),
-  
+
   new CodeChefProblemParser(),
   new CodeChefContestParser(),
 

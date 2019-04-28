@@ -24,6 +24,7 @@ A browser extension which parses programming problems from various online judges
 | A2OJ                  | ✔              |                |
 | ACMP                  | ✔              |                |
 | AtCoder               | ✔              | ✔              |
+| Baekjoon Online Judge | ✔              | ✔              |
 | Bloomberg CodeCon     | ✔              |                |
 | CodeChef              | ✔              | ✔              |
 | Codeforces            | ✔              | ✔              |
@@ -38,6 +39,7 @@ A browser extension which parses programming problems from various online judges
 | FZU Online Judge      | ✔              | ✔              |
 | Google Code Jam (new) | ✔              |                |
 | Google Code Jam (old) |                | ✔              |
+| Google Kick Start     | ✔              |                |
 | HackerEarth           | ✔              | ✔              |
 | HackerRank            | ✔              | ✔              |
 | HDU Online Judge      | ✔              | ✔              |
