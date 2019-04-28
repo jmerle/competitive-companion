@@ -6,7 +6,10 @@ import { Parser } from '../Parser';
 
 export class NewGoogleCodeJamProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://codingcompetitions.withgoogle.com/codejam/round/*/*'];
+    return [
+      'https://codingcompetitions.withgoogle.com/codejam/round/*/*',
+      'https://codingcompetitions.withgoogle.com/kickstart/round/*/*',
+    ];
   }
 
   public parse(url: string, html: string): Promise<Sendable> {

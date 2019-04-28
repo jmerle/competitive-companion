@@ -1,0 +1,32 @@
+{
+  "url": "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2/0000000000051136",
+  "parser": "problem/NewGoogleCodeJamProblemParser",
+  "before": "beforeNewGoogleCodeJam",
+  "result": {
+    "name": "Big Buttons",
+    "group": "Round H - Kick Start 2018",
+    "url": "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2/0000000000051136",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 20000,
+    "tests": [
+      {
+        "input": "4\n3 2\nBBB\nRB\n5 1\nR\n4 3\nR\nB\nRBRB\n50 5\nBRBRBBBRBRRRBBB\nBRBRBRRRBRRRBRB\nBBBRBBBRBRRRBBB\nBRBRBRRRBRRRB\nBRBRBBBRBBBRB\n",
+        "output": "Case #1: 5\nCase #2: 16\nCase #3: 0\nCase #4: 1125556309458944\n"
+      }
+    ],
+    "testType": "multiNumber",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Solution",
+        "taskClass": "BigButtons"
+      }
+    }
+  }
+}
