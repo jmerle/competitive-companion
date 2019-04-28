@@ -13,6 +13,10 @@
       {
         "input": "3\n1 1\n4 1\n7 6\n",
         "output": "YES\n"
+      },
+      {
+        "input": "3\n1 1\n9 1\n7 6\n",
+        "output": "NO\n"
       }
     ],
     "testType": "single",

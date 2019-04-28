@@ -66,17 +66,17 @@ export class CodeChefProblemParser extends Parser {
     });
 
     if (task.tests.length === 0) {
-      const inputHeader = [...elem.querySelectorAll('h3')].find(x =>
+      const inputHeaders = [...elem.querySelectorAll('h3')].filter(x =>
         x.textContent.toLowerCase().includes('ample input'),
       );
 
-      const outputHeader = [...elem.querySelectorAll('h3')].find(x =>
+      const outputHeaders = [...elem.querySelectorAll('h3')].filter(x =>
         x.textContent.toLowerCase().includes('ample output'),
       );
 
-      if (inputHeader !== undefined && outputHeader !== undefined) {
-        const input = inputHeader.nextElementSibling.textContent;
-        const output = outputHeader.nextElementSibling.textContent;
+      for (let i = 0; i < inputHeaders.length && i < outputHeaders.length; i++) {
+        const input = inputHeaders[i].nextElementSibling.textContent;
+        const output = outputHeaders[i].nextElementSibling.textContent;
 
         task.addTest(input, output);
       }
