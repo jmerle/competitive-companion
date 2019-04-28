@@ -1,3 +1,7 @@
+# 2.6.2 - TBD
+- Fixed the CodeChef and the new Google Code Jam parser (thanks [@andrewduffy](https://github.com/andrewduffey) for the Google Code Jam fix)
+- Added support for Google Kick Start (thanks [@Ziklon](https://github.com/Ziklon))
+
 # 2.6.1 - March 22th, 2019
 - Fixed the Codeforces and the new Google Code Jam parser
 
