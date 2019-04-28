@@ -8,56 +8,54 @@ export class SPOJProblemParser extends Parser {
     return ['https://www.spoj.com/problems/*/'];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('#problem-name').textContent.split(' - ')[1]);
+    task.setName(elem.querySelector('#problem-name').textContent.split(' - ')[1]);
 
-      const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
-      task.setGroup('SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1));
+    const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
+    task.setGroup('SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1));
 
-      const blocks: Element[] = [];
-      let current: Element = elem.querySelector('#problem-body').children[0];
-      let isExample = false;
+    const blocks: Element[] = [];
+    let current: Element = elem.querySelector('#problem-body').children[0];
+    let isExample = false;
 
-      while (current !== null) {
-        if (isExample && current.tagName === 'PRE') {
-          blocks.push(current);
-        } else if (current.textContent === 'Example') {
-          isExample = true;
-        }
-
-        current = current.nextElementSibling;
+    while (current !== null) {
+      if (isExample && current.tagName === 'PRE') {
+        blocks.push(current);
+      } else if (current.textContent === 'Example') {
+        isExample = true;
       }
 
-      if (blocks.length === 1) {
-        const lines = blocks[0].textContent.trim().split('\n');
-        const [input, output] = this.parseTestDataSingleBlock(lines);
-        task.addTest(input, output);
-      } else if (blocks.length === 2) {
-        const lines1 = blocks[0].textContent.trim().split('\n');
-        const lines2 = blocks[1].textContent.trim().split('\n');
-        const [input, output] = this.parseTestDataTwoBlocks(lines1, lines2);
-        task.addTest(input, output);
-      }
+      current = current.nextElementSibling;
+    }
 
-      const timeElems = elem.querySelectorAll('#problem-meta > tbody > tr');
-      const timeLimitStr = [...timeElems]
-        .map(el => el.textContent)
-        .find(x => x.startsWith('Time limit:'))
-        .trim();
+    if (blocks.length === 1) {
+      const lines = blocks[0].textContent.trim().split('\n');
+      const [input, output] = this.parseTestDataSingleBlock(lines);
+      task.addTest(input, output);
+    } else if (blocks.length === 2) {
+      const lines1 = blocks[0].textContent.trim().split('\n');
+      const lines2 = blocks[1].textContent.trim().split('\n');
+      const [input, output] = this.parseTestDataTwoBlocks(lines1, lines2);
+      task.addTest(input, output);
+    }
 
-      task.setTimeLimit(parseFloat(/([0-9.]+)s$/.exec(timeLimitStr)[1]) * 1000);
+    const timeElems = elem.querySelectorAll('#problem-meta > tbody > tr');
+    const timeLimitStr = [...timeElems]
+      .map(el => el.textContent)
+      .find(x => x.startsWith('Time limit:'))
+      .trim();
 
-      const memoryElems = elem.querySelectorAll('#problem-meta > tbody > tr');
-      const memoryLimitStr = [...memoryElems].map(el => el.textContent).find(x => x.startsWith('Memory limit:'));
+    task.setTimeLimit(parseFloat(/([0-9.]+)s$/.exec(timeLimitStr)[1]) * 1000);
 
-      task.setMemoryLimit(parseInt(/Memory limit:(\d+)MB/.exec(memoryLimitStr)[1], 10));
+    const memoryElems = elem.querySelectorAll('#problem-meta > tbody > tr');
+    const memoryLimitStr = [...memoryElems].map(el => el.textContent).find(x => x.startsWith('Memory limit:'));
 
-      resolve(task.build());
-    });
+    task.setMemoryLimit(parseInt(/Memory limit:(\d+)MB/.exec(memoryLimitStr)[1], 10));
+
+    return task.build();
   }
 
   private parseTestDataSingleBlock(lines: string[]): string[] {

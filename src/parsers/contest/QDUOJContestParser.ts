@@ -13,47 +13,37 @@ export class QDUOJContestParser extends Parser {
     return document.querySelector('#contest-main tr.ivu-table-row > td:first-child > div > span') !== null;
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(async (resolve, reject) => {
-      const elem = htmlToElement(html);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
 
-      const contestId = /contest\/(\d+)\/problems/.exec(url)[1];
+    const contestId = /contest\/(\d+)\/problems/.exec(url)[1];
 
-      const links: string[] = [...elem.querySelectorAll('#contest-main tr.ivu-table-row > td:first-child > div > span')]
-        .map(el => el.textContent)
-        .map(problemId => `https://qduoj.com/api/contest/problem?contest_id=${contestId}&problem_id=${problemId}`);
+    const links: string[] = [...elem.querySelectorAll('#contest-main tr.ivu-table-row > td:first-child > div > span')]
+      .map(el => el.textContent)
+      .map(problemId => `https://qduoj.com/api/contest/problem?contest_id=${contestId}&problem_id=${problemId}`);
 
-      let bodies: string[];
+    const bodies = await this.fetchAll(links);
+    const tasks: Sendable[] = [];
 
-      try {
-        bodies = await this.fetchAll(links);
-      } catch (err) {
-        reject(err);
-        return;
+    for (let i = 0; i < links.length; i++) {
+      const data = JSON.parse(bodies[i]).data;
+      const task = new TaskBuilder();
+
+      task.setUrl(`https://qduoj.com/contest/${data.contest}/problem/${data._id}`);
+
+      task.setName(data.title);
+      task.setGroup(elem.querySelector('.logo > span').textContent);
+
+      task.setTimeLimit(data.time_limit);
+      task.setMemoryLimit(data.memory_limit);
+
+      for (const sample of data.samples) {
+        task.addTest(sample.input, sample.output);
       }
 
-      const tasks: Sendable[] = [];
+      tasks.push(task.build());
+    }
 
-      for (let i = 0; i < links.length; i++) {
-        const data = JSON.parse(bodies[i]).data;
-        const task = new TaskBuilder();
-
-        task.setUrl(`https://qduoj.com/contest/${data.contest}/problem/${data._id}`);
-
-        task.setName(data.title);
-        task.setGroup(elem.querySelector('.logo > span').textContent);
-
-        task.setTimeLimit(data.time_limit);
-        task.setMemoryLimit(data.memory_limit);
-
-        for (const sample of data.samples) {
-          task.addTest(sample.input, sample.output);
-        }
-
-        tasks.push(task.build());
-      }
-
-      resolve(new Contest(tasks));
-    });
+    return new Contest(tasks);
   }
 }

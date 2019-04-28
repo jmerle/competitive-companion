@@ -8,31 +8,29 @@ export class TophProblemParser extends Parser {
     return ['https://toph.co/p/*'];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('.problem-statement h2').textContent);
-      task.setGroup('Toph');
+    task.setName(elem.querySelector('.problem-statement h2').textContent);
+    task.setGroup('Toph');
 
-      const limitsStr = elem.querySelector('.problem-statement div > span').textContent;
+    const limitsStr = elem.querySelector('.problem-statement div > span').textContent;
 
-      task.setTimeLimit(parseFloat(/Limits: ([0-9.]+)s/.exec(limitsStr)[1]) * 1000);
+    task.setTimeLimit(parseFloat(/Limits: ([0-9.]+)s/.exec(limitsStr)[1]) * 1000);
 
-      const [, amount, unit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
-      task.setMemoryLimit(parseFloat(amount) * (unit === 'MB' ? 1 : 1024));
+    const [, amount, unit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
+    task.setMemoryLimit(parseFloat(amount) * (unit === 'MB' ? 1 : 1024));
 
-      const table = elem.querySelector('.problem-statement table:last-child');
+    const table = elem.querySelector('.problem-statement table:last-child');
 
-      if (table !== null) {
-        table.querySelectorAll('tbody tr').forEach(row => {
-          const blocks = row.querySelectorAll('td > pre');
-          task.addTest(blocks[0].textContent.trim(), blocks[1].textContent.trim());
-        });
-      }
+    if (table !== null) {
+      table.querySelectorAll('tbody tr').forEach(row => {
+        const blocks = row.querySelectorAll('td > pre');
+        task.addTest(blocks[0].textContent.trim(), blocks[1].textContent.trim());
+      });
+    }
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 }

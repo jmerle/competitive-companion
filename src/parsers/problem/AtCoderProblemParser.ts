@@ -8,45 +8,43 @@ export class AtCoderProblemParser extends Parser {
     return ['https://atcoder.jp/contests/*/tasks/*', 'https://*.contest.atcoder.jp/tasks/*'];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('h2, .h2').textContent);
-      task.setGroup(elem.querySelector('.contest-name, .contest-title').textContent);
+    task.setName(elem.querySelector('h2, .h2').textContent);
+    task.setGroup(elem.querySelector('.contest-name, .contest-title').textContent);
 
-      const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];
-      task.setInteractive(interactiveSentences.some(x => html.includes(x)));
+    const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];
+    task.setInteractive(interactiveSentences.some(x => html.includes(x)));
 
-      const limitNodes = elem.querySelector('h2, .h2').nextElementSibling.nextElementSibling.childNodes;
+    const limitNodes = elem.querySelector('h2, .h2').nextElementSibling.nextElementSibling.childNodes;
 
-      task.setTimeLimit(
-        parseFloat(/([0-9.]+) ?sec/.exec(limitNodes[limitNodes.length === 1 ? 0 : 1].textContent)[1]) * 1000,
+    const timeLimitStr = limitNodes[limitNodes.length === 1 ? 0 : 1].textContent;
+    task.setTimeLimit(parseFloat(/([0-9.]+) ?sec/.exec(timeLimitStr)[1]) * 1000);
+
+    const memoryLimitStr = limitNodes[limitNodes.length === 1 ? 0 : 3].textContent;
+    task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(memoryLimitStr)[1], 10));
+
+    const inputs = [...elem.querySelectorAll('h3')]
+      .filter(el => el.textContent.includes('Sample Input'))
+      .map(el =>
+        el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
       );
 
-      task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(limitNodes[limitNodes.length === 1 ? 0 : 3].textContent)[1], 10));
+    const outputs = [...elem.querySelectorAll('h3')]
+      .filter(el => el.textContent.includes('Sample Output'))
+      .map(el =>
+        el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
+      );
 
-      const inputs = [...elem.querySelectorAll('h3')]
-        .filter(el => el.textContent.includes('Sample Input'))
-        .map(el =>
-          el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
-        );
+    for (let i = 0; i < inputs.length && i < outputs.length; i++) {
+      const input = inputs[i].textContent;
+      const output = outputs[i].textContent;
 
-      const outputs = [...elem.querySelectorAll('h3')]
-        .filter(el => el.textContent.includes('Sample Output'))
-        .map(el =>
-          el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
-        );
+      task.addTest(input, output);
+    }
 
-      for (let i = 0; i < inputs.length; i++) {
-        const input = inputs[i].textContent;
-        const output = outputs[i].textContent;
-
-        task.addTest(input, output);
-      }
-
-      resolve(task.build());
-    });
+    return task.build();
   }
 }

@@ -38,6 +38,7 @@ import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemPa
 import { EOlympProblemParser } from './problem/EOlympProblemParser';
 import { FacebookHackerCupProblemParser } from './problem/FacebookHackerCupProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
+import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCompetitionsProblemParser';
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
 import { HackerEarthProblemParser } from './problem/HackerEarthProblemParser';
 import { HackerRankProblemParser } from './problem/HackerRankProblemParser';
@@ -49,7 +50,6 @@ import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
-import { NewGoogleCodeJamProblemParser } from './problem/NewGoogleCodeJamProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
@@ -109,6 +109,8 @@ export const parsers: Parser[] = [
   new FZUOnlineJudgeProblemParser(),
   new FZUOnlineJudgeContestParser(),
 
+  new GoogleCodingCompetitionsProblemParser(),
+
   new HackerEarthProblemParser(),
   new HackerEarthCodeArenaParser(),
   new HackerEarthContestParser(),
@@ -137,7 +139,6 @@ export const parsers: Parser[] = [
   new MSKInformaticsProblemParser(),
 
   new OldGoogleCodeJamContestParser(),
-  new NewGoogleCodeJamProblemParser(),
 
   new OmegaUpProblemParser(),
 

@@ -1,6 +1,6 @@
 {
   "url": "https://codingcompetitions.withgoogle.com/codejam/round/0000000000007766/000000000004dbbd",
-  "parser": "problem/NewGoogleCodeJamProblemParser",
+  "parser": "problem/GoogleCodingCompetitionsProblemParser",
   "before": "beforeNewGoogleCodeJam",
   "result": {
     "name": "Jurisdiction Restrictions",

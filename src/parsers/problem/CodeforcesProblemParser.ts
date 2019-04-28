@@ -19,25 +19,23 @@ export class CodeforcesProblemParser extends Parser {
     ];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const task = new TaskBuilder().setUrl(url);
 
-      if (url.includes('/problemsets/acmsguru')) {
-        const elem = htmlToElement(html);
-        const table = elem.querySelector('.problemindexholder > .ttypography > .bordertable');
+    if (url.includes('/problemsets/acmsguru')) {
+      const elem = htmlToElement(html);
+      const table = elem.querySelector('.problemindexholder > .ttypography > .bordertable');
 
-        if (table) {
-          this.parseAcmSguRuProblemInsideTable(html, task);
-        } else {
-          this.parseAcmSguRuProblemNotInsideTable(html, task);
-        }
+      if (table) {
+        this.parseAcmSguRuProblemInsideTable(html, task);
       } else {
-        this.parseMainProblem(html, task);
+        this.parseAcmSguRuProblemNotInsideTable(html, task);
       }
+    } else {
+      this.parseMainProblem(html, task);
+    }
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 
   private parseMainProblem(html: string, task: TaskBuilder): void {
@@ -46,11 +44,12 @@ export class CodeforcesProblemParser extends Parser {
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
     task.setGroup(elem.querySelector('.rtable > tbody > tr > th').textContent.trim());
 
-    task.setInteractive(
-      [...elem.querySelectorAll('.section-title')].some(
-        el => el.textContent === 'Interaction' || el.textContent === 'Протокол взаимодействия',
-      ),
+    const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];
+    const isInteractive = [...elem.querySelectorAll('.section-title')].some(
+      el => interactiveKeywords.indexOf(el.textContent) > -1,
     );
+
+    task.setInteractive(isInteractive);
 
     const timeLimitStr = elem
       .querySelector('.problem-statement > .header > .time-limit')
@@ -81,7 +80,7 @@ export class CodeforcesProblemParser extends Parser {
     const inputs = elem.querySelectorAll('.input pre');
     const outputs = elem.querySelectorAll('.output pre');
 
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length && i < outputs.length; i++) {
       const input = this.decodeHtml(inputs[i].innerHTML);
       const output = this.decodeHtml(outputs[i].innerHTML);
 

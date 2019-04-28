@@ -14,51 +14,49 @@ export class OldGoogleCodeJamContestParser extends Parser {
     ];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const tasks: Task[] = [];
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const tasks: Task[] = [];
 
-      const group = 'Google Code Jam ' + elem.querySelector('#dsb-contest-title').textContent;
+    const group = 'Google Code Jam ' + elem.querySelector('#dsb-contest-title').textContent;
 
-      const problemCount = elem.querySelectorAll('#dsb-problem-pages > div').length;
+    const problemCount = elem.querySelectorAll('#dsb-problem-pages > div').length;
 
-      for (let i = 0; i < problemCount; i++) {
-        const task = new TaskBuilder().setUrl(url);
+    for (let i = 0; i < problemCount; i++) {
+      const task = new TaskBuilder().setUrl(url);
 
-        task.setName(
-          elem
-            .querySelector('#dsb-problem-title' + i)
-            .textContent.trim()
-            .replace('. ', ' - '),
-        );
+      task.setName(
+        elem
+          .querySelector('#dsb-problem-title' + i)
+          .textContent.trim()
+          .replace('. ', ' - '),
+      );
 
-        task.setGroup(group);
+      task.setGroup(group);
 
-        const blocks = elem.querySelectorAll(`#dsb-problem-page${i} .problem-io-wrapper pre.io-content`);
-        const input = blocks[0].textContent.trim();
-        const output = blocks[1].textContent.trim();
-        task.addTest(input, output);
+      const blocks = elem.querySelectorAll(`#dsb-problem-page${i} .problem-io-wrapper pre.io-content`);
+      const input = blocks[0].textContent.trim();
+      const output = blocks[1].textContent.trim();
+      task.addTest(input, output);
 
-        task.setInput({
-          fileName: task.name[0].toLowerCase() + '.in',
-          type: 'file',
-        });
+      task.setInput({
+        fileName: task.name[0].toLowerCase() + '.in',
+        type: 'file',
+      });
 
-        task.setOutput({
-          fileName: task.name[0].toLowerCase() + '.out',
-          type: 'file',
-        });
+      task.setOutput({
+        fileName: task.name[0].toLowerCase() + '.out',
+        type: 'file',
+      });
 
-        task.setTestType(TestType.MultiNumber);
+      task.setTestType(TestType.MultiNumber);
 
-        task.setTimeLimit(180000);
-        task.setMemoryLimit(512);
+      task.setTimeLimit(180000);
+      task.setMemoryLimit(512);
 
-        tasks.push(task.build());
-      }
+      tasks.push(task.build());
+    }
 
-      resolve(new Contest(tasks));
-    });
+    return new Contest(tasks);
   }
 }

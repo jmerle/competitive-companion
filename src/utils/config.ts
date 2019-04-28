@@ -4,13 +4,9 @@ class Config {
     debugMode: false,
   };
 
-  public get<T extends browser.storage.StorageValue>(key: string): Promise<T> {
-    return new Promise((resolve, reject) => {
-      browser.storage.local
-        .get(key)
-        .then(data => resolve((data[key] || this.defaultValues[key]) as any))
-        .catch(reject);
-    });
+  public async get<T extends browser.storage.StorageValue>(key: string): Promise<T> {
+    const data = await browser.storage.local.get(key);
+    return data[key] || this.defaultValues[key];
   }
 
   public set(key: string, value: browser.storage.StorageValue): Promise<void> {

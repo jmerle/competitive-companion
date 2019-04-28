@@ -10,20 +10,13 @@ export class HackerEarthCodeArenaParser extends Parser {
     return ['https://www.hackerearth.com/codearena/ring/*/*'];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      this.problemParser.parse(url, html).then(task => {
-        const t = task as Task;
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const task = (await this.problemParser.parse(url, html)) as Task;
 
-        const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(
-          window.location.href,
-        )[1];
+    const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(window.location.href)[1];
+    task.name = `CodeArena ${id}`;
+    task.group = 'HackerEarth - CodeArena';
 
-        t.name = `CodeArena ${id}`;
-        t.group = 'HackerEarth - CodeArena';
-
-        resolve(t);
-      });
-    });
+    return task;
   }
 }

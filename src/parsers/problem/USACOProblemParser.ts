@@ -17,33 +17,31 @@ export class USACOProblemParser extends Parser {
     return window.location.search.includes('page=viewproblem');
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      const headers = elem.querySelectorAll('.panel > h2');
-      task.setName(headers[1].textContent.trim());
-      task.setGroup(headers[0].textContent.trim());
+    const headers = elem.querySelectorAll('.panel > h2');
+    task.setName(headers[1].textContent.trim());
+    task.setGroup(headers[0].textContent.trim());
 
-      task.setInput({
-        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],
-        type: 'file',
-      });
-
-      task.setOutput({
-        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
-        type: 'file',
-      });
-
-      const input = elem.querySelector('pre.in').textContent;
-      const output = elem.querySelector('pre.out').textContent;
-      task.addTest(input, output);
-
-      task.setTimeLimit(4000);
-      task.setMemoryLimit(256);
-
-      resolve(task.build());
+    task.setInput({
+      fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],
+      type: 'file',
     });
+
+    task.setOutput({
+      fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
+      type: 'file',
+    });
+
+    const input = elem.querySelector('pre.in').textContent;
+    const output = elem.querySelector('pre.out').textContent;
+    task.addTest(input, output);
+
+    task.setTimeLimit(4000);
+    task.setMemoryLimit(256);
+
+    return task.build();
   }
 }

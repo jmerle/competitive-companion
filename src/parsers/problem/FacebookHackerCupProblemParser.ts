@@ -9,37 +9,35 @@ export class FacebookHackerCupProblemParser extends Parser {
     return ['https://www.facebook.com/hackercup/problem/*'];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('#content .clearfix > .lfloat').textContent);
-      task.setGroup(elem.querySelector('h2.uiHeaderTitle').textContent);
+    task.setName(elem.querySelector('#content .clearfix > .lfloat').textContent);
+    task.setGroup(elem.querySelector('h2.uiHeaderTitle').textContent);
 
-      const blocks = elem.querySelectorAll('.uiBoxGray > pre');
-      const input = blocks[0].textContent;
-      const output = blocks[1].textContent;
-      task.addTest(input, output);
+    const blocks = elem.querySelectorAll('.uiBoxGray > pre');
+    const input = blocks[0].textContent;
+    const output = blocks[1].textContent;
+    task.addTest(input, output);
 
-      const filename = task.name.toLowerCase().replace(/ /g, '_');
+    const filename = task.name.toLowerCase().replace(/ /g, '_');
 
-      task.setInput({
-        pattern: filename + '.txt',
-        type: 'file',
-      });
-
-      task.setOutput({
-        fileName: filename + '.out',
-        type: 'file',
-      });
-
-      task.setTestType(TestType.MultiNumber);
-
-      task.setTimeLimit(360000);
-      task.setMemoryLimit(1024);
-
-      resolve(task.build());
+    task.setInput({
+      pattern: filename + '.txt',
+      type: 'file',
     });
+
+    task.setOutput({
+      fileName: filename + '.out',
+      type: 'file',
+    });
+
+    task.setTestType(TestType.MultiNumber);
+
+    task.setTimeLimit(360000);
+    task.setMemoryLimit(1024);
+
+    return task.build();
   }
 }

@@ -11,20 +11,15 @@ export class URIOnlineJudgeProblemParser extends Parser {
     ];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise((resolve, reject) => {
-      const elem = htmlToElement(html);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
 
-      if (elem.querySelector('#description-html') !== null) {
-        const link = (elem.querySelector('ul.information > li:nth-child(2) > a') as any).href;
+    if (elem.querySelector('#description-html') !== null) {
+      const link = (elem.querySelector('ul.information > li:nth-child(2) > a') as any).href;
+      html = await this.fetch(link);
+    }
 
-        this.fetch(link)
-          .then(data => resolve(this.parseFullscreen(url, data)))
-          .catch(reject);
-      } else {
-        resolve(this.parseFullscreen(url, html));
-      }
-    });
+    return this.parseFullscreen(url, html);
   }
 
   private parseFullscreen(url: string, html: string): Sendable {

@@ -8,35 +8,33 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
     return ['https://acm.ecnu.edu.cn/problem/*/', 'https://acm.ecnu.edu.cn/contest/*/problem/*/'];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      if (elem.querySelector('a.active.item[href^="/contest/"]')) {
-        const contest = elem.querySelector('.ui.header').textContent;
+    if (elem.querySelector('a.active.item[href^="/contest/"]')) {
+      const contest = elem.querySelector('.ui.header').textContent;
 
-        task.setName(elem.querySelector('div.ui.header').textContent);
-        task.setGroup(`ECNU Online Judge - ${contest}`);
-      } else {
-        task.setName(elem.querySelector('.ui.header').textContent);
-        task.setGroup('ECNU Online Judge');
-      }
+      task.setName(elem.querySelector('div.ui.header').textContent);
+      task.setGroup(`ECNU Online Judge - ${contest}`);
+    } else {
+      task.setName(elem.querySelector('.ui.header').textContent);
+      task.setGroup('ECNU Online Judge');
+    }
 
-      const limitsStr = elem.querySelector('.property').textContent;
-      const limits = limitsStr.match(/([0-9.]+)/g);
-      task.setTimeLimit(parseFloat(limits[0]) * 1000);
-      task.setMemoryLimit(parseFloat(limits[1]));
+    const limitsStr = elem.querySelector('.property').textContent;
+    const limits = limitsStr.match(/([0-9.]+)/g);
+    task.setTimeLimit(parseFloat(limits[0]) * 1000);
+    task.setMemoryLimit(parseFloat(limits[1]));
 
-      const blocks = elem.querySelectorAll('pre.sample-content');
-      for (let i = 0; i < blocks.length; i += 2) {
-        const input = blocks[i].textContent;
-        const output = blocks[i + 1].textContent;
+    const blocks = elem.querySelectorAll('pre.sample-content');
+    for (let i = 0; i < blocks.length; i += 2) {
+      const input = blocks[i].textContent;
+      const output = blocks[i + 1].textContent;
 
-        task.addTest(input, output);
-      }
+      task.addTest(input, output);
+    }
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 }

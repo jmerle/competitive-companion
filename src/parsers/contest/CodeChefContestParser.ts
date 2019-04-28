@@ -14,45 +14,35 @@ export class CodeChefContestParser extends Parser {
     return document.querySelector('.cc-problem-name a') !== null;
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(async (resolve, reject) => {
-      const elem = htmlToElement(html);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
 
-      const links: string[] = [...elem.querySelectorAll('.cc-problem-name a')].map(el =>
-        (el as any).href.replace('www.codechef.com/', 'www.codechef.com/api/contests/'),
-      );
+    const links: string[] = [...elem.querySelectorAll('.cc-problem-name a')].map(el =>
+      (el as any).href.replace('www.codechef.com/', 'www.codechef.com/api/contests/'),
+    );
 
-      let bodies: string[];
+    const bodies = await this.fetchAll(links);
+    const models = bodies.map(body => JSON.parse(body));
+    const tasks: Sendable[] = [];
 
-      try {
-        bodies = await this.fetchAll(links);
-      } catch (err) {
-        reject(err);
-        return;
-      }
+    for (let i = 0; i < models.length; i++) {
+      const model = models[i];
+      const task = new TaskBuilder().setUrl(links[i].replace('www.codechef.com/api/contests/', 'www.codechef.com/'));
 
-      const models = bodies.map(body => JSON.parse(body));
-      const tasks = [];
+      task.setName(model.problem_name);
+      task.setGroup('CodeChef - ' + model.contest_name);
 
-      for (let i = 0; i < models.length; i++) {
-        const model = models[i];
-        const task = new TaskBuilder().setUrl(links[i].replace('www.codechef.com/api/contests/', 'www.codechef.com/'));
+      task.setInteractive(html.includes('This is an interactive problem'));
 
-        task.setName(model.problem_name);
-        task.setGroup('CodeChef - ' + model.contest_name);
+      const body = markdownToHtml(model.body);
+      new CodeChefProblemParser().parseTests(body, task);
 
-        task.setInteractive(html.includes('This is an interactive problem'));
+      task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);
+      task.setMemoryLimit(256);
 
-        const body = markdownToHtml(model.body);
-        new CodeChefProblemParser().parseTests(body, task);
+      tasks.push(task.build());
+    }
 
-        task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);
-        task.setMemoryLimit(256);
-
-        tasks.push(task.build());
-      }
-
-      resolve(new Contest(tasks));
-    });
+    return new Contest(tasks);
   }
 }

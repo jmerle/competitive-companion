@@ -8,23 +8,21 @@ export class HackerRankProblemParser extends Parser {
     return ['https://www.hackerrank.com/challenges/*/problem*', 'https://www.hackerrank.com/contests/*/challenges/*'];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      task.setName(elem.querySelector('h1.page-label, h2.hr_tour-challenge-name').textContent.trim());
+    task.setName(elem.querySelector('h1.page-label, h2.hr_tour-challenge-name').textContent.trim());
 
-      const breadCrumbs = [...elem.querySelectorAll('.breadcrumb-item-text')].map(el => el.textContent);
-      task.setGroup(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
+    const breadCrumbs = [...elem.querySelectorAll('.breadcrumb-item-text')].map(el => el.textContent);
+    task.setGroup(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
 
-      this.parseTests(html, task);
+    this.parseTests(html, task);
 
-      task.setTimeLimit(4000);
-      task.setMemoryLimit(512);
+    task.setTimeLimit(4000);
+    task.setMemoryLimit(512);
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 
   public parseTests(html: string, task: TaskBuilder): void {

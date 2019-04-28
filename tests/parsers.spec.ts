@@ -116,7 +116,9 @@ beforeAll(async () => {
     (global as any).window = {
       ...dom.window,
       nanoBar: {
-        go: noop,
+        go: (amount: number) => {
+          //
+        },
       },
     };
 

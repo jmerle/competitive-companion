@@ -16,35 +16,33 @@ export class OmegaUpProblemParser extends Parser {
     ];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      const problem = elem.querySelector('#problem');
+    const problem = elem.querySelector('#problem');
 
-      const group = ['omegaUp'];
+    const group = ['omegaUp'];
 
-      const contestTitleElem = elem.querySelector('.contest-title');
-      if (contestTitleElem !== null) {
-        group.push(contestTitleElem.textContent.trim());
-      }
+    const contestTitleElem = elem.querySelector('.contest-title');
+    if (contestTitleElem !== null) {
+      group.push(contestTitleElem.textContent.trim());
+    }
 
-      task.setName(problem.querySelector('.title').textContent.trim());
-      task.setGroup(group.join(' - '));
+    task.setName(problem.querySelector('.title').textContent.trim());
+    task.setGroup(group.join(' - '));
 
-      task.setTimeLimit(parseFloat(problem.querySelector('.time_limit').textContent) * 1000);
-      task.setMemoryLimit(parseInt(problem.querySelector('.memory_limit').textContent, 10));
+    task.setTimeLimit(parseFloat(problem.querySelector('.time_limit').textContent) * 1000);
+    task.setMemoryLimit(parseInt(problem.querySelector('.memory_limit').textContent, 10));
 
-      const testTable = problem.querySelector('.sample_io');
-      if (testTable !== null) {
-        testTable.querySelectorAll('tbody tr').forEach(row => {
-          const blocks = row.querySelectorAll('pre');
-          task.addTest(blocks[0].textContent, blocks[1].textContent);
-        });
-      }
+    const testTable = problem.querySelector('.sample_io');
+    if (testTable !== null) {
+      testTable.querySelectorAll('tbody tr').forEach(row => {
+        const blocks = row.querySelectorAll('pre');
+        task.addTest(blocks[0].textContent, blocks[1].textContent);
+      });
+    }
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 }

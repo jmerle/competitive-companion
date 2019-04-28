@@ -16,45 +16,42 @@ export class UVaOnlineJudgeProblemParser extends Parser {
     ];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(async resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      const container = elem.querySelector('#col3_content_wrapper, td.main');
-      const isUVa = !container.classList.contains('main');
+    const container = elem.querySelector('#col3_content_wrapper, td.main');
+    const isUVa = !container.classList.contains('main');
 
-      const header = container.querySelector('h3');
-      const iframe = container.querySelector('iframe');
+    const header = container.querySelector('h3');
+    const iframe = container.querySelector('iframe');
 
-      task.setName(header.textContent);
-      task.setGroup(isUVa ? 'UVa Online Judge' : 'ICPC Live Archive');
+    task.setName(header.textContent);
+    task.setGroup(isUVa ? 'UVa Online Judge' : 'ICPC Live Archive');
 
-      task.setTimeLimit(parseFloat(/Time limit: ([0-9.]+) seconds/.exec(header.nextSibling.textContent)[1]) * 1000);
-      task.setMemoryLimit(32);
+    task.setTimeLimit(parseFloat(/Time limit: ([0-9.]+) seconds/.exec(header.nextSibling.textContent)[1]) * 1000);
+    task.setMemoryLimit(32);
 
-      try {
-        const iframeUrl = (iframe as HTMLIFrameElement).src;
+    try {
+      const iframeUrl = (iframe as HTMLIFrameElement).src;
 
-        const firstPart = /(.*)\//.exec(iframeUrl)[1];
-        const secondPart = /(?:.*)\/(.*)\.html/.exec(iframeUrl)[1];
-        const pdfUrl = firstPart + '/p' + secondPart + '.pdf';
+      const firstPart = /(.*)\//.exec(iframeUrl)[1];
+      const secondPart = /(?:.*)\/(.*)\.html/.exec(iframeUrl)[1];
+      const pdfUrl = firstPart + '/p' + secondPart + '.pdf';
 
-        await this.parseTestsFromPdf(task, pdfUrl);
-      } catch (err) {
-        // Do nothing
-      }
+      await this.parseTestsFromPdf(task, pdfUrl);
+    } catch (err) {
+      // Do nothing
+    }
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 
   public async parseTestsFromPdf(task: TaskBuilder, pdfUrl: string): Promise<void> {
     const lines = await readPdf(pdfUrl);
 
-    task.setInteractive(
-      lines.some(line => line.toLowerCase() === 'interaction protocol' || line.toLowerCase() === 'sample interaction'),
-    );
+    const interactiveKeywords = ['interaction protocol', 'sample interaction'];
+    task.setInteractive(lines.some(line => interactiveKeywords.indexOf(line.toLowerCase()) > -1));
 
     const inputStart = lines.findIndex(line => line.toLowerCase() === 'sample input');
     const outputStart = lines.findIndex(line => line.toLowerCase() === 'sample output');

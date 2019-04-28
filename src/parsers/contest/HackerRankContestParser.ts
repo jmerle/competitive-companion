@@ -14,42 +14,32 @@ export class HackerRankContestParser extends Parser {
     return [/https:\/\/www[.]hackerrank[.]com\/contests\/([a-z0-9-]+)\/challenges(\?(.*))?$/];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(async (resolve, reject) => {
-      const elem = htmlToElement(html);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
 
-      const links: string[] = [...elem.querySelectorAll('.challenges-list a.btn')].map(el =>
-        (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'),
-      );
+    const links: string[] = [...elem.querySelectorAll('.challenges-list a.btn')].map(el =>
+      (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'),
+    );
 
-      let bodies: string[];
+    const bodies = await this.fetchAll(links);
+    const models = bodies.map(body => JSON.parse(body).model);
+    const tasks = [];
 
-      try {
-        bodies = await this.fetchAll(links);
-      } catch (err) {
-        reject(err);
-        return;
-      }
+    for (let i = 0; i < models.length; i++) {
+      const model = models[i];
+      const task = new TaskBuilder().setUrl(links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'));
 
-      const models = bodies.map(body => JSON.parse(body).model);
-      const tasks = [];
+      task.setName(model.name);
+      task.setGroup('HackerRank - ' + model.primary_contest.name);
 
-      for (let i = 0; i < models.length; i++) {
-        const model = models[i];
-        const task = new TaskBuilder().setUrl(links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'));
+      new HackerRankProblemParser().parseTests(model.body_html, task);
 
-        task.setName(model.name);
-        task.setGroup('HackerRank - ' + model.primary_contest.name);
+      task.setTimeLimit(4000);
+      task.setMemoryLimit(512);
 
-        new HackerRankProblemParser().parseTests(model.body_html, task);
+      tasks.push(task.build());
+    }
 
-        task.setTimeLimit(4000);
-        task.setMemoryLimit(512);
-
-        tasks.push(task.build());
-      }
-
-      resolve(new Contest(tasks));
-    });
+    return new Contest(tasks);
   }
 }

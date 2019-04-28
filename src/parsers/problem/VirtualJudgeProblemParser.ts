@@ -13,76 +13,74 @@ export class VirtualJudgeProblemParser extends Parser {
     ];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(async resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      if (elem.querySelector('#problem-title') === null) {
-        task.setName(elem.querySelector('#prob-title > h2').textContent);
-        task.setGroup('Virtual Judge');
-      } else {
-        task.setName(elem.querySelector('h2#problem-title').textContent);
-        task.setGroup('Virtual Judge - ' + elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
-      }
+    if (elem.querySelector('#problem-title') === null) {
+      task.setName(elem.querySelector('#prob-title > h2').textContent);
+      task.setGroup('Virtual Judge');
+    } else {
+      task.setName(elem.querySelector('h2#problem-title').textContent);
+      task.setGroup('Virtual Judge - ' + elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
+    }
 
-      const timeLimitDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
-        el.textContent.toLowerCase().includes('time limit'),
-      );
+    const timeLimitDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+      el.textContent.toLowerCase().includes('time limit'),
+    );
 
-      const memoryLimitDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
-        el.textContent.toLowerCase().includes('memory limit'),
-      );
+    const memoryLimitDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+      el.textContent.toLowerCase().includes('memory limit'),
+    );
 
-      const inputFileDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
-        el.textContent.toLowerCase().includes('input file'),
-      );
+    const inputFileDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+      el.textContent.toLowerCase().includes('input file'),
+    );
 
-      const outputFileDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
-        el.textContent.toLowerCase().includes('output file'),
-      );
+    const outputFileDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+      el.textContent.toLowerCase().includes('output file'),
+    );
 
-      if (timeLimitDt !== undefined) {
-        const timeLimitStr = timeLimitDt.nextElementSibling.textContent;
-        task.setTimeLimit(parseFloat(timeLimitStr.split(' ')[0]));
-      }
+    if (timeLimitDt !== undefined) {
+      const timeLimitStr = timeLimitDt.nextElementSibling.textContent;
+      task.setTimeLimit(parseFloat(timeLimitStr.split(' ')[0]));
+    }
 
-      if (memoryLimitDt !== undefined) {
-        const memoryLimitStr = memoryLimitDt.nextElementSibling.textContent;
-        task.setMemoryLimit(Math.floor(parseFloat(memoryLimitStr.split(' ')[0]) / 1000));
-      }
+    if (memoryLimitDt !== undefined) {
+      const memoryLimitStr = memoryLimitDt.nextElementSibling.textContent;
+      task.setMemoryLimit(Math.floor(parseFloat(memoryLimitStr.split(' ')[0]) / 1000));
+    }
 
-      if (inputFileDt !== undefined) {
-        task.setInput({
-          fileName: inputFileDt.nextElementSibling.textContent.trim(),
-          type: 'file',
-        });
-      }
+    if (inputFileDt !== undefined) {
+      task.setInput({
+        fileName: inputFileDt.nextElementSibling.textContent.trim(),
+        type: 'file',
+      });
+    }
 
-      if (outputFileDt !== undefined) {
-        task.setOutput({
-          fileName: outputFileDt.nextElementSibling.textContent.trim(),
-          type: 'file',
-        });
-      }
+    if (outputFileDt !== undefined) {
+      task.setOutput({
+        fileName: outputFileDt.nextElementSibling.textContent.trim(),
+        type: 'file',
+      });
+    }
 
-      if (!url.includes('TopCoder-')) {
-        try {
-          const iframeUrl = (elem.querySelector('.row > iframe') as any).src;
-          const iframeContent = await this.fetch(iframeUrl);
-          const iframe = htmlToElement(iframeContent);
+    if (!url.includes('TopCoder-')) {
+      try {
+        const iframeUrl = (elem.querySelector('.row > iframe') as any).src;
+        const iframeContent = await this.fetch(iframeUrl);
+        const iframe = htmlToElement(iframeContent);
 
-          const codeBlocks = this.getCodeBlocksFromDescription(iframe);
-          for (let i = 0; i + 1 < codeBlocks.length; i += 2) {
-            task.addTest(codeBlocks[i], codeBlocks[i + 1]);
-          }
-        } catch (err) {
-          // Do nothing
+        const codeBlocks = this.getCodeBlocksFromDescription(iframe);
+        for (let i = 0; i + 1 < codeBlocks.length; i += 2) {
+          task.addTest(codeBlocks[i], codeBlocks[i + 1]);
         }
+      } catch (err) {
+        // Do nothing
       }
+    }
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 
   private getCodeBlocksFromDescription(elem: Element): string[] {

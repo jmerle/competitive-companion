@@ -9,15 +9,8 @@ const defaultPorts = [
   6174, // Mind Sport
 ];
 
-export function getHosts(): Promise<Host[]> {
-  return new Promise((resolve, reject) => {
-    config
-      .get<number[]>('customPorts')
-      .then(ports => {
-        const uniquePorts = [...new Set(defaultPorts.concat(ports))];
-        const hosts = defaultHosts.concat(uniquePorts.map(port => new CustomHost(port)));
-        resolve(hosts);
-      })
-      .catch(reject);
-  });
+export async function getHosts(): Promise<Host[]> {
+  const customPorts = await config.get<number[]>('customPorts');
+  const uniquePorts = [...new Set(defaultPorts.concat(customPorts))];
+  return defaultHosts.concat(uniquePorts.map(port => new CustomHost(port)));
 }

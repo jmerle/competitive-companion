@@ -19,28 +19,25 @@ export class CodeChefProblemParser extends Parser {
     ];
   }
 
-  public parse(url: string, html: string): Promise<Sendable> {
-    return new Promise(resolve => {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder().setUrl(url);
+  public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder().setUrl(url);
 
-      task.setName(
-        [...elem.querySelectorAll('h1')]
-          .pop()
-          .textContent.trim()
-          .split('\n')[0],
-      );
+    const name = [...elem.querySelectorAll('h1')]
+      .pop()
+      .textContent.trim()
+      .split('\n')[0];
 
-      task.setGroup('CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);
-      task.setInteractive(html.includes('This is an interactive problem'));
+    task.setName(name);
+    task.setGroup('CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);
+    task.setInteractive(html.includes('This is an interactive problem'));
 
-      this.parseTests(html, task);
+    this.parseTests(html, task);
 
-      task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(elem.querySelector('.problem-info').textContent)[1]) * 1000);
-      task.setMemoryLimit(256);
+    task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(elem.querySelector('.problem-info').textContent)[1]) * 1000);
+    task.setMemoryLimit(256);
 
-      resolve(task.build());
-    });
+    return task.build();
   }
 
   public parseTests(html: string, task: TaskBuilder): void {
