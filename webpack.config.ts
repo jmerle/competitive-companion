@@ -4,8 +4,8 @@ import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
 import webpack = require('webpack');
 
-function transformManifest(content: string): string {
-  const manifest = JSON.parse(content);
+function transformManifest(content: Buffer): string {
+  const manifest = JSON.parse(content.toString());
 
   Object.keys(require.cache).forEach(id => {
     if (!id.includes('node_modules')) {
