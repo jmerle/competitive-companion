@@ -26,8 +26,23 @@ export class COJProblemParser extends Parser {
     task.setGroup(group.join(' - '));
 
     const limitsStr = content.querySelector('.limit.lang2').textContent;
-    task.setTimeLimit(parseInt(/Total Time: (\d+) MS/.exec(limitsStr)[1], 10));
-    task.setMemoryLimit(parseInt(/Memory: (\d+) MB/.exec(limitsStr)[1], 10));
+
+    // There exist two limits in COJ for solutions to run.
+    // [Test Time] Maximum time allowed per test case.
+    // [Total Time] Maximum time allowed for all test cases. (Sum of individual test case runs).
+    //
+    // Use [Test Time] when it exists. (For some problems it is not defined).
+    // Use [Total Time] when [Test Time] is not defined.
+
+    const totalTime = /Total Time:[\n ]*(\d+) MS/.exec(limitsStr);
+    const testTime = /Test Time:[\n ]*(\d+) MS/.exec(limitsStr);
+    const memory = /Memory:[\n ]*(\d+) MB/.exec(limitsStr);
+
+    const timeLimit = testTime !== null ? parseInt(testTime[1], 10) : parseInt(totalTime[1], 10);
+    const memoryLimit = parseInt(memory[1], 10);
+
+    task.setTimeLimit(timeLimit);
+    task.setMemoryLimit(memoryLimit);
 
     const inputs = [...elem.querySelectorAll('h4.text-primary')]
       .filter(el => el.textContent.trim().startsWith('Sample input'))
