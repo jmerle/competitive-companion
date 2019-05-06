@@ -89,7 +89,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint:code --fix",
+      "yarn lint:tslint --fix",
       "prettier --write",
       "git add"
     ],

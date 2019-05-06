@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        cron(env.BRANCH_NAME == "master" ? "@weekly" : "")
+    }
+
     stages {
         stage("Quality Assurance") {
             agent {
@@ -57,6 +61,14 @@ pipeline {
                 withSonarQubeEnv("sonar.jmerle.dev") {
                     sh "sonar-scanner"
                 }
+            }
+        }
+    }
+
+    post {
+        failure {
+            if (env.BRANCH_NAME == "master") {
+                emailext
             }
         }
     }

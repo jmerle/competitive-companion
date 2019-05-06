@@ -10,7 +10,8 @@ import * as path from 'path';
 import { Contest } from '../src/models/Contest';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
-import { noop } from '../src/utils/noop';
+
+process.exit(1);
 
 const parserFunctions = require('./parser-functions').default;
 
