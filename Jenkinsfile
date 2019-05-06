@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Quality Assurance") {
             agent {
-                docker "weboaks/node-karma-protractor-chrome:headless"
+                docker "buildkite/puppeteer"
             }
 
             stages {
