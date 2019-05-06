@@ -34,25 +34,25 @@ pipeline {
                 }
             }
         }
-    }
 
-    stage("Analysis") {
-        agent {
-            docker {
-                image "noenv/node-sonar-scanner"
-                args "--network web"
+        stage("Analysis") {
+            agent {
+                docker {
+                    image "noenv/node-sonar-scanner"
+                    args "--network web"
+                }
             }
-        }
 
-        when {
-            branch "master"
-        }
+            when {
+                branch "master"
+            }
 
-        steps {
-            unstash "code-coverage"
+            steps {
+                unstash "code-coverage"
 
-            withSonarQubeEnv("sonar.jmerle.dev") {
-                sh "sonar-scanner"
+                withSonarQubeEnv("sonar.jmerle.dev") {
+                    sh "sonar-scanner"
+                }
             }
         }
     }
