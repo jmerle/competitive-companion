@@ -27,8 +27,12 @@ pipeline {
                 }
 
                 stage("Test") {
+                    when {
+                        branch "master"
+                    }
+
                     steps {
-                        sh "yarn test:coverage -t google"
+                        sh "yarn test:coverage"
                         stash name: "code-coverage", includes: "coverage/lcov.info"
                     }
                 }
