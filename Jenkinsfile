@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        cron(env.BRANCH_NAME == "master" ? "@weekly" : "")
+        cron(env.BRANCH_NAME == "master" ? "@daily" : "")
     }
 
     stages {
