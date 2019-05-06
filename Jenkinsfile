@@ -71,9 +71,10 @@ pipeline {
                 if (env.BRANCH_NAME == "master") {
                     emailext(
                         to: "jaspervmerle@gmail.com",
-                        from: "jenkins.jmerle.dev",
+                        from: "\"jenkins.jmerle.dev\" <jmerlenoreply@gmail.com>",
                         subject: "Competitive Companion build #${env.BUILD_NUMBER} failed",
-                        body: "Something went wrong while running build #${env.BUILD_NUMBER} on the master branch of Competitive Companion.\n\nBuild details: ${env.BUILD_URL}"
+                        body: "Something went wrong while running build #${env.BUILD_NUMBER} on the master branch of Competitive Companion.\n\nBuild details: ${env.BUILD_URL}",
+                        attachLog: true
                     )
                 }
             }
