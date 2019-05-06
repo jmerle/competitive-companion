@@ -24,9 +24,16 @@ pipeline {
                     }
                 }
 
-                stage("Lint") {
+                stage("Lint code") {
                     steps {
-                        sh "yarn lint"
+                        sh "yarn lint:tslint"
+                        sh "yarn lint:prettier"
+                    }
+                }
+
+                stage("Lint package") {
+                    steps {
+                        sh "yarn lint:package"
                     }
                 }
 
