@@ -12,7 +12,7 @@
     "lint": "yarn lint:tslint && yarn lint:prettier && yarn lint:package",
     "lint:tslint": "tslint -p tsconfig.json -c tslint.json -t stylish",
     "lint:prettier": "prettier-check --ignore-path .gitignore '**/*.{ts,js,html,json}'",
-    "lint:package": "yarn build && web-ext lint -s build/ -o text",
+    "lint:package": "web-ext lint -s build/ -o text",
     "watch": "yarn build --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "test": "jest",
