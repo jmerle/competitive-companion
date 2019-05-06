@@ -69,7 +69,7 @@ pipeline {
         failure {
             script {
                 if (env.BRANCH_NAME == "master") {
-                    emailext to: "$DEFAULT_RECIPIENTS"
+                    emailext to: "jaspervmerle@gmail.com"
                 }
             }
         }
