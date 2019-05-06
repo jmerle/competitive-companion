@@ -1,4 +1,4 @@
-# 2.7.1 - TBD
+# 2.7.1 - May 7th, 2019
 - Fixed the HackerEarth parser
 
 # 2.7.0 - April 28th, 2019
