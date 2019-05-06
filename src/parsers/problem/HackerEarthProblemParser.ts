@@ -30,7 +30,7 @@ export class HackerEarthProblemParser extends Parser {
     });
 
     const guidelines = elem.querySelector('.problem-guidelines').textContent;
-    task.setTimeLimit(parseFloat(/([0-9.]+) sec/.exec(guidelines)[1]) * 1000);
+    task.setTimeLimit(parseFloat(/([0-9.,]+) sec/.exec(guidelines)[1]) * 1000);
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(guidelines)[1], 10));
 
     return task.build();

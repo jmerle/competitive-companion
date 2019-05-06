@@ -1,3 +1,6 @@
+# 2.7.1 - TBD
+- Fixed the HackerEarth parser
+
 # 2.7.0 - April 28th, 2019
 - Added parsers for Baekjoon Online Judge
 - Fixed the CodeChef and the new Google Code Jam parser (thanks [@andrewduffy](https://github.com/andrewduffey) for the Google Code Jam fix)
