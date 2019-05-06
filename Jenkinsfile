@@ -67,8 +67,10 @@ pipeline {
 
     post {
         failure {
-            if (env.BRANCH_NAME == "master") {
-                emailext
+            script {
+                if (env.BRANCH_NAME == "master") {
+                    emailext
+                }
             }
         }
     }
