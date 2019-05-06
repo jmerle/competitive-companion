@@ -69,7 +69,11 @@ pipeline {
         failure {
             script {
                 if (env.BRANCH_NAME == "master") {
-                    emailext to: "jaspervmerle@gmail.com"
+                    emailext(
+                        to: "jaspervmerle@gmail.com",
+                        subject: "Competitive Companion build failure",
+                        body: "Something went wrong while running build #${env.BUILD_NUMBER} on the master branch of Competitive Companion.\n\nBuild details: ${env.BUILD_URL}."
+                    )
                 }
             }
         }
