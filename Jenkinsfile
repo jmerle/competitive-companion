@@ -43,8 +43,10 @@ pipeline {
                     }
 
                     steps {
-                        sh "yarn test:coverage"
-                        stash name: "code-coverage", includes: "coverage/lcov.info"
+                        retry(3) {
+                            sh "yarn test:coverage"
+                            stash name: "code-coverage", includes: "coverage/lcov.info"
+                        }
                     }
                 }
             }
