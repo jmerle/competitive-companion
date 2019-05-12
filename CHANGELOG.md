@@ -1,3 +1,6 @@
+# 2.7.2 - May 13th, 2019
+- Fixed the USACO Training parser
+
 # 2.7.1 - May 7th, 2019
 - Fixed the HackerEarth parser
 

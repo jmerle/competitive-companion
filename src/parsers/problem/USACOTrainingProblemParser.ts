@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class USACOTrainingProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://train.usaco.org/usacoprob2*'];
+    return ['https://train.usaco.org/usacoprob2*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
