@@ -43,10 +43,7 @@ pipeline {
                     }
 
                     steps {
-                        retry(3) {
-                            sh "yarn test:coverage"
-                            stash name: "code-coverage", includes: "coverage/lcov.info"
-                        }
+                        sh "yarn test:coverage"
                     }
                 }
             }
@@ -65,8 +62,6 @@ pipeline {
             }
 
             steps {
-                unstash "code-coverage"
-
                 withSonarQubeEnv("sonar.jmerle.dev") {
                     sh "sonar-scanner"
                 }
