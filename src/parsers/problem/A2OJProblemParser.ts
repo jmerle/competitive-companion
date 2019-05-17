@@ -8,10 +8,6 @@ export class A2OJProblemParser extends Parser {
     return ['https://a2oj.com/p*'];
   }
 
-  public canHandlePage(): boolean {
-    return document.querySelector('#page') !== null;
-  }
-
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder().setUrl(url);
