@@ -63,7 +63,7 @@ pipeline {
 
             steps {
                 withSonarQubeEnv("sonar.jmerle.dev") {
-                    sh "sonar-scanner"
+                    sh "sonar-scanner -Dsonar.projectVersion=${BUILD_NUMBER}"
                 }
             }
         }

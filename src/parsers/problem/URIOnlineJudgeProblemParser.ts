@@ -15,7 +15,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     if (elem.querySelector('#description-html') !== null) {
-      const link = (elem.querySelector('ul.information > li:nth-child(2) > a') as any).href;
+      const link = elem.querySelector<HTMLLinkElement>('ul.information > li:nth-child(2) > a').href;
       html = await this.fetch(link);
     }
 
@@ -47,7 +47,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
   private getContent(col: Element): string {
     return [...col.children]
       .map(x => {
-        return (x.textContent as string)
+        return x.textContent
           .split('\n')
           .map(y => y.trim())
           .join('\n')

@@ -33,7 +33,7 @@ export class UVaOnlineJudgeProblemParser extends Parser {
     task.setMemoryLimit(32);
 
     try {
-      const iframeUrl = (iframe as HTMLIFrameElement).src;
+      const iframeUrl = iframe.src;
 
       const firstPart = /(.*)\//.exec(iframeUrl)[1];
       const secondPart = /(?:.*)\/(.*)\.html/.exec(iframeUrl)[1];
