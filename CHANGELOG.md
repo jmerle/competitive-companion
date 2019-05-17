@@ -1,3 +1,6 @@
+# 2.7.3 - TBD
+- Fixed the USACO Training parser 
+
 # 2.7.2 - May 13th, 2019
 - Fixed the USACO Training parser
 
