@@ -6,7 +6,7 @@ export class CHelperHost implements Host {
       const xhr = new XMLHttpRequest();
       xhr.open('POST', 'http://localhost:4243/', true);
 
-      xhr.timeout = 50000;
+      xhr.timeout = 500;
 
       xhr.onload = () => resolve();
       xhr.ontimeout = () => resolve();
