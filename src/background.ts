@@ -23,17 +23,16 @@ function parse(tab: browser.tabs.Tab): void {
 }
 
 function send(tabId: number, message: string): void {
-  getHosts().then(hosts => {
-    const promises = hosts.map(host => {
-      return host
-        .send(message)
-        .then(() => true)
-        .catch(() => false);
-    });
+  getHosts().then(async hosts => {
+    for (const host of hosts) {
+      try {
+        await host.send(message);
+      } catch (err) {
+        //
+      }
+    }
 
-    Promise.all(promises).then(() => {
-      sendToContent(tabId, MessageAction.TaskSent);
-    });
+    sendToContent(tabId, MessageAction.TaskSent);
   });
 }
 

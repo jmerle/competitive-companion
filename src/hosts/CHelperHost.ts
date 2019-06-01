@@ -6,7 +6,7 @@ export class CHelperHost implements Host {
       const xhr = new XMLHttpRequest();
       xhr.open('POST', 'http://localhost:4243/', true);
 
-      xhr.timeout = 500;
+      xhr.timeout = 50000;
 
       xhr.onload = () => resolve();
       xhr.ontimeout = () => resolve();
@@ -15,6 +15,7 @@ export class CHelperHost implements Host {
 
       xhr.upload.onprogress = ev => {
         if (ev.loaded === ev.total) {
+          xhr.abort();
           resolve();
         }
       };
