@@ -20,6 +20,7 @@ A browser extension which parses programming problems from various online judges
 - [Hightail](https://github.com/dj3500/hightail)
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
 - [Caide](https://github.com/slycelote/caide)
+- [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - Any other tool that can parse the data that is being sent, read more about that below
 
 ## Supported websites
