@@ -1,8 +1,8 @@
 import { config } from './utils/config';
 import { noop } from './utils/noop';
 
-const customPortsInput = document.querySelector('#custom-ports') as HTMLInputElement;
-const debugModeInput = document.querySelector('#debug-mode') as HTMLInputElement;
+const customPortsInput = document.querySelector<HTMLInputElement>('#custom-ports');
+const debugModeInput = document.querySelector<HTMLInputElement>('#debug-mode');
 
 customPortsInput.addEventListener('input', function(): void {
   const ports = this.value
@@ -14,9 +14,9 @@ customPortsInput.addEventListener('input', function(): void {
   const uniquePorts = [...new Set(ports)];
 
   if (uniquePorts.some(isNaN) || uniquePorts.some(x => x < 0)) {
-    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'block';
+    document.querySelector<HTMLElement>('#custom-ports-error').style.display = 'block';
   } else {
-    (document.querySelector('#custom-ports-error') as HTMLElement).style.display = 'none';
+    document.querySelector<HTMLElement>('#custom-ports-error').style.display = 'none';
 
     config
       .set('customPorts', uniquePorts)

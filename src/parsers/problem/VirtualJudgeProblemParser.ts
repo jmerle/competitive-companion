@@ -67,7 +67,7 @@ export class VirtualJudgeProblemParser extends Parser {
 
     if (!url.includes('TopCoder-')) {
       try {
-        const iframeUrl = (elem.querySelector('.row > iframe') as any).src;
+        const iframeUrl = elem.querySelector<HTMLIFrameElement>('.row > iframe').src;
         const iframeContent = await this.fetch(iframeUrl);
         const iframe = htmlToElement(iframeContent);
 

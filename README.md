@@ -1,12 +1,16 @@
 # Competitive Companion
 
+[![Build Status](https://jenkins.jmerle.dev/buildStatus/icon?job=competitive-companion%2Fmaster)](https://jenkins.jmerle.dev/job/competitive-companion/job/master/)
+[![Quality Gate Status](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=alert_status)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)
+[![Coverage](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=coverage)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)
+[![Bugs](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=bugs)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)
+[![Vulnerabilities](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=vulnerabilities)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)  
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)  
 [![Mozilla Add-on](https://img.shields.io/amo/v/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 [![Mozilla Add-on Users](https://img.shields.io/amo/users/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 [![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)  
-[![License](https://img.shields.io/github/license/jmerle/competitive-companion.svg)](LICENSE)
 
 A browser extension which parses programming problems from various online judges (like Codeforces and UVa) and sends them to various tools (like CHelper and Hightail). Capable of parsing problems and contests and extracting data like the example testcases and the time and memory constraints.
 
@@ -16,6 +20,7 @@ A browser extension which parses programming problems from various online judges
 - [Hightail](https://github.com/dj3500/hightail)
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
 - [Caide](https://github.com/slycelote/caide)
+- [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - Any other tool that can parse the data that is being sent, read more about that below
 
 ## Supported websites
@@ -188,8 +193,8 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 10.15.0  
-Yarn: 1.15.2
+Node.js: 10.15.3  
+Yarn: 1.16.0
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)

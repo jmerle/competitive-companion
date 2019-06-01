@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class USACOTrainingProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://train.usaco.org/usacoprob2*'];
+    return ['https://train.usaco.org/usacoprob2*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -26,7 +26,13 @@ export class USACOTrainingProblemParser extends Parser {
       type: 'file',
     });
 
-    task.setName(elem.querySelector('center > h1').textContent);
+    const nameSelectors = ['center > h1', 'center > b > font'];
+    const names = nameSelectors
+      .map(sel => elem.querySelector(sel))
+      .filter(el => el !== null)
+      .map(el => el.textContent.trim());
+
+    task.setName(names[0] || 'Unknown');
     task.setGroup('USACO Training');
 
     const input = [...elem.querySelectorAll('h3')].find(el => el.textContent.includes('SAMPLE INPUT'))

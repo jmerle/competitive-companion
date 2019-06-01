@@ -1,7 +1,7 @@
 /// <reference types="@types/jest" />
 /// <reference types="jest-environment-puppeteer" />
 
-// tslint:disable no-implicit-dependencies
+// tslint:disable no-implicit-dependencies no-console
 
 import * as fs from 'fs';
 import { JSDOM } from 'jsdom';
@@ -10,7 +10,6 @@ import * as path from 'path';
 import { Contest } from '../src/models/Contest';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
-import { noop } from '../src/utils/noop';
 
 const parserFunctions = require('./parser-functions').default;
 
@@ -68,7 +67,16 @@ async function runTest(data: ParserTestData): Promise<void> {
   const parserClass = parserObj[Object.keys(parserObj)[0]];
   const parser: Parser = new parserClass();
 
-  await page.goto(data.url);
+  try {
+    await page.goto(data.url, {
+      timeout: 15000,
+    });
+  } catch (err) {
+    // There's usually a few Chinese judges which Jenkins is unable to reach
+    // To prevent my mailbox from being spammed with build failure emails, don't fail if the timeout is hit
+    console.error(`Could not reach ${data.url}`);
+    return;
+  }
 
   if (data.before) {
     await parserFunctions[data.before](page);

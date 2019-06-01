@@ -1,7 +1,7 @@
 {
   "name": "competitive-companion",
   "productName": "Competitive Companion",
-  "version": "2.7.0",
+  "version": "2.7.3",
   "description": "Parses programming problems and sends them to various tools like CHelper and Hightail.",
   "repository": "https://github.com/jmerle/competitive-companion",
   "author": "Jasper van Merle",
@@ -9,17 +9,20 @@
   "private": true,
   "scripts": {
     "build": "webpack --progress --colors --mode=production",
-    "lint": "yarn lint:code && yarn lint:package",
-    "lint:code": "tslint -p tsconfig.json -c tslint.json -t stylish",
-    "lint:package": "yarn build && web-ext lint -s build/ -o text",
+    "lint": "yarn lint:tslint && yarn lint:prettier && yarn lint:package",
+    "lint:tslint": "tslint -p tsconfig.json -c tslint.json -t stylish",
+    "lint:prettier": "prettier-check --ignore-path .gitignore '**/*.{ts,js,html,json}'",
+    "lint:package": "web-ext lint -s build/ -o text",
     "watch": "yarn build --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "test": "jest",
     "test:no-headless": "cross-env HEADLESS=false jest",
+    "test:coverage": "jest --coverage",
     "start:firefox": "web-ext run -s build/ --start-url http://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "start:chrome": "node scripts/chrome-launch",
     "dev:firefox": "yarn build && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
-    "dev:chrome": "yarn build && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others"
+    "dev:chrome": "yarn build && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others",
+    "prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,js,html,json}'"
   },
   "dependencies": {
     "cyrillic-to-translit-js": "2.2.0",
@@ -30,38 +33,41 @@
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^5.0.0",
-    "@types/jest": "^24.0.11",
+    "@types/jest": "^24.0.13",
     "@types/jest-environment-puppeteer": "^4.0.0",
     "@types/jsdom": "^12.2.3",
-    "@types/node": "^11.13.8",
-    "@types/node-fetch": "^2.3.3",
-    "@types/puppeteer": "^1.12.3",
+    "@types/node": "^12.0.2",
+    "@types/node-fetch": "^2.3.4",
+    "@types/puppeteer": "^1.12.4",
     "chrome-launch": "^1.1.4",
     "concurrently": "^4.1.0",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
-    "husky": "^2.1.0",
-    "jest": "^24.7.1",
+    "husky": "^2.3.0",
+    "jest": "^24.8.0",
     "jest-puppeteer": "^4.1.1",
-    "jsdom": "^15.0.0",
-    "lint-staged": "^8.1.5",
-    "node-fetch": "^2.4.1",
-    "prettier": "^1.17.0",
-    "puppeteer": "^1.15.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "jsdom": "^15.1.0",
+    "lint-staged": "^8.1.7",
+    "node-fetch": "^2.6.0",
+    "prettier": "^1.17.1",
+    "prettier-check": "^2.0.0",
+    "puppeteer": "^1.16.0",
     "ts-jest": "^24.0.2",
-    "ts-loader": "^5.4.4",
+    "ts-loader": "^6.0.0",
     "ts-node": "^8.1.0",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.5",
     "web-ext": "^3.0.0",
     "web-ext-types": "^3.1.0",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
     "worker-loader": "^2.0.0"
   },
   "jest": {
     "preset": "jest-puppeteer",
+    "testResultsProcessor": "jest-sonar-reporter",
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
@@ -78,6 +84,9 @@
       "node"
     ]
   },
+  "jestSonar": {
+    "reportPath": "coverage"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -85,7 +94,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn lint:code --fix",
+      "yarn lint:tslint --fix",
       "prettier --write",
       "git add"
     ],
