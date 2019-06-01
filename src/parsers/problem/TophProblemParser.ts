@@ -22,14 +22,10 @@ export class TophProblemParser extends Parser {
     const [, amount, unit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
     task.setMemoryLimit(parseFloat(amount) * (unit === 'MB' ? 1 : 1024));
 
-    const table = elem.querySelector('.problem-statement table:last-child');
-
-    if (table !== null) {
-      table.querySelectorAll('tbody tr').forEach(row => {
-        const blocks = row.querySelectorAll('td > pre');
-        task.addTest(blocks[0].textContent.trim(), blocks[1].textContent.trim());
-      });
-    }
+    elem.querySelectorAll('.table.samples').forEach(table => {
+      const blocks = table.querySelectorAll('tbody > tr > td > pre');
+      task.addTest(blocks[0].textContent.trim(), blocks[1].textContent.trim());
+    });
 
     return task.build();
   }
