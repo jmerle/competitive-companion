@@ -7,6 +7,7 @@ const defaultHosts: Host[] = [new CHelperHost()];
 const defaultPorts = [
   4244, // Hightail
   6174, // Mind Sport
+  10042, // acmX
 ];
 
 export async function getHosts(): Promise<Host[]> {
