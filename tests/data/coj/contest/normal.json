@@ -9,7 +9,7 @@
       "url": "http://coj.uci.cu/contest/cproblem.xhtml?pid=1000&cid=1664",
       "interactive": false,
       "memoryLimit": 62,
-      "timeLimit": 10000,
+      "timeLimit": 2000,
       "tests": [
         {
           "input": "1 2\n",
@@ -63,7 +63,7 @@
       "url": "http://coj.uci.cu/contest/cproblem.xhtml?pid=1010&cid=1664",
       "interactive": false,
       "memoryLimit": 62,
-      "timeLimit": 10000,
+      "timeLimit": 4000,
       "tests": [
         {
           "input": "2\n5 8\n1 3 75\n3 4 51\n2 4 19\n3 2 95\n2 5 42\n5 4 31\n1 2 9\n3 5 66\n9 14\n1 2 4\n1 8 8\n2 8 11\n3 2 8\n8 9 7\n8 7 1\n7 9 6\n9 3 2\n3 4 7\n3 6 4\n7 6 2\n4 6 14\n4 5 9\n5 6 10\n",
