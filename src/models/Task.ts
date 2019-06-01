@@ -52,33 +52,34 @@ export class Task implements Sendable {
   ) {}
 
   public async send(): Promise<void> {
-    try {
-      const isDebug = await config.get<boolean>('debugMode');
+    return new Promise(async (resolve, reject) => {
+      try {
+        const isDebug = await config.get<boolean>('debugMode');
 
-      if (isDebug) {
-        // tslint:disable-next-line no-console
-        console.log(JSON.stringify(this, null, 4));
-      }
-    } catch (err) {
-      // tslint:disable-next-line no-console
-      console.error(err);
-    }
-
-    const handleMessage = (message: Message | any, sender: browser.runtime.MessageSender) => {
-      if (sender.tab) {
-        return;
+        if (isDebug) {
+          // tslint:disable-next-line no-console
+          console.log(JSON.stringify(this, null, 4));
+        }
+      } catch (err) {
+        reject(err);
       }
 
-      if (message.action === MessageAction.TaskSent) {
-        browser.runtime.onMessage.removeListener(handleMessage);
-        return;
-      }
-    };
+      const handleMessage = (message: Message | any, sender: browser.runtime.MessageSender) => {
+        if (sender.tab) {
+          return;
+        }
 
-    browser.runtime.onMessage.addListener(handleMessage);
+        if (message.action === MessageAction.TaskSent) {
+          browser.runtime.onMessage.removeListener(handleMessage);
+          resolve();
+        }
+      };
 
-    sendToBackground(MessageAction.SendTask, {
-      message: JSON.stringify(this),
+      browser.runtime.onMessage.addListener(handleMessage);
+
+      sendToBackground(MessageAction.SendTask, {
+        message: JSON.stringify(this),
+      });
     });
   }
 }

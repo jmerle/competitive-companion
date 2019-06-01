@@ -15,7 +15,6 @@ function checkTab(tabId: number, url: string): void {
 
   for (const parser of parsers) {
     const hasMatchingPattern = parser.getRegularExpressions().some(r => r.test(url));
-
     const hasMatchingExcludedPattern = parser.getExcludedRegularExpressions().some(r => r.test(url));
 
     if (hasMatchingPattern && !hasMatchingExcludedPattern && parser.canHandlePage()) {
@@ -36,7 +35,6 @@ async function parse(): Promise<void> {
 
   try {
     const sendable = await activeParser.parse(window.location.href, document.body.innerHTML);
-
     await sendable.send();
   } catch (err) {
     // tslint:disable-next-line no-console

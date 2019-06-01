@@ -1,6 +1,7 @@
-# 2.x.x - TBD
+# 2.8.0 - TBD
 - Fixed the COJ parser (thanks [@mfornet](https://github.com/mfornet))
 - Added support for acmX (thanks [@mfornet](https://github.com/mfornet))
+- Updated the way problem data is sent to tools so it doesn't stop half-way when sending large contests and to improve performance with sending problems to CHelper and JHelper
 
 # 2.7.3 - May 18th, 2019
 - Fixed the USACO Training parser
