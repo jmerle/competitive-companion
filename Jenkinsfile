@@ -39,6 +39,7 @@ pipeline {
 
                 stage("Test") {
                     when {
+                        beforeAgent true
                         allOf {
                             branch "master"
                             triggeredBy "TimerTrigger"
@@ -74,6 +75,7 @@ pipeline {
             }
 
             when {
+                beforeAgent true
                 allOf {
                     branch "master"
                     triggeredBy "TimerTrigger"
