@@ -1,3 +1,7 @@
+# 2.x.x - TBD
+- Fixed the COJ parser (thanks [@mfornet](https://github.com/mfornet))
+- Added support for acmX (thanks [@mfornet](https://github.com/mfornet))
+
 # 2.7.3 - May 18th, 2019
 - Fixed the USACO Training parser
 

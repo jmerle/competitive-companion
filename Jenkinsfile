@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        cron(env.BRANCH_NAME == "master" ? "@daily" : "")
+        cron(BRANCH_NAME == "master" ? "@daily" : "")
     }
 
     stages {
@@ -39,11 +39,27 @@ pipeline {
 
                 stage("Test") {
                     when {
-                        branch "master"
+                        allOf {
+                            branch "master"
+                            triggeredBy "TimerTrigger"
+                        }
                     }
 
                     steps {
                         sh "yarn test:coverage"
+                    }
+
+                    post {
+                        failure {
+                            script {
+                                emailext(
+                                    to: "jaspervmerle@gmail.com",
+                                    from: "\"jenkins.jmerle.dev\" <jmerlenoreply@gmail.com>",
+                                    subject: "Competitive Companion build #${BUILD_NUMBER} failed",
+                                    body: "Something went wrong while running build #${BUILD_NUMBER} on the master branch of Competitive Companion.\n\nBuild details: ${env.BUILD_URL}"
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -58,27 +74,15 @@ pipeline {
             }
 
             when {
-                branch "master"
+                allOf {
+                    branch "master"
+                    triggeredBy "TimerTrigger"
+                }
             }
 
             steps {
                 withSonarQubeEnv("sonar.jmerle.dev") {
                     sh "sonar-scanner -Dsonar.projectVersion=${BUILD_NUMBER}"
-                }
-            }
-        }
-    }
-
-    post {
-        failure {
-            script {
-                if (env.BRANCH_NAME == "master") {
-                    emailext(
-                        to: "jaspervmerle@gmail.com",
-                        from: "\"jenkins.jmerle.dev\" <jmerlenoreply@gmail.com>",
-                        subject: "Competitive Companion build #${env.BUILD_NUMBER} failed",
-                        body: "Something went wrong while running build #${env.BUILD_NUMBER} on the master branch of Competitive Companion.\n\nBuild details: ${env.BUILD_URL}"
-                    )
                 }
             }
         }
