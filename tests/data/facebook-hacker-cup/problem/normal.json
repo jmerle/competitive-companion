@@ -17,7 +17,7 @@
     "testType": "multiNumber",
     "input": {
       "type": "file",
-      "pattern": "boomerang_constellations.txt"
+      "fileName": "boomerang_constellations.txt"
     },
     "output": {
       "type": "file",
