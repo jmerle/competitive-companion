@@ -24,7 +24,7 @@ export class FacebookHackerCupProblemParser extends Parser {
     const filename = task.name.toLowerCase().replace(/ /g, '_');
 
     task.setInput({
-      pattern: filename + '.txt',
+      fileName: filename + '.txt',
       type: 'file',
     });
 
