@@ -13,13 +13,6 @@ export class CHelperHost implements Host {
       xhr.onabort = () => resolve();
       xhr.onerror = () => resolve();
 
-      xhr.upload.onprogress = ev => {
-        if (ev.loaded === ev.total) {
-          xhr.abort();
-          resolve();
-        }
-      };
-
       try {
         xhr.send('json\n' + data);
         xhr.send();
