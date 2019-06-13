@@ -1,3 +1,7 @@
+# 2.8.1 - June 13rd, 2019
+- Fixed the Facebook Hacker Cup parser (thanks [@adambenali](https://github.com/adambenali))
+- Revert the performance improvement from 2.8.0 on the class that sends problem data to CHelper and JHelper
+
 # 2.8.0 - June 1st, 2019
 - Fixed the COJ parser and the Toph parser (thanks [@mfornet](https://github.com/mfornet) for the COJ fix)
 - Added support for acmX (thanks [@mfornet](https://github.com/mfornet))
