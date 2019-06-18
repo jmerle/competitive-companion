@@ -27,13 +27,13 @@ export class AtCoderProblemParser extends Parser {
     task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(memoryLimitStr)[1], 10));
 
     const inputs = [...elem.querySelectorAll('h3')]
-      .filter(el => el.textContent.includes('Sample Input'))
+      .filter(el => el.textContent.includes('入力例'))
       .map(el =>
         el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
       );
 
     const outputs = [...elem.querySelectorAll('h3')]
-      .filter(el => el.textContent.includes('Sample Output'))
+      .filter(el => el.textContent.includes('出力例'))
       .map(el =>
         el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
       );

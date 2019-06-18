@@ -1,0 +1,39 @@
+{
+  "url": "https://atcoder.jp/contests/colopl2018-final/tasks/colopl2018_final_a",
+  "parser": "problem/AtCoderProblemParser",
+  "result": {
+    "name": "A - ファイティング・タカハシ",
+    "group": "COLOCON -Colopl programming contest 2018- Final",
+    "url": "https://atcoder.jp/contests/colopl2018-final/tasks/colopl2018_final_a",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "3\nABBAA\n",
+        "output": "16\n"
+      },
+      {
+        "input": "4\nABBAAABBAA\n",
+        "output": "46\n"
+      },
+      {
+        "input": "100\nAAABAAAABAAAAABBBBBBBBBAABBBBBBAAAAABBB\n",
+        "output": "4900\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "A"
+      }
+    }
+  }
+}
