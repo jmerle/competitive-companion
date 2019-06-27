@@ -6,7 +6,7 @@
     "group": "Toph",
     "url": "https://toph.co/p/partition-magic",
     "interactive": false,
-    "memoryLimit": 32,
+    "memoryLimit": 512,
     "timeLimit": 10000,
     "tests": [],
     "testType": "single",

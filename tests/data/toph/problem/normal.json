@@ -6,7 +6,7 @@
     "group": "Toph",
     "url": "https://toph.co/p/book-worm",
     "interactive": false,
-    "memoryLimit": 256,
+    "memoryLimit": 512,
     "timeLimit": 1000,
     "tests": [
       {
