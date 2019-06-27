@@ -1,3 +1,6 @@
+# 2.8.2 - June 27th, 2019
+- Fixed the AtCoder and the Toph parsers (thanks [@tatsumack](https://github.com/tatsumack) for the AtCoder fix)
+
 # 2.8.1 - June 13rd, 2019
 - Fixed the Facebook Hacker Cup parser (thanks [@adambenali](https://github.com/adambenali))
 - Reverted the performance improvement from 2.8.0 on the class that sends problem data to CHelper and JHelper
