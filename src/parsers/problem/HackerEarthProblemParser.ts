@@ -12,7 +12,8 @@ export class HackerEarthProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder().setUrl(url);
 
-    task.setName(elem.querySelector('#problem-title').textContent.trim());
+    const titleElem = elem.querySelector('#problem-title');
+    task.setName(titleElem ? titleElem.textContent.trim() : 'Task');
 
     const groupSuffix: string[] =
       elem.querySelector('.timings') !== null

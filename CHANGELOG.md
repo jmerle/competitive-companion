@@ -1,3 +1,6 @@
+# 2.8.3 - July 2nd, 2019
+- Fixed the HackerEarth CodeArena parser
+
 # 2.8.2 - June 27th, 2019
 - Fixed the AtCoder parser (thanks [@tatsumack](https://github.com/tatsumack))
 - Added support for Caide
