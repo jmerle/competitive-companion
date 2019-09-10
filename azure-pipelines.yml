@@ -40,4 +40,3 @@ steps:
   inputs:
     codeCoverageTool: cobertura
     summaryFileLocation: coverage/cobertura-coverage.xml
-    reportDirectory: coverage/lcov-report
