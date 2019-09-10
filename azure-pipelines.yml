@@ -1,0 +1,48 @@
+schedules:
+- cron: '0 0 * * *'
+  displayName: Daily build
+  always: true
+  branches:
+    include:
+    - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: CacheBeta@0
+  inputs:
+    key: yarn | $(Agent.OS) | yarn.lock
+    path: $(YARN_CACHE_FOLDER)
+  displayName: Cache Yarn packages
+
+- script: yarn --frozen-lockfile
+  displayName: Install dependencies
+
+- script: yarn lint:tslint && yarn lint:prettier
+  displayName: Lint code
+
+- script: yarn build
+  displayName: Build
+
+- script: yarn lint:package
+  displayName: Lint package
+
+- script: yarn test:coverage
+  displayName: Test
+  condition: eq(Build.Reason, 'Schedule')
+
+- task: PublishTestResults@2
+  displayName: Publish test results
+  condition: eq(Build.Reason, 'Schedule')
+  inputs:
+    testRunner: JUnit
+    testResultsFiles: coverage/junit.xml
+
+- task: PublishCodeCoverageResults@1
+  displayName: Publish code coverage results
+  condition: eq(Build.Reason, 'Schedule')
+  inputs:
+    codeCoverageTool: cobertura
+    summaryFileLocation: coverage/cobertura-coverage.xml
+    reportDirectory: coverage/lcov-report

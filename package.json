@@ -45,8 +45,8 @@
     "cross-env": "^5.2.1",
     "husky": "^3.0.5",
     "jest": "^24.9.0",
+    "jest-junit": "^8.0.0",
     "jest-puppeteer": "^4.3.0",
-    "jest-sonar-reporter": "^2.0.0",
     "jsdom": "^15.1.1",
     "lint-staged": "^9.2.5",
     "node-fetch": "^2.6.0",
@@ -67,7 +67,15 @@
   },
   "jest": {
     "preset": "jest-puppeteer",
-    "testResultsProcessor": "jest-sonar-reporter",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "cobertura"
+    ],
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
@@ -84,8 +92,8 @@
       "node"
     ]
   },
-  "jestSonar": {
-    "reportPath": "coverage"
+  "jest-junit": {
+    "outputDirectory": "coverage"
   },
   "husky": {
     "hooks": {
