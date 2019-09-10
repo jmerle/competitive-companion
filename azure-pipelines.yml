@@ -30,18 +30,18 @@ steps:
 
 - script: yarn test:coverage
   displayName: Test
-  condition: eq(Build.Reason, 'Schedule')
+  condition: eq(variables.Build.Reason, 'Schedule')
 
 - task: PublishTestResults@2
   displayName: Publish test results
-  condition: eq(Build.Reason, 'Schedule')
+  condition: eq(variables.Build.Reason, 'Schedule')
   inputs:
     testRunner: JUnit
     testResultsFiles: coverage/junit.xml
 
 - task: PublishCodeCoverageResults@1
   displayName: Publish code coverage results
-  condition: eq(Build.Reason, 'Schedule')
+  condition: eq(variables.Build.Reason, 'Schedule')
   inputs:
     codeCoverageTool: cobertura
     summaryFileLocation: coverage/cobertura-coverage.xml
