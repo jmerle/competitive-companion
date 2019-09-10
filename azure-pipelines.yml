@@ -9,16 +9,7 @@ schedules:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
-
 steps:
-- task: CacheBeta@0
-  inputs:
-    key: yarn | $(Agent.OS) | yarn.lock
-    path: $(YARN_CACHE_FOLDER)
-  displayName: Cache Yarn packages
-
 - script: yarn --frozen-lockfile
   displayName: Install dependencies
 
