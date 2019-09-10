@@ -34,6 +34,7 @@ steps:
 - script: yarn test:coverage
   displayName: Test
   condition: eq(variables['Build.Reason'], 'Schedule')
+  continueOnError: true
 
 - task: PublishTestResults@2
   displayName: Publish test results
