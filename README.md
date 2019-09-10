@@ -1,10 +1,5 @@
 # Competitive Companion
-
-[![Build Status](https://jenkins.jmerle.dev/buildStatus/icon?job=competitive-companion%2Fmaster)](https://jenkins.jmerle.dev/job/competitive-companion/job/master/)
-[![Quality Gate Status](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=alert_status)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)
-[![Coverage](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=coverage)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)
-[![Bugs](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=bugs)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)
-[![Vulnerabilities](https://sonar.jmerle.dev/api/project_badges/measure?project=jmerle%3Acompetitive-companion&metric=vulnerabilities)](https://sonar.jmerle.dev/dashboard?id=jmerle%3Acompetitive-companion)  
+  
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)  
@@ -193,7 +188,7 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 10.16.0  
+Node.js: 10.16.3  
 Yarn: 1.17.3
 
 Third-party libraries that can be found in the minified extension:  
