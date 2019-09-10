@@ -33,19 +33,19 @@ steps:
 
 - script: yarn test:coverage
   displayName: Test
-  condition: eq(variables['Build.Reason'], 'Schedule')
+  condition: in(variables['Build.Reason'], 'Manual', 'Schedule')
   continueOnError: true
 
 - task: PublishTestResults@2
   displayName: Publish test results
-  condition: eq(variables['Build.Reason'], 'Schedule')
+  condition: in(variables['Build.Reason'], 'Manual', 'Schedule')
   inputs:
     testRunner: JUnit
     testResultsFiles: coverage/junit.xml
 
 - task: PublishCodeCoverageResults@1
   displayName: Publish code coverage results
-  condition: eq(variables['Build.Reason'], 'Schedule')
+  condition: in(variables['Build.Reason'], 'Manual', 'Schedule')
   inputs:
     codeCoverageTool: cobertura
     summaryFileLocation: coverage/cobertura-coverage.xml
