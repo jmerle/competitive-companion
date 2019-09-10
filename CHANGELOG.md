@@ -1,3 +1,6 @@
+# 2.8.4 - TBD
+- Fixed the Toph parser
+
 # 2.8.3 - July 2nd, 2019
 - Fixed the HackerEarth CodeArena parser
 

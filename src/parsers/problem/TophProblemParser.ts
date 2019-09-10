@@ -12,10 +12,10 @@ export class TophProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder().setUrl(url);
 
-    task.setName(elem.querySelector('.problem-statement h2').textContent);
+    task.setName(elem.querySelector('.artifact h1').textContent);
     task.setGroup('Toph');
 
-    const limitsStr = elem.querySelector('.problem-statement div > span').textContent;
+    const limitsStr = elem.querySelector('.artifact div > span').textContent;
 
     task.setTimeLimit(parseFloat(/Limits: ([0-9.]+)s/.exec(limitsStr)[1]) * 1000);
 
