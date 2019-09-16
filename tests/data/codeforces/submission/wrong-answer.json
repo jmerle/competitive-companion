@@ -1,0 +1,27 @@
+{
+  "name": "445B",
+  "group": "Codeforces - submission error",
+  "url": "https://codeforces.com/contest/445/submission/60645862",
+  "interactive": false,
+  "memoryLimit": 0,
+  "timeLimit": 0,
+  "tests": [
+    {
+      "input": "40 40\n28 33\n15 21\n12 29\n14 31\n2 26\n3 12\n25 34\n6 30\n6 25\n5 28\n9 17\n23 29\n30 36\n3 21\n35 37\n7 25\n29 39\n15 19\n12 35\n24 34\n15 25\n19 33\n26 31\n7 29\n1 40\n11 27\n6 9\n6 27\n36 39\n10 14\n6 16\n23 25\n2 38\n3 24\n30 31\n29 30\n4 12\n11 13\n14 40\n22 39\n",
+      "output": "34359738368\n"
+    }
+  ],
+  "testType": "single",
+  "input": {
+    "type": "stdin"
+  },
+  "output": {
+    "type": "stdout"
+  },
+  "languages": {
+    "java": {
+      "mainClass": "Main",
+      "taskClass": "B"
+    }
+  }
+}

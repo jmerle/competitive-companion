@@ -146,5 +146,6 @@ getWebsites().forEach(website => {
   describe(website, () => {
     runTests(website, 'problem');
     runTests(website, 'contest');
+    runTests(website, 'submission');
   });
 });

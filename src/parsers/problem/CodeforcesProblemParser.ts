@@ -16,6 +16,7 @@ export class CodeforcesProblemParser extends Parser {
       'https://codeforces.com/group/*/contest/*/problem/*',
       'http://codeforces.com/problemsets/acmsguru/problem/*/*',
       'https://codeforces.com/problemsets/acmsguru/problem/*/*',
+      'https://codeforces.com/contest/*/submission/*',
     ];
   }
 
@@ -31,6 +32,8 @@ export class CodeforcesProblemParser extends Parser {
       } else {
         this.parseAcmSguRuProblemNotInsideTable(html, task);
       }
+    } else if (url.includes('/submission')) {
+      this.parseSubmissionErrorSample(html, task);
     } else {
       this.parseMainProblem(html, task);
     }
@@ -128,6 +131,34 @@ export class CodeforcesProblemParser extends Parser {
         task.addTest(input, output);
       }
     });
+  }
+
+  private parseSubmissionErrorSample(html: string, task: TaskBuilder): void {
+    const elem = htmlToElement(html);
+    const prob = elem
+      .querySelector('.datatable tbody')
+      .querySelectorAll('tr')[1]
+      .querySelectorAll('td')[2];
+    const probId = prob.textContent
+      .trim()
+      .split(' ')[0]
+      .trim();
+    const probName = prob
+      .querySelector('a')
+      .title.trim()
+      .split('-')[1];
+    task.setName(probId + probName);
+    task.setGroup('Codeforces - submission error');
+    task.setTimeLimit(0);
+    task.setMemoryLimit(0);
+    const roundboxs = elem.querySelectorAll('.roundbox');
+    for (const roundbox of roundboxs) {
+      if (roundbox.querySelector('.infoline > .error')) {
+        const input = roundbox.querySelector('.input-view > .text pre').textContent;
+        const output = roundbox.querySelector('.answer-view > .text pre').textContent;
+        task.addTest(input, output);
+      }
+    }
   }
 
   private decodeHtml(html: string): string {

@@ -1,0 +1,27 @@
+{
+  "name": "9C",
+  "group": "Codeforces - submission error",
+  "url": "https://codeforces.com/contest/9/submission/60604712",
+  "interactive": false,
+  "memoryLimit": 0,
+  "timeLimit": 0,
+  "tests": [
+    {
+      "input": "1000000000\n",
+      "output": "\n"
+    }
+  ],
+  "testType": "single",
+  "input": {
+    "type": "stdin"
+  },
+  "output": {
+    "type": "stdout"
+  },
+  "languages": {
+    "java": {
+      "mainClass": "Main",
+      "taskClass": "C"
+    }
+  }
+}
