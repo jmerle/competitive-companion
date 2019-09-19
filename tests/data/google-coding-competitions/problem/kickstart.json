@@ -1,7 +1,7 @@
 {
-  "url": "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2/0000000000051136",
+  "url": "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee2",
   "parser": "problem/GoogleCodingCompetitionsProblemParser",
-  "before": "beforeNewGoogleCodeJam",
+  "before": "beforeGoogleCodingCompetitions",
   "result": {
     "name": "Big Buttons",
     "group": "Round H - Kick Start 2018",

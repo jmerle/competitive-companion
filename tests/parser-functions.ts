@@ -39,7 +39,9 @@ export default {
     await page.waitFor('.ant-card-body pre');
   },
 
-  async beforeNewGoogleCodeJam(page: Page): Promise<void> {
+  async beforeGoogleCodingCompetitions(page: Page): Promise<void> {
+    await page.waitFor('.problems-nav-problem-btn');
+    await page.click('.problems-nav-problem-btn');
     await page.waitFor('.problem-description');
   },
 

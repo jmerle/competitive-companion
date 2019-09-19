@@ -1,7 +1,7 @@
 {
-  "url": "https://codingcompetitions.withgoogle.com/codejam/round/0000000000007766/000000000004dbbd",
+  "url": "https://codingcompetitions.withgoogle.com/codejam/round/0000000000007766",
   "parser": "problem/GoogleCodingCompetitionsProblemParser",
-  "before": "beforeNewGoogleCodeJam",
+  "before": "beforeGoogleCodingCompetitions",
   "result": {
     "name": "Jurisdiction Restrictions",
     "group": "World Finals 2018 - Google Code Jam 2018",
