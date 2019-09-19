@@ -1,4 +1,4 @@
-# 2.8.4 - TBD
+# 2.8.4 - September 19th, 2019
 - Fixed the Toph parser
 
 # 2.8.3 - July 2nd, 2019
