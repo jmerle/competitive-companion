@@ -15,9 +15,9 @@ export class TophProblemParser extends Parser {
     task.setName(elem.querySelector('.artifact h1').textContent);
     task.setGroup('Toph');
 
-    const limitsStr = elem.querySelector('.artifact div > span').textContent;
+    const limitsStr = elem.querySelector('.limits').textContent;
 
-    task.setTimeLimit(parseFloat(/Limits: ([0-9.]+)s/.exec(limitsStr)[1]) * 1000);
+    task.setTimeLimit(parseFloat(/([0-9.]+)s/.exec(limitsStr)[1]) * 1000);
 
     const [, amount, unit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
     task.setMemoryLimit(parseFloat(amount) * (unit === 'MB' ? 1 : 1024));

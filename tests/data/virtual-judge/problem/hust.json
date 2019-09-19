@@ -6,7 +6,7 @@
     "group": "Virtual Judge",
     "url": "https://vjudge.net/problem/HUST-1010",
     "interactive": false,
-    "memoryLimit": 131,
+    "memoryLimit": 1024,
     "timeLimit": 1000,
     "tests": [
       {
