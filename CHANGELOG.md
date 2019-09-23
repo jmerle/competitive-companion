@@ -1,3 +1,6 @@
+# 2.8.5 - September 23rd, 2019
+- Added support for problems and contests hosted on *.codeforces.com subdomains
+
 # 2.8.4 - September 19th, 2019
 - Fixed the Toph parser
 

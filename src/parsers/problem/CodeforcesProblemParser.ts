@@ -5,18 +5,22 @@ import { Parser } from '../Parser';
 
 export class CodeforcesProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'http://codeforces.com/contest/*/problem/*',
+    const patterns: string[] = [];
+
+    [
       'https://codeforces.com/contest/*/problem/*',
-      'http://codeforces.com/problemset/problem/*/*',
       'https://codeforces.com/problemset/problem/*/*',
-      'http://codeforces.com/gym/*/problem/*',
       'https://codeforces.com/gym/*/problem/*',
-      'http://codeforces.com/group/*/contest/*/problem/*',
       'https://codeforces.com/group/*/contest/*/problem/*',
-      'http://codeforces.com/problemsets/acmsguru/problem/*/*',
       'https://codeforces.com/problemsets/acmsguru/problem/*/*',
-    ];
+    ].forEach(pattern => {
+      patterns.push(pattern);
+      patterns.push(pattern.replace('https://', 'http://'));
+      patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
+      patterns.push(pattern.replace('https://codeforces.com', 'http://*.codeforces.com'));
+    });
+
+    return patterns;
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

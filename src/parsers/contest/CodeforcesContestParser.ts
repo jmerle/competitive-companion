@@ -7,14 +7,20 @@ export class CodeforcesContestParser extends ContestParser {
   public linkSelector: string = '.problems > tbody > tr > td:first-child > a';
 
   public getMatchPatterns(): string[] {
-    return [
-      'http://codeforces.com/contest/*',
+    const patterns: string[] = [];
+
+    [
       'https://codeforces.com/contest/*',
-      'http://codeforces.com/gym/*',
       'https://codeforces.com/gym/*',
-      'http://codeforces.com/group/*/contest/*',
       'https://codeforces.com/group/*/contest/*',
-    ];
+    ].forEach(pattern => {
+      patterns.push(pattern);
+      patterns.push(pattern.replace('https://', 'http://'));
+      patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
+      patterns.push(pattern.replace('https://codeforces.com', 'http://*.codeforces.com'));
+    });
+
+    return patterns;
   }
 
   public getRegularExpressions(): RegExp[] {
