@@ -29,6 +29,7 @@ import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeP
 import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
 import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
+import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
@@ -91,6 +92,8 @@ export const parsers: Parser[] = [
 
   new CSUACMOnlineJudgeProblemParser(),
   new CSUACMOnlineJudgeContestParser(),
+
+  new CodeMarshalProblemParser(),
 
   new DevSkillProblemParser(),
   new DevSkillContestParser(),

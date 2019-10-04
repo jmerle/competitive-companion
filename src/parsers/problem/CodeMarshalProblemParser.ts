@@ -17,7 +17,7 @@ export class CodeMarshalProblemParser extends Parser {
       .querySelector('div')
       .querySelector('div');
 
-    task.setName(content.querySelector('div').textContent);
+    task.setName(content.querySelector('div.h1').textContent);
 
     const group = ['CodeMarshal'];
 
@@ -31,7 +31,7 @@ export class CodeMarshalProblemParser extends Parser {
       scoreCpuTimeMemory.indexOf('Memory: ') - 1,
     );
 
-    task.setTimeLimit(parseInt(cpuTime, 10));
+    task.setTimeLimit(parseInt(cpuTime, 10) * 1000);
     task.setMemoryLimit(parseInt(memory, 10));
 
     const inputs = content.querySelectorAll('.sample-input');
