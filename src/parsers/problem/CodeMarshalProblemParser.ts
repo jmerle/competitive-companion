@@ -31,7 +31,7 @@ export class CodeMarshalProblemParser extends Parser {
       scoreCpuTimeMemory.indexOf('Memory: ') - 1,
     );
 
-    task.setTimeLimit(parseInt(cpuTime, 10) * 1000);
+    task.setTimeLimit(parseFloat(cpuTime) * 1000);
     task.setMemoryLimit(parseInt(memory, 10));
 
     const inputs = content.querySelectorAll('.sample-input');
