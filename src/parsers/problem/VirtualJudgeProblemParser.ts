@@ -103,9 +103,9 @@ export class VirtualJudgeProblemParser extends Parser {
         })
         .reduce((a, b) => [...a, ...b], []);
 
-      const monospaceBlocks = [...block.querySelectorAll('div[style="font-family:Monospace, Courier;"] > b')].map(
-        (el: Element) => el.innerHTML.trim(),
-      );
+      const monospaceBlocks = [
+        ...block.querySelectorAll('div[style="font-family:Monospace, Courier;"] > b'),
+      ].map((el: Element) => el.innerHTML.trim());
 
       return [].concat(preTags, monospaceBlocks);
     } else {
