@@ -2,6 +2,7 @@ import { AtCoderContestParser } from './contest/AtCoderContestParser';
 import { BaekjoonOnlineJudgeContestParser } from './contest/BaekjoonOnlineJudgeContestParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
+import { CodeMarshalContestParser } from './contest/CodeMarshalContestParser';
 import { COJContestParser } from './contest/COJContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DevSkillContestParser } from './contest/DevSkillContestParser';
@@ -29,6 +30,7 @@ import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeP
 import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
 import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
+import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
@@ -83,6 +85,9 @@ export const parsers: Parser[] = [
 
   new CodeforcesProblemParser(),
   new CodeforcesContestParser(),
+
+  new CodeMarshalProblemParser(),
+  new CodeMarshalContestParser(),
 
   new COJProblemParser(),
   new COJContestParser(),
