@@ -1,6 +1,6 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
-import { htmlToElement } from '../../utils/dom';
+import { decodeHtml, htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class CodeforcesProblemParser extends Parser {
@@ -85,8 +85,8 @@ export class CodeforcesProblemParser extends Parser {
     const outputs = elem.querySelectorAll('.output pre');
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      const input = this.decodeHtml(inputs[i].innerHTML);
-      const output = this.decodeHtml(outputs[i].innerHTML);
+      const input = decodeHtml(inputs[i].innerHTML);
+      const output = decodeHtml(outputs[i].innerHTML);
 
       task.addTest(input, output);
     }
@@ -132,11 +132,5 @@ export class CodeforcesProblemParser extends Parser {
         task.addTest(input, output);
       }
     });
-  }
-
-  private decodeHtml(html: string): string {
-    const textarea = document.createElement('textarea');
-    textarea.innerHTML = html;
-    return textarea.value;
   }
 }

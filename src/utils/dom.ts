@@ -12,3 +12,7 @@ export function markdownToHtml(markdown: string): string {
 
   return snarkdown(markdown);
 }
+
+export function decodeHtml(html: string): string {
+  return html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+}
