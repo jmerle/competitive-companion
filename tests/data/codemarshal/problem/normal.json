@@ -1,0 +1,31 @@
+{
+  "url": "https://algo.codemarshal.org/problems/556a283cf661160300813812",
+  "parser": "problem/CodeMarshalProblemParser",
+  "result": {
+    "name": " CSE, DU তে স্বাগতম (Welcome to CSE, DU)",
+    "group": "CodeMarshal",
+    "url": "https://algo.codemarshal.org/problems/556a283cf661160300813812",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "100 100 50\n20 10 3\n",
+        "output": "150\n27\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "CSEDUWelcomeToCSEDU"
+      }
+    }
+  }
+}
