@@ -8,7 +8,7 @@
   "author": "Filled by build script",
   "homepage_url": "Filled by build script",
 
-  "permissions": ["tabs", "storage", "webNavigation", "http://localhost/"],
+  "permissions": ["tabs", "storage", "webNavigation", "activeTab", "http://localhost/"],
 
   "icons": {
     "16": "icons/icon-16.png",
