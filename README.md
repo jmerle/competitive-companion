@@ -29,6 +29,7 @@ A browser extension which parses programming problems from various online judges
 | Bloomberg CodeCon     | ✔              |                |
 | CodeChef              | ✔              | ✔              |
 | Codeforces            | ✔              | ✔              |
+| CodeMarshal           | ✔              | ✔              |
 | COJ                   | ✔              | ✔              |
 | CSAcademy             | ✔              |                |
 | CSU-ACM Online Judge  | ✔              | ✔              |
