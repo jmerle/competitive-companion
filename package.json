@@ -21,7 +21,7 @@
     "test": "jest",
     "test:no-headless": "cross-env HEADLESS=false jest",
     "test:coverage": "jest --coverage",
-    "start:firefox": "web-ext run -s build/ --start-url http://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
+    "start:firefox": "web-ext run -s build/ --start-url https://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "start:chrome": "node scripts/chrome-launch",
     "dev:firefox": "yarn build && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
     "dev:chrome": "yarn build && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others",
