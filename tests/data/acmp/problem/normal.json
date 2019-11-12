@@ -1,11 +1,11 @@
 {
-  "url": "http://acmp.ru/index.asp?main=task&id_task=536",
+  "url": "https://acmp.ru/index.asp?main=task&id_task=536",
   "parser": "problem/ACMPProblemParser",
   "before": "beforeACMP",
   "result": {
     "name": "Числа - 2",
     "group": "ACMP",
-    "url": "http://acmp.ru/index.asp?main=task&id_task=536",
+    "url": "https://acmp.ru/index.asp?main=task&id_task=536",
     "interactive": false,
     "memoryLimit": 16,
     "timeLimit": 1000,
@@ -33,7 +33,7 @@
     "languages": {
       "java": {
         "mainClass": "Main",
-        "taskClass": "CHisla2"
+        "taskClass": "Chisla2"
       }
     }
   }

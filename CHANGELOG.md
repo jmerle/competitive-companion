@@ -1,3 +1,6 @@
+# 2.9.0 - November 12th, 2019
+- Added support for CodeMarshal (thanks [@NAbdulla1](https://github.com/NAbdulla1))
+
 # 2.8.5 - September 23rd, 2019
 - Added support for problems and contests hosted on *.codeforces.com subdomains
 
