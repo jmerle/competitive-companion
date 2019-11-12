@@ -3,6 +3,7 @@
   "rules": {
     "interface-name": false,
     "member-ordering": false,
+    "no-var-requires": false,
     "object-literal-sort-keys": false,
     "no-implicit-dependencies": [true, "dev"],
     "no-duplicate-imports": [true, { "allow-namespace-imports": true }],
