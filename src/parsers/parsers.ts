@@ -55,6 +55,7 @@ import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
+import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
@@ -150,6 +151,8 @@ export const parsers: Parser[] = [
   new LuoguProblemParser(),
 
   new MSKInformaticsProblemParser(),
+
+  new NowCoderProblemParser(),
 
   new OldGoogleCodeJamContestParser(),
 
