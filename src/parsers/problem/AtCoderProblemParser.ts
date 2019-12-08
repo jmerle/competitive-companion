@@ -29,13 +29,17 @@ export class AtCoderProblemParser extends Parser {
     const inputs = [...elem.querySelectorAll('h3')]
       .filter(el => el.textContent.includes('入力例'))
       .map(el =>
-        el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
+        el.nextElementSibling.nextElementSibling.tagName === 'PRE'
+          ? el.nextElementSibling.nextElementSibling
+          : el.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling,
       );
 
     const outputs = [...elem.querySelectorAll('h3')]
       .filter(el => el.textContent.includes('出力例'))
       .map(el =>
-        el.nextElementSibling.tagName === 'DIV' ? el.nextElementSibling.nextElementSibling : el.nextElementSibling,
+        el.nextElementSibling.nextElementSibling.tagName === 'PRE'
+          ? el.nextElementSibling.nextElementSibling
+          : el.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling,
       );
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
