@@ -18,12 +18,12 @@ export class AtCoderProblemParser extends Parser {
     const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];
     task.setInteractive(interactiveSentences.some(x => html.includes(x)));
 
-    const limitNodes = elem.querySelector('h2, .h2').nextElementSibling.nextElementSibling.childNodes;
+    const limitNodes = elem.querySelector('#task-statement').previousElementSibling;
 
-    const timeLimitStr = limitNodes[limitNodes.length === 1 ? 0 : 1].textContent;
+    const timeLimitStr = limitNodes.textContent;
     task.setTimeLimit(parseFloat(/([0-9.]+) ?sec/.exec(timeLimitStr)[1]) * 1000);
 
-    const memoryLimitStr = limitNodes[limitNodes.length === 1 ? 0 : 3].textContent;
+    const memoryLimitStr = limitNodes.textContent;
     task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(memoryLimitStr)[1], 10));
 
     const inputs = [...elem.querySelectorAll('h3')]
