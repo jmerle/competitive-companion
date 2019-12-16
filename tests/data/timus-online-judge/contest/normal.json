@@ -1,11 +1,11 @@
 {
-  "url": "http://acm.timus.ru/problemset.aspx?space=340",
+  "url": "https://acm.timus.ru/problemset.aspx?space=340",
   "parser": "contest/TimusOnlineJudgeContestParser",
   "result": [
     {
       "name": "A. Timus problems classifier",
       "group": "Timus",
-      "url": "http://acm.timus.ru/problem.aspx?space=340&num=1",
+      "url": "https://acm.timus.ru/problem.aspx?space=340&num=1",
       "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
@@ -32,7 +32,7 @@
     {
       "name": "B. Take care of your eyebrows!",
       "group": "Timus",
-      "url": "http://acm.timus.ru/problem.aspx?space=340&num=2",
+      "url": "https://acm.timus.ru/problem.aspx?space=340&num=2",
       "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 1000,
@@ -59,7 +59,7 @@
     {
       "name": "C. Vasiana",
       "group": "Timus",
-      "url": "http://acm.timus.ru/problem.aspx?space=340&num=3",
+      "url": "https://acm.timus.ru/problem.aspx?space=340&num=3",
       "interactive": false,
       "memoryLimit": 256,
       "timeLimit": 2000,
@@ -86,7 +86,7 @@
     {
       "name": "D. Reductions",
       "group": "Timus",
-      "url": "http://acm.timus.ru/problem.aspx?space=340&num=4",
+      "url": "https://acm.timus.ru/problem.aspx?space=340&num=4",
       "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 500,

@@ -1,3 +1,6 @@
+# 2.9.2 - December 16th, 2019
+- Fixed the AtCoder and the Timus Online Judge parser (thanks [@champon1020](https://github.com/champon1020) for the AtCoder fix)
+
 # 2.9.1 - November 12th, 2019
 - Added the activeTab permission so the extension only has access to a tab when the extension is invoked by clicking the page action
 

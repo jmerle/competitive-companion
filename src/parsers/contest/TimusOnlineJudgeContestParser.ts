@@ -7,10 +7,10 @@ export class TimusOnlineJudgeContestParser extends ContestParser {
   public linkSelector: string = '.problemset td.name > a';
 
   public getMatchPatterns(): string[] {
-    return ['http://acm.timus.ru/problemset.aspx*'];
+    return ['https://acm.timus.ru/problemset.aspx*'];
   }
 
   public getRegularExpressions(): RegExp[] {
-    return [/^http:\/\/acm[.]timus[.]ru\/problemset[.]aspx\?space=(\d+)(&locale=(en|ru))?$/];
+    return [/^https:\/\/acm[.]timus[.]ru\/problemset[.]aspx\?space=(\d+)(&locale=(en|ru))?$/];
   }
 }
