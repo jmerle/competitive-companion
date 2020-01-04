@@ -50,6 +50,7 @@ import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemPars
 import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
+import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
@@ -138,6 +139,8 @@ export const parsers: Parser[] = [
 
   new KattisProblemParser(),
   new KattisContestParser(),
+
+  new LibreOJProblemParser(),
 
   new LightOJProblemParser(),
   new LightOJContestParser(),

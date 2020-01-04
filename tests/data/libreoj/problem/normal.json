@@ -1,0 +1,31 @@
+{
+  "url": "https://loj.ac/problem/1",
+  "parser": "problem/LibreOJProblemParser",
+  "result": {
+    "name": "A + B Problem",
+    "group": "LibreOJ",
+    "url": "https://loj.ac/problem/1",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "1 2\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblem"
+      }
+    }
+  }
+}
