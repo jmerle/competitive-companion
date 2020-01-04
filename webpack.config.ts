@@ -41,17 +41,48 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        exclude: /(node_modules)/,
-        loader: 'ts-loader',
         test: /\.tsx?$/,
+        loader: 'ts-loader',
       },
       {
+        test: /\.worker\.js$/,
         loader: 'worker-loader',
         options: {
           fallback: false,
           inline: true,
         },
-        test: /\.worker\.js$/,
+      },
+      {
+        test: /\.js$/,
+        loader: 'string-replace-loader',
+        options: {
+          multiple: [
+            {
+              search: "new Function('');",
+              replace: "throw new Error('');",
+            },
+            {
+              search: "Function('return this')()",
+              replace: 'self',
+            },
+            {
+              search: 'new Function("return this")()',
+              replace: "(() => { throw new Error(''); })()",
+            },
+            {
+              search: 'Function(fn),',
+              replace: '(() => {}),',
+            },
+            {
+              search: 'Function("r", "regeneratorRuntime = r")(runtime)',
+              replace: '',
+            },
+            {
+              search: "new Function('c', 'size', js)",
+              replace: '(() => {})',
+            },
+          ],
+        },
       },
     ],
   },
