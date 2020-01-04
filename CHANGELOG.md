@@ -1,5 +1,5 @@
 # 2.10.0 - TBD
-- Updated the url's Competitive Companion runs on, it no longer runs on all url's but only on the url's that it has parsers for
+- Updated the urls Competitive Companion runs on, it no longer runs on all urls but only on the urls that it has parsers for
 - Fixed the UVa Online Judge parser
 
 # 2.9.2 - December 16th, 2019
