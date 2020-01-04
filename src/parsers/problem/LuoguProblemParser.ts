@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class LuoguOnlineJudgeProblemParser extends Parser {
+export class LuoguProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://www.luogu.com.cn/problem/*'];
   }

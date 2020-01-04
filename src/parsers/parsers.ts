@@ -51,7 +51,7 @@ import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProbl
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
-import { LuoguOnlineJudgeProblemParser } from './problem/LuoguOnlineJudgeProblemParser';
+import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
@@ -142,7 +142,7 @@ export const parsers: Parser[] = [
   new LightOJProblemParser(),
   new LightOJContestParser(),
 
-  new LuoguOnlineJudgeProblemParser(),
+  new LuoguProblemParser(),
 
   new MSKInformaticsProblemParser(),
 
