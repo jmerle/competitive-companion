@@ -72,8 +72,8 @@ async function runTest(data: ParserTestData): Promise<void> {
       timeout: 15000,
     });
   } catch (err) {
-    // There's usually a few Chinese judges which Jenkins is unable to reach
-    // To prevent my mailbox from being spammed with build failure emails, don't fail if the timeout is hit
+    // There's usually a few Chinese judges which the CI server is unable to reach
+    // Don't fail if the timeout is hit
     console.error(`Could not reach ${data.url}`);
     return;
   }

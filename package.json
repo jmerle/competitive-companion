@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --progress --colors --mode=production",
+    "build": "webpack --colors --mode=production",
     "lint": "yarn lint:tslint && yarn lint:prettier && yarn lint:package",
     "lint:tslint": "tslint -p tsconfig.json -c tslint.json -t stylish",
     "lint:prettier": "prettier-check --ignore-path .gitignore '**/*.{ts,js,html,json}'",
