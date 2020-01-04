@@ -2,7 +2,8 @@
 
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
-import webpack = require('webpack');
+import * as webpack from 'webpack';
+import { Parser } from './src/parsers/Parser';
 
 function transformManifest(content: Buffer): string {
   const manifest = JSON.parse(content.toString());
@@ -12,6 +13,14 @@ function transformManifest(content: Buffer): string {
       delete require.cache[id];
     }
   });
+
+  const parsers: Parser[] = require('./src/parsers/parsers').parsers;
+
+  manifest.content_scripts[0].matches = parsers.map(p => p.getMatchPatterns()).reduce((a, b) => a.concat(...b), []);
+
+  manifest.content_scripts[0].exclude_matches = parsers
+    .map(p => p.getExcludedMatchPatterns())
+    .reduce((a, b) => a.concat(...b), []);
 
   const packageData = require('./package.json');
 
