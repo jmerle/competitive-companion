@@ -17,7 +17,6 @@ function transformManifest(content: Buffer): string {
   const parsers: Parser[] = require('./src/parsers/parsers').parsers;
 
   manifest.content_scripts[0].matches = parsers.map(p => p.getMatchPatterns()).reduce((a, b) => a.concat(...b), []);
-
   manifest.content_scripts[0].exclude_matches = parsers
     .map(p => p.getExcludedMatchPatterns())
     .reduce((a, b) => a.concat(...b), []);

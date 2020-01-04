@@ -1,3 +1,7 @@
+# 2.10.0 - TBD
+- Updated the url's Competitive Companion runs on, it no longer runs on all url's but only on the url's that it has parsers for
+- Fixed the UVa Online Judge parser
+
 # 2.9.2 - December 16th, 2019
 - Fixed the AtCoder and the Timus Online Judge parser (thanks [@champon1020](https://github.com/champon1020) for the AtCoder fix)
 

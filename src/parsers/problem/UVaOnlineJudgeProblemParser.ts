@@ -6,12 +6,12 @@ import { Parser } from '../Parser';
 
 export class UVaOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://uva.onlinejudge.org/index.php*', 'https://icpcarchive.ecs.baylor.edu/index.php*'];
+    return ['https://onlinejudge.org/index.php*', 'https://icpcarchive.ecs.baylor.edu/index.php*'];
   }
 
   public getRegularExpressions(): RegExp[] {
     return [
-      /https:\/\/uva\.onlinejudge\.org\/index\.php\?(.*)page=show_problem(.*)problem=(\d+)(.*)/,
+      /https:\/\/onlinejudge\.org\/index\.php\?(.*)page=show_problem(.*)problem=(\d+)(.*)/,
       /https:\/\/icpcarchive\.ecs\.baylor\.edu\/index\.php\?(.*)page=show_problem(.*)problem=(\d+)(.*)/,
     ];
   }
