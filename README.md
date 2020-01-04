@@ -52,6 +52,7 @@ A browser extension which parses programming problems from various online judges
 | Jutge                 | ✔              |                |
 | Kattis                | ✔              | ✔              |
 | LightOJ               | ✔              | ✔              |
+| Luogu Online Judge    | ✔              |                |
 | MSK Informatics       | ✔              |                |
 | NYTD Online Judge     | ✔              | ✔              |
 | omegaUp               | ✔              |                |
