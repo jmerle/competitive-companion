@@ -51,7 +51,7 @@ A browser extension which parses programming problems from various online judges
 | ICPC Live Archive     | ✔              |                |
 | Jutge                 | ✔              |                |
 | Kattis                | ✔              | ✔              |
-| LibreOJ               | ✔              |                |
+| LibreOJ               | ✔              | ✔              |
 | LightOJ               | ✔              | ✔              |
 | Luogu                 | ✔              |                |
 | MSK Informatics       | ✔              |                |

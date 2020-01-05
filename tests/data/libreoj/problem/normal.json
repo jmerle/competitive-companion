@@ -2,7 +2,7 @@
   "url": "https://loj.ac/problem/1",
   "parser": "problem/LibreOJProblemParser",
   "result": {
-    "name": "A + B Problem",
+    "name": "#1. A + B Problem",
     "group": "LibreOJ",
     "url": "https://loj.ac/problem/1",
     "interactive": false,

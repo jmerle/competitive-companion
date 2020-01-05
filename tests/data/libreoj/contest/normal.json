@@ -1,0 +1,91 @@
+{
+  "url": "https://loj.ac/contest/40",
+  "parser": "contest/LibreOJContestParser",
+  "result": [
+    {
+      "name": "A. 签到游戏",
+      "group": "LibreOJ",
+      "url": "https://loj.ac/contest/40/problem/1",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "5 5\n1 2 3 4 5\n1 2\n3 4\n5 6\n1 8\n2 4\n",
+          "output": "5\n6\n10\n10\n12\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "A"
+        }
+      }
+    },
+    {
+      "name": "B. 简单算术",
+      "group": "LibreOJ",
+      "url": "https://loj.ac/contest/40/problem/2",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "3 5\n1 2 4 2\n4\n3 2\n4 5\n6 1\n8 4\n",
+          "output": "4\n4\n2\n0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "B"
+        }
+      }
+    },
+    {
+      "name": "C. 小球进洞",
+      "group": "LibreOJ",
+      "url": "https://loj.ac/contest/40/problem/3",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 4000,
+      "tests": [
+        {
+          "input": "3 5\n5 5 5\n2 4 5\n2 3 4\n1 2 4\n2 5 5\n2 1 3\n",
+          "output": "17\n8\n18\n0\n"
+        },
+        {
+          "input": "4 10\n5 6 7 6\n2 5 5\n2 4 6\n2 5 7\n2 5 8\n1 1 5\n2 5 5\n1 2 5\n2 6 6\n2 4 4\n1 3 6\n",
+          "output": "20\n10\n0\n0\n20\n12\n9\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "C"
+        }
+      }
+    }
+  ]
+}

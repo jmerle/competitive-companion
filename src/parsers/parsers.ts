@@ -15,6 +15,7 @@ import { HackerRankContestParser } from './contest/HackerRankContestParser';
 import { HDUOnlineJudgeContestParser } from './contest/HDUOnlineJudgeContestParser';
 import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
+import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LightOJContestParser } from './contest/LightOJContestParser';
 import { OldGoogleCodeJamContestParser } from './contest/OldGoogleCodeJamContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
@@ -141,6 +142,7 @@ export const parsers: Parser[] = [
   new KattisContestParser(),
 
   new LibreOJProblemParser(),
+  new LibreOJContestParser(),
 
   new LightOJProblemParser(),
   new LightOJContestParser(),

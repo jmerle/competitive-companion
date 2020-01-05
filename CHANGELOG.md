@@ -1,4 +1,6 @@
 # TBD - TBD
+- Added a contest parser for LibreOJ
+- Fixed the LibreOJ problem parser so that it works on contest problems as well
 - Fixed a typo in the Luogu problem parser
 
 # 2.10.0 - January 4th, 2020
