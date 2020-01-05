@@ -13,7 +13,7 @@ export class LuoguProblemParser extends Parser {
     const task = new TaskBuilder().setUrl(url);
 
     task.setName(elem.querySelector('.header > h1').textContent);
-    task.setGroup('Luogo Online Judge');
+    task.setGroup('Luogu Online Judge');
 
     const timeLimitStr = document.querySelector('.stat > .field:nth-last-child(2) > .value').textContent;
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);

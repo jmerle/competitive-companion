@@ -1,3 +1,6 @@
+# TBD - TBD
+- Fixed a typo in the Luogu problem parser
+
 # 2.10.0 - January 4th, 2020
 - Updated the urls Competitive Companion runs on, it no longer runs on all urls but only on the urls that it has a parser for
 - Added a parser for Luogu and LibreOJ
