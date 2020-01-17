@@ -7,7 +7,7 @@
     "url": "https://vjudge.net/problem/SPOJ-LCMSUM",
     "interactive": false,
     "memoryLimit": 1572,
-    "timeLimit": 527,
+    "timeLimit": 1000,
     "tests": [
       {
         "input": "3\n1\n2\n5\n",
