@@ -9,6 +9,7 @@ const defaultPorts = [
   6174, // Mind Sport
   10042, // acmX
   10043, // Caide
+  27121, // Competitive Programming Helper
 ];
 
 export async function getHosts(): Promise<Host[]> {

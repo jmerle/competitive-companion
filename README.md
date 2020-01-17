@@ -17,6 +17,7 @@ A browser extension which parses programming problems from various online judges
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
 - [Caide](https://github.com/slycelote/caide)
 - [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
+- [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
 - Any other tool that can parse the data that is being sent, read more about that below
 
 ## Supported websites

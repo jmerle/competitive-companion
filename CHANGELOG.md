@@ -1,7 +1,8 @@
-# TBD - TBD
+# 2.11.0 - TBD
 - Added a contest parser for LibreOJ
 - Fixed the LibreOJ problem parser so that it works on contest problems as well
 - Fixed a typo in the Luogu problem parser
+- Added support for Competitive Programming Helper
 
 # 2.10.0 - January 4th, 2020
 - Updated the urls Competitive Companion runs on, it no longer runs on all urls but only on the urls that it has a parser for
