@@ -9,4 +9,4 @@ steps:
   displayName: Lint code
 
 - script: yarn lint:package
-  displayName: Build and lint package
+  displayName: Lint package

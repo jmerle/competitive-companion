@@ -36,31 +36,31 @@
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^5.0.0",
-    "@types/jest": "^24.9.0",
+    "@types/jest": "^25.1.1",
     "@types/jest-environment-puppeteer": "^4.3.1",
     "@types/jsdom": "^12.2.4",
-    "@types/node": "^13.1.7",
+    "@types/node": "^13.5.3",
     "@types/node-fetch": "^2.5.4",
     "@types/puppeteer": "^2.0.0",
     "chrome-launch": "^1.1.4",
-    "concurrently": "^5.0.2",
+    "concurrently": "^5.1.0",
     "copy-webpack-plugin": "^5.1.1",
-    "cross-env": "^6.0.3",
-    "husky": "^4.0.10",
-    "jest": "^24.9.0",
+    "cross-env": "^7.0.0",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
     "jest-junit": "^10.0.0",
     "jest-puppeteer": "^4.4.0",
-    "jsdom": "^16.0.0",
-    "lint-staged": "^9.5.0",
+    "jsdom": "^16.0.1",
+    "lint-staged": "^10.0.6",
     "node-fetch": "^2.6.0",
     "prettier": "^1.19.1",
     "prettier-check": "^2.0.0",
-    "puppeteer": "^2.0.0",
+    "puppeteer": "^2.1.0",
     "string-replace-loader": "^2.2.0",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^25.1.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
-    "tslint": "^5.20.1",
+    "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.5",
     "web-ext": "^4.0.0",
@@ -107,12 +107,10 @@
   "lint-staged": {
     "*.ts": [
       "yarn lint:tslint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{js,json}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "prettier": {
