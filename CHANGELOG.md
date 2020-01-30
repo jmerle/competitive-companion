@@ -1,3 +1,7 @@
+# 2.12.0 - TBD
+- Added a parser for NowCoder (thanks [@landcold7](landcold7))
+- Added support for CP Editor
+
 # 2.11.0 - January 17th, 2020
 - Added a contest parser for LibreOJ
 - Fixed the LibreOJ problem parser so that it works on contest problems as well
