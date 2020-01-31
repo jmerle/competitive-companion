@@ -1,5 +1,5 @@
 # 2.12.0 - January 31st, 2020
-- Added a parser for NowCoder (thanks [@landcold7](landcold7))
+- Added a parser for NowCoder (thanks [@landcold7](https://github.com/landcold7))
 - Added support for CP Editor
 
 # 2.11.0 - January 17th, 2020
