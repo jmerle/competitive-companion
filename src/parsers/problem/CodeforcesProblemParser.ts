@@ -18,6 +18,7 @@ export class CodeforcesProblemParser extends Parser {
       patterns.push(pattern.replace('https://', 'http://'));
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
       patterns.push(pattern.replace('https://codeforces.com', 'http://*.codeforces.com'));
+      patterns.push(pattern.replace('https://codeforces.com', 'https://codeforces.ml'));
     });
 
     return patterns;
