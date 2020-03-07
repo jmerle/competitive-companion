@@ -17,6 +17,7 @@ export class CodeforcesContestParser extends ContestParser {
       patterns.push(pattern);
       patterns.push(pattern.replace('https://', 'http://'));
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
+      patterns.push(pattern.replace('https://codeforces.com', 'https://codeforces.ml'));
       patterns.push(pattern.replace('https://codeforces.com', 'http://*.codeforces.com'));
     });
 
