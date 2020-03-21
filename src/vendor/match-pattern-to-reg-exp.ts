@@ -48,6 +48,7 @@ export function matchPatternToRegExp(pattern: string): RegExp {
       regex += '[^/]*?';
       host = host.substring(2);
     }
+    host += '(:\\d+)?';
     regex += host.replace(/\./g, '\\.');
   }
 

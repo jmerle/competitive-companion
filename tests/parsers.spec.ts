@@ -67,16 +67,9 @@ async function runTest(data: ParserTestData): Promise<void> {
   const parserClass = parserObj[Object.keys(parserObj)[0]];
   const parser: Parser = new parserClass();
 
-  try {
-    await page.goto(data.url, {
-      timeout: 15000,
-    });
-  } catch (err) {
-    // There's usually a few Chinese judges which the CI server is unable to reach
-    // Don't fail if the timeout is hit
-    console.error(`Could not reach ${data.url}`);
-    return;
-  }
+  await page.goto(data.url, {
+    timeout: 15000,
+  });
 
   if (data.before) {
     await parserFunctions[data.before](page);

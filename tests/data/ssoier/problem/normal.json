@@ -1,0 +1,31 @@
+{
+  "url": "http://ybt.ssoier.cn:8088/problem_show.php?pid=1006",
+  "parser": "problem/SSOIERProblemParser",
+  "result": {
+    "name": "1006：A+B问题",
+    "group": "SSOIER",
+    "url": "http://ybt.ssoier.cn:8088/problem_show.php?pid=1006",
+    "interactive": false,
+    "memoryLimit": 66,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 2\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

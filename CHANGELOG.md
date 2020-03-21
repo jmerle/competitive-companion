@@ -1,5 +1,5 @@
 # TBD - TBD
-- Added a parser for CSES
+- Added parsers for CSES and SSOIER
 - Fixed the Virtual Judge and the COJ parser
 
 # 2.12.0 - January 31st, 2020
