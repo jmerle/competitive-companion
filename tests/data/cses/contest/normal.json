@@ -1,0 +1,99 @@
+{
+  "url": "https://cses.fi/241/list/",
+  "parser": "contest/CSESContestParser",
+  "result": [
+    {
+      "name": "Distance Code",
+      "group": "NOI 2019 Open",
+      "url": "https://cses.fi/241/task/A",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1\n3\n1 2\n2 3\n",
+          "output": "1 3 2\n"
+        },
+        {
+          "input": "2\n3\n2 1\n",
+          "output": "2 3\n1 3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DistanceCode"
+        }
+      }
+    },
+    {
+      "name": "Thieves and Prisons",
+      "group": "NOI 2019 Open",
+      "url": "https://cses.fi/241/task/B",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "3 2 5\nC 1\nC 2\nO 3\nO 2\nC 1\n",
+          "output": "1 2 2 1 1\n"
+        },
+        {
+          "input": "1 1 1\nO 1\n",
+          "output": "IMPOSSIBLE\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ThievesAndPrisons"
+        }
+      }
+    },
+    {
+      "name": "Graph Ordering",
+      "group": "NOI 2019 Open",
+      "url": "https://cses.fi/241/task/C",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "5 5\n4 2\n3 4\n2 1\n3 1\n1 5\n",
+          "output": "4 2 3 1 5\n"
+        },
+        {
+          "input": "4 3\n1 2\n3 2\n4 2\n",
+          "output": "IMPOSSIBLE\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "GraphOrdering"
+        }
+      }
+    }
+  ]
+}

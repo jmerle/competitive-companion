@@ -4,6 +4,7 @@ import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { CodeMarshalContestParser } from './contest/CodeMarshalContestParser';
 import { COJContestParser } from './contest/COJContestParser';
+import { CSESContestParser } from './contest/CSESContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DevSkillContestParser } from './contest/DevSkillContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
@@ -34,6 +35,7 @@ import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
+import { CSESProblemParser } from './problem/CSESProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
 import { DevSkillProblemParser } from './problem/DevSkillProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
@@ -97,6 +99,9 @@ export const parsers: Parser[] = [
   new COJContestParser(),
 
   new CSAcademyProblemParser(),
+
+  new CSESProblemParser(),
+  new CSESContestParser(),
 
   new CSUACMOnlineJudgeProblemParser(),
   new CSUACMOnlineJudgeContestParser(),

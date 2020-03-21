@@ -1,0 +1,31 @@
+{
+  "url": "https://cses.fi/problemset/task/1094",
+  "parser": "problem/CSESProblemParser",
+  "result": {
+    "name": "Increasing Array",
+    "group": "CSES Problem Set",
+    "url": "https://cses.fi/problemset/task/1094",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n3 2 5 1 7\n",
+        "output": "5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "IncreasingArray"
+      }
+    }
+  }
+}

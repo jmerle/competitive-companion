@@ -34,6 +34,7 @@ A browser extension which parses programming problems from various online judges
 | CodeMarshal           | ✔              | ✔              |
 | COJ                   | ✔              | ✔              |
 | CSAcademy             | ✔              |                |
+| CSES                  | ✔              | ✔              |
 | CSU-ACM Online Judge  | ✔              | ✔              |
 | DevSkill              | ✔              | ✔              |
 | DMOJ                  | ✔              | ✔              |
