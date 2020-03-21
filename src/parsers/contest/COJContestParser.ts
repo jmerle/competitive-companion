@@ -7,7 +7,7 @@ export class COJContestParser extends ContestParser {
   public problemParser: Parser = new COJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['http://coj.uci.cu/contest/cproblems.xhtml*'];
+    return ['https://coj.uci.cu/contest/cproblems.xhtml*'];
   }
 
   public canHandlePage(): boolean {

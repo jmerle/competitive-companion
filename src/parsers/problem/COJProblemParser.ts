@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class COJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://coj.uci.cu/24h/problem.xhtml*', 'http://coj.uci.cu/contest/cproblem.xhtml*'];
+    return ['https://coj.uci.cu/24h/problem.xhtml*', 'https://coj.uci.cu/contest/cproblem.xhtml*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

@@ -1,5 +1,5 @@
 # TBD - TBD
-- Fixed the Virtual Judge parser
+- Fixed the Virtual Judge and the COJ parser
 
 # 2.12.0 - January 31st, 2020
 - Added a parser for NowCoder (thanks [@landcold7](https://github.com/landcold7))
