@@ -61,11 +61,5 @@
         "default": "Ctrl+Shift+U"
       }
     }
-  },
-
-  "applications": {
-    "gecko": {
-      "id": "{74e326aa-c645-4495-9287-b6febc5565a7}"
-    }
   }
 }
