@@ -69,9 +69,10 @@ export class VirtualJudgeProblemParser extends Parser {
       try {
         const iframeUrl = elem.querySelector<HTMLIFrameElement>('.row > iframe').src;
         const iframeContent = await this.fetch(iframeUrl);
-        const iframe = htmlToElement(iframeContent);
+        const jsonContainer = htmlToElement(iframeContent).querySelector('.data-json-container');
+        const json = JSON.parse(jsonContainer.textContent);
 
-        const codeBlocks = this.getCodeBlocksFromDescription(iframe);
+        const codeBlocks = this.getCodeBlocksFromDescription(json);
         for (let i = 0; i + 1 < codeBlocks.length; i += 2) {
           task.addTest(codeBlocks[i], codeBlocks[i + 1]);
         }
@@ -83,9 +84,9 @@ export class VirtualJudgeProblemParser extends Parser {
     return task.build();
   }
 
-  private getCodeBlocksFromDescription(elem: Element): string[] {
-    if (elem.querySelectorAll('dd').length === 1) {
-      const block = elem.querySelector('dd');
+  private getCodeBlocksFromDescription(json: any): string[] {
+    if (json.sections.length === 1) {
+      const block = htmlToElement(json.sections[0].value.content);
 
       const preTags = [...block.querySelectorAll('pre')]
         .map((el: Element) => {
@@ -109,9 +110,9 @@ export class VirtualJudgeProblemParser extends Parser {
 
       return [].concat(preTags, monospaceBlocks);
     } else {
-      const blocks = [...elem.querySelectorAll('dt')]
-        .filter((el: Element) => el.textContent.includes('ample'))
-        .map((el: Element) => el.nextElementSibling);
+      const blocks = (json.sections as any[])
+        .filter(section => section.title.includes('ample'))
+        .map(section => htmlToElement(section.value.content));
 
       const preTags = blocks
         .map((el: Element) => [...el.querySelectorAll('pre')])
