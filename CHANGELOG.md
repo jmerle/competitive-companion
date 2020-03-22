@@ -1,4 +1,4 @@
-# 2.13.0 - TBD
+# 2.13.0 - March 22nd, 2020
 - Added parsers for CSES, SSOIER and UOJ
 - Fixed the Virtual Judge and the COJ parser
 
