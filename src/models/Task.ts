@@ -1,5 +1,6 @@
 import { config } from '../utils/config';
 import { sendToBackground } from '../utils/messaging';
+import { noop } from '../utils/noop';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
 import { Message, MessageAction } from './messaging';
@@ -52,17 +53,16 @@ export class Task implements Sendable {
   ) {}
 
   public async send(): Promise<void> {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const isDebug = await config.get<boolean>('debugMode');
-
-        if (isDebug) {
-          // tslint:disable-next-line no-console
-          console.log(JSON.stringify(this, null, 4));
-        }
-      } catch (err) {
-        reject(err);
-      }
+    return new Promise(resolve => {
+      config
+        .get<boolean>('debugMode')
+        .then(isDebug => {
+          if (isDebug) {
+            // tslint:disable-next-line no-console
+            console.log(JSON.stringify(this, null, 4));
+          }
+        })
+        .catch(noop);
 
       const handleMessage = (message: Message | any, sender: browser.runtime.MessageSender) => {
         if (sender.tab) {
