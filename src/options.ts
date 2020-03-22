@@ -4,7 +4,7 @@ import { noop } from './utils/noop';
 const customPortsInput = document.querySelector<HTMLInputElement>('#custom-ports');
 const debugModeInput = document.querySelector<HTMLInputElement>('#debug-mode');
 
-customPortsInput.addEventListener('input', function(): void {
+customPortsInput.addEventListener('input', function (): void {
   const ports = this.value
     .split(',')
     .map(x => x.trim())
@@ -18,18 +18,12 @@ customPortsInput.addEventListener('input', function(): void {
   } else {
     document.querySelector<HTMLElement>('#custom-ports-error').style.display = 'none';
 
-    config
-      .set('customPorts', uniquePorts)
-      .then(noop)
-      .catch(noop);
+    config.set('customPorts', uniquePorts).then(noop).catch(noop);
   }
 });
 
-debugModeInput.addEventListener('input', function(): void {
-  config
-    .set('debugMode', this.checked)
-    .then(noop)
-    .catch(noop);
+debugModeInput.addEventListener('input', function (): void {
+  config.set('debugMode', this.checked).then(noop).catch(noop);
 });
 
 config

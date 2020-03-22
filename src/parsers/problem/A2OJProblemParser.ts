@@ -12,10 +12,7 @@ export class A2OJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder().setUrl(url);
 
-    const name = elem
-      .querySelector('#page center div')
-      .childNodes[4].textContent.trim()
-      .split('. ')[1];
+    const name = elem.querySelector('#page center div').childNodes[4].textContent.trim().split('. ')[1];
 
     task.setName(name);
     task.setGroup('A2 Online Judge');

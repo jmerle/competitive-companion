@@ -15,10 +15,7 @@ export class NowCoderProblemParser extends Parser {
     task.setName(elem.querySelector('.terminal-topic-title').textContent.trim());
     task.setGroup('NowCoder');
 
-    const timeLimitStr = elem
-      .querySelector('.question-intr > .subject-item-wrap > span')
-      .textContent.split('，')
-      .pop();
+    const timeLimitStr = elem.querySelector('.question-intr > .subject-item-wrap > span').textContent.split('，').pop();
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10) * 1000);
 
     const memoryLimitStr = elem

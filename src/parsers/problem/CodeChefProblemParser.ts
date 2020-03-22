@@ -23,10 +23,7 @@ export class CodeChefProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder().setUrl(url);
 
-    const name = [...elem.querySelectorAll('h1')]
-      .pop()
-      .textContent.trim()
-      .split('\n')[0];
+    const name = [...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0];
 
     task.setName(name);
     task.setGroup('CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);

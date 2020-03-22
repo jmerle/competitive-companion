@@ -21,10 +21,7 @@ export class BloombergCodeConProblemParser extends Parser {
       .split('s')[0];
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
-    const memoryLimitStr = elem
-      .querySelector('.fa-flash')
-      .childNodes[0].textContent.split(' ')[2]
-      .split('MB')[0];
+    const memoryLimitStr = elem.querySelector('.fa-flash').childNodes[0].textContent.split(' ')[2].split('MB')[0];
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
     const inputs: string[] = [];

@@ -123,7 +123,7 @@ beforeAll(async () => {
       },
     };
 
-    (global as any).DOMParser = function(): any {
+    (global as any).DOMParser = function (): any {
       this.parseFromString = (source: string, mimeType: string): Document => {
         return new JSDOM(source, { url }).window.document;
       };

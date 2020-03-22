@@ -16,10 +16,7 @@ export class JutgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder().setUrl(url);
 
-    const name = elem
-      .querySelector('h1.my-trim')
-      .textContent.trim()
-      .split('\n')[0];
+    const name = elem.querySelector('h1.my-trim').textContent.trim().split('\n')[0];
 
     task.setName(name);
     task.setGroup('Jutge');
