@@ -15,10 +15,10 @@ export class CodeforcesContestParser extends ContestParser {
       'https://codeforces.com/group/*/contest/*',
     ].forEach(pattern => {
       patterns.push(pattern);
-      patterns.push(pattern.replace('https://', 'http://'));
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
-      patterns.push(pattern.replace('https://codeforces.com', 'http://*.codeforces.com'));
     });
+
+    patterns.push(...patterns.map(pattern => pattern.replace('.com', '.ml')));
 
     return patterns;
   }
