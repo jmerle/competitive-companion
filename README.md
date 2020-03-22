@@ -69,6 +69,7 @@ A browser extension which parses programming problems from various online judges
 | SSOIER                | ✔              |                |
 | Timus                 | ✔              | ✔              |
 | Toph                  | ✔              |                |
+| UOJ                   | ✔              | ✔              |
 | URI Online Judge      | ✔              | ✔              |
 | USACO                 | ✔              |                |
 | USACO Training        | ✔              |                |

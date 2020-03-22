@@ -1,0 +1,31 @@
+{
+  "url": "http://uoj.ac/problem/1",
+  "parser": "problem/UOJProblemParser",
+  "result": {
+    "name": "#1. A + B Problem",
+    "group": "UOJ",
+    "url": "http://uoj.ac/problem/1",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2 3\n",
+        "output": "5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblem"
+      }
+    }
+  }
+}

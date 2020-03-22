@@ -23,6 +23,7 @@ import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
+import { UOJContestParser } from './contest/UOJContestParser';
 import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestParser';
 import { Parser } from './Parser';
 import { A2OJProblemParser } from './problem/A2OJProblemParser';
@@ -67,6 +68,7 @@ import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
+import { UOJProblemParser } from './problem/UOJProblemParser';
 import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemParser';
 import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
@@ -183,6 +185,9 @@ export const parsers: Parser[] = [
   new TimusOnlineJudgeContestParser(),
 
   new TophProblemParser(),
+
+  new UOJProblemParser(),
+  new UOJContestParser(),
 
   new URIOnlineJudgeProblemParser(),
   new URIOnlineJudgeContestParser(),

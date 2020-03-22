@@ -1,0 +1,152 @@
+{
+  "url": "http://uoj.ac/contest/50",
+  "parser": "contest/UOJContestParser",
+  "result": [
+    {
+      "name": "A. 新年的促销",
+      "group": "Goodbye Jihai",
+      "url": "http://uoj.ac/contest/50/problem/495",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "8 4 1 2\n4 5 3 2 6 7 3 1\n2 2 2 2 2 2 2 2\n",
+          "output": "0 13 13 25\n"
+        },
+        {
+          "input": "10 15 3 3\n9 9 2 6 9 7 6 2 8 5\n6 2 2 2 9 2 8 7 3 2\n",
+          "output": "0 9 9 16 17 40 42 45 48 48 53 53 63 63 63\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "A"
+        }
+      }
+    },
+    {
+      "name": "B. 新年的新航线",
+      "group": "Goodbye Jihai",
+      "url": "http://uoj.ac/contest/50/problem/496",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4\n1 3\n",
+          "output": "1 2\n1 3\n1 4\n"
+        },
+        {
+          "input": "3\n",
+          "output": "-1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "B"
+        }
+      }
+    },
+    {
+      "name": "C. 新年的复读机",
+      "group": "Goodbye Jihai",
+      "url": "http://uoj.ac/contest/50/problem/497",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "7\n33 33 66 6 66 22 22\n",
+          "output": "260\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "C"
+        }
+      }
+    },
+    {
+      "name": "D. 新年的追逐战",
+      "group": "Goodbye Jihai",
+      "url": "http://uoj.ac/contest/50/problem/498",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1\n3\n",
+          "output": "13\n"
+        },
+        {
+          "input": "2\n2 3\n",
+          "output": "73\n"
+        },
+        {
+          "input": "2\n4 4\n",
+          "output": "21565\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "D"
+        }
+      }
+    },
+    {
+      "name": "E. 新年的邀请函",
+      "group": "Goodbye Jihai",
+      "url": "http://uoj.ac/contest/50/problem/499",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "E"
+        }
+      }
+    }
+  ]
+}
