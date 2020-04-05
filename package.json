@@ -1,7 +1,7 @@
 {
   "name": "competitive-companion",
   "productName": "Competitive Companion",
-  "version": "2.13.0",
+  "version": "2.14.0",
   "description": "Parses programming problems and sends them to various tools like CHelper and Hightail.",
   "repository": "https://github.com/jmerle/competitive-companion",
   "author": "Jasper van Merle",
@@ -9,6 +9,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --colors --mode=production",
+    "watch": "yarn build --watch",
+    "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "lint": "yarn lint:tslint && yarn lint:prettier && yarn lint:package",
     "lint:tslint": "tslint -p tsconfig.json -c tslint.json -t stylish",
     "lint:prettier": "prettier-check --ignore-path .gitignore '**/*.{ts,js,html,json}'",
@@ -16,16 +18,13 @@
     "fix": "yarn fix:tslint && yarn fix:prettier",
     "fix:tslint": "yarn lint:tslint --fix",
     "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,js,html,json}'",
-    "watch": "yarn build --watch",
-    "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "test": "jest",
     "test:no-headless": "cross-env HEADLESS=false jest",
     "test:coverage": "jest --coverage",
     "start:firefox": "web-ext run -s build/ --start-url https://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "start:chrome": "node scripts/chrome-launch",
     "dev:firefox": "yarn build && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
-    "dev:chrome": "yarn build && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others",
-    "prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,js,html,json}'"
+    "dev:chrome": "yarn build && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others"
   },
   "dependencies": {
     "cyrillic-to-translit-js": "3.1.0",

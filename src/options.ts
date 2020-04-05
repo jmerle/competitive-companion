@@ -27,14 +27,14 @@ debugModeInput.addEventListener('input', function (): void {
 });
 
 config
-  .get<number[]>('customPorts')
+  .get('customPorts')
   .then(value => {
     customPortsInput.value = value.join(',');
   })
   .catch(noop);
 
 config
-  .get<boolean>('debugMode')
+  .get('debugMode')
   .then(value => {
     debugModeInput.checked = value;
   })

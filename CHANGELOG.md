@@ -1,6 +1,6 @@
-# 2.14.0 - TBD
+# 2.14.0 - April 6th, 2020
 - Changed the way the extension loads its scripts so that it needs less permissions. This also fixes the Google Coding Competitions parser which previously only worked when the problem page was refreshed before parsing.
-- Added a "Parse with" context menu on the plus icon which can be used to run any parser on any page.
+- Added a "Parse with" context menu item to the plus icon which can be used to parse any page with any parser
 - Added support for the codeforc.es mirror to the Codeforces parsers
 
 # 2.13.0 - March 22nd, 2020

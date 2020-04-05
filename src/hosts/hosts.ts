@@ -14,7 +14,7 @@ const defaultPorts = [
 ];
 
 export async function getHosts(): Promise<Host[]> {
-  const customPorts = await config.get<number[]>('customPorts');
+  const customPorts = await config.get('customPorts');
   const uniquePorts = [...new Set(defaultPorts.concat(customPorts))];
   return defaultHosts.concat(uniquePorts.map(port => new CustomHost(port)));
 }

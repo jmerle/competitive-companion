@@ -56,7 +56,7 @@ export class Task implements Sendable {
   public async send(): Promise<void> {
     return new Promise(resolve => {
       config
-        .get<boolean>('debugMode')
+        .get('debugMode')
         .then(isDebug => {
           if (isDebug) {
             // tslint:disable-next-line no-console
