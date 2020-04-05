@@ -1,3 +1,4 @@
+import { browser } from 'webextension-polyfill-ts';
 import { MessageAction } from '../models/messaging';
 import { noop } from './noop';
 

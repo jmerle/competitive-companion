@@ -4,6 +4,7 @@ export interface Message {
 }
 
 export enum MessageAction {
+  Parse,
   SendTask,
   TaskSent,
 }

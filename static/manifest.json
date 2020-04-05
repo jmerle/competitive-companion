@@ -8,7 +8,7 @@
   "author": "Filled by build script",
   "homepage_url": "Filled by build script",
 
-  "permissions": ["storage", "activeTab", "http://localhost/"],
+  "permissions": ["activeTab", "contextMenus", "storage", "http://localhost/"],
 
   "icons": {
     "16": "icons/icon-16.png",
@@ -24,7 +24,7 @@
   },
 
   "background": {
-    "scripts": ["js/browser-polyfill.js", "js/background.js"]
+    "scripts": ["js/background.js"]
   },
 
   "options_ui": {

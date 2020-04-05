@@ -3,7 +3,6 @@
     "module": "commonjs",
     "target": "es2015",
     "strict": true,
-    "strictNullChecks": false,
-    "typeRoots": ["node_modules/web-ext-types"]
+    "strictNullChecks": false
   }
 }

@@ -18,10 +18,6 @@ function transformManifest(content: Buffer): string {
   return JSON.stringify(manifest, null, 2);
 }
 
-function transformBrowserPolyfill(content: Buffer): string {
-  return content.toString().replace('sourceMappingURL', 'disabledSourceMappingURL');
-}
-
 const config: webpack.Configuration = {
   entry: {
     background: path.resolve(__dirname, 'src/background.ts'),
@@ -104,11 +100,6 @@ const config: webpack.Configuration = {
       {
         from: path.resolve(__dirname, 'icons'),
         to: path.resolve(__dirname, 'build/icons'),
-      },
-      {
-        from: path.resolve(__dirname, 'node_modules/webextension-polyfill/dist/browser-polyfill.js'),
-        to: path.resolve(__dirname, 'build/js'),
-        transform: transformBrowserPolyfill,
       },
       {
         from: path.resolve(__dirname, 'src/options.html'),

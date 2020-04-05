@@ -1,5 +1,8 @@
+import { browser, Runtime } from 'webextension-polyfill-ts';
+import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
+import { noop } from './utils/noop';
 
 // This package has no types
 const Nanobar = require('nanobar');
@@ -19,9 +22,11 @@ function getParserToUse(): Parser {
   }
 }
 
-(async () => {
-  const parser = getParserToUse();
+function getParserByName(name: string): Parser {
+  return parsers.find(parser => parser.constructor.name === name);
+}
 
+async function parse(parser: Parser): Promise<void> {
   (window as any).nanoBar = new Nanobar();
 
   document.querySelectorAll('.bar').forEach(bar => {
@@ -37,4 +42,24 @@ function getParserToUse(): Parser {
   }
 
   (window as any).nanoBar.go(100);
-})();
+}
+
+function handleMessage(message: Message | any, sender: Runtime.MessageSender): void {
+  if (sender.tab) {
+    return;
+  }
+
+  if (message.action === MessageAction.Parse) {
+    const parserName = message.payload.parserName;
+
+    if (parserName === null) {
+      const parser = getParserToUse();
+
+      parse(parser).then(noop).catch(noop);
+    } else {
+      parse(getParserByName(parserName)).then(noop).catch(noop);
+    }
+  }
+}
+
+browser.runtime.onMessage.addListener(handleMessage);

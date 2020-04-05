@@ -1,3 +1,4 @@
+import { browser, Runtime } from 'webextension-polyfill-ts';
 import { config } from '../utils/config';
 import { sendToBackground } from '../utils/messaging';
 import { noop } from '../utils/noop';
@@ -64,7 +65,7 @@ export class Task implements Sendable {
         })
         .catch(noop);
 
-      const handleMessage = (message: Message | any, sender: browser.runtime.MessageSender) => {
+      const handleMessage = (message: Message | any, sender: Runtime.MessageSender) => {
         if (sender.tab) {
           return;
         }
