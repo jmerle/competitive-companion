@@ -47,7 +47,6 @@ export abstract class Parser {
 
   /**
    * The method called when the parse button is clicked.
-   * If it rejects, an notify will be shown to the user.
    */
   public abstract async parse(url: string, html: string): Promise<Sendable>;
 

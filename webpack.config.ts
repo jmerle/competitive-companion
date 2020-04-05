@@ -106,7 +106,7 @@ const config: webpack.Configuration = {
         to: path.resolve(__dirname, 'build/icons'),
       },
       {
-        from: path.resolve(__dirname, 'node_modules/webextension-polyfill/dist/browser-polyfill.min.js'),
+        from: path.resolve(__dirname, 'node_modules/webextension-polyfill/dist/browser-polyfill.js'),
         to: path.resolve(__dirname, 'build/js'),
         transform: transformBrowserPolyfill,
       },

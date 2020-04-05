@@ -4,10 +4,6 @@ export interface Message {
 }
 
 export enum MessageAction {
-  CheckTab,
-  Parse,
-  EnablePageAction,
-  DisablePageAction,
   SendTask,
   TaskSent,
 }
