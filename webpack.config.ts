@@ -72,6 +72,10 @@ const config: webpack.Configuration = {
               replace: '(() => {})',
             },
             {
+              search: 'Function(fn)',
+              replace: '(() => {})',
+            },
+            {
               search: 'sourceMappingURL',
               replace: 'disabledSourceMappingURL',
             },
