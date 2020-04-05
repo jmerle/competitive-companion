@@ -5,7 +5,7 @@ import { parsers } from './parsers/parsers';
 import { sendToContent } from './utils/messaging';
 import { noop } from './utils/noop';
 
-function createMenus(): void {
+function createContextMenu(): void {
   browser.contextMenus.create({
     id: 'parse-with',
     title: 'Parse with',
@@ -16,12 +16,14 @@ function createMenus(): void {
     id: 'problem-parser',
     parentId: 'parse-with',
     title: 'Problem parser',
+    contexts: ['browser_action'],
   });
 
   browser.contextMenus.create({
     id: 'contest-parser',
     parentId: 'parse-with',
     title: 'Contest parser',
+    contexts: ['browser_action'],
   });
 
   for (const parser of parsers) {
@@ -32,6 +34,7 @@ function createMenus(): void {
       id: `parse-with-${name}`,
       parentId: `${isContestParser ? 'contest' : 'problem'}-parser`,
       title: name,
+      contexts: ['browser_action'],
     });
   }
 }
@@ -84,4 +87,4 @@ browser.browserAction.onClicked.addListener(onBrowserAction);
 browser.contextMenus.onClicked.addListener(onContextMenu);
 browser.runtime.onMessage.addListener(handleMessage);
 
-createMenus();
+createContextMenu();

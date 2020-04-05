@@ -43,7 +43,7 @@ async function parse(parser: Parser): Promise<void> {
     console.error(err);
 
     // prettier-ignore
-    alert('Something went wrong while parsing this page with Competitive Companion. Open the browser console to see the error.');
+    alert(`Something went wrong while running Competitive Companion's ${parser.constructor.name}. Open the browser console to see the error.`);
   }
 
   (window as any).nanoBar.go(100);
@@ -71,6 +71,8 @@ function handleMessage(message: Message | any, sender: Runtime.MessageSender): v
       parse(getParserByName(parserName)).then(noop).catch(noop);
     }
   }
+
+  browser.runtime.onMessage.removeListener(handleMessage);
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
