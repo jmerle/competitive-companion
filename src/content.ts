@@ -20,6 +20,8 @@ function getParserToUse(): Parser {
       return parser;
     }
   }
+
+  return null;
 }
 
 function getParserByName(name: string): Parser {
@@ -39,6 +41,9 @@ async function parse(parser: Parser): Promise<void> {
   } catch (err) {
     // tslint:disable-next-line no-console
     console.error(err);
+
+    // prettier-ignore
+    alert('Something went wrong while parsing this page with Competitive Companion. Open the browser console to see the error.');
   }
 
   (window as any).nanoBar.go(100);
@@ -54,6 +59,12 @@ function handleMessage(message: Message | any, sender: Runtime.MessageSender): v
 
     if (parserName === null) {
       const parser = getParserToUse();
+
+      if (parser === null) {
+        // prettier-ignore
+        alert('Competitive Companion could not determine which parser to parse this page with. Please right-click on the plus icon and select the parser to use via the "Parse with" context menu.');
+        return;
+      }
 
       parse(parser).then(noop).catch(noop);
     } else {
