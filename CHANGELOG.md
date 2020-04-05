@@ -1,3 +1,7 @@
+# 2.14.0 - TBD
+- Changed the way the extension loads its scripts so that it needs less permissions. This also fixes the Google Coding Competitions parser which previously only worked when the problem page was refreshed before parsing.
+- Added a "Parse with" context menu on the plus icon which can be used to run any parser on any page.
+
 # 2.13.0 - March 22nd, 2020
 - Added parsers for CSES, SSOIER and UOJ
 - Fixed the Virtual Judge and the COJ parser
