@@ -23,14 +23,6 @@
     "128": "icons/icon-128.png"
   },
 
-  "content_scripts": [
-    {
-      "matches": ["Filled by build script"],
-      "exclude_matches": ["Filled by build script"],
-      "js": ["js/browser-polyfill.min.js", "js/content.js"]
-    }
-  ],
-
   "background": {
     "scripts": ["js/browser-polyfill.min.js", "js/background.js"]
   },
