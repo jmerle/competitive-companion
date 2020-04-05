@@ -18,9 +18,10 @@ export class CodeforcesProblemParser extends Parser {
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
     });
 
-    patterns.push(...patterns.map(pattern => pattern.replace('.com', '.ml')));
+    const mlPatterns = patterns.map(pattern => pattern.replace('.com', '.ml'));
+    const esPatterns = patterns.map(pattern => pattern.replace('codeforces.com', 'codeforc.es'));
 
-    return patterns;
+    return patterns.concat(mlPatterns).concat(esPatterns);
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

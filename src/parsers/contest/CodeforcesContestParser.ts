@@ -18,9 +18,10 @@ export class CodeforcesContestParser extends ContestParser {
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
     });
 
-    patterns.push(...patterns.map(pattern => pattern.replace('.com', '.ml')));
+    const mlPatterns = patterns.map(pattern => pattern.replace('.com', '.ml'));
+    const esPatterns = patterns.map(pattern => pattern.replace('codeforces.com', 'codeforc.es'));
 
-    return patterns;
+    return patterns.concat(mlPatterns).concat(esPatterns);
   }
 
   public getRegularExpressions(): RegExp[] {
