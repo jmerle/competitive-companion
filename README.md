@@ -19,7 +19,7 @@ A browser extension which parses programming problems from various online judges
 - [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
 - [CP Editor](https://github.com/coder3101/cp-editor)
-- Any other tool that can parse the data that is being sent, read more about that below
+- Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
 | Website               | Problem parser | Contest parser |
