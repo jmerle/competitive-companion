@@ -56,6 +56,7 @@ import { KattisProblemParser } from './problem/KattisProblemParser';
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
+import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
@@ -154,6 +155,8 @@ export const parsers: Parser[] = [
   new LightOJContestParser(),
 
   new LuoguProblemParser(),
+
+  new MrJudgeProblemParser(),
 
   new MSKInformaticsProblemParser(),
 

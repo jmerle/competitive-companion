@@ -1,0 +1,35 @@
+{
+  "url": "https://dunjudge.me/analysis/problems/179/",
+  "parser": "problem/MrJudgeProblemParser",
+  "result": {
+    "name": "checkmultiples",
+    "group": "mrJudge",
+    "url": "https://dunjudge.me/analysis/problems/179/",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5 4\n",
+        "output": "No\n"
+      },
+      {
+        "input": "121 11\n",
+        "output": "Yes\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Checkmultiples"
+      }
+    }
+  }
+}

@@ -56,6 +56,7 @@ A browser extension which parses programming problems from various online judges
 | LibreOJ               | ✔              | ✔              |
 | LightOJ               | ✔              | ✔              |
 | Luogu                 | ✔              |                |
+| mrJudge               | ✔              |                |
 | MSK Informatics       | ✔              |                |
 | NowCoder              | ✔              |                |
 | NYTD Online Judge     | ✔              | ✔              |

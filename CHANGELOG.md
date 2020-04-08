@@ -1,4 +1,5 @@
 # 2.15.0 - TBD
+- Added a parser for mrJudge
 - Fixed the Luogu parser
 - Removed the A2OJ parser
 
