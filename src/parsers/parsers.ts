@@ -26,7 +26,6 @@ import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContest
 import { UOJContestParser } from './contest/UOJContestParser';
 import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestParser';
 import { Parser } from './Parser';
-import { A2OJProblemParser } from './problem/A2OJProblemParser';
 import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
 import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeProblemParser';
@@ -77,8 +76,6 @@ import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
 
 export const parsers: Parser[] = [
-  new A2OJProblemParser(),
-
   new ACMPProblemParser(),
 
   new AtCoderProblemParser(),
