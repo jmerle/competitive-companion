@@ -1,4 +1,5 @@
 # 2.15.0 - TBD
+- Fixed the Luogu parser
 - Removed the A2OJ parser
 
 # 2.14.0 - April 6th, 2020
