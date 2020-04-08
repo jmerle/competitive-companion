@@ -24,7 +24,6 @@ A browser extension which parses programming problems from various online judges
 ## Supported websites
 | Website               | Problem parser | Contest parser |
 |-----------------------|----------------|----------------|
-| A2OJ                  | ✔              |                |
 | ACMP                  | ✔              |                |
 | AtCoder               | ✔              | ✔              |
 | Baekjoon Online Judge | ✔              | ✔              |

@@ -1,3 +1,6 @@
+# 2.15.0 - TBD
+- Removed the A2OJ parser
+
 # 2.14.0 - April 6th, 2020
 - Changed the way the extension loads its scripts so that it needs less permissions. This also fixes the Google Coding Competitions parser which previously only worked when the problem page was refreshed before parsing.
 - Added a "Parse with" context menu item to the plus icon which can be used to parse any page with any parser
