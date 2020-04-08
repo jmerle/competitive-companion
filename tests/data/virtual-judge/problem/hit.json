@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Peaceful Commission",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - HIT",
     "url": "https://vjudge.net/problem/HIT-1917",
     "interactive": false,
     "memoryLimit": 32,

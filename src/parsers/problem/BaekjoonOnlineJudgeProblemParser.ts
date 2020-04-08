@@ -10,10 +10,9 @@ export class BaekjoonOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Baekjoon Online Judge').setUrl(url);
 
     task.setName(elem.querySelector('#problem_title').textContent);
-    task.setGroup('Baekjoon Online Judge');
 
     const constraintCells = elem.querySelectorAll('#problem-info > tbody > tr > td');
     task.setTimeLimit(parseFloat(/([0-9.]+) /.exec(constraintCells[0].textContent)[1]) * 1000);

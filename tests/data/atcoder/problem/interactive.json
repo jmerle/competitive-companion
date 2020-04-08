@@ -3,7 +3,7 @@
   "parser": "problem/AtCoderProblemParser",
   "result": {
     "name": "F - HonestOrUnkind",
-    "group": "AtCoder Regular Contest 070",
+    "group": "AtCoder - AtCoder Regular Contest 070",
     "url": "https://atcoder.jp/contests/arc070/tasks/arc070_d",
     "interactive": true,
     "memoryLimit": 256,

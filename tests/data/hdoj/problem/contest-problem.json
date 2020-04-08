@@ -1,9 +1,9 @@
 {
   "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=798",
-  "parser": "problem/HDUOnlineJudgeProblemParser",
+  "parser": "problem/HDOJProblemParser",
   "result": {
     "name": "Circular Coloring",
-    "group": "HDU Online Judge",
+    "group": "HDOJ",
     "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=798",
     "interactive": false,
     "memoryLimit": 132,

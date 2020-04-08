@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "English Game",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - NBUT",
     "url": "https://vjudge.net/problem/NBUT-1222",
     "interactive": false,
     "memoryLimit": 131,

@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "MaratonIME does a competition",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - Gym",
     "url": "https://vjudge.net/problem/Gym-101375G",
     "interactive": false,
     "memoryLimit": 262,

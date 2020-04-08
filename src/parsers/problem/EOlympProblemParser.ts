@@ -10,15 +10,14 @@ export class EOlympProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
-
-    const contestNameParts = ['E-Olymp', elem.querySelector('.eo-title__header').textContent];
-    if (contestNameParts[1] === task.name) {
-      contestNameParts.pop();
-    }
+    const task = new TaskBuilder('E-Olymp').setUrl(url);
 
     task.setName(elem.querySelector('.eo-paper__header').textContent);
-    task.setGroup(contestNameParts.join(' - '));
+
+    const contestName = elem.querySelector('h1.eo-title__header').textContent;
+    if (contestName !== task.name) {
+      task.setCategory(contestName);
+    }
 
     task.setTimeLimit(parseFloat(elem.querySelectorAll('.eo-message__text b')[0].textContent) * 1000);
     task.setMemoryLimit(parseInt(elem.querySelectorAll('.eo-message__text b')[1].textContent, 10));

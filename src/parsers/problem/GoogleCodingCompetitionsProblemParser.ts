@@ -14,10 +14,10 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Google Coding Competitions').setUrl(url);
 
     task.setName(elem.querySelector('#problem-select-selected-text').textContent.split(' (')[0]);
-    task.setGroup(elem.querySelector('.competition-nav p.headline-5').textContent);
+    task.setCategory(elem.querySelector('.competition-nav p.headline-5').textContent);
 
     const container = elem.querySelector('.problem-description');
 

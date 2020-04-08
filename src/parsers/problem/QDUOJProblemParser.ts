@@ -15,12 +15,11 @@ export class QDUOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder(elem.querySelector('.logo > span').textContent).setUrl(url);
 
     const main = elem.querySelector('#problem-main');
 
     task.setName(main.querySelector('.panel-title > div').textContent);
-    task.setGroup(elem.querySelector('.logo > span').textContent);
 
     const limitsStr = elem.querySelector('#info').textContent;
     task.setTimeLimit(parseInt(/(\d+)MS/.exec(limitsStr)[1], 10));

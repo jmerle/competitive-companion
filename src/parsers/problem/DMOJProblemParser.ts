@@ -10,10 +10,9 @@ export class DMOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('DMOJ').setUrl(url);
 
     task.setName(elem.querySelector('.problem-title').childNodes[1].textContent);
-    task.setGroup('DMOJ');
 
     const inputs = [...elem.querySelectorAll('h4')].filter(el => {
       const text = el.textContent.toLowerCase();

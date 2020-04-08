@@ -21,12 +21,12 @@ export class CodeChefProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('CodeChef').setUrl(url);
 
     const name = [...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0];
 
     task.setName(name);
-    task.setGroup('CodeChef - ' + [...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);
+    task.setCategory([...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);
     task.setInteractive(html.includes('This is an interactive problem'));
 
     this.parseTests(html, task);

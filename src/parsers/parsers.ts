@@ -13,7 +13,7 @@ import { EOlympContestParser } from './contest/EOlympContestParser';
 import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
 import { HackerRankContestParser } from './contest/HackerRankContestParser';
-import { HDUOnlineJudgeContestParser } from './contest/HDUOnlineJudgeContestParser';
+import { HDOJContestParser } from './contest/HDOJContestParser';
 import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
@@ -47,7 +47,7 @@ import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCom
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
 import { HackerEarthProblemParser } from './problem/HackerEarthProblemParser';
 import { HackerRankProblemParser } from './problem/HackerRankProblemParser';
-import { HDUOnlineJudgeProblemParser } from './problem/HDUOnlineJudgeProblemParser';
+import { HDOJProblemParser } from './problem/HDOJProblemParser';
 import { HihoCoderProblemParser } from './problem/HihoCoderProblemParser';
 import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemParser';
 import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
@@ -133,8 +133,8 @@ export const parsers: Parser[] = [
   new HackerRankProblemParser(),
   new HackerRankContestParser(),
 
-  new HDUOnlineJudgeProblemParser(),
-  new HDUOnlineJudgeContestParser(),
+  new HDOJProblemParser(),
+  new HDOJContestParser(),
 
   new HITOnlineJudgeProblemParser(),
 

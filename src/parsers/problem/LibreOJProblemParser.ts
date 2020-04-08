@@ -10,10 +10,9 @@ export class LibreOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('LibreOJ').setUrl(url);
 
     task.setName(elem.querySelector('.ui.header').textContent.trim());
-    task.setGroup('LibreOJ');
 
     const timeLimitStr = elem.querySelector('.row > .ui.label:nth-child(2)').textContent;
     task.setTimeLimit(parseFloat(timeLimitStr.split('：')[1]));

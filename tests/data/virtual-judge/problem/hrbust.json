@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Word Search",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - HRBUST",
     "url": "https://vjudge.net/problem/HRBUST-1743",
     "interactive": false,
     "memoryLimit": 65,

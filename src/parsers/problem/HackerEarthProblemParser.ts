@@ -10,7 +10,7 @@ export class HackerEarthProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('HackerEarth').setUrl(url);
 
     const titleElem = elem.querySelector('#problem-title');
     task.setName(titleElem ? titleElem.textContent.trim() : 'Task');
@@ -19,8 +19,7 @@ export class HackerEarthProblemParser extends Parser {
       elem.querySelector('.timings') !== null
         ? [elem.querySelector('.cover .title').textContent.trim()]
         : [...elem.querySelectorAll('.breadcrumb a')].map(el => el.textContent).slice(1);
-
-    task.setGroup(['HackerEarth', ...groupSuffix].join(' - '));
+    task.setCategory(groupSuffix.join(' - '));
 
     elem.querySelectorAll('.input-output-container').forEach(container => {
       const blocks = container.querySelectorAll('pre');

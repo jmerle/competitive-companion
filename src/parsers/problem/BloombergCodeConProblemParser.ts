@@ -10,10 +10,10 @@ export class BloombergCodeConProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Bloomberg CodeCon').setUrl(url);
 
     task.setName(elem.querySelector('.problem-page-pane > h1').textContent.trim());
-    task.setGroup(elem.querySelector('.sidebar-title').textContent.trim());
+    task.setCategory(elem.querySelector('.sidebar-title').textContent.trim());
 
     const timeLimitStr = elem
       .querySelector('.problem-parameters > .fa-dashboard')

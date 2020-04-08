@@ -12,7 +12,7 @@ import { TestType } from './TestType';
 
 export class Task implements Sendable {
   public static fromJSON(data: string): Task {
-    const task = new TaskBuilder();
+    const task = new TaskBuilder('');
 
     const obj = JSON.parse(data);
 

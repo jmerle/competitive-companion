@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "trka",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - Z_trening",
     "url": "https://vjudge.net/problem/Z_trening-10",
     "interactive": false,
     "memoryLimit": 1,

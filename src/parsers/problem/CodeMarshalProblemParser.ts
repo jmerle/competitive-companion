@@ -10,12 +10,11 @@ export class CodeMarshalProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('CodeMarshal').setUrl(url);
 
     const content = elem.querySelector('#main div div');
 
     task.setName(content.querySelector('div.h1').textContent);
-    task.setGroup('CodeMarshal');
 
     const scoreCpuTimeMemory = content.querySelector('p:first-of-type').textContent;
 

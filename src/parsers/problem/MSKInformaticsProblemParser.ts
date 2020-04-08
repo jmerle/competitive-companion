@@ -10,15 +10,12 @@ export class MSKInformaticsProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('MSK Informatics').setUrl(url);
 
     const title = elem.querySelector('.statements_toc_alpha strong');
     const text = title.textContent;
     const regex = / ([A-Z])\. /;
-    const name = regex.exec(text) ? regex.exec(text)[1] + '. ' + text.split('. ')[1] : text;
-
-    task.setName(name);
-    task.setGroup('MSK Informatics');
+    task.setName(regex.exec(text) ? regex.exec(text)[1] + '. ' + text.split('. ')[1] : text);
 
     const limitsTable = elem.querySelector('.statements_content > table');
     const timeLimitStr = limitsTable.querySelector('tbody > tr:first-child > td:last-child').textContent;

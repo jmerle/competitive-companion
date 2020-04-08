@@ -10,17 +10,14 @@ export class HihoCoderProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('hihoCoder').setUrl(url);
 
     const main = elem.querySelector('#main > .panel');
 
     task.setName(main.querySelector('h3').textContent.replace(':', '-'));
 
     if (elem.querySelector('.tl-site-header-title')) {
-      const contest = elem.querySelector('.tl-site-header-title > h3').childNodes[0].textContent.trim();
-      task.setGroup(`hihoCoder - ${contest}`);
-    } else {
-      task.setGroup('hihoCoder');
+      task.setCategory(elem.querySelector('.tl-site-header-title > h3').childNodes[0].textContent.trim());
     }
 
     const limits = main.querySelector('.limit').textContent;

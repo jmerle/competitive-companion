@@ -4,7 +4,7 @@
   "result": [
     {
       "name": "A. 新年的促销",
-      "group": "Goodbye Jihai",
+      "group": "UOJ - Goodbye Jihai",
       "url": "http://uoj.ac/contest/50/problem/495",
       "interactive": false,
       "memoryLimit": 512,
@@ -35,7 +35,7 @@
     },
     {
       "name": "B. 新年的新航线",
-      "group": "Goodbye Jihai",
+      "group": "UOJ - Goodbye Jihai",
       "url": "http://uoj.ac/contest/50/problem/496",
       "interactive": false,
       "memoryLimit": 512,
@@ -66,7 +66,7 @@
     },
     {
       "name": "C. 新年的复读机",
-      "group": "Goodbye Jihai",
+      "group": "UOJ - Goodbye Jihai",
       "url": "http://uoj.ac/contest/50/problem/497",
       "interactive": false,
       "memoryLimit": 1024,
@@ -93,7 +93,7 @@
     },
     {
       "name": "D. 新年的追逐战",
-      "group": "Goodbye Jihai",
+      "group": "UOJ - Goodbye Jihai",
       "url": "http://uoj.ac/contest/50/problem/498",
       "interactive": false,
       "memoryLimit": 512,
@@ -128,7 +128,7 @@
     },
     {
       "name": "E. 新年的邀请函",
-      "group": "Goodbye Jihai",
+      "group": "UOJ - Goodbye Jihai",
       "url": "http://uoj.ac/contest/50/problem/499",
       "interactive": false,
       "memoryLimit": 1024,

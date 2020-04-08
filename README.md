@@ -32,7 +32,7 @@ A browser extension which parses programming problems from various online judges
 | Codeforces            | ✔              | ✔              |
 | CodeMarshal           | ✔              | ✔              |
 | COJ                   | ✔              | ✔              |
-| CSAcademy             | ✔              |                |
+| CS Academy            | ✔              |                |
 | CSES                  | ✔              | ✔              |
 | CSU-ACM Online Judge  | ✔              | ✔              |
 | DevSkill              | ✔              | ✔              |
@@ -46,7 +46,7 @@ A browser extension which parses programming problems from various online judges
 | Google Kick Start     | ✔              |                |
 | HackerEarth           | ✔              | ✔              |
 | HackerRank            | ✔              | ✔              |
-| HDU Online Judge      | ✔              | ✔              |
+| HDOJ                  | ✔              | ✔              |
 | HIT Online Judge      | ✔              |                |
 | hihoCoder             | ✔              | ✔              |
 | Hrbust Online Judge   | ✔              |                |
@@ -95,24 +95,11 @@ Here's an example of the data sent when parsing [this](https://codeforces.com/pr
 ```json
 {
     "name": "G. Castle Defense",
-    "group": "Educational Codeforces Round 40 (Rated for Div. 2)",
+    "group": "Codeforces - Educational Codeforces Round 40 (Rated for Div. 2)",
     "url": "https://codeforces.com/problemset/problem/954/G",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1500,
-    "testType": "single",
-    "input": {
-        "type": "stdin"
-    },
-    "output": {
-        "type": "stdout"
-    },
-    "languages": {
-        "java": {
-            "mainClass": "Main",
-            "taskClass": "GCastleDefense"
-        }
-    },
     "tests": [
         {
             "input": "5 0 6\n5 4 3 4 9\n",
@@ -126,7 +113,20 @@ Here's an example of the data sent when parsing [this](https://codeforces.com/pr
             "input": "5 1 1\n2 1 2 1 2\n",
             "output": "3\n"
         }
-    ]
+    ],
+    "testType": "single",
+    "input": {
+        "type": "stdin"
+    },
+    "output": {
+        "type": "stdout"
+    },
+    "languages": {
+        "java": {
+            "mainClass": "Main",
+            "taskClass": "GCastleDefense"
+        }
+    }
 }
 ```
 
@@ -135,11 +135,12 @@ It's not required for a tool to parse all these options, since some of them are 
 #### Explanation
 
 - **name**: The full name of the problem. Can be used for display purposes.
-- **group**: Used to group problems together, which can be useful for archiving purposes.
+- **group**: Used to group problems together, which can be useful for archiving purposes. Follows the format `<judge> - <category>`, where the hyphen is discarded if the category is empty.
 - **url**: A link to the problem on the judge's website.
 - **interactive** (optional): Whether this is an interactive problem or not.
 - **memoryLimit**: The memory limit in MB.
 - **timeLimit**: The time limit in ms.
+- **tests**: An array of objects containing testcase data. The JSON objects in the array all have two keys: **input** and **output**. Both the input and the output need to end with a newline character.
 - **testType**: The type of the tests. Supports two options: "single" and "multiNumber". Explanation of these two can be found on the [JHelper wiki](https://github.com/AlexeyDmitriev/JHelper/wiki/Usage).
 - **input**: An object which is used to configure how to receive input. Supported types:
     - **stdin**: Receive input via stdin. No additional options required.
@@ -151,7 +152,6 @@ It's not required for a tool to parse all these options, since some of them are 
     - **java**: An object with Java specific settings. Required options:
         - **mainClass**: The name of the outer class containing the solution.
         - **taskClass**: The classname-friendly version of the problem's full name. Cannot be the same as mainClass. Can also be useful for non-Java tools because a classname-friendly string is also a filename-friendly string.
-- **tests**: An array of objects containing testcase-data. The JSON objects in the array all have two keys: **input** and **output**. Both the input and the output need to end with a newline character.
 
 ## Running locally
 The following commands can be used to start working on Competitive Companion locally. Additionally, make sure you got [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) installed.

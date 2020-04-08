@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Lights inside 3D Grid",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - LightOJ",
     "url": "https://vjudge.net/problem/LightOJ-1284",
     "interactive": false,
     "memoryLimit": 32,

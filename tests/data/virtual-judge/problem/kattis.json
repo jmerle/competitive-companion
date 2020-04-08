@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Das Blinkenlights",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - Kattis",
     "url": "https://vjudge.net/problem/Kattis-dasblinkenlights",
     "interactive": false,
     "memoryLimit": 1048,

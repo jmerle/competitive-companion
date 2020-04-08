@@ -10,10 +10,9 @@ export class NowCoderProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('NowCoder').setUrl(url);
 
     task.setName(elem.querySelector('.terminal-topic-title').textContent.trim());
-    task.setGroup('NowCoder');
 
     const timeLimitStr = elem.querySelector('.question-intr > .subject-item-wrap > span').textContent.split('，').pop();
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10) * 1000);

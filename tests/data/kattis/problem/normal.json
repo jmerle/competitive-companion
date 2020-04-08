@@ -3,7 +3,7 @@
   "parser": "problem/KattisProblemParser",
   "result": {
     "name": "Take Two Stones",
-    "group": "Kattis Archive",
+    "group": "Kattis",
     "url": "https://open.kattis.com/problems/twostones",
     "interactive": false,
     "memoryLimit": 1024,

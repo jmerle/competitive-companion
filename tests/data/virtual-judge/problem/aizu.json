@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Prime Numbers",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - Aizu",
     "url": "https://vjudge.net/problem/Aizu-ALDS1_1_C",
     "interactive": false,
     "memoryLimit": 131,

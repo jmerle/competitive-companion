@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "The Minimum Length",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - HUST",
     "url": "https://vjudge.net/problem/HUST-1010",
     "interactive": false,
     "memoryLimit": 1024,

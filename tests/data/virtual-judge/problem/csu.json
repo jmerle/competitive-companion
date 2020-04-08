@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "手游大佬",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - CSU",
     "url": "https://vjudge.net/problem/CSU-2085",
     "interactive": false,
     "memoryLimit": 131,

@@ -10,10 +10,9 @@ export class LightOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('LightOJ').setUrl(url);
 
     task.setName(elem.querySelector('#problem_name').textContent.trim());
-    task.setGroup('LightOJ');
 
     const timeLimitStr = elem.querySelector('#mytable > tbody > tr > td:nth-child(1).two').textContent.trim();
     task.setTimeLimit(parseFloat(/Time Limit: ([0-9.]+) second/.exec(timeLimitStr)[1]) * 1000);

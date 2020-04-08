@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "AnyNumber",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - TopCoder",
     "url": "https://vjudge.net/problem/TopCoder-14265",
     "interactive": false,
     "memoryLimit": 1024,

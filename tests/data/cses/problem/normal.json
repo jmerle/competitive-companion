@@ -3,7 +3,7 @@
   "parser": "problem/CSESProblemParser",
   "result": {
     "name": "Increasing Array",
-    "group": "CSES Problem Set",
+    "group": "CSES - CSES Problem Set",
     "url": "https://cses.fi/problemset/task/1094",
     "interactive": false,
     "memoryLimit": 512,

@@ -10,10 +10,9 @@ export class MrJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('mrJudge').setUrl(url);
 
     task.setName(elem.querySelector('.content-header > h1 > a').textContent);
-    task.setGroup('mrJudge');
 
     const limitRows = [...elem.querySelectorAll('#subtask_details > tr')];
 

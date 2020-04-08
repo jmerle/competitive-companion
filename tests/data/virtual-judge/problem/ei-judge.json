@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "CD",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - EIJudge",
     "url": "https://vjudge.net/problem/EIJudge-059",
     "interactive": false,
     "memoryLimit": 33,

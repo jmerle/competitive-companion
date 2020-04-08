@@ -13,12 +13,10 @@ export class DevSkillProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('DevSkill').setUrl(url);
 
     const header = elem.querySelector('h1.page-title').childNodes[0].textContent.trim();
     task.setName(header.substr(header.indexOf(':') + 2));
-
-    task.setGroup('DevSkill');
 
     const p = elem.querySelector('p.mark-down-html');
 

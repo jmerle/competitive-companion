@@ -18,19 +18,16 @@ export class OmegaUpProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('omegaUp').setUrl(url);
 
     const problem = elem.querySelector('#problem');
 
-    const group = ['omegaUp'];
+    task.setName(problem.querySelector('.title').textContent.trim());
 
     const contestTitleElem = elem.querySelector('.contest-title');
     if (contestTitleElem !== null) {
-      group.push(contestTitleElem.textContent.trim());
+      task.setCategory(contestTitleElem.textContent.trim());
     }
-
-    task.setName(problem.querySelector('.title').textContent.trim());
-    task.setGroup(group.join(' - '));
 
     task.setTimeLimit(parseFloat(problem.querySelector('.time_limit').textContent) * 1000);
     task.setMemoryLimit(parseInt(problem.querySelector('.memory_limit').textContent, 10));

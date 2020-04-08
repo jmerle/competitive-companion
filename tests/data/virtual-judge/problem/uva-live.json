@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Investment",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - UVALive",
     "url": "https://vjudge.net/problem/UVALive-3129",
     "interactive": false,
     "memoryLimit": 1024,

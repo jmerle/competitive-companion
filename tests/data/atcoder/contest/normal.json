@@ -4,7 +4,7 @@
   "result": [
     {
       "name": "A - Day of Takahashi",
-      "group": "AtCoder Beginner Contest 096",
+      "group": "AtCoder - AtCoder Beginner Contest 096",
       "url": "https://abc096.contest.atcoder.jp/tasks/abc096_a",
       "interactive": false,
       "memoryLimit": 256,
@@ -39,7 +39,7 @@
     },
     {
       "name": "B - Maximum Sum",
-      "group": "AtCoder Beginner Contest 096",
+      "group": "AtCoder - AtCoder Beginner Contest 096",
       "url": "https://abc096.contest.atcoder.jp/tasks/abc096_b",
       "interactive": false,
       "memoryLimit": 256,
@@ -70,7 +70,7 @@
     },
     {
       "name": "C - Grid Repainting 2",
-      "group": "AtCoder Beginner Contest 096",
+      "group": "AtCoder - AtCoder Beginner Contest 096",
       "url": "https://abc096.contest.atcoder.jp/tasks/abc096_c",
       "interactive": false,
       "memoryLimit": 256,
@@ -105,7 +105,7 @@
     },
     {
       "name": "D - Five, Five Everywhere",
-      "group": "AtCoder Beginner Contest 096",
+      "group": "AtCoder - AtCoder Beginner Contest 096",
       "url": "https://abc096.contest.atcoder.jp/tasks/abc096_d",
       "interactive": false,
       "memoryLimit": 256,

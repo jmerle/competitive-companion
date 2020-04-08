@@ -10,10 +10,9 @@ export class PandaOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Panda Online Judge').setUrl(url);
 
     task.setName(elem.querySelector('.mat-card-title').textContent);
-    task.setGroup('Panda Online Judge');
 
     const blocks = elem.querySelectorAll('pre.sample-box');
     for (let i = 0; i < blocks.length; i += 2) {

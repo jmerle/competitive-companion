@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Bookshelf",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - OpenJ_Bailian",
     "url": "https://vjudge.net/problem/OpenJ_Bailian-3406",
     "interactive": false,
     "memoryLimit": 65,

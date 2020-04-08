@@ -4,7 +4,7 @@
   "result": [
     {
       "name": "Distance Code",
-      "group": "NOI 2019 Open",
+      "group": "CSES - NOI 2019 Open",
       "url": "https://cses.fi/241/task/A",
       "interactive": false,
       "memoryLimit": 512,
@@ -35,7 +35,7 @@
     },
     {
       "name": "Thieves and Prisons",
-      "group": "NOI 2019 Open",
+      "group": "CSES - NOI 2019 Open",
       "url": "https://cses.fi/241/task/B",
       "interactive": false,
       "memoryLimit": 512,
@@ -66,7 +66,7 @@
     },
     {
       "name": "Graph Ordering",
-      "group": "NOI 2019 Open",
+      "group": "CSES - NOI 2019 Open",
       "url": "https://cses.fi/241/task/C",
       "interactive": false,
       "memoryLimit": 512,

@@ -10,7 +10,7 @@ export class TimusOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Timus').setUrl(url);
 
     task.setName(elem.querySelector('.problem_title').textContent);
 
@@ -19,13 +19,9 @@ export class TimusOnlineJudgeProblemParser extends Parser {
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limits)[1], 10));
 
     const source = elem.querySelector('.problem_source').textContent;
-
-    let group = 'Timus';
     if (/Problem Source: (.*)$/.test(source)) {
-      group += ' - ' + /Problem Source: (.*)$/.exec(source)[1];
+      task.setCategory(/Problem Source: (.*)$/.exec(source)[1]);
     }
-
-    task.setGroup(group);
 
     if (elem.querySelector('.sample tbody tr > td:nth-child(2)') !== null) {
       [...elem.querySelectorAll('.sample tbody tr')].slice(1).forEach(tr => {

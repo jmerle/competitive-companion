@@ -10,16 +10,15 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('ECNU Online Judge').setUrl(url);
 
     if (elem.querySelector('a.active.item[href^="/contest/"]')) {
       const contest = elem.querySelector('.ui.header').textContent;
 
       task.setName(elem.querySelector('div.ui.header').textContent);
-      task.setGroup(`ECNU Online Judge - ${contest}`);
+      task.setCategory(contest);
     } else {
       task.setName(elem.querySelector('.ui.header').textContent);
-      task.setGroup('ECNU Online Judge');
     }
 
     const limitsStr = elem.querySelector('.property').textContent;

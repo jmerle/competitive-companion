@@ -18,16 +18,16 @@ export class UVaOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
 
     const container = elem.querySelector('#col3_content_wrapper, td.main');
+
     const isUVa = !container.classList.contains('main');
+    const task = new TaskBuilder(isUVa ? 'UVa Online Judge' : 'ICPC Live Archive').setUrl(url);
 
     const header = container.querySelector('h3');
     const iframe = container.querySelector('iframe');
 
     task.setName(header.textContent);
-    task.setGroup(isUVa ? 'UVa Online Judge' : 'ICPC Live Archive');
 
     task.setTimeLimit(parseFloat(/Time limit: ([0-9.]+) seconds/.exec(header.nextSibling.textContent)[1]) * 1000);
     task.setMemoryLimit(32);

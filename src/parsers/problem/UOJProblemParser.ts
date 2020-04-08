@@ -15,17 +15,16 @@ export class UOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('UOJ').setUrl(url);
 
     const container = elem.querySelector('.uoj-content');
 
     const header = container.querySelector('.page-header');
     if (header.tagName === 'H1') {
       task.setName(header.textContent);
-      task.setGroup('UOJ');
     } else {
       task.setName(header.querySelector('h1 + h1').textContent);
-      task.setGroup(header.querySelector('h1 > small').textContent);
+      task.setCategory(header.querySelector('h1 > small').textContent);
     }
 
     let mathTexts = [...container.querySelectorAll('script[type="math/tex"]')]

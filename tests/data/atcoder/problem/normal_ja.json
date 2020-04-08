@@ -3,7 +3,7 @@
   "parser": "problem/AtCoderProblemParser",
   "result": {
     "name": "A - ファイティング・タカハシ",
-    "group": "COLOCON -Colopl programming contest 2018- Final",
+    "group": "AtCoder - COLOCON -Colopl programming contest 2018- Final",
     "url": "https://atcoder.jp/contests/colopl2018-final/tasks/colopl2018_final_a",
     "interactive": false,
     "memoryLimit": 256,

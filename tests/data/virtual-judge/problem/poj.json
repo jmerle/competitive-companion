@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Ombrophobic Bovines",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - POJ",
     "url": "https://vjudge.net/problem/POJ-2391",
     "interactive": false,
     "memoryLimit": 65,

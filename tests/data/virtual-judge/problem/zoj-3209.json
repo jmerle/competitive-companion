@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Treasure Map",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - ZOJ",
     "url": "https://vjudge.net/problem/ZOJ-3209",
     "interactive": false,
     "memoryLimit": 32,

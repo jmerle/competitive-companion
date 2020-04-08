@@ -11,10 +11,10 @@ export class FacebookHackerCupProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Facebook Hacker Cup').setUrl(url);
 
     task.setName(elem.querySelector('#content .clearfix > .lfloat').textContent);
-    task.setGroup(elem.querySelector('h2.uiHeaderTitle').textContent);
+    task.setCategory(elem.querySelector('h2.uiHeaderTitle').textContent);
 
     const blocks = elem.querySelectorAll('.uiBoxGray > pre');
     const input = blocks[0].textContent;

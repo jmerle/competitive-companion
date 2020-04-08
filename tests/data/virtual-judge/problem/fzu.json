@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "猪的安家",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - FZU",
     "url": "https://vjudge.net/problem/FZU-1402",
     "interactive": false,
     "memoryLimit": 32,

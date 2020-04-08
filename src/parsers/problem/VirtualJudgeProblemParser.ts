@@ -15,14 +15,14 @@ export class VirtualJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Virtual Judge').setUrl(url);
 
     if (elem.querySelector('#problem-title') === null) {
       task.setName(elem.querySelector('#prob-title > h2').textContent);
-      task.setGroup('Virtual Judge');
+      task.setCategory(window.location.href.split('/').pop().split('-')[0]);
     } else {
       task.setName(elem.querySelector('h2#problem-title').textContent);
-      task.setGroup('Virtual Judge - ' + elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
+      task.setCategory(elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
     }
 
     const timeLimitDt = [...elem.querySelectorAll('dt')].find((el: Element) =>

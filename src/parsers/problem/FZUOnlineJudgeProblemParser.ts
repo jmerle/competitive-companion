@@ -10,7 +10,7 @@ export class FZUOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('FZU Online Judge').setUrl(url);
 
     const container = elem.querySelector('.problem');
 
@@ -20,7 +20,6 @@ export class FZUOnlineJudgeProblemParser extends Parser {
     }
 
     task.setName(name);
-    task.setGroup('Fuzhou University Online Judge');
 
     const limitsStr = container.querySelector('h3').textContent;
     task.setTimeLimit(parseInt(/(\d+) mSec/.exec(limitsStr)[1], 10));

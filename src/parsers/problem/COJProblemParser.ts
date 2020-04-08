@@ -10,20 +10,16 @@ export class COJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('COJ').setUrl(url);
 
     const content = elem.querySelector('.postcontent');
 
     task.setName(content.querySelector('h3.text-center > b').textContent.split('- ')[1]);
 
-    const group = ['COJ'];
     const contestTitleElem = elem.querySelector('h2.postheader > a.linkheader');
-
     if (contestTitleElem !== null) {
-      group.push(contestTitleElem.textContent);
+      task.setCategory(contestTitleElem.textContent);
     }
-
-    task.setGroup(group.join(' - '));
 
     const limitsStr = content.querySelector('.limit.lang2').textContent;
 

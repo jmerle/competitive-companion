@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "The Rotation Game",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - SCU",
     "url": "https://vjudge.net/problem/SCU-1993",
     "interactive": false,
     "memoryLimit": 1024,

@@ -3,7 +3,7 @@
   "parser": "problem/AtCoderProblemParser",
   "result": {
     "name": "A - Day of Takahashi",
-    "group": "AtCoder Beginner Contest 096",
+    "group": "AtCoder - AtCoder Beginner Contest 096",
     "url": "https://abc096.contest.atcoder.jp/tasks/abc096_a",
     "interactive": false,
     "memoryLimit": 256,

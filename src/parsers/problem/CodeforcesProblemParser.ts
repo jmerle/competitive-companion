@@ -25,7 +25,7 @@ export class CodeforcesProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Codeforces').setUrl(url);
 
     if (url.includes('/problemsets/acmsguru')) {
       const elem = htmlToElement(html);
@@ -47,7 +47,7 @@ export class CodeforcesProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
-    task.setGroup(elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]').textContent.trim());
+    task.setCategory(elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]').textContent.trim());
 
     const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];
     const isInteractive = [...elem.querySelectorAll('.section-title')].some(
@@ -97,7 +97,7 @@ export class CodeforcesProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problemindexholder h3').textContent.trim());
-    task.setGroup('Codeforces - acm.sgu.ru archive');
+    task.setCategory('acm.sgu.ru archive');
 
     task.setTimeLimit(parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000);
     task.setMemoryLimit(Math.floor(parseInt(/memory limit per test: (\d+)\s+ KB/.exec(html)[1], 10) / 1000));
@@ -115,7 +115,7 @@ export class CodeforcesProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problemindexholder h4').textContent.trim());
-    task.setGroup('Codeforces - acm.sgu.ru archive');
+    task.setCategory('acm.sgu.ru archive');
 
     task.setTimeLimit(parseFloat(/Time limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000);
 

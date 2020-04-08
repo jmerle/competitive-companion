@@ -10,12 +10,11 @@ export class SSOIERProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('SSOIER').setUrl(url);
 
     const container = elem.querySelector('td.pcontent');
 
     task.setName(container.querySelector('h3').textContent);
-    task.setGroup('SSOIER');
 
     const limitsStr = container.querySelector('font').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1], 10));

@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "LCM Sum",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - SPOJ",
     "url": "https://vjudge.net/problem/SPOJ-LCMSUM",
     "interactive": false,
     "memoryLimit": 1572,

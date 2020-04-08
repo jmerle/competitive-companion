@@ -3,7 +3,7 @@
   "parser": "problem/EOlympProblemParser",
   "result": {
     "name": "Two factors",
-    "group": "E-Olymp - Problems",
+    "group": "E-Olymp",
     "url": "https://www.e-olymp.com/en/problems/5",
     "interactive": false,
     "memoryLimit": 128,

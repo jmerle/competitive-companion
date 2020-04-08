@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "K-based Numbers",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - URAL",
     "url": "https://vjudge.net/problem/URAL-1009",
     "interactive": false,
     "memoryLimit": 65,

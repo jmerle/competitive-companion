@@ -24,10 +24,9 @@ export class URIOnlineJudgeProblemParser extends Parser {
 
   private parseFullscreen(url: string, html: string): Sendable {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('URI Online Judge').setUrl(url);
 
     task.setName(elem.querySelector('.header > h1').textContent);
-    task.setGroup('URI Online Judge');
 
     elem.querySelectorAll('table').forEach(table => {
       const columns = table.querySelectorAll('tbody > tr > td');

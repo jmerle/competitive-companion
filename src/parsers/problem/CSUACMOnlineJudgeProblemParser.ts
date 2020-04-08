@@ -14,7 +14,7 @@ export class CSUACMOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('CSU-ACM Online Judge').setUrl(url);
 
     const main = elem.querySelector('main');
 
@@ -27,10 +27,9 @@ export class CSUACMOnlineJudgeProblemParser extends Parser {
       const contest = main.querySelector('h1').textContent;
 
       task.setName(name);
-      task.setGroup(`CSU-ACM Online Judge - ${contest}`);
+      task.setCategory(contest);
     } else {
       task.setName(main.querySelector('a').textContent.trim());
-      task.setGroup('CSU-ACM Online Judge');
     }
 
     const mainStr = main.textContent;

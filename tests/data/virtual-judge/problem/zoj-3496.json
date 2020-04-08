@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Assignment",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - ZOJ",
     "url": "https://vjudge.net/problem/ZOJ-3496",
     "interactive": false,
     "memoryLimit": 65,

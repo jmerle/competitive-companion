@@ -19,11 +19,11 @@ export class USACOProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('USACO').setUrl(url);
 
     const headers = elem.querySelectorAll('.panel > h2');
     task.setName(headers[1].textContent.trim());
-    task.setGroup(headers[0].textContent.trim());
+    task.setCategory(headers[0].textContent.trim());
 
     task.setInput({
       fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],

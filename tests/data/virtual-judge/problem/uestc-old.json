@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Nearby Cows",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - UESTC_old",
     "url": "https://vjudge.net/problem/UESTC_old-1629",
     "interactive": false,
     "memoryLimit": 65,

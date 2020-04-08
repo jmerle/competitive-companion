@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Minimum palindrome",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - UESTC",
     "url": "https://vjudge.net/problem/UESTC-819",
     "interactive": false,
     "memoryLimit": 0,

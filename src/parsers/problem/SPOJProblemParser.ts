@@ -10,12 +10,12 @@ export class SPOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('SPOJ').setUrl(url);
 
     task.setName(elem.querySelector('#problem-name').textContent.split(' - ')[1]);
 
     const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
-    task.setGroup('SPOJ - ' + breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1));
+    task.setCategory(breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1));
 
     const blocks: Element[] = [];
     let current: Element = elem.querySelector('#problem-body').children[0];

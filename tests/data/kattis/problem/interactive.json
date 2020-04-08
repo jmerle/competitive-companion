@@ -3,7 +3,7 @@
   "parser": "problem/KattisProblemParser",
   "result": {
     "name": "Guess the Number",
-    "group": "Kattis Archive",
+    "group": "Kattis",
     "url": "https://open.kattis.com/problems/guess",
     "interactive": true,
     "memoryLimit": 1024,

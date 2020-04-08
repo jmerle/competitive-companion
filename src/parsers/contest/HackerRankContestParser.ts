@@ -27,10 +27,12 @@ export class HackerRankContestParser extends Parser {
 
     for (let i = 0; i < models.length; i++) {
       const model = models[i];
-      const task = new TaskBuilder().setUrl(links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'));
+      const task = new TaskBuilder('HackerRank').setUrl(
+        links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'),
+      );
 
       task.setName(model.name);
-      task.setGroup('HackerRank - ' + model.primary_contest.name);
+      task.setCategory(model.primary_contest.name);
 
       new HackerRankProblemParser().parseTests(model.body_html, task);
 

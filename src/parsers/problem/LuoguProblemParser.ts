@@ -10,10 +10,9 @@ export class LuoguProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Luogu').setUrl(url);
 
     task.setName(elem.querySelector('.header > h1').textContent);
-    task.setGroup('Luogu Online Judge');
 
     const timeLimitStr = document.querySelector('.stat > .field:nth-last-child(2) > .value').textContent;
     task.setTimeLimit(parseFloat(timeLimitStr) * (timeLimitStr.endsWith('ms') ? 1 : 1000));

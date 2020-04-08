@@ -1,9 +1,9 @@
 {
   "url": "http://acm.hdu.edu.cn/showproblem.php?pid=1000",
-  "parser": "problem/HDUOnlineJudgeProblemParser",
+  "parser": "problem/HDOJProblemParser",
   "result": {
     "name": "A + B Problem",
-    "group": "HDU Online Judge",
+    "group": "HDOJ",
     "url": "http://acm.hdu.edu.cn/showproblem.php?pid=1000",
     "interactive": false,
     "memoryLimit": 65,

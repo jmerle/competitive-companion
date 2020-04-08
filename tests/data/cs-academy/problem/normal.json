@@ -4,7 +4,7 @@
   "before": "beforeCSAcademy",
   "result": {
     "name": "Addition",
-    "group": "CSAcademy",
+    "group": "CS Academy",
     "url": "https://csacademy.com/contest/archive/task/addition/",
     "interactive": false,
     "memoryLimit": 128,

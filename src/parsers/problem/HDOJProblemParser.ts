@@ -3,19 +3,18 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class HDUOnlineJudgeProblemParser extends Parser {
+export class HDOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['http://acm.hdu.edu.cn/showproblem.php*', 'http://acm.hdu.edu.cn/contests/contest_showproblem.php*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('HDOJ').setUrl(url);
 
     const contentElem = elem.querySelector('tr:nth-child(4)') || elem.querySelector('#contest_nav + div');
 
     task.setName(contentElem.querySelector('h1').textContent);
-    task.setGroup('HDU Online Judge');
 
     task.setTimeLimit(parseInt(/Time Limit: (\d+)/.exec(html)[1], 10));
     task.setMemoryLimit(Math.floor(parseInt(/Memory Limit: (\d+)/.exec(html)[1], 10) / 1000));

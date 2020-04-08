@@ -10,12 +10,14 @@ export class KattisProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Kattis').setUrl(url);
 
     task.setName(elem.querySelector('h1').innerHTML.replace(/<br>/, ' - '));
 
     const contestNode = elem.querySelector('h2.title');
-    task.setGroup(contestNode !== null ? contestNode.textContent : 'Kattis Archive');
+    if (contestNode !== null) {
+      task.setCategory(contestNode.textContent);
+    }
 
     task.setInteractive([...elem.querySelectorAll('h2')].some(el => (el as any).textContent === 'Interaction'));
 

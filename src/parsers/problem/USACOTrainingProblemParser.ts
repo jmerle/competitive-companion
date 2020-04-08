@@ -10,7 +10,7 @@ export class USACOTrainingProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('USACO').setUrl(url);
 
     const taskId = [...elem.querySelectorAll('h3')]
       .find(el => el.textContent.includes('PROGRAM NAME'))
@@ -33,7 +33,7 @@ export class USACOTrainingProblemParser extends Parser {
       .map(el => el.textContent.trim());
 
     task.setName(names[0] || 'Unknown');
-    task.setGroup('USACO Training');
+    task.setCategory('Training');
 
     const input = [...elem.querySelectorAll('h3')].find(el => el.textContent.includes('SAMPLE INPUT'))
       .nextElementSibling.textContent;

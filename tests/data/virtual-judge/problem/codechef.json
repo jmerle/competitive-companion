@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Children Trips",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - CodeChef",
     "url": "https://vjudge.net/problem/CodeChef-TRIPS",
     "interactive": false,
     "memoryLimit": 1024,

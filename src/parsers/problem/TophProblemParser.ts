@@ -10,10 +10,9 @@ export class TophProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Toph').setUrl(url);
 
     task.setName(elem.querySelector('.artifact h1').textContent);
-    task.setGroup('Toph');
 
     const limitsStr = elem.querySelector('.limits').textContent;
 

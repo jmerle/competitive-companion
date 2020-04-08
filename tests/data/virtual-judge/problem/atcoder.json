@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Restoring Road Network",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - AtCoder",
     "url": "https://vjudge.net/problem/AtCoder-3535",
     "interactive": false,
     "memoryLimit": 262,

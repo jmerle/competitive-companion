@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Rikka with String",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - HihoCoder",
     "url": "https://vjudge.net/problem/HihoCoder-1413",
     "interactive": false,
     "memoryLimit": 262,

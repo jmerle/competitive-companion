@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Strange Card Game",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - OpenJ_POJ",
     "url": "https://vjudge.net/problem/OpenJ_POJ-C16F",
     "interactive": false,
     "memoryLimit": 262,

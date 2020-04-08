@@ -27,10 +27,12 @@ export class CodeChefContestParser extends Parser {
 
     for (let i = 0; i < models.length; i++) {
       const model = models[i];
-      const task = new TaskBuilder().setUrl(links[i].replace('www.codechef.com/api/contests/', 'www.codechef.com/'));
+      const task = new TaskBuilder('CodeChef').setUrl(
+        links[i].replace('www.codechef.com/api/contests/', 'www.codechef.com/'),
+      );
 
       task.setName(model.problem_name);
-      task.setGroup('CodeChef - ' + model.contest_name);
+      task.setCategory(model.contest_name);
 
       task.setInteractive(html.includes('This is an interactive problem'));
 

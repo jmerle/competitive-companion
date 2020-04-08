@@ -10,10 +10,10 @@ export class CSESProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('CSES').setUrl(url);
 
     task.setName(elem.querySelector('.title-block > h1').textContent);
-    task.setGroup(elem.querySelector('.title-block > h3 > a').textContent);
+    task.setCategory(elem.querySelector('.title-block > h3 > a').textContent);
 
     const limitsStr = elem.querySelector('.task-constraints').textContent;
     task.setTimeLimit(parseFloat(/([0-9.]+) s/.exec(limitsStr)[1]) * 1000);

@@ -10,10 +10,9 @@ export class CSAcademyProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('CS Academy').setUrl(url);
 
     task.setName(elem.querySelector('h1').textContent);
-    task.setGroup('CSAcademy');
 
     task.setInteractive(elem.querySelector('span[title="This task is interactive"]') !== null);
 

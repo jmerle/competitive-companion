@@ -10,12 +10,12 @@ export class HackerRankProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('HackerRank').setUrl(url);
 
     task.setName(elem.querySelector('h1.page-label, h2.hr_tour-challenge-name').textContent.trim());
 
     const breadCrumbs = [...elem.querySelectorAll('.breadcrumb-item-text')].map(el => el.textContent);
-    task.setGroup(['HackerRank', ...breadCrumbs.slice(1, -1)].join(' - '));
+    task.setCategory(breadCrumbs.slice(1, -1).join(' - '));
 
     this.parseTests(html, task);
 

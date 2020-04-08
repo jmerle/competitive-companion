@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Graph Cutting",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - CodeForces",
     "url": "https://vjudge.net/problem/CodeForces-406C",
     "interactive": false,
     "memoryLimit": 262,

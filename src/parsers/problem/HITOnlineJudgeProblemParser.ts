@@ -10,12 +10,11 @@ export class HITOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('HIT Online Judge').setUrl(url);
 
     const main = elem.querySelector('.ant-layout-content');
 
     task.setName(main.querySelector('h2').textContent);
-    task.setGroup('HIT Online Judge');
 
     const mainStr = main.textContent;
     task.setTimeLimit(parseInt(/Time limit : (\d+) s/.exec(mainStr)[1], 10) * 1000);

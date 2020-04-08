@@ -14,12 +14,11 @@ export class JutgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('Jutge').setUrl(url);
 
     const name = elem.querySelector('h1.my-trim').textContent.trim().split('\n')[0];
 
     task.setName(name);
-    task.setGroup('Jutge');
     task.setInteractive(name.includes('(Interactivo)'));
 
     const blocks = elem.querySelectorAll('.list-group-item pre');

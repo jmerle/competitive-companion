@@ -14,12 +14,11 @@ export class ACMPProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder().setUrl(url);
+    const task = new TaskBuilder('ACMP').setUrl(url);
 
     const main = elem.querySelector('tr[valign="top"] > td[background="/images/notepad2.gif"]');
 
     task.setName(main.querySelector('h1').textContent);
-    task.setGroup('ACMP');
 
     const limitsStr = main.querySelector('center > i').textContent;
     const limits = /: (\d+).*: (\d+).*: (\d+)/.exec(limitsStr);

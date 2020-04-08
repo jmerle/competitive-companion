@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Integer Sequences",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - SGU",
     "url": "https://vjudge.net/problem/SGU-140",
     "interactive": false,
     "memoryLimit": 4,

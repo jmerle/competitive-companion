@@ -27,12 +27,11 @@ export class QDUOJContestParser extends Parser {
 
     for (let i = 0; i < links.length; i++) {
       const data = JSON.parse(bodies[i]).data;
-      const task = new TaskBuilder();
+      const task = new TaskBuilder(elem.querySelector('.logo > span').textContent);
 
       task.setUrl(`https://qduoj.com/contest/${data.contest}/problem/${data._id}`);
 
       task.setName(data.title);
-      task.setGroup(elem.querySelector('.logo > span').textContent);
 
       task.setTimeLimit(data.time_limit);
       task.setMemoryLimit(data.memory_limit);

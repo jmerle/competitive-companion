@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Get The Treasury",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - HDU",
     "url": "https://vjudge.net/problem/HDU-3642",
     "interactive": false,
     "memoryLimit": 32,

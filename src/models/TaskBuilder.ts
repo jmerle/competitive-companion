@@ -9,6 +9,9 @@ const cyrillicToLatin = new CyrillicToTranslit();
 
 export class TaskBuilder {
   public name: string = '';
+
+  public judge: string = '';
+  public category: string = '';
   public group: string = '';
 
   public url: string = '';
@@ -30,9 +33,19 @@ export class TaskBuilder {
     },
   };
 
+  public constructor(judge: string) {
+    this.judge = judge;
+    this.updateGroupFromJudgeCategory();
+  }
+
   public setName(name: string): TaskBuilder {
     this.name = name;
-    return this.setJavaTaskClassFromName();
+    return this.updateJavaTaskClassFromName();
+  }
+
+  public setCategory(category: string): TaskBuilder {
+    this.category = category;
+    return this.updateGroupFromJudgeCategory();
   }
 
   public setGroup(group: string): TaskBuilder {
@@ -57,11 +70,6 @@ export class TaskBuilder {
 
   public setTimeLimit(timeLimit: number): TaskBuilder {
     this.timeLimit = timeLimit;
-    return this;
-  }
-
-  public setTests(tests: Test[]): TaskBuilder {
-    this.tests = tests;
     return this;
   }
 
@@ -95,7 +103,7 @@ export class TaskBuilder {
     return this;
   }
 
-  public setJavaTaskClassFromName(): TaskBuilder {
+  public updateJavaTaskClassFromName(): TaskBuilder {
     const latin = cyrillicToLatin.transform(this.name);
     const name = latin.replace(/[^a-zA-Z0-9_ -]/g, '');
 
@@ -115,6 +123,17 @@ export class TaskBuilder {
     }
 
     return this.setJavaTaskClass(taskClass || 'Task');
+  }
+
+  public updateGroupFromJudgeCategory(): TaskBuilder {
+    // tslint:disable-next-line:prefer-conditional-expression
+    if (typeof this.category === 'string' && this.category.trim().length > 0) {
+      this.group = `${this.judge} - ${this.category}`;
+    } else {
+      this.group = this.judge;
+    }
+
+    return this;
   }
 
   public build(): Task {

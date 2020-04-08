@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Hide That Number",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - EOlymp",
     "url": "https://vjudge.net/problem/EOlymp-1626",
     "interactive": false,
     "memoryLimit": 65,

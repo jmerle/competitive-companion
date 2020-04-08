@@ -3,7 +3,7 @@
   "parser": "problem/CodeforcesProblemParser",
   "result": {
     "name": "G. Оборона крепости",
-    "group": "Educational Codeforces Round 40 (рейтинговый для Див. 2)",
+    "group": "Codeforces - Educational Codeforces Round 40 (рейтинговый для Див. 2)",
     "url": "https://codeforces.com/problemset/problem/954/G?locale=ru",
     "interactive": false,
     "memoryLimit": 256,

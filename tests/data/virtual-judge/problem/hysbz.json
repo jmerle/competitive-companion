@@ -3,7 +3,7 @@
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Kuglarz",
-    "group": "Virtual Judge",
+    "group": "Virtual Judge - HYSBZ",
     "url": "https://vjudge.net/problem/HYSBZ-3714",
     "interactive": false,
     "memoryLimit": 131,
