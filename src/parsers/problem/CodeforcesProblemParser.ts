@@ -47,7 +47,7 @@ export class CodeforcesProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
-    task.setGroup(elem.querySelector('.rtable > tbody > tr > th').textContent.trim());
+    task.setGroup(elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]').textContent.trim());
 
     const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];
     const isInteractive = [...elem.querySelectorAll('.section-title')].some(

@@ -1,6 +1,6 @@
 # 2.15.0 - TBD
 - Added a parser for mrJudge
-- Fixed the Luogu parser
+- Fixed the Luogu and the Codeforces parser
 - Removed the A2OJ parser
 
 # 2.14.0 - April 6th, 2020

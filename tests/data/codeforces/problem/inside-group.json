@@ -1,0 +1,35 @@
+{
+  "url": "https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/A?locale=en",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "A. Create A New String",
+    "group": "Sheet #4 (Strings)",
+    "url": "https://codeforces.com/group/MWSDmqGsZm/contest/219856/problem/A?locale=en",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "LEVEL\nONE\n",
+        "output": "5 3\nLEVEL ONE\n"
+      },
+      {
+        "input": "Programming\ncontest\n",
+        "output": "11 7\nProgramming contest\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ACreateANewString"
+      }
+    }
+  }
+}
