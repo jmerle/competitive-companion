@@ -13,6 +13,7 @@ export class CodeforcesContestParser extends ContestParser {
       'https://codeforces.com/contest/*',
       'https://codeforces.com/gym/*',
       'https://codeforces.com/group/*/contest/*',
+      'https://codeforces.com/edu/course/*/lesson/*/*/practice',
     ].forEach(pattern => {
       patterns.push(pattern);
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
@@ -25,6 +26,9 @@ export class CodeforcesContestParser extends ContestParser {
   }
 
   public getRegularExpressions(): RegExp[] {
-    return [/^https?:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)(\?.*)?$/];
+    return [
+      /^https?:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)(\?.*)?$/,
+      /^https?:\/\/codeforces[.]com\/edu\/course\/\d+\/lesson\/\d+\/\d+\/practice(\?.*)?$/,
+    ];
   }
 }
