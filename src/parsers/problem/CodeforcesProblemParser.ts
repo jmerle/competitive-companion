@@ -48,9 +48,14 @@ export class CodeforcesProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
-    const category =
-      elem.querySelector('.eduCoursePath') || elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]');
-    task.setCategory(category.textContent.trim());
+
+    if (window.location.pathname.startsWith('/edu')) {
+      const breadcrumbs = [...elem.querySelectorAll('.eduBreadcrumb > a')].map(el => el.textContent.trim());
+      breadcrumbs.pop();
+      task.setCategory(breadcrumbs.join(' - '));
+    } else {
+      task.setCategory(elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]').textContent.trim());
+    }
 
     const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];
     const isInteractive = [...elem.querySelectorAll('.section-title')].some(
