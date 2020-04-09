@@ -13,6 +13,7 @@ export class CodeforcesProblemParser extends Parser {
       'https://codeforces.com/gym/*/problem/*',
       'https://codeforces.com/group/*/contest/*/problem/*',
       'https://codeforces.com/problemsets/acmsguru/problem/*/*',
+      'https://codeforces.com/edu/course/*/lesson/*/*/practice/contest/*/problem/*',
     ].forEach(pattern => {
       patterns.push(pattern);
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
@@ -47,7 +48,9 @@ export class CodeforcesProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
-    task.setCategory(elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]').textContent.trim());
+    const category =
+      elem.querySelector('.eduCoursePath') || elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]');
+    task.setCategory(category.textContent.trim());
 
     const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];
     const isInteractive = [...elem.querySelectorAll('.section-title')].some(
