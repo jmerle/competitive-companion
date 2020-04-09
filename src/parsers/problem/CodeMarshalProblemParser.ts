@@ -16,6 +16,10 @@ export class CodeMarshalProblemParser extends Parser {
 
     task.setName(content.querySelector('div.h1').textContent);
 
+    if (elem.querySelector('.panel-contest-timer') !== null) {
+      task.setCategory(elem.querySelector('.panel-contest-timer > .panel-heading > h3').textContent.trim());
+    }
+
     const scoreCpuTimeMemory = content.querySelector('p:first-of-type').textContent;
 
     let memory = scoreCpuTimeMemory.substr(scoreCpuTimeMemory.indexOf('Memory: ') + 'Memory: '.length);

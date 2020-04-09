@@ -2,7 +2,7 @@
 const snarkdown = require('snarkdown');
 
 export function htmlToElement(html: string): Element {
-  return new DOMParser().parseFromString(html, 'text/html').body;
+  return new DOMParser().parseFromString(html, 'text/html').documentElement;
 }
 
 export function markdownToHtml(markdown: string): string {

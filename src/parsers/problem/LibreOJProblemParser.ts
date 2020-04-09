@@ -14,6 +14,10 @@ export class LibreOJProblemParser extends Parser {
 
     task.setName(elem.querySelector('.ui.header').textContent.trim());
 
+    if (url.includes('contest/')) {
+      task.setCategory(elem.querySelector('title').text.split('-')[1].trim());
+    }
+
     const timeLimitStr = elem.querySelector('.row > .ui.label:nth-child(2)').textContent;
     task.setTimeLimit(parseFloat(timeLimitStr.split('：')[1]));
 

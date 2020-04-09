@@ -38,18 +38,18 @@ export class CodeforcesProblemParser extends Parser {
         this.parseAcmSguRuProblemNotInsideTable(html, task);
       }
     } else {
-      this.parseMainProblem(html, task);
+      this.parseMainProblem(html, url, task);
     }
 
     return task.build();
   }
 
-  private parseMainProblem(html: string, task: TaskBuilder): void {
+  private parseMainProblem(html: string, url: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
 
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
 
-    if (window.location.pathname.startsWith('/edu')) {
+    if (url.includes('/edu/')) {
       const breadcrumbs = [...elem.querySelectorAll('.eduBreadcrumb > a')].map(el => el.textContent.trim());
       breadcrumbs.pop();
       task.setCategory(breadcrumbs.join(' - '));

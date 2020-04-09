@@ -36,7 +36,7 @@ async function parse(parser: Parser): Promise<void> {
   });
 
   try {
-    const sendable = await parser.parse(window.location.href, document.body.innerHTML);
+    const sendable = await parser.parse(window.location.href, document.documentElement.outerHTML);
     await sendable.send();
   } catch (err) {
     // tslint:disable-next-line no-console

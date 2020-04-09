@@ -13,18 +13,25 @@ export class URIOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
+    const task = new TaskBuilder('URI Online Judge').setUrl(url);
+
+    if (url.includes('challenges/')) {
+      const title = elem.querySelector('title').textContent.trim();
+      task.setCategory(title.split(' - ')[1]);
+    } else {
+      task.setCategory(elem.querySelector('#problem-menu > a:last-child').textContent.trim());
+    }
 
     if (elem.querySelector('#description-html') !== null) {
       const link = elem.querySelector<HTMLLinkElement>('ul.information > li:nth-child(2) > a').href;
       html = await this.fetch(link);
     }
 
-    return this.parseFullscreen(url, html);
+    return this.parseFullscreen(task, html);
   }
 
-  private parseFullscreen(url: string, html: string): Sendable {
+  private parseFullscreen(task: TaskBuilder, html: string): Sendable {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('URI Online Judge').setUrl(url);
 
     task.setName(elem.querySelector('.header > h1').textContent);
 

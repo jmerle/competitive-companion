@@ -3,7 +3,7 @@
   "parser": "problem/URIOnlineJudgeProblemParser",
   "result": {
     "name": "Extremely Basic",
-    "group": "URI Online Judge",
+    "group": "URI Online Judge - Beginner",
     "url": "https://www.urionlinejudge.com.br/judge/en/problems/view/1001",
     "interactive": false,
     "memoryLimit": 1024,

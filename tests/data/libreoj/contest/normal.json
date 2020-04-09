@@ -4,7 +4,7 @@
   "result": [
     {
       "name": "A. 签到游戏",
-      "group": "LibreOJ",
+      "group": "LibreOJ - LibreOJ NOI Round #2 Day 2",
       "url": "https://loj.ac/contest/40/problem/1",
       "interactive": false,
       "memoryLimit": 256,
@@ -31,7 +31,7 @@
     },
     {
       "name": "B. 简单算术",
-      "group": "LibreOJ",
+      "group": "LibreOJ - LibreOJ NOI Round #2 Day 2",
       "url": "https://loj.ac/contest/40/problem/2",
       "interactive": false,
       "memoryLimit": 512,
@@ -58,7 +58,7 @@
     },
     {
       "name": "C. 小球进洞",
-      "group": "LibreOJ",
+      "group": "LibreOJ - LibreOJ NOI Round #2 Day 2",
       "url": "https://loj.ac/contest/40/problem/3",
       "interactive": false,
       "memoryLimit": 512,

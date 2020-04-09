@@ -13,7 +13,7 @@ export class HackerEarthCodeArenaParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const task = (await this.problemParser.parse(url, html)) as Task;
 
-    const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(window.location.href)[1];
+    const id = /^https:\/\/www[.]hackerearth[.]com\/codearena\/ring\/(.*)\/(\?(.*))?$/.exec(url)[1];
     task.name = `CodeArena ${id}`;
     task.group = 'HackerEarth - CodeArena';
 
