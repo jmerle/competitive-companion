@@ -1,6 +1,7 @@
 # 2.15.0 - TBD
 - Changed the format of the "group" key in the extracted problem data so that it is consistent across parsers
 - Added a parser for mrJudge
+- Added support for educational courses on Codeforces (thanks [@PloadyFree](https://github.com/PloadyFree))
 - Fixed the Luogu and the Codeforces parser
 - Removed the A2OJ parser
 
