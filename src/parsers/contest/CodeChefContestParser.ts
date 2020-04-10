@@ -36,7 +36,7 @@ export class CodeChefContestParser extends Parser {
 
       task.setInteractive(html.includes('This is an interactive problem'));
 
-      const body = markdownToHtml(model.body);
+      const body = markdownToHtml(model.body.replace(/(\r\n)/g, '\n'));
       new CodeChefProblemParser().parseTests(body, task);
 
       task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);
