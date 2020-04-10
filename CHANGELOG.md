@@ -1,5 +1,5 @@
-# 2.15.0 - TBD
-- Changed the format of the "group" key in the extracted problem data so that it is consistent across parsers
+# 2.15.0 - April 10th, 2020
+- Made the format of the "group" key in the extracted problem data consistent across parsers
 - Added a parser for mrJudge
 - Added support for educational courses on Codeforces (thanks [@PloadyFree](https://github.com/PloadyFree))
 - Fixed the Luogu, Codeforces and CodeChef parsers
