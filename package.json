@@ -1,7 +1,7 @@
 {
   "name": "competitive-companion",
   "productName": "Competitive Companion",
-  "version": "2.14.0",
+  "version": "2.15.0",
   "description": "Parses programming problems and sends them to various tools like CHelper and Hightail.",
   "repository": "https://github.com/jmerle/competitive-companion",
   "author": "Jasper van Merle",
