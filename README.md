@@ -22,60 +22,59 @@ A browser extension which parses programming problems from various online judges
 - Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
-| Website               | Problem parser | Contest parser |
-|-----------------------|----------------|----------------|
-| ACMP                  | ✔              |                |
-| AtCoder               | ✔              | ✔              |
-| Baekjoon Online Judge | ✔              | ✔              |
-| Bloomberg CodeCon     | ✔              |                |
-| CodeChef              | ✔              | ✔              |
-| Codeforces            | ✔              | ✔              |
-| CodeMarshal           | ✔              | ✔              |
-| COJ                   | ✔              | ✔              |
-| CS Academy            | ✔              |                |
-| CSES                  | ✔              | ✔              |
-| CSU-ACM Online Judge  | ✔              | ✔              |
-| DevSkill              | ✔              | ✔              |
-| DMOJ                  | ✔              | ✔              |
-| E-Olymp               | ✔              | ✔              |
-| ECNU Online Judge     | ✔              | ✔              |
-| Facebook Hacker Cup   | ✔              |                |
-| FZU Online Judge      | ✔              | ✔              |
-| Google Code Jam (new) | ✔              |                |
-| Google Code Jam (old) |                | ✔              |
-| Google Kick Start     | ✔              |                |
-| HackerEarth           | ✔              | ✔              |
-| HackerRank            | ✔              | ✔              |
-| HDOJ                  | ✔              | ✔              |
-| HIT Online Judge      | ✔              |                |
-| hihoCoder             | ✔              | ✔              |
-| Hrbust Online Judge   | ✔              |                |
-| ICPC Live Archive     | ✔              |                |
-| Jutge                 | ✔              |                |
-| Kattis                | ✔              | ✔              |
-| LibreOJ               | ✔              | ✔              |
-| LightOJ               | ✔              | ✔              |
-| Luogu                 | ✔              |                |
-| mrJudge               | ✔              |                |
-| MSK Informatics       | ✔              |                |
-| NowCoder              | ✔              |                |
-| NYTD Online Judge     | ✔              | ✔              |
-| omegaUp               | ✔              |                |
-| Panda Online Judge    | ✔              |                |
-| PEG Judge             | ✔              | ✔              |
-| POJ                   | ✔              | ✔              |
-| QDUOJ                 | ✔              | ✔              |
-| SPOJ                  | ✔              |                |
-| SSOIER                | ✔              |                |
-| Timus                 | ✔              | ✔              |
-| Toph                  | ✔              |                |
-| UOJ                   | ✔              | ✔              |
-| URI Online Judge      | ✔              | ✔              |
-| USACO                 | ✔              |                |
-| USACO Training        | ✔              |                |
-| UVa Online Judge      | ✔              |                |
-| Virtual Judge         | ✔              |                |
-| Yandex                | ✔              |                |
+| Website                    | Problem parser | Contest parser |
+| -------------------------- | -------------- | -------------- |
+| ACMP                       | ✔              |                |
+| AtCoder                    | ✔              | ✔              |
+| Baekjoon Online Judge      | ✔              | ✔              |
+| Bloomberg CodeCon          | ✔              |                |
+| CodeChef                   | ✔              | ✔              |
+| Codeforces                 | ✔              | ✔              |
+| CodeMarshal                | ✔              | ✔              |
+| COJ                        | ✔              | ✔              |
+| CS Academy                 | ✔              |                |
+| CSES                       | ✔              | ✔              |
+| CSU-ACM Online Judge       | ✔              | ✔              |
+| DevSkill                   | ✔              | ✔              |
+| DMOJ                       | ✔              | ✔              |
+| E-Olymp                    | ✔              | ✔              |
+| ECNU Online Judge          | ✔              | ✔              |
+| Facebook Hacker Cup        | ✔              |                |
+| FZU Online Judge           | ✔              | ✔              |
+| Google Coding Competitions | ✔              |                |
+| HackerEarth                | ✔              | ✔              |
+| HackerRank                 | ✔              | ✔              |
+| HDOJ                       | ✔              | ✔              |
+| HIT Online Judge           | ✔              |                |
+| hihoCoder                  | ✔              | ✔              |
+| Hrbust Online Judge        | ✔              |                |
+| ICPC Live Archive          | ✔              |                |
+| Jutge                      | ✔              |                |
+| Kattis                     | ✔              | ✔              |
+| LibreOJ                    | ✔              | ✔              |
+| LightOJ                    | ✔              | ✔              |
+| Luogu                      | ✔              |                |
+| mrJudge                    | ✔              |                |
+| MSK Informatics            | ✔              |                |
+| NowCoder                   | ✔              |                |
+| NYTD Online Judge          | ✔              | ✔              |
+| Old Google Code Jam        |                | ✔              |
+| omegaUp                    | ✔              |                |
+| Panda Online Judge         | ✔              |                |
+| PEG Judge                  | ✔              | ✔              |
+| POJ                        | ✔              | ✔              |
+| QDUOJ                      | ✔              | ✔              |
+| SPOJ                       | ✔              |                |
+| SSOIER                     | ✔              |                |
+| Timus                      | ✔              | ✔              |
+| Toph                       | ✔              |                |
+| UOJ                        | ✔              | ✔              |
+| URI Online Judge           | ✔              | ✔              |
+| USACO                      | ✔              |                |
+| USACO Training             | ✔              |                |
+| UVa Online Judge           | ✔              |                |
+| Virtual Judge              | ✔              |                |
+| Yandex                     | ✔              |                |
 
 ## Custom tools
 Competitive Companion can send the parsed data in JSON format to your own tools. An example on how to accomplish this can be found [here](https://github.com/jmerle/competitive-companion-example).
