@@ -64,17 +64,15 @@ export class CodeforcesProblemParser extends Parser {
 
     task.setInteractive(isInteractive);
 
-    const timeLimitStr = elem
-      .querySelector('.problem-statement > .header > .time-limit')
-      .childNodes[1].textContent.split(' ')[0];
+    const timeLimitNode = this.getLastChildNode(elem, '.problem-statement > .header > .time-limit');
+    const timeLimitStr = timeLimitNode.textContent.split(' ')[0];
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
-    const memoryLimitStr = elem
-      .querySelector('.problem-statement > .header > .memory-limit')
-      .childNodes[1].textContent.split(' ')[0];
+    const memoryLimitNode = this.getLastChildNode(elem, '.problem-statement > .header > .memory-limit');
+    const memoryLimitStr = memoryLimitNode.textContent.split(' ')[0];
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
-    const inputFile = elem.querySelector('.problem-statement > .header > .input-file').childNodes[1].textContent;
+    const inputFile = this.getLastChildNode(elem, '.problem-statement > .header > .input-file').textContent;
     if (inputFile !== 'standard input' && inputFile !== 'стандартный ввод') {
       task.setInput({
         fileName: inputFile,
@@ -82,7 +80,7 @@ export class CodeforcesProblemParser extends Parser {
       });
     }
 
-    const outputFile = elem.querySelector('.problem-statement > .header > .output-file').childNodes[1].textContent;
+    const outputFile = this.getLastChildNode(elem, '.problem-statement > .header > .output-file').textContent;
     if (outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
       task.setOutput({
         fileName: outputFile,
@@ -125,10 +123,10 @@ export class CodeforcesProblemParser extends Parser {
     task.setName(elem.querySelector('.problemindexholder h4').textContent.trim());
     task.setCategory('acm.sgu.ru archive');
 
-    task.setTimeLimit(parseFloat(/Time limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000);
+    task.setTimeLimit(parseFloat(/Time\s+limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000);
 
     task.setMemoryLimit(
-      Math.floor(parseInt(/Memory limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1], 10) / 1000),
+      Math.floor(parseInt(/Memory\s+limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1], 10) / 1000),
     );
 
     elem.querySelectorAll('table').forEach(table => {
@@ -141,5 +139,10 @@ export class CodeforcesProblemParser extends Parser {
         task.addTest(input, output);
       }
     });
+  }
+
+  private getLastChildNode(elem: Element, selector: string): ChildNode {
+    const nodes = elem.querySelector(selector).childNodes;
+    return nodes[nodes.length - 1];
   }
 }

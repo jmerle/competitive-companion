@@ -1,3 +1,6 @@
+# 2.15.1 - TBD
+- Fixed the Codeforces parser
+
 # 2.15.0 - April 10th, 2020
 - Made the format of the "group" key in the extracted problem data consistent across parsers
 - Added a parser for mrJudge
