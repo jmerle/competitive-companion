@@ -1,0 +1,32 @@
+{
+  "url": "https://codeforces.com/gym/101991/problem/E?locale=en",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "E. Exciting Menus",
+    "group": "Codeforces - 2018 Arab Collegiate Programming Contest (ACPC 2018)",
+    "url": "https://codeforces.com/gym/101991/problem/E?locale=en",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 4000,
+    "tests": [
+      {
+        "input": "2\n2\naabaa\naa\n0 0 0 0 100\n0 1\n4\nbbbaa\naa\naab\naax\n0 0 0 0 100\n0 0\n0 0 0\n0 0 0\n",
+        "output": "500\n600\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "fileName": "exciting.in",
+      "type": "file"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "EExcitingMenus"
+      }
+    }
+  }
+}

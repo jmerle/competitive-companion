@@ -54,7 +54,8 @@ export class CodeforcesProblemParser extends Parser {
       breadcrumbs.pop();
       task.setCategory(breadcrumbs.join(' - '));
     } else {
-      task.setCategory(elem.querySelector('.rtable > tbody > tr > th > a[href*="/contest"]').textContent.trim());
+      const contestType = url.includes('/gym/') ? 'gym' : 'contest';
+      task.setCategory(elem.querySelector(`.rtable > tbody > tr > th > a[href*=${contestType}]`).textContent.trim());
     }
 
     const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];
