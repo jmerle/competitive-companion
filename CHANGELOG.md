@@ -1,4 +1,4 @@
-# 2.15.1 - TBD
+# 2.15.1 - April 17th, 2020
 - Fixed the Codeforces parser
 
 # 2.15.0 - April 10th, 2020
