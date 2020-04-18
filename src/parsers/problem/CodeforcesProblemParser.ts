@@ -106,7 +106,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setCategory('acm.sgu.ru archive');
 
     task.setTimeLimit(parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000);
-    task.setMemoryLimit(Math.floor(parseInt(/memory limit per test: (\d+)\s+ KB/.exec(html)[1], 10) / 1000));
+    task.setMemoryLimit(Math.floor(parseInt(/memory limit per test:\s+(\d+)\s+KB/.exec(html)[1], 10) / 1000));
 
     const blocks = elem.querySelectorAll('font > pre');
     for (let i = 0; i < blocks.length; i += 2) {
