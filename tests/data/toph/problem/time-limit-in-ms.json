@@ -1,0 +1,35 @@
+{
+  "url": "https://toph.co/p/distinctness",
+  "parser": "problem/TophProblemParser",
+  "result": {
+    "name": "Distinctness",
+    "group": "Toph",
+    "url": "https://toph.co/p/distinctness",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 500,
+    "tests": [
+      {
+        "input": "abcde\n",
+        "output": "1\n3\n6\n10\n15\n"
+      },
+      {
+        "input": "zx\n",
+        "output": "1\n3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Distinctness"
+      }
+    }
+  }
+}
