@@ -16,10 +16,11 @@ export class TophProblemParser extends Parser {
 
     const limitsStr = elem.querySelector('.limits').textContent;
 
-    task.setTimeLimit(parseFloat(/([0-9.]+)s/.exec(limitsStr)[1]) * 1000);
+    const [, timeAmount, timeUnit] = /([0-9.]+)(.*),/.exec(limitsStr);
+    task.setTimeLimit(parseFloat(timeAmount) * (timeUnit === 'ms' ? 1 : 1000));
 
-    const [, amount, unit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
-    task.setMemoryLimit(parseFloat(amount) * (unit === 'MB' ? 1 : 1024));
+    const [, memoryAmount, memoryUnit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
+    task.setMemoryLimit(parseFloat(memoryAmount) * (memoryUnit === 'MB' ? 1 : 1024));
 
     elem.querySelectorAll('.table.samples').forEach(table => {
       const blocks = table.querySelectorAll('tbody > tr > td > pre');
