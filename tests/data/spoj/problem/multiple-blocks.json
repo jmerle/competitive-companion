@@ -1,0 +1,47 @@
+{
+  "url": "https://www.spoj.com/problems/ADAPHOTO/",
+  "parser": "problem/SPOJProblemParser",
+  "result": {
+    "name": "Ada and Terramorphing",
+    "group": "SPOJ - Classical",
+    "url": "https://www.spoj.com/problems/ADAPHOTO/",
+    "interactive": false,
+    "memoryLimit": 1536,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "-~^v-\n^--v\n",
+        "output": "1\n"
+      },
+      {
+        "input": "-~\n-~v^^^^^v-\n",
+        "output": "2\n"
+      },
+      {
+        "input": "~-~-v--~^\n~^--^~-v\n",
+        "output": "3\n"
+      },
+      {
+        "input": "^^^v-v^^v-v-v~v-\nvv^v-^~~^v^~^vv~^^-\n",
+        "output": "3\n"
+      },
+      {
+        "input": "~~~vv~-~~vv~v-v--~-^-~^~-^^\n~^~--v~-\n",
+        "output": "4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AdaAndTerramorphing"
+      }
+    }
+  }
+}

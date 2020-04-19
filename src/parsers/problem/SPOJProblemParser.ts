@@ -24,7 +24,7 @@ export class SPOJProblemParser extends Parser {
     while (current !== null) {
       if (isExample && current.tagName === 'PRE') {
         blocks.push(current);
-      } else if (current.textContent === 'Example') {
+      } else if (current.textContent === 'Example' || current.textContent === 'Example Input') {
         isExample = true;
       }
 
@@ -35,11 +35,13 @@ export class SPOJProblemParser extends Parser {
       const lines = blocks[0].textContent.trim().split('\n');
       const [input, output] = this.parseTestDataSingleBlock(lines);
       task.addTest(input, output);
-    } else if (blocks.length === 2) {
-      const lines1 = blocks[0].textContent.trim().split('\n');
-      const lines2 = blocks[1].textContent.trim().split('\n');
-      const [input, output] = this.parseTestDataTwoBlocks(lines1, lines2);
-      task.addTest(input, output);
+    } else {
+      for (let i = 0; i < blocks.length; i += 2) {
+        const lines1 = blocks[i].textContent.trim().split('\n');
+        const lines2 = blocks[i + 1].textContent.trim().split('\n');
+        const [input, output] = this.parseTestDataTwoBlocks(lines1, lines2);
+        task.addTest(input, output);
+      }
     }
 
     const timeElems = elem.querySelectorAll('#problem-meta > tbody > tr');
