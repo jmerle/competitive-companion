@@ -29,9 +29,9 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
     task.setInteractive(interactiveText || interactiveHeader);
 
     const blocks = container.querySelectorAll('.problem-io-wrapper pre.io-content');
-    if (blocks.length !== 0) {
-      const input = blocks[0].textContent.trim();
-      const output = blocks[1].textContent.trim();
+    for (let i = 0; i < blocks.length; i += 2) {
+      const input = blocks[i].textContent.trim();
+      const output = blocks[i + 1].textContent.trim();
 
       task.addTest(input, output);
     }
