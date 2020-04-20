@@ -1,4 +1,4 @@
-# 2.15.2 - TBD
+# 2.15.2 - April 20th, 2020
 - Fixed the Codeforces, SPOJ and Toph parsers (thanks [@PloadyFree](https://github.com/PloadyFree))
 
 # 2.15.1 - April 17th, 2020
