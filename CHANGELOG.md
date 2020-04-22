@@ -1,3 +1,6 @@
+# 2.15.3 - April 22nd, 2020
+- Fixed the Google Coding Competitions parser (thanks [@adambenali](https://github.com/adambenali))
+
 # 2.15.2 - April 20th, 2020
 - Fixed the Codeforces, SPOJ and Toph parsers (thanks [@PloadyFree](https://github.com/PloadyFree))
 
