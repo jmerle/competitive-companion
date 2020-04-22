@@ -16,7 +16,7 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Google Coding Competitions').setUrl(url);
 
-    task.setName(elem.querySelector('#problem-select-selected-text').textContent.split(' (')[0]);
+    task.setName(elem.querySelector('title').textContent.split(' - ')[0].trim());
     task.setCategory(elem.querySelector('.competition-nav p.headline-5').textContent);
 
     const container = elem.querySelector('.problem-description');
@@ -29,9 +29,9 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
     task.setInteractive(interactiveText || interactiveHeader);
 
     const blocks = container.querySelectorAll('.problem-io-wrapper pre.io-content');
-    if (blocks.length !== 0) {
-      const input = blocks[0].textContent.trim();
-      const output = blocks[1].textContent.trim();
+    for (let i = 0; i < blocks.length; i += 2) {
+      const input = blocks[i].textContent.trim();
+      const output = blocks[i + 1].textContent.trim();
 
       task.addTest(input, output);
     }
