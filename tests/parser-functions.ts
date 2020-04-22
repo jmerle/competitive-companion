@@ -40,9 +40,7 @@ export default {
   },
 
   async beforeGoogleCodingCompetitions(page: Page): Promise<void> {
-    await page.waitFor('.problems-nav-problem-btn');
-    await page.click('.problems-nav-problem-btn');
-    await page.waitFor('.problem-description');
+    await page.waitFor('.problem-io-wrapper pre.io-content');
   },
 
   async beforeOldGoogleCodeJam(page: Page): Promise<void> {
