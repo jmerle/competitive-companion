@@ -1,11 +1,16 @@
+# 2.15.4 - May 5th, 2020
+- Added Russian language support to the Timus parser (thanks [@PloadyFree](https://github.com/PloadyFree))
+
 # 2.15.3 - April 22nd, 2020
-- Fixed the Google Coding Competitions parser (thanks [@adambenali](https://github.com/adambenali))
+- Added support for multiple test cases to the Google Coding Competitions parser (thanks [@adambenali](https://github.com/adambenali))
 
 # 2.15.2 - April 20th, 2020
-- Fixed the Codeforces, SPOJ and Toph parsers (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Fixed parsing acm.sgu.ru problems in the Codeforces parser (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Added support for multiple test cases to the SPOJ parser (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Fixed parsing time limits in the Toph parser (thanks [@PloadyFree](https://github.com/PloadyFree))
 
 # 2.15.1 - April 17th, 2020
-- Fixed the Codeforces parser
+- Fixed parsing time and memory limits in the Codeforces parser
 
 # 2.15.0 - April 10th, 2020
 - Made the format of the "group" key in the extracted problem data consistent across parsers
