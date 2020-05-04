@@ -2,11 +2,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: yarn --frozen-lockfile
-  displayName: Install dependencies
+  - script: yarn --frozen-lockfile
+    displayName: Install dependencies
 
-- script: yarn lint:tslint && yarn lint:prettier
-  displayName: Lint code
+  - script: yarn lint:tslint && yarn lint:prettier
+    displayName: Lint code
 
-- script: yarn lint:package
-  displayName: Lint package
+  - script: yarn lint:package
+    displayName: Lint package

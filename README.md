@@ -1,10 +1,10 @@
 # Competitive Companion
 
 [![Build Status](https://dev.azure.com/jmerle/competitive-companion/_apis/build/status/Build?branchName=master)](https://dev.azure.com/jmerle/competitive-companion/_build/latest?definitionId=6&branchName=master)  
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
+[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)  
-[![Mozilla Add-on](https://img.shields.io/amo/v/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
+[![Mozilla Add-on Version](https://img.shields.io/amo/v/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 [![Mozilla Add-on Users](https://img.shields.io/amo/users/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 [![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)  
 
@@ -198,12 +198,12 @@ The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
 Node.js: 12.16.1  
-Yarn: 1.21.1
+Yarn: 1.22.4
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
-- [webextension-polyfill-ts 0.14.0](https://github.com/Lusito/webextension-polyfill-ts/blob/0.14.0/src/generated/index.ts)
+- [webextension-polyfill-ts 0.15.0](https://github.com/Lusito/webextension-polyfill-ts/blob/0.15.0/src/generated/index.ts)
 - [pdfjs-dist 2.3.200](https://github.com/mozilla/pdfjs-dist/blob/v2.3.200/build/pdf.js)
 - [cyrillic-to-translit-js 3.1.0](https://github.com/greybax/cyrillic-to-translit-js/blob/0dcc4bf8d310a1cbc0f088b62af923b826739b8f/CyrillicToTranslit.js)
 

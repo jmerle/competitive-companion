@@ -24,6 +24,19 @@ const config: webpack.Configuration = {
     content: path.resolve(__dirname, 'src/content.ts'),
     options: path.resolve(__dirname, 'src/options.ts'),
   },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'build/js'),
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
+  optimization: {
+    minimize: false,
+  },
+  performance: {
+    hints: false,
+  },
   module: {
     rules: [
       {
@@ -80,16 +93,6 @@ const config: webpack.Configuration = {
       },
     ],
   },
-  optimization: {
-    minimize: false,
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'build/js'),
-  },
-  performance: {
-    hints: false,
-  },
   plugins: [
     new CopyWebpackPlugin([
       {
@@ -111,9 +114,6 @@ const config: webpack.Configuration = {
       },
     ]),
   ],
-  resolve: {
-    extensions: ['.ts', '.js'],
-  },
 };
 
 export default config;
