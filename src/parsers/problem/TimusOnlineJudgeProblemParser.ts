@@ -15,8 +15,8 @@ export class TimusOnlineJudgeProblemParser extends Parser {
     task.setName(elem.querySelector('.problem_title').textContent);
 
     const limits = elem.querySelector('.problem_limits').textContent.trim();
-    task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limits)[1]) * 1000);
-    task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limits)[1], 10));
+    task.setTimeLimit(parseFloat(/([0-9.]+) (second|секунды)/.exec(limits)[1]) * 1000);
+    task.setMemoryLimit(parseInt(/(\d+) (MB|МБ)/.exec(limits)[1], 10));
 
     const source = elem.querySelector('.problem_source').textContent;
     if (/Problem Source: (.*)$/.test(source)) {
