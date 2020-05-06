@@ -22,7 +22,10 @@ export class CodeforcesProblemParser extends Parser {
     const mlPatterns = patterns.map(pattern => pattern.replace('.com', '.ml'));
     const esPatterns = patterns.map(pattern => pattern.replace('codeforces.com', 'codeforc.es'));
 
-    return patterns.concat(mlPatterns).concat(esPatterns);
+    const httpsPatterns = patterns.concat(mlPatterns).concat(esPatterns);
+    const httpPatterns = httpsPatterns.map(pattern => pattern.replace('https://', 'http://'));
+
+    return httpsPatterns.concat(httpPatterns);
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -55,7 +58,11 @@ export class CodeforcesProblemParser extends Parser {
       task.setCategory(breadcrumbs.join(' - '));
     } else {
       const contestType = url.includes('/gym/') ? 'gym' : 'contest';
-      task.setCategory(elem.querySelector(`.rtable > tbody > tr > th > a[href*=${contestType}]`).textContent.trim());
+      const titleElem = elem.querySelector(`.rtable > tbody > tr > th > a[href*=${contestType}]`);
+
+      if (titleElem !== null) {
+        task.setCategory(titleElem.textContent.trim());
+      }
     }
 
     const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];

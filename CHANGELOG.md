@@ -1,3 +1,6 @@
+# 2.15.5 - TBD
+- Fixed the Codeforces parser for the m1, m2 and m3 subdomains
+
 # 2.15.4 - May 5th, 2020
 - Added Russian language support to the Timus parser (thanks [@PloadyFree](https://github.com/PloadyFree))
 
