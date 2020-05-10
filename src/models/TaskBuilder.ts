@@ -126,7 +126,6 @@ export class TaskBuilder {
   }
 
   public updateGroupFromJudgeCategory(): TaskBuilder {
-    // tslint:disable-next-line:prefer-conditional-expression
     if (typeof this.category === 'string' && this.category.trim().length > 0) {
       this.group = `${this.judge} - ${this.category}`;
     } else {

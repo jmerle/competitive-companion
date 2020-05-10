@@ -11,13 +11,13 @@
     "build": "webpack --colors --mode=production",
     "watch": "yarn build --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
-    "lint": "yarn lint:tslint && yarn lint:prettier && yarn lint:package",
-    "lint:tslint": "tslint -p tsconfig.json -c tslint.json -t stylish",
-    "lint:prettier": "prettier-check --ignore-path .gitignore '**/*.{ts,js,html,yml,json}'",
+    "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:package",
+    "lint:eslint": "eslint --format codeframe 'src/**' 'tests/**' 'scripts/**' webpack.config.ts",
+    "lint:prettier": "prettier-check --ignore-path .gitignore '**/*.{html,yml,json}'",
     "lint:package": "yarn build && web-ext lint -s build/ -o text",
-    "fix": "yarn fix:tslint && yarn fix:prettier",
-    "fix:tslint": "yarn lint:tslint --fix",
-    "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,js,html,yml,json}'",
+    "fix": "yarn fix:eslint && yarn fix:prettier",
+    "fix:eslint": "yarn lint:eslint --fix",
+    "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{html,yml,json}'",
     "test": "jest",
     "test:no-headless": "cross-env HEADLESS=false jest",
     "test:coverage": "jest --coverage",
@@ -41,10 +41,16 @@
     "@types/node": "^13.13.5",
     "@types/node-fetch": "^2.5.7",
     "@types/puppeteer": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
     "chrome-launch": "^1.1.4",
     "concurrently": "^5.2.0",
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^7.0.2",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "jest-junit": "^10.0.0",
@@ -59,13 +65,47 @@
     "ts-jest": "^25.5.1",
     "ts-loader": "^7.0.3",
     "ts-node": "^8.10.1",
-    "tslint": "^6.1.2",
-    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3",
     "web-ext": "^4.2.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "worker-loader": "^2.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "ignorePatterns": [
+      "src/options.html"
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/explicit-member-accessibility": "error",
+      "@typescript-eslint/no-inferrable-types": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "import/order": "error",
+      "no-constant-condition": [
+        "error",
+        {
+          "checkLoops": false
+        }
+      ]
+    }
   },
   "jest": {
     "preset": "jest-puppeteer",
@@ -103,11 +143,10 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
-      "yarn lint:tslint --fix",
-      "prettier --write"
+    "*.{ts,js}": [
+      "eslint --format codeframe --fix"
     ],
-    "*.{js,html,yml,json}": [
+    "*.{html,yml,json}": [
       "prettier --write"
     ]
   },

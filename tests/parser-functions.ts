@@ -1,5 +1,3 @@
-// tslint:disable no-implicit-dependencies
-
 import { Page } from 'puppeteer';
 
 export default {

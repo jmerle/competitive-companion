@@ -8,10 +8,10 @@ export class CHelperHost implements Host {
 
       xhr.timeout = 500;
 
-      xhr.onload = () => resolve();
-      xhr.ontimeout = () => resolve();
-      xhr.onabort = () => resolve();
-      xhr.onerror = () => resolve();
+      xhr.onload = (): void => resolve();
+      xhr.ontimeout = (): void => resolve();
+      xhr.onabort = (): void => resolve();
+      xhr.onerror = (): void => resolve();
 
       try {
         xhr.send('json\n' + data);

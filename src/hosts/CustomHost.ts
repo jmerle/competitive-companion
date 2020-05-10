@@ -1,7 +1,7 @@
 import { Host } from './Host';
 
 export class CustomHost implements Host {
-  constructor(public port: number) {}
+  public constructor(public port: number) {}
 
   public send(data: string): Promise<void> {
     return new Promise(resolve => {
@@ -11,10 +11,10 @@ export class CustomHost implements Host {
 
       xhr.timeout = 500;
 
-      xhr.onload = () => resolve();
-      xhr.ontimeout = () => resolve();
-      xhr.onabort = () => resolve();
-      xhr.onerror = () => resolve();
+      xhr.onload = (): void => resolve();
+      xhr.ontimeout = (): void => resolve();
+      xhr.onabort = (): void => resolve();
+      xhr.onerror = (): void => resolve();
 
       try {
         xhr.send(data);

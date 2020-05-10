@@ -10,9 +10,9 @@ export class OmegaUpProblemParser extends Parser {
 
   public getRegularExpressions(): RegExp[] {
     return [
-      /https:\/\/omegaup\.com\/arena\/problem\/([^\/]+)/,
-      /https:\/\/omegaup\.com\/arena\/([^\/]+)\/practice\/#problems\/([^\/]+)/,
-      /https:\/\/omegaup\.com\/arena\/([^\/]+)#problems\/([^\/]+)/,
+      /https:\/\/omegaup\.com\/arena\/problem\/([^/]+)/,
+      /https:\/\/omegaup\.com\/arena\/([^/]+)\/practice\/#problems\/([^/]+)/,
+      /https:\/\/omegaup\.com\/arena\/([^/]+)#problems\/([^/]+)/,
     ];
   }
 

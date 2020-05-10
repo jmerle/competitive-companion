@@ -1,7 +1,5 @@
-// tslint:disable no-implicit-dependencies
-
-import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as path from 'path';
+import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as webpack from 'webpack';
 
 function transformManifest(content: Buffer): string {
@@ -13,6 +11,8 @@ function transformManifest(content: Buffer): string {
   manifest.description = packageData.description;
   manifest.version = packageData.version;
   manifest.author = packageData.author;
+
+  // eslint-disable-next-line @typescript-eslint/camelcase
   manifest.homepage_url = packageData.repository;
 
   return JSON.stringify(manifest, null, 2);

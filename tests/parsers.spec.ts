@@ -1,19 +1,16 @@
 /// <reference types="@types/jest" />
 /// <reference types="jest-environment-puppeteer" />
 
-// tslint:disable no-implicit-dependencies no-console
-
 import * as fs from 'fs';
+import * as path from 'path';
 import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
-import * as path from 'path';
 import { Contest } from '../src/models/Contest';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
 
 const parserFunctions = require('./parser-functions').default;
 
-// tslint:disable-next-line no-console
 console.log('Ignore the "Could not parse CSS stylesheet" errors');
 
 export interface ParserTestData {
@@ -28,38 +25,6 @@ function getWebsites(): string[] {
   const directory = path.resolve(__dirname, 'data/');
 
   return fs.readdirSync(directory).filter(file => fs.statSync(path.join(directory, file)).isDirectory());
-}
-
-function runTests(website: string, type: string): void {
-  const directory = path.resolve(__dirname, `data/${website}/${type}/`);
-
-  if (!fs.existsSync(directory)) {
-    return;
-  }
-
-  const tests: ParserTestData[] = fs
-    .readdirSync(directory)
-    .map(file => path.join(directory, file))
-    .filter(file => fs.statSync(file).isFile())
-    .map(file => {
-      const data: ParserTestData = require(file);
-
-      data.name = path.basename(file, '.json');
-
-      data.result = Array.isArray(data.result)
-        ? data.result.map((t: any) => Task.fromJSON(JSON.stringify(t)))
-        : Task.fromJSON(JSON.stringify(data.result));
-
-      return data;
-    });
-
-  describe(type, () => {
-    tests.forEach(data => {
-      test(data.name!, () => {
-        return runTest(data);
-      });
-    });
-  });
 }
 
 async function runTest(data: ParserTestData): Promise<void> {
@@ -102,6 +67,38 @@ async function runTest(data: ParserTestData): Promise<void> {
   }
 }
 
+function runTests(website: string, type: string): void {
+  const directory = path.resolve(__dirname, `data/${website}/${type}/`);
+
+  if (!fs.existsSync(directory)) {
+    return;
+  }
+
+  const tests: ParserTestData[] = fs
+    .readdirSync(directory)
+    .map(file => path.join(directory, file))
+    .filter(file => fs.statSync(file).isFile())
+    .map(file => {
+      const data: ParserTestData = require(file);
+
+      data.name = path.basename(file, '.json');
+
+      data.result = Array.isArray(data.result)
+        ? data.result.map((t: any) => Task.fromJSON(JSON.stringify(t)))
+        : Task.fromJSON(JSON.stringify(data.result));
+
+      return data;
+    });
+
+  describe(type, () => {
+    tests.forEach(data => {
+      test(data.name, () => {
+        return runTest(data);
+      });
+    });
+  });
+}
+
 jest.setTimeout(30000);
 
 beforeAll(async () => {
@@ -117,14 +114,14 @@ beforeAll(async () => {
     (global as any).window = {
       ...dom.window,
       nanoBar: {
-        go: (amount: number) => {
+        go: (): void => {
           //
         },
       },
     };
 
     (global as any).DOMParser = function (): any {
-      this.parseFromString = (source: string, mimeType: string): Document => {
+      this.parseFromString = (source: string): Document => {
         return new JSDOM(source, { url }).window.document;
       };
     };

@@ -2,7 +2,7 @@ export class Test {
   public input: string;
   public output: string;
 
-  constructor(input: string, output: string) {
+  public constructor(input: string, output: string) {
     this.input = this.correctData(input);
     this.output = this.correctData(output);
   }

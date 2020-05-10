@@ -5,7 +5,7 @@ steps:
   - script: yarn --frozen-lockfile
     displayName: Install dependencies
 
-  - script: yarn lint:tslint && yarn lint:prettier
+  - script: yarn lint:eslint && yarn lint:prettier
     displayName: Lint code
 
   - script: yarn lint:package

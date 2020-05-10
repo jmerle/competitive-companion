@@ -67,7 +67,7 @@ export abstract class Parser {
    * Fetches all the given urls using GET requests and resolves into an array of HTML bodies.
    * The resulting array is in the same order as in which the urls are given.
    */
-  protected async fetchAll(urls: string[], timeout: number = 500): Promise<string[]> {
+  protected async fetchAll(urls: string[]): Promise<string[]> {
     const results: string[] = [];
 
     for (let i = 0; i < urls.length; i++) {

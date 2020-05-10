@@ -39,7 +39,7 @@ export class Task implements Sendable {
     return task.build();
   }
 
-  constructor(
+  public constructor(
     public name: string,
     public group: string,
     public url: string,
@@ -59,13 +59,12 @@ export class Task implements Sendable {
         .get('debugMode')
         .then(isDebug => {
           if (isDebug) {
-            // tslint:disable-next-line no-console
             console.log(JSON.stringify(this, null, 4));
           }
         })
         .catch(noop);
 
-      const handleMessage = (message: Message | any, sender: Runtime.MessageSender) => {
+      const handleMessage = (message: Message | any, sender: Runtime.MessageSender): void => {
         if (sender.tab) {
           return;
         }

@@ -16,7 +16,7 @@ export async function readPdf(pdfUrl: string): Promise<string[]> {
 
     textContent.items
       .map((item: any) => item.str)
-      .map((line: string) => line.replace(/([^ ])  ([^ ])/g, '$1 $2'))
+      .map((line: string) => line.replace(/([^ ]) {2}([^ ])/g, '$1 $2'))
       .forEach((line: string) => lines.push(line));
   }
 
