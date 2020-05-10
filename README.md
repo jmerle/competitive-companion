@@ -197,7 +197,7 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 12.16.1  
+Node.js: 12.16.3  
 Yarn: 1.22.4
 
 Third-party libraries that can be found in the minified extension:  
