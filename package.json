@@ -91,7 +91,7 @@
       "node": true
     },
     "ignorePatterns": [
-      "src/options.html"
+      "*.html"
     ],
     "rules": {
       "@typescript-eslint/no-explicit-any": "off",
