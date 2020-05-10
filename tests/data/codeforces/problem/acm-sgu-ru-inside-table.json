@@ -1,17 +1,17 @@
 {
-  "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/100?locale=en",
+  "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/123?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
-    "name": "100. A+B",
+    "name": "123. The sum",
     "group": "Codeforces - acm.sgu.ru archive",
-    "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/100?locale=en",
+    "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/123?locale=en",
     "interactive": false,
-    "memoryLimit": 65,
+    "memoryLimit": 4,
     "timeLimit": 250,
     "tests": [
       {
-        "input": "5 3\n",
-        "output": "8\n"
+        "input": "5\n",
+        "output": "12\n"
       }
     ],
     "testType": "single",
@@ -24,7 +24,7 @@
     "languages": {
       "java": {
         "mainClass": "Main",
-        "taskClass": "AB"
+        "taskClass": "TheSum"
       }
     }
   }
