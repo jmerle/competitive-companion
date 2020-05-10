@@ -1,8 +1,12 @@
 import { Page } from 'puppeteer';
 
 export default {
-  async beforeAizuOnlineJudge(page: Page): Promise<void> {
-    await page.waitFor('.problemBody');
+  async beforeAizuOnlineJudgeNormal(page: Page): Promise<void> {
+    await page.waitFor('.problemBody pre');
+  },
+
+  async beforeAizuOnlineJudgeArena(page: Page): Promise<void> {
+    await page.waitFor('#description_html pre');
   },
 
   async beforeCodeChef(page: Page): Promise<void> {

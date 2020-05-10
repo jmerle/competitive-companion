@@ -8,6 +8,7 @@ export class AizuOnlineJudgeProblemParser extends Parser {
     return [
       'https://onlinejudge.u-aizu.ac.jp/challenges/sources/*/*/*',
       'https://onlinejudge.u-aizu.ac.jp/courses/lesson/*/*/*/*',
+      'https://onlinejudge.u-aizu.ac.jp/services/room.html#*/*/*',
     ];
   }
 
@@ -15,19 +16,44 @@ export class AizuOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Aizu Online Judge').setUrl(url);
 
-    task.setName(elem.querySelector('.problemBody > h1').textContent);
+    if (url.includes('services/room.html')) {
+      this.parseArenaCategory(task, elem);
+      this.parseLimits(task, elem.querySelectorAll('#description_info > .limit'));
+      this.parseBody(task, elem.querySelector('#description_html'));
+    } else {
+      this.parseNormalCategory(task, elem);
+      this.parseLimits(task, elem.querySelectorAll('.problemInfo > .el-tag'));
+      this.parseBody(task, elem.querySelector('.problemBody'));
+    }
 
+    return task.build();
+  }
+
+  private parseArenaCategory(task: TaskBuilder, elem: Element): TaskBuilder {
+    task.setCategory(elem.querySelector('#header_title').textContent);
+    return task;
+  }
+
+  private parseNormalCategory(task: TaskBuilder, elem: Element): TaskBuilder {
     const category = elem.querySelector('.breadcrumbs > .wrapper > ul > li:nth-child(3)').textContent.trim();
     task.setCategory(category[0].toUpperCase() + category.substr(1));
+    return task;
+  }
 
-    const elTags = elem.querySelectorAll('.problemInfo > .el-tag');
-    const timeLimitStr = elTags[0].textContent.split(' ')[0];
-    const memoryLimitStr = elTags[1].textContent.split(' ')[0];
+  private parseLimits(task: TaskBuilder, nodes: NodeList): TaskBuilder {
+    const timeLimitStr = nodes[0].textContent.split(' ')[0];
+    const memoryLimitStr = nodes[1].textContent.split(' ')[0];
 
     task.setTimeLimit(parseInt(timeLimitStr, 10) * 1000);
     task.setMemoryLimit(Math.floor(parseInt(memoryLimitStr, 10) / 1000));
 
-    const preBlocks = [...elem.querySelectorAll('pre')].filter(block => {
+    return task;
+  }
+
+  private parseBody(task: TaskBuilder, body: Element): TaskBuilder {
+    task.setName(body.querySelector('h1, h2').textContent);
+
+    const preBlocks = [...body.querySelectorAll('pre')].filter(block => {
       const previousElem = block.previousElementSibling;
 
       if (previousElem === null || previousElem.tagName !== 'H3') {
@@ -44,6 +70,6 @@ export class AizuOnlineJudgeProblemParser extends Parser {
       task.addTest(input, output);
     }
 
-    return task.build();
+    return task;
   }
 }

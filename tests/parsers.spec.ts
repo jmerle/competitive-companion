@@ -40,7 +40,7 @@ async function runTest(data: ParserTestData): Promise<void> {
     await parserFunctions[data.before](page);
   }
 
-  const url = page.url();
+  const url = await page.evaluate('window.location.href');
   const html = await page.content();
 
   expect(parser.getRegularExpressions().some(r => r.test(url))).toBeTruthy();
