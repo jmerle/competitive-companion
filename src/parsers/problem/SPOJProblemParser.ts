@@ -36,7 +36,7 @@ export class SPOJProblemParser extends Parser {
       const [input, output] = this.parseTestDataSingleBlock(lines);
       task.addTest(input, output);
     } else {
-      for (let i = 0; i < blocks.length; i += 2) {
+      for (let i = 0; i < blocks.length - 1; i += 2) {
         const lines1 = blocks[i].textContent.trim().split('\n');
         const lines2 = blocks[i + 1].textContent.trim().split('\n');
         const [input, output] = this.parseTestDataTwoBlocks(lines1, lines2);

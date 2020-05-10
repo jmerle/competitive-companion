@@ -37,7 +37,7 @@ export class CSUACMOnlineJudgeProblemParser extends Parser {
     task.setMemoryLimit(parseInt(/(\d+) Mb/.exec(mainStr)[1], 10));
 
     const blocks = main.querySelectorAll('pre');
-    for (let i = 0; i < blocks.length; i += 2) {
+    for (let i = 0; i < blocks.length - 1; i += 2) {
       const input = blocks[i].textContent;
       const output = blocks[i + 1].textContent;
 

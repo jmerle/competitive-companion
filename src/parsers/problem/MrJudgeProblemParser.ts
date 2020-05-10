@@ -27,7 +27,7 @@ export class MrJudgeProblemParser extends Parser {
     task.setMemoryLimit(maxMemoryLimit);
 
     const codeBlocks = elem.querySelectorAll('.box-body > pre');
-    for (let i = 0; i < codeBlocks.length; i += 2) {
+    for (let i = 0; i < codeBlocks.length - 1; i += 2) {
       const input = codeBlocks[i].textContent;
       const output = codeBlocks[i + 1].textContent;
 

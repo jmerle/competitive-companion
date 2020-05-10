@@ -44,7 +44,7 @@ export class UOJProblemParser extends Parser {
     task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10));
 
     const codeBlocks = container.querySelectorAll('pre');
-    for (let i = 0; i < codeBlocks.length; i += 2) {
+    for (let i = 0; i < codeBlocks.length - 1; i += 2) {
       const input = codeBlocks[i].textContent.trim();
       const output = codeBlocks[i + 1].textContent.trim();
 

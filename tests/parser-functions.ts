@@ -1,16 +1,8 @@
 import { Page } from 'puppeteer';
 
 export default {
-  async beforeACMP(page: Page): Promise<void> {
-    await page.setRequestInterception(true);
-
-    page.on('request', interceptedRequest => {
-      if (interceptedRequest.url().includes('digitaltarget.ru')) {
-        interceptedRequest.abort();
-      } else {
-        interceptedRequest.continue();
-      }
-    });
+  async beforeAizuOnlineJudge(page: Page): Promise<void> {
+    await page.waitFor('.problemBody');
   },
 
   async beforeCodeChef(page: Page): Promise<void> {

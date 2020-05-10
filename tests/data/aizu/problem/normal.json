@@ -1,0 +1,36 @@
+{
+  "url": "https://onlinejudge.u-aizu.ac.jp/challenges/sources/JOI/Prelim/0652",
+  "parser": "problem/AizuOnlineJudgeProblemParser",
+  "before": "beforeAizuOnlineJudge",
+  "result": {
+    "name": "ソーシャルゲーム (Social Game)",
+    "group": "Aizu Online Judge - JOI - Prelim",
+    "url": "https://onlinejudge.u-aizu.ac.jp/challenges/sources/JOI/Prelim/0652",
+    "interactive": false,
+    "memoryLimit": 262,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "3 0 10\n",
+        "output": "4\n"
+      },
+      {
+        "input": "1 2 10\n",
+        "output": "8\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SocialGame"
+      }
+    }
+  }
+}

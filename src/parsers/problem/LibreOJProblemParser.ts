@@ -31,7 +31,7 @@ export class LibreOJProblemParser extends Parser {
 
     if (samplesRow) {
       const sampleBlocks = samplesRow.querySelectorAll('pre > code');
-      for (let i = 0; i < sampleBlocks.length; i += 2) {
+      for (let i = 0; i < sampleBlocks.length - 1; i += 2) {
         const input = sampleBlocks[i].textContent.trim();
         const output = sampleBlocks[i + 1].textContent.trim();
 

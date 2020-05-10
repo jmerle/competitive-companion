@@ -15,7 +15,7 @@ export class PandaOnlineJudgeProblemParser extends Parser {
     task.setName(elem.querySelector('.mat-card-title').textContent);
 
     const blocks = elem.querySelectorAll('pre.sample-box');
-    for (let i = 0; i < blocks.length; i += 2) {
+    for (let i = 0; i < blocks.length - 1; i += 2) {
       const input = blocks[i].textContent.trim();
       const output = blocks[i + 1].textContent.trim();
 

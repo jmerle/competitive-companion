@@ -23,7 +23,7 @@ export class EOlympProblemParser extends Parser {
     task.setMemoryLimit(parseInt(elem.querySelectorAll('.eo-message__text b')[1].textContent, 10));
 
     const blocks = elem.querySelectorAll('.mdl-grid .eo-code');
-    for (let i = 0; i < blocks.length; i += 2) {
+    for (let i = 0; i < blocks.length - 1; i += 2) {
       const input = blocks[i].textContent;
       const output = blocks[i + 1].textContent;
 

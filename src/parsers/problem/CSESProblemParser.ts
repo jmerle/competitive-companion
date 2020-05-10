@@ -20,7 +20,7 @@ export class CSESProblemParser extends Parser {
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
 
     const codeBlocks = elem.querySelectorAll('.content > code');
-    for (let i = 0; i < codeBlocks.length; i += 2) {
+    for (let i = 0; i < codeBlocks.length - 1; i += 2) {
       const input = codeBlocks[i].textContent.trim();
       const output = codeBlocks[i + 1].textContent.trim();
 

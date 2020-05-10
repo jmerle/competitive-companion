@@ -25,6 +25,7 @@ A browser extension which parses programming problems from various online judges
 | Website                    | Problem parser | Contest parser |
 | -------------------------- | -------------- | -------------- |
 | ACMP                       | ✔              |                |
+| Aizu Online Judge          | ✔              |                |
 | AtCoder                    | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              | ✔              |
 | Bloomberg CodeCon          | ✔              |                |

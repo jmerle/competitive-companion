@@ -27,7 +27,7 @@ export class NowCoderProblemParser extends Parser {
     const outputs: string[] = [];
 
     const tests = elem.querySelectorAll('.question-oi-cont');
-    for (let i = 0; i + 1 < tests.length; i += 2) {
+    for (let i = 0; i < tests.length - 1; i += 2) {
       const inputText = tests[i].textContent.trim();
       const outputText = tests[i + 1].textContent.trim();
       inputs.push(inputText);

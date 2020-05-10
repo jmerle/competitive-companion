@@ -73,7 +73,7 @@ export class VirtualJudgeProblemParser extends Parser {
         const json = JSON.parse(jsonContainer.textContent);
 
         const codeBlocks = this.getCodeBlocksFromDescription(json);
-        for (let i = 0; i + 1 < codeBlocks.length; i += 2) {
+        for (let i = 0; i < codeBlocks.length - 1; i += 2) {
           task.addTest(codeBlocks[i], codeBlocks[i + 1]);
         }
       } catch (err) {
