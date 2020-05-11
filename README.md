@@ -61,7 +61,6 @@ A browser extension which parses programming problems from various online judges
 | MSK Informatics            | ✔              |                |
 | NowCoder                   | ✔              |                |
 | NYTD Online Judge          | ✔              | ✔              |
-| Old Google Code Jam        |                | ✔              |
 | omegaUp                    | ✔              |                |
 | Panda Online Judge         | ✔              |                |
 | PEG Judge                  | ✔              | ✔              |

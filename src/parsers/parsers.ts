@@ -18,7 +18,6 @@ import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LightOJContestParser } from './contest/LightOJContestParser';
-import { OldGoogleCodeJamContestParser } from './contest/OldGoogleCodeJamContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
@@ -170,8 +169,6 @@ export const parsers: Parser[] = [
   new MSKInformaticsProblemParser(),
 
   new NowCoderProblemParser(),
-
-  new OldGoogleCodeJamContestParser(),
 
   new OmegaUpProblemParser(),
 
