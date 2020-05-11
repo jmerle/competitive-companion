@@ -1,6 +1,7 @@
 # 2.16.0 - TBD
 - Added parsers for Aizu Online Judge, Anarchy Golf, Library Checker and yukicoder
 - Removed the old Google Code Jam parser now that Google has taken it down and is moving everything to the Google Coding Competitions platform
+- Improved the time and memory limit parsing in the UOJ parser
 - Fixed the Codeforces parser for the m1, m2 and m3 subdomains
 - Fixed the Codeforces parser for certain acm.sgu.ru problems (thanks [@PloadyFree](https://github.com/PloadyFree))
 

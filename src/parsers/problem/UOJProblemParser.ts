@@ -29,19 +29,22 @@ export class UOJProblemParser extends Parser {
 
     let mathTexts = [...container.querySelectorAll('script[type="math/tex"]')]
       .map(el => el.textContent)
-      .filter(text => text.includes('\\texttt'));
+      .filter(text => text.includes('时间限制') || text.includes('空间限制'));
 
     if (mathTexts.length === 0) {
       mathTexts = [...container.querySelectorAll('p')]
         .map(el => el.textContent)
-        .filter(text => text.includes('\\texttt'));
+        .filter(text => text.includes('时间限制') || text.includes('空间限制'));
     }
 
-    const timeLimitStr = mathTexts.find(text => text.includes('s}'));
-    task.setTimeLimit(parseFloat(/([0-9.]+)/.exec(timeLimitStr)[1]) * 1000);
+    mathTexts = mathTexts.reverse();
 
-    const memoryLimitStr = mathTexts.find(text => text.includes('MB}'));
-    task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10));
+    const timeLimitStr = mathTexts.find(text => text.includes('时间限制'));
+    task.setTimeLimit(parseFloat(/([0-9.]+)(?!.*[0-9.]+)/.exec(timeLimitStr)[1]) * 1000);
+
+    const memoryLimitStr = mathTexts.find(text => text.includes('空间限制'));
+    const memoryModifier = memoryLimitStr.includes('G') ? 1024 : 1;
+    task.setMemoryLimit(parseInt(/(\d+)(?!.*\d+)/.exec(memoryLimitStr)[1], 10) * memoryModifier);
 
     const codeBlocks = container.querySelectorAll('pre');
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
