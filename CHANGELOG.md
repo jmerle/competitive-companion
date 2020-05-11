@@ -1,4 +1,4 @@
-# 2.16.0 - TBD
+# 2.16.0 - May 11th, 2020
 - Added parsers for Aizu Online Judge, Anarchy Golf, Library Checker and yukicoder
 - Removed the old Google Code Jam parser now that Google has taken it down and is moving everything to the Google Coding Competitions platform
 - Improved the time and memory limit parsing in the UOJ parser
