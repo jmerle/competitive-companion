@@ -26,6 +26,7 @@ A browser extension which parses programming problems from various online judges
 | -------------------------- | -------------- | -------------- |
 | ACMP                       | ✔              |                |
 | Aizu Online Judge          | ✔              |                |
+| Anarchy Golf               | ✔              |                |
 | AtCoder                    | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              | ✔              |
 | Bloomberg CodeCon          | ✔              |                |

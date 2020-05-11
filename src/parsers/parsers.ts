@@ -28,6 +28,7 @@ import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestPars
 import { Parser } from './Parser';
 import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AizuOnlineJudgeProblemParser } from './problem/AizuOnlineJudgeProblemParser';
+import { AnarchyGolfProblemParser } from './problem/AnarchyGolfProblemParser';
 import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
 import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeProblemParser';
 import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
@@ -81,6 +82,8 @@ export const parsers: Parser[] = [
   new ACMPProblemParser(),
 
   new AizuOnlineJudgeProblemParser(),
+
+  new AnarchyGolfProblemParser(),
 
   new AtCoderProblemParser(),
   new AtCoderContestParser(),
