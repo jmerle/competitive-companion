@@ -77,6 +77,7 @@ A browser extension which parses programming problems from various online judges
 | UVa Online Judge           | ✔              |                |
 | Virtual Judge              | ✔              |                |
 | Yandex                     | ✔              |                |
+| yukicoder                  | ✔              | ✔              |
 
 ## Custom tools
 Competitive Companion can send the parsed data in JSON format to your own tools. An example on how to accomplish this can be found [here](https://github.com/jmerle/competitive-companion-example).

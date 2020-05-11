@@ -1,0 +1,39 @@
+{
+  "url": "https://yukicoder.me/problems/no/1020",
+  "parser": "problem/YukicoderProblemParser",
+  "result": {
+    "name": "No.1020 Reverse",
+    "group": "yukicoder",
+    "url": "https://yukicoder.me/problems/no/1020",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "4 3\nmyon\n",
+        "output": "onmy\n"
+      },
+      {
+        "input": "9 4\nababababa\n",
+        "output": "bababaaba\n"
+      },
+      {
+        "input": "2 2\nac\n",
+        "output": "ca\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "No1020Reverse"
+      }
+    }
+  }
+}
