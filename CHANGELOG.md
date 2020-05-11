@@ -1,5 +1,5 @@
 # 2.16.0 - TBD
-- Added a parser for Aizu Online Judge and for Anarchy Golf
+- Added parsers for Aizu Online Judge, Anarchy Golf and Library Checker
 - Fixed the Codeforces parser for the m1, m2 and m3 subdomains
 - Fixed the Codeforces parser for certain acm.sgu.ru problems (thanks [@PloadyFree](https://github.com/PloadyFree))
 
