@@ -39,12 +39,14 @@ export class UOJProblemParser extends Parser {
 
     mathTexts = mathTexts.reverse();
 
-    const timeLimitStr = mathTexts.find(text => text.includes('时间限制'));
-    task.setTimeLimit(parseFloat(/([0-9.]+)(?!.*[0-9.]+)/.exec(timeLimitStr)[1]) * 1000);
+    if (mathTexts.length >= 2) {
+      const timeLimitStr = mathTexts.find(text => text.includes('时间限制'));
+      task.setTimeLimit(parseFloat(/([0-9.]+)(?!.*[0-9.]+)/.exec(timeLimitStr)[1]) * 1000);
 
-    const memoryLimitStr = mathTexts.find(text => text.includes('空间限制'));
-    const memoryModifier = memoryLimitStr.includes('G') ? 1024 : 1;
-    task.setMemoryLimit(parseInt(/(\d+)(?!.*\d+)/.exec(memoryLimitStr)[1], 10) * memoryModifier);
+      const memoryLimitStr = mathTexts.find(text => text.includes('空间限制'));
+      const memoryModifier = memoryLimitStr.includes('G') ? 1024 : 1;
+      task.setMemoryLimit(parseInt(/(\d+)(?!.*\d+)/.exec(memoryLimitStr)[1], 10) * memoryModifier);
+    }
 
     const codeBlocks = container.querySelectorAll('pre');
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
