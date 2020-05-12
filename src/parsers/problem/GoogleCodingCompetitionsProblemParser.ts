@@ -9,6 +9,7 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
     return [
       'https://codingcompetitions.withgoogle.com/codejam/round/*/*',
       'https://codingcompetitions.withgoogle.com/kickstart/round/*/*',
+      'https://codingcompetitions.withgoogle.com/hashcode/round/*/*',
     ];
   }
 
