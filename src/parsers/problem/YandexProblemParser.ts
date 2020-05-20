@@ -5,12 +5,13 @@ import { Parser } from '../Parser';
 
 export class YandexProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://*.contest.yandex.com/*/contest/*/problems/*/',
-      'https://*.contest2.yandex.com/*/contest/*/problems/*/',
-      'https://*.contest.yandex.ru/*/contest/*/problems/*/',
-      'https://*.contest2.yandex.ru/*/contest/*/problems/*/',
-    ];
+    const patterns: string[] = ['https://*.contest.yandex.com/*/contest/*/problems/*/'];
+
+    patterns.push(...patterns.map(pattern => pattern.replace('.com', '.ru')));
+    patterns.push(...patterns.map(pattern => pattern.replace('/*/contest', '/contest')));
+    patterns.push(...patterns.map(pattern => pattern.replace('contest.yandex', 'contest2.yandex')));
+
+    return patterns;
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
