@@ -1,4 +1,4 @@
-# 2.16.1 - TBD
+# 2.16.1 - May 25th, 2020
 - Fixed the Yandex parser so that it works on yandex.ru/contest problems (thanks [@PloadyFree](https://github.com/PloadyFree))
 - Fixed the categorization in the HackerEarth parser
 - Fixed the URI Online Judge parser so that it works with the new problem pages
