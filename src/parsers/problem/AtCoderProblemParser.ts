@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class AtCoderProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://atcoder.jp/contests/*/tasks/*', 'https://*.contest.atcoder.jp/tasks/*'];
+    return ['https://atcoder.jp/contests/*/tasks/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

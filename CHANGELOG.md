@@ -1,5 +1,7 @@
 # 2.16.1 - TBD
 - Fixed the Yandex parser so that it works on yandex.ru/contest problems (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Fixed the categorization in the HackerEarth parser
+- Fixed the URI Online Judge parser so that it works with the new problem pages
 
 # 2.16.0 - May 11th, 2020
 - Added parsers for Aizu Online Judge, Anarchy Golf, Library Checker and yukicoder

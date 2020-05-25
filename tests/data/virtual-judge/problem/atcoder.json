@@ -1,10 +1,10 @@
 {
-  "url": "https://vjudge.net/problem/AtCoder-3535",
+  "url": "https://vjudge.net/problem/AtCoder-arc083_b",
   "parser": "problem/VirtualJudgeProblemParser",
   "result": {
     "name": "Restoring Road Network",
     "group": "Virtual Judge - AtCoder",
-    "url": "https://vjudge.net/problem/AtCoder-3535",
+    "url": "https://vjudge.net/problem/AtCoder-arc083_b",
     "interactive": false,
     "memoryLimit": 262,
     "timeLimit": 2000,

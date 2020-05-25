@@ -19,7 +19,13 @@ export class HackerEarthProblemParser extends Parser {
       elem.querySelector('.timings') !== null
         ? [elem.querySelector('.cover .title').textContent.trim()]
         : [...elem.querySelectorAll('.breadcrumb a')].map(el => el.textContent).slice(1);
-    task.setCategory(groupSuffix.join(' - '));
+
+    const category = groupSuffix
+      .map(part => part.trim())
+      .filter(part => part !== '')
+      .join(' - ');
+
+    task.setCategory(category);
 
     elem.querySelectorAll('.input-output-container').forEach(container => {
       const blocks = container.querySelectorAll('pre');

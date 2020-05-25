@@ -7,6 +7,6 @@ export class AtCoderContestParser extends ContestParser {
   public linkSelector: string = 'table tr td:first-child a';
 
   public getMatchPatterns(): string[] {
-    return ['https://atcoder.jp/contests/*/tasks', 'https://*.contest.atcoder.jp/assignments'];
+    return ['https://atcoder.jp/contests/*/tasks'];
   }
 }

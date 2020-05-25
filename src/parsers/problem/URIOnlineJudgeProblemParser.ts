@@ -19,11 +19,18 @@ export class URIOnlineJudgeProblemParser extends Parser {
       const title = elem.querySelector('title').textContent.trim();
       task.setCategory(title.split(' - ')[1]);
     } else {
-      task.setCategory(elem.querySelector('#problem-menu > a:last-child').textContent.trim());
+      task.setCategory(elem.querySelector('.main-content-wide li').textContent.trim());
     }
 
     if (elem.querySelector('#description-html') !== null) {
-      const link = elem.querySelector<HTMLLinkElement>('ul.information > li:nth-child(2) > a').href;
+      let link;
+
+      if (url.includes('challenges/')) {
+        link = elem.querySelector<HTMLLinkElement>('ul.information > li:nth-child(2) > a').href;
+      } else {
+        link = elem.querySelector<HTMLLinkElement>('.full-screen').href;
+      }
+
       html = await this.fetch(link);
     }
 
