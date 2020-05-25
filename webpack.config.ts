@@ -1,6 +1,8 @@
 import * as path from 'path';
-import * as CopyWebpackPlugin from 'copy-webpack-plugin';
 import * as webpack from 'webpack';
+
+// The @types/copy-webpack-plugin are outdated
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function transformManifest(content: Buffer): string {
   const manifest = JSON.parse(content.toString());
@@ -12,7 +14,7 @@ function transformManifest(content: Buffer): string {
   manifest.version = packageData.version;
   manifest.author = packageData.author;
 
-  // eslint-disable-next-line @typescript-eslint/camelcase
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   manifest.homepage_url = packageData.repository;
 
   return JSON.stringify(manifest, null, 2);
@@ -94,25 +96,27 @@ const config: webpack.Configuration = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, 'static/manifest.json'),
-        to: path.resolve(__dirname, 'build'),
-        transform: transformManifest,
-      },
-      {
-        from: path.resolve(__dirname, 'icons'),
-        to: path.resolve(__dirname, 'build/icons'),
-      },
-      {
-        from: path.resolve(__dirname, 'src/options.html'),
-        to: path.resolve(__dirname, 'build'),
-      },
-      {
-        from: path.resolve(__dirname, 'LICENSE'),
-        to: path.resolve(__dirname, 'build'),
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'static/manifest.json'),
+          to: path.resolve(__dirname, 'build'),
+          transform: transformManifest,
+        },
+        {
+          from: path.resolve(__dirname, 'icons'),
+          to: path.resolve(__dirname, 'build/icons'),
+        },
+        {
+          from: path.resolve(__dirname, 'src/options.html'),
+          to: path.resolve(__dirname, 'build'),
+        },
+        {
+          from: path.resolve(__dirname, 'LICENSE'),
+          to: path.resolve(__dirname, 'build'),
+        },
+      ],
+    }),
   ],
 };
 

@@ -1,3 +1,6 @@
+# 2.16.1 - TBD
+- Fixed the Yandex parser so that it works on yandex.ru/contest problems (thanks [@PloadyFree](https://github.com/PloadyFree))
+
 # 2.16.0 - May 11th, 2020
 - Added parsers for Aizu Online Judge, Anarchy Golf, Library Checker and yukicoder
 - Removed the old Google Code Jam parser now that Google has taken it down and is moving everything to the Google Coding Competitions platform
