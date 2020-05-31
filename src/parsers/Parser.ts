@@ -60,7 +60,7 @@ export abstract class Parser {
       return response.text();
     }
 
-    throw new Error(`The network response was not ok (status code: ${response.status}).`);
+    throw new Error(`The network response was not ok (status code: ${response.status} url: ${url}).`);
   }
 
   /**
@@ -68,15 +68,19 @@ export abstract class Parser {
    * The resulting array is in the same order as in which the urls are given.
    */
   protected async fetchAll(urls: string[]): Promise<string[]> {
-    const results: string[] = [];
+    const fetchPromises: Promise<string>[] = [];
+    let fetched = 0;
 
     for (let i = 0; i < urls.length; i++) {
-      const result = await this.fetch(urls[i]);
-      results.push(result);
+      const promise = this.fetch(urls[i]).then((value: string) => {
+        fetched += 1;
+        (window as any).nanoBar.go((fetched / urls.length) * 100);
+        return value;
+      });
 
-      (window as any).nanoBar.go(((i + 1) / urls.length) * 100);
+      fetchPromises.push(promise);
     }
 
-    return results;
+    return await Promise.all(fetchPromises);
   }
 }
