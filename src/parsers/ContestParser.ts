@@ -11,13 +11,13 @@ export abstract class ContestParser extends Parser {
     return document.querySelector(this.linkSelector) !== null;
   }
 
-  public async parse(url: string, html: string): Promise<Sendable> {
+  public async parse(url: string, html: string): Promise<Contest> {
     const elem = htmlToElement(html);
     const links = [...elem.querySelectorAll(this.linkSelector)].map(el => (el as any).href);
-    return this.parseLinks(links);
+    return this.parseLinks(links, url, html);
   }
 
-  protected async parseLinks(links: string[]): Promise<Sendable> {
+  protected async parseLinks(links: string[], _url: string, _html: string): Promise<Contest> {
     const bodies = await this.fetchAll(links);
     const tasks: Sendable[] = [];
 
