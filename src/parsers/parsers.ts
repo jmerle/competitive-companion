@@ -66,6 +66,7 @@ import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
+import { ProjectEulerProblemParser } from './problem/ProjectEulerProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
@@ -181,6 +182,8 @@ export const parsers: Parser[] = [
 
   new POJProblemParser(),
   new POJContestParser(),
+
+  new ProjectEulerProblemParser(),
 
   new QDUOJProblemParser(),
   new QDUOJContestParser(),

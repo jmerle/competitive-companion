@@ -1,12 +1,12 @@
 # Competitive Companion
 
-[![Build Status](https://dev.azure.com/jmerle/competitive-companion/_apis/build/status/Build?branchName=master)](https://dev.azure.com/jmerle/competitive-companion/_build/latest?definitionId=6&branchName=master)  
+[![Build Status](https://dev.azure.com/jmerle/competitive-companion/_apis/build/status/Build?branchName=master)](https://dev.azure.com/jmerle/competitive-companion/_build/latest?definitionId=6&branchName=master)
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
-[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)  
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)](https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 [![Mozilla Add-on Users](https://img.shields.io/amo/users/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
-[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)  
+[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)](https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/)
 
 A browser extension which parses programming problems from various online judges (like Codeforces and UVa) and sends them to various tools (like CHelper and Hightail). Capable of parsing problems and contests and extracting data like the example testcases and the time and memory constraints.
 
@@ -65,6 +65,7 @@ A browser extension which parses programming problems from various online judges
 | Panda Online Judge         | ✔              |                |
 | PEG Judge                  | ✔              | ✔              |
 | POJ                        | ✔              | ✔              |
+| Project Euler              | ✔              |                |
 | QDUOJ                      | ✔              | ✔              |
 | SPOJ                       | ✔              |                |
 | SSOIER                     | ✔              |                |
@@ -199,11 +200,11 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 ## Mozilla reviewers
 The information provided below is meant for Mozilla volunteers.
 
-Software versions used:  
-Node.js: 12.16.3  
+Software versions used:
+Node.js: 12.16.3
 Yarn: 1.22.4
 
-Third-party libraries that can be found in the minified extension:  
+Third-party libraries that can be found in the minified extension:
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
 - [webextension-polyfill-ts 0.16.0](https://github.com/lusito/webextension-polyfill-ts/tree/0.16.0)
