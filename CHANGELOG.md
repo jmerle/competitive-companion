@@ -4,7 +4,7 @@
 - Fixed the Toph parser so that it also runs on contest problems (thanks [@EgorKulikov](https://github.com/EgorKulikov))
 
 # 2.16.1 - May 25th, 2020
-- Fixed the Yandex parser so that it works on yandex.ru/contest problems (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Fixed the Yandex parser so that it works on yandex.ru/contest problems (thanks [@JVMusin](https://github.com/JVMusin))
 - Fixed the categorization in the HackerEarth parser
 - Fixed the URI Online Judge parser so that it works with the new problem pages
 
@@ -13,18 +13,18 @@
 - Removed the old Google Code Jam parser now that Google has taken it down and is moving everything to the Google Coding Competitions platform
 - Improved the time and memory limit parsing in the UOJ parser
 - Fixed the Codeforces parser for the m1, m2 and m3 subdomains
-- Fixed the Codeforces parser for certain acm.sgu.ru problems (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Fixed the Codeforces parser for certain acm.sgu.ru problems (thanks [@JVMusin](https://github.com/JVMusin))
 
 # 2.15.4 - May 5th, 2020
-- Added Russian language support to the Timus parser (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Added Russian language support to the Timus parser (thanks [@JVMusin](https://github.com/JVMusin))
 
 # 2.15.3 - April 22nd, 2020
 - Added support for multiple test cases to the Google Coding Competitions parser (thanks [@adambenali](https://github.com/adambenali))
 
 # 2.15.2 - April 20th, 2020
-- Fixed parsing acm.sgu.ru problems in the Codeforces parser (thanks [@PloadyFree](https://github.com/PloadyFree))
-- Added support for multiple test cases to the SPOJ parser (thanks [@PloadyFree](https://github.com/PloadyFree))
-- Fixed parsing time limits in the Toph parser (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Fixed parsing acm.sgu.ru problems in the Codeforces parser (thanks [@JVMusin](https://github.com/JVMusin))
+- Added support for multiple test cases to the SPOJ parser (thanks [@JVMusin](https://github.com/JVMusin))
+- Fixed parsing time limits in the Toph parser (thanks [@JVMusin](https://github.com/JVMusin))
 
 # 2.15.1 - April 17th, 2020
 - Fixed parsing time and memory limits in the Codeforces parser
@@ -32,7 +32,7 @@
 # 2.15.0 - April 10th, 2020
 - Made the format of the "group" key in the extracted problem data consistent across parsers
 - Added a parser for mrJudge
-- Added support for educational courses on Codeforces (thanks [@PloadyFree](https://github.com/PloadyFree))
+- Added support for educational courses on Codeforces (thanks [@JVMusin](https://github.com/JVMusin))
 - Fixed the Luogu, Codeforces and CodeChef parsers
 - Removed the A2OJ parser
 
