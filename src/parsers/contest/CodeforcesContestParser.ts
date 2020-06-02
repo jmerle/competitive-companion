@@ -1,4 +1,5 @@
 import { Contest } from '../../models/Contest';
+import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { ContestParser } from '../ContestParser';
@@ -35,39 +36,56 @@ export class CodeforcesContestParser extends ContestParser {
     ];
   }
 
-  /**
-   * Parse a contest from the dashboard when problems are not available.
-   *
-   * For example: https://codeforces.com/gym/100524
-   */
-  private async parseFromContestPage(url: string, html: string): Promise<Contest> {
+  public async parse(url: string, html: string): Promise<Sendable> {
+    // Some contests provide the problem statements inside a PDF file.
+    // These cannot be parsed with the regular CodeforcesProblemParser.
+    //
+    // We try to detect whether the contest provides problems in a PDF by
+    // fetching the first URL and checking whether it redirects to a /attachments url.
+    //
+    // Example contest which uses a PDF for problem statements: https://codeforces.com/gym/100524
+
     const elem = htmlToElement(html);
-    const linkSelector: string = '.problems > tbody > tr:not(:first-child)';
-    const tasks = [...elem.querySelectorAll(linkSelector)].map((el: any) => {
-      const task = new TaskBuilder('Codeforces');
 
-      const td = el.querySelectorAll('td');
+    const firstLink = (elem.querySelector(this.linkSelector) as HTMLLinkElement).href;
+    const firstLinkResponse = await fetch(firstLink, { redirect: 'follow' });
 
-      task.setUrl(td[0].querySelector('a').href);
+    if (firstLinkResponse.url.endsWith('/attachments')) {
+      return this.parseFromContestPage(url, html);
+    } else {
+      return super.parse(url, html);
+    }
+  }
 
-      const letter = td[0].querySelector('a').text.trim();
-      const name = td[1].querySelector('a').text.trim();
+  private async parseFromContestPage(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
 
-      task.setGroup(
-        'Codeforces - ' +
-          document.querySelector('#sidebar > div > .rtable').querySelector('a').text.replace('\n', ' ').trim(),
-      );
+    const contestName = elem
+      .querySelector('#sidebar > div > .rtable')
+      .querySelector('a')
+      .textContent.replace('\n', ' ')
+      .trim();
+
+    const rowSelector = '.problems > tbody > tr:not(:first-child)';
+    const tasks = [...elem.querySelectorAll(rowSelector)].map(row => {
+      const task = new TaskBuilder('Codeforces').setCategory(contestName);
+
+      const columns = row.querySelectorAll('td');
+
+      task.setUrl(columns[0].querySelector('a').href);
+
+      const letter = columns[0].querySelector('a').text.trim();
+      const name = columns[1].querySelector('a').text.trim();
 
       task.setName(`${letter}. ${name}`);
 
-      const data: string = td[1].querySelector('div > div:not(:first-child)').innerText;
+      const detailsStr = columns[1].querySelector('div > div:not(:first-child)').textContent;
+      const detailsMatches = /([^/]+)\/([^\n]+)\s+(\d+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));
 
-      const match = /(.*)\/([^,]*)([0-9]+) s,([ 0-9]+) MB/.exec(data.replace('\n', ' '));
-
-      const inputFile: string = match[1].trim();
-      const outputFile: string = match[2].trim();
-      const timeLimit: number = parseFloat(match[3].trim()) * 1000;
-      const memoryLimit: number = parseFloat(match[4].trim());
+      const inputFile = detailsMatches[1].trim();
+      const outputFile = detailsMatches[2].trim();
+      const timeLimit = parseInt(detailsMatches[3].trim()) * 1000;
+      const memoryLimit = parseInt(detailsMatches[4].trim());
 
       if (inputFile.includes('.')) {
         task.setInput({
@@ -88,16 +106,7 @@ export class CodeforcesContestParser extends ContestParser {
 
       return task.build();
     });
-    return new Contest(tasks);
-  }
 
-  protected async parseLinks(links: string[], url: string, html: string): Promise<Contest> {
-    // Try to parse contest using default parser.
-    return await super.parseLinks(links, url, html).catch(async (reason: any) => {
-      // If default parser failed it is probably because there are no page problem available.
-      // This is the case from this contest for example: https://codeforces.com/gym/100524
-      // Try to parse anyway the contest with available information.
-      return await this.parseFromContestPage(url, html);
-    });
+    return new Contest(tasks);
   }
 }
