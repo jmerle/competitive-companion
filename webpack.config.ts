@@ -63,32 +63,20 @@ const config: webpack.Configuration = {
         options: {
           multiple: [
             {
-              search: "new Function('');",
+              search: 'new Function("");',
               replace: "throw new Error('');",
-            },
-            {
-              search: "Function('return this')()",
-              replace: 'self',
             },
             {
               search: 'new Function("return this")()',
               replace: "(() => { throw new Error(''); })()",
             },
             {
-              search: 'Function(fn),',
-              replace: '(() => {}),',
+              search: 'new Function("c", "size", js)',
+              replace: 'null',
             },
             {
-              search: 'Function("r", "regeneratorRuntime = r")(runtime)',
-              replace: '',
-            },
-            {
-              search: "new Function('c', 'size', js)",
-              replace: '(() => {})',
-            },
-            {
-              search: 'Function(fn))',
-              replace: '(() => {}))',
+              search: 'eval("require")(getWorkerSrc())',
+              replace: 'null',
             },
             {
               search: 'sourceMappingURL',
