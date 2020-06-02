@@ -1,3 +1,8 @@
+# 2.17.0 - TBD
+- Contest parsers now fetch contest problems in parallel, greatly decreasing the time it takes to parse large contests (thanks [@mfornet](https://github.com/mfornet))
+- Fixed the Codeforces contest parser for contests which provide problem statements in PDF(s) (thanks [@mfornet](https://github.com/mfornet))
+- Fixed the Toph parser so that it also runs on contest problems (thanks [@EgorKulikov](https://github.com/EgorKulikov))
+
 # 2.16.1 - May 25th, 2020
 - Fixed the Yandex parser so that it works on yandex.ru/contest problems (thanks [@PloadyFree](https://github.com/PloadyFree))
 - Fixed the categorization in the HackerEarth parser
