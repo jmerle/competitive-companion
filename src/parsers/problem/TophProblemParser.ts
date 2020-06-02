@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class TophProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://toph.co/p/*'];
+    return ['https://toph.co/p/*', 'https://toph.co/arena?contest=*/p/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
