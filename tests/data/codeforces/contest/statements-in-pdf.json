@@ -1,0 +1,244 @@
+{
+  "url": "https://codeforces.com/gym/100524?locale=en",
+  "parser": "contest/CodeforcesContestParser",
+  "result": [
+    {
+      "name": "A. Astronomy Problem",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/A",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 8000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "astronomy.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "astronomy.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "AAstronomyProblem"
+        }
+      }
+    },
+    {
+      "name": "B. Bipartite Bicolored Graphs",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/B",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "bipartite.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "bipartite.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BBipartiteBicoloredGraphs"
+        }
+      }
+    },
+    {
+      "name": "C. Catalan Numbers",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/C",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "catalan.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "catalan.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CCatalanNumbers"
+        }
+      }
+    },
+    {
+      "name": "D. Dichromatic Trees",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/D",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 20000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "dichromatic.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "dichromatic.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DDichromaticTrees"
+        }
+      }
+    },
+    {
+      "name": "E. Ebola Virus",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/E",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "ebola.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "ebola.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "EEbolaVirus"
+        }
+      }
+    },
+    {
+      "name": "F. Figure Skating",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/F",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 1000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "figure.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "figure.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "FFigureSkating"
+        }
+      }
+    },
+    {
+      "name": "G. Game of Col on Bamboo Forests",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/G",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "game.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "game.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "GGameOfColOnBambooForests"
+        }
+      }
+    },
+    {
+      "name": "H. Heavy-Light Decomposition",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/H",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "heavylight.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "heavylight.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "HHeavyLightDecomposition"
+        }
+      }
+    },
+    {
+      "name": "I. Interactive Memory Management",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/I",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "IInteractiveMemoryManagement"
+        }
+      }
+    },
+    {
+      "name": "J. Jingles of a String",
+      "group": "Codeforces - 2014-2015 Summer Petrozavodsk Camp, Andrew Stankevich Contest 46 (ASC 46)",
+      "url": "https://codeforces.com/gym/100524/problem/J",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "fileName": "jingles.in",
+        "type": "file"
+      },
+      "output": {
+        "fileName": "jingles.out",
+        "type": "file"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "JJinglesOfAString"
+        }
+      }
+    }
+  ]
+}
