@@ -60,7 +60,7 @@ export abstract class Parser {
       return response.text();
     }
 
-    throw new Error(`The network response was not ok (status code: ${response.status} url: ${url}).`);
+    throw new Error(`The network response was not ok (status code: ${response.status}, url: ${url}).`);
   }
 
   /**
