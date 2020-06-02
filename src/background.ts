@@ -39,13 +39,12 @@ function createContextMenu(): void {
   }
 }
 
-function loadContentScript(tab: Tabs.Tab, parserName: string): void {
-  browser.tabs
-    .executeScript(tab.id, { file: 'js/content.js' })
-    .then(() => {
-      sendToContent(tab.id, MessageAction.Parse, { parserName });
-    })
-    .catch(noop);
+async function loadContentScript(tab: Tabs.Tab, parserName: string): Promise<void> {
+  for (const file of ['common', 'content']) {
+    await browser.tabs.executeScript(tab.id, { file: `js/${file}.js` });
+  }
+
+  sendToContent(tab.id, MessageAction.Parse, { parserName });
 }
 
 function onBrowserAction(tab: Tabs.Tab): void {

@@ -35,6 +35,10 @@ const config: webpack.Configuration = {
   },
   optimization: {
     minimize: false,
+    splitChunks: {
+      chunks: 'all',
+      name: 'common',
+    },
   },
   performance: {
     hints: false,

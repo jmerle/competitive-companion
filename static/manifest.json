@@ -24,7 +24,7 @@
   },
 
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": ["js/common.js", "js/background.js"]
   },
 
   "options_ui": {
