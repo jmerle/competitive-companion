@@ -3,7 +3,6 @@ import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
 import { parsers } from './parsers/parsers';
 import { sendToContent } from './utils/messaging';
-import { noop } from './utils/noop';
 
 function createContextMenu(): void {
   browser.contextMenus.create({
