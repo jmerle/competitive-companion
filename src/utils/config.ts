@@ -2,12 +2,14 @@ import { browser } from 'webextension-polyfill-ts';
 
 interface ConfigItems {
   customPorts: number[];
+  customRules: [string, string][];
   debugMode: boolean;
 }
 
 class Config {
   private readonly defaults: Partial<ConfigItems> = {
     customPorts: [],
+    customRules: [],
     debugMode: false,
   };
 

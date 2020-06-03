@@ -33,6 +33,17 @@
 
       section p.error {
         color: red;
+      }
+
+      .custom-rules-row > input {
+        width: 40% !important;
+      }
+
+      .custom-rules-row > select {
+        width: 40%;
+      }
+
+      .hidden {
         display: none;
       }
     </style>
@@ -46,12 +57,25 @@
 
       <input type="text" id="custom-ports" title="Port numbers" />
 
-      <p id="custom-ports-error" class="error">
+      <p id="custom-ports-error" class="error hidden">
         Please make sure all ports are valid, and multiple ports are separated by commas.
       </p>
 
       <p class="description">
         Specify custom ports to send the parsed data to, separated by commas.
+      </p>
+    </section>
+
+    <section>
+      <h3>Custom rules</h3>
+
+      <div id="custom-rules-container"></div>
+
+      <p id="custom-rules-error" class="error hidden"></p>
+
+      <p class="description">
+        Custom rules can be used to override the parser selection. When a rule's regular expression matches with the url
+        of the problem that is being parsed, the parser configured in that rule is used instead of the defaults.
       </p>
     </section>
 
