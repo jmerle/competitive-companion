@@ -2,6 +2,7 @@ import { browser, Runtime } from 'webextension-polyfill-ts';
 import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
+import { config } from './utils/config';
 import { noop } from './utils/noop';
 
 // This package has no types
@@ -9,8 +10,17 @@ const Nanobar = require('nanobar');
 
 (window as any).isContentScript = true;
 
-function getParserToUse(): Parser {
+async function getParserToUse(): Promise<Parser> {
   const url = window.location.href;
+
+  const customRules = await config.get('customRules');
+  for (const [expression, parserName] of customRules) {
+    const pattern = new RegExp(expression);
+
+    if (pattern.test(url)) {
+      return getParserByName(parserName);
+    }
+  }
 
   for (const parser of parsers) {
     const hasMatchingPattern = parser.getRegularExpressions().some(r => r.test(url));
@@ -57,15 +67,15 @@ function handleMessage(message: Message | any, sender: Runtime.MessageSender): v
     const parserName = message.payload.parserName;
 
     if (parserName === null) {
-      const parser = getParserToUse();
+      getParserToUse().then(parser => {
+        if (parser === null) {
+          // prettier-ignore
+          alert('Competitive Companion could not determine which parser to parse this page with. Please right-click on the plus icon and select the parser to use via the "Parse with" context menu.');
+          return;
+        }
 
-      if (parser === null) {
-        // prettier-ignore
-        alert('Competitive Companion could not determine which parser to parse this page with. Please right-click on the plus icon and select the parser to use via the "Parse with" context menu.');
-        return;
-      }
-
-      parse(parser).then(noop).catch(noop);
+        parse(parser).then(noop).catch(noop);
+      });
     } else {
       parse(getParserByName(parserName)).then(noop).catch(noop);
     }
