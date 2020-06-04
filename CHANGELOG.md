@@ -1,4 +1,4 @@
-# 2.17.0 - TBD
+# 2.17.0 - June 4th, 2020
 - Added custom rules to the settings. When a rule's regular expression matches with the url of the problem that is being parsed, the parser configured in that rule is used instead of the default parser.
 - Contest parsers now fetch contest problems in parallel, greatly decreasing the time it takes to parse large contests (thanks [@mfornet](https://github.com/mfornet))
 - Fixed the Codeforces contest parser for contests which provide problem statements in PDF(s) (thanks [@mfornet](https://github.com/mfornet))
