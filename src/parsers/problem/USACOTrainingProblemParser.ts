@@ -12,9 +12,20 @@ export class USACOTrainingProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('USACO').setUrl(url);
 
+    const nameSelectors = ['center > h1', 'center > b > font'];
+    const names = nameSelectors
+      .map(sel => elem.querySelector(sel))
+      .filter(el => el !== null)
+      .map(el => el.textContent.trim());
+
+    task.setName(names[0] || 'Unknown');
+    task.setCategory('Training');
+
     const taskId = [...elem.querySelectorAll('h3')]
       .find(el => el.textContent.includes('PROGRAM NAME'))
       .textContent.substr(14);
+
+    task.setJavaMainClass(taskId);
 
     task.setInput({
       fileName: taskId + '.in',
@@ -25,15 +36,6 @@ export class USACOTrainingProblemParser extends Parser {
       fileName: taskId + '.out',
       type: 'file',
     });
-
-    const nameSelectors = ['center > h1', 'center > b > font'];
-    const names = nameSelectors
-      .map(sel => elem.querySelector(sel))
-      .filter(el => el !== null)
-      .map(el => el.textContent.trim());
-
-    task.setName(names[0] || 'Unknown');
-    task.setCategory('Training');
 
     const input = [...elem.querySelectorAll('h3')].find(el => el.textContent.includes('SAMPLE INPUT'))
       .nextElementSibling.textContent;
