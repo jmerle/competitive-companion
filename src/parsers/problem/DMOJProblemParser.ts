@@ -12,7 +12,7 @@ export class DMOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('DMOJ').setUrl(url);
 
-    task.setName(elem.querySelector('.problem-title').childNodes[1].textContent);
+    task.setName(elem.querySelector('.problem-title h2').textContent);
 
     const inputs = [...elem.querySelectorAll('h4')].filter(el => {
       const text = el.textContent.toLowerCase();
