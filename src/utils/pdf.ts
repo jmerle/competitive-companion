@@ -6,7 +6,7 @@ export async function readPdf(pdfUrl: string): Promise<string[]> {
     pdfjsLib.GlobalWorkerOptions.workerPort = new PdfjsWorker();
   }
 
-  const pdf = await pdfjsLib.getDocument(pdfUrl);
+  const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
 
   const lines: string[] = [];
 
