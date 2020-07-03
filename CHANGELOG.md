@@ -2,6 +2,7 @@
 - Fixed the USACO Training parser so that the Java main class name is set to the id of the task
 - Fixed the DMOJ parser so that problem titles for attempted problems are parsed correctly (thanks [@plasmatic1](https://github.com/plasmatic1))
 - Fixed the parsing of sample testcases in the UVa parser
+- Fixed the parsing of titles in the yukicoder parser
 
 # 2.17.0 - June 4th, 2020
 - Added custom rules to the settings. When a rule's regular expression matches with the url of the problem that is being parsed, the parser configured in that rule is used instead of the default parser.

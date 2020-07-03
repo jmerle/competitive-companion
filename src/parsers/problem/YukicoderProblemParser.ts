@@ -12,7 +12,7 @@ export class YukicoderProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('yukicoder').setUrl(url);
 
-    const title = elem.querySelector('#content').children[0].textContent;
+    const title = elem.querySelector('#content h3').textContent;
     task.setName(title.replace(/([^ ]) {2}([^ ])/g, '$1 $2'));
 
     const limitsStr = elem.querySelector('#content > div').textContent;
