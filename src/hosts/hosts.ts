@@ -8,7 +8,7 @@ const defaultPorts = [
   4244, // Hightail
   6174, // Mind Sport
   10042, // acmX
-  10043, // Caide
+  10043, // Caide and AI Virtual Assistant
   10045, // CP Editor
   27121, // Competitive Programming Helper
 ];
