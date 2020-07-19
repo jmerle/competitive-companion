@@ -43,7 +43,7 @@ import { DevSkillProblemParser } from './problem/DevSkillProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EOlympProblemParser } from './problem/EOlympProblemParser';
-import { FacebookHackerCupProblemParser } from './problem/FacebookHackerCupProblemParser';
+import { FacebookCodingCompetitionsProblemParser } from './problem/FacebookCodingCompetitionsProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
 import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCompetitionsProblemParser';
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
@@ -127,7 +127,7 @@ export const parsers: Parser[] = [
   new EOlympProblemParser(),
   new EOlympContestParser(),
 
-  new FacebookHackerCupProblemParser(),
+  new FacebookCodingCompetitionsProblemParser(),
 
   new FZUOnlineJudgeProblemParser(),
   new FZUOnlineJudgeContestParser(),

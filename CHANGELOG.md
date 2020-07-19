@@ -1,4 +1,5 @@
-# 2.17.2 - July 19th, 2020
+# 2.17.2 - July 20th, 2020
+- Replaced the Facebook Hacker Cup parser with a Facebook Coding Competitions parser 
 - Fixed the time and memory limit parsing in the omegaUp parser
 - Added support for cpbooster
 

@@ -25,6 +25,10 @@ export default {
     await page.waitFor('h1');
   },
 
+  async beforeFacebookCodingCompetitions(page: Page): Promise<void> {
+    await page.waitFor('a[aria-label="Download"]');
+  },
+
   async beforeHackerRank(page: Page): Promise<void> {
     await page.waitFor('.problem-statement');
   },

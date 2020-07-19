@@ -1,0 +1,34 @@
+{
+  "url": "https://www.facebook.com/codingcompetitions/hacker-cup/2019/qualification-round/problems/A",
+  "parser": "problem/FacebookCodingCompetitionsProblemParser",
+  "before": "beforeFacebookCodingCompetitions",
+  "result": {
+    "name": "A: Leapfrog: Ch. 1",
+    "group": "Facebook Coding Competitions - Facebook Hacker Cup 2019 Qualification Round",
+    "url": "https://www.facebook.com/codingcompetitions/hacker-cup/2019/qualification-round/problems/A",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 360000,
+    "tests": [
+      {
+        "input": "8\nA.\nAB.\nABB\nA.BB\nA..BB..B\nA.B..BBB.\nAB.........\nA.B..BBBB.BB\n",
+        "output": "Case #1: N\nCase #2: Y\nCase #3: N\nCase #4: Y\nCase #5: N\nCase #6: Y\nCase #7: N\nCase #8: Y\n"
+      }
+    ],
+    "testType": "multiNumber",
+    "input": {
+      "type": "file",
+      "fileName": "leapfrog_ch__input.txt"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "leapfrog_ch__output.txt"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ALeapfrogCh1"
+      }
+    }
+  }
+}
