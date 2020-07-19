@@ -1,3 +1,7 @@
+# 2.17.2 - July 19th, 2020
+- Fixed the time and memory limit parsing in the omegaUp parser
+- Added support for cpbooster
+
 # 2.17.1 - July 3rd, 2020
 - Fixed the USACO Training parser so that the Java main class name is set to the id of the task
 - Fixed the DMOJ parser so that problem titles for attempted problems are parsed correctly (thanks [@plasmatic1](https://github.com/plasmatic1))

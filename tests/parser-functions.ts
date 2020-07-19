@@ -41,6 +41,10 @@ export default {
     await page.waitFor('#dsb-problem-title0');
   },
 
+  async beforeOmegaUp(page: Page): Promise<void> {
+    await page.waitFor('td[data-memory-limit]');
+  },
+
   async beforeQDUOJ(page: Page): Promise<void> {
     await page.waitFor(() => /(\d+)MS/.test(document.body.innerHTML));
   },

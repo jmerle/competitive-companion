@@ -27,6 +27,7 @@ A browser extension which parses programming problems from various online judges
 - [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
 - [CP Editor](https://github.com/coder3101/cp-editor)
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
+- [cpbooster](https://www.npmjs.com/package/cpbooster)
 - Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
@@ -88,16 +89,9 @@ A browser extension which parses programming problems from various online judges
 | yukicoder                  | ✔              | ✔              |
 
 ## Custom tools
-Competitive Companion can send the parsed data in JSON format to your own tools. An example on how to accomplish this can be found [here](https://github.com/jmerle/competitive-companion-example).
+Competitive Companion can send the parsed data in JSON format to your own tools. To do this, start a HTTP server listening for POST requests to / on any of the ports listed in [`./src/hosts/hosts.ts`](./src/hosts/hosts.ts). An example on how to accomplish this can be found in [jmerle/competitive-companion-example](https://github.com/jmerle/competitive-companion-example).
 
-Steps:
-1. Make your tool starts an HTTP server that listens for POST requests on `http://localhost:8080/`, where 8080 can be any port number.
-2. Add the port that the HTTP server runs on to the "Custom ports" section in the extension's settings.
-    - Chrome: right-click on the plus icon and select Options.
-    - Firefox: go to `about:addons` and click on Preferences in Competitive Companion's row.
-3. All the parsed data will now be sent to the port specified in step 2 in the format specified below. The JSON is sent in the body of the POST request.
-
-If you want your own tool added to the released version of Competitive Companion, [create an issue](https://github.com/jmerle/competitive-companion/issues/new) in this repository specifying on what port your tool listens and a link to the tool.
+If you want your own tool added to the released version of Competitive Companion, [create an issue](https://github.com/jmerle/competitive-companion/issues/new) in this repository specifying the name and a link to the tool.
 
 ### The format
 Here's an example of the data sent when parsing [this](https://codeforces.com/problemset/problem/954/G) problem:

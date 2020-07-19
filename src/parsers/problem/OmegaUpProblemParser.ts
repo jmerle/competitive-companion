@@ -29,8 +29,8 @@ export class OmegaUpProblemParser extends Parser {
       task.setCategory(contestTitleElem.textContent.trim());
     }
 
-    task.setTimeLimit(parseFloat(problem.querySelector('.time_limit').textContent) * 1000);
-    task.setMemoryLimit(parseInt(problem.querySelector('.memory_limit').textContent, 10));
+    task.setTimeLimit(parseFloat(problem.querySelector('table tr:nth-child(2) td:first-of-type').textContent) * 1000);
+    task.setMemoryLimit(parseInt(problem.querySelector('td[data-memory-limit]').textContent, 10));
 
     const testTable = problem.querySelector('.sample_io');
     if (testTable !== null) {

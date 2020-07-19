@@ -5,6 +5,7 @@ import { Host } from './Host';
 
 const defaultHosts: Host[] = [new CHelperHost()];
 const defaultPorts = [
+  1327, // cpbooster
   4244, // Hightail
   6174, // Mind Sport
   10042, // acmX

@@ -1,6 +1,7 @@
 {
   "url": "https://omegaup.com/arena/problem/A-jugar-2048",
   "parser": "problem/OmegaUpProblemParser",
+  "before": "beforeOmegaUp",
   "result": {
     "name": "1052. A jugar 2048",
     "group": "omegaUp",
