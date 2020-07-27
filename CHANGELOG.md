@@ -1,5 +1,6 @@
 # 2.17.3 - TBD
-- Fixed the parsing of sample testcases in the  Facebook Coding Competitions parser
+- Fixed the parsing of sample testcases in the Facebook Coding Competitions parser
+- Changed the input file name to a pattern in the Facebook Coding Competitions parser to make it work with validation and sample input files
 
 # 2.17.2 - July 20th, 2020
 - Replaced the Facebook Hacker Cup parser with a Facebook Coding Competitions parser 

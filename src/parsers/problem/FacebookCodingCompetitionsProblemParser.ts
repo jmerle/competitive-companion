@@ -36,7 +36,7 @@ export class FacebookCodingCompetitionsProblemParser extends Parser {
       .replace(/[^a-zA-Z]+/g, '_');
 
     task.setInput({
-      fileName: `${filename}_input.txt`,
+      pattern: `${filename}_.*input[.]txt`,
       type: 'file',
     });
 
