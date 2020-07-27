@@ -24,8 +24,7 @@ export class FacebookCodingCompetitionsProblemParser extends Parser {
     const breadcrumbs = lastBreadcrumb.parentElement.querySelectorAll('a, span');
     task.setCategory([...breadcrumbs].map(el => el.textContent).join(' '));
 
-    const downloadButtons = elem.querySelectorAll('a[aria-label="Download"]');
-    const blocks = [...downloadButtons].map(el => el.parentElement.nextElementSibling.querySelector('pre'));
+    const blocks = [...elem.querySelectorAll('a[aria-label="Download"]')].map(el => this.findNearestPre(el));
     const input = blocks[0].textContent;
     const output = blocks[1].textContent;
     task.addTest(input, output);
@@ -52,5 +51,15 @@ export class FacebookCodingCompetitionsProblemParser extends Parser {
     task.setMemoryLimit(1024);
 
     return task.build();
+  }
+
+  private findNearestPre(elem: Element): HTMLPreElement {
+    const innerPre = elem.querySelector('pre');
+
+    if (innerPre !== null) {
+      return innerPre;
+    }
+
+    return this.findNearestPre(elem.parentElement);
   }
 }
