@@ -1,3 +1,6 @@
+# 2.17.4 - TBD
+- Fixed the Codeforces contest parser to work with the m1, m2 and m3 subdomains
+
 # 2.17.3 - July 28th, 2020
 - Fixed the parsing of sample testcases in the Facebook Coding Competitions parser
 - Changed the input file name to a pattern in the Facebook Coding Competitions parser to make it work with validation and sample input files

@@ -8,7 +8,8 @@ import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
 
 export class CodeforcesContestParser extends ContestParser {
   public problemParser: Parser = new CodeforcesProblemParser();
-  public linkSelector: string = '.problems > tbody > tr > td:first-child > a';
+  public linkSelector: string =
+    '.problems > tbody > tr > td:first-child > a, ._ProblemsPage_problems > table > tbody > tr > td:first-child > a';
 
   public getMatchPatterns(): string[] {
     const patterns: string[] = [];
@@ -31,8 +32,8 @@ export class CodeforcesContestParser extends ContestParser {
 
   public getRegularExpressions(): RegExp[] {
     return [
-      /^https?:\/\/codeforces[.]com\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)(\?.*)?$/,
-      /^https?:\/\/codeforces[.]com\/edu\/course\/\d+\/lesson\/\d+\/\d+\/practice(\?.*)?$/,
+      /^https?:\/\/(.*\.)?codeforces[.](com|ml|es)\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)(\?.*)?$/,
+      /^https?:\/\/(.*\.)?codeforces[.](com|ml|es)\/edu\/course\/\d+\/lesson\/\d+\/\d+\/practice(\?.*)?$/,
     ];
   }
 
