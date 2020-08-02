@@ -1,7 +1,7 @@
 {
   "url": "https://onlinejudge.u-aizu.ac.jp/services/room.html#KUPC2020Spring/problems/C",
-  "parser": "problem/AizuOnlineJudgeProblemParser",
-  "before": "beforeAizuOnlineJudgeArena",
+  "parser": "problem/AizuOnlineJudgeBetaProblemParser",
+  "before": "beforeAizuOnlineJudgeBetaArena",
   "result": {
     "name": "C: サボテンクエリ",
     "group": "Aizu Online Judge - Kyoto University Programming Contest 2020 Spring",

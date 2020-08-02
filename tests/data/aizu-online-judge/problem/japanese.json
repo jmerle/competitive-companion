@@ -1,0 +1,36 @@
+{
+  "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=ja",
+  "parser": "problem/AizuOnlineJudgeProblemParser",
+  "before": "beforeAizuOnlineJudge",
+  "result": {
+    "name": "Projection",
+    "group": "CGL - CGL_1_A",
+    "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=ja",
+    "interactive": false,
+    "memoryLimit": 131,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "0 0 3 4\n1\n2 5\n",
+        "output": "3.1200000000 4.1600000000\n"
+      },
+      {
+        "input": "0 0 2 0\n3\n-1 1\n0 1\n1 1\n",
+        "output": "-1.0000000000 0.0000000000\n0.0000000000 0.0000000000\n1.0000000000 0.0000000000\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Projection"
+      }
+    }
+  }
+}

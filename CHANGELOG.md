@@ -1,3 +1,6 @@
+# TBD - TBD
+- Added a parser for the non-beta version of Aizu Online Judge
+
 # 2.17.4 - August 2nd, 2020
 - Fixed the Codeforces contest parser to work with the m1, m2 and m3 subdomains
 

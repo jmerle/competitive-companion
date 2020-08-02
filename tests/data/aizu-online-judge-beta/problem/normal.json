@@ -1,7 +1,7 @@
 {
   "url": "https://onlinejudge.u-aizu.ac.jp/challenges/sources/JOI/Prelim/0652",
-  "parser": "problem/AizuOnlineJudgeProblemParser",
-  "before": "beforeAizuOnlineJudgeNormal",
+  "parser": "problem/AizuOnlineJudgeBetaProblemParser",
+  "before": "beforeAizuOnlineJudgeBetaNormal",
   "result": {
     "name": "ソーシャルゲーム (Social Game)",
     "group": "Aizu Online Judge - JOI - Prelim",

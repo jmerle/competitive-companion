@@ -1,12 +1,16 @@
 import { Page } from 'puppeteer';
 
 export default {
-  async beforeAizuOnlineJudgeNormal(page: Page): Promise<void> {
-    await page.waitFor('.problemBody pre');
+  async beforeAizuOnlineJudge(page: Page): Promise<void> {
+    await page.waitForFunction('document.querySelector("#problemTitle").textContent.length > 0');
   },
 
-  async beforeAizuOnlineJudgeArena(page: Page): Promise<void> {
+  async beforeAizuOnlineJudgeBetaArena(page: Page): Promise<void> {
     await page.waitFor('#description_html pre');
+  },
+
+  async beforeAizuOnlineJudgeBetaNormal(page: Page): Promise<void> {
+    await page.waitFor('.problemBody pre');
   },
 
   async beforeCodeChef(page: Page): Promise<void> {

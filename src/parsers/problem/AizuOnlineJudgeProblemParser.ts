@@ -5,71 +5,46 @@ import { Parser } from '../Parser';
 
 export class AizuOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://onlinejudge.u-aizu.ac.jp/challenges/sources/*/*/*',
-      'https://onlinejudge.u-aizu.ac.jp/courses/lesson/*/*/*/*',
-      'https://onlinejudge.u-aizu.ac.jp/services/room.html#*/*/*',
-    ];
+    return [''];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Aizu Online Judge').setUrl(url);
 
-    if (url.includes('services/room.html')) {
-      this.parseArenaCategory(task, elem);
-      this.parseLimits(task, elem.querySelectorAll('#description_info > .limit'));
-      this.parseBody(task, elem.querySelector('#description_html'));
-    } else {
-      this.parseNormalCategory(task, elem);
-      this.parseLimits(task, elem.querySelectorAll('.problemInfo > .el-tag'));
-      this.parseBody(task, elem.querySelector('.problemBody'));
-    }
+    task.setName(elem.querySelector('#problemTitle').textContent);
 
-    return task.build();
-  }
+    const breadcrumbContainer = elem.querySelector('#pwd');
+    const breadcrumbs = [...breadcrumbContainer.querySelectorAll('.now')].map(el => el.textContent);
+    breadcrumbs.push(breadcrumbContainer.childNodes[breadcrumbContainer.childNodes.length - 1].textContent);
+    breadcrumbs.shift();
 
-  private parseArenaCategory(task: TaskBuilder, elem: Element): TaskBuilder {
-    task.setCategory(elem.querySelector('#header_title').textContent);
-    return task;
-  }
+    task.setGroup(breadcrumbs.join(' - '));
 
-  private parseNormalCategory(task: TaskBuilder, elem: Element): TaskBuilder {
-    const category = elem.querySelector('.breadcrumbs > .wrapper > ul > li:nth-child(3)').textContent.trim();
-    task.setCategory(category[0].toUpperCase() + category.substr(1));
-    return task;
-  }
-
-  private parseLimits(task: TaskBuilder, nodes: NodeList): TaskBuilder {
-    const timeLimitStr = nodes[0].textContent.split(' ')[0];
-    const memoryLimitStr = nodes[1].textContent.split(' ')[0];
-
+    const timeLimitStr = elem.querySelector('#problemTimeLimit').textContent;
     task.setTimeLimit(parseInt(timeLimitStr, 10) * 1000);
+
+    const memoryLimitStr = elem.querySelector('#problemMemoryLimit').textContent;
     task.setMemoryLimit(Math.floor(parseInt(memoryLimitStr, 10) / 1000));
 
-    return task;
-  }
+    const blocks = [...elem.querySelectorAll('.description > pre')].filter(el => {
+      const previousElement = el.previousElementSibling;
 
-  private parseBody(task: TaskBuilder, body: Element): TaskBuilder {
-    task.setName(body.querySelector('h1, h2').textContent);
-
-    const preBlocks = [...body.querySelectorAll('pre')].filter(block => {
-      const previousElem = block.previousElementSibling;
-
-      if (previousElem === null || previousElem.tagName !== 'H3') {
+      if (!previousElement || previousElement.tagName !== 'H2') {
         return false;
       }
 
-      return ['入力例', '出力例', 'Sample Input', 'Sample Output'].some(x => previousElem.textContent.includes(x));
+      const headerText = previousElement.textContent.toLowerCase();
+      return ['ample input', 'ample output', '入力例', '出力例'].some(x => headerText.includes(x.toLowerCase()));
     });
 
-    for (let i = 0; i < preBlocks.length - 1; i += 2) {
-      const input = preBlocks[i].textContent.trim();
-      const output = preBlocks[i + 1].textContent.trim();
+    for (let i = 0; i < blocks.length; i += 2) {
+      const input = blocks[i].textContent;
+      const output = blocks[i + 1].textContent;
 
       task.addTest(input, output);
     }
 
-    return task;
+    return task.build();
   }
 }
