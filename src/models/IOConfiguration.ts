@@ -1,5 +1,5 @@
 export interface InputConfiguration {
-  type: 'stdin' | 'file';
+  type: 'stdin' | 'file' | 'regex';
   fileName?: string;
   pattern?: string;
 }

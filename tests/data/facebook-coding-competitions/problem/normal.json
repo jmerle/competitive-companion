@@ -17,7 +17,7 @@
     ],
     "testType": "multiNumber",
     "input": {
-      "type": "file",
+      "type": "regex",
       "pattern": "leapfrog_ch__.*input[.]txt"
     },
     "output": {

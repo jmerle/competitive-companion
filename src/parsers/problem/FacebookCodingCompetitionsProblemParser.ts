@@ -37,7 +37,7 @@ export class FacebookCodingCompetitionsProblemParser extends Parser {
 
     task.setInput({
       pattern: `${filename}_.*input[.]txt`,
-      type: 'file',
+      type: 'regex',
     });
 
     task.setOutput({

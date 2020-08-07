@@ -149,6 +149,7 @@ It's not required for a tool to parse all these options, since some of them are 
 - **input**: An object which is used to configure how to receive input. Supported types:
     - **stdin**: Receive input via stdin. No additional options required.
     - **file**: Receive input via a file. The file name has to be given via the **fileName** option.
+    - **regex**: Receive input via a file. The file to use is selected by taking the most recently modified that matches the given regex. The regex pattern to use has to be given via the **pattern** option.
 - **output**: An object which is used to configure how to send output. Supported types:
     - **stdout**: Send output to stdout. No additional options required.
     - **file**: Send output to a file. The file name has to be given via the **fileName** option.
