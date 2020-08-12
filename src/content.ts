@@ -6,6 +6,7 @@ import { config } from './utils/config';
 import { noop } from './utils/noop';
 
 // This package has no types
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const Nanobar = require('nanobar');
 
 (window as any).isContentScript = true;

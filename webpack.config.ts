@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 
 // The @types/copy-webpack-plugin are outdated
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function transformManifest(content: Buffer): string {
