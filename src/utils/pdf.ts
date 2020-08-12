@@ -5,7 +5,7 @@ const PdfjsWorker = require('../../node_modules/pdfjs-dist/build/pdf.worker.js')
 
 export async function readPdf(pdfUrl: string): Promise<string[]> {
   if (!pdfjsLib.GlobalWorkerOptions.workerPort) {
-    pdfjsLib.GlobalWorkerOptions.workerPort = new PdfjsWorker();
+    pdfjsLib.GlobalWorkerOptions.workerPort = new PdfjsWorker.default();
   }
 
   const pdf = await pdfjsLib.getDocument(pdfUrl).promise;

@@ -68,7 +68,7 @@
     "web-ext": "^5.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "worker-loader": "^2.0.0"
+    "worker-loader": "^3.0.1"
   },
   "eslintConfig": {
     "root": true,

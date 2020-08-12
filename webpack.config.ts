@@ -54,8 +54,7 @@ const config: webpack.Configuration = {
         test: /\.worker\.js$/,
         loader: 'worker-loader',
         options: {
-          fallback: false,
-          inline: true,
+          inline: 'no-fallback',
         },
       },
       {
