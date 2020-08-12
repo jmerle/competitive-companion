@@ -12,7 +12,11 @@ export class AtCoderProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AtCoder').setUrl(url);
 
-    task.setName(elem.querySelector('h2, .h2').textContent);
+    // Document preprocessing to remove the "editorial" button inside the heading
+    const h2 = elem.querySelector('h2, .h2');
+    h2.removeChild(elem.querySelector('.h2 > .btn'));
+
+    task.setName(h2.textContent.replace(/\n/g, '').replace(/\t/g, ''));
     task.setCategory(elem.querySelector('.contest-name, .contest-title').textContent);
 
     const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];
