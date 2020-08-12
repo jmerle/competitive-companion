@@ -72,15 +72,15 @@ export class CodeforcesProblemParser extends Parser {
 
     task.setInteractive(isInteractive);
 
-    const timeLimitNode = this.getLastChildNode(elem, '.problem-statement > .header > .time-limit');
+    const timeLimitNode = this.getLastTextNode(elem, '.problem-statement > .header > .time-limit');
     const timeLimitStr = timeLimitNode.textContent.split(' ')[0];
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
-    const memoryLimitNode = this.getLastChildNode(elem, '.problem-statement > .header > .memory-limit');
+    const memoryLimitNode = this.getLastTextNode(elem, '.problem-statement > .header > .memory-limit');
     const memoryLimitStr = memoryLimitNode.textContent.split(' ')[0];
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
-    const inputFile = this.getLastChildNode(elem, '.problem-statement > .header > .input-file').textContent;
+    const inputFile = this.getLastTextNode(elem, '.problem-statement > .header > .input-file').textContent;
     if (inputFile !== 'standard input' && inputFile !== 'стандартный ввод') {
       task.setInput({
         fileName: inputFile,
@@ -88,7 +88,7 @@ export class CodeforcesProblemParser extends Parser {
       });
     }
 
-    const outputFile = this.getLastChildNode(elem, '.problem-statement > .header > .output-file').textContent;
+    const outputFile = this.getLastTextNode(elem, '.problem-statement > .header > .output-file').textContent;
     if (outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
       task.setOutput({
         fileName: outputFile,
@@ -149,8 +149,9 @@ export class CodeforcesProblemParser extends Parser {
     });
   }
 
-  private getLastChildNode(elem: Element, selector: string): ChildNode {
+  private getLastTextNode(elem: Element, selector: string): ChildNode {
     const nodes = elem.querySelector(selector).childNodes;
-    return nodes[nodes.length - 1];
+    const textNodes = [...nodes].filter(node => node.nodeType === Node.TEXT_NODE);
+    return textNodes[textNodes.length - 1];
   }
 }

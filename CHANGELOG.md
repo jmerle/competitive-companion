@@ -3,6 +3,7 @@
 - Re-added the regex input option for the Facebook Coding Competitions parser
 - Fixed the parsing of titles in the AtCoder parser
 - Fixed the time and memory limit parsing in the DMOJ parser when using DMOJ in a language other than English
+- Fixed the time limit parsing in the Codeforces parser for contests which use a time limits scaling policy
 
 # 2.17.4 - August 2nd, 2020
 - Fixed the Codeforces contest parser to work with the m1, m2 and m3 subdomains
