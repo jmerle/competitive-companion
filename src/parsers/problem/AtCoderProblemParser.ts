@@ -12,7 +12,13 @@ export class AtCoderProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AtCoder').setUrl(url);
 
-    task.setName(elem.querySelector('h2, .h2').textContent);
+    const name = [...elem.querySelector('h2, .h2').childNodes]
+      .filter(node => node.nodeType === Node.TEXT_NODE)
+      .map(node => node.textContent)
+      .join('')
+      .trim();
+
+    task.setName(name);
     task.setCategory(elem.querySelector('.contest-name, .contest-title').textContent);
 
     const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];

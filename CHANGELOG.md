@@ -1,6 +1,7 @@
 # TBD - TBD
 - Added a parser for the non-beta version of Aizu Online Judge
 - Re-added the regex input option for the Facebook Coding Competitions parser
+- Fixed the parsing of titles in the AtCoder parser
 
 # 2.17.4 - August 2nd, 2020
 - Fixed the Codeforces contest parser to work with the m1, m2 and m3 subdomains
