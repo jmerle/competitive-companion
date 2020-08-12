@@ -34,7 +34,7 @@ export class DMOJProblemParser extends Parser {
       return text.includes('sample output') || text.includes('output for sample input');
     });
 
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length && i < outputs.length; i++) {
       let inputElem: Element = inputs[i];
       while (inputElem.tagName !== 'PRE') {
         inputElem = inputElem.nextElementSibling;
@@ -52,13 +52,13 @@ export class DMOJProblemParser extends Parser {
     }
 
     const timeLimitStr = [...elem.querySelectorAll('.problem-info-entry')]
-      .find(el => el.textContent.includes('Time limit:'))
+      .find(el => el.querySelector('.fa-clock-o') !== null)
       .textContent.split('\n')[2]
       .slice(0, -1);
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
     const memoryLimitStr = [...elem.querySelectorAll('.problem-info-entry')]
-      .find(el => el.textContent.includes('Memory limit:'))
+      .find(el => el.querySelector('.fa-server') !== null)
       .textContent.split('\n')[2]
       .slice(0, -1);
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
