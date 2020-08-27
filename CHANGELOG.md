@@ -1,3 +1,6 @@
+# 2.18.1 - August 27th, 2020
+- Removed the time and memory limit parsing from the MSK Informatics parser now that their problems no longer show these constraints
+
 # 2.18.0 - August 12th, 2020
 - Added a parser for the non-beta version of Aizu Online Judge
 - Re-added the regex input option for the Facebook Coding Competitions parser

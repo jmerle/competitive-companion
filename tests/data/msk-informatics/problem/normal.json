@@ -1,12 +1,12 @@
 {
-  "url": "https://informatics.msk.ru/mod/statements/view3.php?id=2296&chapterid=2940",
+  "url": "https://informatics.msk.ru/mod/statements/view3.php?id=2296&chapterid=2940#1",
   "parser": "problem/MSKInformaticsProblemParser",
   "result": {
     "name": "E. МКАД",
     "group": "MSK Informatics",
-    "url": "https://informatics.msk.ru/mod/statements/view3.php?id=2296&chapterid=2940",
+    "url": "https://informatics.msk.ru/mod/statements/view3.php?id=2296&chapterid=2940#1",
     "interactive": false,
-    "memoryLimit": 64,
+    "memoryLimit": 1024,
     "timeLimit": 1000,
     "tests": [
       {

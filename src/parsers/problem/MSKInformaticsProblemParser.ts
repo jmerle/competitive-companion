@@ -17,13 +17,6 @@ export class MSKInformaticsProblemParser extends Parser {
     const regex = / ([A-Z])\. /;
     task.setName(regex.exec(text) ? regex.exec(text)[1] + '. ' + text.split('. ')[1] : text);
 
-    const limitsTable = elem.querySelector('.statements_content > table');
-    const timeLimitStr = limitsTable.querySelector('tbody > tr:first-child > td:last-child').textContent;
-    const memoryLimitStr = limitsTable.querySelector('tbody > tr:last-child > td:last-child').textContent;
-
-    task.setTimeLimit(parseInt(timeLimitStr, 10) * 1000);
-    task.setMemoryLimit(parseInt(memoryLimitStr, 10));
-
     elem.querySelectorAll('.sample-test').forEach(testElem => {
       const input = testElem.querySelector('.input > .content').textContent;
       const output = testElem.querySelector('.output > .content').textContent;
