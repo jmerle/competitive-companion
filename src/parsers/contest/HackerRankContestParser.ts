@@ -32,7 +32,7 @@ export class HackerRankContestParser extends Parser {
       );
 
       task.setName(model.name);
-      if(model.primary_contest) {
+      if (model.primary_contest) {
         task.setCategory(model.primary_contest.name);
       }
 
