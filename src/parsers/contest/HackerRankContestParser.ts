@@ -17,6 +17,11 @@ export class HackerRankContestParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
 
+    let contestName;
+    if (elem.querySelector('a[data-attr2=contest]')) {
+      contestName = elem.querySelector('a[data-attr2=contest]').getAttribute('data-attr1');
+    }
+
     const links: string[] = [...elem.querySelectorAll('.challenges-list a.btn')].map(el =>
       (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'),
     );
@@ -32,7 +37,9 @@ export class HackerRankContestParser extends Parser {
       );
 
       task.setName(model.name);
-      if (model.primary_contest) {
+      if (contestName) {
+        task.setCategory(contestName);
+      } else if (model.primary_contest) {
         task.setCategory(model.primary_contest.name);
       }
 
