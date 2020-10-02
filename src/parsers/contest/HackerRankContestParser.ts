@@ -32,7 +32,9 @@ export class HackerRankContestParser extends Parser {
       );
 
       task.setName(model.name);
-      task.setCategory(model.primary_contest.name);
+      if(model.primary_contest) {
+        task.setCategory(model.primary_contest.name);
+      }
 
       new HackerRankProblemParser().parseTests(model.body_html, task);
 
