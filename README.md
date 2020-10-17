@@ -203,14 +203,14 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 12.18.3  
-Yarn: 1.22.4
+Node.js: 14.13.1  
+Yarn: 1.22.5
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
-- [snarkdown 1.2.2](https://github.com/developit/snarkdown/blob/1.2.2/src/index.js)
-- [webextension-polyfill-ts 0.16.0](https://github.com/lusito/webextension-polyfill-ts/tree/0.16.0)
-- [pdfjs-dist 2.4.456](https://github.com/mozilla/pdfjs-dist/blob/v2.4.456/build/pdf.js)
+- [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
+- [webextension-polyfill-ts 0.20.0](https://github.com/lusito/webextension-polyfill-ts/tree/0.20.0)
+- [pdfjs-dist 2.5.207](https://github.com/mozilla/pdfjs-dist/blob/v2.5.207/build/pdf.js)
 - [cyrillic-to-translit-js 3.1.0](https://github.com/greybax/cyrillic-to-translit-js/blob/0dcc4bf8d310a1cbc0f088b62af923b826739b8f/CyrillicToTranslit.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
