@@ -1,11 +1,11 @@
 {
-  "url": "http://uoj.ac/contest/50",
+  "url": "https://uoj.ac/contest/50",
   "parser": "contest/UOJContestParser",
   "result": [
     {
       "name": "A. 新年的促销",
       "group": "UOJ - Goodbye Jihai",
-      "url": "http://uoj.ac/contest/50/problem/495",
+      "url": "https://uoj.ac/contest/50/problem/495",
       "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 1000,
@@ -36,7 +36,7 @@
     {
       "name": "B. 新年的新航线",
       "group": "UOJ - Goodbye Jihai",
-      "url": "http://uoj.ac/contest/50/problem/496",
+      "url": "https://uoj.ac/contest/50/problem/496",
       "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 2000,
@@ -67,7 +67,7 @@
     {
       "name": "C. 新年的复读机",
       "group": "UOJ - Goodbye Jihai",
-      "url": "http://uoj.ac/contest/50/problem/497",
+      "url": "https://uoj.ac/contest/50/problem/497",
       "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 2000,
@@ -94,7 +94,7 @@
     {
       "name": "D. 新年的追逐战",
       "group": "UOJ - Goodbye Jihai",
-      "url": "http://uoj.ac/contest/50/problem/498",
+      "url": "https://uoj.ac/contest/50/problem/498",
       "interactive": false,
       "memoryLimit": 512,
       "timeLimit": 1000,
@@ -129,7 +129,7 @@
     {
       "name": "E. 新年的邀请函",
       "group": "UOJ - Goodbye Jihai",
-      "url": "http://uoj.ac/contest/50/problem/499",
+      "url": "https://uoj.ac/contest/50/problem/499",
       "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 1000,

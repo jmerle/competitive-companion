@@ -1,10 +1,10 @@
 {
-  "url": "http://uoj.ac/problem/1",
+  "url": "https://uoj.ac/problem/1",
   "parser": "problem/UOJProblemParser",
   "result": {
     "name": "#1. A + B Problem",
     "group": "UOJ",
-    "url": "http://uoj.ac/problem/1",
+    "url": "https://uoj.ac/problem/1",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

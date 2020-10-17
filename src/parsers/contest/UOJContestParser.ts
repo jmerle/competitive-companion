@@ -7,6 +7,6 @@ export class UOJContestParser extends ContestParser {
   public linkSelector: string = '.top-buffer-md > .table-responsive > .table a';
 
   public getMatchPatterns(): string[] {
-    return ['https://uoj.ac/contest/*', 'http://uoj.ac/contest/*'];
+    return ['https://uoj.ac/contest/*'];
   }
 }

@@ -5,12 +5,7 @@ import { Parser } from '../Parser';
 
 export class UOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://uoj.ac/problem/*',
-      'https://uoj.ac/contest/*/problem/*',
-      'http://uoj.ac/problem/*',
-      'http://uoj.ac/contest/*/problem/*',
-    ];
+    return ['https://uoj.ac/problem/*', 'https://uoj.ac/contest/*/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
