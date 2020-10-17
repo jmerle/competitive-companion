@@ -14,7 +14,8 @@ export class HackerRankProblemParser extends Parser {
 
     task.setName(elem.querySelector('h1.page-label, h2.hr_tour-challenge-name').textContent.trim());
 
-    const breadCrumbs = [...elem.querySelectorAll('.breadcrumb-item-text')].map(el => el.textContent);
+    const breadCrumbsSelector = '.breadcrumb-item-text, #breadcrumb [itemprop="item"] > span';
+    const breadCrumbs = [...elem.querySelectorAll(breadCrumbsSelector)].map(el => el.textContent);
     task.setCategory(breadCrumbs.slice(1, -1).join(' - '));
 
     this.parseTests(html, task);

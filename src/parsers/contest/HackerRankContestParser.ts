@@ -22,13 +22,16 @@ export class HackerRankContestParser extends Parser {
       contestName = elem.querySelector('a[data-attr2=contest]').getAttribute('data-attr1');
     }
 
-    const links: string[] = [...elem.querySelectorAll('.challenges-list a.btn')].map(el =>
+    const linksSelector = '.challenges-list a.btn, .challenges-list a.challenge-list-item';
+    const links: string[] = [...elem.querySelectorAll(linksSelector)].map(el =>
       (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'),
     );
 
     const bodies = await this.fetchAll(links);
     const models = bodies.map(body => JSON.parse(body).model);
     const tasks = [];
+
+    console.log(links);
 
     for (let i = 0; i < models.length; i++) {
       const model = models[i];

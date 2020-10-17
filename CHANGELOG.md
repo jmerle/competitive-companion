@@ -1,3 +1,8 @@
+# TBD - October 17th, 2020
+- Fixed the category parsing in the HackerRank contest parser in custom contests (thanks [@fcottet](https://github.com/fcottet))
+- Fixed the category parsing in the HackerRank problem parser
+- Fixed the parsing of public HackerRank contests
+
 # 2.18.1 - August 27th, 2020
 - Removed the time and memory limit parsing from the MSK Informatics parser now that their problems no longer show these constraints
 
