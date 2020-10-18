@@ -1,0 +1,26 @@
+{
+  "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=552",
+  "parser": "problem/USACOProblemParser",
+  "result": {
+    "name": "Problem 1. Googol",
+    "group": "USACO - USACO 2015 US Open, Gold",
+    "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=552",
+    "interactive": true,
+    "memoryLimit": 256,
+    "timeLimit": 4000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Problem1Googol"
+      }
+    }
+  }
+}

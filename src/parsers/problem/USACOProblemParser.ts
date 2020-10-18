@@ -25,19 +25,23 @@ export class USACOProblemParser extends Parser {
     task.setName(headers[1].textContent.trim());
     task.setCategory(headers[0].textContent.trim());
 
-    task.setInput({
-      fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],
-      type: 'file',
-    });
+    if (elem.querySelector('.prob-in-spec h4') !== null) {
+      task.setInput({
+        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],
+        type: 'file',
+      });
 
-    task.setOutput({
-      fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
-      type: 'file',
-    });
+      task.setOutput({
+        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
+        type: 'file',
+      });
 
-    const input = elem.querySelector('pre.in').textContent;
-    const output = elem.querySelector('pre.out').textContent;
-    task.addTest(input, output);
+      const input = elem.querySelector('pre.in').textContent;
+      const output = elem.querySelector('pre.out').textContent;
+      task.addTest(input, output);
+    } else {
+      task.setInteractive(true);
+    }
 
     task.setTimeLimit(4000);
     task.setMemoryLimit(256);
