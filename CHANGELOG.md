@@ -1,5 +1,6 @@
 # 2.18.3 - October 18th, 2020
 - Fixed the parsing of interactive problems in the USACO parser
+- Fixed the parsing of sample cases in the omegaUp parser (again)
 
 # 2.18.2 - October 17th, 2020
 - Fixed the category parsing in the HackerRank contest parser in custom contests (thanks [@fcottet](https://github.com/fcottet))

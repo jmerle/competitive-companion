@@ -36,10 +36,7 @@ export class OmegaUpProblemParser extends Parser {
     if (testTable !== null) {
       testTable.querySelectorAll('tbody tr').forEach(row => {
         const blocks = row.querySelectorAll('pre');
-        const input = blocks[0].querySelector('button.clipboard').nextSibling.textContent;
-        const output = blocks[1].textContent;
-
-        task.addTest(input, output);
+        task.addTest(blocks[0].textContent, blocks[1].textContent);
       });
     }
 
