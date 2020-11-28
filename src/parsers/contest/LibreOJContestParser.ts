@@ -7,6 +7,6 @@ export class LibreOJContestParser extends ContestParser {
   public linkSelector: string = '.ui.selectable.celled.table > tbody > tr > td:nth-child(2) > a';
 
   public getMatchPatterns(): string[] {
-    return ['https://loj.ac/contest/*'];
+    return ['https://libreoj.github.io/contest/*'];
   }
 }

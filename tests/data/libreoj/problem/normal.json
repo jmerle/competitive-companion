@@ -1,10 +1,11 @@
 {
-  "url": "https://loj.ac/problem/1",
+  "url": "https://loj.ac/p/1",
   "parser": "problem/LibreOJProblemParser",
+  "before": "beforeLibreOJProblem",
   "result": {
     "name": "#1. A + B Problem",
     "group": "LibreOJ",
-    "url": "https://loj.ac/problem/1",
+    "url": "https://loj.ac/p/1",
     "interactive": false,
     "memoryLimit": 512,
     "timeLimit": 2000,

@@ -5,24 +5,55 @@ import { Parser } from '../Parser';
 
 export class LibreOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://loj.ac/problem/*', 'https://loj.ac/contest/*/problem/*'];
+    return ['https://loj.ac/p/*', 'https://libreoj.github.io/contest/*/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('LibreOJ').setUrl(url);
 
-    task.setName(elem.querySelector('.ui.header').textContent.trim());
-
-    if (url.includes('contest/')) {
-      task.setCategory(elem.querySelector('title').text.split('-')[1].trim());
+    if (!url.includes('contest/')) {
+      this.parseNormalProblem(elem, task);
+    } else {
+      this.parseContestProblem(elem, task);
     }
 
+    return task.build();
+  }
+
+  private parseNormalProblem(elem: Element, task: TaskBuilder): void {
+    const nbsp = new RegExp(String.fromCharCode(160), 'g');
+    task.setName(elem.querySelector('.ui.header > span').textContent.replace(nbsp, ' '));
+
+    const timeLimitIcon = elem.querySelector('.label > .clock.icon');
+    const timeLimitStr = timeLimitIcon.parentElement.textContent.trim();
+    task.setTimeLimit(parseInt(timeLimitStr.split(' ')[0]));
+
+    const memoryLimitIcon = elem.querySelector('.label > .microchip.icon');
+    const memoryLimitStr = memoryLimitIcon.parentElement.textContent.trim();
+    task.setMemoryLimit(parseInt(memoryLimitStr.split(' ')[0]));
+
+    const blocks = elem.querySelectorAll('pre[class^="sampleDataPre--"]');
+    for (let i = 0; i < blocks.length - 1; i += 2) {
+      task.addTest(blocks[i].textContent.trim(), blocks[i + 1].textContent.trim());
+    }
+  }
+
+  private parseContestProblem(elem: Element, task: TaskBuilder): void {
+    task.setName(elem.querySelector('.ui.header').textContent.trim());
+    task.setCategory(elem.querySelector('title').text.split('-')[1].trim());
+
     const timeLimitStr = elem.querySelector('.row > .ui.label:nth-child(2)').textContent;
-    task.setTimeLimit(parseFloat(timeLimitStr.split('：')[1]));
+    const timeLimit = parseFloat(timeLimitStr.split('：')[1]);
+    if (!Number.isNaN(timeLimit)) {
+      task.setTimeLimit(timeLimit);
+    }
 
     const memoryLimitStr = elem.querySelector('.row > .ui.label:nth-child(1)').textContent;
-    task.setMemoryLimit(parseFloat(memoryLimitStr.split('：')[1]));
+    const memoryLimit = parseFloat(memoryLimitStr.split('：')[1]);
+    if (!Number.isNaN(memoryLimit)) {
+      task.setMemoryLimit(memoryLimit);
+    }
 
     const samplesRow = [...elem.querySelectorAll('.row')].find(el => {
       const titleElem = el.querySelector('h4');
@@ -38,7 +69,5 @@ export class LibreOJProblemParser extends Parser {
         task.addTest(input, output);
       }
     }
-
-    return task.build();
   }
 }

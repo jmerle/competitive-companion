@@ -1,3 +1,6 @@
+# 2.19.0 - November 28th, 2020
+- Fixed the parsing of problems and contests in the LibreOJ parsers
+
 # 2.18.3 - October 18th, 2020
 - Fixed the parsing of interactive problems in the USACO parser
 - Fixed the parsing of sample cases in the omegaUp parser (again)

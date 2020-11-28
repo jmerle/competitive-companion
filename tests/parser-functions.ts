@@ -45,6 +45,10 @@ export default {
     await page.waitForSelector('.problem-io-wrapper pre.io-content');
   },
 
+  async beforeLibreOJProblem(page: Page): Promise<void> {
+    await page.waitForSelector('.ui.header');
+  },
+
   async beforeOldGoogleCodeJam(page: Page): Promise<void> {
     await page.waitForSelector('#dsb-problem-title0');
   },
