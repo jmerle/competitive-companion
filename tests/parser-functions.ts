@@ -45,6 +45,10 @@ export default {
     await page.waitForSelector('.problem-io-wrapper pre.io-content');
   },
 
+  async beforeLibraryChecker(page: Page): Promise<void> {
+    await page.waitForSelector('.MuiContainer-root.MuiContainer-maxWidthLg > .MuiContainer-root');
+  },
+
   async beforeLibreOJProblem(page: Page): Promise<void> {
     await page.waitForSelector('.ui.header');
   },
@@ -57,8 +61,12 @@ export default {
     await page.waitForSelector('td[data-memory-limit]');
   },
 
+  async beforeQDUOJ(page: Page): Promise<void> {
+    await page.waitForFunction(() => /(\d+)MS/.test(document.body.innerHTML));
+  },
+
   async beforeTLXEnglish(page: Page): Promise<void> {
-    // wait for page to load & switch language
+    // Wait for page to load & switch language
     await page.waitForSelector('.programming-problem-statement__name');
     await page.click('[data-key="statementLanguage"]');
     await page.click('[data-key="en"]');
@@ -67,15 +75,11 @@ export default {
   },
 
   async beforeTLXIndonesian(page: Page): Promise<void> {
-    // wait for page to load & switch language
+    // Wait for page to load & switch language
     await page.waitForSelector('.programming-problem-statement__name');
     await page.click('[data-key="statementLanguage"]');
     await page.click('[data-key="id"]');
     await page.click('.statement-language-form__button');
     await page.waitForSelector('.programming-problem-statement__name');
-  },
-
-  async beforeQDUOJ(page: Page): Promise<void> {
-    await page.waitForFunction(() => /(\d+)MS/.test(document.body.innerHTML));
   },
 };

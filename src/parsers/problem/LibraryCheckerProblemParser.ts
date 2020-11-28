@@ -12,17 +12,18 @@ export class LibraryCheckerProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Library Checker').setUrl(url);
 
-    task.setName(elem.querySelector('.uk-container > h1').textContent);
+    const container = elem.querySelector('.MuiContainer-root.MuiContainer-maxWidthLg > .MuiContainer-root');
 
-    task.setTimeLimit(5000);
+    task.setName(container.querySelector('.MuiTypography-h2 + div').textContent);
+
+    const timeLimitStr = container.querySelector('.MuiTypography-body1').textContent.trim();
+    task.setTimeLimit(parseInt(/(\d+) sec/.exec(timeLimitStr)[1], 10) * 1000);
+
     task.setMemoryLimit(1024);
 
-    const preBlocks = [...elem.querySelectorAll('pre')].filter(block => block.querySelector('code') === null);
-    for (let i = 0; i < preBlocks.length - 1; i += 2) {
-      const input = preBlocks[i].textContent;
-      const output = preBlocks[i + 1].textContent;
-
-      task.addTest(input, output);
+    const blocks = container.querySelectorAll('.uk-grid-small > div > pre');
+    for (let i = 0; i < blocks.length - 1; i += 2) {
+      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
 
     return task.build();

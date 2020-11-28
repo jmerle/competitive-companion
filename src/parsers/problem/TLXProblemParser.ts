@@ -24,8 +24,7 @@ export class TLXProblemParser extends Parser {
     const categoryNode = breadcrumbNodes[breadcrumbNodes.length - 2];
     task.setCategory(categoryNode.textContent);
 
-    // Problems in the problemset don't include the letter in the title,
-    // so we add it here.
+    // Problems in the problemset don't include the letter in the title, so we add it here
     if (!task.name.includes('. ')) {
       const problemIndexNode = breadcrumbNodes[breadcrumbNodes.length - 1];
       task.setName(problemIndexNode.textContent + '. ' + task.name);
