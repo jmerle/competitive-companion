@@ -1,0 +1,40 @@
+{
+  "url": "https://tlx.toki.id/problems/troc-16/A",
+  "parser": "problem/TLXProblemParser",
+  "before": "beforeTLXEnglish",
+  "result": {
+    "name": "A. Puzzling Puzzle",
+    "group": "TLX - TROC #16",
+    "url": "https://tlx.toki.id/problems/troc-16/A",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "77\n",
+        "output": "7 11\n"
+      },
+      {
+        "input": "12\n",
+        "output": "6 2\n"
+      },
+      {
+        "input": "1\n",
+        "output": "1 1\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "APuzzlingPuzzle"
+      }
+    }
+  }
+}
