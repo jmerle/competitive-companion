@@ -1,4 +1,5 @@
 # 2.19.0 - November 28th, 2020
+- Added support for TLX (thanks [@anandoza](https://github.com/anandoza))
 - Fixed the parsing of problems and contests in the LibreOJ parsers
 
 # 2.18.3 - October 18th, 2020
