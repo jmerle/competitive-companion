@@ -48,7 +48,7 @@ export abstract class Parser {
   /**
    * The method called when the parse button is clicked.
    */
-  public abstract async parse(url: string, html: string): Promise<Sendable>;
+  public abstract parse(url: string, html: string): Promise<Sendable>;
 
   /**
    * Fetches a url using a GET request and resolves into the HTML body.

@@ -1,6 +1,3 @@
-/// <reference types="@types/jest" />
-/// <reference types="jest-environment-puppeteer" />
-
 import * as fs from 'fs';
 import * as path from 'path';
 import { JSDOM } from 'jsdom';
