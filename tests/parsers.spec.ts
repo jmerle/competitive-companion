@@ -8,8 +8,6 @@ import { Parser } from '../src/parsers/Parser';
 
 const parserFunctions = require('./parser-functions').default;
 
-console.log('Ignore the "Could not parse CSS stylesheet" errors');
-
 export interface ParserTestData {
   name?: string;
   before?: string;
