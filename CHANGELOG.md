@@ -1,6 +1,6 @@
 # 2.19.2 - December 13th, 2020
 - Fixed the parsing of sample cases in contest problems in the Virtual Judge parser
-- Fixed the category parsing in the Facebook Coding Competitions parser.
+- Fixed the category parsing in the Facebook Coding Competitions parser
 
 # 2.19.1 - December 11th, 2020
 - Fixed the parsing of sample cases in the CSES parser (thanks [@anandoza](https://github.com/anandoza))
