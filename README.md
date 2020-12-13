@@ -189,7 +189,6 @@ yarn package
 # Launch a Firefox instance with Competitive Companion loaded into a temporary profile
 # Automatically re-compiles the code when the source changes
 # Automatically reloads the extension in the Firefox instance when the code is re-compiled
-# Refresh the page after the extension got reloaded to see the new changes
 yarn dev:firefox
 
 # Does the same as dev:firefox but with Chrome, with the exception that the extension is not automatically reloaded
@@ -204,7 +203,7 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 14.13.1  
+Node.js: 14.15.1  
 Yarn: 1.22.5
 
 Third-party libraries that can be found in the minified extension:  
@@ -215,6 +214,3 @@ Third-party libraries that can be found in the minified extension:
 - [cyrillic-to-translit-js 3.1.0](https://github.com/greybax/cyrillic-to-translit-js/blob/0dcc4bf8d310a1cbc0f088b62af923b826739b8f/CyrillicToTranslit.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
-
-## Credits
-This extension was made by [Jasper van Merle](https://github.com/jmerle). Much thanks to [Egor Kulikov](https://github.com/EgorKulikov) for making the CHelper plugin and the original CHelper extension, which was the reason this extension was created.
