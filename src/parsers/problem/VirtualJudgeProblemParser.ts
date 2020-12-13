@@ -25,19 +25,19 @@ export class VirtualJudgeProblemParser extends Parser {
       task.setCategory(elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
     }
 
-    const timeLimitDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+    const timeLimitDt = [...elem.querySelectorAll('dt')].find(el =>
       el.textContent.toLowerCase().includes('time limit'),
     );
 
-    const memoryLimitDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+    const memoryLimitDt = [...elem.querySelectorAll('dt')].find(el =>
       el.textContent.toLowerCase().includes('memory limit'),
     );
 
-    const inputFileDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+    const inputFileDt = [...elem.querySelectorAll('dt')].find(el =>
       el.textContent.toLowerCase().includes('input file'),
     );
 
-    const outputFileDt = [...elem.querySelectorAll('dt')].find((el: Element) =>
+    const outputFileDt = [...elem.querySelectorAll('dt')].find(el =>
       el.textContent.toLowerCase().includes('output file'),
     );
 
@@ -67,7 +67,11 @@ export class VirtualJudgeProblemParser extends Parser {
 
     if (!url.includes('TopCoder-')) {
       try {
-        const iframeUrl = elem.querySelector<HTMLIFrameElement>('.row > iframe').src;
+        const iframe = [...elem.querySelectorAll<HTMLIFrameElement>('#prob-right-panel iframe')].find(
+          el => el.style.display !== 'none',
+        );
+
+        const iframeUrl = iframe.src;
         const iframeContent = await this.fetch(iframeUrl);
         const jsonContainer = htmlToElement(iframeContent).querySelector('.data-json-container');
         const json = JSON.parse(jsonContainer.textContent);
@@ -89,8 +93,8 @@ export class VirtualJudgeProblemParser extends Parser {
       const block = htmlToElement(json.sections[0].value.content);
 
       const preTags = [...block.querySelectorAll('pre')]
-        .map((el: Element) => {
-          if (el.querySelector('strong,b') !== null) {
+        .map(el => {
+          if (el.querySelector('strong, b') !== null) {
             return [...el.childNodes]
               .filter((node: ChildNode) => node.nodeType === Node.TEXT_NODE)
               .map((node: ChildNode) => node.textContent.trim());
@@ -104,9 +108,8 @@ export class VirtualJudgeProblemParser extends Parser {
         })
         .reduce((a, b) => [...a, ...b], []);
 
-      const monospaceBlocks = [
-        ...block.querySelectorAll('div[style="font-family:Monospace, Courier;"] > b'),
-      ].map((el: Element) => el.innerHTML.trim());
+      const monospaceSelector = 'div[style="font-family:Monospace, Courier;"] > b';
+      const monospaceBlocks = [...block.querySelectorAll(monospaceSelector)].map(el => el.innerHTML.trim());
 
       return [].concat(preTags, monospaceBlocks);
     } else {
@@ -115,16 +118,16 @@ export class VirtualJudgeProblemParser extends Parser {
         .map(section => htmlToElement(section.value.content));
 
       const preTags = blocks
-        .map((el: Element) => [...el.querySelectorAll('pre')])
+        .map(el => [...el.querySelectorAll('pre')])
         .reduce((a, b) => [...a, ...b], [])
-        .map((el: Element) => el.innerHTML.trim());
+        .map(el => el.innerHTML.trim());
 
       const paragraphs = blocks
-        .filter((el: Element) => el.children.length === 1 && el.querySelector('p') !== null)
-        .map((el: Element) => el.querySelector('p').innerHTML.trim());
+        .filter(el => el.children.length === 1 && el.querySelector('p') !== null)
+        .map(el => el.querySelector('p').innerHTML.trim());
 
       const spanTags = blocks
-        .map((el: Element) => {
+        .map(el => {
           return [...el.querySelectorAll('span[style=\'font-family:"Courier New"\']')]
             .map((span: Element) => span.textContent)
             .join('\n');
