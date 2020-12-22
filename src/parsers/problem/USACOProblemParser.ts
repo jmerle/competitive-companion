@@ -25,16 +25,25 @@ export class USACOProblemParser extends Parser {
     task.setName(headers[1].textContent.trim());
     task.setCategory(headers[0].textContent.trim());
 
-    if (elem.querySelector('.prob-in-spec h4') !== null) {
-      task.setInput({
-        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-in-spec h4').textContent)[1],
-        type: 'file',
-      });
+    const inputSpec = elem.querySelector('.prob-in-spec h4');
+    const outputSpec = elem.querySelector('.prob-out-spec h4');
 
-      task.setOutput({
-        fileName: /\(file (.*)\)/.exec(elem.querySelector('.prob-out-spec h4').textContent)[1],
-        type: 'file',
-      });
+    if (inputSpec !== null && outputSpec !== null) {
+      const filePattern = /\(file (.*)\)/;
+
+      if (filePattern.test(inputSpec.textContent)) {
+        task.setInput({
+          fileName: /\(file (.*)\)/.exec(inputSpec.textContent)[1],
+          type: 'file',
+        });
+      }
+
+      if (filePattern.test(outputSpec.textContent)) {
+        task.setOutput({
+          fileName: /\(file (.*)\)/.exec(outputSpec.textContent)[1],
+          type: 'file',
+        });
+      }
 
       const input = elem.querySelector('pre.in').textContent;
       const output = elem.querySelector('pre.out').textContent;
