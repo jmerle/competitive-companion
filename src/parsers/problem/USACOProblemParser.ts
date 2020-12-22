@@ -44,12 +44,15 @@ export class USACOProblemParser extends Parser {
           type: 'file',
         });
       }
-
-      const input = elem.querySelector('pre.in').textContent;
-      const output = elem.querySelector('pre.out').textContent;
-      task.addTest(input, output);
     } else {
       task.setInteractive(true);
+    }
+
+    const inBlocks = elem.querySelectorAll('pre.in');
+    const outBlocks = elem.querySelectorAll('pre.out');
+
+    for (let i = 0; i < inBlocks.length && i < outBlocks.length; i++) {
+      task.addTest(inBlocks[i].textContent, outBlocks[i].textContent);
     }
 
     task.setTimeLimit(4000);

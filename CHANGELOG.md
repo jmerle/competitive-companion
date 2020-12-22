@@ -1,5 +1,6 @@
 # 2.19.4 - December 22nd, 2020
 - Fixed the input/output format parsing in the USACO parser to accommodate the stdin/stdout input/output introduced in the December 2020 contest
+- Fixed the parsing of sample cases in the USACO parser in case there are multiple sample cases
 - Fixed the parsing of certain acm.sgu.ru problems in the Codeforces parser
 - Fixed the Library Checker parser
 

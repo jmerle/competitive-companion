@@ -1,0 +1,37 @@
+{
+  "url": "http://usaco.org/index.php?page=viewproblem2&cpid=1044",
+  "parser": "problem/USACOProblemParser",
+  "result": {
+    "name": "Problem 1. Sprinklers 2: Return of the Alfalfa",
+    "group": "USACO - USACO 2020 US Open Contest, Platinum",
+    "url": "http://usaco.org/index.php?page=viewproblem2&cpid=1044",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 4000,
+    "tests": [
+      {
+        "input": "2\n..\n..\n",
+        "output": "28\n"
+      },
+      {
+        "input": "4\n..W.\n..WW\nWW..\n...W\n",
+        "output": "2304\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "fileName": "sprinklers2.in",
+      "type": "file"
+    },
+    "output": {
+      "fileName": "sprinklers2.out",
+      "type": "file"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Problem1Sprinklers2ReturnOfTheAlfalfa"
+      }
+    }
+  }
+}
