@@ -1,5 +1,6 @@
 # 2.19.4 - December 22nd, 2020
 - Fixed the input/output format parsing in the USACO parser to accommodate the stdin/stdout input/output introduced in the December 2020 contest
+- Fixed the parsing of certain acm.sgu.ru problems in the Codeforces parser
 
 # 2.19.3 - December 14th, 2020
 - Improved the UVa Online Judge parser so that it works with the PDFs hosted on [https://onlinejudge.org/external](https://onlinejudge.org/external) and [https://icpcarchive.ecs.baylor.edu/external](https://icpcarchive.ecs.baylor.edu/external) (not available on Firefox due to browser limitations)

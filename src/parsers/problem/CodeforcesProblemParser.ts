@@ -33,7 +33,7 @@ export class CodeforcesProblemParser extends Parser {
 
     if (url.includes('/problemsets/acmsguru')) {
       const elem = htmlToElement(html);
-      const table = elem.querySelector('.problemindexholder > .ttypography > .bordertable');
+      const table = elem.querySelector('.problemindexholder > .ttypography > table');
 
       if (table) {
         this.parseAcmSguRuProblemInsideTable(html, task);
