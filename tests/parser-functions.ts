@@ -46,7 +46,7 @@ export default {
   },
 
   async beforeLibraryChecker(page: Page): Promise<void> {
-    await page.waitForSelector('.MuiContainer-root.MuiContainer-maxWidthLg > .MuiContainer-root');
+    await page.waitForSelector('.MuiContainer-root.MuiContainer-maxWidthLg > .MuiBox-root .MuiTypography-h2');
   },
 
   async beforeLibreOJProblem(page: Page): Promise<void> {
