@@ -203,7 +203,7 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 14.15.1  
+Node.js: 14.15.2  
 Yarn: 1.22.5
 
 Third-party libraries that can be found in the minified extension:  
