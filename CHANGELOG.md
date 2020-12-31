@@ -1,4 +1,4 @@
-# TBD - TBD
+# 2.19.5 - December 31st, 2020
 - Fixed the parsing of sample cases in certain problems in the SPOJ parser
 
 # 2.19.4 - December 22nd, 2020
