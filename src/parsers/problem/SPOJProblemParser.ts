@@ -32,8 +32,7 @@ export class SPOJProblemParser extends Parser {
     }
 
     if (blocks.length === 1) {
-      const lines = blocks[0].textContent.trim().split('\n');
-      const [input, output] = this.parseTestDataSingleBlock(lines);
+      const [input, output] = this.parseTestDataSingleBlock(blocks[0]);
       task.addTest(input, output);
     } else {
       for (let i = 0; i < blocks.length - 1; i += 2) {
@@ -60,33 +59,40 @@ export class SPOJProblemParser extends Parser {
     return task.build();
   }
 
-  private parseTestDataSingleBlock(lines: string[]): string[] {
+  private parseTestDataSingleBlock(block: Element): [string, string] {
+    const root = block.childNodes.length === 1 ? block.childNodes[0] : block;
+
     const inputLines: string[] = [];
     const outputLines: string[] = [];
 
     let isInput = false;
     let isOutput = false;
 
-    for (const line of lines) {
-      if (isInput) {
-        inputLines.push(line);
-      }
+    for (const node of root.childNodes) {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        const elem = node as Element;
 
-      if (isOutput) {
-        outputLines.push(line);
-      }
+        if (!isInput && inputLines.length === 0) {
+          if (elem.textContent.toLowerCase().includes('input')) {
+            isInput = true;
+          }
+        }
 
-      if (!isInput && inputLines.length === 0) {
-        if (line.toLowerCase().includes('input')) {
-          isInput = true;
+        if (!isOutput && outputLines.length === 0) {
+          if (elem.textContent.toLowerCase().includes('output')) {
+            isInput = false;
+            isOutput = true;
+          }
         }
       }
 
-      if (!isOutput && outputLines.length === 0) {
-        if (line.toLowerCase().includes('output')) {
-          isInput = false;
-          isOutput = true;
-          inputLines.pop();
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (isInput) {
+          inputLines.push(node.textContent);
+        }
+
+        if (isOutput) {
+          outputLines.push(node.textContent);
         }
       }
     }
@@ -94,7 +100,7 @@ export class SPOJProblemParser extends Parser {
     return [inputLines.join('\n').trim(), outputLines.join('\n').trim()];
   }
 
-  private parseTestDataTwoBlocks(lines1: string[], lines2: string[]): string[] {
+  private parseTestDataTwoBlocks(lines1: string[], lines2: string[]): [string, string] {
     if (lines1[0].toLowerCase().includes('input')) {
       lines1 = lines1.slice(1);
     }

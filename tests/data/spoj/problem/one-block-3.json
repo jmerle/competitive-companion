@@ -1,0 +1,31 @@
+{
+  "url": "https://www.spoj.com/problems/LOCKER/",
+  "parser": "problem/SPOJProblemParser",
+  "result": {
+    "name": "Magic of the locker",
+    "group": "SPOJ - Classical",
+    "url": "https://www.spoj.com/problems/LOCKER/",
+    "interactive": false,
+    "memoryLimit": 1536,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n4\n5\n",
+        "output": "4\n6\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "MagicOfTheLocker"
+      }
+    }
+  }
+}

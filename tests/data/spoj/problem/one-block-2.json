@@ -1,0 +1,31 @@
+{
+  "url": "https://www.spoj.com/problems/LASTDIG/",
+  "parser": "problem/SPOJProblemParser",
+  "result": {
+    "name": "The last digit",
+    "group": "SPOJ - Classical",
+    "url": "https://www.spoj.com/problems/LASTDIG/",
+    "interactive": false,
+    "memoryLimit": 1536,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n3 10\n6 2\n",
+        "output": "9\n6\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "TheLastDigit"
+      }
+    }
+  }
+}

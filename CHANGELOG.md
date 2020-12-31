@@ -1,3 +1,6 @@
+# TBD - TBD
+- Fixed the parsing of sample cases in certain problems in the SPOJ parser
+
 # 2.19.4 - December 22nd, 2020
 - Fixed the input/output format parsing in the USACO parser to accommodate the stdin/stdout input/output introduced in the December 2020 contest
 - Fixed the parsing of sample cases in the USACO parser in case there are multiple sample cases
