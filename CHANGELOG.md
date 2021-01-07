@@ -1,6 +1,6 @@
-# 2.19.6 - January 7th, 2021
+# 2.19.6 - January 8th, 2021
 - Fixed the LightOJ problem parser to make it work with the new website
-- Removed the LightOJ contest parser since LightOJ doesn't support contests at the moment
+- Removed the LightOJ contest parser because the new version of LightOJ doesn't support contests at the moment
 
 # 2.19.5 - December 31st, 2020
 - Fixed the parsing of sample cases of certain problems in the SPOJ parser
