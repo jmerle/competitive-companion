@@ -1,3 +1,6 @@
+# 2.19.6 - January 7th, 2021
+- Fixed the LightOJ parser
+
 # 2.19.5 - December 31st, 2020
 - Fixed the parsing of sample cases of certain problems in the SPOJ parser
 
