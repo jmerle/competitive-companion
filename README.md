@@ -64,7 +64,7 @@ A browser extension which parses competitive programming problems from various o
 | Kattis                       | ✔              | ✔              |
 | Library Checker              | ✔              |                |
 | LibreOJ                      | ✔              | ✔              |
-| LightOJ                      | ✔              | ✔              |
+| LightOJ                      | ✔              |                |
 | Luogu                        | ✔              |                |
 | mrJudge                      | ✔              |                |
 | MSK Informatics              | ✔              |                |
