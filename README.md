@@ -28,6 +28,7 @@ A browser extension which parses competitive programming problems from various o
 - [CP Editor](https://github.com/coder3101/cp-editor)
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
 - [cpbooster](https://www.npmjs.com/package/cpbooster)
+- [Competitive Programming Gradle Plugin](https://github.com/saurabh73/competitive-programming)
 - Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
