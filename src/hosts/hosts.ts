@@ -12,6 +12,7 @@ const defaultPorts = [
   10043, // Caide and AI Virtual Assistant
   10045, // CP Editor
   27121, // Competitive Programming Helper
+  7373, // Competitive Programming Gradle Plugin
 ];
 
 export async function getHosts(): Promise<Host[]> {
