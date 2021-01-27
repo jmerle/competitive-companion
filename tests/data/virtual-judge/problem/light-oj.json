@@ -6,7 +6,7 @@
     "group": "Virtual Judge - LightOJ",
     "url": "https://vjudge.net/problem/LightOJ-1284",
     "interactive": false,
-    "memoryLimit": 32,
+    "memoryLimit": 65,
     "timeLimit": 4000,
     "tests": [
       {
