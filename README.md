@@ -211,7 +211,7 @@ Third-party libraries that can be found in the minified extension:
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
 - [webextension-polyfill-ts 0.20.0](https://github.com/lusito/webextension-polyfill-ts/tree/0.20.0)
-- [pdfjs-dist 2.5.207](https://github.com/mozilla/pdfjs-dist/blob/v2.5.207/build/pdf.js)
+- [pdfjs-dist 2.6.347](https://github.com/mozilla/pdfjs-dist/blob/v2.6.347/build/pdf.js)
 - [cyrillic-to-translit-js 3.1.0](https://github.com/greybax/cyrillic-to-translit-js/blob/0dcc4bf8d310a1cbc0f088b62af923b826739b8f/CyrillicToTranslit.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the dist/ directory.
