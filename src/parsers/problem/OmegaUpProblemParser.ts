@@ -12,7 +12,7 @@ export class OmegaUpProblemParser extends Parser {
     return [
       /https:\/\/omegaup\.com\/arena\/problem\/([^/]+)/,
       /https:\/\/omegaup\.com\/arena\/([^/]+)\/practice\/#problems\/([^/]+)/,
-      /https:\/\/omegaup\.com\/arena\/([^/]+)#problems\/([^/]+)/,
+      /https:\/\/omegaup\.com\/arena\/([^/]+)\/?#problems\/([^/]+)/,
     ];
   }
 
@@ -20,9 +20,9 @@ export class OmegaUpProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('omegaUp').setUrl(url);
 
-    const problem = elem.querySelector('#problem');
+    const problem = elem.querySelector('#problem') || elem;
 
-    task.setName(problem.querySelector('.title').textContent.trim());
+    task.setName(problem.querySelector('.title, h3[data-problem-title]').textContent.trim());
 
     const contestTitleElem = elem.querySelector('.contest-title');
     if (contestTitleElem !== null) {

@@ -1,3 +1,6 @@
+# 2.19.7 - January 28th, 2021
+- Fixed the omegaUp parser
+
 # 2.19.6 - January 8th, 2021
 - Fixed the LightOJ problem parser to make it work with the new website
 - Removed the LightOJ contest parser because the new version of LightOJ doesn't support contests at the moment
