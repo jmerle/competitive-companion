@@ -1,3 +1,12 @@
+/// <reference types="jest-playwright-preset" />
+/// <reference types="expect-playwright" />
+
+(global as any).chrome = {
+  runtime: {
+    id: 'dev',
+  },
+};
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { JSDOM } from 'jsdom';
@@ -35,8 +44,28 @@ async function runTest(data: ParserTestData): Promise<void> {
     await parserFunctions[data.before](page);
   }
 
-  const url = await page.evaluate('window.location.href');
   const html = await page.content();
+  const url = page.url();
+  const dom = new JSDOM(html, { url });
+
+  (global as any).window = {
+    ...dom.window,
+    nanoBar: {
+      go: (): void => {
+        //
+      },
+    },
+  };
+
+  (global as any).DOMParser = function (): any {
+    this.parseFromString = (source: string): Document => {
+      return new JSDOM(source, { url }).window.document;
+    };
+  };
+
+  (global as any).fetch = fetch;
+  (global as any).Node = dom.window.Node;
+  (global as any).document = dom.window.document;
 
   expect(parser.getRegularExpressions().some(r => r.test(url))).toBeTruthy();
   expect(parser.getExcludedRegularExpressions().some(r => r.test(url))).toBeFalsy();
@@ -95,37 +124,6 @@ function runTests(website: string, type: string): void {
 }
 
 jest.setTimeout(30000);
-
-beforeAll(async () => {
-  const width = await page.evaluate('window.outerWidth');
-  const height = await page.evaluate('window.outerHeight');
-  await page.setViewport({ width, height });
-
-  page.addListener('load', async () => {
-    const html = await page.content();
-    const url = page.url();
-    const dom = new JSDOM(html, { url });
-
-    (global as any).window = {
-      ...dom.window,
-      nanoBar: {
-        go: (): void => {
-          //
-        },
-      },
-    };
-
-    (global as any).DOMParser = function (): any {
-      this.parseFromString = (source: string): Document => {
-        return new JSDOM(source, { url }).window.document;
-      };
-    };
-
-    (global as any).fetch = fetch;
-    (global as any).Node = dom.window.Node;
-    (global as any).document = dom.window.document;
-  });
-});
 
 getWebsites().forEach(website => {
   describe(website, () => {

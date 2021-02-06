@@ -1,4 +1,4 @@
-import { Page } from 'puppeteer';
+import { Page } from 'playwright';
 
 export default {
   async beforeAizuOnlineJudge(page: Page): Promise<void> {

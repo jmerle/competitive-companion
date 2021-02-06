@@ -31,16 +31,14 @@
     "nanobar": "0.4.2",
     "pdfjs-dist": "2.6.347",
     "snarkdown": "2.0.0",
-    "webextension-polyfill-ts": "0.20.0"
+    "webextension-polyfill-ts": "0.24.0"
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^6.4.0",
     "@types/jest": "^26.0.20",
-    "@types/jest-environment-puppeteer": "^4.4.1",
     "@types/jsdom": "^16.2.6",
     "@types/node": "^14.14.25",
     "@types/node-fetch": "^2.5.8",
-    "@types/puppeteer": "^5.4.3",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "chrome-launch": "^1.1.4",
@@ -52,14 +50,13 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "husky": "^4.3.8",
-    "jest": "26.6.3",
-    "jest-junit": "^12.0.0",
-    "jest-puppeteer": "^4.4.0",
+    "jest": "^26.6.3",
+    "jest-playwright-preset": "^1.4.5",
     "jsdom": "^16.4.0",
     "lint-staged": "^10.5.4",
     "node-fetch": "^2.6.1",
+    "playwright": "^1.8.0",
     "prettier": "^2.2.1",
-    "puppeteer": "5.5.0",
     "string-replace-loader": "^3.0.1",
     "ts-jest": "^26.5.0",
     "ts-loader": "^8.0.15",
@@ -145,34 +142,13 @@
     }
   },
   "jest": {
-    "preset": "jest-puppeteer",
-    "reporters": [
-      "default",
-      "jest-junit"
-    ],
-    "coverageReporters": [
-      "text",
-      "lcov",
-      "cobertura"
-    ],
+    "preset": "jest-playwright-preset",
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  },
-  "jest-junit": {
-    "outputDirectory": "coverage"
+      "^.+\\.ts$": "ts-jest"
+    }
   },
   "husky": {
     "hooks": {
