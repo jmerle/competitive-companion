@@ -31,7 +31,9 @@ export class CodeChefProblemParser extends Parser {
 
     this.parseTests(html, task);
 
-    task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(elem.querySelector('.problem-info').textContent)[1]) * 1000);
+    const timeLimitStr = elem.querySelector('.problem-info').textContent;
+    task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) secs/.exec(timeLimitStr)[1]) * 1000));
+
     task.setMemoryLimit(256);
 
     return task.build();
@@ -58,6 +60,30 @@ export class CodeChefProblemParser extends Parser {
         }
       }
     });
+
+    if (task.tests.length > 0) {
+      return;
+    }
+
+    elem.querySelectorAll('div.mathjax-support').forEach(div => {
+      const text = div.textContent.toLowerCase();
+      if (!text.includes('ample input') || !text.includes('ample output')) {
+        return;
+      }
+
+      const preBlocks = [...div.querySelectorAll('pre')];
+
+      if (preBlocks.length === 2) {
+        const input = preBlocks[0].textContent;
+        const output = preBlocks[1].textContent;
+
+        task.addTest(input, output);
+      }
+    });
+
+    if (task.tests.length > 0) {
+      return;
+    }
 
     if (task.tests.length === 0) {
       const inputHeaders = [...elem.querySelectorAll('h3')].filter(x =>

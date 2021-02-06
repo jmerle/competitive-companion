@@ -1,0 +1,36 @@
+{
+  "url": "https://www.codechef.com/problems/FCTRL2",
+  "parser": "problem/CodeChefProblemParser",
+  "before": "beforeCodeChef",
+  "result": {
+    "name": "Small factorials",
+    "group": "CodeChef - Practice(Beginner)",
+    "url": "https://www.codechef.com/problems/FCTRL2",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 235,
+    "tests": [
+      {
+        "input": "4\n1\n2\n5\n3\n",
+        "output": "1\n2\n120\n6\n"
+      },
+      {
+        "input": "4\n1\n2\n5\n3\n",
+        "output": "1\n2\n120\n6\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SmallFactorials"
+      }
+    }
+  }
+}
