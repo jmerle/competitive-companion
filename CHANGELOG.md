@@ -1,7 +1,7 @@
 # Changelog
 
 ## 2.19.8 - TBD
-- Improved the parsing of sample cases in the SPOJ and the CodeChef parsers
+- Improved the parsing of sample cases in the SPOJ and the CodeChef parser
 
 ## 2.19.7 - January 28th, 2021
 - Fixed the omegaUp parser
