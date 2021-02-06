@@ -61,6 +61,20 @@ export class SPOJProblemParser extends Parser {
 
   private parseTestDataSingleBlock(block: Element): [string, string] {
     const root = block.childNodes.length === 1 ? block.childNodes[0] : block;
+    const nodes = root.nodeType === Node.TEXT_NODE ? [root] : root.childNodes;
+
+    const lines: string[] = [];
+    for (const node of nodes) {
+      if (node.nodeType === Node.ELEMENT_NODE || node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+
+        if (text.trim() === '') {
+          continue;
+        }
+
+        lines.push(...text.split('\n'));
+      }
+    }
 
     const inputLines: string[] = [];
     const outputLines: string[] = [];
@@ -68,32 +82,28 @@ export class SPOJProblemParser extends Parser {
     let isInput = false;
     let isOutput = false;
 
-    for (const node of root.childNodes) {
-      if (node.nodeType === Node.ELEMENT_NODE) {
-        const elem = node as Element;
-
-        if (!isInput && inputLines.length === 0) {
-          if (elem.textContent.toLowerCase().includes('input')) {
-            isInput = true;
-          }
-        }
-
-        if (!isOutput && outputLines.length === 0) {
-          if (elem.textContent.toLowerCase().includes('output')) {
-            isInput = false;
-            isOutput = true;
-          }
+    for (const line of lines) {
+      if (!isInput && inputLines.length === 0) {
+        if (line.endsWith(':') && line.toLowerCase().includes('input')) {
+          isInput = true;
+          continue;
         }
       }
 
-      if (node.nodeType === Node.TEXT_NODE) {
-        if (isInput) {
-          inputLines.push(node.textContent);
+      if (!isOutput && outputLines.length === 0) {
+        if (line.endsWith(':') && line.toLowerCase().includes('output')) {
+          isInput = false;
+          isOutput = true;
+          continue;
         }
+      }
 
-        if (isOutput) {
-          outputLines.push(node.textContent);
-        }
+      if (isInput) {
+        inputLines.push(line.trim());
+      }
+
+      if (isOutput) {
+        outputLines.push(line.trim());
       }
     }
 

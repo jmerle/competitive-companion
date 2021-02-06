@@ -1,0 +1,31 @@
+{
+  "url": "https://www.spoj.com/problems/ASSIGN/",
+  "parser": "problem/SPOJProblemParser",
+  "result": {
+    "name": "Assignments",
+    "group": "SPOJ - Classical",
+    "url": "https://www.spoj.com/problems/ASSIGN/",
+    "interactive": false,
+    "memoryLimit": 1536,
+    "timeLimit": 2997,
+    "tests": [
+      {
+        "input": "3\n3\n1 1 1\n1 1 1\n1 1 1\n11\n1 0 0 1 0 0 0 0 0 1 1\n1 1 1 1 1 0 1 0 1 0 0\n1 0 0 1 0 0 1 1 0 1 0\n1 0 1 1 1 0 1 1 0 1 1\n0 1 1 1 0 1 0 0 1 1 1\n1 1 1 0 0 1 0 0 0 0 0\n0 0 0 0 1 0 1 0 0 0 1\n1 0 1 1 0 0 0 0 0 0 1\n0 0 1 0 1 1 0 0 0 1 1\n1 1 1 0 0 0 1 0 1 0 1\n1 0 0 0 1 1 1 1 0 0 0\n11\n0 1 1 1 0 1 0 0 0 1 0\n0 0 1 1 1 1 1 1 1 1 1\n1 1 0 1 0 0 0 0 0 1 0\n0 1 0 1 0 1 0 1 0 1 1\n1 0 0 1 0 0 0 0 1 0 1\n0 0 1 0 1 1 0 0 0 0 1\n1 0 1 0 1 1 1 0 1 1 0\n1 0 1 1 0 1 1 0 0 1 0\n0 0 1 1 0 1 1 1 1 1 1\n0 1 0 0 0 0 0 0 0 1 1\n0 1 1 0 0 0 0 0 1 0 1\n",
+        "output": "6\n7588\n7426\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Assignments"
+      }
+    }
+  }
+}

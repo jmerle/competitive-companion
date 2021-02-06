@@ -1,5 +1,8 @@
 # Changelog
 
+## TBD - TBD
+- Improved the parsing of sample cases in the SPOJ parser
+
 ## 2.19.7 - January 28th, 2021
 - Fixed the omegaUp parser
 
