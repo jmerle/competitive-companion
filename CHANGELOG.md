@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.19.8 - TBD
+## 2.19.8 - February 7th, 2021
 - Improved the parsing of sample cases in the SPOJ and the CodeChef parser
 
 ## 2.19.7 - January 28th, 2021
