@@ -205,7 +205,7 @@ The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
 Node.js: 14.15.4  
-Yarn: 1.22.5
+Yarn: 1.22.10
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
