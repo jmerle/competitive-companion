@@ -68,18 +68,18 @@ export default {
   async beforeTLXEnglish(page: Page): Promise<void> {
     // Wait for page to load & switch language
     await page.waitForSelector('.programming-problem-statement__name');
-    await page.click('[data-key="statementLanguage"]');
+    await page.click('[data-key="language"]');
     await page.click('[data-key="en"]');
-    await page.click('.statement-language-form__button');
+    await page.click('.language-form__button');
     await page.waitForSelector('.programming-problem-statement__name');
   },
 
   async beforeTLXIndonesian(page: Page): Promise<void> {
     // Wait for page to load & switch language
     await page.waitForSelector('.programming-problem-statement__name');
-    await page.click('[data-key="statementLanguage"]');
+    await page.click('[data-key="language"]');
     await page.click('[data-key="id"]');
-    await page.click('.statement-language-form__button');
+    await page.click('.language-form__button');
     await page.waitForSelector('.programming-problem-statement__name');
   },
 };
