@@ -14,7 +14,7 @@ export class TophProblemParser extends Parser {
 
     task.setName(elem.querySelector('.artifact h1').textContent);
 
-    const limitsStr = elem.querySelector('.limits').textContent;
+    const limitsStr = elem.querySelector('span.dotted[data-target="#mdlFactors"]').textContent;
 
     const [, timeAmount, timeUnit] = /([0-9.]+)(.*),/.exec(limitsStr);
     task.setTimeLimit(parseFloat(timeAmount) * (timeUnit === 'ms' ? 1 : 1000));
