@@ -211,7 +211,7 @@ Yarn: 1.22.10
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
-- [webextension-polyfill-ts 0.24.0](https://github.com/lusito/webextension-polyfill-ts/tree/0.24.0)
+- [webextension-polyfill-ts 0.25.0](https://github.com/lusito/webextension-polyfill-ts/tree/0.25.0)
 - [pdfjs-dist 2.6.347](https://github.com/mozilla/pdfjs-dist/blob/v2.6.347/build/pdf.js)
 - [cyrillic-to-translit-js 3.1.0](https://github.com/greybax/cyrillic-to-translit-js/blob/0dcc4bf8d310a1cbc0f088b62af923b826739b8f/CyrillicToTranslit.js)
 

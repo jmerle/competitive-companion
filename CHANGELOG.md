@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.19.9 - TBD
+## 2.19.9 - February 26th, 2021
 - Fixed the HackerEarth and the Toph parser
 
 ## 2.19.8 - February 7th, 2021
