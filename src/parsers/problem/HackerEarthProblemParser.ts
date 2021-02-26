@@ -12,7 +12,7 @@ export class HackerEarthProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HackerEarth').setUrl(url);
 
-    const titleElem = elem.querySelector('#problem-title');
+    const titleElem = elem.querySelector('.title-panel > .title');
     task.setName(titleElem ? titleElem.textContent.trim() : 'Task');
 
     const groupSuffix: string[] =
@@ -35,9 +35,9 @@ export class HackerEarthProblemParser extends Parser {
       task.addTest(input, output);
     });
 
-    const guidelines = elem.querySelector('.problem-guidelines').textContent;
-    task.setTimeLimit(parseFloat(/([0-9.,]+) sec/.exec(guidelines)[1]) * 1000);
-    task.setMemoryLimit(parseInt(/(\d+) MB/.exec(guidelines)[1], 10));
+    const limitsStr = elem.querySelector('.problem-solution-limits').textContent;
+    task.setTimeLimit(parseFloat(/Time Limit: ([0-9.,]+)/.exec(limitsStr)[1]) * 1000);
+    task.setMemoryLimit(parseInt(/Memory Limit: (\d+)/.exec(limitsStr)[1], 10));
 
     return task.build();
   }

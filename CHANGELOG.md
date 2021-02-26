@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.19.9 - TBD
+- Fixed the HackerEarth problem parser
+
 ## 2.19.8 - February 7th, 2021
 - Improved the parsing of sample cases in the SPOJ and the CodeChef parser
 
