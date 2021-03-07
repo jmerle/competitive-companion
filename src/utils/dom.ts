@@ -14,5 +14,5 @@ export function markdownToHtml(markdown: string): string {
 }
 
 export function decodeHtml(html: string): string {
-  return html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  return html.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 }
