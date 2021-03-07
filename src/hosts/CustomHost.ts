@@ -1,15 +1,18 @@
+import { config } from '../utils/config';
 import { Host } from './Host';
 
 export class CustomHost implements Host {
-  public constructor(public port: number) {}
+  public constructor(private port: number) {}
 
-  public send(data: string): Promise<void> {
+  public async send(data: string): Promise<void> {
+    const requestTimeout = await config.get('requestTimeout');
+
     return new Promise(resolve => {
       const xhr = new XMLHttpRequest();
       xhr.open('POST', `http://localhost:${this.port}`, true);
       xhr.setRequestHeader('Content-Type', 'application/json');
 
-      xhr.timeout = 500;
+      xhr.timeout = requestTimeout;
 
       xhr.onload = (): void => resolve();
       xhr.ontimeout = (): void => resolve();

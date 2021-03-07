@@ -78,7 +78,21 @@
     </section>
 
     <section>
+      <h3>Request timeout</h3>
+
+      <label for="request-timeout">Request timeout:</label>
+      <input type="number" id="request-timeout" min="1" />
+
+      <p class="description">
+        When a problem is sent to the ports a tool could possibly we listening on a timeout is set so requests sent to
+        ports with no listening tools aren't kept alive for too long. You should not change this value unless you are
+        facing issues with your tools not receiving the problem data after clicking the "+" button when they should be.
+      </p>
+    </section>
+
+    <section>
       <h3>Debugging</h3>
+
       <input type="checkbox" id="debug-mode" />
       <label for="debug-mode">Debug mode</label>
 

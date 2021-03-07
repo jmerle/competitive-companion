@@ -4,6 +4,7 @@ import { noop } from './utils/noop';
 
 const customPortsInput = document.querySelector<HTMLInputElement>('#custom-ports');
 const customRulesContainer = document.querySelector<HTMLDivElement>('#custom-rules-container');
+const requestTimeoutInput = document.querySelector<HTMLInputElement>('#request-timeout');
 const debugModeInput = document.querySelector<HTMLInputElement>('#debug-mode');
 
 function updateCustomRules(): void {
@@ -117,6 +118,14 @@ customPortsInput.addEventListener('input', function (): void {
   }
 });
 
+requestTimeoutInput.addEventListener('input', function (): void {
+  const value = this.valueAsNumber;
+  config
+    .set('requestTimeout', value < 1 ? 1 : value)
+    .then(noop)
+    .catch(noop);
+});
+
 debugModeInput.addEventListener('input', function (): void {
   config.set('debugMode', this.checked).then(noop).catch(noop);
 });
@@ -129,13 +138,6 @@ config
   .catch(noop);
 
 config
-  .get('debugMode')
-  .then(value => {
-    debugModeInput.checked = value;
-  })
-  .catch(noop);
-
-config
   .get('customRules')
   .then(rules => {
     for (const rule of rules) {
@@ -143,5 +145,19 @@ config
     }
 
     addCustomRulesRow();
+  })
+  .catch(noop);
+
+config
+  .get('requestTimeout')
+  .then(value => {
+    requestTimeoutInput.valueAsNumber = value;
+  })
+  .catch(noop);
+
+config
+  .get('debugMode')
+  .then(value => {
+    debugModeInput.checked = value;
   })
   .catch(noop);

@@ -3,6 +3,7 @@ import { browser } from 'webextension-polyfill-ts';
 interface ConfigItems {
   customPorts: number[];
   customRules: [string, string][];
+  requestTimeout: number;
   debugMode: boolean;
 }
 
@@ -10,6 +11,7 @@ class Config {
   private readonly defaults: Partial<ConfigItems> = {
     customPorts: [],
     customRules: [],
+    requestTimeout: 500,
     debugMode: false,
   };
 

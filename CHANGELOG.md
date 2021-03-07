@@ -1,6 +1,7 @@
 # Changelog
 
 ## TBD - TBD
+- Added a configurable option for the timeout of the requests sent to ports on which tools might be listening
 - Fixed the memory limit parsing in the Yandex parser (thanks [@mfornet](https://github.com/mfornet))
 
 ## 2.19.9 - February 26th, 2021
