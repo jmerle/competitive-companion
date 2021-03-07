@@ -36,7 +36,7 @@ export class YandexProblemParser extends Parser {
         }
       }
     } finally {
-      task.setMemoryLimit(memoryLimit);
+      task.setMemoryLimit(memoryLimit === 0 ? 1024 : memoryLimit);
     }
 
     elem.querySelectorAll('.sample-tests').forEach(table => {

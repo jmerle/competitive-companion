@@ -1,5 +1,8 @@
 # Changelog
 
+## TBD - TBD
+- Fixed the memory limit parsing in the Yandex parser (thanks [@mfornet](https://github.com/mfornet))
+
 ## 2.19.9 - February 26th, 2021
 - Fixed the HackerEarth and the Toph parser
 
