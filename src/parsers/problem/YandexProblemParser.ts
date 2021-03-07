@@ -25,7 +25,19 @@ export class YandexProblemParser extends Parser {
     task.setTimeLimit(parseFloat(/([0-9.]+)\s/.exec(timeLimitStr)[1]) * 1000);
 
     const memoryLimitStr = elem.querySelector('.memory-limit').textContent;
-    task.setMemoryLimit(parseInt(/(\d+)Mb/i.exec(memoryLimitStr)[1], 10));
+
+    let memoryLimit = 0;
+    try {
+      const memoryLimitParsed = /(\d+)([MG])b/i.exec(memoryLimitStr);
+      if (memoryLimitParsed.length > 1) {
+        memoryLimit = parseInt(memoryLimitParsed[1], 10);
+        if (memoryLimitParsed[2] == 'G') {
+          memoryLimit *= 1024;
+        }
+      }
+    } finally {
+      task.setMemoryLimit(memoryLimit);
+    }
 
     elem.querySelectorAll('.sample-tests').forEach(table => {
       const blocks = table.querySelectorAll('pre');
