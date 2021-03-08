@@ -1,6 +1,7 @@
 {
   "url": "https://www.hackerearth.com/practice/basic-programming/input-output/basics-of-input-output/practice-problems/algorithm/palindrome-check-2/",
   "parser": "problem/HackerEarthProblemParser",
+  "before": "beforeHackerEarth",
   "result": {
     "name": "Palindromic String",
     "group": "HackerEarth - Basic Programming - Input/Output - Basics of Input/Output",

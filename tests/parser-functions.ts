@@ -33,6 +33,10 @@ export default {
     await page.waitForSelector('a[aria-label="Download"]');
   },
 
+  async beforeHackerEarth(page: Page): Promise<void> {
+    await page.waitForSelector('.problem-solution-limits');
+  },
+
   async beforeHackerRank(page: Page): Promise<void> {
     await page.waitForSelector('.problem-statement');
   },
