@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class AizuOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://judge.u-aizu.ac.jp/onlinejudge/description.jsp*'];
+    return ['https://judge.u-aizu.ac.jp/onlinejudge/description.jsp*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

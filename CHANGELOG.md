@@ -4,6 +4,7 @@
 - Added a configurable option for the timeout of the requests sent to ports on which tools might be listening
 - Fixed the memory limit parsing in the Yandex parser (thanks [@mfornet](https://github.com/mfornet))
 - Fixed the parsing of Codeforces sample cases containing ampersands
+- Fixed the Aizu Online Judge parser
 
 ## 2.19.9 - February 26th, 2021
 - Fixed the HackerEarth and the Toph parser

@@ -1,11 +1,11 @@
 {
-  "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=en",
+  "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=en",
   "parser": "problem/AizuOnlineJudgeProblemParser",
   "before": "beforeAizuOnlineJudge",
   "result": {
     "name": "Projection",
     "group": "CGL - CGL_1_A",
-    "url": "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=en",
+    "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=en",
     "interactive": false,
     "memoryLimit": 131,
     "timeLimit": 1000,
