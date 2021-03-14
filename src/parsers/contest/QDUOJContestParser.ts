@@ -1,5 +1,6 @@
 import { Contest } from '../../models/Contest';
 import { Sendable } from '../../models/Sendable';
+import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
@@ -23,7 +24,7 @@ export class QDUOJContestParser extends Parser {
       .map(problemId => `https://qduoj.com/api/contest/problem?contest_id=${contestId}&problem_id=${problemId}`);
 
     const bodies = await this.fetchAll(links);
-    const tasks: Sendable[] = [];
+    const tasks: Task[] = [];
 
     for (let i = 0; i < links.length; i++) {
       const data = JSON.parse(bodies[i]).data;

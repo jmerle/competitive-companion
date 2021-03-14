@@ -1,4 +1,6 @@
 import CyrillicToTranslit = require('cyrillic-to-translit-js');
+import { uuidv4 } from '../utils/random';
+import { Batch } from './Batch';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
 import { Task } from './Task';
@@ -31,6 +33,11 @@ export class TaskBuilder {
       mainClass: 'Main',
       taskClass: '',
     },
+  };
+
+  public batch: Batch = {
+    id: uuidv4(),
+    size: 1,
   };
 
   public constructor(judge: string) {
@@ -103,6 +110,16 @@ export class TaskBuilder {
     return this;
   }
 
+  public setBatchId(id: string): TaskBuilder {
+    this.batch.id = id;
+    return this;
+  }
+
+  public setBatchSize(size: number): TaskBuilder {
+    this.batch.size = size;
+    return this;
+  }
+
   public updateJavaTaskClassFromName(): TaskBuilder {
     const latin = cyrillicToLatin.transform(this.name);
     const name = latin.replace(/[^a-zA-Z0-9_ -]/g, '');
@@ -148,6 +165,7 @@ export class TaskBuilder {
       this.input,
       this.output,
       this.languages,
+      this.batch,
     );
   }
 }

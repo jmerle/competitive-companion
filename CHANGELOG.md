@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.21.0 - TBD
+- Added a "batch" property to the output format, which makes it easier to know when an entire contest has been sent
+
 ## 2.20.0 - March 8th, 2021
 - Added a configurable option for the timeout of the requests sent to ports on which tools might be listening
 - Fixed the memory limit parsing in the Yandex parser (thanks [@mfornet](https://github.com/mfornet))

@@ -77,15 +77,32 @@ async function runTest(data: ParserTestData): Promise<void> {
   const resultContest = result instanceof Contest;
   expect(resultContest).toBe(expectedContest);
 
+  const tasksToCheck: [Task, Task][] = [];
+
   if (resultContest) {
-    const expectedTasks: Task[] = data.result as Task[];
-    const actualTasks: Task[] = (result as Contest).tasks as Task[];
+    const expectedTasks = data.result as Task[];
+    const actualTasks = (result as Contest).tasks as Task[];
 
     expect(actualTasks.length).toBe(expectedTasks.length);
-    expect(actualTasks).toEqual(expectedTasks);
+
+    for (let i = 0; i < expectedTasks.length; i++) {
+      expect(actualTasks[i].batch.id).toBe(actualTasks[0].batch.id);
+      expect(actualTasks[i].batch.size).toBe(actualTasks.length);
+
+      tasksToCheck.push([expectedTasks[i], actualTasks[i]]);
+    }
   } else {
     const expectedTask = data.result as Task;
     const actualTask = result as Task;
+
+    expect(actualTask.batch.size).toBe(1);
+
+    tasksToCheck.push([expectedTask, actualTask]);
+  }
+
+  for (const [expectedTask, actualTask] of tasksToCheck) {
+    delete expectedTask.batch;
+    delete actualTask.batch;
 
     expect(actualTask).toEqual(expectedTask);
   }

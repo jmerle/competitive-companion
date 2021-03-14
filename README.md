@@ -133,6 +133,10 @@ Here's an example of the data sent when parsing [this](https://codeforces.com/pr
             "mainClass": "Main",
             "taskClass": "GCastleDefense"
         }
+    },
+    "batch": {
+        "id": "123e67c8-03c6-44a4-a3f9-5918533f9fb2",
+        "size": 1
     }
 }
 ```
@@ -160,6 +164,9 @@ It's not required for a tool to parse all these options, since some of them are 
     - **java**: An object with Java specific settings. Required options:
         - **mainClass**: The name of the outer class containing the solution.
         - **taskClass**: The classname-friendly version of the problem's full name. Cannot be the same as mainClass. Can also be useful for non-Java tools because a classname-friendly string is also a filename-friendly string.
+- **batch**: An object containing information about the batch of problems that this problem belongs to. Required options:
+    - **id**: A UUIDv4 string which uniquely identifies a batch. All problems in a batch have the same batch id.
+    - **size**: The size of the batch, which is 1 when using a problem parser and the amount of problems in the contest when using a contest parser.
 
 ## Running locally
 The following commands can be used to start working on Competitive Companion locally. Additionally, make sure you got [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) installed.

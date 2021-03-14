@@ -1,5 +1,6 @@
 import { Contest } from '../../models/Contest';
 import { Sendable } from '../../models/Sendable';
+import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement, markdownToHtml } from '../../utils/dom';
 import { Parser } from '../Parser';
@@ -23,7 +24,7 @@ export class CodeChefContestParser extends Parser {
 
     const bodies = await this.fetchAll(links);
     const models = bodies.map(body => JSON.parse(body));
-    const tasks: Sendable[] = [];
+    const tasks: Task[] = [];
 
     for (let i = 0; i < models.length; i++) {
       const model = models[i];

@@ -2,6 +2,7 @@ import { browser, Runtime } from 'webextension-polyfill-ts';
 import { config } from '../utils/config';
 import { sendToBackground } from '../utils/messaging';
 import { noop } from '../utils/noop';
+import { Batch } from './Batch';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
 import { Message, MessageAction } from './messaging';
@@ -51,6 +52,7 @@ export class Task implements Sendable {
     public input: InputConfiguration,
     public output: OutputConfiguration,
     public languages: LanguageConfiguration,
+    public batch: Batch,
   ) {}
 
   public async send(): Promise<void> {

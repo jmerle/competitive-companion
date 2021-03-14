@@ -1,5 +1,6 @@
 import { Contest } from '../models/Contest';
 import { Sendable } from '../models/Sendable';
+import { Task } from '../models/Task';
 import { htmlToElement } from '../utils/dom';
 import { Parser } from './Parser';
 
@@ -19,11 +20,11 @@ export abstract class ContestParser extends Parser {
 
   protected async parseLinks(links: string[]): Promise<Sendable> {
     const bodies = await this.fetchAll(links);
-    const tasks: Sendable[] = [];
+    const tasks: Task[] = [];
 
     for (let i = 0; i < bodies.length; i++) {
       const task = await this.problemParser.parse(links[i], bodies[i]);
-      tasks.push(task);
+      tasks.push(task as Task);
     }
 
     return new Contest(tasks);
