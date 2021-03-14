@@ -30,6 +30,7 @@ A browser extension which parses competitive programming problems from various o
 - [cpbooster](https://www.npmjs.com/package/cpbooster)
 - [Competitive Programming Gradle Plugin](https://github.com/saurabh73/competitive-programming)
 - [C+++ IDE](https://github.com/23786/Cppp-IDE)
+- [cphelper.nvim](https://github.com/p00f/cphelper.nvim)
 - Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
