@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.21.0 - TBD
+## 2.21.0 - March 14th, 2021
 - Added a "batch" property to the output format, which makes it easier to know when an entire contest has been sent
 
 ## 2.20.0 - March 8th, 2021
