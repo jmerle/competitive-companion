@@ -15,6 +15,6 @@ export class Test {
       .join('\n')
       .trimEnd();
 
-    return correctedData.endsWith('\n') ? correctedData : correctedData + '\n';
+    return correctedData + '\n';
   }
 }
