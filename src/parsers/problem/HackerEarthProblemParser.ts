@@ -32,9 +32,10 @@ export class HackerEarthProblemParser extends Parser {
       task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
 
-    const limitsStr = elem.querySelector('.problem-solution-limits').textContent;
-    task.setTimeLimit(parseFloat(/Time Limit: ([0-9.,]+)/.exec(limitsStr)[1]) * 1000);
-    task.setMemoryLimit(parseInt(/Memory Limit: (\d+)/.exec(limitsStr)[1], 10));
+    const limitsStr = elem.querySelector('.problem-solution-limits, .problem-guidelines').textContent;
+    const limitsNums = limitsStr.match(/([0-9.,]+)/g).filter(item => /\d/.test(item));
+    task.setTimeLimit(parseFloat(limitsNums[0]) * 1000);
+    task.setMemoryLimit(parseInt(limitsNums[1], 10));
 
     return task.build();
   }

@@ -2,7 +2,8 @@
 
 ## 2.21.1 - TBD
 - Fixed the parsing of Luogu sample cases containing whitespace at the beginning
-- Fixed the parsing of Google Coding Competitions sample cases on problems since 2021
+- Fixed the parsing of Google Coding Competitions sample cases in problems since 2021
+- Fixed the parsing of HackerEarth sample cases in contest problems
 
 ## 2.21.0 - March 14th, 2021
 - Added a "batch" property to the output format, which makes it easier to know when an entire contest has been sent
