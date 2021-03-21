@@ -25,10 +25,7 @@ export class CSAcademyProblemParser extends Parser {
 
     elem.querySelectorAll('table tbody tr').forEach(tr => {
       const blocks = tr.querySelectorAll('pre');
-      const input = blocks[0].textContent.trim();
-      const output = blocks[1].textContent.trim();
-
-      task.addTest(input, output);
+      task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
 
     return task.build();

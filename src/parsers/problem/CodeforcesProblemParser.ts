@@ -100,10 +100,7 @@ export class CodeforcesProblemParser extends Parser {
     const outputs = elem.querySelectorAll('.output pre');
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      const input = decodeHtml(inputs[i].innerHTML);
-      const output = decodeHtml(outputs[i].innerHTML);
-
-      task.addTest(input, output);
+      task.addTest(decodeHtml(inputs[i].innerHTML), decodeHtml(outputs[i].innerHTML));
     }
   }
 
@@ -118,10 +115,7 @@ export class CodeforcesProblemParser extends Parser {
 
     const blocks = elem.querySelectorAll('font > pre');
     for (let i = 0; i < blocks.length - 1; i += 2) {
-      const input = blocks[i].textContent;
-      const output = blocks[i + 1].textContent;
-
-      task.addTest(input, output);
+      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
   }
 
@@ -139,12 +133,8 @@ export class CodeforcesProblemParser extends Parser {
 
     elem.querySelectorAll('table').forEach(table => {
       const blocks = table.querySelectorAll('pre');
-
       if (blocks.length === 4) {
-        const input = blocks[2].textContent;
-        const output = blocks[3].textContent;
-
-        task.addTest(input, output);
+        task.addTest(blocks[2].textContent, blocks[3].textContent);
       }
     });
   }

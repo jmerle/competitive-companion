@@ -8,7 +8,13 @@ export class Test {
   }
 
   private correctData(data: string): string {
-    const correctedData = data.replace(/<br>/g, '\n');
+    const correctedData = data
+      .replace(/<br>/g, '\n')
+      .split('\n')
+      .map(line => line.trimEnd())
+      .join('\n')
+      .trimEnd();
+
     return correctedData.endsWith('\n') ? correctedData : correctedData + '\n';
   }
 }

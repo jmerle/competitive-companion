@@ -48,14 +48,10 @@ export class CodeChefProblemParser extends Parser {
         const codeBlocks: HTMLElement[] = [...pre.querySelectorAll('code')];
 
         if (codeBlocks.length >= 2) {
-          const input = codeBlocks[0].textContent.trim();
-          const output = codeBlocks[1].textContent.trim();
-
-          task.addTest(input, output);
+          task.addTest(codeBlocks[0].textContent, codeBlocks[1].textContent);
         } else if (textNodes.length >= 2) {
           const input = textNodes[textNodes.length - 2].textContent.trim();
           const output = textNodes[textNodes.length - 1].textContent.trim();
-
           task.addTest(input, output);
         }
       }
@@ -74,10 +70,7 @@ export class CodeChefProblemParser extends Parser {
       const preBlocks = [...div.querySelectorAll('pre')];
 
       if (preBlocks.length === 2) {
-        const input = preBlocks[0].textContent;
-        const output = preBlocks[1].textContent;
-
-        task.addTest(input, output);
+        task.addTest(preBlocks[0].textContent, preBlocks[1].textContent);
       }
     });
 
@@ -95,10 +88,7 @@ export class CodeChefProblemParser extends Parser {
       );
 
       for (let i = 0; i < inputHeaders.length && i < outputHeaders.length; i++) {
-        const input = inputHeaders[i].nextElementSibling.textContent;
-        const output = outputHeaders[i].nextElementSibling.textContent;
-
-        task.addTest(input, output);
+        task.addTest(inputHeaders[i].nextElementSibling.textContent, outputHeaders[i].nextElementSibling.textContent);
       }
     }
   }

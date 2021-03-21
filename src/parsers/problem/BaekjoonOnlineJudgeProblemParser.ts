@@ -22,10 +22,7 @@ export class BaekjoonOnlineJudgeProblemParser extends Parser {
     const outputs = elem.querySelectorAll('pre[id^="sample-output-"]');
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      const input = inputs[i].textContent.trim();
-      const output = outputs[i].textContent.trim();
-
-      task.addTest(input, output);
+      task.addTest(inputs[i].textContent, outputs[i].textContent);
     }
 
     return task.build();

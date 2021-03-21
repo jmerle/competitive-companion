@@ -21,8 +21,8 @@ export class LuoguProblemParser extends Parser {
     task.setMemoryLimit(parseFloat(memoryLimitStr));
 
     elem.querySelectorAll('.sample').forEach(block => {
-      const input = block.querySelector('.input > pre').textContent.trim();
-      const output = block.querySelector('.output > pre').textContent.trim();
+      const input = block.querySelector('.input > pre').textContent;
+      const output = block.querySelector('.output > pre').textContent;
 
       task.addTest(input, output);
     });

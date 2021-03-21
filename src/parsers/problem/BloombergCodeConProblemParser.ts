@@ -38,10 +38,7 @@ export class BloombergCodeConProblemParser extends Parser {
     });
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      const input = inputs[i];
-      const output = outputs[i];
-
-      task.addTest(input, output);
+      task.addTest(inputs[i], outputs[i]);
     }
 
     task.setJavaMainClass('Problem');

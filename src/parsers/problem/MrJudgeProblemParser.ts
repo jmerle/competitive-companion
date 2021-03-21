@@ -28,10 +28,7 @@ export class MrJudgeProblemParser extends Parser {
 
     const codeBlocks = elem.querySelectorAll('.box-body > pre');
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
-      const input = codeBlocks[i].textContent;
-      const output = codeBlocks[i + 1].textContent;
-
-      task.addTest(input, output);
+      task.addTest(codeBlocks[i].textContent, codeBlocks[i + 1].textContent);
     }
 
     return task.build();

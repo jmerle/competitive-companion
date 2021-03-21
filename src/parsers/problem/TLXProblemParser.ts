@@ -69,10 +69,7 @@ export class TLXProblemParser extends Parser {
       });
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      const input = inputs[i].textContent;
-      const output = outputs[i].textContent;
-
-      task.addTest(input, output);
+      task.addTest(inputs[i].textContent, outputs[i].textContent);
     }
 
     return task.build();

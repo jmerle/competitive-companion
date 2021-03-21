@@ -28,16 +28,12 @@ export class NowCoderProblemParser extends Parser {
 
     const tests = elem.querySelectorAll('.question-oi-cont');
     for (let i = 0; i < tests.length - 1; i += 2) {
-      const inputText = tests[i].textContent.trim();
-      const outputText = tests[i + 1].textContent.trim();
-      inputs.push(inputText);
-      outputs.push(outputText);
+      inputs.push(tests[i].textContent);
+      outputs.push(tests[i + 1].textContent);
     }
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      const input = inputs[i];
-      const output = outputs[i];
-      task.addTest(input, output);
+      task.addTest(inputs[i], outputs[i]);
     }
 
     return task.build();

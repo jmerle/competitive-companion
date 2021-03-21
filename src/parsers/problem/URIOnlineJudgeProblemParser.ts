@@ -44,11 +44,7 @@ export class URIOnlineJudgeProblemParser extends Parser {
 
     elem.querySelectorAll('table').forEach(table => {
       const columns = table.querySelectorAll('tbody > tr > td');
-
-      const input = this.getContent(columns[0]);
-      const output = this.getContent(columns[1]);
-
-      task.addTest(input, output);
+      task.addTest(this.getContent(columns[0]), this.getContent(columns[1]));
     });
 
     task.setTimeLimit(parseInt(elem.querySelector('.header > strong').textContent.split(' ')[1], 10) * 1000);

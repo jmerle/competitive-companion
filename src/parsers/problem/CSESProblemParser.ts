@@ -39,10 +39,7 @@ export class CSESProblemParser extends Parser {
 
     const codeBlocks = find([...elem.querySelectorAll('[id^=example], .content > code')]);
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
-      const input = codeBlocks[i].textContent.trim();
-      const output = codeBlocks[i + 1].textContent.trim();
-
-      task.addTest(input, output);
+      task.addTest(codeBlocks[i].textContent, codeBlocks[i + 1].textContent);
     }
 
     return task.build();

@@ -21,11 +21,7 @@ export class YukicoderProblemParser extends Parser {
 
     elem.querySelectorAll('#content .sample').forEach(sample => {
       const preBlocks = sample.querySelectorAll('pre');
-
-      const input = preBlocks[0].textContent;
-      const output = preBlocks[1].textContent;
-
-      task.addTest(input, output);
+      task.addTest(preBlocks[0].textContent, preBlocks[1].textContent);
     });
 
     return task.build();

@@ -26,19 +26,12 @@ export class TimusOnlineJudgeProblemParser extends Parser {
     if (elem.querySelector('.sample tbody tr > td:nth-child(2)') !== null) {
       [...elem.querySelectorAll('.sample tbody tr')].slice(1).forEach(tr => {
         const columns = tr.querySelectorAll('td');
-        const input = columns[0].textContent.trim();
-        const output = columns[1].textContent.trim();
-
-        task.addTest(input, output);
+        task.addTest(columns[0].textContent, columns[1].textContent);
       });
     } else {
       const blocks = [...elem.querySelectorAll('.sample tbody tr pre')];
-
       for (let i = 0; i < blocks.length - 1; i += 2) {
-        const input = blocks[i].textContent.trim();
-        const output = blocks[i + 1].textContent.trim();
-
-        task.addTest(input, output);
+        task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
       }
     }
 

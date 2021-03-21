@@ -24,7 +24,7 @@ export class TophProblemParser extends Parser {
 
     elem.querySelectorAll('.table.samples').forEach(table => {
       const blocks = table.querySelectorAll('tbody > tr > td > pre');
-      task.addTest(blocks[0].textContent.trim(), blocks[1].textContent.trim());
+      task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
 
     return task.build();

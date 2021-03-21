@@ -41,10 +41,7 @@ export class YandexProblemParser extends Parser {
 
     elem.querySelectorAll('.sample-tests').forEach(table => {
       const blocks = table.querySelectorAll('pre');
-      const input = blocks[0].textContent;
-      const output = blocks[1].textContent;
-
-      task.addTest(input, output);
+      task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
 
     return task.build();

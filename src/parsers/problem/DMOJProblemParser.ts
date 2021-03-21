@@ -45,10 +45,7 @@ export class DMOJProblemParser extends Parser {
         outputElem = outputElem.nextElementSibling;
       }
 
-      const input = inputElem.textContent;
-      const output = outputElem.textContent;
-
-      task.addTest(input, output);
+      task.addTest(inputElem.textContent, outputElem.textContent);
     }
 
     const timeLimitStr = [...elem.querySelectorAll('.problem-info-entry')]

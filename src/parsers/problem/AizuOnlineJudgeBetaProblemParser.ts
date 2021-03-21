@@ -64,10 +64,7 @@ export class AizuOnlineJudgeBetaProblemParser extends Parser {
     });
 
     for (let i = 0; i < preBlocks.length - 1; i += 2) {
-      const input = preBlocks[i].textContent.trim();
-      const output = preBlocks[i + 1].textContent.trim();
-
-      task.addTest(input, output);
+      task.addTest(preBlocks[i].textContent, preBlocks[i + 1].textContent);
     }
 
     return task;

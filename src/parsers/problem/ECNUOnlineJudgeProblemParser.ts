@@ -28,10 +28,7 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
 
     const blocks = elem.querySelectorAll('pre.sample-content');
     for (let i = 0; i < blocks.length - 1; i += 2) {
-      const input = blocks[i].textContent;
-      const output = blocks[i + 1].textContent;
-
-      task.addTest(input, output);
+      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
 
     return task.build();

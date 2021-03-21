@@ -30,7 +30,7 @@ export class ACMPProblemParser extends Parser {
       const input = row.querySelector('td:nth-child(2)').innerHTML;
       const output = row.querySelector('td:nth-child(3)').innerHTML;
 
-      task.addTest(input.trim(), output.trim());
+      task.addTest(input, output);
     });
 
     return task.build();

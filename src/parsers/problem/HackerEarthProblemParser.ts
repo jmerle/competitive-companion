@@ -29,10 +29,7 @@ export class HackerEarthProblemParser extends Parser {
 
     elem.querySelectorAll('.input-output-container').forEach(container => {
       const blocks = container.querySelectorAll('pre');
-      const input = blocks[0].textContent.trim();
-      const output = blocks[1].textContent.trim();
-
-      task.addTest(input, output);
+      task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
 
     const limitsStr = elem.querySelector('.problem-solution-limits').textContent;

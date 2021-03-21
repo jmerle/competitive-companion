@@ -21,7 +21,7 @@ export class MSKInformaticsProblemParser extends Parser {
       const input = testElem.querySelector('.input > .content').textContent;
       const output = testElem.querySelector('.output > .content').textContent;
 
-      task.addTest(input.trim(), output.trim());
+      task.addTest(input, output);
     });
 
     return task.build();

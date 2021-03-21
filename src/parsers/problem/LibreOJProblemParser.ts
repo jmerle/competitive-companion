@@ -35,7 +35,7 @@ export class LibreOJProblemParser extends Parser {
 
     const blocks = elem.querySelectorAll('pre[class^="sampleDataPre--"]');
     for (let i = 0; i < blocks.length - 1; i += 2) {
-      task.addTest(blocks[i].textContent.trim(), blocks[i + 1].textContent.trim());
+      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
   }
 
@@ -63,10 +63,7 @@ export class LibreOJProblemParser extends Parser {
     if (samplesRow) {
       const sampleBlocks = samplesRow.querySelectorAll('pre > code');
       for (let i = 0; i < sampleBlocks.length - 1; i += 2) {
-        const input = sampleBlocks[i].textContent.trim();
-        const output = sampleBlocks[i + 1].textContent.trim();
-
-        task.addTest(input, output);
+        task.addTest(sampleBlocks[i].textContent, sampleBlocks[i + 1].textContent);
       }
     }
   }

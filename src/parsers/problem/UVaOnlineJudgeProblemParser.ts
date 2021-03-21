@@ -81,10 +81,7 @@ export class UVaOnlineJudgeProblemParser extends Parser {
         inputLines = inputLines.slice(0, inputLines.length - 3);
       }
 
-      const input = inputLines.join('\n');
-      const output = lines.slice(outputStart + 1).join('\n');
-
-      task.addTest(input, output);
+      task.addTest(inputLines.join('\n'), lines.slice(outputStart + 1).join('\n'));
     }
   }
 }

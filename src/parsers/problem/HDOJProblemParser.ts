@@ -36,7 +36,7 @@ export class HDOJProblemParser extends Parser {
       });
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      task.addTest(inputs[i].trim(), outputs[i].trim());
+      task.addTest(inputs[i], outputs[i]);
     }
 
     return task.build();

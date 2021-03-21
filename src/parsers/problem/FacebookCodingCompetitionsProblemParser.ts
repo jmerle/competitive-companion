@@ -25,9 +25,7 @@ export class FacebookCodingCompetitionsProblemParser extends Parser {
     task.setCategory([...breadcrumbs].map(el => el.textContent).join(' '));
 
     const blocks = [...elem.querySelectorAll('a[aria-label="Download"]')].map(el => this.findNearestPre(el));
-    const input = blocks[0].textContent;
-    const output = blocks[1].textContent;
-    task.addTest(input, output);
+    task.addTest(blocks[0].textContent, blocks[1].textContent);
 
     const nameWithoutPrefix = name.includes(': ') ? name.split(': ').slice(1).join(': ') : name;
     const filename = nameWithoutPrefix

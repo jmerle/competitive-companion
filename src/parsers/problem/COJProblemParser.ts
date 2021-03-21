@@ -49,10 +49,7 @@ export class COJProblemParser extends Parser {
       .map(el => el.nextElementSibling);
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      const input = inputs[i].innerHTML;
-      const output = outputs[i].innerHTML;
-
-      task.addTest(input, output);
+      task.addTest(inputs[i].innerHTML, outputs[i].innerHTML);
     }
 
     return task.build();

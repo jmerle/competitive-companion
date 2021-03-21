@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.21.1 - TBD
+- Fixed the parsing of Luogu sample cases containing whitespace at the beginning
+
 ## 2.21.0 - March 14th, 2021
 - Added a "batch" property to the output format, which makes it easier to know when an entire contest has been sent
 

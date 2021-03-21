@@ -22,10 +22,7 @@ export class SSOIERProblemParser extends Parser {
 
     const codeBlocks = container.querySelectorAll('pre');
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
-      const input = codeBlocks[i].textContent.trim();
-      const output = codeBlocks[i + 1].textContent.trim();
-
-      task.addTest(input, output);
+      task.addTest(codeBlocks[i].textContent, codeBlocks[i + 1].textContent);
     }
 
     return task.build();
