@@ -1,0 +1,32 @@
+{
+  "url": "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068cca3",
+  "parser": "problem/GoogleCodingCompetitionsProblemParser",
+  "before": "beforeGoogleCodingCompetitions",
+  "result": {
+    "name": "K-Goodness String",
+    "group": "Google Coding Competitions - Round A 2021 - Kick Start 2021",
+    "url": "https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068cca3",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 20000,
+    "tests": [
+      {
+        "input": "2\n5 1\nABCAA\n4 2\nABAA\n",
+        "output": "Case #1: 0\nCase #2: 1\n"
+      }
+    ],
+    "testType": "multiNumber",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Solution",
+        "taskClass": "KGoodnessString"
+      }
+    }
+  }
+}

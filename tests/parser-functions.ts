@@ -46,7 +46,7 @@ export default {
   },
 
   async beforeGoogleCodingCompetitions(page: Page): Promise<void> {
-    await page.waitForSelector('.problem-io-wrapper pre.io-content');
+    await page.waitForSelector('.problem-io-wrapper pre.io-content, .problem-io-wrapper-new pre.sample-content-text');
   },
 
   async beforeLibraryChecker(page: Page): Promise<void> {

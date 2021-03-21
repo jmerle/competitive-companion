@@ -28,7 +28,8 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
 
     task.setInteractive(interactiveText || interactiveHeader);
 
-    const blocks = container.querySelectorAll('.problem-io-wrapper pre.io-content');
+    const blocksSelector = '.problem-io-wrapper pre.io-content, .problem-io-wrapper-new pre.sample-content-text';
+    const blocks = container.querySelectorAll(blocksSelector);
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
