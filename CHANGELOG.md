@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.21.1 - TBD
+## 2.21.1 - March 21st, 2021
 - Fixed the parsing of Luogu sample cases containing whitespace at the beginning
 - Fixed the parsing of Google Coding Competitions sample cases in problems since 2021
 - Fixed the parsing of HackerEarth sample cases in contest problems
