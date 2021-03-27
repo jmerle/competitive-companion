@@ -28,10 +28,14 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
 
     task.setInteractive(interactiveText || interactiveHeader);
 
-    const blocksSelector = '.problem-io-wrapper pre.io-content, .problem-io-wrapper-new pre.sample-content-text';
-    const blocks = container.querySelectorAll(blocksSelector);
-    for (let i = 0; i < blocks.length - 1; i += 2) {
-      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
+    const oldBlocks = container.querySelectorAll('.problem-io-wrapper pre.io-content');
+    for (let i = 0; i < oldBlocks.length - 1; i += 2) {
+      task.addTest(oldBlocks[i].textContent, oldBlocks[i + 1].textContent);
+    }
+
+    const newBlocks = container.querySelectorAll('.problem-io-wrapper-new .sampleio-wrapper > div');
+    for (let i = 0; i < newBlocks.length - 1; i += 2) {
+      task.addTest(await this.getNewBlockContent(newBlocks[i]), await this.getNewBlockContent(newBlocks[i + 1]));
     }
 
     try {
@@ -50,5 +54,17 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
     task.setTestType(TestType.MultiNumber);
 
     return task.build();
+  }
+
+  private async getNewBlockContent(block: Element): Promise<string> {
+    // If the copy button is hidden there are lines omitted in the pre
+    // In that case the only way to get the full content is to download it
+    if (block.querySelector('.sample-header-copy-button-hidden') !== null) {
+      const downloadLink = block.querySelector<HTMLLinkElement>('.sample-header-download-button > a').href;
+      const response = await fetch(downloadLink);
+      return response.text();
+    }
+
+    return block.querySelector('pre').textContent;
   }
 }
