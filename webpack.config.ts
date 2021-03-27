@@ -32,7 +32,6 @@ const config: webpack.Configuration = {
     extensions: ['.ts', '.js'],
   },
   optimization: {
-    minimize: false,
     splitChunks: {
       chunks: 'all',
       name: 'common',
