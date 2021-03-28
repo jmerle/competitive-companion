@@ -73,20 +73,12 @@ const config: webpack.Configuration = {
               replace: "throw new Error('');",
             },
             {
-              search: 'new Function("return this")()',
-              replace: "(() => { throw new Error(''); })()",
-            },
-            {
-              search: 'new Function("c", "size", js)',
+              search: 'new Function("c","size",n)',
               replace: 'null',
             },
             {
               search: 'eval("require")(getWorkerSrc())',
               replace: 'null',
-            },
-            {
-              search: 'sourceMappingURL',
-              replace: 'disabledSourceMappingURL',
             },
           ],
         },
