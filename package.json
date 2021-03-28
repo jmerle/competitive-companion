@@ -9,7 +9,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode=production",
-    "watch": "yarn build --watch",
+    "build:dev": "webpack --mode=development",
+    "watch": "yarn build:dev --watch",
     "package": "yarn build && web-ext build -s build/ -a dist/ -o",
     "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:package",
     "lint:eslint": "eslint --format codeframe 'src/**' 'tests/**' 'scripts/**' webpack.config.ts",
@@ -23,8 +24,8 @@
     "test:coverage": "jest --coverage",
     "start:firefox": "web-ext run -s build/ --start-url https://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "start:chrome": "node scripts/chrome-launch",
-    "dev:firefox": "yarn build && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
-    "dev:chrome": "yarn build && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others"
+    "dev:firefox": "yarn build:dev && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
+    "dev:chrome": "yarn build:dev && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others"
   },
   "dependencies": {
     "cyrillic-to-translit-js": "3.1.0",
@@ -39,6 +40,7 @@
     "@types/jsdom": "^16.2.7",
     "@types/node": "^14.14.35",
     "@types/node-fetch": "^2.5.8",
+    "@types/terser-webpack-plugin": "^5.0.3",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "chrome-launch": "^1.1.4",
@@ -58,6 +60,7 @@
     "playwright": "^1.9.2",
     "prettier": "^2.2.1",
     "string-replace-loader": "^3.0.1",
+    "terser-webpack-plugin": "^5.1.1",
     "ts-jest": "^26.5.4",
     "ts-loader": "^8.0.18",
     "ts-node": "^9.1.1",

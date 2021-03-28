@@ -8,13 +8,8 @@
   "author": "Filled by build script",
   "homepage_url": "Filled by build script",
 
-  "permissions": [
-    "activeTab",
-    "contextMenus",
-    "storage",
-    "http://localhost/",
-    "https://codejam.googleapis.com/dashboard/get_file/*"
-  ],
+  "permissions": ["activeTab", "contextMenus", "storage", "http://localhost/"],
+  "optional_permissions": ["https://codejam.googleapis.com/dashboard/get_file/*"],
 
   "icons": {
     "16": "icons/icon-16.png",

@@ -1,5 +1,6 @@
 import * as path from 'path';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as TerserPlugin from 'terser-webpack-plugin';
 import * as webpack from 'webpack';
 
 function transformManifest(content: Buffer): string {
@@ -31,7 +32,16 @@ const config: webpack.Configuration = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
+  devtool: false,
   optimization: {
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          keep_classnames: true,
+        },
+      }) as any,
+    ],
     splitChunks: {
       chunks: 'all',
       name: 'common',

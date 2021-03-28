@@ -7,4 +7,7 @@ export enum MessageAction {
   Parse,
   SendTask,
   TaskSent,
+  SendGCCFile,
+  GCCFileResult,
+  GCCRequestFailed,
 }
