@@ -1,7 +1,7 @@
 # Changelog
 
 ## 2.21.2 - March 28th, 2021
-- Fixed the parsing of Google Coding Competitions sample cases so the full text is downloaded when necessary
+- Improved the parsing of Google Coding Competitions sample cases so the full text is downloaded when necessary
 
 ## 2.21.1 - March 21st, 2021
 - Fixed the parsing of Luogu sample cases containing whitespace at the beginning
