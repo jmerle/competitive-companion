@@ -57,7 +57,7 @@ const config: webpack.Configuration = {
         loader: 'ts-loader',
       },
       {
-        test: /\.worker\.js$/,
+        test: /\.worker\.min\.js$/,
         loader: 'worker-loader',
         options: {
           inline: 'no-fallback',

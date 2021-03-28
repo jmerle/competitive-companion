@@ -1,7 +1,7 @@
-const pdfjsLib = require('pdfjs-dist');
+const pdfjsLib = require('pdfjs-dist/build/pdf.min.js');
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const PdfjsWorker = require('pdfjs-dist/build/pdf.worker.js');
+const PdfjsWorker = require('pdfjs-dist/build/pdf.worker.min.js');
 
 export async function readPdf(pdfUrl: string): Promise<string[]> {
   if (!pdfjsLib.GlobalWorkerOptions.workerPort) {
