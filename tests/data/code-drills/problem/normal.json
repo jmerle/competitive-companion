@@ -1,0 +1,36 @@
+{
+  "url": "https://codedrills.io/problems/beating-shell-sort",
+  "parser": "problem/CodeDrillsProblemParser",
+  "before": "beforeCodeDrills",
+  "result": {
+    "name": "Beating Shell sort",
+    "group": "CodeDrills",
+    "url": "https://codedrills.io/problems/beating-shell-sort",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n6 2\n",
+        "output": "50000\n"
+      },
+      {
+        "input": "7\n701 301 132 57 23 10 4\n",
+        "output": "69044\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "BeatingShellSort"
+      }
+    }
+  }
+}

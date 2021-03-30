@@ -1,0 +1,32 @@
+{
+  "url": "https://codedrills.io/contests/amrita-icpc-practice-session-4/problems/maximum-prefix-mex-sum",
+  "parser": "problem/CodeDrillsProblemParser",
+  "before": "beforeCodeDrills",
+  "result": {
+    "name": "Maximum Prefix Mex Sum",
+    "group": "CodeDrills - Amrita ICPC Practice Session #4",
+    "url": "https://codedrills.io/contests/amrita-icpc-practice-session-4/problems/maximum-prefix-mex-sum",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n3\n1 2 1\n3\n1 0 1\n",
+        "output": "6\n2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "MaximumPrefixMexSum"
+      }
+    }
+  }
+}

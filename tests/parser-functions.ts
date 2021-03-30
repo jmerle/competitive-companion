@@ -17,6 +17,10 @@ export default {
     await page.waitForSelector('.breadcrumbs a');
   },
 
+  async beforeCodeDrills(page: Page): Promise<void> {
+    await page.waitForSelector('main .container .v-sheet > .row:last-child');
+  },
+
   async beforeCOJContest(page: Page): Promise<void> {
     await page.waitForSelector('#problem td > a');
   },

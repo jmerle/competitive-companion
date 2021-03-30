@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.22.0 - March 30th, 2021
+- Added a parser for CodeDrills
+
 ## 2.21.2 - March 28th, 2021
 - Fixed the parsing of Google Coding Competitions sample cases so the full text is downloaded when necessary
 
