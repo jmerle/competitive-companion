@@ -63,6 +63,7 @@ import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
+import { OldLibraryCheckerProblemParser } from './problem/OldLibraryCheckerProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
@@ -162,6 +163,7 @@ export const parsers: Parser[] = [
   new KattisContestParser(),
 
   new LibraryCheckerProblemParser(),
+  new OldLibraryCheckerProblemParser(),
 
   new LibreOJProblemParser(),
   new LibreOJContestParser(),
