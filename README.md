@@ -43,7 +43,7 @@ A browser extension which parses competitive programming problems from various o
 | Baekjoon Online Judge        | ✔              | ✔              |
 | Bloomberg CodeCon            | ✔              |                |
 | CodeChef                     | ✔              | ✔              |
-| CodeDrills                   | ✔              | ✔              |
+| CodeDrills                   | ✔              |                |
 | Codeforces                   | ✔              | ✔              |
 | CodeMarshal                  | ✔              | ✔              |
 | COJ                          | ✔              | ✔              |
