@@ -1,5 +1,8 @@
 # Changelog
 
+## TBD - TBD
+- Fixed the parsing of CS Academy problem titles
+
 ## 2.22.0 - March 30th, 2021
 - Added a parser for CodeDrills
 
