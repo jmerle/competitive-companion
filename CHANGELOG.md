@@ -1,6 +1,7 @@
 # Changelog
 
-## TBD - TBD
+## 2.23.0 - April 18th, 2021
+- Added a parser for the old version of Library Checker (thanks [@taodaling](https://github.com/taodaling))
 - Fixed the parsing of CS Academy problem titles
 
 ## 2.22.0 - March 30th, 2021

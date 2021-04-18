@@ -1,0 +1,35 @@
+{
+  "url": "https://old.yosupo.jp/problem/aplusb",
+  "parser": "problem/OldLibraryCheckerProblemParser",
+  "result": {
+    "name": "A + B",
+    "group": "Library Checker",
+    "url": "https://old.yosupo.jp/problem/aplusb",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 5000,
+    "tests": [
+      {
+        "input": "1234 5678\n",
+        "output": "6912\n"
+      },
+      {
+        "input": "1000000000 1000000000\n",
+        "output": "2000000000\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

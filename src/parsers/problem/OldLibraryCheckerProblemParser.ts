@@ -19,10 +19,7 @@ export class OldLibraryCheckerProblemParser extends Parser {
 
     const preBlocks = [...elem.querySelectorAll('pre')].filter(block => block.querySelector('code') === null);
     for (let i = 0; i < preBlocks.length - 1; i += 2) {
-      const input = preBlocks[i].textContent;
-      const output = preBlocks[i + 1].textContent;
-
-      task.addTest(input, output);
+      task.addTest(preBlocks[i].textContent, preBlocks[i + 1].textContent);
     }
 
     return task.build();
