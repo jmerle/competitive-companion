@@ -106,7 +106,7 @@ const config: webpack.Configuration = {
           to: path.resolve(__dirname, 'build'),
         },
       ],
-    }),
+    }) as any,
   ],
 };
 
