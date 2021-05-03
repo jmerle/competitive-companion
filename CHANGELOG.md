@@ -2,7 +2,7 @@
 
 ## 2.24.0 - May 3rd, 2021
 - Added a parser for AcWing
-- Fixed the parsing of Codeforces sample cases containing empty newlines
+- Fixed the parsing of Codeforces sample cases containing empty lines
 
 ## 2.23.0 - April 18th, 2021
 - Added a parser for the old version of Library Checker (thanks [@taodaling](https://github.com/taodaling))
