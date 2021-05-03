@@ -1,5 +1,8 @@
 # Changelog
 
+## TBD - TBD
+- Fixed the parsing of Codeforces sample cases containing empty newlines
+
 ## 2.23.0 - April 18th, 2021
 - Added a parser for the old version of Library Checker (thanks [@taodaling](https://github.com/taodaling))
 - Fixed the parsing of CS Academy problem titles

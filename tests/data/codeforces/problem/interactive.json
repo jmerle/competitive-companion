@@ -1,10 +1,10 @@
 {
-  "url": "https://codeforces.com/contest/810/problem/D?locale=ru",
+  "url": "https://codeforces.com/contest/810/problem/D?locale=en",
   "parser": "problem/CodeforcesProblemParser",
   "result": {
-    "name": "D. Очень приятно!",
+    "name": "D. Glad to see you!",
     "group": "Codeforces - Codeforces Round #415 (Div. 2)",
-    "url": "https://codeforces.com/contest/810/problem/D?locale=ru",
+    "url": "https://codeforces.com/contest/810/problem/D?locale=en",
     "interactive": true,
     "memoryLimit": 256,
     "timeLimit": 2000,
@@ -24,7 +24,7 @@
     "languages": {
       "java": {
         "mainClass": "Main",
-        "taskClass": "DOchenPriyatno"
+        "taskClass": "DGladToSeeYou"
       }
     }
   }

@@ -38,7 +38,7 @@ export default {
   },
 
   async beforeHackerEarth(page: Page): Promise<void> {
-    await page.waitForSelector('.problem-solution-limits');
+    await page.waitForSelector('.input-output');
   },
 
   async beforeHackerRank(page: Page): Promise<void> {

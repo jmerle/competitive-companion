@@ -1,0 +1,35 @@
+{
+  "url": "https://codeforces.com/contest/767/problem/A?locale=en",
+  "parser": "problem/CodeforcesProblemParser",
+  "result": {
+    "name": "A. Snacktower",
+    "group": "Codeforces - Codeforces Round #398 (Div. 2)",
+    "url": "https://codeforces.com/contest/767/problem/A?locale=en",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "3\n3 1 2\n",
+        "output": "3\n\n2 1\n"
+      },
+      {
+        "input": "5\n4 5 1 2 3\n",
+        "output": "\n5 4\n\n\n3 2 1\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ASnacktower"
+      }
+    }
+  }
+}

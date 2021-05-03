@@ -10,6 +10,7 @@ export class Test {
   private correctData(data: string): string {
     const correctedData = data
       .replace(/<br>/g, '\n')
+      .replace(/&nbsp;/g, '')
       .split('\n')
       .map(line => line.trimEnd())
       .join('\n')
