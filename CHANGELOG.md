@@ -1,6 +1,7 @@
 # Changelog
 
-## TBD - TBD
+## 2.24.0 - May 3rd, 2021
+- Added a parser for AcWing
 - Fixed the parsing of Codeforces sample cases containing empty newlines
 
 ## 2.23.0 - April 18th, 2021
