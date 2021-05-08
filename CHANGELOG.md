@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.25.0 - May 8th, 2021
+- Added a parser for Neps Academy
+
 ## 2.24.0 - May 3rd, 2021
 - Added a parser for AcWing
 - Fixed the parsing of Codeforces sample cases containing empty lines

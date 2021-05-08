@@ -73,6 +73,7 @@ A browser extension which parses competitive programming problems from various o
 | Luogu                        | ✔              |                |
 | mrJudge                      | ✔              |                |
 | MSK Informatics              | ✔              |                |
+| Neps Academy                 | ✔              |                |
 | NowCoder                     | ✔              |                |
 | NYTD Online Judge            | ✔              | ✔              |
 | omegaUp                      | ✔              |                |

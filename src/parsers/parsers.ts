@@ -63,6 +63,7 @@ import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
+import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
 import { OldLibraryCheckerProblemParser } from './problem/OldLibraryCheckerProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
@@ -178,6 +179,8 @@ export const parsers: Parser[] = [
   new MrJudgeProblemParser(),
 
   new MSKInformaticsProblemParser(),
+
+  new NepsAcademyProblemParser(),
 
   new NowCoderProblemParser(),
 

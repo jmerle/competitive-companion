@@ -1,0 +1,39 @@
+{
+  "url": "https://neps.academy/br/course/introduction-to-programming/lesson/easy-sum",
+  "parser": "problem/NepsAcademyProblemParser",
+  "result": {
+    "name": "Soma Fácil",
+    "group": "Neps Academy",
+    "url": "https://neps.academy/br/course/introduction-to-programming/lesson/easy-sum",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n3\n",
+        "output": "5\n"
+      },
+      {
+        "input": "-2\n3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "10\n89\n",
+        "output": "99\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SomaFcil"
+      }
+    }
+  }
+}
