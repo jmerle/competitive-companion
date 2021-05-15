@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.25.1 - May 16th, 2021
+- Fixed the parsing of AcWing sample cases of problems with code blocks unrelated to the sample cases
+
 ## 2.25.0 - May 8th, 2021
 - Added a parser for Neps Academy
 
