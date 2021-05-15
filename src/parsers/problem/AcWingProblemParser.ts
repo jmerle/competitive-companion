@@ -14,7 +14,19 @@ export class AcWingProblemParser extends Parser {
 
     task.setName(elem.querySelector('.problem-content-title').textContent.trim().split('. ').pop());
 
-    const blocks = elem.querySelectorAll('.martor-preview pre');
+    let hasSeenSampleHeader = false;
+    const blocks: Element[] = [];
+
+    for (const node of elem.querySelector('.martor-preview').children) {
+      if (!hasSeenSampleHeader && node.tagName === 'H4' && node.textContent.includes('样例')) {
+        hasSeenSampleHeader = true;
+      }
+
+      if (hasSeenSampleHeader && node.tagName === 'PRE') {
+        blocks.push(node);
+      }
+    }
+
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
