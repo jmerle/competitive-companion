@@ -12,7 +12,7 @@ export class CodeDrillsProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CodeDrills').setUrl(url);
 
-    task.setName(elem.querySelector('main .display-2').textContent.trim());
+    task.setName(elem.querySelector('main .display-1').textContent.trim());
 
     const breadcrumbs = elem.querySelectorAll('main .v-breadcrumbs > li');
     if (breadcrumbs.length >= 3) {
