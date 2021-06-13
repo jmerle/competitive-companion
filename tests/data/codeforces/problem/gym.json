@@ -14,7 +14,7 @@
         "output": "500\n600\n"
       }
     ],
-    "testType": "single",
+    "testType": "multiNumber",
     "input": {
       "fileName": "exciting.in",
       "type": "file"

@@ -2,6 +2,7 @@ import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { decodeHtml, htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
+import { TestType } from "../../models/TestType";
 
 export class CodeforcesProblemParser extends Parser {
   public getMatchPatterns(): string[] {
@@ -95,6 +96,11 @@ export class CodeforcesProblemParser extends Parser {
         type: 'file',
       });
     }
+
+    const testTypeKeywords = ['test cases', 'testcases']
+    const inputSpecification = elem.querySelector('.input-specification').textContent;
+    const testType = testTypeKeywords.some(keyword => inputSpecification.includes(keyword))? TestType.MultiNumber : TestType.Single;
+    task.setTestType(testType);
 
     const inputs = elem.querySelectorAll('.input pre');
     const outputs = elem.querySelectorAll('.output pre');

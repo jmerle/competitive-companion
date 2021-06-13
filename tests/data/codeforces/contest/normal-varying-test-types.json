@@ -1,0 +1,258 @@
+{
+  "url": "https://codeforces.com/contest/1523?locale=en",
+  "parser": "contest/CodeforcesContestParser",
+  "result": [
+    {
+      "name": "A. Game of Life",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/A",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4\n11 3\n01000000001\n10 2\n0110100101\n5 2\n10101\n3 100\n000\n",
+          "output": "11111001111\n1110111101\n10101\n000\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "AGameOfLife"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    },
+    {
+      "name": "B. Lord of the Values",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/B",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2\n4\n1 1 1 1\n4\n4 3 1 2\n",
+          "output": "8\n2 1 2\n2 1 2\n2 1 3\n2 1 3\n2 1 4\n2 1 4\n1 1 2\n1 1 2\n8\n2 1 4\n1 2 4\n1 2 4\n1 2 4\n1 3 4\n1 1 2\n1 1 2\n1 1 4\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BLordOfTheValues"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    },
+    {
+      "name": "C. Compression and Expansion",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/C",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2\n4\n1\n1\n2\n3\n9\n1\n1\n1\n2\n2\n1\n2\n1\n2\n",
+          "output": "1\n1.1\n1.2\n1.3\n1\n1.1\n1.1.1\n1.1.2\n1.2\n1.2.1\n2\n2.1\n2.2\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CCompressionAndExpansion"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    },
+    {
+      "name": "D. Love-Hate",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/D",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "3 4 3\n1000\n0110\n1001\n",
+          "output": "1000\n"
+        },
+        {
+          "input": "5 5 4\n11001\n10101\n10010\n01110\n11011\n",
+          "output": "10001\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DLoveHate"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    },
+    {
+      "name": "E. Crypto Lights",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/E",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "3\n3 2\n15 2\n40 15\n",
+          "output": "333333338\n141946947\n329622137\n"
+        }
+      ],
+      "testType": "multiNumber",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ECryptoLights"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    },
+    {
+      "name": "F. Favorite Game",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/F",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "3 4\n1 1\n2 3\n5 2\n2 2 12\n5 1 4\n6 2 11\n3 5 10\n",
+          "output": "3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "FFavoriteGame"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    },
+    {
+      "name": "G. Try Booking",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/G",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "6 5\n2 3\n3 5\n1 1\n1 5\n1 6\n",
+          "output": "3\n2\n3\n5\n5\n6\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "GTryBooking"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    },
+    {
+      "name": "H. Hopping Around the Array",
+      "group": "Codeforces - Deltix Round, Spring 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1523/problem/H",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "9 5\n1 1 2 1 3 1 2 1 1\n1 1 0\n2 5 1\n5 9 1\n2 8 2\n1 9 4\n",
+          "output": "0\n2\n1\n2\n2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "HHoppingAroundTheArray"
+        }
+      },
+      "batch": {
+        "id": "a1efbe3c-f64f-4b54-b368-1c58887cc533",
+        "size": 8
+      }
+    }
+  ]
+}
