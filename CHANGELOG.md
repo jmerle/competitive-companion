@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.25.3 - June 26th, 2021
+- Fixed the parsing of Codeforces problems where the input/output specification is written in cursive
+- Fixed the TLX parser
+
 ## 2.25.2 - June 12th, 2021
 - Fixed the CodeDrills parser
 
