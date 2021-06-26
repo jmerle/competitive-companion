@@ -19,7 +19,7 @@ export class TLXProblemParser extends Parser {
       .trim();
     task.setName(name);
 
-    const breadcrumbNodes = [...elem.querySelectorAll('.bp3-breadcrumb')];
+    const breadcrumbNodes = [...elem.querySelectorAll('.bp4-breadcrumb')];
 
     const categoryNode = breadcrumbNodes[breadcrumbNodes.length - 2];
     task.setCategory(categoryNode.textContent);
