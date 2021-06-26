@@ -140,8 +140,14 @@ export class CodeforcesProblemParser extends Parser {
   }
 
   private getLastTextNode(elem: Element, selector: string): ChildNode {
-    const nodes = elem.querySelector(selector).childNodes;
-    const textNodes = [...nodes].filter(node => node.nodeType === Node.TEXT_NODE);
+    let selectedNode = elem.querySelector(selector);
+
+    const cursiveNode = selectedNode.querySelector('.tex-font-style-sl');
+    if (cursiveNode !== null) {
+      selectedNode = cursiveNode;
+    }
+
+    const textNodes = [...selectedNode.childNodes].filter(node => node.nodeType === Node.TEXT_NODE);
     return textNodes[textNodes.length - 1];
   }
 }
