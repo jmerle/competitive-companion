@@ -20,7 +20,7 @@ export class FacebookCodingCompetitionsProblemParser extends Parser {
 
     task.setName(name);
 
-    const lastBreadcrumb = elem.querySelector('a + i + span');
+    const lastBreadcrumb = elem.querySelector('a + i + span, a + img + span');
     const breadcrumbs = lastBreadcrumb.parentElement.querySelectorAll('a, span');
     task.setCategory([...breadcrumbs].map(el => el.textContent).join(' '));
 

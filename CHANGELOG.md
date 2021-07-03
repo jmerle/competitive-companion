@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.25.4 - July 3rd, 2021
+- Fixed the Facebook Coding Competitions parser
+
 ## 2.25.3 - June 26th, 2021
 - Fixed the parsing of Codeforces problems where the input/output specification is written in cursive
 - Fixed the TLX parser
