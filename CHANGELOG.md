@@ -1,6 +1,6 @@
 # Changelog
 
-## TBD - TBD
+## 2.25.5 - July 11th, 2021
 - Fixed the parsing of DMOJ task names where the contest name is in the task name
 
 ## 2.25.4 - July 3rd, 2021
