@@ -1,0 +1,31 @@
+{
+  "url": "https://dmoj.ca/problem/acc3p4",
+  "parser": "problem/DMOJProblemParser",
+  "result": {
+    "name": "Problem 4 - Range Updates and Range Queries",
+    "group": "DMOJ - Another Contest 3",
+    "url": "https://dmoj.ca/problem/acc3p4",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3 4\n1 2 3 2\n2 1 1\n2 2 2\n2 3 3\n",
+        "output": "0\n2\n4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Problem4RangeUpdatesAndRangeQueries"
+      }
+    }
+  }
+}

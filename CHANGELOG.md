@@ -1,5 +1,8 @@
 # Changelog
 
+## TBD - TBD
+- Fixed the parsing of DMOJ task names where the contest name is in the task name
+
 ## 2.25.4 - July 3rd, 2021
 - Fixed the Facebook Coding Competitions parser
 

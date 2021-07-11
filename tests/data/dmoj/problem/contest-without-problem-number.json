@@ -1,0 +1,31 @@
+{
+  "url": "https://dmoj.ca/problem/canada21p1",
+  "parser": "problem/DMOJProblemParser",
+  "result": {
+    "name": "Bob and Canada",
+    "group": "DMOJ - Canada Day Contest 2021",
+    "url": "https://dmoj.ca/problem/canada21p1",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 3000,
+    "tests": [
+      {
+        "input": "8\n3\nRWR\n3\nWWW\n3\nWRR\n4\nRWRW\n6\nWWWRRR\n6\nWWRRWW\n10\nRRRRWWRWRR\n10\nWWRRWWWWRW\n",
+        "output": "0\n2\n2\n1\n1\n3\n1\n3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "BobAndCanada"
+      }
+    }
+  }
+}

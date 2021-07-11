@@ -3,8 +3,8 @@
   "parser": "contest/DMOJContestParser",
   "result": [
     {
-      "name": "TLE '17 Contest 8 P1 - Artificial Intelligence",
-      "group": "DMOJ",
+      "name": "P1 - Artificial Intelligence",
+      "group": "DMOJ - TLE '17 Contest 8",
       "url": "https://dmoj.ca/problem/tle17c8p1",
       "interactive": false,
       "memoryLimit": 256,
@@ -29,13 +29,13 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "TLE17Contest8P1ArtificialIntelligence"
+          "taskClass": "P1ArtificialIntelligence"
         }
       }
     },
     {
-      "name": "TLE '17 Contest 8 P2 - Ship Defense",
-      "group": "DMOJ",
+      "name": "P2 - Ship Defense",
+      "group": "DMOJ - TLE '17 Contest 8",
       "url": "https://dmoj.ca/problem/tle17c8p2",
       "interactive": false,
       "memoryLimit": 256,
@@ -60,13 +60,13 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "TLE17Contest8P2ShipDefense"
+          "taskClass": "P2ShipDefense"
         }
       }
     },
     {
-      "name": "TLE '17 Contest 8 P3 - Curious Numbers",
-      "group": "DMOJ",
+      "name": "P3 - Curious Numbers",
+      "group": "DMOJ - TLE '17 Contest 8",
       "url": "https://dmoj.ca/problem/tle17c8p3",
       "interactive": false,
       "memoryLimit": 256,
@@ -87,13 +87,13 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "TLE17Contest8P3CuriousNumbers"
+          "taskClass": "P3CuriousNumbers"
         }
       }
     },
     {
-      "name": "TLE '17 Contest 8 P4 - Gamma Waves",
-      "group": "DMOJ",
+      "name": "P4 - Gamma Waves",
+      "group": "DMOJ - TLE '17 Contest 8",
       "url": "https://dmoj.ca/problem/tle17c8p4",
       "interactive": false,
       "memoryLimit": 256,
@@ -114,13 +114,13 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "TLE17Contest8P4GammaWaves"
+          "taskClass": "P4GammaWaves"
         }
       }
     },
     {
-      "name": "TLE '17 Contest 8 P5 - Battle Plan 2",
-      "group": "DMOJ",
+      "name": "P5 - Battle Plan 2",
+      "group": "DMOJ - TLE '17 Contest 8",
       "url": "https://dmoj.ca/problem/tle17c8p5",
       "interactive": false,
       "memoryLimit": 512,
@@ -141,13 +141,13 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "TLE17Contest8P5BattlePlan2"
+          "taskClass": "P5BattlePlan2"
         }
       }
     },
     {
-      "name": "TLE '17 Contest 8 P6 - Willson and Nesting Season",
-      "group": "DMOJ",
+      "name": "P6 - Willson and Nesting Season",
+      "group": "DMOJ - TLE '17 Contest 8",
       "url": "https://dmoj.ca/problem/tle17c8p6",
       "interactive": false,
       "memoryLimit": 256,
@@ -168,7 +168,7 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "TLE17Contest8P6WillsonAndNestingSeason"
+          "taskClass": "P6WillsonAndNestingSeason"
         }
       }
     }

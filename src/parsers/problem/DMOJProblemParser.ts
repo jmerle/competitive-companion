@@ -12,7 +12,22 @@ export class DMOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('DMOJ').setUrl(url);
 
-    task.setName(elem.querySelector('.problem-title h2').textContent);
+    const titleParts = elem.querySelector('.problem-title h2').textContent.split(' - ');
+    if (titleParts.length === 1) {
+      task.setName(titleParts[0]);
+    } else {
+      let contestName = titleParts[0];
+      let taskName = titleParts.slice(1).join(' - ');
+
+      const problemMatches = /(Problem \d+|[A-Z]\d+)$/.exec(contestName);
+      if (problemMatches !== null) {
+        contestName = contestName.substr(0, problemMatches.index).trim();
+        taskName = `${problemMatches[0]} - ${taskName}`;
+      }
+
+      task.setName(taskName);
+      task.setCategory(contestName);
+    }
 
     const inputs = [...elem.querySelectorAll('h4')].filter(el => {
       const text = el.textContent.toLowerCase();
