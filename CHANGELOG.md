@@ -1,6 +1,6 @@
 # Changelog
 
-## TBD - August 4th, 2021
+## 2.25.6 - August 4th, 2021
 - Fix parsing of sample cases when Grepper is installed
 - Fixed the HDOJ parser
 
