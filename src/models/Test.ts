@@ -11,6 +11,7 @@ export class Test {
     const correctedData = data
       .replace(/<br>/g, '\n')
       .replace(/&nbsp;/g, '')
+      .replace('<div class="open_grepper_editor" title="Edit & Save To Grepper"></div>', '')
       .split('\n')
       .map(line => line.trimEnd())
       .join('\n')
