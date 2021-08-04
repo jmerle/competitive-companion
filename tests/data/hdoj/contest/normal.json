@@ -1,11 +1,11 @@
 {
-  "url": "http://acm.hdu.edu.cn/contests/contest_show.php?cid=26",
+  "url": "https://acm.hdu.edu.cn/contests/contest_show.php?cid=26",
   "parser": "contest/HDOJContestParser",
   "result": [
     {
       "name": "Lowest Common Multiple Plus",
       "group": "HDOJ",
-      "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1001&cid=26",
+      "url": "https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1001&cid=26",
       "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
@@ -32,7 +32,7 @@
     {
       "name": "Palindromes _easy version",
       "group": "HDOJ",
-      "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1002&cid=26",
+      "url": "https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1002&cid=26",
       "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
@@ -59,7 +59,7 @@
     {
       "name": "����ͳ��",
       "group": "HDOJ",
-      "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1003&cid=26",
+      "url": "https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1003&cid=26",
       "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
@@ -86,7 +86,7 @@
     {
       "name": "����ת��",
       "group": "HDOJ",
-      "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=26",
+      "url": "https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=26",
       "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,
@@ -113,7 +113,7 @@
     {
       "name": "�������",
       "group": "HDOJ",
-      "url": "http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1005&cid=26",
+      "url": "https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1005&cid=26",
       "interactive": false,
       "memoryLimit": 32,
       "timeLimit": 1000,

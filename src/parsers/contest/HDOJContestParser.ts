@@ -7,6 +7,6 @@ export class HDOJContestParser extends ContestParser {
   public problemParser: Parser = new HDOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['http://acm.hdu.edu.cn/contests/contest_show.php*'];
+    return ['https://acm.hdu.edu.cn/contests/contest_show.php*'];
   }
 }
