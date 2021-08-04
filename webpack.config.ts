@@ -69,12 +69,8 @@ const config: webpack.Configuration = {
         options: {
           multiple: [
             {
-              search: 'new Function("");',
-              replace: "throw new Error('');",
-            },
-            {
-              search: 'new Function("c","size",n)',
-              replace: 'null',
+              search: /new Function\(/g,
+              replace: 'new Error(',
             },
             {
               search: 'eval("require")(getWorkerSrc())',
