@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.25.7 - August 9th, 2021
+- Fixed the parsing of Kattis sample cases when there is no code block for a sample case's output
+
 ## 2.25.6 - August 4th, 2021
 - Fixed the parsing of sample cases when Grepper is installed
 - Fixed the HDOJ parser
