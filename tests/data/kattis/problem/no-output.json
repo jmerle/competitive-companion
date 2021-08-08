@@ -1,0 +1,39 @@
+{
+  "url": "https://open.kattis.com/problems/backspace",
+  "parser": "problem/KattisProblemParser",
+  "result": {
+    "name": "Backspace",
+    "group": "Kattis",
+    "url": "https://open.kattis.com/problems/backspace",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "a<bc<\n",
+        "output": "b\n"
+      },
+      {
+        "input": "foss<<rritun\n",
+        "output": "forritun\n"
+      },
+      {
+        "input": "a<a<a<aa<<\n",
+        "output": "\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Backspace"
+      }
+    }
+  }
+}
