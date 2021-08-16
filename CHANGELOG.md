@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.25.8 - TBD
+## 2.25.8 - August 16th, 2021
 - Fixed the CodeDrills parser
 - Fixed the parsing of CodeChef sample cases when parsing contests
 
