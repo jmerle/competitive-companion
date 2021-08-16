@@ -37,6 +37,12 @@ export class CodeChefContestParser extends Parser {
 
       task.setInteractive(html.includes('This is an interactive problem'));
 
+      for (const testCase of model.problemComponents.sampleTestCases) {
+        if (!testCase.isDeleted) {
+          task.addTest(testCase.input, testCase.output);
+        }
+      }
+
       const body = markdownToHtml(model.body.replace(/(\r\n)/g, '\n'));
       new CodeChefProblemParser().parseTests(body, task);
 

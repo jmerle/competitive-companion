@@ -2,6 +2,7 @@
 
 ## 2.25.8 - TBD
 - Fixed the CodeDrills parser
+- Fixed the parsing of CodeChef sample cases when parsing contests
 
 ## 2.25.7 - August 9th, 2021
 - Fixed the parsing of Kattis sample cases when there is no code block for a sample case's output
