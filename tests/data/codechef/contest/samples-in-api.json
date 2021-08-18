@@ -1,0 +1,281 @@
+{
+  "url": "https://www.codechef.com/AUG21B",
+  "parser": "contest/CodeChefContestParser",
+  "before": "beforeCodeChef",
+  "result": [
+    {
+      "name": "Olympics Ranking",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/OLYRANK",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 500,
+      "tests": [
+        {
+          "input": "3\n10 20 30 0 29 30\n0 0 0 0 0 1\n1 1 1 0 0 0\n",
+          "output": "1\n2\n1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "OlympicsRanking"
+        }
+      }
+    },
+    {
+      "name": "Problem Difficulties",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/PROBDIFF",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 500,
+      "tests": [
+        {
+          "input": "3\n1 4 3 2\n4 5 5 5\n2 2 2 2\n",
+          "output": "2\n1\n0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ProblemDifficulties"
+        }
+      }
+    },
+    {
+      "name": "Chef and Bulb Invention",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/CHFINVNT",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4\n10 5 5\n10 6 5\n10 4 5\n10 8 5\n",
+          "output": "2\n4\n9\n8\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ChefAndBulbInvention"
+        }
+      }
+    },
+    {
+      "name": "Special Triplets",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/SPCTRIPS",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 500,
+      "tests": [
+        {
+          "input": "3\n3\n4\n5\n",
+          "output": "3\n6\n9\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "SpecialTriplets"
+        }
+      }
+    },
+    {
+      "name": "Array Filling",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/ARRFILL",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "3\n10 1\n5 2\n8 2\n5 2\n6 3\n3 2\n2 2\n1 3\n",
+          "output": "25\n41\n5\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ArrayFilling"
+        }
+      }
+    },
+    {
+      "name": "Charge Scheduling",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/CHARGE",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4\n5\n31 32 6 13 7\n14 50 34 4 31\n5\n43 26 22 11 30\n26 4 41 46 49\n5\n36 40 49 19 37\n18 11 48 15 33\n5\n16 3 24 21 21\n24 31 36 49 50\n",
+          "output": "3\n3 0 6\n5 6 13\n2 13 45\n2\n4 0 11\n3 11 33\n0\n3\n2 0 3\n1 3 19\n4 19 40\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ChargeScheduling"
+        }
+      }
+    },
+    {
+      "name": "Geometry 1",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/GEO1",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1500,
+      "tests": [
+        {
+          "input": "2\n4 1\n1 1\n2 1\n2 2\n1 2\n1 1\n3 2\n1 1\n2 1\n1 2\n1 1\n2 3\n",
+          "output": "9.0000000\n9.7426406\n230.8086578\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Geometry1"
+        }
+      }
+    },
+    {
+      "name": "Fat Hut",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/FATHUT",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2\n4\n5 1 1 5\n4 4 2 5\n2 2 2 5\n3 3 2 5\n4\n5 1 2 5\n4 4 2 5\n2 2 2 5\n3 3 2 5\n",
+          "output": "1\n2\n"
+        },
+        {
+          "input": "1\n4\n1 1 1 1\n2 2 2 2\n3 3 3 3\n4 4 4 4\n",
+          "output": "0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "FatHut"
+        }
+      }
+    },
+    {
+      "name": "Chef and Digits of Large Numbers",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/CDIGLNUM",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "3\n13\n54\n198\n",
+          "output": "11\n48\n159\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ChefAndDigitsOfLargeNumbers"
+        }
+      }
+    },
+    {
+      "name": "Alternating LG Queries",
+      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "url": "https://www.codechef.com/AUG21B/problems/ALTLG",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1\n6 3\n2 4 8 16 32 64\n1 1 6\n2 1 5\n1 5 6\n",
+          "output": "2\n4\n32\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "AlternatingLGQueries"
+        }
+      }
+    }
+  ]
+}

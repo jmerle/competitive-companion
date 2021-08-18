@@ -48,11 +48,11 @@ export class CodeChefProblemParser extends Parser {
         const codeBlocks: HTMLElement[] = [...pre.querySelectorAll('code')];
 
         if (codeBlocks.length >= 2) {
-          task.addTest(codeBlocks[0].textContent, codeBlocks[1].textContent);
+          this.addTest(task, codeBlocks[0].textContent, codeBlocks[1].textContent);
         } else if (textNodes.length >= 2) {
           const input = textNodes[textNodes.length - 2].textContent.trim();
           const output = textNodes[textNodes.length - 1].textContent.trim();
-          task.addTest(input, output);
+          this.addTest(task, input, output);
         }
       }
     });
@@ -70,7 +70,7 @@ export class CodeChefProblemParser extends Parser {
       const preBlocks = [...div.querySelectorAll('pre')];
 
       if (preBlocks.length === 2) {
-        task.addTest(preBlocks[0].textContent, preBlocks[1].textContent);
+        this.addTest(task, preBlocks[0].textContent, preBlocks[1].textContent);
       }
     });
 
@@ -88,8 +88,24 @@ export class CodeChefProblemParser extends Parser {
       );
 
       for (let i = 0; i < inputHeaders.length && i < outputHeaders.length; i++) {
-        task.addTest(inputHeaders[i].nextElementSibling.textContent, outputHeaders[i].nextElementSibling.textContent);
+        this.addTest(
+          task,
+          inputHeaders[i].nextElementSibling.textContent,
+          outputHeaders[i].nextElementSibling.textContent,
+        );
       }
     }
+  }
+
+  private addTest(task: TaskBuilder, input: string, output: string): void {
+    if (input.startsWith('\n')) {
+      input = input.trimStart();
+    }
+
+    if (output.startsWith('\n')) {
+      output = output.trimStart();
+    }
+
+    task.addTest(input, output);
   }
 }

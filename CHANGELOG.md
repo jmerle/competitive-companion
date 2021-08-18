@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.25.9 - August 18th, 2021
+- Fixed the parsing of CodeChef sample cases for certain problems where the input/output would start with a newline
+
 ## 2.25.8 - August 16th, 2021
 - Fixed the CodeDrills parser
 - Fixed the parsing of CodeChef sample cases when parsing contests
