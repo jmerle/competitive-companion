@@ -15,7 +15,20 @@ jobs:
         with:
           node-version: 14
 
+      - name: Get Yarn cache directory
+        id: yarn-cache-directory
+        run: echo "::set-output name=directory::$(yarn cache dir)"
+
+      - name: Set up cache
+        id: yarn-cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-directory.outputs.directory }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
       - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
       - name: Lint code
