@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.25.10 - August 27th, 2021
+- Fixed the parsing of CodeChef sample cases for certain problems where the input/output is normal text in the problem statement
+
 ## 2.25.9 - August 18th, 2021
 - Fixed the parsing of CodeChef sample cases for certain problems where the input/output would start with a newline
 

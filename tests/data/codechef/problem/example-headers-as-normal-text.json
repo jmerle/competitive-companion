@@ -13,10 +13,6 @@
       {
         "input": "4\n1\n2\n5\n3\n",
         "output": "1\n2\n120\n6\n"
-      },
-      {
-        "input": "4\n1\n2\n5\n3\n",
-        "output": "1\n2\n120\n6\n"
       }
     ],
     "testType": "single",

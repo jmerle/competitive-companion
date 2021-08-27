@@ -61,7 +61,7 @@ export class CodeChefProblemParser extends Parser {
       return;
     }
 
-    elem.querySelectorAll('div.mathjax-support').forEach(div => {
+    elem.querySelectorAll('.problem-statement div.mathjax-support').forEach(div => {
       const text = div.textContent.toLowerCase();
       if (!text.includes('ample input') || !text.includes('ample output')) {
         return;
@@ -78,22 +78,22 @@ export class CodeChefProblemParser extends Parser {
       return;
     }
 
-    if (task.tests.length === 0) {
-      const inputHeaders = [...elem.querySelectorAll('h3')].filter(x =>
-        x.textContent.toLowerCase().includes('ample input'),
-      );
+    const inputHeaders = [...elem.querySelectorAll('h3, p')].filter(
+      x =>
+        x.textContent.toLowerCase().includes('ample input') && ['PRE', 'SPAN'].includes(x.nextElementSibling.tagName),
+    );
 
-      const outputHeaders = [...elem.querySelectorAll('h3')].filter(x =>
-        x.textContent.toLowerCase().includes('ample output'),
-      );
+    const outputHeaders = [...elem.querySelectorAll('h3, p')].filter(
+      x =>
+        x.textContent.toLowerCase().includes('ample output') && ['PRE', 'SPAN'].includes(x.nextElementSibling.tagName),
+    );
 
-      for (let i = 0; i < inputHeaders.length && i < outputHeaders.length; i++) {
-        this.addTest(
-          task,
-          inputHeaders[i].nextElementSibling.textContent,
-          outputHeaders[i].nextElementSibling.textContent,
-        );
-      }
+    for (let i = 0; i < inputHeaders.length && i < outputHeaders.length; i++) {
+      this.addTest(
+        task,
+        inputHeaders[i].nextElementSibling.textContent,
+        outputHeaders[i].nextElementSibling.textContent,
+      );
     }
   }
 
