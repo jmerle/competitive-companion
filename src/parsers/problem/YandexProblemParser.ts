@@ -10,6 +10,8 @@ export class YandexProblemParser extends Parser {
     patterns.push(...patterns.map(pattern => pattern.replace('.com', '.ru')));
     patterns.push(...patterns.map(pattern => pattern.replace('/*/contest', '/contest')));
     patterns.push(...patterns.map(pattern => pattern.replace('contest.yandex', 'contest2.yandex')));
+    patterns.push(...patterns.map(pattern => pattern.replace('*.contest', 'contest')));
+    patterns.push(...patterns.map(pattern => pattern.replace('/problems/*/', '/problems')));
 
     return patterns;
   }
