@@ -43,8 +43,10 @@ export class CodeChefContestParser extends Parser {
         }
       }
 
-      const body = markdownToHtml(model.body.replace(/(\r\n)/g, '\n'));
-      new CodeChefProblemParser().parseTests(body, task);
+      if (task.tests.length === 0) {
+        const body = markdownToHtml(model.body.replace(/(\r\n)/g, '\n'));
+        new CodeChefProblemParser().parseTests(body, task);
+      }
 
       task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);
       task.setMemoryLimit(256);

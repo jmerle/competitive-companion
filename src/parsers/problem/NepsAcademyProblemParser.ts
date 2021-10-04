@@ -26,7 +26,7 @@ export class NepsAcademyProblemParser extends Parser {
       task.addTest(blocks[i].innerHTML.trimStart(), blocks[i + 1].innerHTML.trimStart());
     }
 
-    const limitsStr = elem.querySelector('.exercise-submition-card > .v-card').textContent;
+    const limitsStr = elem.querySelector('.exercise-submission-card > .v-card').textContent;
     task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) second/.exec(limitsStr)[1]) * 1000));
     task.setMemoryLimit(parseInt(/(\d+) mb/.exec(limitsStr)[1], 10));
 
