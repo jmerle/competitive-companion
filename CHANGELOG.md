@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.26.0 - October 4th, 2021
+- Added a parser for XXM (thanks [@warshon](https://github.com/warshon))
+- Fixed the parsing of Yandex problems on URLs that do not include the problem letter
+
 ## 2.25.10 - August 27th, 2021
 - Fixed the parsing of CodeChef sample cases for certain problems where the input/output is normal text in the problem statement
 

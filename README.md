@@ -94,6 +94,7 @@ A browser extension which parses competitive programming problems from various o
 | UVa Online Judge             | ✔              |                |
 | Virtual Judge                | ✔              |                |
 | Yandex                       | ✔              |                |
+| XXM                          | ✔              |                |
 | yukicoder                    | ✔              | ✔              |
 
 ## Custom tools
