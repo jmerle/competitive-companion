@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class XXMProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://1.14.181.192/problem/*'];
+    return ['http://1.14.181.192/problem/detail?*', 'http://1.14.181.192/studentcenter/hw/detail?*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
