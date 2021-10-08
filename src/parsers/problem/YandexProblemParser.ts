@@ -23,22 +23,25 @@ export class YandexProblemParser extends Parser {
     task.setName(elem.querySelector('h1.title').textContent);
     task.setCategory(elem.querySelector('.contest-head__item.contest-head__item_role_title').textContent);
 
-    const timeLimitStr = elem.querySelector('.time-limit').textContent;
-    task.setTimeLimit(parseFloat(/([0-9.]+)\s/.exec(timeLimitStr)[1]) * 1000);
+    const timeLimitElem = elem.querySelector('.time-limit');
+    if (timeLimitElem !== null) {
+      task.setTimeLimit(parseFloat(/([0-9.]+)\s/.exec(timeLimitElem.textContent)[1]) * 1000);
+    }
 
-    const memoryLimitStr = elem.querySelector('.memory-limit').textContent;
-
-    let memoryLimit = 0;
-    try {
-      const memoryLimitParsed = /(\d+)([MG])b/i.exec(memoryLimitStr);
-      if (memoryLimitParsed.length > 1) {
-        memoryLimit = parseInt(memoryLimitParsed[1], 10);
-        if (memoryLimitParsed[2] == 'G') {
-          memoryLimit *= 1024;
+    const memoryLimitElem = elem.querySelector('.memory-limit');
+    if (memoryLimitElem !== null) {
+      let memoryLimit = 0;
+      try {
+        const memoryLimitParsed = /(\d+)([MG])b/i.exec(memoryLimitElem.textContent);
+        if (memoryLimitParsed.length > 1) {
+          memoryLimit = parseInt(memoryLimitParsed[1], 10);
+          if (memoryLimitParsed[2] == 'G') {
+            memoryLimit *= 1024;
+          }
         }
+      } finally {
+        task.setMemoryLimit(memoryLimit === 0 ? 1024 : memoryLimit);
       }
-    } finally {
-      task.setMemoryLimit(memoryLimit === 0 ? 1024 : memoryLimit);
     }
 
     elem.querySelectorAll('.sample-tests').forEach(table => {

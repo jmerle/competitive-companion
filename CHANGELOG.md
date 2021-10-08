@@ -1,8 +1,10 @@
 # Changelog
 
 ## 2.27.0 - TBD
+- Added a contest parser for Yandex (thanks [@user202729](https://github.com/user202729))
 - Added a parser for Contest Hunter (thanks [@warshon](https://github.com/warshon))
 - Improved the XXM parser (thanks [@warshon](https://github.com/warshon))
+- Fixed the parsing of Yandex problems which don't have a time and/or memory limit
 
 ## 2.26.0 - October 4th, 2021
 - Added a parser for XXM (thanks [@warshon](https://github.com/warshon))
