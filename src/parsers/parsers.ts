@@ -4,6 +4,7 @@ import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { CodeMarshalContestParser } from './contest/CodeMarshalContestParser';
 import { COJContestParser } from './contest/COJContestParser';
+import { ContestHunterContestParser } from './contest/ContestHunterContestParser';
 import { CSESContestParser } from './contest/CSESContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DevSkillContestParser } from './contest/DevSkillContestParser';
@@ -120,6 +121,7 @@ export const parsers: Parser[] = [
   new COJContestParser(),
 
   new ContestHunterProblemParser(),
+  new ContestHunterContestParser(),
 
   new CSAcademyProblemParser(),
 

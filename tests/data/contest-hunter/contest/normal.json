@@ -1,0 +1,72 @@
+{
+  "url": "http://noi-test.zzstep.com/contest/CH%20Round%20%2380%20-%20GX%EF%BC%8FGZOI2019%E9%87%8D%E7%8E%B0%E8%B5%9Bday2",
+  "parser": "contest/ContestHunterContestParser",
+  "result": [
+    {
+      "name": "逼死强迫症",
+      "group": "ContestHunter - CH Round #80 - GX／GZOI2019重现赛day2",
+      "url": "http://noi-test.zzstep.com/contest/CH%20Round%20%2380%20-%20GX%EF%BC%8FGZOI2019%E9%87%8D%E7%8E%B0%E8%B5%9Bday2/%E9%80%BC%E6%AD%BB%E5%BC%BA%E8%BF%AB%E7%97%87",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 10000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    },
+    {
+      "name": "旅行者",
+      "group": "ContestHunter - CH Round #80 - GX／GZOI2019重现赛day2",
+      "url": "http://noi-test.zzstep.com/contest/CH%20Round%20%2380%20-%20GX%EF%BC%8FGZOI2019%E9%87%8D%E7%8E%B0%E8%B5%9Bday2/%E6%97%85%E8%A1%8C%E8%80%85",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 50000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    },
+    {
+      "name": "旧词",
+      "group": "ContestHunter - CH Round #80 - GX／GZOI2019重现赛day2",
+      "url": "http://noi-test.zzstep.com/contest/CH%20Round%20%2380%20-%20GX%EF%BC%8FGZOI2019%E9%87%8D%E7%8E%B0%E8%B5%9Bday2/%E6%97%A7%E8%AF%8D",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 20000,
+      "tests": [],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    }
+  ]
+}

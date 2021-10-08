@@ -49,6 +49,7 @@ A browser extension which parses competitive programming problems from various o
 | Codeforces                   | ✔              | ✔              |
 | CodeMarshal                  | ✔              | ✔              |
 | COJ                          | ✔              | ✔              |
+| Contest Hunter               | ✔              | ✔              |
 | CS Academy                   | ✔              |                |
 | CSES                         | ✔              | ✔              |
 | CSU-ACM Online Judge         | ✔              | ✔              |

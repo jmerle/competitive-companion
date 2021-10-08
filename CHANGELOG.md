@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.27.0 - TBD
+- Added a parser for Contest Hunter (thanks [@warshon](https://github.com/warshon))
+- Improved the XXM parser (thanks [@warshon](https://github.com/warshon))
+
 ## 2.26.0 - October 4th, 2021
 - Added a parser for XXM (thanks [@warshon](https://github.com/warshon))
 - Fixed the parsing of Yandex problems on URLs that do not include the problem letter
