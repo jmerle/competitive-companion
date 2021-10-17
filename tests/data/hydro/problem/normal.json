@@ -1,0 +1,31 @@
+{
+  "url": "https://hydro.ac/p/H1000",
+  "parser": "problem/HydroProblemParser",
+  "result": {
+    "name": "#H1000. A + B Problem",
+    "group": "Hydro",
+    "url": "https://hydro.ac/p/H1000",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 2\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "H1000ABProblem"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "url": "https://hydro.ac/contest/615cf350e994f4cb86642eb0",
+  "parser": "contest/HydroContestParser",
+  "result": [
+    {
+      "name": "#A. A + B Problem",
+      "group": "Hydro",
+      "url": "https://hydro.ac/contest/615cf350e994f4cb86642eb0/p/A",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1 2\n",
+          "output": "3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "AABProblem"
+        }
+      }
+    }
+  ]
+}
