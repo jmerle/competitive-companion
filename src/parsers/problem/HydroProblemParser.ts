@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class HydroProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://hydro.ac/p/*', 'https://hydro.ac/d/*/p/*'];
+    return ['https://hydro.ac/p/*', 'https://hydro.ac/d/*/p/*', 'https://hydro.ac/contest/*/p/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -14,7 +14,7 @@ export class HydroProblemParser extends Parser {
 
     task.setName(elem.querySelector('.section__title').lastChild.textContent.trim());
 
-    const blocks = [...elem.querySelectorAll('pre>code')];
+    const blocks = [...elem.querySelectorAll('pre > code')];
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }

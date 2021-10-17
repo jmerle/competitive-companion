@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.28.0 - October 17th, 2021
+- Added parsers for Hydro (thanks [@warshon](https://github.com/warshon))
+
 ## 2.27.0 - October 8th, 2021
 - Added a contest parser for Yandex (thanks [@user202729](https://github.com/user202729))
 - Added parsers for Contest Hunter (thanks [@warshon](https://github.com/warshon))

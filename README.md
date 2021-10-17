@@ -66,6 +66,7 @@ A browser extension which parses competitive programming problems from various o
 | HIT Online Judge             | ✔              |                |
 | hihoCoder                    | ✔              | ✔              |
 | Hrbust Online Judge          | ✔              |                |
+| Hydro                        | ✔              | ✔              |
 | ICPC Live Archive            | ✔              |                |
 | Jutge                        | ✔              |                |
 | Kattis                       | ✔              | ✔              |
