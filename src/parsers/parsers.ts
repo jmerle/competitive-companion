@@ -16,6 +16,7 @@ import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
 import { HackerRankContestParser } from './contest/HackerRankContestParser';
 import { HDOJContestParser } from './contest/HDOJContestParser';
 import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
+import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
@@ -58,6 +59,7 @@ import { HDOJProblemParser } from './problem/HDOJProblemParser';
 import { HihoCoderProblemParser } from './problem/HihoCoderProblemParser';
 import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemParser';
 import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
+import { HydroProblemParser } from './problem/HydroProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
 import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemParser';
@@ -167,6 +169,9 @@ export const parsers: Parser[] = [
   new HihoCoderContestParser(),
 
   new HrbustOnlineJudgeProblemParser(),
+
+  new HydroProblemParser(),
+  new HydroContestParser(),
 
   new JutgeProblemParser(),
 
