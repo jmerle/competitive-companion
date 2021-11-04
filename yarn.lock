@@ -3473,6 +3473,11 @@ expect-playwright@^0.7.0:
   resolved "https://registry.yarnpkg.com/expect-playwright/-/expect-playwright-0.7.1.tgz#88323d6603c467e62ad832e88605989f96ed3fdc"
   integrity sha512-2Wx6Emk9FZyveO8iD+VUTrXhJVnQmE0P1NotagAm5Wferd8wGMFbsFHbG7Sh9N5ffiETonQWd0HLzGuHVvHq0g==
 
+expect-playwright@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/expect-playwright/-/expect-playwright-0.8.0.tgz#6d4ebe0bdbdd3c1693d880d97153b96a129ae4e8"
+  integrity sha512-+kn8561vHAY+dt+0gMqqj1oY+g5xWrsuGMk4QGxotT2WS545nVqqjs37z6hrYfIuucwqthzwJfCJUEYqixyljg==
+
 expect@^27.3.0:
   version "27.3.0"
   resolved "https://registry.yarnpkg.com/expect/-/expect-27.3.0.tgz#6cf2864a2553fe8ea68e19a6ce1641b08c3a5a98"

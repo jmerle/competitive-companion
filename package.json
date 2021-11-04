@@ -52,6 +52,7 @@
     "eslint-formatter-codeframe": "^7.32.1",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "expect-playwright": "^0.8.0",
     "husky": "^4",
     "jest": "^27.3.0",
     "jest-playwright-preset": "^1.7.0",
