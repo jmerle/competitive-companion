@@ -32,6 +32,7 @@ A browser extension which parses competitive programming problems from various o
 - [C+++ IDE](https://github.com/23786/Cppp-IDE)
 - [cphelper.nvim](https://github.com/p00f/cphelper.nvim)
 - [AutoCp](https://pushpavel.github.io/AutoCp/)
+- [Red Panda Dev-C++](https://github.com/royqh1979/RedPanda-CPP)
 - Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
