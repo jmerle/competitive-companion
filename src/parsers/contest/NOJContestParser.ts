@@ -8,6 +8,7 @@ export class NOJContestParser extends ContestParser<string> {
     return ['https://acm.njupt.edu.cn/contest/*/board/challenge'];
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected async getTasksToParse(html: string, url: string): Promise<string[]> {
     const elem = htmlToElement(html);
     return [...elem.querySelectorAll('challenge-container > challenge-item')]
