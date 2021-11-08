@@ -19,6 +19,7 @@ import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
+import { NOJContestParser } from './contest/NOJContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
@@ -69,6 +70,7 @@ import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
 import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
+import { NOJProblemParser } from './problem/NOJProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
 import { OldLibraryCheckerProblemParser } from './problem/OldLibraryCheckerProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
@@ -193,6 +195,9 @@ export const parsers: Parser[] = [
   new MSKInformaticsProblemParser(),
 
   new NepsAcademyProblemParser(),
+
+  new NOJProblemParser(),
+  new NOJContestParser(),
 
   new NowCoderProblemParser(),
 

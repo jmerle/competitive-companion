@@ -1,0 +1,36 @@
+{
+  "url": "https://acm.njupt.edu.cn/problem/GYM103389I",
+  "parser": "problem/NOJProblemParser",
+  "before": "beforeNOJ",
+  "result": {
+    "name": "驾驶卡丁车",
+    "group": "NOJ",
+    "url": "https://acm.njupt.edu.cn/problem/GYM103389I",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5 4\n....\n##..\n..#.\n.*..\n....\n12\nURULLULLLLUD\n",
+        "output": "3 2\nCrash! 3 2\nCrash! 3 2\n3 2\n3 2\nCrash! 3 2\n3 2\n3 2\n3 2\n3 2\n4 3\n4 3\n"
+      },
+      {
+        "input": "10 10\n####....##\n##.......#\n#....##...\n#...####..\n#...####..\n#...####..\n#.........\n#...####..\n....####..\n*...####..\n16\nUURUURRULUULLUUD\n",
+        "output": "9 1\nCrash! 9 1\n9 1\n8 2\n6 4\nCrash! 6 4\n6 4\n7 5\n7 6\n7 8\nCrash! 7 10\n7 10\n7 10\n6 10\n4 10\n3 10\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

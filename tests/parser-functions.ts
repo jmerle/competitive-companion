@@ -61,6 +61,10 @@ export default {
     await page.waitForSelector('.ui.header');
   },
 
+  async beforeNOJ(page: Page): Promise<void> {
+    await page.waitForSelector('material-preloader.loaded');
+  },
+
   async beforeOldGoogleCodeJam(page: Page): Promise<void> {
     await page.waitForSelector('#dsb-problem-title0');
   },

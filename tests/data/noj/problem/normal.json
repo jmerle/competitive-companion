@@ -1,0 +1,32 @@
+{
+  "url": "https://acm.njupt.edu.cn/problem/NOJ1027",
+  "parser": "problem/NOJProblemParser",
+  "before": "beforeNOJ",
+  "result": {
+    "name": "Quicksum",
+    "group": "NOJ",
+    "url": "https://acm.njupt.edu.cn/problem/NOJ1027",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "ACM\nMID CENTRAL\nREGIONAL PROGRAMMING CONTEST\nACN\nA C M\nABC\nBBC\n#\n",
+        "output": "46\n650\n4690\n49\n75\n14\n15\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Quicksum"
+      }
+    }
+  }
+}
