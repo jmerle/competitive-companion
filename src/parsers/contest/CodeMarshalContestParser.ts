@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { CodeMarshalProblemParser } from '../problem/CodeMarshalProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class CodeMarshalContestParser extends ContestParser {
+export class CodeMarshalContestParser extends SimpleContestParser {
   public problemParser: Parser = new CodeMarshalProblemParser();
   public linkSelector: string = '.panel-problems a.list-group-item';
 

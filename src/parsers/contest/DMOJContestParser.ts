@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { DMOJProblemParser } from '../problem/DMOJProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class DMOJContestParser extends ContestParser {
+export class DMOJContestParser extends SimpleContestParser {
   public linkSelector: string = '#contest-problems > tbody > tr > td:first-child > a';
   public problemParser: Parser = new DMOJProblemParser();
 

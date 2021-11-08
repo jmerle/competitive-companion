@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { AtCoderProblemParser } from '../problem/AtCoderProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class AtCoderContestParser extends ContestParser {
+export class AtCoderContestParser extends SimpleContestParser {
   public problemParser: Parser = new AtCoderProblemParser();
   public linkSelector: string = 'table tr td:first-child a';
 

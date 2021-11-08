@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { COJProblemParser } from '../problem/COJProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class COJContestParser extends ContestParser {
+export class COJContestParser extends SimpleContestParser {
   public linkSelector: string = '#problem td > a';
   public problemParser: Parser = new COJProblemParser();
 

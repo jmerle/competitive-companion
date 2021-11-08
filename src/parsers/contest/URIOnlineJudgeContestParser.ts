@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { URIOnlineJudgeProblemParser } from '../problem/URIOnlineJudgeProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class URIOnlineJudgeContestParser extends ContestParser {
+export class URIOnlineJudgeContestParser extends SimpleContestParser {
   public linkSelector: string = '#table td.large > a';
   public problemParser: Parser = new URIOnlineJudgeProblemParser();
 

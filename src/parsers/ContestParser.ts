@@ -1,32 +1,60 @@
 import { Contest } from '../models/Contest';
 import { Sendable } from '../models/Sendable';
 import { Task } from '../models/Task';
-import { htmlToElement } from '../utils/dom';
 import { Parser } from './Parser';
 
-export abstract class ContestParser extends Parser {
-  public abstract linkSelector: string;
-  public abstract problemParser: Parser;
+export abstract class ContestParser<T> extends Parser {
+  protected abstract getTasksToParse(html: string, url: string): Promise<T[]>;
 
-  public canHandlePage(): boolean {
-    return document.querySelector(this.linkSelector) !== null;
-  }
+  protected abstract parseTask(id: T): Promise<Task>;
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    const elem = htmlToElement(html);
-    const links = [...elem.querySelectorAll(this.linkSelector)].map(el => (el as any).href);
-    return this.parseLinks(links);
-  }
+    const tasksToParse = await this.getTasksToParse(html, url);
+    const parsedTasks = [];
+    const failedTasks = [];
 
-  protected async parseLinks(links: string[]): Promise<Sendable> {
-    const bodies = await this.fetchAll(links);
-    const tasks: Task[] = [];
+    for (let i = 0; i < tasksToParse.length; i++) {
+      try {
+        const task = await this.parseTask(tasksToParse[i]);
+        parsedTasks.push(task);
+      } catch (error) {
+        console.error(`Failed to parse task ${i + 1}:`, error);
+        failedTasks.push(i + 1);
+      }
 
-    for (let i = 0; i < bodies.length; i++) {
-      const task = await this.problemParser.parse(links[i], bodies[i]);
-      tasks.push(task as Task);
+      (window as any).nanoBar.go(((i + 1) / tasksToParse.length) * 100);
     }
 
-    return new Contest(tasks);
+    if (failedTasks.length === tasksToParse.length) {
+      throw new Error('Failed to parse any task.');
+    }
+
+    if (failedTasks.length > 0) {
+      let failedMessage;
+      if (failedTasks.length === 1) {
+        failedMessage = `problem ${failedTasks[0]}, see the console for the parsing error`;
+      } else {
+        const firstTasks = failedTasks.slice(0, failedTasks.length - 1).join(', ');
+        const lastTask = failedTasks[failedTasks.length - 1];
+        failedMessage = `problems ${firstTasks} and ${lastTask}, see the console for the parsing errors`;
+      }
+
+      let successMessage;
+      if (parsedTasks.length === 1) {
+        successMessage = 'problem was parsed';
+      } else {
+        successMessage = 'problems were parsed';
+      }
+
+      alert(
+        [
+          `Competitive Companion's ${this.constructor.name} failed to parse ${failedMessage}.`,
+          `The remaining ${successMessage} successfully.`,
+          'Please open an issue at https://github.com/jmerle/competitive-companion/issues if you think this is a bug.',
+        ].join(' '),
+      );
+    }
+
+    return new Contest(parsedTasks);
   }
 }

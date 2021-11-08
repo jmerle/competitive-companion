@@ -1,5 +1,8 @@
 # Changelog
 
+## TBD - TBD
+- Changed the error handling in contest parsers so that if a strict subset of the problems cannot be parsed an alert is shown and the successfully parsed problems are sent regardless
+
 ## 2.28.0 - October 17th, 2021
 - Added parsers for Hydro (thanks [@warshon](https://github.com/warshon))
 

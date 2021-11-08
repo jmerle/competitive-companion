@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { KattisProblemParser } from '../problem/KattisProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class KattisContestParser extends ContestParser {
+export class KattisContestParser extends SimpleContestParser {
   public problemParser: Parser = new KattisProblemParser();
   public linkSelector: string = '#standings > thead > tr > th.problemcolheader-standings > a';
 

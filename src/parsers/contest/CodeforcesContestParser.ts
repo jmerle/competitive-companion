@@ -2,11 +2,11 @@ import { Contest } from '../../models/Contest';
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class CodeforcesContestParser extends ContestParser {
+export class CodeforcesContestParser extends SimpleContestParser {
   public problemParser: Parser = new CodeforcesProblemParser();
   public linkSelector: string =
     '.problems > tbody > tr > td:first-child > a, ._ProblemsPage_problems > table > tbody > tr > td:first-child > a';

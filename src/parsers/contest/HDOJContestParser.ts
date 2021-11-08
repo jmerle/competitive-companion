@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { HDOJProblemParser } from '../problem/HDOJProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class HDOJContestParser extends ContestParser {
+export class HDOJContestParser extends SimpleContestParser {
   public linkSelector: string = 'tr.table_text a';
   public problemParser: Parser = new HDOJProblemParser();
 

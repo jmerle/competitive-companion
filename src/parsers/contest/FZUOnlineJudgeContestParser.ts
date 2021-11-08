@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { FZUOnlineJudgeProblemParser } from '../problem/FZUOnlineJudgeProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class FZUOnlineJudgeContestParser extends ContestParser {
+export class FZUOnlineJudgeContestParser extends SimpleContestParser {
   public linkSelector: string = '.ct_list_content > table > tbody > tr > td:nth-child(3) > a';
   public problemParser: Parser = new FZUOnlineJudgeProblemParser();
 

@@ -1,8 +1,8 @@
-import { ContestParser } from '../ContestParser';
 import { Parser } from '../Parser';
 import { DevSkillProblemParser } from '../problem/DevSkillProblemParser';
+import { SimpleContestParser } from '../SimpleContestParser';
 
-export class DevSkillContestParser extends ContestParser {
+export class DevSkillContestParser extends SimpleContestParser {
   public linkSelector: string = '.contest_requirement > li > a';
   public problemParser: Parser = new DevSkillProblemParser();
 

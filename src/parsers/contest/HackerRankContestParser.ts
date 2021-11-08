@@ -1,11 +1,10 @@
-import { Contest } from '../../models/Contest';
-import { Sendable } from '../../models/Sendable';
+import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
-import { Parser } from '../Parser';
+import { ContestParser } from '../ContestParser';
 import { HackerRankProblemParser } from '../problem/HackerRankProblemParser';
 
-export class HackerRankContestParser extends Parser {
+export class HackerRankContestParser extends ContestParser<[string, string]> {
   public getMatchPatterns(): string[] {
     return ['https://www.hackerrank.com/contests/*/challenges*'];
   }
@@ -14,46 +13,42 @@ export class HackerRankContestParser extends Parser {
     return [/https:\/\/www[.]hackerrank[.]com\/contests\/([a-z0-9-]+)\/challenges(\?(.*))?$/];
   }
 
-  public async parse(url: string, html: string): Promise<Sendable> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected async getTasksToParse(html: string, url: string): Promise<[string, string][]> {
     const elem = htmlToElement(html);
 
-    let contestName;
+    let contestName: string = null;
     if (elem.querySelector('a[data-attr2=contest]')) {
       contestName = elem.querySelector('a[data-attr2=contest]').getAttribute('data-attr1');
     }
 
     const linksSelector = '.challenges-list a.btn, .challenges-list a.challenge-list-item';
-    const links: string[] = [...elem.querySelectorAll(linksSelector)].map(el =>
-      (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'),
-    );
+    return [...elem.querySelectorAll(linksSelector)]
+      .map(el => (el as any).href.replace('www.hackerrank.com/', 'www.hackerrank.com/rest/'))
+      .map(apiUrl => [contestName, apiUrl]);
+  }
 
-    const bodies = await this.fetchAll(links);
-    const models = bodies.map(body => JSON.parse(body).model);
-    const tasks = [];
+  protected async parseTask(input: [string, string]): Promise<Task> {
+    const [contestName, apiUrl] = input;
 
-    console.log(links);
+    const body = await this.fetch(apiUrl);
+    const model = JSON.parse(body).model;
 
-    for (let i = 0; i < models.length; i++) {
-      const model = models[i];
-      const task = new TaskBuilder('HackerRank').setUrl(
-        links[i].replace('www.hackerrank.com/rest/', 'www.hackerrank.com/'),
-      );
+    const taskUrl = apiUrl.replace('www.hackerrank.com/rest/', 'www.hackerrank.com/');
+    const task = new TaskBuilder('HackerRank').setUrl(taskUrl);
 
-      task.setName(model.name);
-      if (contestName) {
-        task.setCategory(contestName);
-      } else if (model.primary_contest) {
-        task.setCategory(model.primary_contest.name);
-      }
-
-      new HackerRankProblemParser().parseTests(model.body_html, task);
-
-      task.setTimeLimit(4000);
-      task.setMemoryLimit(512);
-
-      tasks.push(task.build());
+    task.setName(model.name);
+    if (contestName) {
+      task.setCategory(contestName);
+    } else if (model.primary_contest) {
+      task.setCategory(model.primary_contest.name);
     }
 
-    return new Contest(tasks);
+    new HackerRankProblemParser().parseTests(model.body_html, task);
+
+    task.setTimeLimit(4000);
+    task.setMemoryLimit(512);
+
+    return task.build();
   }
 }

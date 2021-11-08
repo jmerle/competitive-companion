@@ -52,8 +52,13 @@ async function parse(parser: Parser): Promise<void> {
   } catch (err) {
     console.error(err);
 
-    // prettier-ignore
-    alert(`Something went wrong while running Competitive Companion's ${parser.constructor.name}. Open the browser console to see the error.`);
+    alert(
+      [
+        `Something went wrong while running Competitive Companion's ${parser.constructor.name}.`,
+        'Open the browser console to see the error.',
+        'Please open an issue at https://github.com/jmerle/competitive-companion/issues if you think this is a bug.',
+      ].join(' '),
+    );
   }
 
   (window as any).nanoBar.go(100);
