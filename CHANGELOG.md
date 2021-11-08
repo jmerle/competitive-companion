@@ -1,6 +1,6 @@
 # Changelog
 
-## TBD - TBD
+## 2.29.0 - November 8th, 2021
 - Added parsers for NOJ
 - Changed the error handling in contest parsers so that if a strict subset of the problems cannot be parsed an alert is shown and the successfully parsed problems are sent regardless
 
