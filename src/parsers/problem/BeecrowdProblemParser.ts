@@ -3,17 +3,17 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class URIOnlineJudgeProblemParser extends Parser {
+export class BeecrowdProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
-      'https://www.urionlinejudge.com.br/judge/*/problems/view/*',
-      'https://www.urionlinejudge.com.br/judge/*/challenges/view/*',
+      'https://www.beecrowd.com.br/judge/*/problems/view/*',
+      'https://www.beecrowd.com.br/judge/*/challenges/view/*',
     ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('URI Online Judge').setUrl(url);
+    const task = new TaskBuilder('beecrowd').setUrl(url);
 
     if (url.includes('challenges/')) {
       const title = elem.querySelector('title').textContent.trim();

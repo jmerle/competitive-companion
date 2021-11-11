@@ -3,9 +3,9 @@
   "parser": "contest/HydroContestParser",
   "result": [
     {
-      "name": "#A. A + B Problem",
+      "name": "#H1000. A + B Problem",
       "group": "Hydro",
-      "url": "https://hydro.ac/contest/615cf350e994f4cb86642eb0/p/A",
+      "url": "https://hydro.ac/p/H1000?tid=615cf350e994f4cb86642eb0",
       "interactive": false,
       "memoryLimit": 1024,
       "timeLimit": 1000,
@@ -25,7 +25,7 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "AABProblem"
+          "taskClass": "H1000ABProblem"
         }
       }
     }

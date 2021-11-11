@@ -106,6 +106,10 @@
         {
           "input": "5 3\n1 2 3 100 1000\n",
           "output": "99\n"
+        },
+        {
+          "input": "8 4\n2 7 10 15 18 22 25 27\n",
+          "output": "8\n"
         }
       ],
       "testType": "single",

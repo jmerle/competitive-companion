@@ -1,10 +1,10 @@
 {
-  "url": "https://www.urionlinejudge.com.br/judge/en/problems/view/1001",
-  "parser": "problem/URIOnlineJudgeProblemParser",
+  "url": "https://www.beecrowd.com.br/judge/en/problems/view/1001",
+  "parser": "problem/BeecrowdProblemParser",
   "result": {
     "name": "Extremely Basic",
-    "group": "URI Online Judge - Beginner",
-    "url": "https://www.urionlinejudge.com.br/judge/en/problems/view/1001",
+    "group": "beecrowd - Beginner",
+    "url": "https://www.beecrowd.com.br/judge/en/problems/view/1001",
     "interactive": false,
     "memoryLimit": 1024,
     "timeLimit": 1000,

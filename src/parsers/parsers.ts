@@ -1,5 +1,6 @@
 import { AtCoderContestParser } from './contest/AtCoderContestParser';
 import { BaekjoonOnlineJudgeContestParser } from './contest/BaekjoonOnlineJudgeContestParser';
+import { BeecrowdContestParser } from './contest/BeecrowdContestParser';
 import { BUCTOJContestParser } from './contest/BUCTOJContestParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
@@ -26,7 +27,6 @@ import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { UOJContestParser } from './contest/UOJContestParser';
-import { URIOnlineJudgeContestParser } from './contest/URIOnlineJudgeContestParser';
 import { YandexContestParser } from './contest/YandexContestParser';
 import { YukicoderContestParser } from './contest/YukicoderContestParser';
 import { Parser } from './Parser';
@@ -37,6 +37,7 @@ import { AizuOnlineJudgeProblemParser } from './problem/AizuOnlineJudgeProblemPa
 import { AnarchyGolfProblemParser } from './problem/AnarchyGolfProblemParser';
 import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
 import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeProblemParser';
+import { BeecrowdProblemParser } from './problem/BeecrowdProblemParser';
 import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
 import { BUCTOJProblemParser } from './problem/BUCTOJProblemParser';
 import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
@@ -86,7 +87,6 @@ import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblem
 import { TLXProblemParser } from './problem/TLXProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
 import { UOJProblemParser } from './problem/UOJProblemParser';
-import { URIOnlineJudgeProblemParser } from './problem/URIOnlineJudgeProblemParser';
 import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
 import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemParser';
@@ -110,6 +110,9 @@ export const parsers: Parser[] = [
 
   new BaekjoonOnlineJudgeProblemParser(),
   new BaekjoonOnlineJudgeContestParser(),
+
+  new BeecrowdProblemParser(),
+  new BeecrowdContestParser(),
 
   new BloombergCodeConProblemParser(),
 
@@ -232,9 +235,6 @@ export const parsers: Parser[] = [
 
   new UOJProblemParser(),
   new UOJContestParser(),
-
-  new URIOnlineJudgeProblemParser(),
-  new URIOnlineJudgeContestParser(),
 
   new USACOProblemParser(),
   new USACOTrainingProblemParser(),
