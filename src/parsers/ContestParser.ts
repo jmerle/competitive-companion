@@ -32,11 +32,11 @@ export abstract class ContestParser<T> extends Parser {
     if (failedTasks.length > 0) {
       let failedMessage;
       if (failedTasks.length === 1) {
-        failedMessage = `problem ${failedTasks[0]}, see the console for the parsing error`;
+        failedMessage = `problem ${failedTasks[0]}, see the browser console for the parsing error`;
       } else {
         const firstTasks = failedTasks.slice(0, failedTasks.length - 1).join(', ');
         const lastTask = failedTasks[failedTasks.length - 1];
-        failedMessage = `problems ${firstTasks} and ${lastTask}, see the console for the parsing errors`;
+        failedMessage = `problems ${firstTasks}, and ${lastTask}, see the browser console for the parsing errors`;
       }
 
       let successMessage;
