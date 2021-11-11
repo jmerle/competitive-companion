@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.30.0 - TBD
+## [2.30.0](https://github.com/jmerle/competitive-companion/releases/tag/2.30.0) (2021-11-11)
 - Added parsers for BUCTOJ
 
 ## [2.29.0](https://github.com/jmerle/competitive-companion/releases/tag/2.29.0) (2021-11-08)
