@@ -1,0 +1,31 @@
+{
+  "url": "http://182.92.175.181/problem.php?id=1150",
+  "parser": "problem/BUCTOJProblemParser",
+  "result": {
+    "name": "1150: LED Test",
+    "group": "BUCTOJ",
+    "url": "http://182.92.175.181/problem.php?id=1150",
+    "interactive": false,
+    "memoryLimit": 128,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1\nYYYYNYY\n2\nNNNNNNN\nNNNNNNN\n2\nYYYYYYY\nYYYYYYY\n3\nYNYYYYY\nYNYYNYY\nNYYNNYY\n3\nYNYYYYN\nYNYYNYN\nNYYNNYN\n3\nYNYYYYN\nYNYYNYN\nNYYNYYN\n4\nYYYYYYY\nNYYNNNN\nNNYYYYN\nNNNYNNN\n3\nNNNNNNN\nYNNNNNN\nNNNNYNN\n0\n",
+        "output": "MATCH\nMATCH\nMISMATCH\nMATCH\nMATCH\nMISMATCH\nMATCH\nMATCH\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "LEDTest"
+      }
+    }
+  }
+}
