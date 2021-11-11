@@ -9,8 +9,8 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import fetch from 'cross-fetch';
 import { JSDOM } from 'jsdom';
-import fetch from 'node-fetch';
 import { Contest } from '../src/models/Contest';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
