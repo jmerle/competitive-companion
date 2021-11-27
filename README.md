@@ -38,6 +38,7 @@ A browser extension which parses competitive programming problems from various o
 ## Supported websites
 | Website                      | Problem parser | Contest parser |
 | ---------------------------- | -------------- | -------------- |
+| A2 Online Judge              | ✔              | ✔              |
 | ACMP                         | ✔              |                |
 | AcWing                       | ✔              |                |
 | Aizu Online Judge            | ✔              |                |

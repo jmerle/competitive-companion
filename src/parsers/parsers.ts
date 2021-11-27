@@ -1,3 +1,4 @@
+import { A2OnlineJudgeContestParser } from './contest/A2OnlineJudgeContestParser';
 import { AtCoderContestParser } from './contest/AtCoderContestParser';
 import { BaekjoonOnlineJudgeContestParser } from './contest/BaekjoonOnlineJudgeContestParser';
 import { BeecrowdContestParser } from './contest/BeecrowdContestParser';
@@ -31,6 +32,7 @@ import { UOJContestParser } from './contest/UOJContestParser';
 import { YandexContestParser } from './contest/YandexContestParser';
 import { YukicoderContestParser } from './contest/YukicoderContestParser';
 import { Parser } from './Parser';
+import { A2OnlineJudgeProblemParser } from './problem/A2OnlineJudgeProblemParser';
 import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AcWingProblemParser } from './problem/AcWingProblemParser';
 import { AizuOnlineJudgeBetaProblemParser } from './problem/AizuOnlineJudgeBetaProblemParser';
@@ -97,6 +99,9 @@ import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 
 export const parsers: Parser[] = [
+  new A2OnlineJudgeProblemParser(),
+  new A2OnlineJudgeContestParser(),
+
   new ACMPProblemParser(),
 
   new AcWingProblemParser(),
