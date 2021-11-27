@@ -9,24 +9,36 @@ export class LuoguProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    const elem = htmlToElement(html);
     const task = new TaskBuilder('Luogu').setUrl(url);
 
-    task.setName(elem.querySelector('.header > h1').textContent);
+    const data = this.getProblemData(html);
 
-    const timeLimitStr = document.querySelector('.stat > .field:nth-last-child(2) > .value').textContent;
-    task.setTimeLimit(parseFloat(timeLimitStr) * (timeLimitStr.endsWith('ms') ? 1 : 1000));
+    task.setName(`${data.pid} ${data.title}`.trim());
 
-    const memoryLimitStr = document.querySelector('.stat > .field:nth-last-child(1) > .value').textContent;
-    task.setMemoryLimit(parseFloat(memoryLimitStr));
+    task.setTimeLimit(Math.max(...data.limits.time));
+    task.setMemoryLimit(Math.floor(Math.max(...data.limits.memory) / 1024));
 
-    elem.querySelectorAll('.sample').forEach(block => {
-      const input = block.querySelector('.input > pre').textContent;
-      const output = block.querySelector('.output > pre').textContent;
-
-      task.addTest(input, output);
-    });
+    for (const sample of data.samples) {
+      task.addTest(sample[0], sample[1]);
+    }
 
     return task.build();
+  }
+
+  private getProblemData(html: string): any {
+    const elem = htmlToElement(html);
+
+    for (const scriptElem of elem.querySelectorAll('script')) {
+      const script = scriptElem.textContent;
+      if (script.startsWith('window._feInjection')) {
+        const startQuoteIndex = script.indexOf('"');
+        const endQuoteIndex = script.substr(startQuoteIndex + 1).indexOf('"');
+        const encodedData = script.substr(startQuoteIndex + 1, endQuoteIndex);
+
+        return JSON.parse(decodeURIComponent(encodedData)).currentData.problem;
+      }
+    }
+
+    throw new Error('Failed to find problem data');
   }
 }

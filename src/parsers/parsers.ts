@@ -21,6 +21,7 @@ import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
+import { LuoguContestParser } from './contest/LuoguContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
@@ -197,6 +198,7 @@ export const parsers: Parser[] = [
   new LightOJProblemParser(),
 
   new LuoguProblemParser(),
+  new LuoguContestParser(),
 
   new MrJudgeProblemParser(),
 

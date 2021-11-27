@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Added a contest parser for Luogu
+
 ## [2.30.0](https://github.com/jmerle/competitive-companion/releases/tag/2.30.0) (2021-11-11)
 - Added parsers for BUCTOJ
 
