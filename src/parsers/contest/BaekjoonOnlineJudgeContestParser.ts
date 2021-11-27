@@ -3,8 +3,8 @@ import { BaekjoonOnlineJudgeProblemParser } from '../problem/BaekjoonOnlineJudge
 import { SimpleContestParser } from '../SimpleContestParser';
 
 export class BaekjoonOnlineJudgeContestParser extends SimpleContestParser {
-  public problemParser: Parser = new BaekjoonOnlineJudgeProblemParser();
   public linkSelector: string = 'table > tbody > tr > td:nth-child(2) > a';
+  public problemParser: Parser = new BaekjoonOnlineJudgeProblemParser();
 
   public getMatchPatterns(): string[] {
     return ['https://www.acmicpc.net/workbook/view/*'];

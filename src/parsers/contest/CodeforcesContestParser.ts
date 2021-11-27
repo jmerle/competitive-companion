@@ -7,9 +7,9 @@ import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
 
 export class CodeforcesContestParser extends SimpleContestParser {
-  public problemParser: Parser = new CodeforcesProblemParser();
   public linkSelector: string =
     '.problems > tbody > tr > td:first-child > a, ._ProblemsPage_problems > table > tbody > tr > td:first-child > a';
+  public problemParser: Parser = new CodeforcesProblemParser();
 
   public getMatchPatterns(): string[] {
     const patterns: string[] = [];

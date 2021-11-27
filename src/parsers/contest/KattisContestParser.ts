@@ -3,8 +3,8 @@ import { KattisProblemParser } from '../problem/KattisProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
 
 export class KattisContestParser extends SimpleContestParser {
-  public problemParser: Parser = new KattisProblemParser();
   public linkSelector: string = '#standings > thead > tr > th.problemcolheader-standings > a';
+  public problemParser: Parser = new KattisProblemParser();
 
   public getMatchPatterns(): string[] {
     return ['https://open.kattis.com/contests/*'];
