@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.31.0](https://github.com/jmerle/competitive-companion/releases/tag/2.31.0) (2021-11-27)
 - Added parsers for A2 Online Judge
 - Added a contest parser for Luogu
 
