@@ -11,8 +11,12 @@
     "timeLimit": 20000,
     "tests": [
       {
-        "input": "4\n3 2\nBBB\nRB\n5 1\nR\n4 3\nR\nB\nRBRB\n50 5\nBRBRBBBRBRRRBBB\nBRBRBRRRBRRRBRB\nBBBRBBBRBRRRBBB\nBRBRBRRRBRRRB\nBRBRBBBRBBBRB\n",
-        "output": "Case #1: 5\nCase #2: 16\nCase #3: 0\nCase #4: 1125556309458944\n"
+        "input": "3\n3 2\nBBB\nRB\n5 1\nR\n4 3\nR\nB\nRBRB\n",
+        "output": "Case #1: 5\nCase #2: 16\nCase #3: 0\n"
+      },
+      {
+        "input": "1\n50 5\nBRBRBBBRBRRRBBB\nBRBRBRRRBRRRBRB\nBBBRBBBRBRRRBBB\nBRBRBRRRBRRRB\nBRBRBBBRBBBRB\n",
+        "output": "Case #1: 1125556309458944\n"
       }
     ],
     "testType": "multiNumber",
