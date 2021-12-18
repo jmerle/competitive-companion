@@ -3,14 +3,14 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class EOlympProblemParser extends Parser {
+export class EolympProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.e-olymp.com/*/problems/*'];
+    return ['https://www.eolymp.com/*/problems/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('E-Olymp').setUrl(url);
+    const task = new TaskBuilder('Eolymp').setUrl(url);
 
     task.setName(elem.querySelector('.eo-paper__header').textContent);
 

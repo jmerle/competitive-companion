@@ -13,7 +13,7 @@ import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeConte
 import { DevSkillContestParser } from './contest/DevSkillContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
-import { EOlympContestParser } from './contest/EOlympContestParser';
+import { EolympContestParser } from './contest/EolympContestParser';
 import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
 import { HackerRankContestParser } from './contest/HackerRankContestParser';
@@ -55,7 +55,7 @@ import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProbl
 import { DevSkillProblemParser } from './problem/DevSkillProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
-import { EOlympProblemParser } from './problem/EOlympProblemParser';
+import { EolympProblemParser } from './problem/EolympProblemParser';
 import { FacebookCodingCompetitionsProblemParser } from './problem/FacebookCodingCompetitionsProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
 import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCompetitionsProblemParser';
@@ -159,8 +159,8 @@ export const parsers: Parser[] = [
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
 
-  new EOlympProblemParser(),
-  new EOlympContestParser(),
+  new EolympProblemParser(),
+  new EolympContestParser(),
 
   new FacebookCodingCompetitionsProblemParser(),
 

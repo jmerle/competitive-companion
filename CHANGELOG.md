@@ -4,6 +4,7 @@
 - Fixed the parsing of DMOJ contest names
 - Fixed the parsing of HackerEarth titles when parsing contest problems
 - Fixed the parsing of Library Checker problems
+- Fixed the parsing of Eolymp problems and contests
 
 ## [2.31.0](https://github.com/jmerle/competitive-companion/releases/tag/2.31.0) (2021-11-27)
 - Added parsers for A2 Online Judge

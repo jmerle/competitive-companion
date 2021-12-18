@@ -1,10 +1,10 @@
 {
-  "url": "https://www.e-olymp.com/en/problems/5",
-  "parser": "problem/EOlympProblemParser",
+  "url": "https://www.eolymp.com/en/problems/5",
+  "parser": "problem/EolympProblemParser",
   "result": {
     "name": "Two factors",
-    "group": "E-Olymp",
-    "url": "https://www.e-olymp.com/en/problems/5",
+    "group": "Eolymp",
+    "url": "https://www.eolymp.com/en/problems/5",
     "interactive": false,
     "memoryLimit": 128,
     "timeLimit": 1000,
