@@ -1,5 +1,5 @@
 import * as path from 'path';
-import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import CopyPlugin = require('copy-webpack-plugin');
 import * as TerserPlugin from 'terser-webpack-plugin';
 import * as webpack from 'webpack';
 
@@ -82,7 +82,7 @@ const config: webpack.Configuration = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin({
+    new CopyPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, 'static/manifest.json'),
