@@ -12,7 +12,7 @@ export class HackerEarthProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HackerEarth').setUrl(url);
 
-    const titleElem = elem.querySelector('.title-panel > .title');
+    const titleElem = elem.querySelector('.title-panel > .title, #problem-title');
     task.setName(titleElem ? titleElem.textContent.trim() : 'Task');
 
     const groupSuffix: string[] =
