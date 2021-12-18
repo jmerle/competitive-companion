@@ -14,7 +14,7 @@ export class LibraryCheckerProblemParser extends Parser {
 
     const container = elem.querySelector('.MuiContainer-root.MuiContainer-maxWidthLg > .MuiBox-root');
 
-    task.setName(container.querySelector('.MuiTypography-h2 + div').textContent);
+    task.setName(container.querySelector('.MuiTypography-h2').textContent);
 
     const timeLimitStr = container.querySelector('.MuiTypography-body1').textContent.trim();
     task.setTimeLimit(parseInt(/(\d+) sec/.exec(timeLimitStr)[1], 10) * 1000);
