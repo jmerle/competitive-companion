@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of Hydro problems and contests
+
 ## [2.31.1](https://github.com/jmerle/competitive-companion/releases/tag/2.31.1) (2021-12-18)
 - Fixed the parsing of DMOJ contest names
 - Fixed the parsing of HackerEarth titles when parsing contest problems

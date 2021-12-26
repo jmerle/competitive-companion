@@ -19,10 +19,10 @@ export class HydroProblemParser extends Parser {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
 
-    const timeLimitStr = elem.querySelector('.bp3-icon-stopwatch').textContent;
+    const timeLimitStr = elem.querySelector('.icon-stopwatch').textContent;
     task.setTimeLimit(parseInt(/(\d+)ms/.exec(timeLimitStr)[1], 10));
 
-    const memoryLimitStr = elem.querySelector('.bp3-icon-comparison').textContent;
+    const memoryLimitStr = elem.querySelector('.icon-comparison').textContent;
     task.setMemoryLimit(parseInt(/(\d+)MiB/.exec(memoryLimitStr)[1], 10));
 
     return task.build();
