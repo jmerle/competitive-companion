@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.31.2](https://github.com/jmerle/competitive-companion/releases/tag/2.31.2) (2021-12-26)
 - Fixed the parsing of Hydro problems and contests
 
 ## [2.31.1](https://github.com/jmerle/competitive-companion/releases/tag/2.31.1) (2021-12-18)
