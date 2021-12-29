@@ -5,7 +5,11 @@ import { Parser } from '../Parser';
 
 export class KattisProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://*.kattis.com/problems/*', 'https://*.kattis.com/contests/*/problems/*'];
+    return [
+      'https://*.kattis.com/problems/*',
+      'https://*.kattis.com/contests/*/problems/*',
+      'https://*.kattis.com/sessions/*/problems/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
