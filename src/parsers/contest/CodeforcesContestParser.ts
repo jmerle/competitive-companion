@@ -2,14 +2,13 @@ import { Contest } from '../../models/Contest';
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
-import { Parser } from '../Parser';
 import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
 
 export class CodeforcesContestParser extends SimpleContestParser {
   public linkSelector: string =
     '.problems > tbody > tr > td:first-child > a, ._ProblemsPage_problems > table > tbody > tr > td:first-child > a';
-  public problemParser: Parser = new CodeforcesProblemParser();
+  public problemParser: CodeforcesProblemParser = new CodeforcesProblemParser();
 
   public getMatchPatterns(): string[] {
     const patterns: string[] = [];
@@ -71,39 +70,7 @@ export class CodeforcesContestParser extends SimpleContestParser {
     const tasks = [...elem.querySelectorAll(rowSelector)].map(row => {
       const task = new TaskBuilder('Codeforces').setCategory(contestName);
 
-      const columns = row.querySelectorAll('td');
-
-      task.setUrl(columns[0].querySelector('a').href);
-
-      const letter = columns[0].querySelector('a').text.trim();
-      const name = columns[1].querySelector('a').text.trim();
-
-      task.setName(`${letter}. ${name}`);
-
-      const detailsStr = columns[1].querySelector('div > div:not(:first-child)').textContent;
-      const detailsMatches = /([^/]+)\/([^\n]+)\s+(\d+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));
-
-      const inputFile = detailsMatches[1].trim();
-      const outputFile = detailsMatches[2].trim();
-      const timeLimit = parseInt(detailsMatches[3].trim()) * 1000;
-      const memoryLimit = parseInt(detailsMatches[4].trim());
-
-      if (inputFile.includes('.')) {
-        task.setInput({
-          fileName: inputFile,
-          type: 'file',
-        });
-      }
-
-      if (outputFile.includes('.')) {
-        task.setOutput({
-          fileName: outputFile,
-          type: 'file',
-        });
-      }
-
-      task.setTimeLimit(timeLimit);
-      task.setMemoryLimit(memoryLimit);
+      this.problemParser.parseContestRow(row, task);
 
       return task.build();
     });

@@ -40,6 +40,8 @@ export class CodeforcesProblemParser extends Parser {
       } else {
         this.parseAcmSguRuProblemNotInsideTable(html, task);
       }
+    } else if (html.startsWith('%PDF') || htmlToElement(html).querySelector('embed[type="application/pdf"]') !== null) {
+      await this.parsePdfProblem(url, task);
     } else {
       this.parseMainProblem(html, url, task);
     }
@@ -137,6 +139,65 @@ export class CodeforcesProblemParser extends Parser {
         task.addTest(blocks[2].textContent, blocks[3].textContent);
       }
     });
+  }
+
+  private async parsePdfProblem(url: string, task: TaskBuilder): Promise<void> {
+    const parsedUrl = new URL(url);
+    const contest = await this.fetch(parsedUrl.origin + parsedUrl.pathname.split('/problem')[0]);
+
+    const elem = htmlToElement(contest);
+
+    const contestName = elem
+      .querySelector('#sidebar > div > .rtable')
+      .querySelector('a')
+      .textContent.replace('\n', ' ')
+      .trim();
+
+    task.setGroup(contestName);
+
+    const letter = url[url.length - 1].toUpperCase();
+    const rowElem = [...elem.querySelectorAll('table.problems > tbody > tr')].find(el => {
+      const link = el.querySelector('.id > a');
+      return link !== null && link.textContent.trim() === letter;
+    });
+
+    this.parseContestRow(rowElem, task);
+  }
+
+  public parseContestRow(elem: Element, task: TaskBuilder): void {
+    const columns = elem.querySelectorAll('td');
+
+    task.setUrl(columns[0].querySelector('a').href);
+
+    const letter = columns[0].querySelector('a').text.trim();
+    const name = columns[1].querySelector('a').text.trim();
+
+    task.setName(`${letter}. ${name}`);
+
+    const detailsStr = columns[1].querySelector('div > div:not(:first-child)').textContent;
+    const detailsMatches = /([^/]+)\/([^\n]+)\s+(\d+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));
+
+    const inputFile = detailsMatches[1].trim();
+    const outputFile = detailsMatches[2].trim();
+    const timeLimit = parseInt(detailsMatches[3].trim()) * 1000;
+    const memoryLimit = parseInt(detailsMatches[4].trim());
+
+    if (inputFile.includes('.')) {
+      task.setInput({
+        fileName: inputFile,
+        type: 'file',
+      });
+    }
+
+    if (outputFile.includes('.')) {
+      task.setOutput({
+        fileName: outputFile,
+        type: 'file',
+      });
+    }
+
+    task.setTimeLimit(timeLimit);
+    task.setMemoryLimit(memoryLimit);
   }
 
   private getLastTextNode(elem: Element, selector: string): ChildNode {
