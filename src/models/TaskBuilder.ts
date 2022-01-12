@@ -80,8 +80,8 @@ export class TaskBuilder {
     return this;
   }
 
-  public addTest(input: string, output: string): TaskBuilder {
-    this.tests.push(new Test(input, output));
+  public addTest(input: string, output: string, normalizeWhitespace: boolean = true): TaskBuilder {
+    this.tests.push(new Test(input, output, normalizeWhitespace));
     return this;
   }
 

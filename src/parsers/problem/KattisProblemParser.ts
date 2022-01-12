@@ -31,7 +31,7 @@ export class KattisProblemParser extends Parser {
 
     elem.querySelectorAll('.sample').forEach(table => {
       const blocks = table.querySelectorAll('pre');
-      task.addTest(blocks[0].textContent, blocks.length > 1 ? blocks[1].textContent : '');
+      task.addTest(blocks[0].textContent, blocks.length > 1 ? blocks[1].textContent : '', false);
     });
 
     return task.build();

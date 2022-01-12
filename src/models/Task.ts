@@ -34,7 +34,7 @@ export class Task implements Sendable {
     task.setJavaTaskClass(obj.languages.java.taskClass);
 
     obj.tests.forEach((test: any) => {
-      task.addTest(test.input, test.output);
+      task.addTest(test.input, test.output, false);
     });
 
     return task.build();

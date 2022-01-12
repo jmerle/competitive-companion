@@ -1,0 +1,39 @@
+{
+  "url": "https://open.kattis.com/problems/ads",
+  "parser": "problem/KattisProblemParser",
+  "result": {
+    "name": "Ads",
+    "group": "Kattis",
+    "url": "https://open.kattis.com/problems/ads",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "8 20\n apples are great!  \n++++++++++++++++++++\n+ oranges are      +\n+ way better!      +\n+ #oranges>apples  +\n++++++++++++++++++++\n check out our      \n fresh apples!      \n",
+        "output": " apples are great!  \n                    \n                    \n                    \n                    \n                    \n check out our      \n fresh apples!      \n"
+      },
+      {
+        "input": "7 7\n+++++++\n+  =  +\n+ +++ +\n+ + + +\n+ +++ +\n+     +\n+++++++\n",
+        "output": "       \n       \n       \n       \n       \n       \n       \n"
+      },
+      {
+        "input": "7 7\n+++++++\n+     +\n+ +++ +\n+ +=+ +\n+ +++ +\n+     +\n+++++++\n",
+        "output": "+++++++\n+     +\n+     +\n+     +\n+     +\n+     +\n+++++++\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Ads"
+      }
+    }
+  }
+}
