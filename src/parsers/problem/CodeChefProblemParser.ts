@@ -78,22 +78,18 @@ export class CodeChefProblemParser extends Parser {
       return;
     }
 
-    const inputHeaders = [...elem.querySelectorAll('h3, p')].filter(
-      x =>
-        x.textContent.toLowerCase().includes('ample input') && ['PRE', 'SPAN'].includes(x.nextElementSibling.tagName),
-    );
+    const inputSamples = [...elem.querySelectorAll('h3, p')]
+      .filter(x => x.textContent.toLowerCase().includes('ample input'))
+      .map(x => this.getSample(x))
+      .filter(x => x !== null);
 
-    const outputHeaders = [...elem.querySelectorAll('h3, p')].filter(
-      x =>
-        x.textContent.toLowerCase().includes('ample output') && ['PRE', 'SPAN'].includes(x.nextElementSibling.tagName),
-    );
+    const outputSamples = [...elem.querySelectorAll('h3, p')]
+      .filter(x => x.textContent.toLowerCase().includes('ample output'))
+      .map(x => this.getSample(x))
+      .filter(x => x !== null);
 
-    for (let i = 0; i < inputHeaders.length && i < outputHeaders.length; i++) {
-      this.addTest(
-        task,
-        inputHeaders[i].nextElementSibling.textContent,
-        outputHeaders[i].nextElementSibling.textContent,
-      );
+    for (let i = 0; i < inputSamples.length && i < outputSamples.length; i++) {
+      this.addTest(task, inputSamples[i], outputSamples[i]);
     }
   }
 
@@ -107,5 +103,17 @@ export class CodeChefProblemParser extends Parser {
     }
 
     task.addTest(input, output);
+  }
+
+  private getSample(sampleHeader: Element): string {
+    if (sampleHeader.nextElementSibling !== null && ['PRE', 'SPAN'].includes(sampleHeader.nextElementSibling.tagName)) {
+      return sampleHeader.nextElementSibling.textContent;
+    }
+
+    if (sampleHeader.nextSibling !== null && sampleHeader.nextSibling.nodeType === Node.TEXT_NODE) {
+      return sampleHeader.nextSibling.textContent;
+    }
+
+    return null;
   }
 }
