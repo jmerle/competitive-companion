@@ -73,7 +73,7 @@ const config: webpack.Configuration = {
               replace: 'new Error(',
             },
             {
-              search: 'eval("require")(getWorkerSrc())',
+              search: 'eval("require")(this.workerSrc)',
               replace: 'null',
             },
           ],
