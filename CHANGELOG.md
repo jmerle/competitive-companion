@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.31.3](https://github.com/jmerle/competitive-companion/releases/tag/2.31.3) (2022-01-12)
+- Added support for Kattis problems in sessions (thanks [@user202729](https://github.com/user202729))
+- Added support for SSOIER's extended problem set
+- Fixed the parsing of Kattis sample cases with whitespace at the end of lines
+- Fixed the parsing of Codeforces contests where some problem URLs redirect to a PDF file containing the problem statement
+- Fixed the parsing of CodeChef sample cases where the sample cases are displayed as text nodes
+
 ## [2.31.2](https://github.com/jmerle/competitive-companion/releases/tag/2.31.2) (2021-12-26)
 - Fixed the parsing of Hydro problems and contests
 
