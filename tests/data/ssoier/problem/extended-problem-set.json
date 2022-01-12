@@ -1,0 +1,31 @@
+{
+  "url": "http://oj.woj.ac.cn:8088/problem_show.php?pid=5002",
+  "parser": "problem/SSOIERProblemParser",
+  "result": {
+    "name": "5002：礼物(Greedy Gift Givers)",
+    "group": "SSOIER",
+    "url": "http://oj.woj.ac.cn:8088/problem_show.php?pid=5002",
+    "interactive": false,
+    "memoryLimit": 65,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\ndave\nlaura\nowen\nvick\namr\ndave\n200 3\nlaura\nowen\nvick\nowen\n500 1\ndave\namr\n150 2\nvick\nowen\nlaura\n0 2\namr\nvick\nvick\n0 0\n",
+        "output": "dave 302\nlaura 66\nowen -359\nvick 141\namr -150\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "GreedyGiftGivers"
+      }
+    }
+  }
+}
