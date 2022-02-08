@@ -23,18 +23,10 @@ export class NowCoderProblemParser extends Parser {
       .pop();
     task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10));
 
-    const inputs: string[] = [];
-    const outputs: string[] = [];
-
-    const tests = elem.querySelectorAll('.question-oi-cont');
-    for (let i = 0; i < tests.length - 1; i += 2) {
-      inputs.push(tests[i].textContent);
-      outputs.push(tests[i + 1].textContent);
-    }
-
-    for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      task.addTest(inputs[i], outputs[i]);
-    }
+    elem.querySelectorAll('.question-oi-bd').forEach(tests => {
+      const blocks = tests.querySelectorAll('pre');
+      task.addTest(blocks[0].textContent, blocks[1].textContent);
+    });
 
     return task.build();
   }
