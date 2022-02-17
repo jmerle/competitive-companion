@@ -33,7 +33,7 @@ export class LibreOJProblemParser extends Parser {
     const memoryLimitStr = memoryLimitIcon.parentElement.textContent.trim();
     task.setMemoryLimit(parseInt(memoryLimitStr.split(' ')[0]));
 
-    const blocks = elem.querySelectorAll('pre[class^="sampleDataPre--"]');
+    const blocks = elem.querySelectorAll('pre[class^="_sampleDataPre_"]');
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
