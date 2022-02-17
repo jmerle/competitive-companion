@@ -29,6 +29,7 @@ import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { UOJContestParser } from './contest/UOJContestParser';
+import { VirtualJudgeContestParser } from './contest/VirtualJudgeContestParser';
 import { YandexContestParser } from './contest/YandexContestParser';
 import { YukicoderContestParser } from './contest/YukicoderContestParser';
 import { Parser } from './Parser';
@@ -249,6 +250,7 @@ export const parsers: Parser[] = [
   new UVaOnlineJudgeProblemParser(),
 
   new VirtualJudgeProblemParser(),
+  new VirtualJudgeContestParser(),
 
   new XXMProblemParser(),
 

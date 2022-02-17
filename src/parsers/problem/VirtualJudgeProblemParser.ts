@@ -76,7 +76,7 @@ export class VirtualJudgeProblemParser extends Parser {
         const jsonContainer = htmlToElement(iframeContent).querySelector('.data-json-container');
         const json = JSON.parse(jsonContainer.textContent);
 
-        const codeBlocks = this.getCodeBlocksFromDescription(json);
+        const codeBlocks = VirtualJudgeProblemParser.getCodeBlocksFromDescription(json);
         for (let i = 0; i < codeBlocks.length - 1; i += 2) {
           task.addTest(codeBlocks[i], codeBlocks[i + 1]);
         }
@@ -88,7 +88,7 @@ export class VirtualJudgeProblemParser extends Parser {
     return task.build();
   }
 
-  private getCodeBlocksFromDescription(json: any): string[] {
+  public static getCodeBlocksFromDescription(json: any): string[] {
     if (json.sections.length === 1) {
       const block = htmlToElement(json.sections[0].value.content);
 
@@ -141,12 +141,12 @@ export class VirtualJudgeProblemParser extends Parser {
       }
 
       return blocks.map((el: Element) => {
-        return this.getTextFromElement(el);
+        return VirtualJudgeProblemParser.getTextFromElement(el);
       });
     }
   }
 
-  private getTextFromElement(el: Element): string {
+  private static getTextFromElement(el: Element): string {
     if (el.childNodes.length === 0 || el.nodeType === Node.TEXT_NODE) {
       return el.textContent.replace(/<br>/g, '\n').trim();
     }

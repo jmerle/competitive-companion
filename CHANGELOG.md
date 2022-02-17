@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.32.0](https://github.com/jmerle/competitive-companion/releases/tag/2.32.0) (Unreleased)
+- Added a contest parser for Virtual Judge
+- Fixed the parsing of NowCoder sample cases (thanks [@rogeryoungh](https://github.com/rogeryoungh))
+
 ## [2.31.3](https://github.com/jmerle/competitive-companion/releases/tag/2.31.3) (2022-01-12)
 - Added support for Kattis problems in sessions (thanks [@user202729](https://github.com/user202729))
 - Added support for SSOIER's extended problem set

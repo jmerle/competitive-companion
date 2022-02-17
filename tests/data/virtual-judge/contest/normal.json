@@ -1,0 +1,243 @@
+{
+  "url": "https://vjudge.net/contest/480959",
+  "parser": "contest/VirtualJudgeContestParser",
+  "result": [
+    {
+      "name": "A - K-th Common Divisor",
+      "group": "Virtual Judge - Solo Speed Contest - 30",
+      "url": "https://vjudge.net/contest/480959#problem/A",
+      "interactive": false,
+      "memoryLimit": 1048,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "8 12 2\n",
+          "output": "2\n"
+        },
+        {
+          "input": "100 50 4\n",
+          "output": "5\n"
+        },
+        {
+          "input": "1 1 1\n",
+          "output": "1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "AKThCommonDivisor"
+        }
+      }
+    },
+    {
+      "name": "B - Sum and Product",
+      "group": "Virtual Judge - Solo Speed Contest - 30",
+      "url": "https://vjudge.net/contest/480959#problem/B",
+      "interactive": false,
+      "memoryLimit": 1048,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "3 2\n",
+          "output": "Yes\n"
+        },
+        {
+          "input": "1000000000000 1\n",
+          "output": "No\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BSumAndProduct"
+        }
+      }
+    },
+    {
+      "name": "C - Many Balls",
+      "group": "Virtual Judge - Solo Speed Contest - 30",
+      "url": "https://vjudge.net/contest/480959#problem/C",
+      "interactive": false,
+      "memoryLimit": 1048,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "5\n",
+          "output": "AABA\n"
+        },
+        {
+          "input": "14\n",
+          "output": "BBABBAAAB\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CManyBalls"
+        }
+      }
+    },
+    {
+      "name": "D - Lining Up",
+      "group": "Virtual Judge - Solo Speed Contest - 30",
+      "url": "https://vjudge.net/contest/480959#problem/D",
+      "interactive": false,
+      "memoryLimit": 262,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "5\n2 4 4 0 2\n",
+          "output": "4\n"
+        },
+        {
+          "input": "7\n6 4 0 2 4 0 2\n",
+          "output": "0\n"
+        },
+        {
+          "input": "8\n7 5 1 1 7 3 5 3\n",
+          "output": "16\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DLiningUp"
+        }
+      }
+    },
+    {
+      "name": "E - Snuke Festival",
+      "group": "Virtual Judge - Solo Speed Contest - 30",
+      "url": "https://vjudge.net/contest/480959#problem/E",
+      "interactive": false,
+      "memoryLimit": 262,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "2\n1 5\n2 4\n3 6\n",
+          "output": "3\n"
+        },
+        {
+          "input": "3\n1 1 1\n2 2 2\n3 3 3\n",
+          "output": "27\n"
+        },
+        {
+          "input": "6\n3 14 159 2 6 53\n58 9 79 323 84 6\n2643 383 2 79 50 288\n",
+          "output": "87\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ESnukeFestival"
+        }
+      }
+    },
+    {
+      "name": "F - Boboniu and Bit Operations",
+      "group": "Virtual Judge - Solo Speed Contest - 30",
+      "url": "https://vjudge.net/contest/480959#problem/F",
+      "interactive": false,
+      "memoryLimit": 262,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4 2\n2 6 4 0\n2 4\n",
+          "output": "2\n"
+        },
+        {
+          "input": "7 6\n1 9 1 9 8 1 0\n1 1 4 5 1 4\n",
+          "output": "0\n"
+        },
+        {
+          "input": "8 5\n179 261 432 162 82 43 10 38\n379 357 202 184 197\n",
+          "output": "147\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "FBoboniuAndBitOperations"
+        }
+      }
+    },
+    {
+      "name": "G - Virus Tree 2",
+      "group": "Virtual Judge - Solo Speed Contest - 30",
+      "url": "https://vjudge.net/contest/480959#problem/G",
+      "interactive": false,
+      "memoryLimit": 1048,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4 3\n1 2\n2 3\n3 4\n",
+          "output": "6\n"
+        },
+        {
+          "input": "5 4\n1 2\n1 3\n1 4\n4 5\n",
+          "output": "48\n"
+        },
+        {
+          "input": "16 22\n12 1\n3 1\n4 16\n7 12\n6 2\n2 15\n5 16\n14 16\n10 11\n3 10\n3 13\n8 6\n16 8\n9 12\n4 3\n",
+          "output": "271414432\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "GVirusTree2"
+        }
+      }
+    }
+  ]
+}
