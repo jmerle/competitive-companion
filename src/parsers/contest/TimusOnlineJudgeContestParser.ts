@@ -1,10 +1,9 @@
-import { Parser } from '../Parser';
 import { TimusOnlineJudgeProblemParser } from '../problem/TimusOnlineJudgeProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
 
 export class TimusOnlineJudgeContestParser extends SimpleContestParser {
-  public linkSelector: string = '.problemset td.name > a';
-  public problemParser: Parser = new TimusOnlineJudgeProblemParser();
+  protected linkSelector = '.problemset td.name > a';
+  protected problemParser = new TimusOnlineJudgeProblemParser();
 
   public getMatchPatterns(): string[] {
     return ['https://acm.timus.ru/problemset.aspx*'];

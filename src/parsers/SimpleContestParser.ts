@@ -4,8 +4,8 @@ import { ContestParser } from './ContestParser';
 import { Parser } from './Parser';
 
 export abstract class SimpleContestParser extends ContestParser<string> {
-  public abstract linkSelector: string;
-  public abstract problemParser: Parser;
+  protected abstract linkSelector: string;
+  protected abstract problemParser: Parser;
 
   public canHandlePage(): boolean {
     return document.querySelector(this.linkSelector) !== null;
