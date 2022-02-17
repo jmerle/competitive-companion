@@ -26,7 +26,7 @@ export class BUCTOJProblemParser extends Parser {
 
     const limitsStr = elem.querySelector('.ui.center.aligned.grid > .row:nth-child(2)').textContent;
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
-    task.setTimeLimit(parseInt(/(\d+) S/.exec(limitsStr)[1], 10) * 1000);
+    task.setTimeLimit(parseFloat(/([0-9.]+) S/.exec(limitsStr)[1]) * 1000);
 
     return task.build();
   }
