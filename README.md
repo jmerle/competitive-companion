@@ -37,7 +37,7 @@ A browser extension which parses competitive programming problems from various o
 
 ## Supported websites
 | Website                      | Problem parser | Contest parser |
-|------------------------------| -------------- | -------------- |
+|------------------------------|----------------|----------------|
 | A2 Online Judge              | ✔              | ✔              |
 | ACMP                         | ✔              |                |
 | AcWing                       | ✔              |                |
@@ -224,7 +224,7 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 14.17.5  
+Node.js: 16.14.0  
 Yarn: 1.22.17
 
 Third-party libraries that can be found in the minified extension:  
