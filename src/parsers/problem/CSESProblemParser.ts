@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class CSESProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://cses.fi/*/task/*'];
+    return ['https://cses.fi/*/task/*', 'https://www.cses.fi/*/task/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

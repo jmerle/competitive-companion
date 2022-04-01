@@ -6,10 +6,20 @@ export class CSESContestParser extends SimpleContestParser {
   protected problemParser = new CSESProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://cses.fi/*/list', 'https://cses.fi/*/list/'];
+    return [
+      'https://cses.fi/*/list',
+      'https://cses.fi/*/list/',
+      'https://www.cses.fi/*/list',
+      'https://www.cses.fi/*/list/',
+    ];
   }
 
   public getExcludedMatchPatterns(): string[] {
-    return ['https://cses.fi/problemset/list', 'https://cses.fi/problemset/list/'];
+    return [
+      'https://cses.fi/problemset/list',
+      'https://cses.fi/problemset/list/',
+      'https://www.cses.fi/problemset/list',
+      'https://www.cses.fi/problemset/list/',
+    ];
   }
 }
