@@ -1,18 +1,18 @@
 {
-  "url": "https://www.codechef.com/problems/FCTRL2",
+  "url": "https://www.codechef.com/problems/LAPIN",
   "parser": "problem/CodeChefProblemParser",
   "before": "beforeCodeChef",
   "result": {
-    "name": "Small factorials",
+    "name": "Lapindromes",
     "group": "CodeChef - Practice",
-    "url": "https://www.codechef.com/problems/FCTRL2",
+    "url": "https://www.codechef.com/problems/LAPIN",
     "interactive": false,
     "memoryLimit": 256,
-    "timeLimit": 235,
+    "timeLimit": 1000,
     "tests": [
       {
-        "input": "4\n1\n2\n5\n3\n",
-        "output": "1\n2\n120\n6\n"
+        "input": "6\ngaga\nabcde\nrotor\nxyzxy\nabbaab\nababc\n",
+        "output": "YES\nNO\nYES\nYES\nNO\nNO\n"
       }
     ],
     "testType": "single",
@@ -25,7 +25,7 @@
     "languages": {
       "java": {
         "mainClass": "Main",
-        "taskClass": "SmallFactorials"
+        "taskClass": "Lapindromes"
       }
     }
   }

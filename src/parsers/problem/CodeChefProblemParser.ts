@@ -78,13 +78,29 @@ export class CodeChefProblemParser extends Parser {
       return;
     }
 
-    const inputSamples = [...elem.querySelectorAll('h3, p')]
-      .filter(x => x.textContent.toLowerCase().includes('ample input'))
+    const exampleHeader = [...elem.querySelectorAll('h3')].filter(
+      x => x.textContent.toLowerCase().includes('example:') || x.textContent.toLowerCase().includes('examples:'),
+    )[0];
+
+    const inputSamples = [...elem.querySelectorAll('h3, p, b')]
+      .filter(
+        x =>
+          x.textContent.toLowerCase().includes('ample input') ||
+          (x.textContent.toLowerCase().includes('input') &&
+            exampleHeader !== undefined &&
+            exampleHeader.compareDocumentPosition(x) & Node.DOCUMENT_POSITION_FOLLOWING),
+      )
       .map(x => this.getSample(x))
       .filter(x => x !== null);
 
-    const outputSamples = [...elem.querySelectorAll('h3, p')]
-      .filter(x => x.textContent.toLowerCase().includes('ample output'))
+    const outputSamples = [...elem.querySelectorAll('h3, p, b')]
+      .filter(
+        x =>
+          x.textContent.toLowerCase().includes('ample output') ||
+          (x.textContent.toLowerCase().includes('output') &&
+            exampleHeader !== undefined &&
+            exampleHeader.compareDocumentPosition(x) & Node.DOCUMENT_POSITION_FOLLOWING),
+      )
       .map(x => this.getSample(x))
       .filter(x => x !== null);
 

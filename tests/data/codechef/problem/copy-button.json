@@ -4,7 +4,7 @@
   "before": "beforeCodeChef",
   "result": {
     "name": "Bus full of passengers",
-    "group": "CodeChef - Practice(Easy)",
+    "group": "CodeChef - Practice",
     "url": "https://www.codechef.com/problems/BUS",
     "interactive": false,
     "memoryLimit": 256,

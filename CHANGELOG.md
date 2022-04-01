@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of CodeChef sample cases for certain problems where the input/output headers are not prefixed with "Example" or "Sample"
+
 ## [2.32.0](https://github.com/jmerle/competitive-companion/releases/tag/2.32.0) (2022-02-17)
 - Added a contest parser for Virtual Judge
 - Fixed the parsing of NowCoder sample cases (thanks [@rogeryoungh](https://github.com/rogeryoungh))

@@ -4,7 +4,7 @@
   "before": "beforeCodeChef",
   "result": {
     "name": "Fit Squares in Triangle",
-    "group": "CodeChef - Practice(Beginner)",
+    "group": "CodeChef - Practice",
     "url": "https://www.codechef.com/problems/TRISQ",
     "interactive": false,
     "memoryLimit": 256,
