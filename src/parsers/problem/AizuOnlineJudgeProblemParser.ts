@@ -19,7 +19,7 @@ export class AizuOnlineJudgeProblemParser extends Parser {
     breadcrumbs.push(breadcrumbContainer.childNodes[breadcrumbContainer.childNodes.length - 1].textContent);
     breadcrumbs.shift();
 
-    task.setGroup(breadcrumbs.join(' - '));
+    task.setCategory(breadcrumbs.join(' - '));
 
     const timeLimitStr = elem.querySelector('#problemTimeLimit').textContent;
     task.setTimeLimit(parseInt(timeLimitStr, 10) * 1000);

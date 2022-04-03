@@ -1,7 +1,8 @@
 # Changelog
 
 ## Unreleased
-- Fixed the parsing of CodeChef sample cases for certain problems where the input/output headers are not prefixed with "Example" or "Sample"
+- Added a parser Newton School
+- Fixed the parsing of CodeChef sample cases for problems where the input/output headers are not prefixed with "Example" or "Sample"
 - Fixed the parsing of CSES problems on CSES's www subdomain
 
 ## [2.32.0](https://github.com/jmerle/competitive-companion/releases/tag/2.32.0) (2022-02-17)

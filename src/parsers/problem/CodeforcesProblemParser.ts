@@ -153,7 +153,7 @@ export class CodeforcesProblemParser extends Parser {
       .textContent.replace('\n', ' ')
       .trim();
 
-    task.setGroup(contestName);
+    task.setCategory(contestName);
 
     const letter = url[url.length - 1].toUpperCase();
     const rowElem = [...elem.querySelectorAll('table.problems > tbody > tr')].find(el => {
