@@ -7,7 +7,7 @@
       "group": "Virtual Judge - Solo Speed Contest - 30",
       "url": "https://vjudge.net/contest/480959#problem/A",
       "interactive": false,
-      "memoryLimit": 1048,
+      "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
         {
@@ -42,7 +42,7 @@
       "group": "Virtual Judge - Solo Speed Contest - 30",
       "url": "https://vjudge.net/contest/480959#problem/B",
       "interactive": false,
-      "memoryLimit": 1048,
+      "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
         {
@@ -73,7 +73,7 @@
       "group": "Virtual Judge - Solo Speed Contest - 30",
       "url": "https://vjudge.net/contest/480959#problem/C",
       "interactive": false,
-      "memoryLimit": 1048,
+      "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
         {
@@ -104,7 +104,7 @@
       "group": "Virtual Judge - Solo Speed Contest - 30",
       "url": "https://vjudge.net/contest/480959#problem/D",
       "interactive": false,
-      "memoryLimit": 262,
+      "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
         {
@@ -139,7 +139,7 @@
       "group": "Virtual Judge - Solo Speed Contest - 30",
       "url": "https://vjudge.net/contest/480959#problem/E",
       "interactive": false,
-      "memoryLimit": 262,
+      "memoryLimit": 256,
       "timeLimit": 2000,
       "tests": [
         {
@@ -174,7 +174,7 @@
       "group": "Virtual Judge - Solo Speed Contest - 30",
       "url": "https://vjudge.net/contest/480959#problem/F",
       "interactive": false,
-      "memoryLimit": 262,
+      "memoryLimit": 256,
       "timeLimit": 1000,
       "tests": [
         {
@@ -209,7 +209,7 @@
       "group": "Virtual Judge - Solo Speed Contest - 30",
       "url": "https://vjudge.net/contest/480959#problem/G",
       "interactive": false,
-      "memoryLimit": 1048,
+      "memoryLimit": 1024,
       "timeLimit": 2000,
       "tests": [
         {

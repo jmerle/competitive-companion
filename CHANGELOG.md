@@ -2,8 +2,12 @@
 
 ## Unreleased
 - Added a parser for Newton School
+- Removed the DevSkill parsers because DevSkill is no longer an online judge
 - Fixed the parsing of CodeChef sample cases for problems where the input/output headers are not prefixed with "Example" or "Sample"
 - Fixed the parsing of CSES problems on CSES's www subdomain
+- Fixed the parsing of BUCTOJ problems and contests
+- Fixed the parsing of Neps Academy sample cases
+- Fixed the parsing of Virtual Judge memory limits
 
 ## [2.32.0](https://github.com/jmerle/competitive-companion/releases/tag/2.32.0) (2022-02-17)
 - Added a contest parser for Virtual Judge

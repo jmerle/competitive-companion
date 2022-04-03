@@ -4,7 +4,7 @@
   "before": "beforeAizuOnlineJudge",
   "result": {
     "name": "Projection",
-    "group": "CGL - CGL_1_A",
+    "group": "Aizu Online Judge - CGL - CGL_1_A",
     "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=en",
     "interactive": false,
     "memoryLimit": 131,

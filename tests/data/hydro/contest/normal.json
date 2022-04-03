@@ -13,6 +13,10 @@
         {
           "input": "1 2\n",
           "output": "3\n"
+        },
+        {
+          "input": "3 4\n",
+          "output": "7\n"
         }
       ],
       "testType": "single",

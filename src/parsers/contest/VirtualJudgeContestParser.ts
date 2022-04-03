@@ -30,8 +30,8 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
     for (const property of data.properties) {
       if (property.title == 'Time limit') {
         task.setTimeLimit(parseFloat(property.content.split(' ')[0]));
-      } else if (property.title == 'Memory limit') {
-        task.setMemoryLimit(Math.floor(parseFloat(property.content.split(' ')[0]) / 1000));
+      } else if (property.title == 'Memory limit' || property.title == 'Mem limit') {
+        task.setMemoryLimit(Math.floor(parseFloat(property.content.split(' ')[0]) / 1024));
       }
     }
 

@@ -6,7 +6,7 @@
     "group": "Virtual Judge - HRBUST",
     "url": "https://vjudge.net/problem/HRBUST-1743",
     "interactive": false,
-    "memoryLimit": 65,
+    "memoryLimit": 64,
     "timeLimit": 1000,
     "tests": [
       {

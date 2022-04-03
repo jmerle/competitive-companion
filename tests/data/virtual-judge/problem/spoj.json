@@ -6,7 +6,7 @@
     "group": "Virtual Judge - SPOJ",
     "url": "https://vjudge.net/problem/SPOJ-LCMSUM",
     "interactive": false,
-    "memoryLimit": 1572,
+    "memoryLimit": 1536,
     "timeLimit": 1000,
     "tests": [
       {

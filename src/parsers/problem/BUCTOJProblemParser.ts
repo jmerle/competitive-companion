@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class BUCTOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://buctcoder.com/problem.php*', 'http://182.92.175.181/problem.php*'];
+    return ['https://buctcoder.com/problem.php*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

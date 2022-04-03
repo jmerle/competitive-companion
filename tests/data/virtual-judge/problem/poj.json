@@ -6,7 +6,7 @@
     "group": "Virtual Judge - POJ",
     "url": "https://vjudge.net/problem/POJ-2391",
     "interactive": false,
-    "memoryLimit": 65,
+    "memoryLimit": 64,
     "timeLimit": 1000,
     "tests": [
       {

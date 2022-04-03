@@ -29,8 +29,8 @@ export class VirtualJudgeProblemParser extends Parser {
       el.textContent.toLowerCase().includes('time limit'),
     );
 
-    const memoryLimitDt = [...elem.querySelectorAll('dt')].find(el =>
-      el.textContent.toLowerCase().includes('memory limit'),
+    const memoryLimitDt = [...elem.querySelectorAll('dt')].find(
+      el => el.textContent.toLowerCase().includes('memory limit') || el.textContent.toLowerCase().includes('mem limit'),
     );
 
     const inputFileDt = [...elem.querySelectorAll('dt')].find(el =>
@@ -48,7 +48,7 @@ export class VirtualJudgeProblemParser extends Parser {
 
     if (memoryLimitDt !== undefined) {
       const memoryLimitStr = memoryLimitDt.nextElementSibling.textContent;
-      task.setMemoryLimit(Math.floor(parseFloat(memoryLimitStr.split(' ')[0]) / 1000));
+      task.setMemoryLimit(Math.round(parseFloat(memoryLimitStr.split(' ')[0]) / 1024));
     }
 
     if (inputFileDt !== undefined) {

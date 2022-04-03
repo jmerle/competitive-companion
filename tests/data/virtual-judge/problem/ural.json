@@ -6,7 +6,7 @@
     "group": "Virtual Judge - URAL",
     "url": "https://vjudge.net/problem/URAL-1009",
     "interactive": false,
-    "memoryLimit": 65,
+    "memoryLimit": 64,
     "timeLimit": 500,
     "tests": [
       {

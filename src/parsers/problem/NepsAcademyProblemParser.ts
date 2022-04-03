@@ -23,7 +23,7 @@ export class NepsAcademyProblemParser extends Parser {
 
     const blocks = elem.querySelectorAll('.exercise-table .table-column > div');
     for (let i = 0; i < blocks.length - 1; i += 2) {
-      task.addTest(blocks[i].innerHTML.trimStart(), blocks[i + 1].innerHTML.trimStart());
+      task.addTest(blocks[i].textContent.trimStart(), blocks[i + 1].textContent.trimStart());
     }
 
     const limitsStr = elem.querySelector('.exercise-submission-card > .v-card').textContent;

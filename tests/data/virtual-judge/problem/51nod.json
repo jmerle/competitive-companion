@@ -6,7 +6,7 @@
     "group": "Virtual Judge - 51Nod",
     "url": "https://vjudge.net/problem/51Nod-1289",
     "interactive": false,
-    "memoryLimit": 131,
+    "memoryLimit": 128,
     "timeLimit": 1000,
     "tests": [
       {

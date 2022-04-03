@@ -1,10 +1,10 @@
 {
-  "url": "http://182.92.175.181/problem.php?id=1150",
+  "url": "https://buctcoder.com/problem.php?id=1150",
   "parser": "problem/BUCTOJProblemParser",
   "result": {
     "name": "1150: LED Test",
     "group": "BUCTOJ",
-    "url": "http://182.92.175.181/problem.php?id=1150",
+    "url": "https://buctcoder.com/problem.php?id=1150",
     "interactive": false,
     "memoryLimit": 128,
     "timeLimit": 1000,

@@ -6,7 +6,7 @@
     "group": "Virtual Judge - Kattis",
     "url": "https://vjudge.net/problem/Kattis-dasblinkenlights",
     "interactive": false,
-    "memoryLimit": 1048,
+    "memoryLimit": 1024,
     "timeLimit": 1000,
     "tests": [
       {

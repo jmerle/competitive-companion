@@ -6,7 +6,7 @@
     "group": "Virtual Judge - HihoCoder",
     "url": "https://vjudge.net/problem/HihoCoder-1413",
     "interactive": false,
-    "memoryLimit": 262,
+    "memoryLimit": 256,
     "timeLimit": 20000,
     "tests": [
       {

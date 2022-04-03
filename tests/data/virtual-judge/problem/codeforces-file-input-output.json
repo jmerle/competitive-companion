@@ -6,7 +6,7 @@
     "group": "Virtual Judge - CodeForces",
     "url": "https://vjudge.net/problem/CodeForces-234A",
     "interactive": false,
-    "memoryLimit": 262,
+    "memoryLimit": 256,
     "timeLimit": 1000,
     "tests": [
       {

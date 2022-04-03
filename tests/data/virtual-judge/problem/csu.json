@@ -6,7 +6,7 @@
     "group": "Virtual Judge - CSU",
     "url": "https://vjudge.net/problem/CSU-2085",
     "interactive": false,
-    "memoryLimit": 131,
+    "memoryLimit": 128,
     "timeLimit": 1000,
     "tests": [
       {

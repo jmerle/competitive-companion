@@ -6,6 +6,6 @@ export class BUCTOJContestParser extends SimpleContestParser {
   protected problemParser = new BUCTOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['http://buctcoder.com/contest.php*', 'http://182.92.175.181/contest.php*'];
+    return ['https://buctcoder.com/contest.php*'];
   }
 }

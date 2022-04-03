@@ -6,7 +6,7 @@
     "group": "Virtual Judge - EOlymp",
     "url": "https://vjudge.net/problem/EOlymp-1626",
     "interactive": false,
-    "memoryLimit": 65,
+    "memoryLimit": 64,
     "timeLimit": 1000,
     "tests": [
       {
