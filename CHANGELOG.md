@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Added a parser Newton School
+- Added a parser for Newton School
 - Fixed the parsing of CodeChef sample cases for problems where the input/output headers are not prefixed with "Example" or "Sample"
 - Fixed the parsing of CSES problems on CSES's www subdomain
 
