@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.33.0](https://github.com/jmerle/competitive-companion/releases/tag/2.33.0) (2022-04-03)
 - Added a parser for Newton School
 - Removed the DevSkill parsers because DevSkill is no longer an online judge
 - Fixed the parsing of CodeChef sample cases for problems where the input/output headers are not prefixed with "Example" or "Sample"
