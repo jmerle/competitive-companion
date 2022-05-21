@@ -9,7 +9,6 @@ export class LeetCodeProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    console.log('My script engaged!');
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HackerEarth').setUrl(url);
     const titleElement = elem.querySelector('[data-cy="question-title"]');
