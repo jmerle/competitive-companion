@@ -120,3 +120,4 @@ dist/
 
 # NPM (Yarn is used)
 .package-lock.json
+.cph

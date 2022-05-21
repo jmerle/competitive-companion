@@ -70,6 +70,7 @@ import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProbl
 import { HydroProblemParser } from './problem/HydroProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
+import { LeetCodeProblemParser } from './problem/LeetCodeProblemParser';
 import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemParser';
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
@@ -262,4 +263,5 @@ export const parsers: Parser[] = [
 
   new YukicoderProblemParser(),
   new YukicoderContestParser(),
+  new LeetCodeProblemParser(),
 ];
