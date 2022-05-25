@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class CodeChefProblemParser extends Parser {
+export class CodeChefOldProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://www.codechef.com/problems/*', 'https://www.codechef.com/*/problems/*'];
   }

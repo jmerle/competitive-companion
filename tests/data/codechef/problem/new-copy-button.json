@@ -1,0 +1,36 @@
+{
+  "url": "https://www.codechef.com/submit-v2/BUS",
+  "parser": "problem/CodeChefNewProblemParser",
+  "before": "beforeCodeChefNew",
+  "result": {
+    "name": "Bus full of passengers",
+    "group": "CodeChef - START9",
+    "url": "https://www.codechef.com/submit-v2/BUS",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2\n2 1 4\n+ 1\n+ 2\n- 1\n- 2\n3 2 6\n+ 2\n+ 1\n- 1\n+ 3\n- 3\n- 2\n",
+        "output": "Inconsistent\nConsistent\n"
+      },
+      {
+        "input": "2\n100 10 5\n+ 1\n+ 2\n- 3\n+ 3\n- 2\n6 4 4\n+ 3\n+ 2\n+ 1\n+ 4\n",
+        "output": "Inconsistent\nConsistent\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "BusFullOfPassengers"
+      }
+    }
+  }
+}

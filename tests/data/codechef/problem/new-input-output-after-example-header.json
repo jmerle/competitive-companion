@@ -1,0 +1,32 @@
+{
+  "url": "https://www.codechef.com/submit-v2/LAPIN",
+  "parser": "problem/CodeChefNewProblemParser",
+  "before": "beforeCodeChefNew",
+  "result": {
+    "name": "Lapindromes",
+    "group": "CodeChef - JUNE13",
+    "url": "https://www.codechef.com/submit-v2/LAPIN",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "6\ngaga\nabcde\nrotor\nxyzxy\nabbaab\nababc\n",
+        "output": "YES\nNO\nYES\nYES\nNO\nNO\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Lapindromes"
+      }
+    }
+  }
+}

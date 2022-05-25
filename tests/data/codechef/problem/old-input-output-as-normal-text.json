@@ -1,0 +1,32 @@
+{
+  "url": "https://www.codechef.com/problems/TRISQ",
+  "parser": "problem/CodeChefOldProblemParser",
+  "before": "beforeCodeChefOld",
+  "result": {
+    "name": "Fit Squares in Triangle",
+    "group": "CodeChef - Practice",
+    "url": "https://www.codechef.com/problems/TRISQ",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "11\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n",
+        "output": "0\n0\n0\n1\n1\n3\n3\n6\n6\n10\n10\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "FitSquaresInTriangle"
+      }
+    }
+  }
+}

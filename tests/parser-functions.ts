@@ -13,7 +13,11 @@ export default {
     await page.waitForSelector('.problemBody pre');
   },
 
-  async beforeCodeChef(page: Page): Promise<void> {
+  async beforeCodeChefNew(page: Page): Promise<void> {
+    await page.waitForSelector('div[class^="ProblemStatementView_problem-statement__inner__container__"]');
+  },
+
+  async beforeCodeChefOld(page: Page): Promise<void> {
     await page.waitForSelector('.breadcrumbs a');
   },
 

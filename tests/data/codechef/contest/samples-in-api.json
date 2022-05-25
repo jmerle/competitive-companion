@@ -1,7 +1,7 @@
 {
   "url": "https://www.codechef.com/AUG21B",
   "parser": "contest/CodeChefContestParser",
-  "before": "beforeCodeChef",
+  "before": "beforeCodeChefOld",
   "result": [
     {
       "name": "Olympics Ranking",

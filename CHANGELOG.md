@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of CodeChef problems on its new problem page
+
 ## [2.33.0](https://github.com/jmerle/competitive-companion/releases/tag/2.33.0) (2022-04-03)
 - Added a parser for Newton School
 - Removed the DevSkill parsers because DevSkill is no longer an online judge

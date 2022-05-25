@@ -44,7 +44,8 @@ import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeP
 import { BeecrowdProblemParser } from './problem/BeecrowdProblemParser';
 import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
 import { BUCTOJProblemParser } from './problem/BUCTOJProblemParser';
-import { CodeChefProblemParser } from './problem/CodeChefProblemParser';
+import { CodeChefNewProblemParser } from './problem/CodeChefNewProblemParser';
+import { CodeChefOldProblemParser } from './problem/CodeChefOldProblemParser';
 import { CodeDrillsProblemParser } from './problem/CodeDrillsProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
@@ -127,7 +128,8 @@ export const parsers: Parser[] = [
   new BUCTOJProblemParser(),
   new BUCTOJContestParser(),
 
-  new CodeChefProblemParser(),
+  new CodeChefNewProblemParser(),
+  new CodeChefOldProblemParser(),
   new CodeChefContestParser(),
 
   new CodeDrillsProblemParser(),

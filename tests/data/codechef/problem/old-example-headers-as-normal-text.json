@@ -1,7 +1,7 @@
 {
   "url": "https://www.codechef.com/problems/FCTRL2",
-  "parser": "problem/CodeChefProblemParser",
-  "before": "beforeCodeChef",
+  "parser": "problem/CodeChefOldProblemParser",
+  "before": "beforeCodeChefOld",
   "result": {
     "name": "Small factorials",
     "group": "CodeChef - Practice",

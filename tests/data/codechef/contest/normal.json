@@ -1,7 +1,7 @@
 {
   "url": "https://www.codechef.com/LTIME58A",
   "parser": "contest/CodeChefContestParser",
-  "before": "beforeCodeChef",
+  "before": "beforeCodeChefOld",
   "result": [
     {
       "name": "Magic Elements",

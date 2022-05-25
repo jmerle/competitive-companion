@@ -1,7 +1,7 @@
 {
   "url": "https://www.codechef.com/KQ102018/problems/QM10B",
-  "parser": "problem/CodeChefProblemParser",
-  "before": "beforeCodeChef",
+  "parser": "problem/CodeChefOldProblemParser",
+  "before": "beforeCodeChefOld",
   "result": {
     "name": "Total Graphs (keteki)",
     "group": "CodeChef - Keteki Quick Match 10",

@@ -2,7 +2,7 @@ import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement, markdownToHtml } from '../../utils/dom';
 import { ContestParser } from '../ContestParser';
-import { CodeChefProblemParser } from '../problem/CodeChefProblemParser';
+import { CodeChefOldProblemParser } from '../problem/CodeChefOldProblemParser';
 
 export class CodeChefContestParser extends ContestParser<string> {
   public getMatchPatterns(): string[] {
@@ -41,7 +41,7 @@ export class CodeChefContestParser extends ContestParser<string> {
 
     if (task.tests.length === 0) {
       const body = markdownToHtml(model.body.replace(/(\r\n)/g, '\n'));
-      new CodeChefProblemParser().parseTests(body, task);
+      new CodeChefOldProblemParser().parseTests(body, task);
     }
 
     task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);

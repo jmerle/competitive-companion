@@ -1,7 +1,7 @@
 {
   "url": "https://www.codechef.com/problems/LAPIN",
-  "parser": "problem/CodeChefProblemParser",
-  "before": "beforeCodeChef",
+  "parser": "problem/CodeChefOldProblemParser",
+  "before": "beforeCodeChefOld",
   "result": {
     "name": "Lapindromes",
     "group": "CodeChef - Practice",
