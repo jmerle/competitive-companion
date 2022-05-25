@@ -10,7 +10,6 @@ import { COJContestParser } from './contest/COJContestParser';
 import { ContestHunterContestParser } from './contest/ContestHunterContestParser';
 import { CSESContestParser } from './contest/CSESContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
-import { DevSkillContestParser } from './contest/DevSkillContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
 import { EolympContestParser } from './contest/EolympContestParser';
@@ -54,7 +53,6 @@ import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSESProblemParser } from './problem/CSESProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
-import { DevSkillProblemParser } from './problem/DevSkillProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EolympProblemParser } from './problem/EolympProblemParser';
@@ -153,9 +151,6 @@ export const parsers: Parser[] = [
 
   new CSUACMOnlineJudgeProblemParser(),
   new CSUACMOnlineJudgeContestParser(),
-
-  new DevSkillProblemParser(),
-  new DevSkillContestParser(),
 
   new DMOJProblemParser(),
   new DMOJContestParser(),
