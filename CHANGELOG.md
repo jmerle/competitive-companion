@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.34.0](https://github.com/jmerle/competitive-companion/releases/tag/2.34.0) (2022-05-26)
 - Removed the DevSkill parsers because DevSkill is no longer an online judge
 - Fixed the parsing of CodeChef problems on its new problem page
 - Fixed the parsing of Virtual Judge sample cases where the sample cases are displayed in a code block that is nested in another code block
