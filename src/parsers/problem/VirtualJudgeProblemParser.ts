@@ -120,6 +120,7 @@ export class VirtualJudgeProblemParser extends Parser {
       const preTags = blocks
         .map(el => [...el.querySelectorAll('pre')])
         .reduce((a, b) => [...a, ...b], [])
+        .filter(el => el.querySelector('pre') === null)
         .map(el => el.innerHTML.trim());
 
       const paragraphs = blocks
