@@ -28,7 +28,7 @@
     "dev:chrome": "yarn build:dev && concurrently 'yarn start:chrome' 'yarn watch' -n chrome,webpack -c blue,yellow --kill-others"
   },
   "dependencies": {
-    "cyrillic-to-translit-js": "3.1.0",
+    "cyrillic-to-translit-js": "3.2.1",
     "nanobar": "0.4.2",
     "pdfjs-dist": "2.14.305",
     "snarkdown": "2.0.0",
