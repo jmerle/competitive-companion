@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of Kattis problems and contests to work with Kattis's new design
+
 ## [2.34.0](https://github.com/jmerle/competitive-companion/releases/tag/2.34.0) (2022-05-26)
 - Removed the DevSkill parsers because DevSkill is no longer an online judge
 - Fixed the parsing of CodeChef problems on its new problem page
