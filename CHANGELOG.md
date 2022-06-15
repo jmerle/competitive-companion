@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.34.1](https://github.com/jmerle/competitive-companion/releases/tag/2.34.1) (2022-06-16)
 - Fixed the parsing of Kattis problems and contests to work with Kattis's new design
 
 ## [2.34.0](https://github.com/jmerle/competitive-companion/releases/tag/2.34.0) (2022-05-26)
