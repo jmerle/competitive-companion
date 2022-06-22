@@ -5,17 +5,17 @@ import { Parser } from '../Parser';
 
 export class CodeChefOldProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.codechef.com/problems/*', 'https://www.codechef.com/*/problems/*'];
+    return ['https://www.codechef.com/problems-old/*', 'https://www.codechef.com/*/problems-old/*'];
   }
 
   public getExcludedMatchPatterns(): string[] {
     return [
-      'https://www.codechef.com/problems/school',
-      'https://www.codechef.com/problems/easy',
-      'https://www.codechef.com/problems/medium',
-      'https://www.codechef.com/problems/hard',
-      'https://www.codechef.com/problems/challenge',
-      'https://www.codechef.com/problems/extcontest',
+      'https://www.codechef.com/problems-old/school',
+      'https://www.codechef.com/problems-old/easy',
+      'https://www.codechef.com/problems-old/medium',
+      'https://www.codechef.com/problems-old/hard',
+      'https://www.codechef.com/problems-old/challenge',
+      'https://www.codechef.com/problems-old/extcontest',
     ];
   }
 
