@@ -8,17 +8,6 @@ export class CodeChefOldProblemParser extends Parser {
     return ['https://www.codechef.com/problems-old/*', 'https://www.codechef.com/*/problems/*'];
   }
 
-  public getExcludedMatchPatterns(): string[] {
-    return [
-      'https://www.codechef.com/problems-old/school',
-      'https://www.codechef.com/problems-old/easy',
-      'https://www.codechef.com/problems-old/medium',
-      'https://www.codechef.com/problems-old/hard',
-      'https://www.codechef.com/problems-old/challenge',
-      'https://www.codechef.com/problems-old/extcontest',
-    ];
-  }
-
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CodeChef').setUrl(url);
