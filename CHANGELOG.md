@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.34.2](https://github.com/jmerle/competitive-companion/releases/tag/2.34.2) (2022-06-22)
 - Fixed the parsing of CodeChef problems to work with its new URL format
 
 ## [2.34.1](https://github.com/jmerle/competitive-companion/releases/tag/2.34.1) (2022-06-16)
