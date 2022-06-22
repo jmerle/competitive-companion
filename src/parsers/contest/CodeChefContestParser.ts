@@ -16,9 +16,12 @@ export class CodeChefContestParser extends ContestParser<string> {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected async getTasksToParse(html: string, url: string): Promise<string[]> {
     const elem = htmlToElement(html);
-    return [...elem.querySelectorAll('.cc-problem-name a')].map(el =>
-      (el as any).href.replace('www.codechef.com/', 'www.codechef.com/api/contests/'),
-    );
+    const contestId = new URL(url).pathname.split('/').pop();
+
+    return [...elem.querySelectorAll<HTMLLinkElement>('.cc-problem-name a')].map(el => {
+      const problemId = el.href.split('/').pop();
+      return `https://www.codechef.com/api/contests/${contestId}/problems/${problemId}`;
+    });
   }
 
   protected async parseTask(apiUrl: string): Promise<Task> {

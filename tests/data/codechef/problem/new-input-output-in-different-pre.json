@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/submit-v2/RD19",
+  "url": "https://www.codechef.com/submit/RD19",
   "parser": "problem/CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Minimum Deletions",
     "group": "CodeChef - MAY18",
-    "url": "https://www.codechef.com/submit-v2/RD19",
+    "url": "https://www.codechef.com/submit/RD19",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

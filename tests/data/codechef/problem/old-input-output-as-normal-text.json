@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/problems/TRISQ",
+  "url": "https://www.codechef.com/problems-old/TRISQ",
   "parser": "problem/CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Fit Squares in Triangle",
     "group": "CodeChef - Practice",
-    "url": "https://www.codechef.com/problems/TRISQ",
+    "url": "https://www.codechef.com/problems-old/TRISQ",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

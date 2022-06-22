@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/problems/BUS",
+  "url": "https://www.codechef.com/problems-old/BUS",
   "parser": "problem/CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Bus full of passengers",
     "group": "CodeChef - Practice",
-    "url": "https://www.codechef.com/problems/BUS",
+    "url": "https://www.codechef.com/problems-old/BUS",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

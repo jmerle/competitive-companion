@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/submit-v2/FCTRL2",
+  "url": "https://www.codechef.com/submit/FCTRL2",
   "parser": "problem/CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Small factorials",
     "group": "CodeChef - Practice",
-    "url": "https://www.codechef.com/submit-v2/FCTRL2",
+    "url": "https://www.codechef.com/submit/FCTRL2",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 235,

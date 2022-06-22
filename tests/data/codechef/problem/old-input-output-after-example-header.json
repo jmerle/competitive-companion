@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/problems/LAPIN",
+  "url": "https://www.codechef.com/problems-old/LAPIN",
   "parser": "problem/CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Lapindromes",
     "group": "CodeChef - Practice",
-    "url": "https://www.codechef.com/problems/LAPIN",
+    "url": "https://www.codechef.com/problems-old/LAPIN",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

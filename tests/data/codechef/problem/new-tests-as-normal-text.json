@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/submit-v2/QM10B",
+  "url": "https://www.codechef.com/submit/QM10B",
   "parser": "problem/CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Total Graphs (keteki)",
     "group": "CodeChef - Practice",
-    "url": "https://www.codechef.com/submit-v2/QM10B",
+    "url": "https://www.codechef.com/submit/QM10B",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

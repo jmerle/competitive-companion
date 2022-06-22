@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class CodeChefOldProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.codechef.com/problems-old/*', 'https://www.codechef.com/*/problems-old/*'];
+    return ['https://www.codechef.com/problems-old/*', 'https://www.codechef.com/*/problems/*'];
   }
 
   public getExcludedMatchPatterns(): string[] {
