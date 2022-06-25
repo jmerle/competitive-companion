@@ -5,15 +5,25 @@ import { Parser } from '../Parser';
 
 export class HackerEarthProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.hackerearth.com/*/algorithm/*', 'https://www.hackerearth.com/*/approximate/*'];
+    return [
+      'https://www.hackerearth.com/*/algorithm/*',
+      'https://www.hackerearth.com/*/approximate/*',
+      'https://www.hackerearth.com/*/codemonk/',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HackerEarth').setUrl(url);
 
-    const titleElem = elem.querySelector('.title-panel > .title, #problem-title');
-    task.setName(titleElem ? titleElem.textContent.trim() : 'Task');
+    task.setName('Task');
+    for (const selector of ['.title-panel > .title, #problem-title', '.problem-statement > div > div.large']) {
+      const titleElem = elem.querySelector(selector);
+      if (titleElem !== null) {
+        task.setName(titleElem.textContent.trim());
+        break;
+      }
+    }
 
     const groupSuffix: string[] =
       elem.querySelector('.timings') !== null
@@ -25,7 +35,11 @@ export class HackerEarthProblemParser extends Parser {
       .filter(part => part !== '')
       .join(' - ');
 
-    task.setCategory(category);
+    if (category.length > 0) {
+      task.setCategory(category);
+    } else if (url.includes('/codemonk/')) {
+      task.setCategory('Codemonk');
+    }
 
     elem.querySelectorAll('.input-output-container').forEach(container => {
       const blocks = container.querySelectorAll('pre');

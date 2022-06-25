@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of HackerEarth Codemonk problems
+
 ## [2.34.2](https://github.com/jmerle/competitive-companion/releases/tag/2.34.2) (2022-06-22)
 - Fixed the parsing of CodeChef problems to work with its new URL format
 
