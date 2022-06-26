@@ -8,6 +8,11 @@ interface BaseImage {
   height: number;
 }
 
+interface BannerImage {
+  svgPath: string;
+  pngPath: string;
+}
+
 const horizontalBaseImage: BaseImage = {
   svg: (baseX, baseY, newWidth, newHeight) => `
 <svg viewBox="0 0 716 200" x="${baseX}" y="${baseY}" width="${newWidth}" height="${newHeight}">
@@ -64,9 +69,7 @@ const verticalBaseImage: BaseImage = {
   height: 380,
 };
 
-async function generateBanner(name: string, width: number, height: number): Promise<void> {
-  console.log(`Generating banner ${name} of size ${width}x${height}`);
-
+async function generateBanner(name: string, width: number, height: number): Promise<BannerImage> {
   const minMargin = Math.min(width, height) / 8;
   const availableWidth = width - minMargin * 2;
   const availableHeight = height - minMargin * 2;
@@ -109,12 +112,7 @@ async function generateBanner(name: string, width: number, height: number): Prom
 
   fs.writeFileSync(svgPath, bestImage.trim() + '\n');
 
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto(`file://${svgPath}`);
-  await page.setViewport({ width, height });
-  await page.screenshot({ path: pngPath });
-  await browser.close();
+  return { svgPath, pngPath };
 }
 
 (async () => {
@@ -125,7 +123,18 @@ async function generateBanner(name: string, width: number, height: number): Prom
     ['chrome-marquee-promo', 1400, 560],
   ];
 
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
   for (const [name, width, height] of requiredBanners) {
-    await generateBanner(name, width, height);
+    console.log(`Generating banner ${name} of size ${width}x${height}`);
+
+    const banner = await generateBanner(name, width, height);
+
+    await page.goto(`file://${banner.svgPath}`);
+    await page.setViewport({ width, height });
+    await page.screenshot({ path: banner.pngPath });
   }
+
+  await browser.close();
 })();
