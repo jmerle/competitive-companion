@@ -90,7 +90,7 @@ const config: webpack.Configuration = {
           transform: transformManifest,
         },
         {
-          from: path.resolve(__dirname, 'icons'),
+          from: path.resolve(__dirname, 'media/icons'),
           to: path.resolve(__dirname, 'build/icons'),
         },
         {
