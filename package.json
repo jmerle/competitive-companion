@@ -23,7 +23,6 @@
     "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,js,html,yml,json}'",
     "test": "yarn build:test && jest",
     "test:no-headless": "cross-env HEADLESS=false yarn test",
-    "test:coverage": "yarn test --coverage",
     "start:firefox": "web-ext run -s build/ --start-url https://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "start:chrome": "ts-node scripts/start-chrome.ts",
     "dev:firefox": "yarn build:dev && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
