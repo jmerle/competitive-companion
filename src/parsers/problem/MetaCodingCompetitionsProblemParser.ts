@@ -4,14 +4,14 @@ import { TestType } from '../../models/TestType';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class FacebookCodingCompetitionsProblemParser extends Parser {
+export class MetaCodingCompetitionsProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://www.facebook.com/codingcompetitions/*/problems/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('Facebook Coding Competitions').setUrl(url);
+    const task = new TaskBuilder('Meta Coding Competitions').setUrl(url);
 
     let name = elem.querySelector('#content > div > div:nth-child(4) > div > div > div > div > div').textContent;
     if (name.startsWith('Problem ')) {

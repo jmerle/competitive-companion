@@ -98,7 +98,7 @@ async function generateBanner(name: string, width: number, height: number): Prom
       --icon-inner-color: var(--background-color);
     }
   </style>
-  <rect width="${width}" height="${height}" fill="var(--background-color)" />
+  <rect width="100%" height="100%" fill="var(--background-color)" />
   ${baseImage.svg(baseX, baseY, newBaseWidth, newBaseHeight)}
 </svg>
       `.trim();

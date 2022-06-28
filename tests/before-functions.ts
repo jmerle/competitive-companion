@@ -37,10 +37,6 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
     await page.waitForSelector('h1');
   },
 
-  async beforeFacebookCodingCompetitions(page: Page): Promise<void> {
-    await page.waitForSelector('a[aria-label="Download"]');
-  },
-
   async beforeHackerEarth(page: Page): Promise<void> {
     await page.waitForSelector('.input-output');
   },
@@ -63,6 +59,10 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
 
   async beforeLibreOJProblem(page: Page): Promise<void> {
     await page.waitForSelector('.ui.header');
+  },
+
+  async beforeMetaCodingCompetitions(page: Page): Promise<void> {
+    await page.waitForSelector('a[aria-label="Download"]');
   },
 
   async beforeNOJ(page: Page): Promise<void> {

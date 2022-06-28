@@ -1,10 +1,10 @@
 {
   "url": "https://www.facebook.com/codingcompetitions/hacker-cup/2019/qualification-round/problems/A",
-  "parser": "FacebookCodingCompetitionsProblemParser",
-  "before": "beforeFacebookCodingCompetitions",
+  "parser": "MetaCodingCompetitionsProblemParser",
+  "before": "beforeMetaCodingCompetitions",
   "result": {
     "name": "A: Leapfrog: Ch. 1",
-    "group": "Facebook Coding Competitions - Facebook Hacker Cup 2019 Qualification Round",
+    "group": "Meta Coding Competitions - Meta Hacker Cup 2019 Qualification Round",
     "url": "https://www.facebook.com/codingcompetitions/hacker-cup/2019/qualification-round/problems/A",
     "interactive": false,
     "memoryLimit": 1024,

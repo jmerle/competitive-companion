@@ -22,7 +22,7 @@ export class TophProblemParser extends Parser {
     const [, memoryAmount, memoryUnit] = /, ([0-9.]+) (.*)/.exec(limitsStr);
     task.setMemoryLimit(parseFloat(memoryAmount) * (memoryUnit === 'MB' ? 1 : 1024));
 
-    elem.querySelectorAll('.table.samples').forEach(table => {
+    elem.querySelectorAll('.table.-samples').forEach(table => {
       const blocks = table.querySelectorAll('tbody > tr > td > pre');
       task.addTest(blocks[0].textContent, blocks[1].textContent);
     });

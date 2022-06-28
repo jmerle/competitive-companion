@@ -2,6 +2,9 @@
 
 ## Unreleased
 - Fixed the parsing of HackerEarth Codemonk problems
+- Fixed the parsing of CodeDrills problems when the browser is narrow
+- Fixed the parsing of Toph sample cases
+- Renamed occurrences of Facebook Coding Competitions to Meta Coding Competitions
 
 ## [2.34.2](https://github.com/jmerle/competitive-companion/releases/tag/2.34.2) (2022-06-22)
 - Fixed the parsing of CodeChef problems to work with its new URL format

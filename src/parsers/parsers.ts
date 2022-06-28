@@ -56,7 +56,6 @@ import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProbl
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EolympProblemParser } from './problem/EolympProblemParser';
-import { FacebookCodingCompetitionsProblemParser } from './problem/FacebookCodingCompetitionsProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
 import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCompetitionsProblemParser';
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
@@ -73,6 +72,7 @@ import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemPars
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
+import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
 import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
@@ -161,8 +161,6 @@ export const parsers: Parser[] = [
   new EolympProblemParser(),
   new EolympContestParser(),
 
-  new FacebookCodingCompetitionsProblemParser(),
-
   new FZUOnlineJudgeProblemParser(),
   new FZUOnlineJudgeContestParser(),
 
@@ -203,6 +201,8 @@ export const parsers: Parser[] = [
 
   new LuoguProblemParser(),
   new LuoguContestParser(),
+
+  new MetaCodingCompetitionsProblemParser(),
 
   new MrJudgeProblemParser(),
 

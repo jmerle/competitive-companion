@@ -8,7 +8,7 @@
       --icon-inner-color: var(--background-color);
     }
   </style>
-  <rect width="1400" height="560" fill="var(--background-color)" />
+  <rect width="100%" height="100%" fill="var(--background-color)" />
   
 <svg viewBox="0 0 716 200" x="70" y="104.02234636871506" width="1260" height="351.9553072625699">
   <rect width="100%" height="100%" fill="var(--background-color)" />
