@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/HYSBZ-1954",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Pku3764 The xor-longest Path",
     "group": "Virtual Judge - HYSBZ",

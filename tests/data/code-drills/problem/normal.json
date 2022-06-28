@@ -1,6 +1,6 @@
 {
   "url": "https://codedrills.io/problems/beating-shell-sort",
-  "parser": "problem/CodeDrillsProblemParser",
+  "parser": "CodeDrillsProblemParser",
   "before": "beforeCodeDrills",
   "result": {
     "name": "Beating Shell sort",

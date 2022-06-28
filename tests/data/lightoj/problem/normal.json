@@ -1,6 +1,6 @@
 {
   "url": "https://lightoj.com/problem/greetings-from-lightoj",
-  "parser": "problem/LightOJProblemParser",
+  "parser": "LightOJProblemParser",
   "result": {
     "name": "Greetings from LightOJ",
     "group": "LightOJ",

@@ -1,6 +1,6 @@
 {
   "url": "https://open.kattis.com/problems/backspace",
-  "parser": "problem/KattisProblemParser",
+  "parser": "KattisProblemParser",
   "result": {
     "name": "Backspace",
     "group": "Kattis",

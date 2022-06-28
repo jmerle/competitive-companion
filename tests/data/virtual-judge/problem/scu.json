@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/SCU-1993",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "The Rotation Game",
     "group": "Virtual Judge - SCU",

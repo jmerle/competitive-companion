@@ -1,6 +1,6 @@
 {
   "url": "https://dmoj.ca/problem/aplusb",
-  "parser": "problem/DMOJProblemParser",
+  "parser": "DMOJProblemParser",
   "result": {
     "name": "A Plus B",
     "group": "DMOJ",

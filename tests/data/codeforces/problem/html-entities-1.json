@@ -1,6 +1,6 @@
 {
   "url": "https://codeforces.com/contest/1131/problem/D?locale=en",
-  "parser": "problem/CodeforcesProblemParser",
+  "parser": "CodeforcesProblemParser",
   "result": {
     "name": "D. Gourmet choice",
     "group": "Codeforces - Codeforces Round #541 (Div. 2)",

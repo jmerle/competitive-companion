@@ -1,6 +1,6 @@
 {
   "url": "https://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1004&cid=798",
-  "parser": "problem/HDOJProblemParser",
+  "parser": "HDOJProblemParser",
   "result": {
     "name": "Circular Coloring",
     "group": "HDOJ",

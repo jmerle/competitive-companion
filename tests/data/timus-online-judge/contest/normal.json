@@ -1,6 +1,6 @@
 {
   "url": "https://acm.timus.ru/problemset.aspx?space=340",
-  "parser": "contest/TimusOnlineJudgeContestParser",
+  "parser": "TimusOnlineJudgeContestParser",
   "result": [
     {
       "name": "A. Timus problems classifier",

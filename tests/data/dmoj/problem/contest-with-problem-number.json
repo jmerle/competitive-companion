@@ -1,6 +1,6 @@
 {
   "url": "https://dmoj.ca/problem/acc3p4",
-  "parser": "problem/DMOJProblemParser",
+  "parser": "DMOJProblemParser",
   "result": {
     "name": "Problem 4 - Range Updates and Range Queries",
     "group": "DMOJ - Another Contest 3",

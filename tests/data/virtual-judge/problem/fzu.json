@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/FZU-1402",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "猪的安家",
     "group": "Virtual Judge - FZU",

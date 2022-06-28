@@ -1,6 +1,6 @@
 {
   "url": "http://acm.hrbust.edu.cn/index.php?m=ProblemSet&a=showProblem&problem_id=1000",
-  "parser": "problem/HrbustOnlineJudgeProblemParser",
+  "parser": "HrbustOnlineJudgeProblemParser",
   "result": {
     "name": "A + B Problem",
     "group": "Hrbust Online Judge",

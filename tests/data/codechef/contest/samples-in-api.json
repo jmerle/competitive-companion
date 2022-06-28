@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/AUG21B",
-  "parser": "contest/CodeChefContestParser",
+  "parser": "CodeChefContestParser",
   "before": "beforeCodeChefOld",
   "result": [
     {

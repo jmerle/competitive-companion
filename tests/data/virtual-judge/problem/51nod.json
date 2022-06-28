@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/51Nod-1289",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "大鱼吃小鱼",
     "group": "Virtual Judge - 51Nod",

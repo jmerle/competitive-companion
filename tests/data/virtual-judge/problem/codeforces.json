@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/CodeForces-406C",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Graph Cutting",
     "group": "Virtual Judge - CodeForces",

@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/contest/480959",
-  "parser": "contest/VirtualJudgeContestParser",
+  "parser": "VirtualJudgeContestParser",
   "result": [
     {
       "name": "A - K-th Common Divisor",

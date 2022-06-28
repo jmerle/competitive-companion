@@ -1,6 +1,6 @@
 {
   "url": "https://old.yosupo.jp/problem/aplusb",
-  "parser": "problem/OldLibraryCheckerProblemParser",
+  "parser": "OldLibraryCheckerProblemParser",
   "result": {
     "name": "A + B",
     "group": "Library Checker",

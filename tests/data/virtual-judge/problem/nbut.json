@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/NBUT-1222",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "English Game",
     "group": "Virtual Judge - NBUT",

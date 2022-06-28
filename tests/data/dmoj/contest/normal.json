@@ -1,6 +1,6 @@
 {
   "url": "https://dmoj.ca/contest/tle17c8",
-  "parser": "contest/DMOJContestParser",
+  "parser": "DMOJContestParser",
   "result": [
     {
       "name": "P1 - Artificial Intelligence",

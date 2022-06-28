@@ -1,6 +1,6 @@
 {
   "url": "http://oj.woj.ac.cn:8088/problem_show.php?pid=5002",
-  "parser": "problem/SSOIERProblemParser",
+  "parser": "SSOIERProblemParser",
   "result": {
     "name": "5002：礼物(Greedy Gift Givers)",
     "group": "SSOIER",

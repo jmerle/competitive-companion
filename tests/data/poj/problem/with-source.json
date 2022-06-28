@@ -1,6 +1,6 @@
 {
   "url": "http://poj.org/problem?id=1042",
-  "parser": "problem/POJProblemParser",
+  "parser": "POJProblemParser",
   "result": {
     "name": "Gone Fishing",
     "group": "POJ - East Central North America 1999",

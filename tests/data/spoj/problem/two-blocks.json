@@ -1,6 +1,6 @@
 {
   "url": "https://www.spoj.com/problems/CMPLS/",
-  "parser": "problem/SPOJProblemParser",
+  "parser": "SPOJProblemParser",
   "result": {
     "name": "Complete the Sequence!",
     "group": "SPOJ - Classical",

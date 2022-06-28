@@ -1,6 +1,6 @@
 {
   "url": "https://toph.co/p/book-worm",
-  "parser": "problem/TophProblemParser",
+  "parser": "TophProblemParser",
   "result": {
     "name": "Book Worm",
     "group": "Toph",

@@ -1,6 +1,6 @@
 {
   "url": "https://neps.academy/br/exercise/134",
-  "parser": "problem/NepsAcademyProblemParser",
+  "parser": "NepsAcademyProblemParser",
   "result": {
     "name": "Soma Fácil",
     "group": "Neps Academy",

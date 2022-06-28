@@ -1,6 +1,6 @@
 {
   "url": "https://acm.njupt.edu.cn/problem/NOJ1027",
-  "parser": "problem/NOJProblemParser",
+  "parser": "NOJProblemParser",
   "before": "beforeNOJ",
   "result": {
     "name": "Quicksum",

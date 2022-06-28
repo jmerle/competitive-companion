@@ -1,6 +1,6 @@
 {
   "url": "https://acm.hdu.edu.cn/showproblem.php?pid=1000",
-  "parser": "problem/HDOJProblemParser",
+  "parser": "HDOJProblemParser",
   "result": {
     "name": "A + B Problem",
     "group": "HDOJ",

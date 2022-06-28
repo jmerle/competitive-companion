@@ -1,6 +1,6 @@
 {
   "url": "https://www.beecrowd.com.br/judge/en/problems/view/1001",
-  "parser": "problem/BeecrowdProblemParser",
+  "parser": "BeecrowdProblemParser",
   "result": {
     "name": "Extremely Basic",
     "group": "beecrowd - Beginner",

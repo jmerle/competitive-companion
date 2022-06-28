@@ -1,6 +1,6 @@
 {
   "url": "https://dmoj.ca/problem/canada21p1",
-  "parser": "problem/DMOJProblemParser",
+  "parser": "DMOJProblemParser",
   "result": {
     "name": "Bob and Canada",
     "group": "DMOJ - Canada Day Contest 2021",

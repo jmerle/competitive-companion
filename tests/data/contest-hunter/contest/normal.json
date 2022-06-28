@@ -1,6 +1,6 @@
 {
   "url": "http://noi-test.zzstep.com/contest/CH%20Round%20%2380%20-%20GX%EF%BC%8FGZOI2019%E9%87%8D%E7%8E%B0%E8%B5%9Bday2",
-  "parser": "contest/ContestHunterContestParser",
+  "parser": "ContestHunterContestParser",
   "result": [
     {
       "name": "逼死强迫症",

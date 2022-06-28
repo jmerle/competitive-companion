@@ -1,6 +1,6 @@
 {
   "url": "https://dmoj.ca/problem/aac1p1",
-  "parser": "problem/DMOJProblemParser",
+  "parser": "DMOJProblemParser",
   "result": {
     "name": "P1 - Alpaca Shapes",
     "group": "DMOJ - An Animal Contest 1",

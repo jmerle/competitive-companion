@@ -1,6 +1,6 @@
 {
   "url": "https://csacademy.com/contest/archive/task/addition/",
-  "parser": "problem/CSAcademyProblemParser",
+  "parser": "CSAcademyProblemParser",
   "before": "beforeCSAcademy",
   "result": {
     "name": "Addition",

@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/problems-old/BUS",
-  "parser": "problem/CodeChefOldProblemParser",
+  "parser": "CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Bus full of passengers",

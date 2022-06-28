@@ -1,6 +1,6 @@
 {
   "url": "https://algo.codemarshal.org/problems/556a283cf661160300813812",
-  "parser": "problem/CodeMarshalProblemParser",
+  "parser": "CodeMarshalProblemParser",
   "result": {
     "name": " CSE, DU তে স্বাগতম (Welcome to CSE, DU)",
     "group": "CodeMarshal",

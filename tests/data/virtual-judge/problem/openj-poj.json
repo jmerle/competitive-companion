@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/OpenJ_POJ-C16F",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Strange Card Game",
     "group": "Virtual Judge - OpenJ_POJ",

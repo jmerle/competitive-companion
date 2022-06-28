@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/ZOJ-3209",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Treasure Map",
     "group": "Virtual Judge - ZOJ",

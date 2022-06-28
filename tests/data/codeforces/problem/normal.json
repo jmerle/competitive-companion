@@ -1,6 +1,6 @@
 {
   "url": "https://codeforces.com/problemset/problem/118/A?locale=en",
-  "parser": "problem/CodeforcesProblemParser",
+  "parser": "CodeforcesProblemParser",
   "result": {
     "name": "A. String Task",
     "group": "Codeforces - Codeforces Beta Round #89 (Div. 2)",

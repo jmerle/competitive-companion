@@ -1,6 +1,6 @@
 {
   "url": "https://tlx.toki.id/problems/troc-16/A",
-  "parser": "problem/TLXProblemParser",
+  "parser": "TLXProblemParser",
   "before": "beforeTLXEnglish",
   "result": {
     "name": "A. Puzzling Puzzle",

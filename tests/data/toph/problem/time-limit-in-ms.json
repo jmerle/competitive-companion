@@ -1,6 +1,6 @@
 {
   "url": "https://toph.co/p/distinctness",
-  "parser": "problem/TophProblemParser",
+  "parser": "TophProblemParser",
   "result": {
     "name": "Distinctness",
     "group": "Toph",

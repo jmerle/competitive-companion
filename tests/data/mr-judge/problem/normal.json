@@ -1,6 +1,6 @@
 {
   "url": "https://dunjudge.me/analysis/problems/179/",
-  "parser": "problem/MrJudgeProblemParser",
+  "parser": "MrJudgeProblemParser",
   "result": {
     "name": "checkmultiples",
     "group": "mrJudge",

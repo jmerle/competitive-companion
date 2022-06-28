@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/submit/RD19",
-  "parser": "problem/CodeChefNewProblemParser",
+  "parser": "CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Minimum Deletions",

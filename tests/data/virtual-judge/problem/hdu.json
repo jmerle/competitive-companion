@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/HDU-3642",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Get The Treasury",
     "group": "Virtual Judge - HDU",

@@ -1,6 +1,6 @@
 {
   "url": "https://www.acmicpc.net/workbook/view/1587",
-  "parser": "contest/BaekjoonOnlineJudgeContestParser",
+  "parser": "BaekjoonOnlineJudgeContestParser",
   "result": [
     {
       "name": "휴가",

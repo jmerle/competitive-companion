@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/Gym-101375G",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "MaratonIME does a competition",
     "group": "Virtual Judge - Gym",

@@ -1,6 +1,6 @@
 {
   "url": "https://toph.co/p/partition-magic",
-  "parser": "problem/TophProblemParser",
+  "parser": "TophProblemParser",
   "result": {
     "name": "Partition Magic",
     "group": "Toph",

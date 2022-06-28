@@ -1,6 +1,6 @@
 {
   "url": "https://cses.fi/problemset/task/1094",
-  "parser": "problem/CSESProblemParser",
+  "parser": "CSESProblemParser",
   "result": {
     "name": "Increasing Array",
     "group": "CSES - CSES Problem Set",

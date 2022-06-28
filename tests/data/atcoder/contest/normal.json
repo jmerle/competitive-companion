@@ -1,6 +1,6 @@
 {
   "url": "https://atcoder.jp/contests/abc096/tasks",
-  "parser": "contest/AtCoderContestParser",
+  "parser": "AtCoderContestParser",
   "result": [
     {
       "name": "A - Day of Takahashi",

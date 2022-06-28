@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/EOlymp-1626",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Hide That Number",
     "group": "Virtual Judge - EOlymp",

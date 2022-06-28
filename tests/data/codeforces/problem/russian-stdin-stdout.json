@@ -1,6 +1,6 @@
 {
   "url": "https://codeforces.com/problemset/problem/954/G?locale=ru",
-  "parser": "problem/CodeforcesProblemParser",
+  "parser": "CodeforcesProblemParser",
   "result": {
     "name": "G. Оборона крепости",
     "group": "Codeforces - Educational Codeforces Round 40 (рейтинговый для Див. 2)",

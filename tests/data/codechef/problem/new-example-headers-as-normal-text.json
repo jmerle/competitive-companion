@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/submit/FCTRL2",
-  "parser": "problem/CodeChefNewProblemParser",
+  "parser": "CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Small factorials",

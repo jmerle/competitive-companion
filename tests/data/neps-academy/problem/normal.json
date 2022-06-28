@@ -1,6 +1,6 @@
 {
   "url": "https://neps.academy/exercise/134",
-  "parser": "problem/NepsAcademyProblemParser",
+  "parser": "NepsAcademyProblemParser",
   "result": {
     "name": "Easy Sum",
     "group": "Neps Academy",

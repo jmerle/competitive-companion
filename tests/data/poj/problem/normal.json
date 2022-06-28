@@ -1,6 +1,6 @@
 {
   "url": "http://poj.org/problem?id=1000",
-  "parser": "problem/POJProblemParser",
+  "parser": "POJProblemParser",
   "result": {
     "name": "A+B Problem",
     "group": "POJ",

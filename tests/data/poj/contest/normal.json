@@ -1,6 +1,6 @@
 {
   "url": "http://poj.org/showcontest?contest_id=1525",
-  "parser": "contest/POJContestParser",
+  "parser": "POJContestParser",
   "result": [
     {
       "name": "A+B Problem",

@@ -1,6 +1,6 @@
 {
   "url": "https://jutge.org/problems/P75481_es",
-  "parser": "problem/JutgeProblemParser",
+  "parser": "JutgeProblemParser",
   "result": {
     "name": "Adivina un número (Interactivo)",
     "group": "Jutge",

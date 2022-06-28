@@ -1,6 +1,6 @@
 {
   "url": "https://uoj.ac/problem/1",
-  "parser": "problem/UOJProblemParser",
+  "parser": "UOJProblemParser",
   "result": {
     "name": "#1. A + B Problem",
     "group": "UOJ",

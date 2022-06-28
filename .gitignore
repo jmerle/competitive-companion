@@ -115,7 +115,8 @@ dist
 .pnp.*
 
 # Generated files
-build/
+build-extension/
+build-test/
 dist/
 
 # NPM (Yarn is used)

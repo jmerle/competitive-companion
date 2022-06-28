@@ -1,6 +1,6 @@
 {
   "url": "https://codeforces.com/problemset/problem/707/A?locale=en",
-  "parser": "problem/CodeforcesProblemParser",
+  "parser": "CodeforcesProblemParser",
   "result": {
     "name": "A. Brain's Photos",
     "group": "Codeforces - Codeforces Round #368 (Div. 2)",

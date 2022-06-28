@@ -1,6 +1,6 @@
 {
   "url": "https://acm.hdu.edu.cn/contests/contest_show.php?cid=26",
-  "parser": "contest/HDOJContestParser",
+  "parser": "HDOJContestParser",
   "result": [
     {
       "name": "Lowest Common Multiple Plus",

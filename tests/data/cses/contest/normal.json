@@ -1,6 +1,6 @@
 {
   "url": "https://cses.fi/241/list/",
-  "parser": "contest/CSESContestParser",
+  "parser": "CSESContestParser",
   "result": [
     {
       "name": "Distance Code",

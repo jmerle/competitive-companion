@@ -1,6 +1,6 @@
 {
   "url": "https://a2oj.com/p?ID=1",
-  "parser": "problem/A2OnlineJudgeProblemParser",
+  "parser": "A2OnlineJudgeProblemParser",
   "result": {
     "name": "1. Omar",
     "group": "A2 Online Judge",

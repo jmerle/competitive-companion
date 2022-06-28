@@ -1,6 +1,6 @@
 {
   "url": "https://uoj.ac/contest/50",
-  "parser": "contest/UOJContestParser",
+  "parser": "UOJContestParser",
   "result": [
     {
       "name": "A. 新年的促销",

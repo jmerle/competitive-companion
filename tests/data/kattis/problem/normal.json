@@ -1,6 +1,6 @@
 {
   "url": "https://open.kattis.com/problems/twostones",
-  "parser": "problem/KattisProblemParser",
+  "parser": "KattisProblemParser",
   "result": {
     "name": "Take Two Stones",
     "group": "Kattis",

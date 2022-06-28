@@ -1,6 +1,6 @@
 {
   "url": "https://www.spoj.com/problems/LASTDIG/",
-  "parser": "problem/SPOJProblemParser",
+  "parser": "SPOJProblemParser",
   "result": {
     "name": "The last digit",
     "group": "SPOJ - Classical",

@@ -1,6 +1,6 @@
 {
   "url": "https://wcipeg.com/problem/wc174s4",
-  "parser": "problem/PEGJudgeProblemParser",
+  "parser": "PEGJudgeProblemParser",
   "result": {
     "name": "Problem 4: Alpha Nerd",
     "group": "PEG Judge - Woburn Challenge 2017-18 Round 4 - Senior Division",

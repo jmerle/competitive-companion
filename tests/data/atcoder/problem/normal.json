@@ -1,6 +1,6 @@
 {
   "url": "https://atcoder.jp/contests/abc096/tasks/abc096_a",
-  "parser": "problem/AtCoderProblemParser",
+  "parser": "AtCoderProblemParser",
   "result": {
     "name": "A - Day of Takahashi",
     "group": "AtCoder - AtCoder Beginner Contest 096",

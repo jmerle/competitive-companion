@@ -1,6 +1,6 @@
 {
   "url": "https://codeforces.com/problemsets/acmsguru/problem/99999/123?locale=en",
-  "parser": "problem/CodeforcesProblemParser",
+  "parser": "CodeforcesProblemParser",
   "result": {
     "name": "123. The sum",
     "group": "Codeforces - acm.sgu.ru archive",

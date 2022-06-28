@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/KQ102018/problems/QM10B",
-  "parser": "problem/CodeChefOldProblemParser",
+  "parser": "CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Total Graphs (keteki)",

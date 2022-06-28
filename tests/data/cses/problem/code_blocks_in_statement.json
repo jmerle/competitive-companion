@@ -1,6 +1,6 @@
 {
   "url": "https://cses.fi/problemset/task/1729",
-  "parser": "problem/CSESProblemParser",
+  "parser": "CSESProblemParser",
   "result": {
     "name": "Stick Game",
     "group": "CSES - CSES Problem Set",

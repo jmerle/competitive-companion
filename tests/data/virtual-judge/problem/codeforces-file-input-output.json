@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/CodeForces-234A",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Lefthanders and Righthanders",
     "group": "Virtual Judge - CodeForces",

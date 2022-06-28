@@ -1,6 +1,6 @@
 {
   "url": "https://neps.academy/br/course/introduction-to-programming/lesson/easy-sum",
-  "parser": "problem/NepsAcademyProblemParser",
+  "parser": "NepsAcademyProblemParser",
   "result": {
     "name": "Soma Fácil",
     "group": "Neps Academy",

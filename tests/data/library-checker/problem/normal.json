@@ -1,6 +1,6 @@
 {
   "url": "https://judge.yosupo.jp/problem/aplusb",
-  "parser": "problem/LibraryCheckerProblemParser",
+  "parser": "LibraryCheckerProblemParser",
   "before": "beforeLibraryChecker",
   "result": {
     "name": "A + B",

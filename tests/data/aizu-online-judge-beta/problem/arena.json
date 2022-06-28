@@ -1,6 +1,6 @@
 {
   "url": "https://onlinejudge.u-aizu.ac.jp/services/room.html#KUPC2020Spring/problems/C",
-  "parser": "problem/AizuOnlineJudgeBetaProblemParser",
+  "parser": "AizuOnlineJudgeBetaProblemParser",
   "before": "beforeAizuOnlineJudgeBetaArena",
   "result": {
     "name": "C: サボテンクエリ",

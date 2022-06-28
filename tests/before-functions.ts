@@ -1,6 +1,6 @@
-import { Page } from 'playwright';
+import { Page } from 'puppeteer';
 
-export default {
+export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } = {
   async beforeAizuOnlineJudge(page: Page): Promise<void> {
     await page.waitForFunction('document.querySelector("#problemTitle").textContent.length > 0');
   },

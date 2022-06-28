@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/HRBUST-1743",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Word Search",
     "group": "Virtual Judge - HRBUST",

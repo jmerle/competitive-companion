@@ -1,6 +1,6 @@
 {
   "url": "https://codeforces.com/problemset/problem/1220/C?locale=en",
-  "parser": "problem/CodeforcesProblemParser",
+  "parser": "CodeforcesProblemParser",
   "result": {
     "name": "C. Substring Game in the Lesson",
     "group": "Codeforces - Codeforces Round #586 (Div. 1 + Div. 2)",

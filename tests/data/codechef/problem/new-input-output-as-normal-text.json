@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/submit/TRISQ",
-  "parser": "problem/CodeChefNewProblemParser",
+  "parser": "CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Fit Squares in Triangle",

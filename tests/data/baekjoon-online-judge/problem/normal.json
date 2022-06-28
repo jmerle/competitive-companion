@@ -1,6 +1,6 @@
 {
   "url": "https://www.acmicpc.net/problem/1008",
-  "parser": "problem/BaekjoonOnlineJudgeProblemParser",
+  "parser": "BaekjoonOnlineJudgeProblemParser",
   "result": {
     "name": "A/B",
     "group": "Baekjoon Online Judge",

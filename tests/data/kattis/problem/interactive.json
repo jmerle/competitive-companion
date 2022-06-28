@@ -1,6 +1,6 @@
 {
   "url": "https://open.kattis.com/problems/guess",
-  "parser": "problem/KattisProblemParser",
+  "parser": "KattisProblemParser",
   "result": {
     "name": "Guess the Number",
     "group": "Kattis",

@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/CodeChef-TRIPS",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Children Trips",
     "group": "Virtual Judge - CodeChef",

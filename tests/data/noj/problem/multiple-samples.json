@@ -1,6 +1,6 @@
 {
   "url": "https://acm.njupt.edu.cn/problem/GYM103389I",
-  "parser": "problem/NOJProblemParser",
+  "parser": "NOJProblemParser",
   "before": "beforeNOJ",
   "result": {
     "name": "驾驶卡丁车",

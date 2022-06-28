@@ -1,6 +1,3 @@
-/// <reference types="jest-playwright-preset" />
-/// <reference types="expect-playwright" />
-
 (global as any).chrome = {
   runtime: {
     id: 'dev',
@@ -9,72 +6,65 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import fetch from 'cross-fetch';
-import { JSDOM } from 'jsdom';
+import * as process from 'process';
+import { createPool, Pool } from 'generic-pool';
+import { Browser, launch, Page } from 'puppeteer';
 import { Contest } from '../src/models/Contest';
+import { Sendable } from '../src/models/Sendable';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
+import { beforeFunctions } from './before-functions';
 
-const parserFunctions = require('./parser-functions').default;
-
-export interface ParserTestData {
-  name?: string;
-  before?: string;
+interface TestData {
   url: string;
   parser: string;
+  before?: string;
   result: Task | Task[];
 }
 
-function getWebsites(): string[] {
-  const directory = path.resolve(__dirname, 'data/');
+const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/expose-parsers.js'), {
+  encoding: 'utf-8',
+});
 
-  return fs.readdirSync(directory).filter(file => fs.statSync(path.join(directory, file)).isDirectory());
-}
+async function runTest(pagePool: Pool<Page>, data: TestData): Promise<void> {
+  const page = await pagePool.acquire();
+  let result: Sendable;
 
-async function runTest(data: ParserTestData): Promise<void> {
-  const parserObj = require(`../src/parsers/${data.parser}`);
-  const parserClass = parserObj[Object.keys(parserObj)[0]];
-  const parser: Parser = new parserClass();
+  try {
+    await page.goto(data.url, { timeout: 15000 });
 
-  await page.goto(data.url, {
-    timeout: 15000,
-  });
+    if (data.before) {
+      await beforeFunctions[data.before](page);
+    }
 
-  if (data.before) {
-    await parserFunctions[data.before](page);
+    await page.evaluate(exposeParsersScript);
+
+    result = await page.evaluate(parserName => {
+      const url = window.location.href;
+      const html = document.documentElement.outerHTML;
+
+      const parser: Parser = (window as any)[parserName];
+
+      if (!parser.getRegularExpressions().some(r => r.test(url))) {
+        throw new Error(`parser.getRegularExpressions() returns no regular expressions matching ${url}`);
+      }
+
+      if (parser.getExcludedRegularExpressions().some(r => r.test(url))) {
+        throw new Error(`parser.getExcludedRegularExpressions() returns a regular expressions matching ${url}`);
+      }
+
+      if (!parser.canHandlePage()) {
+        throw new Error(`parser.canHandlePage() returns false`);
+      }
+
+      return parser.parse(url, html);
+    }, data.parser);
+  } finally {
+    await pagePool.destroy(page);
   }
 
-  const html = await page.content();
-  const url = page.url();
-  const dom = new JSDOM(html, { url });
-
-  (global as any).window = {
-    ...dom.window,
-    nanoBar: {
-      go: (): void => {
-        //
-      },
-    },
-  };
-
-  (global as any).DOMParser = function (): any {
-    this.parseFromString = (source: string): Document => {
-      return new JSDOM(source, { url }).window.document;
-    };
-  };
-
-  (global as any).fetch = fetch;
-  (global as any).Node = dom.window.Node;
-  (global as any).document = dom.window.document;
-
-  expect(parser.getRegularExpressions().some(r => r.test(url))).toBeTruthy();
-  expect(parser.getExcludedRegularExpressions().some(r => r.test(url))).toBeFalsy();
-  expect(parser.canHandlePage()).toBeTruthy();
-
-  const result = await parser.parse(url, html);
-
   const expectedContest = Array.isArray(data.result);
-  const resultContest = result instanceof Contest;
+  const resultContest = (result as Contest).tasks !== undefined;
   expect(resultContest).toBe(expectedContest);
 
   const tasksToCheck: [Task, Task][] = [];
@@ -108,43 +98,42 @@ async function runTest(data: ParserTestData): Promise<void> {
   }
 }
 
-function runTests(website: string, type: string): void {
-  const directory = path.resolve(__dirname, `data/${website}/${type}/`);
+let browser: Browser;
+let pagePool: Pool<Page>;
 
-  if (!fs.existsSync(directory)) {
-    return;
-  }
-
-  const tests: ParserTestData[] = fs
-    .readdirSync(directory)
-    .map(file => path.join(directory, file))
-    .filter(file => fs.statSync(file).isFile())
-    .map(file => {
-      const data: ParserTestData = require(file);
-
-      data.name = path.basename(file, '.json');
-
-      data.result = Array.isArray(data.result)
-        ? data.result.map((t: any) => Task.fromJSON(JSON.stringify(t)))
-        : Task.fromJSON(JSON.stringify(data.result));
-
-      return data;
-    });
-
-  describe(type, () => {
-    tests.forEach(data => {
-      test(data.name, () => {
-        return runTest(data);
-      });
-    });
+beforeAll(async () => {
+  browser = await launch({
+    headless: process.env.HEADLESS !== 'false',
   });
-}
 
-jest.setTimeout(30000);
-
-getWebsites().forEach(website => {
-  describe(website, () => {
-    runTests(website, 'problem');
-    runTests(website, 'contest');
-  });
+  pagePool = createPool<Page>(
+    {
+      create: async () => {
+        const context = await browser.createIncognitoBrowserContext();
+        return context.newPage();
+      },
+      destroy: page => page.close(),
+    },
+    {
+      min: 0,
+      max: process.env.HEADLESS !== 'false' ? 8 : 1,
+    },
+  );
 });
+
+afterAll(async () => {
+  await browser.close();
+});
+
+for (const website of fs.readdirSync(path.resolve(__dirname, 'data'))) {
+  for (const category of fs.readdirSync(path.resolve(__dirname, 'data', website))) {
+    for (const file of fs.readdirSync(path.resolve(__dirname, 'data', website, category))) {
+      const testName = `${website}/${category}/${file.substring(0, file.length - 5)}`;
+
+      const filePath = path.resolve(__dirname, 'data', website, category, file);
+      const data = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf-8' }));
+
+      test.concurrent(testName, () => runTest(pagePool, data));
+    }
+  }
+}

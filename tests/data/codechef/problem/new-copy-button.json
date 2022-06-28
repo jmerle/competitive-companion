@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/submit/BUS",
-  "parser": "problem/CodeChefNewProblemParser",
+  "parser": "CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Bus full of passengers",

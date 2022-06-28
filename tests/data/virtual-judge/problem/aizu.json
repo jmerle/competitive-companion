@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/Aizu-ALDS1_1_C",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Prime Numbers",
     "group": "Virtual Judge - Aizu",

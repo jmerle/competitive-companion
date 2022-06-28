@@ -1,6 +1,6 @@
 {
   "url": "http://www.usaco.org/index.php?page=viewproblem2&cpid=552",
-  "parser": "problem/USACOProblemParser",
+  "parser": "USACOProblemParser",
   "result": {
     "name": "Problem 1. Googol",
     "group": "USACO - USACO 2015 US Open, Gold",

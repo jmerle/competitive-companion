@@ -1,6 +1,6 @@
 {
   "url": "https://buctcoder.com/problem.php?id=1150",
-  "parser": "problem/BUCTOJProblemParser",
+  "parser": "BUCTOJProblemParser",
   "result": {
     "name": "1150: LED Test",
     "group": "BUCTOJ",

@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/SPOJ-LCMSUM",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "LCM Sum",
     "group": "Virtual Judge - SPOJ",

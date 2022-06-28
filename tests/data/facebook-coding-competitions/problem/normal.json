@@ -1,6 +1,6 @@
 {
   "url": "https://www.facebook.com/codingcompetitions/hacker-cup/2019/qualification-round/problems/A",
-  "parser": "problem/FacebookCodingCompetitionsProblemParser",
+  "parser": "FacebookCodingCompetitionsProblemParser",
   "before": "beforeFacebookCodingCompetitions",
   "result": {
     "name": "A: Leapfrog: Ch. 1",

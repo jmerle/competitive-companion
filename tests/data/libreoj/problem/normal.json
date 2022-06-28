@@ -1,6 +1,6 @@
 {
   "url": "https://loj.ac/p/1",
-  "parser": "problem/LibreOJProblemParser",
+  "parser": "LibreOJProblemParser",
   "before": "beforeLibreOJProblem",
   "result": {
     "name": "#1. A + B Problem",

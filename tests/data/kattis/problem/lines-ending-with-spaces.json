@@ -1,6 +1,6 @@
 {
   "url": "https://open.kattis.com/problems/ads",
-  "parser": "problem/KattisProblemParser",
+  "parser": "KattisProblemParser",
   "result": {
     "name": "Ads",
     "group": "Kattis",

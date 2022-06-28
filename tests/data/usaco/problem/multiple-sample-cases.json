@@ -1,6 +1,6 @@
 {
   "url": "http://usaco.org/index.php?page=viewproblem2&cpid=1044",
-  "parser": "problem/USACOProblemParser",
+  "parser": "USACOProblemParser",
   "result": {
     "name": "Problem 1. Sprinklers 2: Return of the Alfalfa",
     "group": "USACO - USACO 2020 US Open Contest, Platinum",

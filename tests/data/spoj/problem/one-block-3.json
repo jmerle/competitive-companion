@@ -1,6 +1,6 @@
 {
   "url": "https://www.spoj.com/problems/LOCKER/",
-  "parser": "problem/SPOJProblemParser",
+  "parser": "SPOJProblemParser",
   "result": {
     "name": "Magic of the locker",
     "group": "SPOJ - Classical",

@@ -1,6 +1,6 @@
 {
   "url": "http://golf.shinh.org/p.rb?digit+sum+until+no+change",
-  "parser": "problem/AnarchyGolfProblemParser",
+  "parser": "AnarchyGolfProblemParser",
   "result": {
     "name": "digit sum until no change",
     "group": "Anarchy Golf",

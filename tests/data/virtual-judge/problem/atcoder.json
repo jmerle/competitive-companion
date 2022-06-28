@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/AtCoder-arc083_b",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Restoring Road Network",
     "group": "Virtual Judge - AtCoder",

@@ -1,6 +1,6 @@
 {
   "url": "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_A&lang=ja",
-  "parser": "problem/AizuOnlineJudgeProblemParser",
+  "parser": "AizuOnlineJudgeProblemParser",
   "before": "beforeAizuOnlineJudge",
   "result": {
     "name": "Projection",

@@ -1,6 +1,6 @@
 {
   "url": "https://libreoj.github.io/contest/25/",
-  "parser": "contest/LibreOJContestParser",
+  "parser": "LibreOJContestParser",
   "result": [
     {
       "name": "A. A + B Problem",

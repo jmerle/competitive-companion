@@ -1,6 +1,6 @@
 {
   "url": "https://hydro.ac/p/H1000",
-  "parser": "problem/HydroProblemParser",
+  "parser": "HydroProblemParser",
   "result": {
     "name": "#H1000. A + B Problem",
     "group": "Hydro",

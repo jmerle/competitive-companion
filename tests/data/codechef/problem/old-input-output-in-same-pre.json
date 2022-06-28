@@ -1,6 +1,6 @@
 {
   "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
-  "parser": "problem/CodeChefOldProblemParser",
+  "parser": "CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Magic Elements",

@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/POJ-2391",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Ombrophobic Bovines",
     "group": "Virtual Judge - POJ",

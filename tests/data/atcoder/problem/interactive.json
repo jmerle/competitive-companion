@@ -1,6 +1,6 @@
 {
   "url": "https://atcoder.jp/contests/arc070/tasks/arc070_d",
-  "parser": "problem/AtCoderProblemParser",
+  "parser": "AtCoderProblemParser",
   "result": {
     "name": "F - HonestOrUnkind",
     "group": "AtCoder - AtCoder Regular Contest 070",

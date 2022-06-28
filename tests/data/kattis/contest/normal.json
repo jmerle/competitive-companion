@@ -1,6 +1,6 @@
 {
   "url": "https://open.kattis.com/contests/nhty9t/problems",
-  "parser": "contest/KattisContestParser",
+  "parser": "KattisContestParser",
   "result": [
     {
       "name": "Problem A - Oktalni",

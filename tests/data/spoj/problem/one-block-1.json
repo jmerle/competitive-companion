@@ -1,6 +1,6 @@
 {
   "url": "https://www.spoj.com/problems/TEST/",
-  "parser": "problem/SPOJProblemParser",
+  "parser": "SPOJProblemParser",
   "result": {
     "name": "Life, the Universe, and Everything",
     "group": "SPOJ - Classical",

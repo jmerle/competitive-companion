@@ -1,6 +1,6 @@
 {
   "url": "https://jutge.org/problems/P14130_en",
-  "parser": "problem/JutgeProblemParser",
+  "parser": "JutgeProblemParser",
   "result": {
     "name": "Equal to the last one",
     "group": "Jutge",

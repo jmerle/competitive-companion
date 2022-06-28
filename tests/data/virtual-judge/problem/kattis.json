@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/Kattis-dasblinkenlights",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Das Blinkenlights",
     "group": "Virtual Judge - Kattis",

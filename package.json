@@ -8,21 +8,22 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --mode=production",
-    "build:dev": "webpack --mode=development",
+    "build": "cross-env WEBPACK_PROFILE=extension webpack --mode=production",
+    "build:dev": "cross-env WEBPACK_PROFILE=extension webpack --mode=development",
+    "build:test": "cross-env WEBPACK_PROFILE=test webpack --mode=development",
     "watch": "yarn build:dev --watch",
-    "package": "yarn build && web-ext build -s build/ -a dist/ -o",
+    "package": "yarn build && web-ext build -s build-extension/ -a dist/ -o",
     "generate-banners": "ts-node scripts/generate-banners.ts",
     "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:package",
-    "lint:eslint": "eslint --format codeframe 'src/**' 'tests/**' 'scripts/**' webpack.config.ts",
-    "lint:prettier": "prettier --check --ignore-path .gitignore '**/*.{ts,html,yml,json}'",
-    "lint:package": "yarn build && web-ext lint -s build/ -o text",
+    "lint:eslint": "eslint --format codeframe 'src/**' 'tests/**' 'scripts/**' jest.config.js webpack.config.ts",
+    "lint:prettier": "prettier --check --ignore-path .gitignore '**/*.{ts,js,html,yml,json}'",
+    "lint:package": "yarn build && web-ext lint -s build-extension/ -o text",
     "fix": "yarn fix:eslint && yarn fix:prettier",
     "fix:eslint": "yarn lint:eslint --fix",
-    "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,html,yml,json}'",
-    "test": "jest",
-    "test:no-headless": "cross-env HEADLESS=false jest",
-    "test:coverage": "jest --coverage",
+    "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,js,html,yml,json}'",
+    "test": "yarn build:test && jest",
+    "test:no-headless": "cross-env HEADLESS=false yarn test",
+    "test:coverage": "yarn test --coverage",
     "start:firefox": "web-ext run -s build/ --start-url https://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
     "start:chrome": "ts-node scripts/start-chrome.ts",
     "dev:firefox": "yarn build:dev && concurrently 'yarn start:firefox' 'yarn watch' -n web-ext,webpack -c blue,yellow --kill-others",
@@ -36,39 +37,36 @@
     "webextension-polyfill-ts": "0.26.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.1",
-    "@types/jsdom": "^16.2.14",
+    "@types/jest": "^28.1.3",
     "@types/node": "^18.0.0",
     "@types/terser-webpack-plugin": "^5.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
-    "@typescript-eslint/parser": "^5.29.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
     "chrome-launcher": "^0.15.1",
     "concurrently": "^7.2.2",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
-    "cross-fetch": "^3.1.5",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-formatter-codeframe": "^7.32.1",
     "eslint-plugin-import": "^2.26.0",
-    "expect-playwright": "^0.8.0",
+    "fork-ts-checker-webpack-plugin": "^7.2.11",
+    "generic-pool": "^3.8.2",
     "husky": "4.3.8",
-    "jest": "^27.5.1",
-    "jest-playwright-preset": "^1.7.2",
-    "jsdom": "^20.0.0",
-    "lint-staged": "^13.0.2",
-    "playwright": "^1.20.2",
+    "jest": "^28.1.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "puppeteer": "^15.1.1",
     "string-replace-loader": "^3.1.0",
     "terser-webpack-plugin": "^5.3.3",
-    "ts-jest": "^27.1.4",
+    "ts-jest": "^28.0.5",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.4",
     "web-ext": "^7.1.0",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.8.0",
     "worker-loader": "^3.0.8"
   },
   "eslintConfig": {
@@ -143,15 +141,6 @@
           "checkLoops": false
         }
       ]
-    }
-  },
-  "jest": {
-    "preset": "jest-playwright-preset",
-    "collectCoverageFrom": [
-      "src/**/*.ts"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
     }
   },
   "husky": {

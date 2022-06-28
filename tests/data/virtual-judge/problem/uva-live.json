@@ -1,6 +1,6 @@
 {
   "url": "https://vjudge.net/problem/UVALive-3129",
-  "parser": "problem/VirtualJudgeProblemParser",
+  "parser": "VirtualJudgeProblemParser",
   "result": {
     "name": "Investment",
     "group": "Virtual Judge - UVALive",

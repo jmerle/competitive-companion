@@ -1,6 +1,6 @@
 {
   "url": "https://atcoder.jp/contests/colopl2018-final/tasks/colopl2018_final_a",
-  "parser": "problem/AtCoderProblemParser",
+  "parser": "AtCoderProblemParser",
   "result": {
     "name": "A - ファイティング・タカハシ",
     "group": "AtCoder - COLOCON -Colopl programming contest 2018- Final",

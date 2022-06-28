@@ -1,6 +1,6 @@
 {
   "url": "https://codeforces.com/contest/118?locale=en",
-  "parser": "contest/CodeforcesContestParser",
+  "parser": "CodeforcesContestParser",
   "result": [
     {
       "name": "A. String Task",

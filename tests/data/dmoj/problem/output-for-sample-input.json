@@ -1,6 +1,6 @@
 {
   "url": "https://dmoj.ca/problem/ccc16s4",
-  "parser": "problem/DMOJProblemParser",
+  "parser": "DMOJProblemParser",
   "result": {
     "name": "S4 - Combining Riceballs",
     "group": "DMOJ - CCC '16",
