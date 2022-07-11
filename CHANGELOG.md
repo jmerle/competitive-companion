@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of LightOJ problems
+
 ## [2.34.3](https://github.com/jmerle/competitive-companion/releases/tag/2.34.3) (2022-06-28)
 - Fixed the parsing of HackerEarth Codemonk problems
 - Fixed the parsing of CodeDrills problems when the browser is narrow
