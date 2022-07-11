@@ -6,10 +6,13 @@ export class TimusOnlineJudgeContestParser extends SimpleContestParser {
   protected problemParser = new TimusOnlineJudgeProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://acm.timus.ru/problemset.aspx*'];
+    return ['https://acm.timus.ru/problemset.aspx*', 'https://timus.online/problemset.aspx*'];
   }
 
   public getRegularExpressions(): RegExp[] {
-    return [/^https:\/\/acm[.]timus[.]ru\/problemset[.]aspx\?space=(\d+)(&locale=(en|ru))?$/];
+    return [
+      /^https:\/\/acm[.]timus[.]ru\/problemset[.]aspx\?space=(\d+)(&locale=(en|ru))?$/,
+      /^https:\/\/timus[.]online\/problemset[.]aspx\?space=(\d+)(&locale=(en|ru))?$/,
+    ];
   }
 }

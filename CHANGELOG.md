@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Fixed the parsing of LightOJ problems
+- Fixed the Timus Online Judge parser to work with the timus.online domain
 
 ## [2.34.3](https://github.com/jmerle/competitive-companion/releases/tag/2.34.3) (2022-06-28)
 - Fixed the parsing of HackerEarth Codemonk problems
