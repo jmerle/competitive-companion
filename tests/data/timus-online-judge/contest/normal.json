@@ -4,7 +4,7 @@
   "result": [
     {
       "name": "A. Timus problems classifier",
-      "group": "Timus",
+      "group": "Timus Online Judge",
       "url": "https://acm.timus.ru/problem.aspx?space=340&num=1",
       "interactive": false,
       "memoryLimit": 256,
@@ -31,7 +31,7 @@
     },
     {
       "name": "B. Take care of your eyebrows!",
-      "group": "Timus",
+      "group": "Timus Online Judge",
       "url": "https://acm.timus.ru/problem.aspx?space=340&num=2",
       "interactive": false,
       "memoryLimit": 256,
@@ -58,7 +58,7 @@
     },
     {
       "name": "C. Vasiana",
-      "group": "Timus",
+      "group": "Timus Online Judge",
       "url": "https://acm.timus.ru/problem.aspx?space=340&num=3",
       "interactive": false,
       "memoryLimit": 256,
@@ -85,7 +85,7 @@
     },
     {
       "name": "D. Reductions",
-      "group": "Timus",
+      "group": "Timus Online Judge",
       "url": "https://acm.timus.ru/problem.aspx?space=340&num=4",
       "interactive": false,
       "memoryLimit": 32,

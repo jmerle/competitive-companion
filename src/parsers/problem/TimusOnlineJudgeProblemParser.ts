@@ -10,7 +10,7 @@ export class TimusOnlineJudgeProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('Timus').setUrl(url);
+    const task = new TaskBuilder('Timus Online Judge').setUrl(url);
 
     task.setName(elem.querySelector('.problem_title').textContent);
 

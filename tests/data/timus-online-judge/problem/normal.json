@@ -3,7 +3,7 @@
   "parser": "TimusOnlineJudgeProblemParser",
   "result": {
     "name": "1098. Questions",
-    "group": "Timus",
+    "group": "Timus Online Judge",
     "url": "https://acm.timus.ru/problem.aspx?space=1&num=1098",
     "interactive": false,
     "memoryLimit": 64,

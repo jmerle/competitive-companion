@@ -91,7 +91,7 @@ A browser extension which parses competitive programming problems from various o
 | QDUOJ                      | ✔              | ✔              |
 | SPOJ                       | ✔              |                |
 | SSOIER                     | ✔              |                |
-| Timus                      | ✔              | ✔              |
+| Timus Online Judge         | ✔              | ✔              |
 | TLX                        | ✔              |                |
 | Toph                       | ✔              |                |
 | UOJ                        | ✔              | ✔              |
