@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.34.4](https://github.com/jmerle/competitive-companion/releases/tag/2.34.4) (2022-07-11)
 - Fixed the parsing of LightOJ problems
 - Fixed the Timus Online Judge parser to work with the timus.online domain
 
