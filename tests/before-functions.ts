@@ -14,7 +14,7 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
   },
 
   async beforeCodeChefNew(page: Page): Promise<void> {
-    await page.waitForSelector('div[class^="ProblemStatementView_problem-statement__inner__container__"]');
+    await page.waitForSelector('div[class^="_problem-statement__inner__container_"]');
   },
 
   async beforeCodeChefOld(page: Page): Promise<void> {

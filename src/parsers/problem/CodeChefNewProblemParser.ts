@@ -12,9 +12,9 @@ export class CodeChefNewProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CodeChef').setUrl(url);
 
-    task.setName(elem.querySelector('div[class^="TopBanner_problem__title__"] > span').textContent);
+    task.setName(elem.querySelector('div[class^="_problem__title_"] > span').textContent);
 
-    const contestLink = elem.querySelector('a[class^="TopBanner_contest__link__"]');
+    const contestLink = elem.querySelector('a[class^="_contest__link_"]');
     if (contestLink !== null) {
       task.setCategory(contestLink.childNodes[0].textContent.trim());
     } else {
@@ -23,7 +23,7 @@ export class CodeChefNewProblemParser extends Parser {
 
     task.setInteractive(html.includes('This is an interactive problem'));
 
-    elem.querySelectorAll('div[class^="MarkdownPreview_input_output__table__"]').forEach(table => {
+    elem.querySelectorAll('div[class^="_input_output__table_"]').forEach(table => {
       const blocks = table.querySelectorAll('pre');
       task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
@@ -35,7 +35,7 @@ export class CodeChefNewProblemParser extends Parser {
       }
     }
 
-    const timeLimitStr = elem.querySelector('div[class^="ProblemStatementView_more-info__container__"]').textContent;
+    const timeLimitStr = elem.querySelector('div[class^="_more-info__container_"]').textContent;
     task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) secs/.exec(timeLimitStr)[1]) * 1000));
 
     task.setMemoryLimit(256);
