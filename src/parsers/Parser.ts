@@ -53,8 +53,8 @@ export abstract class Parser {
   /**
    * Fetches a url using a GET request and resolves into the HTML body.
    */
-  protected async fetch(url: string): Promise<string> {
-    const response = await fetch(url, { credentials: 'include' });
+  protected async fetch(url: string, options: RequestInit = {}): Promise<string> {
+    const response = await fetch(url, { credentials: 'include', ...options });
 
     if (response.ok && response.status === 200) {
       return response.text();

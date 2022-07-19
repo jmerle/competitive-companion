@@ -90,6 +90,7 @@ import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
 import { TLXProblemParser } from './problem/TLXProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
+import { UDebugProblemParser } from './problem/UDebugProblemParser';
 import { UOJProblemParser } from './problem/UOJProblemParser';
 import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
@@ -240,6 +241,8 @@ export const parsers: Parser[] = [
   new TLXProblemParser(),
 
   new TophProblemParser(),
+
+  new UDebugProblemParser(),
 
   new UOJProblemParser(),
   new UOJContestParser(),

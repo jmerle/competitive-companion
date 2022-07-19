@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Added support for uDebug
 - Fixed the parsing of CodeChef problems on its new problem page
 
 ## [2.34.4](https://github.com/jmerle/competitive-companion/releases/tag/2.34.4) (2022-07-11)

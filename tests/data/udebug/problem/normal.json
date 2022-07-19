@@ -1,0 +1,39 @@
+{
+  "url": "https://www.udebug.com/UVa/199",
+  "parser": "UDebugProblemParser",
+  "result": {
+    "name": "Partial Differential Equations",
+    "group": "uDebug - UVa Online Judge",
+    "url": "https://www.udebug.com/UVa/199",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1\n4\n-6 6 3\n-3 -9 4\n4 -9 -8\n-9 0 -3\n-6 -6 -3\n-7 3 9\n0 -1 -6 -9 -2\n-6 4 -2 7 -2\n0 2 -5 -2 -6\n-2 4 3 -4 -2\n-1 -1 -8 6 -3\n2 2 1 -2 -2\n7 5 -2 0 4\n-6 5 -7 0 1\n2 8 7 -9 9\n",
+        "output": "-144 64 0 -144 -128 0 0 0 0\n-48 -144 64 64 -144 -128 0 0 0\n0 -48 -144 0 64 -144 0 0 0\n96 48 0 -144 64 0 -144 -128 0\n-96 96 48 -48 -144 64 64 -144 -128\n0 -96 96 0 -48 -144 0 64 -144\n0 0 0 96 48 0 -144 64 0\n0 0 0 -96 96 48 -48 -144 64\n0 0 0 0 -96 96 0 -48 -144\n-686 178 15 -653 -86 567 -1253 -2101 -1518\n"
+      },
+      {
+        "input": "1\n3\n1 0 2\n0 -4 0\n3 0 4\n0 5 0\n6 0 7\n0 8 0\n3 4 5 6\n0 1 2 3\n3 2 1 0\n6 5 4 3\n1 1 1 1\n2 2 2 2\n3 3 3 3\n4 4 4 4\n",
+        "output": "-36 0 0 36\n0 -36 27 0\n0 18 -36 0\n9 0 0 -36\n-35 -188 -189 -315\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "PartialDifferentialEquations"
+      }
+    },
+    "batch": {
+      "id": "c05666ce-13dd-40b4-ac27-a042c2adcb5c",
+      "size": 1
+    }
+  }
+}
