@@ -50,7 +50,7 @@ export abstract class ContestParser<T> extends Parser {
         [
           `Competitive Companion's ${this.constructor.name} failed to parse ${failedMessage}.`,
           `The remaining ${successMessage} successfully.`,
-          'Please open an issue at https://github.com/jmerle/competitive-companion/issues if you think this is a bug.',
+          'Please open an issue at https://github.com/jmerle/competitive-companion/issues if you think this is a bug (make sure to include a link to this page).',
         ].join(' '),
       );
     }
