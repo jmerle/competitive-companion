@@ -1,53 +1,43 @@
-import { Task } from '../../models/Task';
+import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
-import { htmlToElement, markdownToHtml } from '../../utils/dom';
-import { ContestParser } from '../ContestParser';
-import { CodeChefOldProblemParser } from '../problem/CodeChefOldProblemParser';
+import { htmlToElement } from '../../utils/dom';
+import { Parser } from '../Parser';
 
-export class CodeChefContestParser extends ContestParser<string> {
+export class CodeChefNewProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.codechef.com/*'];
+    return ['https://www.codechef.com/submit/*'];
   }
 
-  public canHandlePage(): boolean {
-    return document.querySelector('.cc-problem-name a') !== null;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected async getTasksToParse(html: string, url: string): Promise<string[]> {
+  public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const contestId = new URL(url).pathname.split('/').pop();
+    const task = new TaskBuilder('CodeChef').setUrl(url);
 
-    return [...elem.querySelectorAll<HTMLLinkElement>('.cc-problem-name a')].map(el => {
-      const problemId = el.href.split('/').pop();
-      return `https://www.codechef.com/api/contests/${contestId}/problems/${problemId}`;
+    task.setName(elem.querySelector('div[class^="_problem__title_"] > span').textContent);
+
+    const contestLink = elem.querySelector('a[class^="_contest__link_"]');
+    if (contestLink !== null) {
+      task.setCategory(contestLink.childNodes[0].textContent.trim());
+    } else {
+      task.setCategory('Practice');
+    }
+
+    task.setInteractive(html.includes('This is an interactive problem'));
+
+    elem.querySelectorAll('div[class^="_input_output__table_"]').forEach(table => {
+      const blocks = table.querySelectorAll('pre');
+      task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
-  }
 
-  protected async parseTask(apiUrl: string): Promise<Task> {
-    const body = await this.fetch(apiUrl);
-    const model = JSON.parse(body);
-
-    const taskUrl = apiUrl.replace('www.codechef.com/api/contests/', 'www.codechef.com/');
-    const task = new TaskBuilder('CodeChef').setUrl(taskUrl);
-
-    task.setName(model.problem_name);
-    task.setCategory(model.contest_name);
-
-    task.setInteractive(model.body.includes('This is an interactive problem'));
-
-    for (const testCase of model.problemComponents.sampleTestCases) {
-      if (!testCase.isDeleted) {
-        task.addTest(testCase.input, testCase.output);
+    if (task.tests.length === 0) {
+      const blocks = [...elem.querySelectorAll('pre')];
+      for (let i = 0; i < blocks.length - 1; i += 2) {
+        task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
       }
     }
 
-    if (task.tests.length === 0) {
-      const body = markdownToHtml(model.body.replace(/(\r\n)/g, '\n'));
-      new CodeChefOldProblemParser().parseTests(body, task);
-    }
+    const timeLimitStr = elem.querySelector('div[class^="_more-info__container_"]').textContent;
+    task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) secs/.exec(timeLimitStr)[1]) * 1000));
 
-    task.setTimeLimit(parseFloat(model.max_timelimit) * 1000);
     task.setMemoryLimit(256);
 
     return task.build();
