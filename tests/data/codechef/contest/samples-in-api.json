@@ -5,7 +5,7 @@
   "result": [
     {
       "name": "Olympics Ranking",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/OLYRANK",
       "interactive": false,
       "memoryLimit": 256,
@@ -32,7 +32,7 @@
     },
     {
       "name": "Problem Difficulties",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/PROBDIFF",
       "interactive": false,
       "memoryLimit": 256,
@@ -59,7 +59,7 @@
     },
     {
       "name": "Chef and Bulb Invention",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/CHFINVNT",
       "interactive": false,
       "memoryLimit": 256,
@@ -86,7 +86,7 @@
     },
     {
       "name": "Special Triplets",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/SPCTRIPS",
       "interactive": false,
       "memoryLimit": 256,
@@ -113,7 +113,7 @@
     },
     {
       "name": "Array Filling",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/ARRFILL",
       "interactive": false,
       "memoryLimit": 256,
@@ -140,7 +140,7 @@
     },
     {
       "name": "Charge Scheduling",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/CHARGE",
       "interactive": false,
       "memoryLimit": 256,
@@ -167,7 +167,7 @@
     },
     {
       "name": "Geometry 1",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/GEO1",
       "interactive": false,
       "memoryLimit": 256,
@@ -194,7 +194,7 @@
     },
     {
       "name": "Fat Hut",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/FATHUT",
       "interactive": false,
       "memoryLimit": 256,
@@ -225,7 +225,7 @@
     },
     {
       "name": "Chef and Digits of Large Numbers",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/CDIGLNUM",
       "interactive": false,
       "memoryLimit": 256,
@@ -252,7 +252,7 @@
     },
     {
       "name": "Alternating LG Queries",
-      "group": "CodeChef - August Challenge 2021 Division 2 (Unrated)",
+      "group": "CodeChef - AUG21B",
       "url": "https://www.codechef.com/AUG21B/problems/ALTLG",
       "interactive": false,
       "memoryLimit": 256,

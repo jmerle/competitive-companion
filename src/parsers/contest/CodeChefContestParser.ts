@@ -32,7 +32,7 @@ export class CodeChefContestParser extends ContestParser<string> {
     const task = new TaskBuilder('CodeChef').setUrl(taskUrl);
 
     task.setName(model.problem_name);
-    task.setCategory(model.contest_name);
+    task.setCategory(model.contest_code);
 
     task.setInteractive(model.body.includes('This is an interactive problem'));
 

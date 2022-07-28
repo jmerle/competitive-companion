@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/submit/ZOZ",
+  "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
   "parser": "CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Magic Elements",
-    "group": "CodeChef - LTIME58",
-    "url": "https://www.codechef.com/submit/ZOZ",
+    "group": "CodeChef - LTIME58A",
+    "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 500,

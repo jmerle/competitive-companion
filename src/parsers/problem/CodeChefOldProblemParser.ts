@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class CodeChefOldProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.codechef.com/problems-old/*', 'https://www.codechef.com/*/problems/*'];
+    return ['https://www.codechef.com/problems-old/*', 'https://www.codechef.com/*/problems-old/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -15,13 +15,26 @@ export class CodeChefOldProblemParser extends Parser {
     const name = [...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0];
 
     task.setName(name);
-    task.setCategory([...elem.querySelectorAll('.breadcrumbs a')].pop().textContent);
+
+    const infoStr = elem.querySelector('.problem-info').textContent;
+
+    const contestIdFromPage = /Contest Code:\s+(\S+)/.exec(infoStr);
+    if (contestIdFromPage !== null) {
+      task.setCategory(contestIdFromPage[1]);
+    } else {
+      const contestIdFromUrl = /https:\/\/www\.codechef\.com\/([^/]+)\/problems-old\/([^/]+)/.exec(url);
+      if (contestIdFromUrl !== null) {
+        task.setCategory(contestIdFromUrl[1]);
+      } else {
+        task.setCategory('Practice');
+      }
+    }
+
     task.setInteractive(html.includes('This is an interactive problem'));
 
     this.parseTests(html, task);
 
-    const timeLimitStr = elem.querySelector('.problem-info').textContent;
-    task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) secs/.exec(timeLimitStr)[1]) * 1000));
+    task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) secs/.exec(infoStr)[1]) * 1000));
 
     task.setMemoryLimit(256);
 

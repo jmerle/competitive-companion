@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class CodeChefNewProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.codechef.com/submit/*'];
+    return ['https://www.codechef.com/problems/*', 'https://www.codechef.com/*/problems/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -14,11 +14,16 @@ export class CodeChefNewProblemParser extends Parser {
 
     task.setName(elem.querySelector('div[class^="_problem__title_"] > span').textContent);
 
-    const contestLink = elem.querySelector('a[class^="_contest__link_"]');
-    if (contestLink !== null) {
-      task.setCategory(contestLink.childNodes[0].textContent.trim());
+    const contestIdFromPage = elem.querySelector('a[class^="_contest__link_"]');
+    if (contestIdFromPage !== null) {
+      task.setCategory(contestIdFromPage.childNodes[0].textContent.trim());
     } else {
-      task.setCategory('Practice');
+      const contestIdFromUrl = /https:\/\/www\.codechef\.com\/([^/]+)\/problems\/([^/]+)/.exec(url);
+      if (contestIdFromUrl !== null) {
+        task.setCategory(contestIdFromUrl[1]);
+      } else {
+        task.setCategory('Practice');
+      }
     }
 
     task.setInteractive(html.includes('This is an interactive problem'));

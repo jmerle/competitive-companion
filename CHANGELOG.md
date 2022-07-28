@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of CodeChef problems
+- Updated the CodeChef parsers so that they all consistently use the shortened contest code in the group property
+
 ## [2.35.0](https://github.com/jmerle/competitive-companion/releases/tag/2.35.0) (2022-07-19)
 - Added support for uDebug
 - Fixed the parsing of CodeChef problems on its new problem page

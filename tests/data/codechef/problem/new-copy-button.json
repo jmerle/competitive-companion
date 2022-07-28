@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/submit/BUS",
+  "url": "https://www.codechef.com/problems/BUS",
   "parser": "CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Bus full of passengers",
     "group": "CodeChef - START9",
-    "url": "https://www.codechef.com/submit/BUS",
+    "url": "https://www.codechef.com/problems/BUS",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/submit/LAPIN",
+  "url": "https://www.codechef.com/problems/LAPIN",
   "parser": "CodeChefNewProblemParser",
   "before": "beforeCodeChefNew",
   "result": {
     "name": "Lapindromes",
     "group": "CodeChef - JUNE13",
-    "url": "https://www.codechef.com/submit/LAPIN",
+    "url": "https://www.codechef.com/problems/LAPIN",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

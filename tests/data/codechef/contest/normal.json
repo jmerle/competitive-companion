@@ -5,7 +5,7 @@
   "result": [
     {
       "name": "Magic Elements",
-      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "group": "CodeChef - LTIME58A",
       "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
       "interactive": false,
       "memoryLimit": 256,
@@ -32,7 +32,7 @@
     },
     {
       "name": "Three Integers",
-      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "group": "CodeChef - LTIME58A",
       "url": "https://www.codechef.com/LTIME58A/problems/AFK",
       "interactive": false,
       "memoryLimit": 256,
@@ -59,7 +59,7 @@
     },
     {
       "name": "Partitions",
-      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "group": "CodeChef - LTIME58A",
       "url": "https://www.codechef.com/LTIME58A/problems/ARRP",
       "interactive": false,
       "memoryLimit": 256,
@@ -86,7 +86,7 @@
     },
     {
       "name": "Queries with GCD",
-      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "group": "CodeChef - LTIME58A",
       "url": "https://www.codechef.com/LTIME58A/problems/GQR",
       "interactive": false,
       "memoryLimit": 256,
@@ -113,7 +113,7 @@
     },
     {
       "name": "Queries on Tree",
-      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "group": "CodeChef - LTIME58A",
       "url": "https://www.codechef.com/LTIME58A/problems/TRS",
       "interactive": false,
       "memoryLimit": 256,
@@ -140,7 +140,7 @@
     },
     {
       "name": "Chef and Friends",
-      "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
+      "group": "CodeChef - LTIME58A",
       "url": "https://www.codechef.com/LTIME58A/problems/FRK",
       "interactive": false,
       "memoryLimit": 256,

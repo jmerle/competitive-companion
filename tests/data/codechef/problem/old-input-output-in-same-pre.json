@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
+  "url": "https://www.codechef.com/LTIME58A/problems-old/ZOZ",
   "parser": "CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Magic Elements",
-    "group": "CodeChef - March Lunchtime 2018 Division 1 (Unrated)",
-    "url": "https://www.codechef.com/LTIME58A/problems/ZOZ",
+    "group": "CodeChef - LTIME58",
+    "url": "https://www.codechef.com/LTIME58A/problems-old/ZOZ",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 500,

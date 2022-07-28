@@ -1,11 +1,11 @@
 {
-  "url": "https://www.codechef.com/KQ102018/problems/QM10B",
+  "url": "https://www.codechef.com/KQ102018/problems-old/QM10B",
   "parser": "CodeChefOldProblemParser",
   "before": "beforeCodeChefOld",
   "result": {
     "name": "Total Graphs (keteki)",
-    "group": "CodeChef - Keteki Quick Match 10",
-    "url": "https://www.codechef.com/KQ102018/problems/QM10B",
+    "group": "CodeChef - KQ102018",
+    "url": "https://www.codechef.com/KQ102018/problems-old/QM10B",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,
