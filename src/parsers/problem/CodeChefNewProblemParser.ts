@@ -5,7 +5,12 @@ import { Parser } from '../Parser';
 
 export class CodeChefNewProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.codechef.com/problems/*', 'https://www.codechef.com/*/problems/*'];
+    return [
+      'https://www.codechef.com/problems/*',
+      'https://www.codechef.com/*/problems/*',
+      'https://www.codechef.com/submit/*',
+      'https://www.codechef.com/*/submit/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
