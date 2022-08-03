@@ -66,6 +66,10 @@ const commonConfig: webpack.Configuration = {
               search: 'eval("require")(this.workerSrc)',
               replace: 'null',
             },
+            {
+              search: /this\.editorDiv\.innerHTML/g,
+              replace: '_',
+            },
           ],
         },
       },
