@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.35.2](https://github.com/jmerle/competitive-companion/releases/tag/2.35.2) (2022-08-03)
 - Fixed the parsing of CodeChef problems on /submit/ URLs
 
 ## [2.35.1](https://github.com/jmerle/competitive-companion/releases/tag/2.35.1) (2022-07-29)
