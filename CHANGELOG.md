@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.35.3](https://github.com/jmerle/competitive-companion/releases/tag/2.35.3) (2022-08-08)
 - Fixed the parsing of Codeforces sample cases for sample cases using Codeforces's new highlighting feature
 
 ## [2.35.2](https://github.com/jmerle/competitive-companion/releases/tag/2.35.2) (2022-08-03)
