@@ -102,8 +102,17 @@ export class CodeforcesProblemParser extends Parser {
     const outputs = elem.querySelectorAll('.output pre');
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      task.addTest(decodeHtml(inputs[i].innerHTML), decodeHtml(outputs[i].innerHTML));
+      task.addTest(this.parseMainTestBlock(inputs[i]), this.parseMainTestBlock(outputs[i]));
     }
+  }
+
+  private parseMainTestBlock(block: Element): string {
+    const lines = block.querySelectorAll('.test-example-line');
+    if (lines.length === 0) {
+      return decodeHtml(block.innerHTML);
+    }
+
+    return [...lines].map(el => decodeHtml(el.innerHTML)).join('\n');
   }
 
   private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder): void {

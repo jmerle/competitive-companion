@@ -1,0 +1,31 @@
+{
+  "url": "https://codeforces.com/problemset/problem/1716/F?locale=en",
+  "parser": "CodeforcesProblemParser",
+  "result": {
+    "name": "F. Bags with Balls",
+    "group": "Codeforces - Educational Codeforces Round 133 (Rated for Div. 2)",
+    "url": "https://codeforces.com/problemset/problem/1716/F?locale=en",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 3000,
+    "tests": [
+      {
+        "input": "5\n2 3 8\n1 1 1\n1 5 10\n3 7 2000\n1337666 42424242 2000\n",
+        "output": "1028\n1\n3\n729229716\n652219904\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "FBagsWithBalls"
+      }
+    }
+  }
+}
