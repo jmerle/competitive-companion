@@ -21,7 +21,7 @@ export class ZOJProblemParser extends Parser {
     const memoryLimitStr = limits[2].textContent;
 
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10));
-    task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10));
+    task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10) / 1024);
 
     const blocks = container.querySelectorAll('.rendered-markdown > pre > code');
     for (let i = 0; i < blocks.length - 1; i += 2) {
