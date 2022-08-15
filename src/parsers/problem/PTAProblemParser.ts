@@ -12,11 +12,11 @@ export class PTAProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('PTA').setUrl(url);
 
-    const container = elem.querySelector('div[class^="main"]').querySelector('div[class^="left"]');
+    const container = elem.querySelector('div[class^="main"] div[class^="left"]');
 
     task.setName(container.querySelector('span.font-bold').textContent.trim());
 
-    const limits = container.querySelector('div[class*="problemInfo"]').querySelectorAll('.pc-text-raw');
+    const limits = container.querySelectorAll('div[class*="problemInfo"] .pc-text-raw');
     const timeLimitStr = limits[3].textContent;
     const memoryLimitStr = limits[5].textContent;
 

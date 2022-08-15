@@ -16,14 +16,14 @@ export class ZOJProblemParser extends Parser {
 
     task.setName(container.querySelector('div[class^="title"]').textContent.trim());
 
-    const limits = container.querySelector('div[class*="limitations"]').querySelectorAll('span');
+    const limits = container.querySelectorAll('div[class*="limitations"] span');
     const timeLimitStr = limits[0].textContent;
     const memoryLimitStr = limits[2].textContent;
 
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10));
     task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10) / 1024);
 
-    const blocks = container.querySelectorAll('.rendered-markdown > pre > code');
+    const blocks = container.querySelectorAll('.rendered-markdown > pre');
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }

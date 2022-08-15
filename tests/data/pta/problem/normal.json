@@ -1,0 +1,32 @@
+{
+  "url": "https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400",
+  "parser": "PTAProblemParser",
+  "before": "beforePTA",
+  "result": {
+    "name": "1001 A+B Format",
+    "group": "PTA",
+    "url": "https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 400,
+    "tests": [
+      {
+        "input": "-1000000 9\n",
+        "output": "-999,991\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABFormat"
+      }
+    }
+  }
+}
