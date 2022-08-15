@@ -54,7 +54,7 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
   },
 
   async beforeLibraryChecker(page: Page): Promise<void> {
-    await page.waitForSelector('.MuiContainer-root.MuiContainer-maxWidthLg > .MuiBox-root .MuiTypography-h2');
+    await page.waitForSelector('.MuiContainer-root.MuiContainer-maxWidthLg .MuiTypography-h2');
   },
 
   async beforeLibreOJProblem(page: Page): Promise<void> {
