@@ -1,0 +1,32 @@
+{
+  "url": "https://zoj.pintia.cn/problem-sets/91827364500/problems/91827364500",
+  "parser": "ZOJProblemParser",
+  "before": "beforeZOJ",
+  "result": {
+    "name": "A + B Problem",
+    "group": "ZOJ",
+    "url": "https://zoj.pintia.cn/problem-sets/91827364500/problems/91827364500",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "1 5\n",
+        "output": "6\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblem"
+      }
+    }
+  }
+}

@@ -86,6 +86,7 @@ import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
+import { PTAProblemParser } from './problem/PTAProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
@@ -101,6 +102,7 @@ import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
+import { ZOJProblemParser } from './problem/ZOJProblemParser';
 
 export const parsers: Parser[] = [
   new A2OnlineJudgeProblemParser(),
@@ -233,6 +235,8 @@ export const parsers: Parser[] = [
   new POJProblemParser(),
   new POJContestParser(),
 
+  new PTAProblemParser(),
+
   new QDUOJProblemParser(),
   new QDUOJContestParser(),
 
@@ -267,4 +271,6 @@ export const parsers: Parser[] = [
 
   new YukicoderProblemParser(),
   new YukicoderContestParser(),
+
+  new ZOJProblemParser(),
 ];
