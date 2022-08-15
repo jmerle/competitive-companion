@@ -12,7 +12,7 @@ export class LibraryCheckerProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Library Checker').setUrl(url);
 
-    const container = elem.querySelector('.MuiContainer-root.MuiContainer-maxWidthLg > .MuiBox-root');
+    const container = elem.querySelector('.MuiContainer-root.MuiContainer-maxWidthLg');
 
     task.setName(container.querySelector('.MuiTypography-h2').textContent);
 
