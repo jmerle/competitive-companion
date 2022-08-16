@@ -1,10 +1,10 @@
 # Changelog
 
-## 2.36.0 - Unreleased
+## [2.36.0](https://github.com/jmerle/competitive-companion/releases/tag/2.36.0) (2022-08-16)
 - Added support PTA, ZOJ, and OpenJudge (thanks [@rogeryoungh](https://github.com/rogeryoungh) for the PTA and ZOJ parsers)
 - Fixed the parsing of Library Checker problems (thanks [@rogeryoungh](https://github.com/rogeryoungh))
 - Fixed the parsing of HDOJ problems for problems using HDOJ's new UI (thanks [@rogeryoungh](https://github.com/rogeryoungh))
-- Fixed the parsing of HDOJ contests to prevent the parser from getting rate limited
+- Fixed the parsing of HDOJ contests to work with HDOJ's rate limiting
 
 ## [2.35.3](https://github.com/jmerle/competitive-companion/releases/tag/2.35.3) (2022-08-08)
 - Fixed the parsing of Codeforces sample cases for sample cases using Codeforces's new highlighting feature
