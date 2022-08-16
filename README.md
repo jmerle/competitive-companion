@@ -225,8 +225,8 @@ To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 16.14.2  
-Yarn: 1.22.17
+Node.js: 16.16.0  
+Yarn: 1.22.19
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
