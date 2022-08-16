@@ -1,0 +1,141 @@
+{
+  "url": "http://nnsznoi.openjudge.cn/080601/",
+  "parser": "OpenJudgeContestParser",
+  "result": [
+    {
+      "name": "1:将字符串中的小写字母转换成大写字母",
+      "group": "OpenJudge - 南宁三中NOI竞赛小组 - 0806练习",
+      "url": "http://nnsznoi.openjudge.cn/080601/1/",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "helloworld123Ha\n",
+          "output": "HELLOWORLD123HA\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    },
+    {
+      "name": "2:单词倒排",
+      "group": "OpenJudge - 南宁三中NOI竞赛小组 - 0806练习",
+      "url": "http://nnsznoi.openjudge.cn/080601/2/",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "I am a student\n",
+          "output": "student a am I\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    },
+    {
+      "name": "3:数字统计",
+      "group": "OpenJudge - 南宁三中NOI竞赛小组 - 0806练习",
+      "url": "http://nnsznoi.openjudge.cn/080601/3/",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "样例 #1：\n2 22\n\n样例 #2：\n2 100\n",
+          "output": "样例 #1：\n6\n\n样例 #2：\n20\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    },
+    {
+      "name": "4:金币",
+      "group": "OpenJudge - 南宁三中NOI竞赛小组 - 0806练习",
+      "url": "http://nnsznoi.openjudge.cn/080601/4/",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "6\n",
+          "output": "14\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    },
+    {
+      "name": "5:求阶乘的和",
+      "group": "OpenJudge - 南宁三中NOI竞赛小组 - 0806练习",
+      "url": "http://nnsznoi.openjudge.cn/080601/5/",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "5\n",
+          "output": "153\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    }
+  ]
+}

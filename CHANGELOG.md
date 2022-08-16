@@ -1,7 +1,7 @@
 # Changelog
 
 ## 2.36.0 - Unreleased
-- Added support for PTA and ZOJ (thanks [@rogeryoungh](https://github.com/rogeryoungh))
+- Added support PTA, ZOJ, and OpenJudge (thanks [@rogeryoungh](https://github.com/rogeryoungh) for the PTA and ZOJ parsers)
 - Fixed the parsing of Library Checker problems (thanks [@rogeryoungh](https://github.com/rogeryoungh))
 - Fixed the parsing of HDOJ problems for problems using HDOJ's new UI (thanks [@rogeryoungh](https://github.com/rogeryoungh))
 

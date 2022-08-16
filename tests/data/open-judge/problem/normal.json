@@ -1,0 +1,31 @@
+{
+  "url": "http://nnsznoi.openjudge.cn/080601/1/",
+  "parser": "OpenJudgeProblemParser",
+  "result": {
+    "name": "1:将字符串中的小写字母转换成大写字母",
+    "group": "OpenJudge - 南宁三中NOI竞赛小组 - 0806练习",
+    "url": "http://nnsznoi.openjudge.cn/080601/1/",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "helloworld123Ha\n",
+        "output": "HELLOWORLD123HA\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

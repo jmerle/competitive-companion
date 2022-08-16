@@ -24,6 +24,7 @@ import { KattisContestParser } from './contest/KattisContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
+import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
@@ -83,6 +84,7 @@ import { NewtonSchoolProblemParser } from './problem/NewtonSchoolProblemParser';
 import { NOJProblemParser } from './problem/NOJProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
+import { OpenJudgeProblemParser } from './problem/OpenJudgeProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
@@ -225,6 +227,9 @@ export const parsers: Parser[] = [
   new NowCoderProblemParser(),
 
   new OmegaUpProblemParser(),
+
+  new OpenJudgeProblemParser(),
+  new OpenJudgeContestParser(),
 
   new PandaOnlineJudgeProblemParser(),
 

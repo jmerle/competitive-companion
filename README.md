@@ -85,6 +85,7 @@ A browser extension which parses competitive programming problems from various o
 | NowCoder                   | ✔              |                |
 | NYTD Online Judge          | ✔              | ✔              |
 | omegaUp                    | ✔              |                |
+| OpenJudge                  | ✔              | ✔              |
 | Panda Online Judge         | ✔              |                |
 | PEG Judge                  | ✔              | ✔              |
 | POJ                        | ✔              | ✔              |
