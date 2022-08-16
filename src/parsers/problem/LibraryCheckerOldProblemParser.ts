@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class OldLibraryCheckerProblemParser extends Parser {
+export class LibraryCheckerOldProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://old.yosupo.jp/problem/*'];
   }

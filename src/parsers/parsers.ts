@@ -17,7 +17,7 @@ import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestPars
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
 import { HackerRankContestParser } from './contest/HackerRankContestParser';
 import { HDOJContestParser } from './contest/HDOJContestParser';
-import { HDOJNGContestParser } from './contest/HDOJNGContestParser';
+import { HDOJNewContestParser } from './contest/HDOJNewContestParser';
 import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
@@ -62,7 +62,7 @@ import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCom
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
 import { HackerEarthProblemParser } from './problem/HackerEarthProblemParser';
 import { HackerRankProblemParser } from './problem/HackerRankProblemParser';
-import { HDOJNGProblemParser } from './problem/HDOJNGProblemParser';
+import { HDOJNewProblemParser } from './problem/HDOJNewProblemParser';
 import { HDOJProblemParser } from './problem/HDOJProblemParser';
 import { HihoCoderProblemParser } from './problem/HihoCoderProblemParser';
 import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemParser';
@@ -70,6 +70,7 @@ import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProbl
 import { HydroProblemParser } from './problem/HydroProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
+import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProblemParser';
 import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemParser';
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
@@ -81,7 +82,6 @@ import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
 import { NewtonSchoolProblemParser } from './problem/NewtonSchoolProblemParser';
 import { NOJProblemParser } from './problem/NOJProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
-import { OldLibraryCheckerProblemParser } from './problem/OldLibraryCheckerProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
@@ -178,11 +178,10 @@ export const parsers: Parser[] = [
   new HackerRankProblemParser(),
   new HackerRankContestParser(),
 
+  new HDOJNewProblemParser(),
   new HDOJProblemParser(),
+  new HDOJNewContestParser(),
   new HDOJContestParser(),
-
-  new HDOJNGProblemParser(),
-  new HDOJNGContestParser(),
 
   new HITOnlineJudgeProblemParser(),
 
@@ -200,7 +199,7 @@ export const parsers: Parser[] = [
   new KattisContestParser(),
 
   new LibraryCheckerProblemParser(),
-  new OldLibraryCheckerProblemParser(),
+  new LibraryCheckerOldProblemParser(),
 
   new LibreOJProblemParser(),
   new LibreOJContestParser(),

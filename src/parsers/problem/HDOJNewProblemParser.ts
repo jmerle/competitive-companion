@@ -3,14 +3,14 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class HDOJNGProblemParser extends Parser {
+export class HDOJNewProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://acm.hdu.edu.cn/contest/problem\\?*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('HDOJNG').setUrl(url);
+    const task = new TaskBuilder('HDOJ').setUrl(url);
 
     const sidebar = elem.querySelector('.problem-sidebar');
 

@@ -1,9 +1,9 @@
-import { HDOJNGProblemParser } from '../problem/HDOJNGProblemParser';
+import { HDOJNewProblemParser } from '../problem/HDOJNewProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
 
-export class HDOJNGContestParser extends SimpleContestParser {
+export class HDOJNewContestParser extends SimpleContestParser {
   protected linkSelector = '.page-card-table > tbody > tr > td:nth-child(3) > a';
-  protected problemParser = new HDOJNGProblemParser();
+  protected problemParser = new HDOJNewProblemParser();
 
   public getMatchPatterns(): string[] {
     return ['https://acm.hdu.edu.cn/contest/problems\\?*'];
