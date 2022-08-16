@@ -88,6 +88,7 @@ A browser extension which parses competitive programming problems from various o
 | Panda Online Judge         | ✔              |                |
 | PEG Judge                  | ✔              | ✔              |
 | POJ                        | ✔              | ✔              |
+| PTA                        | ✔              |                |
 | QDUOJ                      | ✔              | ✔              |
 | SPOJ                       | ✔              |                |
 | SSOIER                     | ✔              |                |
@@ -103,6 +104,7 @@ A browser extension which parses competitive programming problems from various o
 | Yandex                     | ✔              | ✔              |
 | XXM                        | ✔              |                |
 | yukicoder                  | ✔              | ✔              |
+| ZOJ                        | ✔              |                |
 
 ## Custom tools
 Competitive Companion can send the parsed data in JSON format to your own tools. To do this, start a HTTP server listening for POST requests to / on any of the ports listed in [`./src/hosts/hosts.ts`](./src/hosts/hosts.ts). An example on how to accomplish this can be found in [jmerle/competitive-companion-example](https://github.com/jmerle/competitive-companion-example).
