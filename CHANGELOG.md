@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.36.1 - Unreleased
+## [2.36.1](https://github.com/jmerle/competitive-companion/releases/tag/2.36.1) (2022-08-18)
 - Fixed the parsing of Codeforces sample cases containing nested highlighted inputs
 
 ## [2.36.0](https://github.com/jmerle/competitive-companion/releases/tag/2.36.0) (2022-08-16)
