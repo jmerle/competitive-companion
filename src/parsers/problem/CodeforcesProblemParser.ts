@@ -107,7 +107,10 @@ export class CodeforcesProblemParser extends Parser {
   }
 
   private parseMainTestBlock(block: Element): string {
-    const lines = block.querySelectorAll('.test-example-line');
+    const lines = [...block.querySelectorAll('.test-example-line')].filter(
+      el => el.querySelector('.test-example-line') === null,
+    );
+
     if (lines.length === 0) {
       return decodeHtml(block.innerHTML);
     }

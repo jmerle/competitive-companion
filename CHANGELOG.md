@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.36.1 - Unreleased
+- Fixed the parsing of Codeforces sample cases containing nested highlighted inputs
+
 ## [2.36.0](https://github.com/jmerle/competitive-companion/releases/tag/2.36.0) (2022-08-16)
 - Added support PTA, ZOJ, and OpenJudge (thanks [@rogeryoungh](https://github.com/rogeryoungh) for the PTA and ZOJ parsers)
 - Fixed the parsing of Library Checker problems (thanks [@rogeryoungh](https://github.com/rogeryoungh))

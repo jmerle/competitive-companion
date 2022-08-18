@@ -1,0 +1,31 @@
+{
+  "url": "https://codeforces.com/contest/1702/problem/C?locale=en",
+  "parser": "CodeforcesProblemParser",
+  "result": {
+    "name": "C. Train and Queries",
+    "group": "Codeforces - Codeforces Round #805 (Div. 3)",
+    "url": "https://codeforces.com/contest/1702/problem/C?locale=en",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 3000,
+    "tests": [
+      {
+        "input": "3\n6 3\n3 7 1 5 1 4\n3 5\n1 7\n3 10\n3 3\n1 2 1\n2 1\n1 2\n4 5\n7 5\n2 1 1 1 2 4 4\n1 3\n1 4\n2 1\n4 1\n1 2\n",
+        "output": "YES\nNO\nNO\nYES\nYES\nNO\nNO\nYES\nYES\nNO\nYES\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "CTrainAndQueries"
+      }
+    }
+  }
+}
