@@ -5,7 +5,10 @@ import { Parser } from '../Parser';
 
 export class BaekjoonOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.acmicpc.net/problem/*'];
+    return [
+      'https://www.acmicpc.net/problem/*',
+      'https://stack.acmicpc.net/problem/preview/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
