@@ -77,10 +77,6 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
     await page.waitForSelector('td[data-memory-limit]');
   },
 
-  async beforePTA(page: Page): Promise<void> {
-    await page.waitForSelector('div[class^="main"] div[class^="left"]');
-  },
-
   async beforeQDUOJ(page: Page): Promise<void> {
     await page.waitForFunction(() => /(\d+)MS/.test(document.body.innerHTML));
   },
