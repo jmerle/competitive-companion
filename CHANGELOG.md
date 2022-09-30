@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.36.2 - Unreleased
+## [2.36.2](https://github.com/jmerle/competitive-companion/releases/tag/2.36.2) (2022-09-30)
 - Added support for BOJ Stack to the BOJ parser (thanks [@IHIHHIHI](https://github.com/IHIHHIHI))
 - Fixed the parsing of Codeforces sample cases for sample cases using Codeforces's new highlighting feature
 - Fixed the parsing of CodeChef categories when the problem details are collapsed
