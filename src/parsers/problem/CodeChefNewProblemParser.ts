@@ -19,17 +19,8 @@ export class CodeChefNewProblemParser extends Parser {
 
     task.setName(elem.querySelector('div[class^="_problem__title_"] > span').textContent);
 
-    const contestIdFromPage = elem.querySelector('a[class^="_contest__link_"]');
-    if (contestIdFromPage !== null) {
-      task.setCategory(contestIdFromPage.childNodes[0].textContent.trim());
-    } else {
-      const contestIdFromUrl = /https:\/\/www\.codechef\.com\/([^/]+)\/problems\/([^/]+)/.exec(url);
-      if (contestIdFromUrl !== null) {
-        task.setCategory(contestIdFromUrl[1]);
-      } else {
-        task.setCategory('Practice');
-      }
-    }
+    const category = await this.parseCategory(url, elem);
+    task.setCategory(category);
 
     task.setInteractive(html.includes('This is an interactive problem'));
 
@@ -51,5 +42,21 @@ export class CodeChefNewProblemParser extends Parser {
     task.setMemoryLimit(256);
 
     return task.build();
+  }
+
+  private async parseCategory(url: string, elem: Element): Promise<string> {
+    const contestIdFromPage = elem.querySelector('a[class^="_contest__link_"]');
+    if (contestIdFromPage !== null) {
+      return contestIdFromPage.childNodes[0].textContent.trim();
+    }
+
+    const contestIdFromUrl = /https:\/\/www\.codechef\.com\/([^/]+)\/problems\/([^/]+)/.exec(url);
+    if (contestIdFromUrl !== null) {
+      return contestIdFromUrl[1];
+    }
+
+    const problemId = new URL(url).pathname.split('/').pop();
+    const response = await this.fetch(`https://www.codechef.com/api/contests/PRACTICE/problems/${problemId}`);
+    return JSON.parse(response).intended_contest_code || 'Practice';
   }
 }
