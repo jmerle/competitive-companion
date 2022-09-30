@@ -2,6 +2,7 @@
 
 ## 2.36.2 - Unreleased
 - Added support for BOJ Stack to the BOJ parser (thanks [@IHIHHIHI](https://github.com/IHIHHIHI))
+- Fixed the parsing of Codeforces sample cases for sample cases using Codeforces's new highlighting feature
 
 ## [2.36.1](https://github.com/jmerle/competitive-companion/releases/tag/2.36.1) (2022-08-18)
 - Fixed the parsing of Codeforces sample cases containing nested highlighted inputs
