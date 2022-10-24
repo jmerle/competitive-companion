@@ -89,6 +89,7 @@ A browser extension which parses competitive programming problems from various o
 | Panda Online Judge         | ✔              |                |
 | PEG Judge                  | ✔              | ✔              |
 | POJ                        | ✔              | ✔              |
+| Public Judge               | ✔              |                |
 | PTA                        | ✔              |                |
 | QDUOJ                      | ✔              | ✔              |
 | SPOJ                       | ✔              |                |
