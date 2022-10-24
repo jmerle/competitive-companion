@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class UOJProblemParser extends Parser {
+export class PublicJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://pjudge.ac/problem/*', 'https://pjudge.ac/contest/*/problem/*'];
   }
