@@ -2,6 +2,7 @@
 
 ## 2.37.0 - Unreleased
 - Added support for Public Judge
+- Fixed the parsing of PTA problems
 - Fixed the parsing of Luogu problems after navigating to the problem from the problem solution page
 
 ## [2.36.2](https://github.com/jmerle/competitive-companion/releases/tag/2.36.2) (2022-09-30)

@@ -12,7 +12,7 @@ export class PTAProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('PTA').setUrl(url);
 
-    const container = elem.querySelector('div[class^="main"] div[class^="left"]');
+    const container = elem.querySelector('div[class^="mn"] div[class^="left"]');
 
     task.setName(container.querySelector('span.font-bold').textContent.trim());
 
@@ -23,7 +23,7 @@ export class PTAProblemParser extends Parser {
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10));
     task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10));
 
-    const blocks = container.querySelectorAll('.rendered-markdown > pre > code');
+    const blocks = container.querySelectorAll('.rendered-markdown > pre > code:not(.hljs)');
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
