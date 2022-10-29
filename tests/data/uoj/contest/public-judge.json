@@ -1,0 +1,154 @@
+{
+  "url": "https://pjudge.ac/contest/1029",
+  "parser": "UOJContestParser",
+  "result": [
+    {
+      "name": "A. 数字",
+      "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
+      "url": "https://pjudge.ac/contest/1029/problem/21691",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "114514\n",
+          "output": "1\n"
+        },
+        {
+          "input": "369\n",
+          "output": "0\n"
+        },
+        {
+          "input": "11\n",
+          "output": "dottle bot\n"
+        },
+        {
+          "input": "283959283666555555\n",
+          "output": "2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "A"
+        }
+      }
+    },
+    {
+      "name": "B. 因子",
+      "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
+      "url": "https://pjudge.ac/contest/1029/problem/21693",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4\n1\n1\n1\n1\n",
+          "output": "0\n"
+        },
+        {
+          "input": "6\n1\n2\n3\n4\n5\n6\n",
+          "output": "12\n"
+        },
+        {
+          "input": "10\n28851\n8842\n9535\n2311\n25337\n26467\n12720\n10561\n8892\n6435\n",
+          "output": "56898\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "B"
+        }
+      }
+    },
+    {
+      "name": "C. 移除石子",
+      "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
+      "url": "https://pjudge.ac/contest/1029/problem/21692",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1\n4\n1 1\n2 2\n5 5\n6 6\n",
+          "output": "Yes\n2 2 5 5.0000\n1 1 6 6.000\n"
+        },
+        {
+          "input": "yEs\n0.9999 0.9999 2.0001 2.0001\n-233 -1.0 233.000 465.00\n",
+          "output": "Yes\n1 1 2 2\n-1e+5 -1e+5 1e+6 1e+6\n"
+        },
+        {
+          "input": "Yes\n1 1 5 5\n2 2 6 6\n",
+          "output": "Yes\n1 1 1 2\n5 5 6 6\n"
+        },
+        {
+          "input": "Yes\n1 1 2 2\n5 5 6 6.00000\n",
+          "output": "1\n4\n0 0\n100000000 200000000\n200000000 100000000\n400000000 400000000\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "C"
+        }
+      }
+    },
+    {
+      "name": "D. 抓内鬼",
+      "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
+      "url": "https://pjudge.ac/contest/1029/problem/21694",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "3 2 0\n1 1 1\n1 2\n2 3\n",
+          "output": "PPP\n"
+        },
+        {
+          "input": "2 1 1\n1 1\n1 2\n",
+          "output": "impossible\n"
+        },
+        {
+          "input": "8 9 4\n3 3 1 2 2 3 2 1\n1 2\n1 3\n1 4\n2 5\n3 6\n4 7\n5 8\n6 8\n7 8\n",
+          "output": "PUPUPPUU\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "D"
+        }
+      }
+    }
+  ]
+}

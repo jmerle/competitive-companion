@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.37.0 - Unreleased
+- Added support for Public Judge
+
 ## [2.36.2](https://github.com/jmerle/competitive-companion/releases/tag/2.36.2) (2022-09-30)
 - Added support for BOJ Stack to the Baekjoon Online Judge parser (thanks [@IHIHHIHI](https://github.com/IHIHHIHI))
 - Fixed the parsing of Codeforces sample cases for sample cases using Codeforces's new highlighting feature

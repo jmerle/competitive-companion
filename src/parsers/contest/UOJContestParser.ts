@@ -6,6 +6,6 @@ export class UOJContestParser extends SimpleContestParser {
   protected problemParser = new UOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://uoj.ac/contest/*'];
+    return ['https://uoj.ac/contest/*', 'https://pjudge.ac/contest/*'];
   }
 }

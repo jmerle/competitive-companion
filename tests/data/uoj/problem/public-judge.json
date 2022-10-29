@@ -1,0 +1,43 @@
+{
+  "url": "https://pjudge.ac/problem/21691",
+  "parser": "UOJProblemParser",
+  "result": {
+    "name": "#21691. 数字",
+    "group": "Public Judge",
+    "url": "https://pjudge.ac/problem/21691",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "114514\n",
+        "output": "1\n"
+      },
+      {
+        "input": "369\n",
+        "output": "0\n"
+      },
+      {
+        "input": "11\n",
+        "output": "dottle bot\n"
+      },
+      {
+        "input": "283959283666555555\n",
+        "output": "2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

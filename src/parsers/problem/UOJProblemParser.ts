@@ -4,13 +4,26 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class UOJProblemParser extends Parser {
+  private readonly domains: Record<string, string> = {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    'uoj.ac': 'UOJ',
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    'pjudge.ac': 'Public Judge',
+  };
+
   public getMatchPatterns(): string[] {
-    return ['https://uoj.ac/problem/*', 'https://uoj.ac/contest/*/problem/*'];
+    const matchPatterns = [];
+
+    for (const domain in this.domains) {
+      matchPatterns.push(`https://${domain}/problem/*`, `https://${domain}/contest/*/problem/*`);
+    }
+
+    return matchPatterns;
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('UOJ').setUrl(url);
+    const task = new TaskBuilder(this.domains[new URL(url).hostname]).setUrl(url);
 
     const container = elem.querySelector('.uoj-content');
 
@@ -43,7 +56,7 @@ export class UOJProblemParser extends Parser {
       task.setMemoryLimit(parseInt(/(\d+)(?!.*\d+)/.exec(memoryLimitStr)[1], 10) * memoryModifier);
     }
 
-    const codeBlocks = container.querySelectorAll('pre');
+    const codeBlocks = container.querySelectorAll('pre:not(.sh_sourceCode)');
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
       task.addTest(codeBlocks[i].textContent, codeBlocks[i + 1].textContent);
     }
