@@ -9,25 +9,36 @@ export class LuoguProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
     const task = new TaskBuilder('Luogu').setUrl(url);
 
-    const data = this.getProblemData(html);
-
-    task.setName(`${data.pid} ${data.title}`.trim());
-
-    task.setTimeLimit(Math.max(...data.limits.time));
-    task.setMemoryLimit(Math.floor(Math.max(...data.limits.memory) / 1024));
-
-    for (const sample of data.samples) {
-      task.addTest(sample[0], sample[1]);
+    if (elem.querySelector('.main-container') !== null) {
+      this.parseFromPage(task, elem);
+    } else {
+      this.parseFromScript(task, elem);
     }
 
     return task.build();
   }
 
-  private getProblemData(html: string): any {
-    const elem = htmlToElement(html);
+  private parseFromPage(task: TaskBuilder, elem: Element): void {
+    task.setName(elem.querySelector('h1 > span').textContent.trim());
 
+    const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
+    task.setTimeLimit(Math.floor(parseFloat(timeLimitStr) * 1000));
+
+    const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
+    task.setMemoryLimit(parseInt(memoryLimitStr));
+
+    elem.querySelectorAll('.sample').forEach(sample => {
+      const input = sample.querySelector('.input > pre').textContent;
+      const output = sample.querySelector('.output > pre').textContent;
+
+      task.addTest(input, output);
+    });
+  }
+
+  private parseFromScript(task: TaskBuilder, elem: Element): void {
     for (const scriptElem of elem.querySelectorAll('script')) {
       const script = scriptElem.textContent;
       if (script.startsWith('window._feInjection')) {
@@ -35,7 +46,18 @@ export class LuoguProblemParser extends Parser {
         const endQuoteIndex = script.substr(startQuoteIndex + 1).indexOf('"');
         const encodedData = script.substr(startQuoteIndex + 1, endQuoteIndex);
 
-        return JSON.parse(decodeURIComponent(encodedData)).currentData.problem;
+        const data = JSON.parse(decodeURIComponent(encodedData)).currentData.problem;
+
+        task.setName(`${data.pid} ${data.title}`.trim());
+
+        task.setTimeLimit(Math.max(...data.limits.time));
+        task.setMemoryLimit(Math.floor(Math.max(...data.limits.memory) / 1024));
+
+        for (const sample of data.samples) {
+          task.addTest(sample[0], sample[1]);
+        }
+
+        return;
       }
     }
 
