@@ -18,7 +18,7 @@ export class HKoiJudgeProblemParser extends Parser {
     if (taskinfo != null && taskinfo.length == 4) {
       //time
       task.setTimeLimit(parseInt(taskinfo[1].innerHTML.toString().match('[0-9|.]+')[0]));
-      //memor
+      //memory
       task.setMemoryLimit(parseInt(taskinfo[2].innerHTML.toString().match('[0-9|.]+')[0]));
     }
 
