@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Fixed the parsing of CodeChef problems
+- Fixed the parsing of TLX problems
 
 ## [2.37.0](https://github.com/jmerle/competitive-companion/releases/tag/2.37.0) (2022-10-30)
 - Added support for Public Judge

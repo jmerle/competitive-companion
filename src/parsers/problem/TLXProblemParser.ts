@@ -19,15 +19,13 @@ export class TLXProblemParser extends Parser {
       .trim();
     task.setName(name);
 
-    const breadcrumbNodes = [...elem.querySelectorAll('.bp4-breadcrumb')];
-
-    const categoryNode = breadcrumbNodes[breadcrumbNodes.length - 2];
-    task.setCategory(categoryNode.textContent);
+    const categorySelector = '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2';
+    task.setCategory(elem.querySelector(categorySelector).textContent);
 
     // Problems in the problemset don't include the letter in the title, so we add it here
     if (!task.name.includes('. ')) {
-      const problemIndexNode = breadcrumbNodes[breadcrumbNodes.length - 1];
-      task.setName(problemIndexNode.textContent + '. ' + task.name);
+      const breadcrumbText = elem.querySelector('.single-problemset-problem-routes__title').textContent;
+      task.setName(breadcrumbText[breadcrumbText.length - 1] + '. ' + task.name);
     }
 
     const limitNodes = elem.querySelector('.programming-problem-statement__limits');
