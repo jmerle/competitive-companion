@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of CodeChef problems
+
 ## [2.37.0](https://github.com/jmerle/competitive-companion/releases/tag/2.37.0) (2022-10-30)
 - Added support for Public Judge
 - Fixed the parsing of PTA problems
