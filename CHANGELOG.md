@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 2.38.0 - Unreleased
+- Added support for HKOI Online Judge (thanks [@smarttommyau](https://github.com/smarttommyau))
 - Fixed the parsing of CodeChef problems
 - Fixed the parsing of TLX problems
 
