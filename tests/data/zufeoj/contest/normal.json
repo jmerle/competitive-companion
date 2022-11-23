@@ -1,0 +1,114 @@
+{
+  "url": "http://acm.ocrosoft.com/contest.php?cid=3659",
+  "parser": "ZUFEOJContestParser",
+  "result": [
+    {
+      "name": "A: 硕鼠",
+      "group": "ZUFEOJ",
+      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=0",
+      "interactive": false,
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "5 3\n7 2\n4 3\n5 2\n20 3\n25 18\n24 15\n15 10\n-1 -1\n",
+          "output": "13.333\n31.500\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "A"
+        }
+      }
+    },
+    {
+      "name": "B: 购买贺年卡(card)",
+      "group": "ZUFEOJ",
+      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=1",
+      "interactive": false,
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "10 4\n4 3\n6 2\n8 10\n3 6\n",
+          "output": "36\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BCard"
+        }
+      }
+    },
+    {
+      "name": "C: 计算鞍点",
+      "group": "ZUFEOJ",
+      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=2",
+      "interactive": false,
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "11 3 5 6 9\n12 4 7 8 10\n10 5 6 9 11\n8  6 4 7 2\n15 10 11 20 25\n",
+          "output": "4 1 8\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "C"
+        }
+      }
+    },
+    {
+      "name": "D: 输出亲朋字符串",
+      "group": "ZUFEOJ",
+      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=3",
+      "interactive": false,
+      "memoryLimit": 128,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "1234\n",
+          "output": "cege\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "D"
+        }
+      }
+    }
+  ]
+}

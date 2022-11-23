@@ -1,8 +1,7 @@
 import { BUCTOJProblemParser } from '../problem/BUCTOJProblemParser';
-import { SimpleContestParser } from '../SimpleContestParser';
+import { HUSTOJSyzojContestParser } from './HUSTOJSyzojContestParser';
 
-export class BUCTOJContestParser extends SimpleContestParser {
-  protected linkSelector = 'table.ui.selectable > tbody > tr > td:nth-child(2) > a';
+export class BUCTOJContestParser extends HUSTOJSyzojContestParser {
   protected problemParser = new BUCTOJProblemParser();
 
   public getMatchPatterns(): string[] {
