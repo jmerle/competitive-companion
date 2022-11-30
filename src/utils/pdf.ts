@@ -16,11 +16,27 @@ export async function readPdf(pdfUrl: string): Promise<string[]> {
     const page = await pdf.getPage(i + 1);
     const textContent = await page.getTextContent();
 
-    textContent.items
-      .map((item: any) => item.str)
-      .map((line: string) => line.replace(/([^ ]) {2}([^ ])/g, '$1 $2'))
-      .forEach((line: string) => lines.push(line));
+    let currentLine = '';
+    let lastY = -1;
+
+    for (const item of textContent.items) {
+      const y = item.transform[5];
+      if (y !== lastY) {
+        if (lastY !== -1) {
+          lines.push(currentLine);
+        }
+
+        currentLine = '';
+      }
+
+      currentLine += item.str;
+      lastY = y;
+    }
+
+    if (lastY !== -1) {
+      lines.push(currentLine);
+    }
   }
 
-  return lines;
+  return lines.map(line => line.replace(/([^ ]) {2}([^ ])/g, '$1 $2'));
 }
