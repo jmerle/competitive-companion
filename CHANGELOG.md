@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.38.1 (Unreleased)
+- Fixed the parsing of some interactive Kattis problems
+
 ## [2.38.0](https://github.com/jmerle/competitive-companion/releases/tag/2.38.0) (2022-11-23)
 - Added support for HKOI Online Judge and ZUFEOJ (thanks [@smarttommyau](https://github.com/smarttommyau) for the HKOI Online Judge parsers)
 - Fixed the parsing of CodeChef problems

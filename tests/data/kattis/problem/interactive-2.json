@@ -1,0 +1,26 @@
+{
+  "url": "https://open.kattis.com/contests/nwerc2021open/problems/accessdenied",
+  "parser": "KattisProblemParser",
+  "result": {
+    "name": "Problem A - Access Denied",
+    "group": "Kattis - nwerc2021open",
+    "url": "https://open.kattis.com/contests/nwerc2021open/problems/accessdenied",
+    "interactive": true,
+    "memoryLimit": 1024,
+    "timeLimit": 2000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ProblemAAccessDenied"
+      }
+    }
+  }
+}
