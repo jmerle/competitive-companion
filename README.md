@@ -1,4 +1,10 @@
-# Competitive Companion
+# Competitive Companion Modified by zymooll (support LSYOI)
+
+Compare with the original version,this modified version add the support of LSYOI.
+
+Thanks to the original competitive-companion developers.
+
+This version is modified by zymooll.(add the support of LSYOI)
 
 [link-cws]: https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl
 [link-amo]: https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/
