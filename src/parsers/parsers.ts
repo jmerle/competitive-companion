@@ -71,6 +71,7 @@ import { HihoCoderProblemParser } from './problem/HihoCoderProblemParser';
 import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemParser';
 import { HKOIOnlineJudgeProblemParser } from './problem/HKOIOnlineJudgeProblemParser';
 import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
+import { HustOJProblemParser } from './problem/HustOJProblemParser';
 import { HydroProblemParser } from './problem/HydroProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
@@ -78,7 +79,6 @@ import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProbl
 import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemParser';
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
-import { LSYOIProblemParser } from './problem/LSYOIProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
@@ -199,6 +199,8 @@ export const parsers: Parser[] = [
   new HKOIOnlineJudgeContestParser(),
 
   new HrbustOnlineJudgeProblemParser(),
+  
+  new HustOJProblemParser(),
 
   new HydroProblemParser(),
   new HydroContestParser(),
@@ -215,8 +217,6 @@ export const parsers: Parser[] = [
   new LibreOJContestParser(),
 
   new LightOJProblemParser(),
-
-  new LSYOIProblemParser(),
   
   new LuoguProblemParser(),
   new LuoguContestParser(),
