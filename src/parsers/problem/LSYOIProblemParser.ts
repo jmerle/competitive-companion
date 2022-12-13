@@ -3,9 +3,9 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class LSYOIProblemParser extends Parser {
+export class HustOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://lsyoi.top:88/problem.php?*'];
+    return [''];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
