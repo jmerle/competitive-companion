@@ -199,6 +199,8 @@ export const parsers: Parser[] = [
   new HKOIOnlineJudgeContestParser(),
 
   new HrbustOnlineJudgeProblemParser(),
+  
+  new HustOJProblemParser(),
 
   new HydroProblemParser(),
   new HydroContestParser(),
@@ -215,8 +217,6 @@ export const parsers: Parser[] = [
   new LibreOJContestParser(),
 
   new LightOJProblemParser(),
-
-  new LSYOIProblemParser(),
   
   new LuoguProblemParser(),
   new LuoguContestParser(),
