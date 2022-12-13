@@ -14,7 +14,7 @@ export class HustOJProblemParser extends Parser {
 
     task.setName(elem.querySelector('.container > .panel').childNodes[1].childNodes[1].textContent.trim());
 
-    task.addTest(elem.querySelector('#sampleinput').textContent, document.querySelector('#sampleoutput').textContent);
+    task.addTest(elem.querySelector('#sampleinput').textContent, elem.querySelector('#sampleoutput').textContent);
 
     const timeLimitStr = elem.querySelectorAll('.green')[0].nextSibling.firstChild.textContent;
     task.setTimeLimit(parseInt(Math.ceil(parseFloat(timeLimitStr)*1000).toString(),10));
