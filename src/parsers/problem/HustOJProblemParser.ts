@@ -10,7 +10,7 @@ export class HustOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('LSYOI').setUrl(url);
+    const task = new TaskBuilder('HustOJ').setUrl(url);
 
     task.setName(elem.querySelector('.container > .panel').childNodes[1].childNodes[1].textContent.trim());
 
