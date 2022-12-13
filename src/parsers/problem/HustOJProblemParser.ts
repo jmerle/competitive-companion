@@ -17,7 +17,7 @@ export class HustOJProblemParser extends Parser {
     task.addTest(elem.querySelector('#sampleinput').textContent, elem.querySelector('#sampleoutput').textContent);
 
     const timeLimitStr = elem.querySelectorAll('.green')[0].nextSibling.firstChild.textContent;
-    task.setTimeLimit(parseInt(Math.ceil(parseFloat(timeLimitStr)*1000).toString(),10));
+    task.setTimeLimit(parseInt(Math.ceil(parseFloat(timeLimitStr)*1000).toString(), 10));
 
     const memoryLimitStr = elem.querySelectorAll('.green')[1].nextSibling.textContent;
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(memoryLimitStr)[1], 10));
