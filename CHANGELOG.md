@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of Kattis problems
+
 ## [2.38.1](https://github.com/jmerle/competitive-companion/releases/tag/2.38.1) (2022-11-30)
 - Fixed the parsing of some interactive Kattis problems
 - Fixed the parsing of superfluous newlines in UVa Online Judge sample cases

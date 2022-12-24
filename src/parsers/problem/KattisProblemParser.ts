@@ -24,7 +24,7 @@ export class KattisProblemParser extends Parser {
 
     task.setInteractive([...elem.querySelectorAll('h2')].some(el => (el as any).textContent === 'Interaction'));
 
-    const limitsStr = elem.querySelector('.attribute_list-book.attribute_list').textContent;
+    const limitsStr = elem.querySelector('.metadata_list').textContent;
     task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limitsStr)[1]) * 1000);
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
 
