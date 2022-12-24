@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.38.2](https://github.com/jmerle/competitive-companion/releases/tag/2.38.2) (2022-12-24)
 - Fixed the parsing of Kattis problems
 - Fixed the parsing of CodeChef problems
 - Fixed the parsing of DMOJ contests
