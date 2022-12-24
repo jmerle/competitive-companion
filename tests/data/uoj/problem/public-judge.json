@@ -2,7 +2,7 @@
   "url": "https://pjudge.ac/problem/21691",
   "parser": "UOJProblemParser",
   "result": {
-    "name": "#21691. 数字",
+    "name": "#21691. 【NOIP Round #3】数字",
     "group": "Public Judge",
     "url": "https://pjudge.ac/problem/21691",
     "interactive": false,
@@ -36,7 +36,7 @@
     "languages": {
       "java": {
         "mainClass": "Main",
-        "taskClass": "Task"
+        "taskClass": "NOIPRound3"
       }
     }
   }

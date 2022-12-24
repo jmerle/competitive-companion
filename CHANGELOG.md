@@ -3,6 +3,7 @@
 ## Unreleased
 - Fixed the parsing of Kattis problems
 - Fixed the parsing of CodeChef problems
+- Fixed the parsing of DMOJ contests
 
 ## [2.38.1](https://github.com/jmerle/competitive-companion/releases/tag/2.38.1) (2022-11-30)
 - Fixed the parsing of some interactive Kattis problems

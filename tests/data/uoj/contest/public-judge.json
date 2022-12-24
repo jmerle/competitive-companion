@@ -3,7 +3,7 @@
   "parser": "UOJContestParser",
   "result": [
     {
-      "name": "A. 数字",
+      "name": "A. 【NOIP Round #3】数字",
       "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
       "url": "https://pjudge.ac/contest/1029/problem/21691",
       "interactive": false,
@@ -37,12 +37,12 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "A"
+          "taskClass": "ANOIPRound3"
         }
       }
     },
     {
-      "name": "B. 因子",
+      "name": "B. 【NOIP Round #3】因子",
       "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
       "url": "https://pjudge.ac/contest/1029/problem/21693",
       "interactive": false,
@@ -72,12 +72,12 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "B"
+          "taskClass": "BNOIPRound3"
         }
       }
     },
     {
-      "name": "C. 移除石子",
+      "name": "C. 【NOIP Round #3】移除石子",
       "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
       "url": "https://pjudge.ac/contest/1029/problem/21692",
       "interactive": false,
@@ -111,12 +111,12 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "C"
+          "taskClass": "CNOIPRound3"
         }
       }
     },
     {
-      "name": "D. 抓内鬼",
+      "name": "D. 【NOIP Round #3】抓内鬼",
       "group": "Public Judge - Public NOIP Round #3 (Div. 2, 普及)",
       "url": "https://pjudge.ac/contest/1029/problem/21694",
       "interactive": false,
@@ -146,7 +146,7 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "D"
+          "taskClass": "DNOIPRound3"
         }
       }
     }
