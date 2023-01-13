@@ -215,6 +215,8 @@ export const parsers: Parser[] = [
   new LibreOJContestParser(),
 
   new LightOJProblemParser(),
+  
+  new LSYOIProblemParser(),
 
   new LuoguProblemParser(),
   new LuoguContestParser(),
