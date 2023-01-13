@@ -79,6 +79,7 @@ import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemPars
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
+import { LSYOIProblemParser } from './problem/LSYOIProblemParser';
 import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
