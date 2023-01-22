@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.39.0 (Unreleased)
+- Added support for LSYOI (thanks [@zymooll](https://github.com/zymooll))
+
 ## [2.38.2](https://github.com/jmerle/competitive-companion/releases/tag/2.38.2) (2022-12-24)
 - Fixed the parsing of Kattis problems
 - Fixed the parsing of CodeChef problems
