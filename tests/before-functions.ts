@@ -29,12 +29,12 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
     await page.waitForSelector('#problem td > a');
   },
 
-  async beforeECNU(page: Page): Promise<void> {
-    await page.waitForSelector('.property > p > strong');
-  },
-
   async beforeCSAcademy(page: Page): Promise<void> {
     await page.waitForSelector('h1');
+  },
+
+  async beforeECNU(page: Page): Promise<void> {
+    await page.waitForSelector('.property > p > strong');
   },
 
   async beforeHackerEarth(page: Page): Promise<void> {
@@ -79,6 +79,10 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
 
   async beforeQDUOJ(page: Page): Promise<void> {
     await page.waitForFunction(() => /(\d+)MS/.test(document.body.innerHTML));
+  },
+
+  async beforeSDUTOnlineJudge(page: Page): Promise<void> {
+    await page.waitForSelector('.problem-content > h2');
   },
 
   async beforeTLXEnglish(page: Page): Promise<void> {

@@ -1,0 +1,32 @@
+{
+  "url": "http://acm.sdut.edu.cn/onlinejudge3/problems/1000",
+  "parser": "SDUTOnlineJudgeProblemParser",
+  "before": "beforeSDUTOnlineJudge",
+  "result": {
+    "name": "A+B Problem",
+    "group": "SDUT OnlineJudge",
+    "url": "http://acm.sdut.edu.cn/onlinejudge3/problems/1000",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 2\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblem"
+      }
+    }
+  }
+}

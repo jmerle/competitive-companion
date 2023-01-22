@@ -94,6 +94,7 @@ import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
 import { PTAProblemParser } from './problem/PTAProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
+import { SDUTOnlineJudgeProblemParser } from './problem/SDUTOnlineJudgeProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
@@ -253,6 +254,8 @@ export const parsers: Parser[] = [
 
   new QDUOJProblemParser(),
   new QDUOJContestParser(),
+
+  new SDUTOnlineJudgeProblemParser(),
 
   new SPOJProblemParser(),
 
