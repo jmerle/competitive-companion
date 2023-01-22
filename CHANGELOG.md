@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.39.0 (Unreleased)
+## 2.39.0 (2023-01-22)
 - Added support for LSYOI and SDUT OnlineJudge (thanks [@zymooll](https://github.com/zymooll) for the LSYOI parser)
 
 ## [2.38.2](https://github.com/jmerle/competitive-companion/releases/tag/2.38.2) (2022-12-24)
