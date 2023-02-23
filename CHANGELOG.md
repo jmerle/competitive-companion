@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Added support for PAT problems in the NowCoder parser
 - Added support for the vjudge.csgrandeur.cn mirror to the Virtual Judge parsers
 
 ## 2.39.0 (2023-01-22)

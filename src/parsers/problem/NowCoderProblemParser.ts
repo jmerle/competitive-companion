@@ -5,13 +5,27 @@ import { Parser } from '../Parser';
 
 export class NowCoderProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://ac.nowcoder.com/acm/problem/*', 'https://ac.nowcoder.com/acm/contest/*/*'];
+    return [
+      'https://ac.nowcoder.com/acm/problem/*',
+      'https://ac.nowcoder.com/acm/contest/*/*',
+      'https://ac.nowcoder.com/pat/*/problem/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('NowCoder').setUrl(url);
 
+    if (url.includes('/acm/')) {
+      this.parseACM(elem, task);
+    } else {
+      this.parsePAT(elem, task);
+    }
+
+    return task.build();
+  }
+
+  private parseACM(elem: Element, task: TaskBuilder): void {
     task.setName(elem.querySelector('.terminal-topic-title').textContent.trim());
 
     const timeLimitStr = elem.querySelector('.question-intr > .subject-item-wrap > span').textContent.split('，').pop();
@@ -27,7 +41,21 @@ export class NowCoderProblemParser extends Parser {
       const blocks = tests.querySelectorAll('pre');
       task.addTest(blocks[0].textContent, blocks[1].textContent);
     });
+  }
 
-    return task.build();
+  private parsePAT(elem: Element, task: TaskBuilder): void {
+    task.setName(elem.querySelector('.pat-content h3').textContent.trim().split(' (')[0]);
+
+    const limitsStr = elem.querySelector('.pat-content .pat-detail-info').textContent;
+    task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1]));
+    task.setMemoryLimit(Math.floor(parseInt(/(\d+) KB/.exec(limitsStr)[1], 10) / 1024));
+
+    const blocks = [...elem.querySelectorAll('.module-body h3 > b')]
+      .filter(el => el.textContent.includes('子:'))
+      .map(el => el.parentElement.nextElementSibling);
+
+    for (let i = 0; i < blocks.length - 1; i += 2) {
+      task.addTest(blocks[i].innerHTML, blocks[i + 1].innerHTML);
+    }
   }
 }
