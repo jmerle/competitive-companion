@@ -6,7 +6,7 @@ import { VirtualJudgeProblemParser } from '../problem/VirtualJudgeProblemParser'
 
 export class VirtualJudgeContestParser extends ContestParser<[string, string, any]> {
   public getMatchPatterns(): string[] {
-    return ['https://vjudge.net/contest/*'];
+    return ['https://vjudge.net/contest/*', 'https://vjudge.csgrandeur.cn/contest/*'];
   }
 
   public canHandlePage(): boolean {

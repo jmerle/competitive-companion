@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Added support for the vjudge.csgrandeur.cn mirror to the Virtual Judge parsers
+
 ## 2.39.0 (2023-01-22)
 - Added support for LSYOI and SDUT OnlineJudge (thanks [@zymooll](https://github.com/zymooll) for the LSYOI parser)
 

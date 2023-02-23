@@ -8,8 +8,10 @@ export class VirtualJudgeProblemParser extends Parser {
     return [
       'https://vjudge.net/problem/*',
       'https://cn.vjudge.net/problem/*',
+      'https://vjudge.csgrandeur.cn/problem/*',
       'https://vjudge.net/contest/*#problem/*',
       'https://cn.vjudge.net/contest/*#problem/*',
+      'https://vjudge.csgrandeur.cn/contest/*#problem/*',
     ];
   }
 
