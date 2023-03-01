@@ -18,7 +18,11 @@ export class CodeChefNewProblemParser extends Parser {
     const task = new TaskBuilder('CodeChef').setUrl(url);
 
     task.setName(
-      elem.querySelector('div[class^="_problem__title_"] > h1, div[class^="_contestProblemTitle_"] > h1').textContent,
+      elem.querySelector(
+        ['_problem__title_', '_contestProblemTitle_', '_titleStatus__container_']
+          .map(prefix => `div[class^="${prefix}"] > h1`)
+          .join(', '),
+      ).textContent,
     );
 
     const category = await this.parseCategory(url, elem);

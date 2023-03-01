@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of CodeChef problems in active contests
+
 ## 2.40.0 (2023-02-23)
 - Added support for PAT problems in the NowCoder parser
 - Added support for the vjudge.csgrandeur.cn mirror to the Virtual Judge parsers
