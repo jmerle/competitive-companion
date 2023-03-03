@@ -4,7 +4,7 @@
   "result": [
     {
       "name": "A. String Task",
-      "group": "Codeforces - Codeforces Beta Round #89 (Div. 2)",
+      "group": "Codeforces - Codeforces Beta Round 89 (Div. 2)",
       "url": "https://codeforces.com/contest/118/problem/A",
       "interactive": false,
       "memoryLimit": 256,
@@ -39,7 +39,7 @@
     },
     {
       "name": "B. Present from Lena",
-      "group": "Codeforces - Codeforces Beta Round #89 (Div. 2)",
+      "group": "Codeforces - Codeforces Beta Round 89 (Div. 2)",
       "url": "https://codeforces.com/contest/118/problem/B",
       "interactive": false,
       "memoryLimit": 256,
@@ -70,7 +70,7 @@
     },
     {
       "name": "C. Fancy Number",
-      "group": "Codeforces - Codeforces Beta Round #89 (Div. 2)",
+      "group": "Codeforces - Codeforces Beta Round 89 (Div. 2)",
       "url": "https://codeforces.com/contest/118/problem/C",
       "interactive": false,
       "memoryLimit": 256,
@@ -105,7 +105,7 @@
     },
     {
       "name": "D. Caesar's Legions",
-      "group": "Codeforces - Codeforces Beta Round #89 (Div. 2)",
+      "group": "Codeforces - Codeforces Beta Round 89 (Div. 2)",
       "url": "https://codeforces.com/contest/118/problem/D",
       "interactive": false,
       "memoryLimit": 256,
@@ -140,7 +140,7 @@
     },
     {
       "name": "E. Bertown roads",
-      "group": "Codeforces - Codeforces Beta Round #89 (Div. 2)",
+      "group": "Codeforces - Codeforces Beta Round 89 (Div. 2)",
       "url": "https://codeforces.com/contest/118/problem/E",
       "interactive": false,
       "memoryLimit": 256,
