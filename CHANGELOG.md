@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.40.1 (2023-03-03)
 - Fixed the parsing of CodeChef problems in active contests
 
 ## 2.40.0 (2023-02-23)
