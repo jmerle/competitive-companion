@@ -89,6 +89,7 @@ import { NOJProblemParser } from './problem/NOJProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { OpenJudgeProblemParser } from './problem/OpenJudgeProblemParser';
+import { OTOGProblemParser } from './problem/OTOGProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
@@ -241,6 +242,8 @@ export const parsers: Parser[] = [
 
   new OpenJudgeProblemParser(),
   new OpenJudgeContestParser(),
+
+  new OTOGProblemParser(),
 
   new PandaOnlineJudgeProblemParser(),
 
