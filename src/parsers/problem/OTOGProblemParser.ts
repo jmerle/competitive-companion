@@ -19,7 +19,7 @@ export class OTOGProblemParser extends Parser {
     task.setMemoryLimit(memoryLimit);
 
     const timeLimit = Number(elem.querySelector('#time-limit').textContent);
-    task.setTimeLimit(timeLimit);
+    task.setTimeLimit(timeLimit * 1000);
 
     const inputs = elem.querySelectorAll('#input');
     const outputs = elem.querySelectorAll('#output');
