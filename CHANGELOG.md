@@ -2,6 +2,7 @@
 
 ## 2.41.0 (Unreleased)
 - Added support for OTOG (thanks [@Anon-136](https://github.com/Anon-136))
+- Fixed the parsing of PTA problems with code blocks in the problem description
 
 ## 2.40.1 (2023-03-03)
 - Fixed the parsing of CodeChef problems in active contests
