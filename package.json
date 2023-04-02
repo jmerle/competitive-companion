@@ -1,7 +1,7 @@
 {
   "name": "competitive-companion",
   "productName": "Competitive Companion",
-  "version": "2.40.1",
+  "version": "2.41.0",
   "description": "Parses competitive programming problems and sends them to various tools like CHelper and Hightail.",
   "repository": "https://github.com/jmerle/competitive-companion",
   "author": "Jasper van Merle",
@@ -58,7 +58,7 @@
     "puppeteer": "^19.8.2",
     "string-replace-loader": "^3.1.0",
     "terser-webpack-plugin": "^5.3.7",
-    "ts-jest": "^29.0.5",
+    "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.3",
