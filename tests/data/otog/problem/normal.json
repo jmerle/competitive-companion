@@ -1,0 +1,35 @@
+{
+  "url": "https://otog.cf/problem/1",
+  "parser": "OTOGProblemParser",
+  "result": {
+    "name": "1 โรงแรมในฝัน",
+    "group": "OTOG",
+    "url": "https://otog.cf/problem/1",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "21\n",
+        "output": "5000\n"
+      },
+      {
+        "input": "24\n",
+        "output": "6000\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}
