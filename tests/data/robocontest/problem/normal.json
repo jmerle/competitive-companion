@@ -1,0 +1,37 @@
+{
+  "url": "https://robocontest.uz/tasks/0018",
+  "parser": "RoboContestProblemParser",
+  "result": {
+    "name": "Masala #0018",
+    "group": "RoboContest",
+    "url": "https://robocontest.uz/tasks/0018",
+    "interactive": false,
+    "memoryLimit": 16,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "4 9 2\n3 5 7\n8 1 5\n",
+        "output": "1\n"
+      },
+      {
+        "input": "4 8 2\n4 5 7\n6 1 6\n",
+        "output": "4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "input.txt"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "output.txt"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Masala0018"
+      }
+    }
+  }
+}

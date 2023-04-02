@@ -29,6 +29,7 @@ import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
+import { RoboContestContestParser } from './contest/RoboContestContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { UOJContestParser } from './contest/UOJContestParser';
 import { VirtualJudgeContestParser } from './contest/VirtualJudgeContestParser';
@@ -95,6 +96,7 @@ import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
 import { PTAProblemParser } from './problem/PTAProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
+import { RoboContestProblemParser } from './problem/RoboContestProblemParser';
 import { SDUTOnlineJudgeProblemParser } from './problem/SDUTOnlineJudgeProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
@@ -257,6 +259,9 @@ export const parsers: Parser[] = [
 
   new QDUOJProblemParser(),
   new QDUOJContestParser(),
+
+  new RoboContestProblemParser(),
+  new RoboContestContestParser(),
 
   new SDUTOnlineJudgeProblemParser(),
 

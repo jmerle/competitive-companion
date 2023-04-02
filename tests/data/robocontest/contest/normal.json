@@ -1,0 +1,183 @@
+{
+  "url": "https://robocontest.uz/olympiads/363/results",
+  "parser": "RoboContestContestParser",
+  "result": [
+    {
+      "name": "Masala #1030",
+      "group": "RoboContest - IOI 2023 saralash masalalari 1-kun",
+      "url": "https://robocontest.uz/olympiads/363/tasks/A",
+      "interactive": false,
+      "memoryLimit": 16,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2 3 *\n",
+          "output": "1 6\n"
+        },
+        {
+          "input": "8 9 +\n",
+          "output": "4 13\n"
+        },
+        {
+          "input": "7 9 -\n",
+          "output": "29 31\n"
+        },
+        {
+          "input": "9 12 /\n",
+          "output": "60 80\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "file",
+        "fileName": "input.txt"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "output.txt"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Masala1030"
+        }
+      }
+    },
+    {
+      "name": "Masala #1031",
+      "group": "RoboContest - IOI 2023 saralash masalalari 1-kun",
+      "url": "https://robocontest.uz/olympiads/363/tasks/B",
+      "interactive": false,
+      "memoryLimit": 32,
+      "timeLimit": 1250,
+      "tests": [
+        {
+          "input": "4\n5 5 6 7\n",
+          "output": "5523\n"
+        },
+        {
+          "input": "3\n2 10 9\n",
+          "output": "207\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "file",
+        "fileName": "input.txt"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "output.txt"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Masala1031"
+        }
+      }
+    },
+    {
+      "name": "Masala #1032",
+      "group": "RoboContest - IOI 2023 saralash masalalari 1-kun",
+      "url": "https://robocontest.uz/olympiads/363/tasks/C",
+      "interactive": false,
+      "memoryLimit": 128,
+      "timeLimit": 1250,
+      "tests": [
+        {
+          "input": "3\n000\n110\n000\n",
+          "output": "Yes\n"
+        },
+        {
+          "input": "4\n0001\n0101\n0000\n1111\n",
+          "output": "No\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "file",
+        "fileName": "input.txt"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "output.txt"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Masala1032"
+        }
+      }
+    },
+    {
+      "name": "Masala #1033",
+      "group": "RoboContest - IOI 2023 saralash masalalari 1-kun",
+      "url": "https://robocontest.uz/olympiads/363/tasks/D",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 1250,
+      "tests": [
+        {
+          "input": "3 2\nM 1 4\nW 2\nM 3 6\n",
+          "output": "6\n"
+        },
+        {
+          "input": "3 1\nM 1 4\nW 2\nM 3 6\n",
+          "output": "IMPOSSIBLE\n"
+        },
+        {
+          "input": "2 1\nM -1000000000 1\nM 1000000000 2\n",
+          "output": "1000000002\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "file",
+        "fileName": "input.txt"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "output.txt"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Masala1033"
+        }
+      }
+    },
+    {
+      "name": "Masala #1034",
+      "group": "RoboContest - IOI 2023 saralash masalalari 1-kun",
+      "url": "https://robocontest.uz/olympiads/363/tasks/E",
+      "interactive": false,
+      "memoryLimit": 16,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "4\n-1 -1 3 -1\n",
+          "output": "0\n"
+        },
+        {
+          "input": "6\n-1 -1 2 -1 -1 -1\n",
+          "output": "3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "file",
+        "fileName": "input.txt"
+      },
+      "output": {
+        "type": "file",
+        "fileName": "output.txt"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Masala1034"
+        }
+      }
+    }
+  ]
+}

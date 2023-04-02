@@ -1,0 +1,37 @@
+{
+  "url": "https://robocontest.uz/olympiads/230/tasks/A",
+  "parser": "RoboContestProblemParser",
+  "result": {
+    "name": "Masala #0913",
+    "group": "RoboContest - INFORMATIKA VA AXBOROT TEXNOLOGIYALARI FANIDAN ASOSIY FAN OLIMPIADASINING III (VILOYAT) BOSQICHI 9 va 10 - SINFLAR MASALALARI",
+    "url": "https://robocontest.uz/olympiads/230/tasks/A",
+    "interactive": false,
+    "memoryLimit": 16,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "d4 f6\n",
+        "output": "1\n"
+      },
+      {
+        "input": "a1 g6\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "input.txt"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "output.txt"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Masala0913"
+      }
+    }
+  }
+}

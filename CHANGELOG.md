@@ -1,7 +1,7 @@
 # Changelog
 
 ## 2.41.0 (Unreleased)
-- Added support for OTOG (thanks [@Anon-136](https://github.com/Anon-136))
+- Added support for OTOG and RoboContest (thanks [@Anon-136](https://github.com/Anon-136) for the OTOG parser)
 - Fixed the parsing of PTA problems with code blocks in the problem description
 - Fixed the parsing of Baekjoon Online Judge problems with multiple time limits
 

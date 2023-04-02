@@ -96,6 +96,7 @@ A browser extension which parses competitive programming problems from various o
 | PTA                        | ✔              |                |
 | Public Judge               | ✔              | ✔              |
 | QDUOJ                      | ✔              | ✔              |
+| RoboContest                | ✔              | ✔              |
 | SDUT OnlineJudge           | ✔              |                |
 | SPOJ                       | ✔              |                |
 | SSOIER                     | ✔              |                |
