@@ -1,0 +1,35 @@
+{
+  "url": "https://www.acmicpc.net/problem/23261",
+  "parser": "BaekjoonOnlineJudgeProblemParser",
+  "result": {
+    "name": "Dogs and Cats",
+    "group": "Baekjoon Online Judge",
+    "url": "https://www.acmicpc.net/problem/23261",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 40000,
+    "tests": [
+      {
+        "input": "3\n6 10 4 0\nCCDCDD\n4 1 2 0\nCCCC\n4 2 1 0\nDCCD\n",
+        "output": "Case #1: YES\nCase #2: YES\nCase #3: NO\n"
+      },
+      {
+        "input": "2\n12 4 2 2\nCDCCCDCCDCDC\n8 2 1 3\nDCCCCCDC\n",
+        "output": "Case #1: YES\nCase #2: NO\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "DogsAndCats"
+      }
+    }
+  }
+}
