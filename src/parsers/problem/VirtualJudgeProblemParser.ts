@@ -50,7 +50,7 @@ export class VirtualJudgeProblemParser extends Parser {
 
     if (memoryLimitDt !== undefined) {
       const memoryLimitStr = memoryLimitDt.nextElementSibling.textContent;
-      task.setMemoryLimit(Math.round(parseFloat(memoryLimitStr.split(' ')[0]) / 1024));
+      task.setMemoryLimit(parseFloat(memoryLimitStr.split(' ')[0]) / 1024);
     }
 
     if (inputFileDt !== undefined) {

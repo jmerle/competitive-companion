@@ -25,7 +25,7 @@ export class NOJProblemParser extends Parser {
     const memoryLimitStr = container.querySelector(
       'info-badge[title="Memory Limit"], info-badge[data-original-title="Memory Limit"]',
     ).textContent;
-    task.setMemoryLimit(Math.floor(parseInt(/(\d+)K/.exec(memoryLimitStr)[1]) / 1024));
+    task.setMemoryLimit(parseInt(/(\d+)K/.exec(memoryLimitStr)[1]) / 1024);
 
     const blocks = [...container.querySelectorAll('h2')]
       .filter(el => el.textContent.includes('ample'))

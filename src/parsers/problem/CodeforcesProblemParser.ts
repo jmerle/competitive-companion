@@ -125,7 +125,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setCategory('acm.sgu.ru archive');
 
     task.setTimeLimit(parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000);
-    task.setMemoryLimit(Math.floor(parseInt(/memory\s+limit per test:\s+(\d+)\s+KB/.exec(html)[1], 10) / 1000));
+    task.setMemoryLimit(parseInt(/memory\s+limit per test:\s+(\d+)\s+KB/.exec(html)[1], 10) / 1000);
 
     const blocks = elem.querySelectorAll('font > pre');
     for (let i = 0; i < blocks.length - 1; i += 2) {
@@ -140,10 +140,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setCategory('acm.sgu.ru archive');
 
     task.setTimeLimit(parseFloat(/Time\s+limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000);
-
-    task.setMemoryLimit(
-      Math.floor(parseInt(/Memory\s+limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1], 10) / 1000),
-    );
+    task.setMemoryLimit(parseInt(/Memory\s+limit(?: per test)*: (\d+)\s+(?:kilobytes|KB)/i.exec(html)[1], 10) / 1000);
 
     elem.querySelectorAll('table').forEach(table => {
       const blocks = table.querySelectorAll('pre');

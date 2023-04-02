@@ -20,7 +20,7 @@ export class SDUTOnlineJudgeProblemParser extends Parser {
 
     const limitsStr = elem.querySelector('div[class^="ant-card infoBoard___"]').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1], 10));
-    task.setMemoryLimit(Math.floor(parseInt(/(\d+) KiB/.exec(limitsStr)[1]) / 1024));
+    task.setMemoryLimit(parseInt(/(\d+) KiB/.exec(limitsStr)[1]) / 1024);
 
     const blocks = [...elem.querySelectorAll('.problem-content .anticon-copy')].map(
       el => el.parentElement.nextElementSibling,

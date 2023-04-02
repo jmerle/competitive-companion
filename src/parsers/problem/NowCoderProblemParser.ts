@@ -48,7 +48,7 @@ export class NowCoderProblemParser extends Parser {
 
     const limitsStr = elem.querySelector('.pat-content .pat-detail-info').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1]));
-    task.setMemoryLimit(Math.floor(parseInt(/(\d+) KB/.exec(limitsStr)[1], 10) / 1024));
+    task.setMemoryLimit(parseInt(/(\d+) KB/.exec(limitsStr)[1], 10) / 1024);
 
     const blocks = [...elem.querySelectorAll('.module-body h3 > b')]
       .filter(el => el.textContent.includes('子:'))

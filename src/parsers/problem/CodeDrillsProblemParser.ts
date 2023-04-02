@@ -34,7 +34,7 @@ export class CodeDrillsProblemParser extends Parser {
 
     const limitsStr = elem.querySelector('main .container .v-sheet > .row:last-child').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1], 10));
-    task.setMemoryLimit(Math.floor(parseInt(/(\d+) KiB/.exec(limitsStr)[1], 10) / 1024));
+    task.setMemoryLimit(parseInt(/(\d+) KiB/.exec(limitsStr)[1], 10) / 1024);
 
     return task.build();
   }

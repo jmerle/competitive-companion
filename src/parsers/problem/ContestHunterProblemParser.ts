@@ -27,12 +27,12 @@ export class ContestHunterProblemParser extends Parser {
 
     if (params1.length !== 0) {
       const limitsStr = params1[0].parentElement.textContent;
-      task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+)ms/.exec(limitsStr)[1])));
-      task.setMemoryLimit(Math.floor(parseFloat(/([0-9.]+)kB/.exec(limitsStr)[1]) / 1024));
+      task.setTimeLimit(parseFloat(/([0-9.]+)ms/.exec(limitsStr)[1]));
+      task.setMemoryLimit(parseFloat(/([0-9.]+)kB/.exec(limitsStr)[1]) / 1024);
     } else if (params2.length !== 0) {
       const limitsStr = params2[0].parentElement.textContent;
-      task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) s/.exec(limitsStr)[1]) * 1000));
-      task.setMemoryLimit(Math.floor(parseFloat(/([0-9.]+) MiB/.exec(limitsStr)[1])));
+      task.setTimeLimit(parseFloat(/([0-9.]+) s/.exec(limitsStr)[1]) * 1000);
+      task.setMemoryLimit(parseFloat(/([0-9.]+) MiB/.exec(limitsStr)[1]));
     }
 
     if (params2.length >= 1) {

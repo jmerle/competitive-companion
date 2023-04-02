@@ -71,12 +71,12 @@ export class TaskBuilder {
   }
 
   public setMemoryLimit(memoryLimit: number): TaskBuilder {
-    this.memoryLimit = memoryLimit;
+    this.memoryLimit = Math.floor(memoryLimit);
     return this;
   }
 
   public setTimeLimit(timeLimit: number): TaskBuilder {
-    this.timeLimit = timeLimit;
+    this.timeLimit = Math.floor(timeLimit);
     return this;
   }
 

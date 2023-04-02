@@ -43,7 +43,7 @@ export class CodeChefNewProblemParser extends Parser {
     }
 
     const timeLimitStr = elem.querySelector('div[class^="_moreInfo__container_"]').textContent;
-    task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) secs/.exec(timeLimitStr)[1]) * 1000));
+    task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(timeLimitStr)[1]) * 1000);
 
     task.setMemoryLimit(256);
 

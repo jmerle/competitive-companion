@@ -25,7 +25,7 @@ export class AizuOnlineJudgeProblemParser extends Parser {
     task.setTimeLimit(parseInt(timeLimitStr, 10) * 1000);
 
     const memoryLimitStr = elem.querySelector('#problemMemoryLimit').textContent;
-    task.setMemoryLimit(Math.floor(parseInt(memoryLimitStr, 10) / 1000));
+    task.setMemoryLimit(parseInt(memoryLimitStr, 10) / 1000);
 
     const blocks = [...elem.querySelectorAll('.description > pre')].filter(el => {
       const previousElement = el.previousElementSibling;

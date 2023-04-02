@@ -17,7 +17,7 @@ export class LSYOIProblemParser extends Parser {
     task.addTest(elem.querySelector('#sampleinput').textContent, document.querySelector('#sampleoutput').textContent);
 
     const timeLimitStr = elem.querySelectorAll('.green')[0].nextElementSibling.firstChild.textContent;
-    task.setTimeLimit(parseInt(Math.ceil(parseFloat(timeLimitStr) * 1000).toString(), 10));
+    task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
     const memoryLimitStr = elem.querySelectorAll('.green')[1].nextSibling.textContent;
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(memoryLimitStr)[1], 10));

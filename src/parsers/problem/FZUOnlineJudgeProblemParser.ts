@@ -23,7 +23,7 @@ export class FZUOnlineJudgeProblemParser extends Parser {
 
     const limitsStr = container.querySelector('h3').textContent;
     task.setTimeLimit(parseInt(/(\d+) mSec/.exec(limitsStr)[1], 10));
-    task.setMemoryLimit(Math.floor(parseInt(/(\d+) KB/.exec(limitsStr)[1], 10) / 1000));
+    task.setMemoryLimit(parseInt(/(\d+) KB/.exec(limitsStr)[1], 10) / 1000);
 
     const blocks = container.querySelectorAll('.data');
     for (let i = 0; i < blocks.length - 1; i += 2) {

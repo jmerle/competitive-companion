@@ -17,7 +17,7 @@ export class BaekjoonOnlineJudgeProblemParser extends Parser {
     const constraintCells = elem.querySelectorAll('#problem-info > tbody > tr > td');
 
     if (/\d/.test(constraintCells[0].textContent)) {
-      task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) /.exec(constraintCells[0].textContent)[1]) * 1000));
+      task.setTimeLimit(parseFloat(/([0-9.]+) /.exec(constraintCells[0].textContent)[1]) * 1000);
     } else {
       const timeLimits = [...elem.querySelectorAll('#problem-body p')]
         .map(el => el.textContent.trim())

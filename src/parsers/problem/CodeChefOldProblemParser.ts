@@ -34,8 +34,7 @@ export class CodeChefOldProblemParser extends Parser {
 
     this.parseTests(html, task);
 
-    task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) secs/.exec(infoStr)[1]) * 1000));
-
+    task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(infoStr)[1]) * 1000);
     task.setMemoryLimit(256);
 
     return task.build();

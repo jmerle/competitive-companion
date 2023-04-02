@@ -25,7 +25,7 @@ export class POJProblemParser extends Parser {
     }
 
     task.setTimeLimit(parseInt(/Time Limit:<\/b> (\d+)/.exec(html)[1], 10));
-    task.setMemoryLimit(Math.floor(parseInt(/Memory Limit:<\/b> (\d+)/.exec(html)[1], 10) / 1000));
+    task.setMemoryLimit(parseInt(/Memory Limit:<\/b> (\d+)/.exec(html)[1], 10) / 1000);
 
     const inputs = [...elem.querySelectorAll('p.pst')]
       .filter(el => el.textContent.trim().startsWith('Sample Input'))

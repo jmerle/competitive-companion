@@ -17,7 +17,7 @@ export class HDOJProblemParser extends Parser {
     task.setName(contentElem.querySelector('h1').textContent);
 
     task.setTimeLimit(parseInt(/Time Limit: (\d+)/.exec(html)[1], 10));
-    task.setMemoryLimit(Math.floor(parseInt(/Memory Limit: (\d+)/.exec(html)[1], 10) / 1000));
+    task.setMemoryLimit(parseInt(/Memory Limit: (\d+)/.exec(html)[1], 10) / 1000);
 
     const inputs = [...contentElem.querySelectorAll('div')]
       .filter(el => el.textContent.trim().startsWith('Sample Input'))

@@ -45,7 +45,7 @@ export class AizuOnlineJudgeBetaProblemParser extends Parser {
     const memoryLimitStr = nodes[1].textContent.split(' ')[0];
 
     task.setTimeLimit(parseInt(timeLimitStr, 10) * 1000);
-    task.setMemoryLimit(Math.floor(parseInt(memoryLimitStr, 10) / 1000));
+    task.setMemoryLimit(parseInt(memoryLimitStr, 10) / 1000);
 
     return task;
   }
