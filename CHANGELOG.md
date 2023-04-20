@@ -1,6 +1,6 @@
 # Changelog
 
-## UnreleasedUnreleased
+## Unreleased
 - Fixed the parsing of Eolymp problems and contests
 - Improved the parsing of UVa Online Judge problems with trailing or inner spaces in sample cases
 
