@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## UnreleasedUnreleased
 - Fixed the parsing of Eolymp problems and contests
+- Improved the parsing of UVa Online Judge problems with trailing or inner spaces in sample cases
 
 ## [2.41.0](https://github.com/jmerle/competitive-companion/releases/tag/2.41.0) (2023-04-02)
 - Added support for OTOG and RoboContest (thanks [@Anon-136](https://github.com/Anon-136) for the OTOG parser)
