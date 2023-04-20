@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of Eolymp problems and contests
+
 ## 2.41.0 (2023-04-02)
 - Added support for OTOG and RoboContest (thanks [@Anon-136](https://github.com/Anon-136) for the OTOG parser)
 - Fixed the parsing of PTA problems with code blocks in the problem description

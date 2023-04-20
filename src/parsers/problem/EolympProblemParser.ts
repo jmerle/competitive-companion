@@ -12,7 +12,7 @@ export class EolympProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Eolymp').setUrl(url);
 
-    task.setName(elem.querySelector('.eo-paper__header').textContent);
+    task.setName(elem.querySelector('.eo-problem-statement h1').textContent);
 
     const contestName = elem.querySelector('h1.eo-title__header').textContent;
     if (contestName !== task.name) {
@@ -22,9 +22,10 @@ export class EolympProblemParser extends Parser {
     task.setTimeLimit(parseFloat(elem.querySelectorAll('.eo-message__text b')[0].textContent) * 1000);
     task.setMemoryLimit(parseInt(elem.querySelectorAll('.eo-message__text b')[1].textContent, 10));
 
-    const blocks = elem.querySelectorAll('.mdl-grid .eo-code');
-    for (let i = 0; i < blocks.length - 1; i += 2) {
-      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
+    const inputBlocks = elem.querySelectorAll('.eo-problem-example-input .eo-code');
+    const outputBlocks = elem.querySelectorAll('.eo-problem-example-output .eo-code');
+    for (let i = 0; i < inputBlocks.length && i < outputBlocks.length; i++) {
+      task.addTest(inputBlocks[i].textContent, outputBlocks[i].textContent);
     }
 
     return task.build();
