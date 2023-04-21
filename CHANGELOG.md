@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.42.0 (Unreleased)
+## [2.42.0](https://github.com/jmerle/competitive-companion/releases/tag/2.42.0) (2023-04-21)
 - Added support for MOI Arena
 - Fixed the parsing of Eolymp problems and contests
 - Improved the parsing of UVa Online Judge problems with trailing or inner spaces in sample cases
