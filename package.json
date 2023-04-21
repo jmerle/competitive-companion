@@ -33,7 +33,7 @@
     "nanobar": "0.4.2",
     "pdfjs-dist": "3.5.141",
     "snarkdown": "2.0.0",
-    "webextension-polyfill": "^0.10.0"
+    "webextension-polyfill": "0.10.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
