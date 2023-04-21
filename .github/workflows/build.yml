@@ -8,29 +8,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: Get Yarn cache directory
-        id: yarn-cache-directory
-        run: echo "::set-output name=directory::$(yarn cache dir)"
-
-      - name: Set up cache
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache-directory.outputs.directory }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Lint code
-        run: yarn lint:eslint && yarn lint:prettier
+        run: pnpm lint:eslint && pnpm lint:prettier
 
       - name: Lint package
-        run: yarn lint:package
+        run: pnpm lint:package

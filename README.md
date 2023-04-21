@@ -194,7 +194,7 @@ It's not required for a tool to parse all these options, since some of them are 
     - **size**: The size of the batch, which is 1 when using a problem parser and the amount of problems in the contest when using a contest parser.
 
 ## Running locally
-The following commands can be used to start working on Competitive Companion locally. Additionally, make sure you got [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) installed.
+The following commands can be used to start working on Competitive Companion locally. Additionally, make sure you got [Node.js](https://nodejs.org/en/) and [PNPM](https://pnpm.io/) installed.
 
 ```bash
 # Clone the repository
@@ -204,41 +204,41 @@ git clone https://github.com/jmerle/competitive-companion.git
 cd competitive-companion
 
 # Install the dependencies
-yarn
+pnpm install
 
 # Decide what you want to do next
 
 # Build the code to the build/ directory
-yarn build
+pnpm build
 
 # Build the code automatically when the source changes
-yarn watch
+pnpm watch
 
 # Lint the extension for possible mistakes
-yarn lint
+pnpm lint
 
 # Package the extension to a zip file
-yarn package
+pnpm package
 
 # Launch a Firefox instance with Competitive Companion loaded into a temporary profile
 # Automatically re-compiles the code when the source changes
 # Automatically reloads the extension in the Firefox instance when the code is re-compiled
-yarn dev:firefox
+pnpm dev:firefox
 
 # Does the same as dev:firefox but with Chrome, with the exception that the extension is not automatically reloaded
 # You'll have to manually go to chrome://extensions and click on the reload button on the Competitive Companion entry
-yarn dev:chrome
+pnpm dev:chrome
 ```
 
 ## Testing
-To run the tests, use `yarn test`, or `yarn test:no-headless` to run tests with the Chrome instance visible. All other arguments are automatically passed on to Jest.
+To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with the Chrome instance visible. All other arguments are automatically passed on to Jest.
 
 ## Mozilla reviewers
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
 Node.js: 18.15.0  
-Yarn: 1.22.19
+PNPM: 8.3.1
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
@@ -247,4 +247,4 @@ Third-party libraries that can be found in the minified extension:
 - [pdfjs-dist 3.4.120](https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.js)
 - [cyrillic-to-translit-js 3.2.1](https://github.com/greybax/cyrillic-to-translit-js/blob/05f02e9e1df6d338f35258443f2e9c910bd8ccd4/CyrillicToTranslit.js)
 
-Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `yarn` and packaging with `yarn package`. The result can be found in the `dist/` directory.
+Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `pnpm install` and packaging with `pnpm package`. The result can be found in the `dist/` directory.

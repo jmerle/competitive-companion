@@ -51,9 +51,7 @@
     "eslint-plugin-import": "^2.27.5",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
     "generic-pool": "^3.9.0",
-    "husky": "4.3.8",
     "jest": "^29.5.0",
-    "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "puppeteer": "^19.8.2",
     "string-replace-loader": "^3.1.0",
@@ -141,19 +139,6 @@
         }
       ]
     }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --concurrent false"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,js}": [
-      "eslint --format codeframe --fix"
-    ],
-    "*.{ts,js,html,yml,json}": [
-      "prettier --write"
-    ]
   },
   "prettier": {
     "singleQuote": true,
