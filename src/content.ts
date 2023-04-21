@@ -1,4 +1,4 @@
-import { browser, Runtime } from 'webextension-polyfill-ts';
+import browser, { Runtime } from 'webextension-polyfill';
 import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';

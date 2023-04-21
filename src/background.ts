@@ -1,4 +1,4 @@
-import { browser, Menus, Runtime, Tabs } from 'webextension-polyfill-ts';
+import browser, { Menus, Runtime, Tabs } from 'webextension-polyfill';
 import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
 import { parsers } from './parsers/parsers';

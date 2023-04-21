@@ -1,4 +1,4 @@
-import { browser, Runtime } from 'webextension-polyfill-ts';
+import browser, { Runtime } from 'webextension-polyfill';
 import { config } from '../utils/config';
 import { sendToBackground } from '../utils/messaging';
 import { noop } from '../utils/noop';

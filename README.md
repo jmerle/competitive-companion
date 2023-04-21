@@ -243,8 +243,8 @@ PNPM: 8.3.1
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
-- [webextension-polyfill-ts 0.26.0](https://github.com/Lusito/webextension-polyfill-ts/tree/5c9037651e1661706439b389a840a913223b9f1d)
-- [pdfjs-dist 3.4.120](https://cdn.jsdelivr.net/npm/pdfjs-dist@3.4.120/build/pdf.js)
+- [webextension-polyfill 0.10.0](https://github.com/mozilla/webextension-polyfill/blob/0.10.0/src/browser-polyfill.js)
+- [pdfjs-dist 3.5.141](https://cdn.jsdelivr.net/npm/pdfjs-dist@3.5.141/build/pdf.js)
 - [cyrillic-to-translit-js 3.2.1](https://github.com/greybax/cyrillic-to-translit-js/blob/05f02e9e1df6d338f35258443f2e9c910bd8ccd4/CyrillicToTranslit.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `pnpm install` and packaging with `pnpm package`. The result can be found in the `dist/` directory.

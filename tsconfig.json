@@ -3,6 +3,7 @@
     "module": "CommonJS",
     "target": "ES2017",
     "strict": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "esModuleInterop": true
   }
 }

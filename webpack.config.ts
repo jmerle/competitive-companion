@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as process from 'process';
 import CopyPlugin = require('copy-webpack-plugin');
 import ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-import * as TerserPlugin from 'terser-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 import * as webpack from 'webpack';
 import { merge } from 'webpack-merge';
 
