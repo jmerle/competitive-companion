@@ -80,6 +80,7 @@ A browser extension which parses competitive programming problems from various o
 | LSYOI                      | ✔              |                |
 | Luogu                      | ✔              | ✔              |
 | Meta Coding Competitions   | ✔              |                |
+| MOI Arena                  | ✔              | ✔              |
 | mrJudge                    | ✔              |                |
 | MSK Informatics            | ✔              |                |
 | Neps Academy               | ✔              |                |

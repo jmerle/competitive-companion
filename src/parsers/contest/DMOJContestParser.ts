@@ -6,6 +6,6 @@ export class DMOJContestParser extends SimpleContestParser {
   protected problemParser = new DMOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://dmoj.ca/contest/*'];
+    return ['https://dmoj.ca/contest/*', 'https://arena.moi/contest/*'];
   }
 }

@@ -5,12 +5,14 @@ import { Parser } from '../Parser';
 
 export class DMOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://dmoj.ca/problem/*'];
+    return ['https://dmoj.ca/problem/*', 'https://arena.moi/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
+    const judge = url.startsWith('https://arena.moi/') ? 'MOI Arena' : 'DMOJ';
+
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('DMOJ').setUrl(url);
+    const task = new TaskBuilder(judge).setUrl(url);
 
     const titleParts = elem.querySelector('.problem-title h2').textContent.split(/ - | — |(?<=Contest \d+ [A-Z#]\d+) /);
     if (titleParts.length === 1) {
