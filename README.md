@@ -29,7 +29,6 @@ A browser extension which parses competitive programming problems from various o
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
 - [cpbooster](https://www.npmjs.com/package/cpbooster)
 - [Competitive Programming Gradle Plugin](https://github.com/saurabh73/competitive-programming)
-- [C+++ IDE](https://github.com/23786/Cppp-IDE)
 - [cphelper.nvim](https://github.com/p00f/cphelper.nvim)
 - [AutoCp](https://pushpavel.github.io/AutoCp/)
 - [Red Panda Dev-C++](https://github.com/royqh1979/RedPanda-CPP)
