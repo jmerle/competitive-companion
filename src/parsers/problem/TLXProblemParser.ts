@@ -5,7 +5,12 @@ import { Parser } from '../Parser';
 
 export class TLXProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://tlx.toki.id/contests/*/problems/*', 'https://tlx.toki.id/problems/*/*'];
+    return [
+      'https://tlx.toki.id/contests/*/problems/*',
+      'https://tlx.toki.id/problems/*/*',
+      'https://tlx.toki.id/courses/basic/chapters/*/problems/*',
+      'https://tlx.toki.id/courses/competitive/chapters/*/problems/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -19,7 +24,7 @@ export class TLXProblemParser extends Parser {
       .trim();
     task.setName(name);
 
-    const categorySelector = '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2';
+    const categorySelector = '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2, .single-course-chapter-routes';
     task.setCategory(elem.querySelector(categorySelector).textContent);
 
     // Problems in the problemset don't include the letter in the title, so we add it here
