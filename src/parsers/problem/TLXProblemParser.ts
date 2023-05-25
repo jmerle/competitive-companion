@@ -35,8 +35,8 @@ export class TLXProblemParser extends Parser {
 
     const limitNodes = elem.querySelector('.programming-problem-statement__limits');
 
-    const timeLimitStr = limitNodes.textContent;
-    task.setTimeLimit(parseFloat(/([0-9.]+) ?s/.exec(timeLimitStr)[1]) * 1000);
+    const [, timeLimit, timeLimitUnit] = /([0-9.]+) ?(s|ms)/.exec(limitNodes.textContent);
+    task.setTimeLimit(timeLimitUnit === 's' ? parseFloat(timeLimit) * 1000 : parseFloat(timeLimit));
 
     const memoryLimitStr = limitNodes.textContent;
     task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(memoryLimitStr)[1], 10));
@@ -66,8 +66,10 @@ export class TLXProblemParser extends Parser {
           return el.nextElementSibling;
         } else if (el.children.length >= 3) {
           return el.children[2];
-        } else {
+        } else if (el.children.length >= 1) {
           return el.children[0];
+        } else {
+          return {textContent: ''};
         }
       });
 
