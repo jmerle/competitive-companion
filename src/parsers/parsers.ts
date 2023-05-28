@@ -42,6 +42,7 @@ import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AcWingProblemParser } from './problem/AcWingProblemParser';
 import { AizuOnlineJudgeBetaProblemParser } from './problem/AizuOnlineJudgeBetaProblemParser';
 import { AizuOnlineJudgeProblemParser } from './problem/AizuOnlineJudgeProblemParser';
+import { AlgoZenithProblemParser } from './problem/AlgoZenithProblemParser';
 import { AnarchyGolfProblemParser } from './problem/AnarchyGolfProblemParser';
 import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
 import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeProblemParser';
@@ -125,6 +126,8 @@ export const parsers: Parser[] = [
 
   new AizuOnlineJudgeProblemParser(),
   new AizuOnlineJudgeBetaProblemParser(),
+
+  new AlgoZenithProblemParser(),
 
   new AnarchyGolfProblemParser(),
 
