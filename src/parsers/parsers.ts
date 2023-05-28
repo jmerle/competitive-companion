@@ -99,6 +99,7 @@ import { PTAProblemParser } from './problem/PTAProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { RoboContestProblemParser } from './problem/RoboContestProblemParser';
 import { SDUTOnlineJudgeProblemParser } from './problem/SDUTOnlineJudgeProblemParser';
+import { SortMeProblemParser } from './problem/SortMeProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
@@ -267,6 +268,8 @@ export const parsers: Parser[] = [
   new RoboContestContestParser(),
 
   new SDUTOnlineJudgeProblemParser(),
+
+  new SortMeProblemParser(),
 
   new SPOJProblemParser(),
 

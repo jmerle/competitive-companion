@@ -99,6 +99,7 @@ A browser extension which parses competitive programming problems from various o
 | QDUOJ                      | ✔              | ✔              |
 | RoboContest                | ✔              | ✔              |
 | SDUT OnlineJudge           | ✔              |                |
+| Sort Me                    | ✔              |                |
 | SPOJ                       | ✔              |                |
 | SSOIER                     | ✔              |                |
 | Timus Online Judge         | ✔              | ✔              |
