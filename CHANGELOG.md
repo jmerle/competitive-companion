@@ -3,7 +3,7 @@
 ## [2.43.0](https://github.com/jmerle/competitive-companion/releases/tag/2.43.0) (2023-05-28)
 - Added support for AlgoZenith and Sort Me
 - Fixed the parsing of TLX course problems and problems with time limits in milliseconds (thanks [@ChrisG661](https://github.com/ChrisG661))
-- Fixed the parsing of Codeforces problems with time/memory limits in bold text (thanks [@colaczy](https://github.com/colazcy))
+- Fixed the parsing of Codeforces problems with time/memory limits in bold text (thanks [@colazcy](https://github.com/colazcy))
 - Fixed the parsing of PTA problems
 
 ## [2.42.0](https://github.com/jmerle/competitive-companion/releases/tag/2.42.0) (2023-04-21)
