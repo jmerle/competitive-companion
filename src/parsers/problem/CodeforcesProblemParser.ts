@@ -212,16 +212,9 @@ export class CodeforcesProblemParser extends Parser {
   private getLastTextNode(elem: Element, selector: string): ChildNode {
     let selectedNode = elem.querySelector(selector);
 
-    let cursiveNode;
-
-    cursiveNode = selectedNode.querySelector('.tex-font-style-sl');
-    if (cursiveNode !== null) {
-      selectedNode = cursiveNode;
-    }
-
-    cursiveNode = selectedNode.querySelector('.tex-font-style-bf');
-    if (cursiveNode !== null) {
-      selectedNode = cursiveNode;
+    const styledNode = selectedNode.querySelector('.tex-font-style-sl, .tex-font-style-bf');
+    if (styledNode !== null) {
+      selectedNode = styledNode;
     }
 
     const textNodes = [...selectedNode.childNodes].filter(node => node.nodeType === Node.TEXT_NODE);
