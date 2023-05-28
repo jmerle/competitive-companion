@@ -103,7 +103,7 @@ let pagePool: Pool<Page>;
 
 beforeAll(async () => {
   browser = await launch({
-    headless: process.env.HEADLESS !== 'false',
+    headless: process.env.HEADLESS !== 'false' ? 'new' : false,
   });
 
   pagePool = createPool<Page>(
