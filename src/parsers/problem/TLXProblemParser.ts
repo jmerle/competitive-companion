@@ -25,7 +25,7 @@ export class TLXProblemParser extends Parser {
     task.setName(name);
 
     const categorySelector =
-      '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2, .single-course-chapter-routes';
+      '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2, .course-chapters-sidebar__chapters h4';
     task.setCategory(elem.querySelector(categorySelector).textContent);
 
     // Problems in the problemset don't include the letter in the title, so we add it here
