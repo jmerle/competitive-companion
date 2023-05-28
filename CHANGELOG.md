@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Fixed the TLX problem parser to work on course problems and on problems with time limits in milliseconds (thanks [@ChrisG661](https://github.com/ChrisG661))
+- Fixed the Codeforces parser on problems with time/memory limits in bold text (thanks [@colaczy](https://github.com/colazcy))
+
 ## [2.42.0](https://github.com/jmerle/competitive-companion/releases/tag/2.42.0) (2023-04-21)
 - Added support for MOI Arena
 - Fixed the parsing of Eolymp problems and contests
