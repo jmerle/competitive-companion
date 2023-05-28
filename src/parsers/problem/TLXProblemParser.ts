@@ -5,7 +5,12 @@ import { Parser } from '../Parser';
 
 export class TLXProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://tlx.toki.id/contests/*/problems/*', 'https://tlx.toki.id/problems/*/*'];
+    return [
+      'https://tlx.toki.id/contests/*/problems/*',
+      'https://tlx.toki.id/problems/*/*',
+      'https://tlx.toki.id/courses/basic/chapters/*/problems/*',
+      'https://tlx.toki.id/courses/competitive/chapters/*/problems/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -19,7 +24,8 @@ export class TLXProblemParser extends Parser {
       .trim();
     task.setName(name);
 
-    const categorySelector = '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2';
+    const categorySelector =
+      '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2, .course-chapters-sidebar__chapters h4';
     task.setCategory(elem.querySelector(categorySelector).textContent);
 
     // Problems in the problemset don't include the letter in the title, so we add it here
@@ -30,8 +36,8 @@ export class TLXProblemParser extends Parser {
 
     const limitNodes = elem.querySelector('.programming-problem-statement__limits');
 
-    const timeLimitStr = limitNodes.textContent;
-    task.setTimeLimit(parseFloat(/([0-9.]+) ?s/.exec(timeLimitStr)[1]) * 1000);
+    const [, timeLimit, timeLimitUnit] = /([0-9.]+) ?(s|ms)/.exec(limitNodes.textContent);
+    task.setTimeLimit(timeLimitUnit === 's' ? parseFloat(timeLimit) * 1000 : parseFloat(timeLimit));
 
     const memoryLimitStr = limitNodes.textContent;
     task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(memoryLimitStr)[1], 10));
@@ -61,8 +67,10 @@ export class TLXProblemParser extends Parser {
           return el.nextElementSibling;
         } else if (el.children.length >= 3) {
           return el.children[2];
-        } else {
+        } else if (el.children.length >= 1) {
           return el.children[0];
+        } else {
+          return { textContent: '' };
         }
       });
 
