@@ -59,6 +59,7 @@ import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSESProblemParser } from './problem/CSESProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
+import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EolympProblemParser } from './problem/EolympProblemParser';
@@ -174,6 +175,8 @@ export const parsers: Parser[] = [
 
   new DMOJProblemParser(),
   new DMOJContestParser(),
+
+  new DimikOJProblemParser(),
 
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
