@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class DimikOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://dimikoj.com/problems/*/*'];
+    return ['https://dimikoj.com/problems/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -15,11 +15,6 @@ export class DimikOJProblemParser extends Parser {
     const headerText = doc.querySelector('.card-header').textContent;
     const problemTitle = headerText.split('—').at(-1).trim();
     task.setName(problemTitle);
-
-    // no time limit is given at any problem
-    // 1s time limit and 512MB memory limit assumed
-    task.setTimeLimit(1000);
-    task.setMemoryLimit(512);
 
     const submissionDiv = doc.querySelector('#submission');
     const codeBlocks = [...submissionDiv.previousElementSibling.querySelectorAll('code')];
