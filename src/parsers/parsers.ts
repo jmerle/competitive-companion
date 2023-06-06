@@ -102,7 +102,7 @@ import { SDUTOnlineJudgeProblemParser } from './problem/SDUTOnlineJudgeProblemPa
 import { SortMeProblemParser } from './problem/SortMeProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
-import { TheJobOverflow } from './problem/TheJobOverflowProblemParser';
+import { TheJobOverflowProblemParser } from './problem/TheJobOverflowProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
 import { TLXProblemParser } from './problem/TLXProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
@@ -276,7 +276,7 @@ export const parsers: Parser[] = [
 
   new SSOIERProblemParser(),
 
-  new TheJobOverflow(),
+  new TheJobOverflowProblemParser(),
 
   new TimusOnlineJudgeProblemParser(),
   new TimusOnlineJudgeContestParser(),

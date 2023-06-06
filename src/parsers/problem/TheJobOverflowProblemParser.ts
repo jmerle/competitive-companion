@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class TheJobOverflow extends Parser {
+export class TheJobOverflowProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['http://thejoboverflow.com/problem/*'];
   }
