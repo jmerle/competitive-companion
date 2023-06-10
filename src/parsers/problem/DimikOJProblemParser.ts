@@ -12,11 +12,9 @@ export class DimikOJProblemParser extends Parser {
     const doc = htmlToElement(html);
     const task = new TaskBuilder('Dimik OJ').setUrl(url);
 
-    // don't use bangla name, it breaks code compilation in cph
-    const urlParts = url.split('/');
-    const problemNumber = urlParts.at(-2);
-    const problemName = urlParts.at(-1).replace('-', ' ').replace(/(?<=(^| ))./g, c => c.toUpperCase());
-    task.setName(`${problemNumber} ${problemName}`);
+    const headerText = doc.querySelector('.card-header').textContent;
+    const problemTitle = headerText.slice(headerText.indexOf('—') + 1).trim();
+    task.setName(problemTitle);
 
     const submissionDiv = doc.querySelector('#submission');
     const codeBlocks = [...submissionDiv.previousElementSibling.querySelectorAll('code')];
