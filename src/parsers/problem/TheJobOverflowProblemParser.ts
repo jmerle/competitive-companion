@@ -16,7 +16,7 @@ export class TheJobOverflowProblemParser extends Parser {
     task.setName(titleStr.replace(/\s*:$/, ''));
 
     const inputs = [...doc.querySelectorAll('.sample-test > .input > .content')];
-    const outputs = [...doc.querySelectorAll('.sample-test > .output > .content')]
+    const outputs = [...doc.querySelectorAll('.sample-test > .output > .content')];
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
       task.addTest(inputs[i].textContent, outputs[i].textContent);
     }
