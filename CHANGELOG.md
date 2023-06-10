@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.44.0](https://github.com/jmerle/competitive-companion/releases/tag/2.43.0) (2023-06-10)
+## [2.44.0](https://github.com/jmerle/competitive-companion/releases/tag/2.44.0) (2023-06-10)
 - Added support for Dimik OJ and TheJobOverflow (thanks [@touhidurrr](https://github.com/touhidurrr))
 
 ## [2.43.0](https://github.com/jmerle/competitive-companion/releases/tag/2.43.0) (2023-05-28)
