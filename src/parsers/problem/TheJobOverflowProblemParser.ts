@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class TheJobOverflowProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://thejoboverflow.com/problem/*'];
+    return ['http://thejoboverflow.com/problem/*', 'https://thejoboverflow.com/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -17,7 +17,7 @@ export class TheJobOverflowProblemParser extends Parser {
 
     const inputs = [...doc.querySelectorAll('.sample-test > .input > .content')];
     const outputs = [...doc.querySelectorAll('.sample-test > .output > .content')]
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length && i < outputs.length; i++) {
       task.addTest(inputs[i].textContent, outputs[i].textContent);
     }
 
