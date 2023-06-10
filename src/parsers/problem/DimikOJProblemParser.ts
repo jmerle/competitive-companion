@@ -21,7 +21,7 @@ export class DimikOJProblemParser extends Parser {
     const submissionDiv = doc.querySelector('#submission');
     const codeBlocks = [...submissionDiv.previousElementSibling.querySelectorAll('code')];
 
-    for (let i = 0; i < codeBlocks.length + 1; i += 2) {
+    for (let i = 0; i < codeBlocks.length - 1; i += 2) {
       task.addTest(codeBlocks[i].textContent, codeBlocks[i + 1].textContent);
     }
 
