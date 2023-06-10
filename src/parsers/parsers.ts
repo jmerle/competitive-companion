@@ -173,10 +173,10 @@ export const parsers: Parser[] = [
   new CSUACMOnlineJudgeProblemParser(),
   new CSUACMOnlineJudgeContestParser(),
 
+  new DimikOJProblemParser(),
+
   new DMOJProblemParser(),
   new DMOJContestParser(),
-
-  new DimikOJProblemParser(),
 
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),

@@ -10,7 +10,7 @@ export class DimikOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const doc = htmlToElement(html);
-    const task = new TaskBuilder('DimikOJ').setUrl(url);
+    const task = new TaskBuilder('Dimik OJ').setUrl(url);
 
     // don't use bangla name, it breaks code compilation in cph
     const urlParts = url.split('/');
@@ -21,7 +21,7 @@ export class DimikOJProblemParser extends Parser {
     const submissionDiv = doc.querySelector('#submission');
     const codeBlocks = [...submissionDiv.previousElementSibling.querySelectorAll('code')];
 
-    for (let i = 0; i < codeBlocks.length; i += 2) {
+    for (let i = 0; i < codeBlocks.length + 1; i += 2) {
       task.addTest(codeBlocks[i].textContent, codeBlocks[i + 1].textContent);
     }
 
