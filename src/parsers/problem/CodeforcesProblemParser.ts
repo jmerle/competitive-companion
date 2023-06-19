@@ -74,24 +74,24 @@ export class CodeforcesProblemParser extends Parser {
 
     task.setInteractive(isInteractive);
 
-    const timeLimitNode = this.getLastTextNode(elem, '.problem-statement > .header > .time-limit');
-    const timeLimitStr = timeLimitNode.textContent.split(' ')[0];
+    const timeLimitNode = elem.querySelector('.problem-statement > .header > .time-limit');
+    const timeLimitStr = timeLimitNode.textContent.match(/\d+/)[0];
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
-    const memoryLimitNode = this.getLastTextNode(elem, '.problem-statement > .header > .memory-limit');
-    const memoryLimitStr = memoryLimitNode.textContent.split(' ')[0];
+    const memoryLimitNode = elem.querySelector('.problem-statement > .header > .memory-limit');
+    const memoryLimitStr = memoryLimitNode.textContent.match(/\d+/)[0];
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
-    const inputFile = this.getLastTextNode(elem, '.problem-statement > .header > .input-file').textContent;
-    if (inputFile !== 'standard input' && inputFile !== 'стандартный ввод') {
+    const inputFile = elem.querySelector('.problem-statement > .header > .input-file').textContent;
+    if (!inputFile.endsWith('standard input') && !inputFile.endsWith('стандартный ввод')) {
       task.setInput({
         fileName: inputFile,
         type: 'file',
       });
     }
 
-    const outputFile = this.getLastTextNode(elem, '.problem-statement > .header > .output-file').textContent;
-    if (outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
+    const outputFile = elem.querySelector('.problem-statement > .header > .output-file').textContent;
+    if (!outputFile.endsWith('standard output') && !outputFile.endsWith('стандартный вывод')) {
       task.setOutput({
         fileName: outputFile,
         type: 'file',
