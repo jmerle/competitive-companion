@@ -42,8 +42,10 @@ export class CodeChefNewProblemParser extends Parser {
       }
     }
 
-    const timeLimitStr = elem.querySelector('div[class^="_moreInfo__container_"]').textContent;
-    task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(timeLimitStr)[1]) * 1000);
+    const timeLimitElem = elem.querySelector('div[class^="_moreInfo__container_"]');
+    if (timeLimitElem !== null) {
+      task.setTimeLimit(parseFloat(/([0-9.]+) secs/.exec(timeLimitElem.textContent)[1]) * 1000);
+    }
 
     task.setMemoryLimit(256);
 
@@ -59,6 +61,11 @@ export class CodeChefNewProblemParser extends Parser {
     const contestIdFromUrl = /https:\/\/www\.codechef\.com\/([^/]+)\/problems\/([^/]+)/.exec(url);
     if (contestIdFromUrl !== null) {
       return contestIdFromUrl[1];
+    }
+
+    const syllabusName = elem.querySelector('div[class^="_syllabusName_"]');
+    if (syllabusName !== null) {
+      return syllabusName.textContent.trim();
     }
 
     const problemId = new URL(url).pathname.split('/').pop();
