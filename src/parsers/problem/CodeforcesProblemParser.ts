@@ -14,6 +14,7 @@ export class CodeforcesProblemParser extends Parser {
       'https://codeforces.com/group/*/contest/*/problem/*',
       'https://codeforces.com/problemsets/acmsguru/problem/*/*',
       'https://codeforces.com/edu/course/*/lesson/*/*/practice/contest/*/problem/*',
+      'https://codeforces.com/problemset/gymProblem/*',
     ].forEach(pattern => {
       patterns.push(pattern);
       patterns.push(pattern.replace('https://codeforces.com', 'https://*.codeforces.com'));
