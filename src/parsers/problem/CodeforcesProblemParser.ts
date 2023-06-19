@@ -21,7 +21,7 @@ export class CodeforcesProblemParser extends Parser {
     });
 
     const mlPatterns = patterns.map(pattern => pattern.replace('.com', '.ml'));
-    const esPatterns = patterns.map(pattern => pattern.replace('codeforces.com', 'codeforc.es'));
+    const esPatterns = patterns.map(pattern => pattern.replace('.com', '.es'));
 
     const httpsPatterns = patterns.concat(mlPatterns).concat(esPatterns);
     const httpPatterns = httpsPatterns.map(pattern => pattern.replace('https://', 'http://'));
