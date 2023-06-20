@@ -1,8 +1,8 @@
 # Changelog
 
-## [2.44.1](https://github.com/jmerle/competitive-companion/releases/tag/2.44.1) (Unreleased)
+## [2.44.1](https://github.com/jmerle/competitive-companion/releases/tag/2.44.1) (2023-06-20)
 - Fixed the parsing of Codeforces problems on "/problemset/gymProblem" URLs (thanks [@touhidurrr](https://github.com/touhidurrr))
-- Fixed the parsing of CodeChef problems in the Learn category
+- Fixed the parsing of CodeChef problems in the Learn section
 
 ## [2.44.0](https://github.com/jmerle/competitive-companion/releases/tag/2.44.0) (2023-06-10)
 - Added support for Dimik OJ and TheJobOverflow (thanks [@touhidurrr](https://github.com/touhidurrr))
