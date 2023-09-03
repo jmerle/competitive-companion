@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.45.0](https://github.com/jmerle/competitive-companion/releases/tag/2.45.0) (Unreleased)
+## [2.45.0](https://github.com/jmerle/competitive-companion/releases/tag/2.45.0) (2023-09-03)
 - Added support for Daimayuan Online Judge (thanks [@Windyskr](https://github.com/Windyskr))
 - Added support for the http version of HDOJ (thanks [@Windyskr](https://github.com/Windyskr))
 - Fixed the parsing of problem titles on Public Judge
