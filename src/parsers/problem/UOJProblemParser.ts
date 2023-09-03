@@ -17,7 +17,12 @@ export class UOJProblemParser extends Parser {
     const matchPatterns = [];
 
     for (const domain in this.domains) {
-      matchPatterns.push(`https://${domain}/problem/*`, `https://${domain}/contest/*/problem/*`, `http://${domain}/course/*/problem/*`,  `http://${domain}/problem/*`);
+      matchPatterns.push(
+        `https://${domain}/problem/*`,
+        `https://${domain}/contest/*/problem/*`,
+        `http://${domain}/course/*/problem/*`,
+        `http://${domain}/problem/*`,
+      );
     }
 
     return matchPatterns;
