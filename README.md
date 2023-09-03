@@ -58,6 +58,7 @@ A browser extension which parses competitive programming problems from various o
 | CS Academy                 | ✔              |                |
 | CSES                       | ✔              | ✔              |
 | CSU-ACM Online Judge       | ✔              | ✔              |
+| Daimayuan Online Judge     | ✔              | ✔              |
 | Dimik OJ                   | ✔              |                |
 | DMOJ                       | ✔              | ✔              |
 | Eolymp                     | ✔              | ✔              |

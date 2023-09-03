@@ -10,7 +10,7 @@ export class UOJProblemParser extends Parser {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     'pjudge.ac': 'Public Judge',
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    'oj.daimayuan.top': 'DaimayuanOJ',
+    'oj.daimayuan.top': 'Daimayuan Online Judge',
   };
 
   public getMatchPatterns(): string[] {
