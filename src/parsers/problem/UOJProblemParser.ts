@@ -9,13 +9,20 @@ export class UOJProblemParser extends Parser {
     'uoj.ac': 'UOJ',
     // eslint-disable-next-line @typescript-eslint/naming-convention
     'pjudge.ac': 'Public Judge',
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    'oj.daimayuan.top': 'DaimayuanOJ',
   };
 
   public getMatchPatterns(): string[] {
     const matchPatterns = [];
 
     for (const domain in this.domains) {
-      matchPatterns.push(`https://${domain}/problem/*`, `https://${domain}/contest/*/problem/*`);
+      matchPatterns.push(
+        `https://${domain}/problem/*`,
+        `https://${domain}/contest/*/problem/*`,
+        `http://${domain}/course/*/problem/*`,
+        `http://${domain}/problem/*`,
+      );
     }
 
     return matchPatterns;
