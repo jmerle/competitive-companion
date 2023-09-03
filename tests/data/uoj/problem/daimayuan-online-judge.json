@@ -1,0 +1,31 @@
+{
+  "url": "http://oj.daimayuan.top/problem/17",
+  "parser": "UOJProblemParser",
+  "result": {
+    "name": "#17. Sum",
+    "group": "Daimayuan Online Judge",
+    "url": "http://oj.daimayuan.top/problem/17",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "290\n",
+        "output": "11\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Sum"
+      }
+    }
+  }
+}

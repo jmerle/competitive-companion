@@ -3,6 +3,7 @@
 ## [2.45.0](https://github.com/jmerle/competitive-companion/releases/tag/2.45.0) (Unreleased)
 - Added support for Daimayuan Online Judge (thanks [@Windyskr](https://github.com/Windyskr))
 - Added support for the http version of HDOJ (thanks [@Windyskr](https://github.com/Windyskr))
+- Fixed the parsing of problem titles on Public Judge
 
 ## [2.44.1](https://github.com/jmerle/competitive-companion/releases/tag/2.44.1) (2023-06-20)
 - Fixed the parsing of Codeforces problems on "/problemset/gymProblem" URLs (thanks [@touhidurrr](https://github.com/touhidurrr))

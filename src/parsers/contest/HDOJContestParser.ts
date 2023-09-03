@@ -7,7 +7,7 @@ export class HDOJContestParser extends SimpleContestParser {
   protected problemParser = new HDOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://acm.hdu.edu.cn/contests/contest_show.php*', 'http://acm.hdu.edu.cn/contests/contest_show.php*'];
+    return ['https://acm.hdu.edu.cn/contests/contest_show.php*'].flatMap(p => [p, p.replace('https', 'http')]);
   }
 
   protected async parseTask(url: string): Promise<Task> {

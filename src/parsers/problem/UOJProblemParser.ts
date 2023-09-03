@@ -17,12 +17,13 @@ export class UOJProblemParser extends Parser {
     const matchPatterns = [];
 
     for (const domain in this.domains) {
-      matchPatterns.push(
-        `https://${domain}/problem/*`,
-        `https://${domain}/contest/*/problem/*`,
-        `http://${domain}/course/*/problem/*`,
-        `http://${domain}/problem/*`,
-      );
+      for (const protocol of ['http', 'https']) {
+        matchPatterns.push(
+          `${protocol}://${domain}/problem/*`,
+          `${protocol}://${domain}/contest/*/problem/*`,
+          `${protocol}://${domain}/course/*/problem/*`,
+        );
+      }
     }
 
     return matchPatterns;
@@ -36,10 +37,10 @@ export class UOJProblemParser extends Parser {
 
     const header = container.querySelector('.page-header');
     if (header.tagName === 'H1') {
-      task.setName(header.textContent);
+      task.setName(this.getTitle(header));
     } else {
-      task.setName(header.querySelector('h1 + h1').textContent);
-      task.setCategory(header.querySelector('h1 > small').textContent);
+      task.setName(this.getTitle(header.querySelector('h1 + h1')));
+      task.setCategory(this.getTitle(header.querySelector('h1 > small')));
     }
 
     let mathTexts = [...container.querySelectorAll('script[type="math/tex"]')]
@@ -69,5 +70,9 @@ export class UOJProblemParser extends Parser {
     }
 
     return task.build();
+  }
+
+  private getTitle(elem: Element): string {
+    return elem.textContent.trim().replace(/\s+/g, ' ');
   }
 }

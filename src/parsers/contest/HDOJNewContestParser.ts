@@ -6,6 +6,6 @@ export class HDOJNewContestParser extends SimpleContestParser {
   protected problemParser = new HDOJNewProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://acm.hdu.edu.cn/contest/problems\\?*', 'http://acm.hdu.edu.cn/contest/problems\\?*'];
+    return ['https://acm.hdu.edu.cn/contest/problems\\?*'].flatMap(p => [p, p.replace('https', 'http')]);
   }
 }

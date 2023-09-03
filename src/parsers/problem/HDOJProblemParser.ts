@@ -8,9 +8,7 @@ export class HDOJProblemParser extends Parser {
     return [
       'https://acm.hdu.edu.cn/showproblem.php*',
       'https://acm.hdu.edu.cn/contests/contest_showproblem.php*',
-      'http://acm.hdu.edu.cn/showproblem.php*',
-      'http://acm.hdu.edu.cn/contests/contest_showproblem.php*',
-    ];
+    ].flatMap(p => [p, p.replace('https', 'http')]);
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

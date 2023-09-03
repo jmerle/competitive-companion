@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class HDOJNewProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://acm.hdu.edu.cn/contest/problem\\?*', 'http://acm.hdu.edu.cn/contest/problem\\?*'];
+    return ['https://acm.hdu.edu.cn/contest/problem\\?*'].flatMap(p => [p, p.replace('https', 'http')]);
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
