@@ -4,7 +4,7 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class UOJProblemParser extends Parser {
-  private readonly domains: Record<string, string> = {
+  public static readonly domains: Record<string, string> = {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     'uoj.ac': 'UOJ',
     // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -16,7 +16,7 @@ export class UOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     const matchPatterns = [];
 
-    for (const domain in this.domains) {
+    for (const domain in UOJProblemParser.domains) {
       for (const protocol of ['http', 'https']) {
         matchPatterns.push(
           `${protocol}://${domain}/problem/*`,
@@ -31,7 +31,7 @@ export class UOJProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder(this.domains[new URL(url).hostname]).setUrl(url);
+    const task = new TaskBuilder(UOJProblemParser.domains[new URL(url).hostname]).setUrl(url);
 
     const container = elem.querySelector('.uoj-content');
 

@@ -6,6 +6,8 @@ export class UOJContestParser extends SimpleContestParser {
   protected problemParser = new UOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://uoj.ac/contest/*', 'https://pjudge.ac/contest/*', 'http://oj.daimayuan.top/contest/*'];
+    return Object.keys(UOJProblemParser.domains)
+      .map(domain => `https://${domain}/contest/*`)
+      .flatMap(p => [p, p.replace('https', 'http')]);
   }
 }
