@@ -241,14 +241,14 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 18.16.0  
-PNPM: 8.6.2
+Node.js: 18.17.1  
+PNPM: 8.6.12
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
 - [webextension-polyfill 0.10.0](https://github.com/mozilla/webextension-polyfill/blob/0.10.0/src/browser-polyfill.js)
-- [pdfjs-dist 3.7.107](https://cdn.jsdelivr.net/npm/pdfjs-dist@3.7.107/build/pdf.js)
+- [pdfjs-dist 3.10.111](https://cdn.jsdelivr.net/npm/pdfjs-dist@3.10.111/build/pdf.js)
 - [cyrillic-to-translit-js 3.2.1](https://github.com/greybax/cyrillic-to-translit-js/blob/05f02e9e1df6d338f35258443f2e9c910bd8ccd4/CyrillicToTranslit.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `pnpm install` and packaging with `pnpm package`. The result can be found in the `dist/` directory.
