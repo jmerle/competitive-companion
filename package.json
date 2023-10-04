@@ -23,7 +23,7 @@
     "fix:prettier": "prettier --write --ignore-path .gitignore '**/*.{ts,js,html,yml,json}'",
     "test": "pnpm build:test && jest",
     "test:no-headless": "cross-env HEADLESS=false pnpm test",
-    "start:firefox": "web-ext run -s build-extension/ --start-url https://codeforces.com/problemset/problem/954/G --pref devtools.browserconsole.filter.jswarn=false --pref devtools.webconsole.filter.warn=false",
+    "start:firefox": "tsx scripts/start-firefox.ts",
     "start:chrome": "tsx scripts/start-chrome.ts",
     "dev:firefox": "pnpm build:dev && concurrently 'pnpm start:firefox' 'pnpm watch' -n web-ext,webpack -c blue,yellow --kill-others",
     "dev:chrome": "pnpm build:dev && concurrently 'pnpm start:chrome' 'pnpm watch' -n chrome,webpack -c blue,yellow --kill-others"
