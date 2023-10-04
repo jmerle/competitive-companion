@@ -37,7 +37,7 @@ export class CSESProblemParser extends Parser {
       return result;
     };
 
-    const codeBlocks = find([...elem.querySelectorAll('[id^=example], .content > code')]);
+    const codeBlocks = find([...elem.querySelectorAll('[id^=example], .content pre')]);
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
       task.addTest(codeBlocks[i].textContent, codeBlocks[i + 1].textContent);
     }

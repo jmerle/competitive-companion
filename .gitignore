@@ -133,3 +133,4 @@ dist
 build-extension/
 build-test/
 dist/
+firefox-tmp/
