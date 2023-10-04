@@ -24,9 +24,18 @@ export class TLXProblemParser extends Parser {
       .trim();
     task.setName(name);
 
-    const categorySelector =
-      '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2, .course-chapters-sidebar__chapters h4';
-    task.setCategory(elem.querySelector(categorySelector).textContent);
+    const categoryElem = elem.querySelector(
+      '.single-problemset-problem-routes__title--link, .single-contest-routes__header > h2',
+    );
+
+    if (categoryElem != null) {
+      task.setCategory(categoryElem.textContent);
+    } else {
+      const breadcrumbs = elem.querySelectorAll('.chapter-problem-page__title--link');
+      if (breadcrumbs.length > 0) {
+        task.setCategory([...breadcrumbs].map(el => el.textContent).join(' - '));
+      }
+    }
 
     // Problems in the problemset don't include the letter in the title, so we add it here
     if (!task.name.includes('. ')) {

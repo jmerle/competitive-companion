@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Fixed the parsing of sample cases on CSES
+- Fixed the parsing of categories in TLX course problems
 
 ## [2.45.0](https://github.com/jmerle/competitive-companion/releases/tag/2.45.0) (2023-09-03)
 - Added support for Daimayuan Online Judge (thanks [@Windyskr](https://github.com/Windyskr))
