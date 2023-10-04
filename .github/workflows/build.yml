@@ -25,7 +25,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Lint code
-        run: pnpm lint:eslint && pnpm lint:prettier
+        run: pnpm run "/lint:eslint|lint:prettier/"
 
       - name: Lint package
         run: pnpm lint:package
