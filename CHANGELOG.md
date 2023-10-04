@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 2.46.0 (Unreleased)
+- Added parsers for CPython.uz
 - Fixed the parsing of sample cases on CSES
 - Fixed the parsing of categories in TLX course problems
 

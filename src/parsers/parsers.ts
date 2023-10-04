@@ -8,6 +8,7 @@ import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { CodeMarshalContestParser } from './contest/CodeMarshalContestParser';
 import { COJContestParser } from './contest/COJContestParser';
 import { ContestHunterContestParser } from './contest/ContestHunterContestParser';
+import { CPythonUZContestParser } from './contest/CPythonUZContestParser';
 import { CSESContestParser } from './contest/CSESContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
@@ -56,6 +57,7 @@ import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser';
+import { CPythonUZProblemParser } from './problem/CPythonUZProblemParser';
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSESProblemParser } from './problem/CSESProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
@@ -165,6 +167,9 @@ export const parsers: Parser[] = [
 
   new ContestHunterProblemParser(),
   new ContestHunterContestParser(),
+
+  new CPythonUZProblemParser(),
+  new CPythonUZContestParser(),
 
   new CSAcademyProblemParser(),
 

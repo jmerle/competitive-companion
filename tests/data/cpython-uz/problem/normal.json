@@ -1,0 +1,35 @@
+{
+  "url": "https://cpython.uz/practice/problems/problem/1",
+  "parser": "CPythonUZProblemParser",
+  "result": {
+    "name": "The sum of two numbers",
+    "group": "CPython.uz",
+    "url": "https://cpython.uz/practice/problems/problem/1",
+    "interactive": false,
+    "memoryLimit": 250,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "2 2\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5 10\n",
+        "output": "15\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "TheSumOfTwoNumbers"
+      }
+    }
+  }
+}
