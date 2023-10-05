@@ -2,6 +2,7 @@
 
 ## 2.46.0 (Unreleased)
 - Added parsers for CPython.uz
+- Updated all contest parsers to fetch contest problems in parallel rather than sequentially
 - Fixed the parsing of sample cases on CSES
 - Fixed the parsing of categories in TLX course problems
 

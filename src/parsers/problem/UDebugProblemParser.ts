@@ -24,7 +24,7 @@ export class UDebugProblemParser extends Parser {
     for (let i = 0; i < inputs.length; i++) {
       const test = await this.fetchTest(elem, inputs[i].getAttribute('data-id'));
       task.addTest(test[0], test[1]);
-      (window as any).nanoBar.go(((i + 1) / inputs.length) * 100);
+      window.nanoBar.advance(100 / inputs.length);
     }
 
     return task.build();

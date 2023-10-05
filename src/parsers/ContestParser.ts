@@ -6,26 +6,37 @@ import { Parser } from './Parser';
 export abstract class ContestParser<T> extends Parser {
   protected abstract getTasksToParse(html: string, url: string): Promise<T[]>;
 
-  protected abstract parseTask(id: T): Promise<Task>;
+  protected abstract parseTask(input: T): Promise<Task>;
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    const tasksToParse = await this.getTasksToParse(html, url);
-    const parsedTasks = [];
-    const failedTasks = [];
+    const inputs = await this.getTasksToParse(html, url);
 
-    for (let i = 0; i < tasksToParse.length; i++) {
-      try {
-        const task = await this.parseTask(tasksToParse[i]);
-        parsedTasks.push(task);
-      } catch (error) {
-        console.error(`Failed to parse task ${i + 1}:`, error);
+    const taskPromises: Promise<Task | null>[] = inputs.map((input, i) =>
+      this.parseTask(input)
+        .catch(err => {
+          console.error(`Failed to parse task ${i + 1}:`, err);
+          return null;
+        })
+        .then(result => {
+          window.nanoBar.advance(100 / inputs.length);
+          return result;
+        }),
+    );
+
+    const tasks = await Promise.all(taskPromises);
+
+    const parsedTasks: Task[] = [];
+    const failedTasks: number[] = [];
+
+    for (let i = 0; i < inputs.length; i++) {
+      if (tasks[i] !== null) {
+        parsedTasks.push(tasks[i]);
+      } else {
         failedTasks.push(i + 1);
       }
-
-      (window as any).nanoBar.go(((i + 1) / tasksToParse.length) * 100);
     }
 
-    if (failedTasks.length === tasksToParse.length) {
+    if (failedTasks.length === inputs.length) {
       throw new Error('Failed to parse any task.');
     }
 

@@ -51,36 +51,23 @@ export abstract class Parser {
   public abstract parse(url: string, html: string): Promise<Sendable>;
 
   /**
-   * Fetches a url using a GET request and resolves into the HTML body.
+   * Fetches an url using a GET request and resolves into the HTML body.
    */
-  protected async fetch(url: string, options: RequestInit = {}): Promise<string> {
+  protected async fetch(url: string, options: RequestInit = {}, retries: number = 3): Promise<string> {
     const response = await fetch(url, { credentials: 'include', ...options });
 
     if (response.ok && response.status === 200) {
       return response.text();
     }
 
-    throw new Error(`The network response was not ok (status code: ${response.status}, url: ${url}).`);
-  }
+    if (retries > 0) {
+      // Some judges don't like it if we send 10+ parallel requests when parsing all problems in a contest
+      // By delaying retries we get around any short-term rate limits
+      await new Promise(resolve => setTimeout(resolve, 2000 - 500 * retries));
 
-  /**
-   * Fetches all the given urls using GET requests and resolves into an array of HTML bodies.
-   * The resulting array is in the same order as in which the urls are given.
-   */
-  protected async fetchAll(urls: string[]): Promise<string[]> {
-    const fetchPromises: Promise<string>[] = [];
-    let fetched = 0;
-
-    for (let i = 0; i < urls.length; i++) {
-      const promise = this.fetch(urls[i]).then((value: string) => {
-        fetched += 1;
-        (window as any).nanoBar.go((fetched / urls.length) * 100);
-        return value;
-      });
-
-      fetchPromises.push(promise);
+      return this.fetch(url, options, retries - 1);
     }
 
-    return await Promise.all(fetchPromises);
+    throw new Error(`The network response was not ok (status code: ${response.status}, url: ${url}).`);
   }
 }

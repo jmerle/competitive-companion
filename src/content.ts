@@ -9,7 +9,15 @@ import { noop } from './utils/noop';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Nanobar = require('nanobar');
 
-(window as any).isContentScript = true;
+declare global {
+  interface Window {
+    nanoBar: {
+      total: number;
+      go(percentage: number): void;
+      advance(delta: number): void;
+    };
+  }
+}
 
 async function getParserToUse(): Promise<Parser> {
   const url = window.location.href;
@@ -40,11 +48,22 @@ function getParserByName(name: string): Parser {
 }
 
 async function parse(parser: Parser): Promise<void> {
-  (window as any).nanoBar = new Nanobar();
+  const bar = new Nanobar();
+  window.nanoBar = bar;
 
-  document.querySelectorAll('.bar').forEach(bar => {
-    (bar as HTMLElement).style.backgroundColor = '#3498db';
-  });
+  bar.total = 0;
+  bar.advance = (delta: number) => {
+    bar.total += delta;
+
+    if (Math.abs(100 - bar.total) < 1e-6) {
+      bar.total = 100;
+    }
+
+    bar.go(bar.total);
+  };
+
+  const styleTag = document.querySelector('#nanobarcss');
+  styleTag.textContent = styleTag.textContent.replace('#000', '#3498db');
 
   try {
     const sendable = await parser.parse(window.location.href, document.documentElement.outerHTML);
@@ -61,7 +80,9 @@ async function parse(parser: Parser): Promise<void> {
     );
   }
 
-  (window as any).nanoBar.go(100);
+  if (bar.total < 100) {
+    bar.advance(100 - bar.total);
+  }
 }
 
 function handleMessage(message: Message | any, sender: Runtime.MessageSender): void {

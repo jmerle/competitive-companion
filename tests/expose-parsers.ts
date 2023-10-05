@@ -13,4 +13,6 @@ for (const parser of parsers) {
 // This package has no types
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Nanobar = require('nanobar');
-(window as any).nanoBar = new Nanobar();
+window.nanoBar = new Nanobar();
+window.nanoBar.total = 0;
+window.nanoBar.advance = () => {};
