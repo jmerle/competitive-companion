@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.46.0 (Unreleased)
+## [2.46.0](https://github.com/jmerle/competitive-companion/releases/tag/2.46.0) (2023-10-05)
 - Added parsers for CPython.uz
 - Updated all contest parsers to fetch contest problems in parallel rather than sequentially
 - Fixed the parsing of sample cases on CSES
