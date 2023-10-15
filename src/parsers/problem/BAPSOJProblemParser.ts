@@ -92,11 +92,13 @@ export class BAPSOJProblemParser extends Parser {
   private async getProblemInfo(contest: string, problem: string): Promise<BAPSOJProblemInfo> {
     const contestInfoAPIResponse = await this.fetch(
       `https://api.bapsoj.org/api/judge/contests/${contest}/?format=json`,
+      { credentials: 'omit' },
     );
     const contestInfo = JSON.parse(contestInfoAPIResponse) as BAPSOJContestInfo;
     const problemId = contestInfo.problem_set.find(p => p.problem_order_character === problem).problem_id;
     const problemInfoAPIResponse = await this.fetch(
       `https://api.bapsoj.org/api/judge/problems/${problemId}/?format=json`,
+      { credentials: 'omit' },
     );
     const problemInfo = JSON.parse(problemInfoAPIResponse) as BAPSOJProblemInfo;
     return problemInfo;
@@ -104,10 +106,10 @@ export class BAPSOJProblemParser extends Parser {
 
   public async parse(url: string): Promise<Sendable> {
     const task = new TaskBuilder('BAPS OJ').setUrl(url);
-    const [contest, problem] = url.split('/').slice(-2);
+    const [contest, , problem] = url.split('/').slice(-3);
     const problemInfo = await this.getProblemInfo(contest, problem);
 
-    task.setName(problemInfo.title);
+    task.setName(`${problem}. ${problemInfo.title}`);
     task.setTimeLimit(problemInfo.time_limit);
     task.setMemoryLimit(problemInfo.memory_limit);
 
