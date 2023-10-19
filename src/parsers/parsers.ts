@@ -77,6 +77,7 @@ import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemPars
 import { HKOIOnlineJudgeProblemParser } from './problem/HKOIOnlineJudgeProblemParser';
 import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
 import { HydroProblemParser } from './problem/HydroProblemParser';
+import { ITCoderHUTECHProblemParser } from './problem/ITCoderHUTECHProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
 import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProblemParser';
@@ -219,6 +220,8 @@ export const parsers: Parser[] = [
 
   new HydroProblemParser(),
   new HydroContestParser(),
+
+  new ITCoderHUTECHProblemParser(),
 
   new JutgeProblemParser(),
 
