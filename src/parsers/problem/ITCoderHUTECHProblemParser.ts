@@ -10,7 +10,7 @@ export class ITCoderHUTECHProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const doc = htmlToElement(html);
-    const task = new TaskBuilder('IT Coder HUTECH').setUrl(url);
+    const task = new TaskBuilder('ITCoder HUTECH').setUrl(url);
 
     task.setName(doc.querySelector('h2').textContent);
 
