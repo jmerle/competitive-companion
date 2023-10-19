@@ -27,6 +27,10 @@ export class ACMPProblemParser extends Parser {
     task.setMemoryLimit(parseInt(limits[2], 10));
 
     elem.querySelectorAll('table.main tbody > tr:not(:first-child)').forEach(row => {
+      if (row.querySelectorAll('td').length !== 3) {
+        return;
+      }
+
       const input = row.querySelector('td:nth-child(2)').innerHTML;
       const output = row.querySelector('td:nth-child(3)').innerHTML;
 

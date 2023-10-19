@@ -2,6 +2,7 @@
 
 ## 2.47.0 (Unreleased)
 - Added support for BAPS OJ (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the parsing of sample cases on ACMP where recent attempts would also be parsed as sample cases
 
 ## [2.46.0](https://github.com/jmerle/competitive-companion/releases/tag/2.46.0) (2023-10-05)
 - Added parsers for CPython.uz
