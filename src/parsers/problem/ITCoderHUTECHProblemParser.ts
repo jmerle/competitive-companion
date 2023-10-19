@@ -13,7 +13,6 @@ export class ITCoderHUTECHProblemParser extends Parser {
     const task = new TaskBuilder('IT Coder HUTECH').setUrl(url);
 
     task.setName(doc.querySelector('h2').textContent);
-    task.setCategory(doc.querySelector('.title-block > h3 > a').textContent);
 
     const [cpu, memory] = [...document.querySelectorAll('.card-body .float-right')].map(
       el => +el.textContent.match(/\d+/),
