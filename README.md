@@ -47,6 +47,7 @@ A browser extension which parses competitive programming problems from various o
 | Anarchy Golf               | ✔              |                |
 | AtCoder                    | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              | ✔              |
+| BAPS OJ                    | ✔              |                |
 | beecrowd                   | ✔              | ✔              |
 | Bloomberg CodeCon          | ✔              |                |
 | BUCTOJ                     | ✔              | ✔              |
