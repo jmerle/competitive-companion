@@ -14,16 +14,18 @@ export class ITCoderHUTECHProblemParser extends Parser {
 
     task.setName(doc.querySelector('h2').textContent);
 
-    const [cpu, memory] = [...doc.querySelectorAll('.card-body .float-right')].map(el => +el.textContent.match(/\d+/));
-    task.setTimeLimit(cpu);
-    task.setMemoryLimit(memory);
+    const [timeLimit, memoryLimit] = [...doc.querySelectorAll('.card-body .float-right')].map(el =>
+      parseInt(el.textContent.match(/\d+/)[0]),
+    );
 
-    const samples = [...doc.querySelectorAll('.sample-test')];
-    for (const sample of samples) {
+    task.setTimeLimit(timeLimit * 1000);
+    task.setMemoryLimit(memoryLimit);
+
+    doc.querySelectorAll('.sample-test').forEach(sample => {
       const input = sample.querySelector('.sample-input-text').textContent;
       const output = sample.querySelector('.sample-output-text').textContent;
       task.addTest(input, output);
-    }
+    });
 
     return task.build();
   }
