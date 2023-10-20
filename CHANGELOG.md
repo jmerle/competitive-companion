@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.47.0 (Unreleased)
+## [2.47.0](https://github.com/jmerle/competitive-companion/releases/tag/2.47.0) (2023-10-20)
 - Added support for BAPS OJ and ITCoder HUTECH (thanks [@touhidurrr](https://github.com/touhidurrr))
 - Fixed the parsing of sample cases on ACMP where recent attempts would also be parsed as sample cases
 
