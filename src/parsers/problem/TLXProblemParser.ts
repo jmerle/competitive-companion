@@ -13,6 +13,44 @@ export class TLXProblemParser extends Parser {
     ];
   }
 
+  public parseTests(task: TaskBuilder, elem: Element): void {
+    const inputs = [...elem.querySelectorAll('h3')]
+      .filter(el => el.textContent.includes('Sample Input') || el.textContent.includes('Contoh Masukan'))
+      .map(el => el.nextElementSibling)
+      .map(el => {
+        if (el.tagName === 'PRE') {
+          return el;
+        } else if (el.tagName === 'DIV') {
+          return el.nextElementSibling;
+        } else if (el.children.length >= 3) {
+          return el.children[2];
+        } else {
+          return el.children[0];
+        }
+      });
+
+    const outputs = [...elem.querySelectorAll('h3')]
+      .filter(el => el.textContent.includes('Sample Output') || el.textContent.includes('Contoh Keluaran'))
+      .map(el => el.nextElementSibling)
+      .map(el => {
+        if (el.tagName === 'PRE') {
+          return el;
+        } else if (el.tagName === 'DIV') {
+          return el.nextElementSibling;
+        } else if (el.children.length >= 3) {
+          return el.children[2];
+        } else if (el.children.length >= 1) {
+          return el.children[0];
+        } else {
+          return { textContent: '' };
+        }
+      });
+
+    for (let i = 0; i < inputs.length && i < outputs.length; i++) {
+      task.addTest(inputs[i].textContent, outputs[i].textContent);
+    }
+  }
+
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('TLX').setUrl(url);
@@ -51,41 +89,7 @@ export class TLXProblemParser extends Parser {
     const memoryLimitStr = limitNodes.textContent;
     task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(memoryLimitStr)[1], 10));
 
-    const inputs = [...elem.querySelectorAll('h3')]
-      .filter(el => el.textContent.includes('Sample Input') || el.textContent.includes('Contoh Masukan'))
-      .map(el => el.nextElementSibling)
-      .map(el => {
-        if (el.tagName === 'PRE') {
-          return el;
-        } else if (el.tagName === 'DIV') {
-          return el.nextElementSibling;
-        } else if (el.children.length >= 3) {
-          return el.children[2];
-        } else {
-          return el.children[0];
-        }
-      });
-
-    const outputs = [...elem.querySelectorAll('h3')]
-      .filter(el => el.textContent.includes('Sample Output') || el.textContent.includes('Contoh Keluaran'))
-      .map(el => el.nextElementSibling)
-      .map(el => {
-        if (el.tagName === 'PRE') {
-          return el;
-        } else if (el.tagName === 'DIV') {
-          return el.nextElementSibling;
-        } else if (el.children.length >= 3) {
-          return el.children[2];
-        } else if (el.children.length >= 1) {
-          return el.children[0];
-        } else {
-          return { textContent: '' };
-        }
-      });
-
-    for (let i = 0; i < inputs.length && i < outputs.length; i++) {
-      task.addTest(inputs[i].textContent, outputs[i].textContent);
-    }
+    this.parseTests(task, elem);
 
     return task.build();
   }

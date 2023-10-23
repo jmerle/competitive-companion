@@ -9,7 +9,7 @@
   "homepage_url": "Filled by build script",
 
   "permissions": ["activeTab", "contextMenus", "storage", "http://localhost/"],
-  "optional_permissions": ["https://codejam.googleapis.com/dashboard/get_file/*"],
+  "optional_permissions": ["https://codejam.googleapis.com/dashboard/get_file/*", "https://api.tlx.toki.id/v2/*"],
 
   "icons": {
     "16": "icons/icon-16.png",
