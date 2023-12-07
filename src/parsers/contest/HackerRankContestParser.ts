@@ -1,6 +1,7 @@
 import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { ContestParser } from '../ContestParser';
 import { HackerRankProblemParser } from '../problem/HackerRankProblemParser';
 
@@ -31,7 +32,7 @@ export class HackerRankContestParser extends ContestParser<[string, string]> {
   protected async parseTask(input: [string, string]): Promise<Task> {
     const [contestName, apiUrl] = input;
 
-    const body = await this.fetch(apiUrl);
+    const body = await request(apiUrl);
     const model = JSON.parse(body).model;
 
     const taskUrl = apiUrl.replace('www.hackerrank.com/rest/', 'www.hackerrank.com/');

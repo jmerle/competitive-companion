@@ -1,5 +1,6 @@
 import { Task } from '../../models/Task';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { ContestParser } from '../ContestParser';
 import { NOJProblemParser } from '../problem/NOJProblemParser';
 
@@ -18,7 +19,7 @@ export class NOJContestParser extends ContestParser<string> {
   }
 
   protected async parseTask(url: string): Promise<Task> {
-    const body = await this.fetch(url);
+    const body = await request(url);
     const parser = new NOJProblemParser();
     const task = await parser.parse(url, body);
     return task as Task;

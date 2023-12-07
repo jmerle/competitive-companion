@@ -3,6 +3,15 @@ import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
 import { parsers } from './parsers/parsers';
 import { sendToContent } from './utils/messaging';
+import { request } from './utils/request';
+
+// When the parser is requested on a URL starting with <key>, request permission for <value>
+const requiredPermissions: Record<string, string> = {
+  /* eslint-disable @typescript-eslint/naming-convention */
+  'https://codingcompetitions.withgoogle.com/': 'https://codejam.googleapis.com/dashboard/get_file/*',
+  'https://tlx.toki.id/': 'https://api.tlx.toki.id/v2/*',
+  /* eslint-enable @typescript-eslint/naming-convention */
+};
 
 function createContextMenu(): void {
   browser.contextMenus.create({
@@ -39,10 +48,15 @@ function createContextMenu(): void {
 }
 
 async function loadContentScript(tab: Tabs.Tab, parserName: string): Promise<void> {
-  if (tab.url.startsWith('https://codingcompetitions.withgoogle.com/')) {
-    await browser.permissions.request({
-      origins: ['https://codejam.googleapis.com/dashboard/get_file/*'],
-    });
+  const permissionOrigins: string[] = [];
+  for (const prefix in requiredPermissions) {
+    if (tab.url.startsWith(prefix)) {
+      permissionOrigins.push(requiredPermissions[prefix]);
+    }
+  }
+
+  if (permissionOrigins.length > 0) {
+    await browser.permissions.request({ origins: permissionOrigins });
   }
 
   for (const file of ['common', 'content']) {
@@ -63,7 +77,7 @@ function onContextMenu(info: Menus.OnClickData, tab: Tabs.Tab): void {
   }
 }
 
-function send(tabId: number, message: string): void {
+function sendTask(tabId: number, message: string): void {
   getHosts().then(async hosts => {
     for (const host of hosts) {
       try {
@@ -77,22 +91,29 @@ function send(tabId: number, message: string): void {
   });
 }
 
-async function sendGCCFile(tabId: number, link: string): Promise<void> {
-  try {
-    const permissionGranted = await browser.permissions.contains({
-      origins: ['https://codejam.googleapis.com/dashboard/get_file/*'],
+async function makeRequest(
+  tabId: number,
+  requestId: string,
+  url: string,
+  options: RequestInit,
+  retries: number,
+): Promise<void> {
+  const permissionGranted = await browser.permissions.contains({ origins: [url] });
+  if (!permissionGranted) {
+    sendToContent(tabId, MessageAction.FetchFailed, {
+      requestId,
+      message: `Competitive Companion does not have permission to request ${url}`,
     });
 
-    if (permissionGranted) {
-      const response = await fetch(link);
-      const result = await response.text();
+    return;
+  }
 
-      sendToContent(tabId, MessageAction.GCCFileResult, { content: result });
-    } else {
-      sendToContent(tabId, MessageAction.GCCRequestFailed);
-    }
+  try {
+    const content = await request(url, options, retries);
+    sendToContent(tabId, MessageAction.FetchResult, { requestId, content });
   } catch (err) {
-    sendToContent(tabId, MessageAction.GCCRequestFailed);
+    const message = err instanceof Error ? err.message : `${err}`;
+    sendToContent(tabId, MessageAction.FetchFailed, { requestId, message });
   }
 }
 
@@ -102,9 +123,15 @@ function handleMessage(message: Message | any, sender: Runtime.MessageSender): v
   }
 
   if (message.action === MessageAction.SendTask) {
-    send(sender.tab.id, message.payload.message);
-  } else if (message.action === MessageAction.SendGCCFile) {
-    sendGCCFile(sender.tab.id, message.payload.link);
+    sendTask(sender.tab.id, message.payload.message);
+  } else if (message.action === MessageAction.Fetch) {
+    makeRequest(
+      sender.tab.id,
+      message.payload.requestId,
+      message.payload.url,
+      message.payload.options,
+      message.payload.retries,
+    );
   }
 }
 

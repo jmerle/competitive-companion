@@ -110,7 +110,7 @@ A browser extension which parses competitive programming problems from various o
 | SSOIER                     | ✔              |                |
 | TheJobOverflow             | ✔              |                |
 | Timus Online Judge         | ✔              | ✔              |
-| TLX                        | ✔              |                |
+| TLX                        | ✔              | ✔              |
 | Toph                       | ✔              |                |
 | uDebug                     | ✔              |                |
 | UOJ                        | ✔              | ✔              |

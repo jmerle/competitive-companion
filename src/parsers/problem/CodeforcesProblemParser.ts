@@ -1,6 +1,7 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { decodeHtml, htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class CodeforcesProblemParser extends Parser {
@@ -153,7 +154,7 @@ export class CodeforcesProblemParser extends Parser {
 
   private async parsePdfProblem(url: string, task: TaskBuilder): Promise<void> {
     const parsedUrl = new URL(url);
-    const contest = await this.fetch(parsedUrl.origin + parsedUrl.pathname.split('/problem')[0]);
+    const contest = await request(parsedUrl.origin + parsedUrl.pathname.split('/problem')[0]);
 
     const elem = htmlToElement(contest);
 

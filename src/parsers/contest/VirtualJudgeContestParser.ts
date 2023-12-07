@@ -1,6 +1,7 @@
 import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { ContestParser } from '../ContestParser';
 import { VirtualJudgeProblemParser } from '../problem/VirtualJudgeProblemParser';
 
@@ -36,7 +37,7 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
     }
 
     const descriptionUrl = `https://vjudge.net/problem/description/${data.publicDescId}?${data.publicDescVersion}`;
-    const description = await this.fetch(descriptionUrl);
+    const description = await request(descriptionUrl);
     const jsonContainer = htmlToElement(description).querySelector('.data-json-container');
     const json = JSON.parse(jsonContainer.textContent);
 

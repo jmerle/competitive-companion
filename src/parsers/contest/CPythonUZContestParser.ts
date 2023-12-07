@@ -1,5 +1,6 @@
 import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { request } from '../../utils/request';
 import { ContestParser } from '../ContestParser';
 
 export class CPythonUZContestParser extends ContestParser<[string, string, string]> {
@@ -10,10 +11,10 @@ export class CPythonUZContestParser extends ContestParser<[string, string, strin
   protected async getTasksToParse(html: string, url: string): Promise<[string, string, string][]> {
     const problemId = /\/contest\/(\d+)\//.exec(url)[1];
 
-    const dataResponse = await this.fetch(`https://cpython.uz/api/contests/${problemId}`);
+    const dataResponse = await request(`https://cpython.uz/api/contests/${problemId}`);
     const data = JSON.parse(dataResponse);
 
-    const problemsResponse = await this.fetch(`https://cpython.uz/api/contests/${problemId}/problems`);
+    const problemsResponse = await request(`https://cpython.uz/api/contests/${problemId}/problems`);
     const problems: any[] = JSON.parse(problemsResponse);
 
     return problems.map(problem => [data.title, problemId, problem.symbol]);
@@ -22,7 +23,7 @@ export class CPythonUZContestParser extends ContestParser<[string, string, strin
   protected async parseTask(input: [string, string, string]): Promise<Task> {
     const [title, problemId, symbol] = input;
 
-    const dataResponse = await this.fetch(`https://cpython.uz/api/contests/${problemId}/problem?symbol=${symbol}`);
+    const dataResponse = await request(`https://cpython.uz/api/contests/${problemId}/problem?symbol=${symbol}`);
     const data = JSON.parse(dataResponse);
 
     const task = new TaskBuilder('CPython.uz');

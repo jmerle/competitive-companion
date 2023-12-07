@@ -32,6 +32,7 @@ import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
 import { RoboContestContestParser } from './contest/RoboContestContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
+import { TLXContestParser } from './contest/TLXContestParser';
 import { UOJContestParser } from './contest/UOJContestParser';
 import { VirtualJudgeContestParser } from './contest/VirtualJudgeContestParser';
 import { YandexContestParser } from './contest/YandexContestParser';
@@ -296,6 +297,7 @@ export const parsers: Parser[] = [
   new TimusOnlineJudgeContestParser(),
 
   new TLXProblemParser(),
+  new TLXContestParser(),
 
   new TophProblemParser(),
 
