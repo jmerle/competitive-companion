@@ -66,7 +66,6 @@ export class UDebugProblemParser extends Parser {
       method: 'POST',
       body: new URLSearchParams(data as any).toString(),
       headers: {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     });

@@ -22,9 +22,7 @@ webExt.cmd
       sourceDir: extensionDir,
       startUrl: 'https://codeforces.com/problemset/problem/954/G',
       pref: {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         'devtools.browserconsole.filter.jswarn': 'false',
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         'devtools.webconsole.filter.warn': 'false',
       },
     },

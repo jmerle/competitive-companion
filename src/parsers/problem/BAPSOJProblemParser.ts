@@ -3,7 +3,6 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
-/* eslint-disable @typescript-eslint/naming-convention */
 interface BAPSOJContestInfo {
   id: number;
   problem_set: {
@@ -83,7 +82,6 @@ interface BAPSOJProblemInfo {
   is_visible: boolean;
   tags: string[] | null;
 }
-/* eslint-enable @typescript-eslint/naming-convention */
 
 export class BAPSOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {

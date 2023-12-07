@@ -15,8 +15,6 @@ function transformManifest(content: Buffer): string {
   manifest.description = packageData.description;
   manifest.version = packageData.version;
   manifest.author = packageData.author;
-
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   manifest.homepage_url = packageData.repository;
 
   return JSON.stringify(manifest, null, 2);
@@ -31,7 +29,6 @@ const commonConfig: webpack.Configuration = {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
-          // eslint-disable-next-line @typescript-eslint/naming-convention
           keep_classnames: true,
         },
       }) as any,
@@ -51,6 +48,7 @@ const commonConfig: webpack.Configuration = {
         loader: 'worker-loader',
         options: {
           inline: 'no-fallback',
+          esModule: false,
         },
       },
       {
@@ -65,10 +63,6 @@ const commonConfig: webpack.Configuration = {
             {
               search: 'eval("require")(this.workerSrc)',
               replace: 'null',
-            },
-            {
-              search: /this\.editorDiv\.innerHTML/g,
-              replace: '_',
             },
           ],
         },
@@ -121,12 +115,12 @@ const extensionConfig: webpack.Configuration = {
 
 const testConfig: webpack.Configuration = {
   entry: {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     'expose-parsers': path.resolve(__dirname, 'tests/expose-parsers.ts'),
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build-test'),
+    publicPath: '',
   },
 };
 

@@ -5,11 +5,8 @@ import { Parser } from '../Parser';
 
 export class UOJProblemParser extends Parser {
   public static readonly domains: Record<string, string> = {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     'uoj.ac': 'UOJ',
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     'pjudge.ac': 'Public Judge',
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     'oj.daimayuan.top': 'Daimayuan Online Judge',
   };
 

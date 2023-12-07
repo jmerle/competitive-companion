@@ -7,10 +7,8 @@ import { request } from './utils/request';
 
 // When the parser is requested on a URL starting with <key>, request permission for <value>
 const requiredPermissions: Record<string, string> = {
-  /* eslint-disable @typescript-eslint/naming-convention */
   'https://codingcompetitions.withgoogle.com/': 'https://codejam.googleapis.com/dashboard/get_file/*',
   'https://tlx.toki.id/': 'https://api.tlx.toki.id/v2/*',
-  /* eslint-enable @typescript-eslint/naming-convention */
 };
 
 function createContextMenu(): void {
