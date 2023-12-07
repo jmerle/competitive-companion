@@ -1,6 +1,7 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class BeecrowdProblemParser extends Parser {
@@ -31,7 +32,7 @@ export class BeecrowdProblemParser extends Parser {
         link = elem.querySelector<HTMLLinkElement>('.full-screen').href;
       }
 
-      html = await this.fetch(link);
+      html = await request(link);
     }
 
     return this.parseFullscreen(task, html);

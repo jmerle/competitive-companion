@@ -1,6 +1,7 @@
 import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement, markdownToHtml } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { ContestParser } from '../ContestParser';
 import { CodeChefOldProblemParser } from '../problem/CodeChefOldProblemParser';
 
@@ -25,7 +26,7 @@ export class CodeChefContestParser extends ContestParser<string> {
   }
 
   protected async parseTask(apiUrl: string): Promise<Task> {
-    const body = await this.fetch(apiUrl);
+    const body = await request(apiUrl);
     const model = JSON.parse(body);
 
     const taskUrl = apiUrl.replace('www.codechef.com/api/contests/', 'www.codechef.com/');

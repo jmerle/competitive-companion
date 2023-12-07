@@ -49,25 +49,4 @@ export abstract class Parser {
    * The method called when the parse button is clicked.
    */
   public abstract parse(url: string, html: string): Promise<Sendable>;
-
-  /**
-   * Fetches an url using a GET request and resolves into the HTML body.
-   */
-  protected async fetch(url: string, options: RequestInit = {}, retries: number = 3): Promise<string> {
-    const response = await fetch(url, { credentials: 'include', ...options });
-
-    if (response.ok && response.status === 200) {
-      return response.text();
-    }
-
-    if (retries > 0) {
-      // Some judges don't like it if we send 10+ parallel requests when parsing all problems in a contest
-      // By delaying retries we get around any short-term rate limits
-      await new Promise(resolve => setTimeout(resolve, 2000 - 500 * retries));
-
-      return this.fetch(url, options, retries - 1);
-    }
-
-    throw new Error(`The network response was not ok (status code: ${response.status}, url: ${url}).`);
-  }
 }

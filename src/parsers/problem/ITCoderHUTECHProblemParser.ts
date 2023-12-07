@@ -1,6 +1,7 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class ITCoderHUTECHProblemParser extends Parser {
@@ -36,7 +37,7 @@ export class ITCoderHUTECHProblemParser extends Parser {
 
   private async parseContestProblem(task: TaskBuilder, doc: Element): Promise<void> {
     const iframe = doc.querySelector<HTMLIFrameElement>('#problem-view-iframe');
-    const iframeContent = await this.fetch(iframe.src);
+    const iframeContent = await request(iframe.src);
     const iframeDoc = htmlToElement(iframeContent);
 
     task.setName(iframeDoc.querySelector('.problem-view > h3').textContent.trim());

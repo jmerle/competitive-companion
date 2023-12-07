@@ -1,6 +1,7 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class CodeChefNewProblemParser extends Parser {
@@ -69,7 +70,7 @@ export class CodeChefNewProblemParser extends Parser {
     }
 
     const problemId = new URL(url).pathname.split('/').pop();
-    const response = await this.fetch(`https://www.codechef.com/api/contests/PRACTICE/problems/${problemId}`);
+    const response = await request(`https://www.codechef.com/api/contests/PRACTICE/problems/${problemId}`);
     return JSON.parse(response).intended_contest_code || 'Practice';
   }
 }

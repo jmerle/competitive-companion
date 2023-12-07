@@ -1,6 +1,7 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class VirtualJudgeProblemParser extends Parser {
@@ -74,7 +75,7 @@ export class VirtualJudgeProblemParser extends Parser {
         );
 
         const iframeUrl = iframe.src;
-        const iframeContent = await this.fetch(iframeUrl);
+        const iframeContent = await request(iframeUrl);
         const jsonContainer = htmlToElement(iframeContent).querySelector('.data-json-container');
         const json = JSON.parse(jsonContainer.textContent);
 

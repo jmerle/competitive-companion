@@ -1,5 +1,6 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -90,13 +91,12 @@ export class BAPSOJProblemParser extends Parser {
   }
 
   private async getProblemInfo(contest: string, problem: string): Promise<BAPSOJProblemInfo> {
-    const contestInfoAPIResponse = await this.fetch(
-      `https://api.bapsoj.org/api/judge/contests/${contest}/?format=json`,
-      { credentials: 'omit' },
-    );
+    const contestInfoAPIResponse = await request(`https://api.bapsoj.org/api/judge/contests/${contest}/?format=json`, {
+      credentials: 'omit',
+    });
     const contestInfo = JSON.parse(contestInfoAPIResponse) as BAPSOJContestInfo;
     const problemId = contestInfo.problem_set.find(p => p.problem_order_character === problem).problem_id;
-    const problemInfoAPIResponse = await this.fetch(
+    const problemInfoAPIResponse = await request(
       `https://api.bapsoj.org/api/judge/problems/${problemId}/?format=json`,
       { credentials: 'omit' },
     );

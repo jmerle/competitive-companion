@@ -2,6 +2,7 @@ import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { TestType } from '../../models/TestType';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class UDebugProblemParser extends Parser {
@@ -61,7 +62,7 @@ export class UDebugProblemParser extends Parser {
   }
 
   private postForm(url: string, data: FormData): Promise<string> {
-    return this.fetch(url, {
+    return request(url, {
       method: 'POST',
       body: new URLSearchParams(data as any).toString(),
       headers: {

@@ -1,6 +1,7 @@
 import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { ContestParser } from '../ContestParser';
 
 export class QDUOJContestParser extends ContestParser<[string, string]> {
@@ -26,7 +27,7 @@ export class QDUOJContestParser extends ContestParser<[string, string]> {
 
   protected async parseTask(input: [string, string]): Promise<Task> {
     const [judge, url] = input;
-    const body = await this.fetch(url);
+    const body = await request(url);
 
     const data = JSON.parse(body).data;
     const task = new TaskBuilder(judge);
