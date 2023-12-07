@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.48.0](https://github.com/jmerle/competitive-companion/releases/tag/2.48.0) (2023-12-07)
+- Added a contest parser for TLX (thanks [@user202729](https://github.com/user202729))
+- Fixed the parsing of Russian memory limits on Yandex (thanks [@Igorjan94](https://github.com/Igorjan94))
+
 ## [2.47.0](https://github.com/jmerle/competitive-companion/releases/tag/2.47.0) (2023-10-20)
 - Added support for BAPS OJ and ITCoder HUTECH (thanks [@touhidurrr](https://github.com/touhidurrr))
 - Fixed the parsing of sample cases on ACMP where recent attempts would also be parsed as sample cases
