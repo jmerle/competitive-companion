@@ -32,7 +32,8 @@ export class YandexProblemParser extends Parser {
     if (memoryLimitElem !== null) {
       let memoryLimit = 0;
       try {
-        const memoryLimitParsed = /(\d+)([MG])b/i.exec(memoryLimitElem.textContent) ?? /([0-9.]+)\s*([МГ])б/i.exec(memoryLimitElem.textContent);
+        const memoryLimitParsed =
+          /(\d+)([MG])b/i.exec(memoryLimitElem.textContent) ?? /([0-9.]+)\s*([МГ])б/i.exec(memoryLimitElem.textContent);
         if (memoryLimitParsed !== null && memoryLimitParsed.length > 1) {
           memoryLimit = parseInt(memoryLimitParsed[1], 10);
           if (memoryLimitParsed[2] == 'G' || memoryLimitParsed[2] == 'Г') {
