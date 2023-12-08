@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.48.1](https://github.com/jmerle/competitive-companion/releases/tag/2.48.1) (2023-12-08)
 - Fixed the parsing of Kattis problems and contests
 - Fixed the parsing of sample cases on CPython.uz containing multiple lines
 
