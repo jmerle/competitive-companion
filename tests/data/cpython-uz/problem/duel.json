@@ -1,13 +1,14 @@
 {
   "url": "https://cpython.uz/practice/duels/duel/12",
   "parser": "CPythonUZProblemParser",
+  "before": "beforeCPythonUZ",
   "result": {
     "name": "A. Ifoda",
     "group": "CPython.uz",
     "url": "https://cpython.uz/practice/duels/duel/12",
     "interactive": false,
     "memoryLimit": 512,
-    "timeLimit": 2000,
+    "timeLimit": 1000,
     "tests": [],
     "testType": "single",
     "input": {

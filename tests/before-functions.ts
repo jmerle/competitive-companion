@@ -33,6 +33,10 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
     await page.waitForSelector('h1');
   },
 
+  async beforeCPythonUZ(page: Page): Promise<void> {
+    await page.waitForSelector('h2.text-center, h2.content-header-title');
+  },
+
   async beforeECNU(page: Page): Promise<void> {
     await page.waitForSelector('.property > p > strong');
   },

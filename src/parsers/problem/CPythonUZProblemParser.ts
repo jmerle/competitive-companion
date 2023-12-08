@@ -32,7 +32,7 @@ export class CPythonUZProblemParser extends Parser {
 
     elem.querySelectorAll('.sample-test').forEach(tableElem => {
       const blocks = tableElem.querySelectorAll('pre');
-      task.addTest(blocks[0].textContent, blocks[1].textContent);
+      task.addTest(blocks[0].innerHTML, blocks[1].innerHTML);
     });
 
     return task.build();

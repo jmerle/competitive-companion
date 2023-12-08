@@ -1,6 +1,7 @@
 {
   "url": "https://cpython.uz/practice/problems/problem/1",
   "parser": "CPythonUZProblemParser",
+  "before": "beforeCPythonUZ",
   "result": {
     "name": "The sum of two numbers",
     "group": "CPython.uz",
@@ -10,11 +11,11 @@
     "timeLimit": 1000,
     "tests": [
       {
-        "input": "2 2\n",
+        "input": "2\n2\n",
         "output": "4\n"
       },
       {
-        "input": "5 10\n",
+        "input": "5\n10\n",
         "output": "15\n"
       }
     ],

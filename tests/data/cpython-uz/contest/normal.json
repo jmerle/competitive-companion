@@ -8,7 +8,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/A",
       "interactive": false,
       "memoryLimit": 256,
-      "timeLimit": 1000,
+      "timeLimit": 500,
       "tests": [
         {
           "input": "4\n2\n",
@@ -39,7 +39,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/B",
       "interactive": false,
       "memoryLimit": 512,
-      "timeLimit": 2000,
+      "timeLimit": 1000,
       "tests": [
         {
           "input": "4\n1 2 3 4\n",
@@ -66,7 +66,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/C",
       "interactive": false,
       "memoryLimit": 512,
-      "timeLimit": 2000,
+      "timeLimit": 1000,
       "tests": [
         {
           "input": "2\n2\n",
@@ -105,7 +105,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/D",
       "interactive": false,
       "memoryLimit": 256,
-      "timeLimit": 1000,
+      "timeLimit": 500,
       "tests": [
         {
           "input": "10\n21 10 6 82 120 16 3 8 2 65\n",
@@ -132,7 +132,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/E",
       "interactive": false,
       "memoryLimit": 256,
-      "timeLimit": 1000,
+      "timeLimit": 500,
       "tests": [
         {
           "input": "2022\n7\n",
@@ -167,7 +167,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/F",
       "interactive": false,
       "memoryLimit": 256,
-      "timeLimit": 1000,
+      "timeLimit": 500,
       "tests": [
         {
           "input": "9\nAsilbek Davlatbek\nodmin admin\nadmin Asilbek\nadmin\nadmin odmin\nDavlatbek Asilbek\nAsilbek Davlatbek admin\nadmin odmin Davlatbek\nAsilbek Davlatbek\n",
@@ -194,7 +194,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/G",
       "interactive": false,
       "memoryLimit": 256,
-      "timeLimit": 1000,
+      "timeLimit": 500,
       "tests": [
         {
           "input": "5\n",
@@ -229,7 +229,7 @@
       "url": "https://cpython.uz/competitions/contests/contest/297/problem/H",
       "interactive": false,
       "memoryLimit": 256,
-      "timeLimit": 1000,
+      "timeLimit": 500,
       "tests": [
         {
           "input": "4 2\n1 2\n3 4\n",

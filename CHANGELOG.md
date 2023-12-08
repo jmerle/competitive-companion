@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Fixed the parsing of Kattis problems and contests
+- Fixed the parsing of sample cases on CPython.uz containing multiple lines
 
 ## [2.48.0](https://github.com/jmerle/competitive-companion/releases/tag/2.48.0) (2023-12-07)
 - Added a contest parser for TLX (thanks [@user202729](https://github.com/user202729))
