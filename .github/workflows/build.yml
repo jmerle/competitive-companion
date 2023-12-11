@@ -22,10 +22,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --no-optional
+        run: pnpm install --frozen-lockfile
 
-      - name: Lint code
-        run: pnpm run "/lint:eslint|lint:prettier|lint:tsc/"
-
-      - name: Lint package
-        run: pnpm lint:package
+      - name: Lint
+        run: pnpm lint
