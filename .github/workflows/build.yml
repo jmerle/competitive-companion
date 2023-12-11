@@ -24,5 +24,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --no-optional
 
-      - name: Lint
-        run: pnpm lint
+      - name: Lint code
+        run: pnpm run "/lint:eslint|lint:prettier|lint:tsc/"
+
+      - name: Lint package
+        run: pnpm lint:package
