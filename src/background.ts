@@ -1,9 +1,12 @@
 import browser, { Menus, Runtime, Tabs } from 'webextension-polyfill';
 import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
-import { parsers } from './parsers/parsers';
 import { sendToContent } from './utils/messaging';
 import { request } from './utils/request';
+
+declare global {
+  const PARSER_NAMES: string[];
+}
 
 // When the parser is requested on a URL starting with <key>, request permission for <value>
 const requiredPermissions: Record<string, string> = {
@@ -32,14 +35,13 @@ function createContextMenu(): void {
     contexts: ['browser_action'],
   });
 
-  for (const parser of parsers) {
-    const name = parser.constructor.name;
-    const isContestParser = name.endsWith('ContestParser');
+  for (const parser of PARSER_NAMES) {
+    const isContestParser = parser.endsWith('ContestParser');
 
     browser.contextMenus.create({
-      id: `parse-with-${name}`,
+      id: `parse-with-${parser}`,
       parentId: `${isContestParser ? 'contest' : 'problem'}-parser`,
-      title: name,
+      title: parser,
       contexts: ['browser_action'],
     });
   }
@@ -57,10 +59,7 @@ async function loadContentScript(tab: Tabs.Tab, parserName: string): Promise<voi
     await browser.permissions.request({ origins: permissionOrigins });
   }
 
-  for (const file of ['common', 'content']) {
-    await browser.tabs.executeScript(tab.id, { file: `js/${file}.js` });
-  }
-
+  await browser.tabs.executeScript(tab.id, { file: 'js/content.js' });
   sendToContent(tab.id, MessageAction.Parse, { parserName });
 }
 

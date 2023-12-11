@@ -6,7 +6,6 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as process from 'process';
 import { createPool, Pool } from 'generic-pool';
 import { Browser, launch, Page } from 'puppeteer';
 import { Contest } from '../src/models/Contest';
@@ -22,7 +21,7 @@ interface TestData {
   result: Task | Task[];
 }
 
-const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/expose-parsers.js'), {
+const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/main.js'), {
   encoding: 'utf-8',
 });
 

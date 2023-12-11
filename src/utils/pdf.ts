@@ -1,9 +1,9 @@
 const pdfjsLib = require('pdfjs-dist/build/pdf.min.js');
-const PdfjsWorker = require('pdfjs-dist/build/pdf.worker.min.js');
+const pdfjsWorker = require('pdfjs-dist/build/pdf.worker.min.js');
 
 export async function readPdf(pdfUrl: string): Promise<string[]> {
   if (!pdfjsLib.GlobalWorkerOptions.workerPort) {
-    pdfjsLib.GlobalWorkerOptions.workerPort = new PdfjsWorker();
+    pdfjsLib.GlobalWorkerOptions.workerPort = new Worker(URL.createObjectURL(new Blob([pdfjsWorker])));
   }
 
   const pdf = await pdfjsLib.getDocument(pdfUrl).promise;

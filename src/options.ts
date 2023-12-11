@@ -1,4 +1,3 @@
-import { parsers } from './parsers/parsers';
 import { config } from './utils/config';
 import { noop } from './utils/noop';
 
@@ -61,13 +60,13 @@ function addCustomRulesRow(regex?: string, parserName?: string): void {
   input.value = regex !== undefined ? regex : '';
 
   const select = document.createElement('select');
-  for (const parser of parsers) {
+  for (const parser of PARSER_NAMES) {
     const option = document.createElement('option');
-    option.value = parser.constructor.name;
-    option.textContent = parser.constructor.name;
-    option.selected = parser.constructor.name === parserName;
+    option.value = parser;
+    option.textContent = parser;
+    option.selected = parser === parserName;
 
-    if (parserName === undefined && parsers[0] === parser) {
+    if (parserName === undefined && PARSER_NAMES[0] === parser) {
       option.selected = true;
     }
 
