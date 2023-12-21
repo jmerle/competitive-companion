@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "cyrillic-to-translit-js": "3.2.1",
+    "jszip": "3.10.1",
     "nanobar": "0.4.2",
     "pdfjs-dist": "3.11.174",
     "snarkdown": "2.0.0",
