@@ -6,7 +6,7 @@ import { ContestParser } from '../ContestParser';
 
 export class QDUOJContestParser extends ContestParser<[string, string]> {
   public getMatchPatterns(): string[] {
-    return ['https://qduoj.com/contest/*/problems', 'https://nytdoj.com/contest/*/problems'];
+    return ['https://qduoj.com/contest/*/problems'];
   }
 
   public canHandlePage(): boolean {

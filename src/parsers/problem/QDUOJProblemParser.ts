@@ -7,9 +7,7 @@ export class QDUOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
       'https://qduoj.com/problem/*',
-      'https://nytdoj.com/problem/*',
       'https://qduoj.com/contest/*/problem/*',
-      'https://nytdoj.com/contest/*/problem/*',
     ];
   }
 
