@@ -126,7 +126,7 @@ A browser extension which parses competitive programming problems from various o
 | ZUFEOJ                     | ✔              | ✔              |
 
 ## Custom tools
-Competitive Companion can send the parsed data in JSON format to your own tools. To do this, start a HTTP server listening for POST requests to / on any of the ports listed in [`./src/hosts/hosts.ts`](./src/hosts/hosts.ts). An example on how to accomplish this can be found in [jmerle/competitive-companion-example](https://github.com/jmerle/competitive-companion-example).
+Competitive Companion can send the parsed data in JSON format to your own tools. To do this, start an HTTP server listening for POST requests to / on any of the ports listed in [`./src/hosts/hosts.ts`](./src/hosts/hosts.ts). An example on how to accomplish this can be found in [jmerle/competitive-companion-example](https://github.com/jmerle/competitive-companion-example).
 
 If you want your own tool added to the released version of Competitive Companion, [create an issue](https://github.com/jmerle/competitive-companion/issues/new) in this repository specifying the name and a link to the tool.
 
