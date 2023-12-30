@@ -66,16 +66,8 @@ const options: esbuild.BuildOptions = {
 };
 
 if (watch) {
-  esbuild
-    .context(options)
-    .then(ctx => ctx.watch())
-    .catch(err => {
-      console.error(err);
-      process.exit(1);
-    });
+  const ctx = await esbuild.context(options);
+  await ctx.watch();
 } else {
-  esbuild.build(options).catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+  await esbuild.build(options);
 }

@@ -116,29 +116,27 @@ async function generateBanner(name: string, width: number, height: number): Prom
   return { svgPath, pngPath };
 }
 
-(async () => {
-  const requiredBanners: [string, number, number][] = [
-    ['github-social-preview', 1280, 640],
-    ['chrome-small-promo', 440, 280],
-    ['chrome-large-promo', 920, 680],
-    ['chrome-marquee-promo', 1400, 560],
-  ];
+const requiredBanners: [string, number, number][] = [
+  ['github-social-preview', 1280, 640],
+  ['chrome-small-promo', 440, 280],
+  ['chrome-large-promo', 920, 680],
+  ['chrome-marquee-promo', 1400, 560],
+];
 
-  const browser = await puppeteer.launch({
-    headless: 'new',
-  });
+const browser = await puppeteer.launch({
+  headless: 'new',
+});
 
-  const page = await browser.newPage();
+const page = await browser.newPage();
 
-  for (const [name, width, height] of requiredBanners) {
-    console.log(`Generating banner ${name} of size ${width}x${height}`);
+for (const [name, width, height] of requiredBanners) {
+  console.log(`Generating banner ${name} of size ${width}x${height}`);
 
-    const banner = await generateBanner(name, width, height);
+  const banner = await generateBanner(name, width, height);
 
-    await page.goto(`file://${banner.svgPath}`);
-    await page.setViewport({ width, height });
-    await page.screenshot({ path: banner.pngPath });
-  }
+  await page.goto(`file://${banner.svgPath}`);
+  await page.setViewport({ width, height });
+  await page.screenshot({ path: banner.pngPath });
+}
 
-  await browser.close();
-})();
+await browser.close();
