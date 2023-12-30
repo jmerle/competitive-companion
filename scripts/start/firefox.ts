@@ -5,9 +5,9 @@ import * as webExt from 'web-ext';
 import { projectRoot } from '../utils';
 import { waitForBuild } from './utils';
 
-await waitForBuild();
+await waitForBuild('firefox');
 
-const extensionDir = path.join(projectRoot, 'build-extension');
+const extensionDir = path.join(projectRoot, 'build-firefox');
 const tmpDir = path.join(projectRoot, 'firefox-tmp');
 
 if (fs.existsSync(tmpDir)) {

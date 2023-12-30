@@ -130,7 +130,6 @@ dist
 .pnp.*
 
 # Generated files
-build-extension/
-build-test/
+build-*/
 dist/
 firefox-tmp/

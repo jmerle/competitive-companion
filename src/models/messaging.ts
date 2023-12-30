@@ -6,7 +6,8 @@ export interface Message {
 export enum MessageAction {
   Parse,
   SendTask,
-  TaskSent,
+  SendTaskDone,
+  SendTaskFailed,
   Fetch,
   FetchResult,
   FetchFailed,

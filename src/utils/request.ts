@@ -3,6 +3,12 @@ import { Message, MessageAction } from '../models/messaging';
 import { sendToBackground } from './messaging';
 import { uuidv4 } from './random';
 
+// When the parser is requested on a URL starting with <key>, request permission for <value>
+export const requiredPermissions: Record<string, string> = {
+  'https://codingcompetitions.withgoogle.com/': 'https://codejam.googleapis.com/dashboard/get_file/*',
+  'https://tlx.toki.id/': 'https://api.tlx.toki.id/v2/*',
+};
+
 /**
  * Fetches a URL using a GET request and resolves into the HTML body.
  */
@@ -26,8 +32,7 @@ export async function request(url: string, options: RequestInit = {}, retries: n
 
 /**
  * Fetches a URL in the background script using a GET request and resolves into the HTML body.
- * This requires the URL's hostname to be whitelisted in the optional_permissions array in static/manifest.json and in
- * the requiredPermissions variable in src/background.ts.
+ * This requires the URL's hostname to be whitelisted in the requiredPermissions variable above.
  */
 export async function requestInBackground(
   url: string,
@@ -35,17 +40,17 @@ export async function requestInBackground(
   retries: number = 3,
 ): Promise<string> {
   return new Promise((resolve, reject) => {
-    const requestId = uuidv4();
+    const messageId = uuidv4();
 
     const handleMessage = (message: Message, sender: Runtime.MessageSender): void => {
       if (sender.tab) {
         return;
       }
 
-      if (message.action === MessageAction.FetchResult && message.payload.requestId === requestId) {
+      if (message.action === MessageAction.FetchResult && message.payload.messageId === messageId) {
         browser.runtime.onMessage.removeListener(handleMessage);
         resolve(message.payload.content);
-      } else if (message.action === MessageAction.FetchFailed && message.payload.requestId === requestId) {
+      } else if (message.action === MessageAction.FetchFailed && message.payload.messageId === messageId) {
         browser.runtime.onMessage.removeListener(handleMessage);
         reject(new Error(message.payload.message));
       }
@@ -54,7 +59,7 @@ export async function requestInBackground(
     browser.runtime.onMessage.addListener(handleMessage);
 
     sendToBackground(MessageAction.Fetch, {
-      requestId,
+      messageId,
       url,
       options,
       retries,

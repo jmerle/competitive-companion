@@ -1,11 +1,10 @@
+import '../../tests/build/init-environment';
+
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as esbuild from 'esbuild';
-import { projectRoot } from '../utils';
-
-import '../../tests/build/init-environment';
-// eslint-disable-next-line import/order
 import { parsers } from '../../src/parsers/parsers';
+import { projectRoot } from '../utils';
 
 export function getBuildDirectory(target: string): string {
   const directory = path.resolve(projectRoot, `build-${target}`);

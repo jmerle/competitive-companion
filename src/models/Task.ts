@@ -2,6 +2,7 @@ import browser, { Runtime } from 'webextension-polyfill';
 import { config } from '../utils/config';
 import { sendToBackground } from '../utils/messaging';
 import { noop } from '../utils/noop';
+import { uuidv4 } from '../utils/random';
 import { Batch } from './Batch';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
 import { LanguageConfiguration } from './LanguageConfiguration';
@@ -56,7 +57,7 @@ export class Task implements Sendable {
   ) {}
 
   public async send(): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       config
         .get('debugMode')
         .then(isDebug => {
@@ -66,20 +67,26 @@ export class Task implements Sendable {
         })
         .catch(noop);
 
+      const messageId = uuidv4();
+
       const handleMessage = (message: Message | any, sender: Runtime.MessageSender): void => {
         if (sender.tab) {
           return;
         }
 
-        if (message.action === MessageAction.TaskSent) {
+        if (message.action === MessageAction.SendTaskDone && message.payload.messageId === messageId) {
           browser.runtime.onMessage.removeListener(handleMessage);
-          resolve();
+          resolve(message.payload.content);
+        } else if (message.action === MessageAction.SendTaskFailed && message.payload.messageId === messageId) {
+          browser.runtime.onMessage.removeListener(handleMessage);
+          reject(new Error(message.payload.message));
         }
       };
 
       browser.runtime.onMessage.addListener(handleMessage);
 
       sendToBackground(MessageAction.SendTask, {
+        messageId,
         message: JSON.stringify(this),
       });
     });

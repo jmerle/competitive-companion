@@ -2,37 +2,31 @@ import browser, { Menus, Runtime, Tabs } from 'webextension-polyfill';
 import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
 import { sendToContent } from './utils/messaging';
-import { request } from './utils/request';
+import { request, requiredPermissions } from './utils/request';
 
 declare global {
   const PARSER_NAMES: string[];
 }
 
-// When the parser is requested on a URL starting with <key>, request permission for <value>
-const requiredPermissions: Record<string, string> = {
-  'https://codingcompetitions.withgoogle.com/': 'https://codejam.googleapis.com/dashboard/get_file/*',
-  'https://tlx.toki.id/': 'https://api.tlx.toki.id/v2/*',
-};
-
 function createContextMenu(): void {
   browser.contextMenus.create({
     id: 'parse-with',
     title: 'Parse with',
-    contexts: ['browser_action'],
+    contexts: ['action'],
   });
 
   browser.contextMenus.create({
     id: 'problem-parser',
     parentId: 'parse-with',
     title: 'Problem parser',
-    contexts: ['browser_action'],
+    contexts: ['action'],
   });
 
   browser.contextMenus.create({
     id: 'contest-parser',
     parentId: 'parse-with',
     title: 'Contest parser',
-    contexts: ['browser_action'],
+    contexts: ['action'],
   });
 
   for (const parser of PARSER_NAMES) {
@@ -42,13 +36,14 @@ function createContextMenu(): void {
       id: `parse-with-${parser}`,
       parentId: `${isContestParser ? 'contest' : 'problem'}-parser`,
       title: parser,
-      contexts: ['browser_action'],
+      contexts: ['action'],
     });
   }
 }
 
 async function loadContentScript(tab: Tabs.Tab, parserName: string): Promise<void> {
-  const permissionOrigins: string[] = [];
+  const permissionOrigins: string[] = ['http://localhost/'];
+
   for (const prefix in requiredPermissions) {
     if (tab.url.startsWith(prefix)) {
       permissionOrigins.push(requiredPermissions[prefix]);
@@ -59,11 +54,17 @@ async function loadContentScript(tab: Tabs.Tab, parserName: string): Promise<voi
     await browser.permissions.request({ origins: permissionOrigins });
   }
 
-  await browser.tabs.executeScript(tab.id, { file: 'js/content.js' });
+  await browser.scripting.executeScript({
+    target: {
+      tabId: tab.id,
+    },
+    files: ['js/content.js'],
+  });
+
   sendToContent(tab.id, MessageAction.Parse, { parserName });
 }
 
-function onBrowserAction(tab: Tabs.Tab): void {
+function onAction(tab: Tabs.Tab): void {
   loadContentScript(tab, null);
 }
 
@@ -74,23 +75,37 @@ function onContextMenu(info: Menus.OnClickData, tab: Tabs.Tab): void {
   }
 }
 
-function sendTask(tabId: number, message: string): void {
-  getHosts().then(async hosts => {
+async function sendTask(tabId: number, messageId: string, data: string): Promise<void> {
+  const permissionGranted = await browser.permissions.contains({ origins: ['http://localhost/'] });
+  if (!permissionGranted) {
+    sendToContent(tabId, MessageAction.SendTaskFailed, {
+      messageId,
+      message: 'Competitive Companion does not have permission to send problems to localhost',
+    });
+
+    return;
+  }
+
+  try {
+    const hosts = await getHosts();
     for (const host of hosts) {
       try {
-        await host.send(message);
+        await host.send(data);
       } catch (err) {
         //
       }
     }
 
-    sendToContent(tabId, MessageAction.TaskSent);
-  });
+    sendToContent(tabId, MessageAction.SendTaskDone, { messageId });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : `${err}`;
+    sendToContent(tabId, MessageAction.SendTaskFailed, { messageId, message });
+  }
 }
 
 async function makeRequest(
   tabId: number,
-  requestId: string,
+  messageId: string,
   url: string,
   options: RequestInit,
   retries: number,
@@ -98,7 +113,7 @@ async function makeRequest(
   const permissionGranted = await browser.permissions.contains({ origins: [url] });
   if (!permissionGranted) {
     sendToContent(tabId, MessageAction.FetchFailed, {
-      requestId,
+      messageId,
       message: `Competitive Companion does not have permission to request ${url}`,
     });
 
@@ -107,10 +122,10 @@ async function makeRequest(
 
   try {
     const content = await request(url, options, retries);
-    sendToContent(tabId, MessageAction.FetchResult, { requestId, content });
+    sendToContent(tabId, MessageAction.FetchResult, { messageId, content });
   } catch (err) {
     const message = err instanceof Error ? err.message : `${err}`;
-    sendToContent(tabId, MessageAction.FetchFailed, { requestId, message });
+    sendToContent(tabId, MessageAction.FetchFailed, { messageId, message });
   }
 }
 
@@ -120,11 +135,11 @@ function handleMessage(message: Message | any, sender: Runtime.MessageSender): v
   }
 
   if (message.action === MessageAction.SendTask) {
-    sendTask(sender.tab.id, message.payload.message);
+    sendTask(sender.tab.id, message.payload.messageId, message.payload.message);
   } else if (message.action === MessageAction.Fetch) {
     makeRequest(
       sender.tab.id,
-      message.payload.requestId,
+      message.payload.messageId,
       message.payload.url,
       message.payload.options,
       message.payload.retries,
@@ -132,8 +147,7 @@ function handleMessage(message: Message | any, sender: Runtime.MessageSender): v
   }
 }
 
-browser.browserAction.onClicked.addListener(onBrowserAction);
+browser.action.onClicked.addListener(onAction);
 browser.contextMenus.onClicked.addListener(onContextMenu);
 browser.runtime.onMessage.addListener(handleMessage);
-
-createContextMenu();
+browser.runtime.onInstalled.addListener(createContextMenu);

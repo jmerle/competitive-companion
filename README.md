@@ -216,26 +216,26 @@ pnpm install
 
 # Decide what you want to do next
 
-# Build the code to the build/ directory
-pnpm build
+# Build the Chrome code to the build-chrome/ directory
+pnpm build:chrome
 
-# Build the code automatically when the source changes
-pnpm watch
+# Build the Firefox code to the build-firefox/ directory
+pnpm build:firefox
 
 # Lint the extension for possible mistakes
 pnpm lint
 
-# Package the extension to a zip file
+# Package the extension to ZIP files
 pnpm package
+
+# Does the same as dev:firefox but with Chrome, with the exception that the extension is not automatically reloaded
+# You'll have to manually go to chrome://extensions and click on the reload button on the Competitive Companion entry
+pnpm dev:chrome
 
 # Launch a Firefox instance with Competitive Companion loaded into a temporary profile
 # Automatically re-compiles the code when the source changes
 # Automatically reloads the extension in the Firefox instance when the code is re-compiled
 pnpm dev:firefox
-
-# Does the same as dev:firefox but with Chrome, with the exception that the extension is not automatically reloaded
-# You'll have to manually go to chrome://extensions and click on the reload button on the Competitive Companion entry
-pnpm dev:chrome
 ```
 
 ## Testing
@@ -256,4 +256,4 @@ Third-party libraries that can be found in the minified extension:
 - [jszip 3.10.1](https://github.com/Stuk/jszip/blob/v3.10.1/dist/jszip.js)
 - [cyrillic-to-translit-js 3.2.1](https://github.com/greybax/cyrillic-to-translit-js/blob/05f02e9e1df6d338f35258443f2e9c910bd8ccd4/CyrillicToTranslit.js)
 
-Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `pnpm install` and packaging with `pnpm package`. The result can be found in the `dist/` directory.
+Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `pnpm install` and packaging with `pnpm package:firefox`. The result can be found in the `dist/` directory.
