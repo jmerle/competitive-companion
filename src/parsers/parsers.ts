@@ -12,6 +12,7 @@ import { CPythonUZContestParser } from './contest/CPythonUZContestParser';
 import { CSESContestParser } from './contest/CSESContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
+import { DOMjudgeContestParser } from './contest/DOMjudgeContestParser';
 import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
 import { EolympContestParser } from './contest/EolympContestParser';
 import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
@@ -188,6 +189,8 @@ export const parsers: Parser[] = [
 
   new DMOJProblemParser(),
   new DMOJContestParser(),
+
+  new DOMjudgeContestParser(),
 
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),

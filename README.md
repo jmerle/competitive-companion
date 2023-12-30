@@ -253,6 +253,7 @@ Third-party libraries that can be found in the minified extension:
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
 - [webextension-polyfill 0.10.0](https://github.com/mozilla/webextension-polyfill/blob/0.10.0/src/browser-polyfill.js)
 - [pdfjs-dist 3.11.174](https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.js)
+- [jszip 3.10.1](https://github.com/Stuk/jszip/blob/v3.10.1/dist/jszip.js)
 - [cyrillic-to-translit-js 3.2.1](https://github.com/greybax/cyrillic-to-translit-js/blob/05f02e9e1df6d338f35258443f2e9c910bd8ccd4/CyrillicToTranslit.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `pnpm install` and packaging with `pnpm package`. The result can be found in the `dist/` directory.
