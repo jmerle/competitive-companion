@@ -2,7 +2,7 @@
 
 ## [2.49.0](https://github.com/jmerle/competitive-companion/releases/tag/2.49.0) (2023-12-30)
 - Added support for DOMjudge (thanks [@ItsNiklas](https://github.com/ItsNiklas))
-- Made some major changes behind-the-scenes: migrated from Webpack to ESBuild, from CommonJS to ESM, and from Manifest V2 to V3. As a result of the last change, there are now separate distributions for Chrome and Firefox. The code of both is the same, but the extension manifest differs. If you're installing via the Chrome Web Store or Mozilla's AMO this will not affect you. If you install the extension manually you'll need to make sure you download the correct distribution, the Chrome version is not compatible with Firefox and vice-versa.
+- Migrated from Webpack to ESBuild, from CommonJS to ESM, and from Manifest V2 to V3. As a result of the last change, there are now separate distributions for Chrome and Firefox. The code of both is the same, but the extension manifest differs. If you're installing via the Chrome Web Store or Mozilla's AMO this will not affect you. If you install the extension manually you'll need to make sure you download the correct distribution, the Chrome version is not compatible with Firefox and vice-versa.
 
 ## [2.48.1](https://github.com/jmerle/competitive-companion/releases/tag/2.48.1) (2023-12-08)
 - Fixed the parsing of Kattis problems and contests
