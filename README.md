@@ -131,7 +131,7 @@ Competitive Companion can send the parsed data in JSON format to your own tools.
 If you want your own tool added to the released version of Competitive Companion, [create an issue](https://github.com/jmerle/competitive-companion/issues/new) in this repository specifying the name and a link to the tool.
 
 ### The format
-Here's an example of the data sent when parsing [this](https://codeforces.com/problemset/problem/954/G) problem:
+Here's an example of the data sent when parsing [Codeforces 954G](https://codeforces.com/problemset/problem/954/G):
 
 ```json
 {
