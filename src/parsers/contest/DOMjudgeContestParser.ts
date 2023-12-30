@@ -6,7 +6,17 @@ import { ContestParser } from '../ContestParser';
 export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
   public getMatchPatterns(): string[] {
     // Not perfect, but this should work for all DOMjudge instances in general
-    return ['*://*/team/problems', '*://*/public/problems'];
+    const patterns = [];
+
+    for (const path of ['/team/problems', '/public/problems']) {
+      for (const prefix of ['', '/*']) {
+        for (const protocol of ['http', 'https']) {
+          patterns.push(protocol + '://*' + prefix + path);
+        }
+      }
+    }
+
+    return patterns;
   }
 
   public canHandlePage(): boolean {
@@ -89,7 +99,7 @@ export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
 
       return Object.values(testCases);
     } catch (error) {
-      console.error(`Error extracting test cases from ZIP: ${error}`);
+      console.error('Error extracting test cases from ZIP:', error);
       return [];
     }
   }
