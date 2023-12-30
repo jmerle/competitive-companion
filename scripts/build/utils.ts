@@ -29,7 +29,7 @@ export const commonOptions: esbuild.BuildOptions = {
         build.onLoad({ filter: /jszip|pdfjs-dist/ }, async args => {
           let content = await fs.promises.readFile(args.path, 'utf-8');
 
-          // We remove parts of the imported scripts to avoid web-ext warnings
+          // We replace parts of the imported scripts to avoid web-ext warnings
           // These substitutions do not affect the parts of these scripts that Competitive Companion calls
           content = content.replace(/new Function\(/g, 'new Error(');
           content = content.replace(/await import\(this.workerSrc\)/g, 'null');
