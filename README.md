@@ -11,7 +11,7 @@
 [![Mozilla Add-on Users](https://img.shields.io/amo/users/competitive-companion.svg)][link-amo]
 [![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)][link-amo]
 
-A browser extension which parses competitive programming problems from various online judges (like Codeforces and UVa Online Judge) and sends them to various tools (like CHelper and Hightail). Capable of parsing problems and contests and extracting data like the example testcases and the time and memory constraints.
+A browser extension which parses competitive programming problems from various online judges (like AtCoder and Codeforces) and sends them to various tools (like CP Editor and CPH). Capable of parsing problems and contests and extracting data like the example testcases and the time and memory constraints.
 
 ## Install
 - [**Chrome** extension][link-cws] [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg?label=%20">][link-cws]
