@@ -64,6 +64,7 @@ A browser extension which parses competitive programming problems from various o
 | Daimayuan Online Judge     | ✔              | ✔              |
 | Dimik OJ                   | ✔              |                |
 | DMOJ                       | ✔              | ✔              |
+| DOMjudge                   |                | ✔              |
 | Eolymp                     | ✔              | ✔              |
 | ECNU Online Judge          | ✔              | ✔              |
 | FZU Online Judge           | ✔              | ✔              |
