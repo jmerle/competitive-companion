@@ -1,5 +1,3 @@
-import '../../tests/build/init-environment';
-
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as esbuild from 'esbuild';

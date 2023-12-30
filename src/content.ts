@@ -1,7 +1,8 @@
-import browser, { Runtime } from 'webextension-polyfill';
+import type { Runtime } from 'webextension-polyfill';
 import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
+import { browser } from './utils/browser';
 import { config } from './utils/config';
 import { noop } from './utils/noop';
 

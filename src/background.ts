@@ -1,6 +1,7 @@
-import browser, { Menus, Runtime, Tabs } from 'webextension-polyfill';
+import type { Menus, Runtime, Tabs } from 'webextension-polyfill';
 import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
+import { browser } from './utils/browser';
 import { sendToContent } from './utils/messaging';
 import { request, requiredPermissions } from './utils/request';
 

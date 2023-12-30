@@ -1,5 +1,5 @@
-import browser from 'webextension-polyfill';
 import { MessageAction } from '../models/messaging';
+import { browser } from './browser';
 import { noop } from './noop';
 
 export function sendToBackground(action: MessageAction, payload: any = {}): void {

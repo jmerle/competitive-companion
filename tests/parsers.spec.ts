@@ -1,5 +1,3 @@
-import './build/init-environment';
-
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { createPool, Pool } from 'generic-pool';
@@ -17,7 +15,7 @@ interface TestData {
   result: Task | Task[];
 }
 
-const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/main.js'), {
+const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/expose-parsers.js'), {
   encoding: 'utf-8',
 });
 

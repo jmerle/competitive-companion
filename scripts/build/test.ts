@@ -5,7 +5,7 @@ import { commonOptions, getBuildDirectory } from './utils';
 
 await esbuild.build({
   ...commonOptions,
-  entryPoints: [path.resolve(projectRoot, 'tests/build/main.ts')],
+  entryPoints: [path.resolve(projectRoot, 'tests/build/expose-parsers.ts')],
   outdir: await getBuildDirectory('test'),
   bundle: true,
   format: 'esm',

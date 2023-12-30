@@ -1,5 +1,6 @@
-import browser, { Runtime } from 'webextension-polyfill';
+import type { Runtime } from 'webextension-polyfill';
 import { Message, MessageAction } from '../models/messaging';
+import { browser } from './browser';
 import { sendToBackground } from './messaging';
 import { uuidv4 } from './random';
 
