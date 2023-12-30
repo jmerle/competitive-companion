@@ -26,12 +26,14 @@ export const commonOptions: esbuild.BuildOptions = {
     {
       name: 'remove-dangerous-code',
       setup: build => {
-        build.onLoad({ filter: /pdfjs-dist/ }, async args => {
+        build.onLoad({ filter: /jszip|pdfjs-dist/ }, async args => {
           let content = await fs.promises.readFile(args.path, 'utf-8');
 
+          // We remove parts of the imported scripts to avoid web-ext warnings
+          // These substitutions do not affect the parts of these scripts that Competitive Companion calls
           content = content.replace(/new Function\(/g, 'new Error(');
-          content = content.replace(/eval\("require"\)\(this.workerSrc\)/g, 'null');
-          content = content.replace(/export\{[^ ]+ as WorkerMessageHandler};/, '');
+          content = content.replace(/await import\(this.workerSrc\)/g, 'null');
+          content = content.replace(/export\{[^ ]+ as WorkerMessageHandler};/g, '');
 
           return {
             contents: content,
