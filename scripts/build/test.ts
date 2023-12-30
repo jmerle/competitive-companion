@@ -6,7 +6,7 @@ import { commonOptions, getBuildDirectory } from './utils';
 await esbuild.build({
   ...commonOptions,
   entryPoints: [path.resolve(projectRoot, 'tests/build/main.ts')],
-  outdir: getBuildDirectory('test'),
+  outdir: await getBuildDirectory('test'),
   bundle: true,
   format: 'esm',
 });

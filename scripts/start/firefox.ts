@@ -11,10 +11,10 @@ const extensionDir = path.join(projectRoot, 'build-firefox');
 const tmpDir = path.join(projectRoot, 'firefox-tmp');
 
 if (fs.existsSync(tmpDir)) {
-  fs.rmSync(tmpDir, { recursive: true, force: true });
+  await fs.promises.rm(tmpDir, { recursive: true, force: true });
 }
 
-fs.mkdirSync(tmpDir);
+await fs.promises.mkdir(tmpDir);
 process.env.TMPDIR = tmpDir;
 
 await webExt.cmd.run(

@@ -6,14 +6,14 @@ import * as esbuild from 'esbuild';
 import { parsers } from '../../src/parsers/parsers';
 import { projectRoot } from '../utils';
 
-export function getBuildDirectory(target: string): string {
+export async function getBuildDirectory(target: string): Promise<string> {
   const directory = path.resolve(projectRoot, `build-${target}`);
 
   if (fs.existsSync(directory)) {
-    fs.rmSync(directory, { recursive: true });
+    await fs.promises.rm(directory, { recursive: true });
   }
 
-  fs.mkdirSync(directory, { recursive: true });
+  await fs.promises.mkdir(directory, { recursive: true });
   return directory;
 }
 
