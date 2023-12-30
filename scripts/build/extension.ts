@@ -17,22 +17,21 @@ await Promise.all(
   [
     {
       from: async () => {
-        const packageJson = await fs.promises.readFile(path.resolve(projectRoot, 'package.json'), {
-          encoding: 'utf-8',
-        });
-        const packageData = JSON.parse(packageJson);
+        const packageJsonFile = path.join(projectRoot, 'package.json');
+        const packageJsonContent = await fs.promises.readFile(packageJsonFile, { encoding: 'utf-8' });
+        const packageJson = JSON.parse(packageJsonContent);
 
         const optionalHostPermissions = Object.values(requiredPermissions);
 
         const manifest: Record<string, any> = {
           manifest_version: 3,
 
-          name: packageData.productName,
-          description: packageData.description,
-          version: packageData.version,
+          name: packageJson.productName,
+          description: packageJson.description,
+          version: packageJson.version,
 
-          author: packageData.author,
-          homepage_url: packageData.repository,
+          author: packageJson.author,
+          homepage_url: packageJson.repository,
 
           permissions: ['activeTab', 'contextMenus', 'storage', 'scripting'],
           host_permissions: ['http://localhost/'],
