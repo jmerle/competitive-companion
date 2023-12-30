@@ -1,11 +1,14 @@
 // @ts-expect-error There are no types for this import
-import pdfjsLib from 'pdfjs-dist/build/pdf.min.js';
+const pdfjsLibPromise = import('pdfjs-dist/build/pdf.min.mjs');
 // @ts-expect-error There are no types for this import
-import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.js';
+const pdfjsWorkerPromise = import('pdfjs-dist/build/pdf.worker.min.mjs');
 
 export async function readPdf(pdfUrl: string): Promise<string[]> {
+  const pdfjsLib = await pdfjsLibPromise;
+  const pdfjsWorker = await pdfjsWorkerPromise;
+
   if (!pdfjsLib.GlobalWorkerOptions.workerPort) {
-    pdfjsLib.GlobalWorkerOptions.workerPort = new Worker(URL.createObjectURL(new Blob([pdfjsWorker])));
+    pdfjsLib.GlobalWorkerOptions.workerPort = new Worker(URL.createObjectURL(new Blob([pdfjsWorker.default])));
   }
 
   const pdf = await pdfjsLib.getDocument(pdfUrl).promise;

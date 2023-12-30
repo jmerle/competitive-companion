@@ -28,12 +28,14 @@ export const commonOptions: esbuild.BuildOptions = {
       setup: build => {
         build.onLoad({ filter: /pdfjs-dist/ }, async args => {
           let content = await fs.promises.readFile(args.path, 'utf-8');
+
           content = content.replace(/new Function\(/g, 'new Error(');
           content = content.replace(/eval\("require"\)\(this.workerSrc\)/g, 'null');
+          content = content.replace(/export\{[^ ]+ as WorkerMessageHandler};/, '');
 
           return {
             contents: content,
-            loader: args.path.endsWith('.worker.min.js') ? 'text' : 'js',
+            loader: args.path.endsWith('.worker.min.mjs') ? 'text' : 'js',
           };
         });
       },

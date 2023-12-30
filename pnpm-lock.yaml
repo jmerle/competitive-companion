@@ -15,8 +15,8 @@ dependencies:
     specifier: 0.4.2
     version: 0.4.2
   pdfjs-dist:
-    specifier: 3.11.174
-    version: 3.11.174
+    specifier: 4.0.269
+    version: 4.0.269
   snarkdown:
     specifier: 2.0.0
     version: 2.0.0
@@ -5493,8 +5493,8 @@ packages:
     dev: false
     optional: true
 
-  /pdfjs-dist@3.11.174:
-    resolution: {integrity: sha512-TdTZPf1trZ8/UFu5Cx/GXB7GZM30LT+wWUNfsi6Bq8ePLnb+woNKtDymI2mxZYBpMbonNFqKmiz684DIfnd8dA==}
+  /pdfjs-dist@4.0.269:
+    resolution: {integrity: sha512-jjWO56tcOjnmPqDf8PmXDeZ781AGvpHMYI3HhNtaFKTRXXPaD1ArSrhVe38/XsrIQJ0onISCND/vuXaWJkiDWw==}
     engines: {node: '>=18'}
     optionalDependencies:
       canvas: 2.11.2
