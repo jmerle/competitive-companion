@@ -1,6 +1,7 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import * as puppeteer from 'puppeteer';
+import { projectRoot } from './utils';
 
 interface BaseImage {
   svg: (baseX: number, baseY: number, newWidth: number, newHeight: number) => string;
@@ -107,8 +108,8 @@ async function generateBanner(name: string, width: number, height: number): Prom
     }
   }
 
-  const svgPath = path.resolve(__dirname, `../media/banners/${name}.svg`);
-  const pngPath = path.resolve(__dirname, `../media/banners/${name}.png`);
+  const svgPath = path.resolve(projectRoot, `media/banners/${name}.svg`);
+  const pngPath = path.resolve(projectRoot, `media/banners/${name}.png`);
 
   fs.writeFileSync(svgPath, bestImage.trim() + '\n');
 
@@ -123,7 +124,10 @@ async function generateBanner(name: string, width: number, height: number): Prom
     ['chrome-marquee-promo', 1400, 560],
   ];
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: 'new',
+  });
+
   const page = await browser.newPage();
 
   for (const [name, width, height] of requiredBanners) {

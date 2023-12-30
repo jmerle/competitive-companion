@@ -1,5 +1,5 @@
-import path from 'node:path';
-import url from 'node:url';
+import * as path from 'node:path';
+import * as url from 'node:url';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 

@@ -1,5 +1,5 @@
-import path from 'node:path';
-import esbuild from 'esbuild';
+import * as path from 'node:path';
+import * as esbuild from 'esbuild';
 import { projectRoot } from '../utils';
 import { commonOptions, getBuildDirectory } from './utils';
 

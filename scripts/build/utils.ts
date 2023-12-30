@@ -1,6 +1,6 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import esbuild from 'esbuild';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import * as esbuild from 'esbuild';
 import { projectRoot } from '../utils';
 
 import '../../tests/build/init-environment';

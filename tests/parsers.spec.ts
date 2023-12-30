@@ -4,8 +4,8 @@
   },
 };
 
-import fs from 'node:fs';
-import path from 'node:path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import { createPool, Pool } from 'generic-pool';
 import { Browser, launch, Page } from 'puppeteer';
 import { Contest } from '../src/models/Contest';
