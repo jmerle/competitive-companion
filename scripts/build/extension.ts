@@ -52,6 +52,7 @@ await Promise.all(
           },
 
           action: {
+            default_title: 'Parse task',
             default_icon: {
               '16': 'icons/icon-16.png',
               '19': 'icons/icon-19.png',
@@ -63,8 +64,6 @@ await Promise.all(
               '64': 'icons/icon-64.png',
               '96': 'icons/icon-96.png',
             },
-            default_title: 'Parse task',
-            browser_style: false,
           },
 
           commands: {
