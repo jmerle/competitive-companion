@@ -1,3 +1,5 @@
+// @ts-expect-error There are no types for this import
+import Nanobar from 'nanobar';
 import type { Runtime } from 'webextension-polyfill';
 import { Message, MessageAction } from './models/messaging';
 import { Parser } from './parsers/Parser';
@@ -5,9 +7,6 @@ import { parsers } from './parsers/parsers';
 import { browser } from './utils/browser';
 import { config } from './utils/config';
 import { noop } from './utils/noop';
-
-// This package has no types
-const Nanobar = require('nanobar');
 
 declare global {
   interface Window {
