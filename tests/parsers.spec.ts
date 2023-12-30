@@ -1,8 +1,4 @@
-(global as any).chrome = {
-  runtime: {
-    id: 'dev',
-  },
-};
+import './build/init-environment';
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
