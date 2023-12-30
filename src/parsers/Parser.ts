@@ -37,8 +37,8 @@ export abstract class Parser {
   }
 
   /**
-   * When one of the regular expressions of this problemParser match the current url, this method is called.
-   * If it returns true, it is assumed this page can load this page. This is useful for contest
+   * When one of the regular expressions of this parser matches the current url, this method is called.
+   * If it returns true, it is assumed the parser can load this page. This is useful for contest
    * parsers where the url might not give away whether the contest problems are already available.
    */
   public canHandlePage(): boolean {
