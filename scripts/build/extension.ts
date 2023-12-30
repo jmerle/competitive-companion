@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as esbuild from 'esbuild';
+import fs from 'node:fs';
+import path from 'node:path';
+import esbuild from 'esbuild';
 import { projectRoot } from '../utils';
 import { commonOptions, getBuildDirectory } from './utils';
 
@@ -9,11 +9,15 @@ const watch = process.argv[3] === 'true';
 
 const buildDirectory = getBuildDirectory('extension');
 
+function parseJSON(file: string): any {
+  return JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' }));
+}
+
 for (const { from, to } of [
   {
     from: () => {
-      const manifest = require(path.resolve(projectRoot, 'static/manifest.json'));
-      const packageData = require(path.resolve(projectRoot, 'package.json'));
+      const manifest = parseJSON(path.resolve(projectRoot, 'static/manifest.json'));
+      const packageData = parseJSON(path.resolve(projectRoot, 'package.json'));
 
       manifest.name = packageData.productName;
       manifest.description = packageData.description;
@@ -56,6 +60,7 @@ const options: esbuild.BuildOptions = {
   ],
   outdir: path.resolve(buildDirectory, 'js'),
   bundle: true,
+  format: 'esm',
   minifyWhitespace: isProduction,
   minifySyntax: isProduction,
 };

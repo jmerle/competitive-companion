@@ -1,5 +1,5 @@
-import * as path from 'path';
-import * as esbuild from 'esbuild';
+import path from 'node:path';
+import esbuild from 'esbuild';
 import { projectRoot } from '../utils';
 import { commonOptions, getBuildDirectory } from './utils';
 
@@ -9,6 +9,7 @@ esbuild
     entryPoints: [path.resolve(projectRoot, 'tests/build/main.ts')],
     outdir: getBuildDirectory('test'),
     bundle: true,
+    format: 'esm',
   })
   .catch(err => {
     console.error(err);

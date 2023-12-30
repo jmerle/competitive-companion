@@ -1,5 +1,7 @@
-const pdfjsLib = require('pdfjs-dist/build/pdf.min.js');
-const pdfjsWorker = require('pdfjs-dist/build/pdf.worker.min.js');
+// @ts-expect-error There are no types for this import
+import pdfjsLib from 'pdfjs-dist/build/pdf.min.js';
+// @ts-expect-error There are no types for this import
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.js';
 
 export async function readPdf(pdfUrl: string): Promise<string[]> {
   if (!pdfjsLib.GlobalWorkerOptions.workerPort) {

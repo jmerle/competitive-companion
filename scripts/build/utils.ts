@@ -1,12 +1,14 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as esbuild from 'esbuild';
+import fs from 'node:fs';
+import path from 'node:path';
+import esbuild from 'esbuild';
+import { projectRoot } from '../utils';
 
 import '../../tests/build/init-environment';
+// eslint-disable-next-line import/order
 import { parsers } from '../../src/parsers/parsers';
 
 export function getBuildDirectory(target: string): string {
-  const directory = path.resolve(__dirname, `../../build-${target}`);
+  const directory = path.resolve(projectRoot, `build-${target}`);
 
   if (fs.existsSync(directory)) {
     fs.rmSync(directory, { recursive: true });
