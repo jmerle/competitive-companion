@@ -7,6 +7,9 @@ export class MendoProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://mendo.mk/Task.do?id=*'];
   }
+  public getRegularExpressions(): RegExp[] {
+    return [/^https?:\/\/(?:www\.)?mendo\.mk\/Task\.do\?id=\d+$/];
+  }
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Mendo').setUrl(url);
@@ -17,7 +20,7 @@ export class MendoProblemParser extends Parser {
       if (x.textContent.trim() == "Ограничувања") {
         // Македонски
         var results =
-          /Временско ограничување: (\d+) ([а-ш]+)\nМемориско ограничување: (\d+) ([а-шј]+)/s
+          /Временско ограничување: (\d+) ([а-ш]+)Мемориско ограничување: (\d+) ([а-шј]+)/s
           .exec(x.nextElementSibling.textContent);
         var time = parseInt(results[1]), space = parseInt(results[3]);
         if (results[2].slice(0, 6) == "секунд") time *= 1000;
