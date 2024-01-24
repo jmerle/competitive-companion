@@ -17,29 +17,26 @@ export class MendoProblemParser extends Parser {
     task.setName(elem.querySelector('.pagetitle').textContent);
 
     elem.querySelectorAll('.taskContentView > h3').forEach(x => {
-      if (x.textContent.trim() == 'Ограничувања') {
-        // Македонски
-        const results = /Временско ограничување: (\d+) ([а-ш]+)Мемориско ограничување: (\d+) ([а-шј]+)/s.exec(
+      const text = x.textContent.trim();
+      if (text !== 'Ограничувања' && text !== 'Constraints') {
+        return;
+      }
+
+      const results =
+        /(Временско ограничување|Time limit): (\d+) ([а-ш]+|[a-z]+)(Мемориско ограничување|Memory limit): (\d+) ([а-шј]+|[a-z]+)/.exec(
           x.nextElementSibling.textContent,
         );
-        let time = parseInt(results[1]);
-        const space = parseInt(results[3]);
-        if (results[2].slice(0, 6) == 'секунд') time *= 1000;
-        // За сега нема задачи со <1MB мемориски лимит.
-        task.setTimeLimit(time).setMemoryLimit(space);
+
+      let time = parseInt(results[2]);
+      const timeUnit = results[3].slice(0, 6);
+      if (timeUnit === 'секунд' || timeUnit === 'second') {
+        time *= 1000;
       }
-      if (x.textContent.trim() == 'Constraints') {
-        // English
-        const results = /Time limit: (\d+) ([a-z]+)Memory limit: (\d+) ([a-z]+)/s.exec(
-          x.nextElementSibling.textContent,
-        );
-        let time = parseInt(results[1]);
-        const space = parseInt(results[3]);
-        if (results[2].slice(0, 6) == 'second') time *= 1000;
-        // As of now there aren't any problems with <1MB space limit.
-        task.setTimeLimit(time).setMemoryLimit(space);
-      }
+
+      task.setTimeLimit(time);
+      task.setMemoryLimit(parseInt(results[5]));
     });
+
     if (elem.querySelector('.taskContentView tbody')) {
       elem.querySelector('.taskContentView tbody').childNodes.forEach(x => {
         const parsed = /^(?:input|влез)\n(.*)(?:output|излез)\n(.*)$/s.exec(x.textContent);
@@ -49,7 +46,7 @@ export class MendoProblemParser extends Parser {
       // As of now there isn't a better discovered way of checking if it's interactive :rofl:
       task.setInteractive(true);
     }
-    task.setJavaMainClass('Main');
+
     return task.build();
   }
 }
