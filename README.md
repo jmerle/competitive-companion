@@ -86,6 +86,7 @@ A browser extension which parses competitive programming problems from various o
 | LightOJ                    | ✔              |                |
 | LSYOI                      | ✔              |                |
 | Luogu                      | ✔              | ✔              |
+| Mendo                      | ✔              |                |
 | Meta Coding Competitions   | ✔              |                |
 | MOI Arena                  | ✔              | ✔              |
 | mrJudge                    | ✔              |                |

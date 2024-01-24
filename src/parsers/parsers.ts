@@ -89,6 +89,7 @@ import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LSYOIProblemParser } from './problem/LSYOIProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
+import { MendoProblemParser } from './problem/MendoProblemParser';
 import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
@@ -247,6 +248,8 @@ export const parsers: Parser[] = [
 
   new LuoguProblemParser(),
   new LuoguContestParser(),
+
+  new MendoProblemParser(),
 
   new MetaCodingCompetitionsProblemParser(),
 
