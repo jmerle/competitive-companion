@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.50.0 (Unreleased)
+## [2.50.0](https://github.com/jmerle/competitive-companion/releases/tag/2.50.0) (2024-01-24)
 - Added support for Mendo (thanks [@EntityPlantt](https://github.com/EntityPlantt))
 - Fixed the parsing of sample cases on Firefox for online judges using DOMjudge
 - Fixed the parsing of CodeChef problems
