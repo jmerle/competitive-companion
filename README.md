@@ -253,7 +253,7 @@ PNPM: 8.13.1
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
-- [pdfjs-dist 4.0.269](https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.mjs)
+- [pdfjs-dist 4.0.379](https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.379/build/pdf.mjs)
 - [jszip 3.10.1](https://github.com/Stuk/jszip/blob/v3.10.1/dist/jszip.js)
 - [cyrillic-to-translit-js 3.2.1](https://github.com/greybax/cyrillic-to-translit-js/blob/05f02e9e1df6d338f35258443f2e9c910bd8ccd4/CyrillicToTranslit.js)
 
