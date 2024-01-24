@@ -74,11 +74,15 @@ export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
   private async fetchTestCases(zipUrl: string): Promise<{ input: string; output: string }[]> {
     try {
       const response = await fetch(zipUrl);
-      if (!response.ok) throw new Error(`Failed to download ZIP file from ${zipUrl}`);
+      if (!response.ok) {
+        throw new Error(`Failed to download ZIP file from ${zipUrl}`);
+      }
 
-      const arrayBuffer = await response.arrayBuffer();
+      const blob = await response.blob();
+      const processedBlob = await this.processBlob(blob);
+
       const zip = new JSZip();
-      const content = await zip.loadAsync(arrayBuffer);
+      const content = await zip.loadAsync(processedBlob);
 
       const testCases: Record<string, { input: string; output: string }> = {};
 
@@ -115,5 +119,19 @@ export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
     const memory = memoryMatch ? parseInt(memoryMatch[1]) * (memoryMatch[2] === 'GB' ? 1024 : 1) : defaultMemory;
 
     return [time, memory];
+  }
+
+  // JSZip doesn't seem to work properly in Firefox addons, this is a workaround to the issue
+  // See https://github.com/Stuk/jszip/issues/759 for more information
+  private processBlob(blob: Blob): Promise<ArrayBuffer | string> {
+    return new Promise(resolve => {
+      const fileReader = new FileReader();
+
+      fileReader.onload = event => {
+        resolve(event.target.result);
+      };
+
+      fileReader.readAsBinaryString(blob);
+    });
   }
 }
