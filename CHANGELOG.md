@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.50.0 (Unreleased)
+- Added support for Mendo (thanks [@EntityPlantt](https://github.com/EntityPlantt))
+- Fixed the parsing of sample cases on Firefox for online judges using DOMjudge
+
 ## [2.49.0](https://github.com/jmerle/competitive-companion/releases/tag/2.49.0) (2023-12-30)
 - Added support for DOMjudge (thanks [@ItsNiklas](https://github.com/ItsNiklas))
 - Migrated from Webpack to ESBuild, from CommonJS to ESM, and from Manifest V2 to V3. As a result of the last change, there are now separate distributions for Chrome and Firefox. The code of both is the same, but the extension manifest differs. If you're installing via the Chrome Web Store or Mozilla's AMO this will not affect you. If you install the extension manually you'll need to make sure you download the correct distribution, the Chrome version is not compatible with Firefox and vice-versa.
