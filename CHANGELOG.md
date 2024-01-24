@@ -3,6 +3,7 @@
 ## 2.50.0 (Unreleased)
 - Added support for Mendo (thanks [@EntityPlantt](https://github.com/EntityPlantt))
 - Fixed the parsing of sample cases on Firefox for online judges using DOMjudge
+- Fixed the parsing of CodeChef problems
 
 ## [2.49.0](https://github.com/jmerle/competitive-companion/releases/tag/2.49.0) (2023-12-30)
 - Added support for DOMjudge (thanks [@ItsNiklas](https://github.com/ItsNiklas))
