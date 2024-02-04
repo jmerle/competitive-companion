@@ -31,8 +31,8 @@
     "test:no-headless": "cross-env HEADLESS=false pnpm test",
     "start:chrome": "tsx scripts/start/chrome.ts",
     "start:firefox": "tsx scripts/start/firefox.ts",
-    "dev:chrome": "rimraf build-chrome && concurrently 'pnpm start:chrome' 'pnpm watch:chrome' -n chrome,build -c blue,yellow --kill-others",
-    "dev:firefox": "rimraf build-firefox && concurrently 'pnpm start:firefox' 'pnpm watch:firefox' -n firefox,build -c blue,yellow --kill-others"
+    "dev:chrome": "rimraf build-chrome && concurrently \"pnpm start:chrome\" \"pnpm watch:chrome\" -n chrome,build -c blue,yellow --kill-others",
+    "dev:firefox": "rimraf build-firefox && concurrently \"pnpm start:firefox\" \"pnpm watch:firefox\" -n firefox,build -c blue,yellow --kill-others"
   },
   "dependencies": {
     "cyrillic-to-translit-js": "3.2.1",
