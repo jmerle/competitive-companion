@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class AlgoZenithProblemParser extends Parser {
+export class AlgoZenithOldProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://www.learning.algozenith.com/problems/*'];
   }

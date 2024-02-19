@@ -45,7 +45,8 @@ import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AcWingProblemParser } from './problem/AcWingProblemParser';
 import { AizuOnlineJudgeBetaProblemParser } from './problem/AizuOnlineJudgeBetaProblemParser';
 import { AizuOnlineJudgeProblemParser } from './problem/AizuOnlineJudgeProblemParser';
-import { AlgoZenithProblemParser } from './problem/AlgoZenithProblemParser';
+import { AlgoZenithNewProblemParser } from './problem/AlgoZenithNewProblemParser';
+import { AlgoZenithOldProblemParser } from './problem/AlgoZenithOldProblemParser';
 import { AnarchyGolfProblemParser } from './problem/AnarchyGolfProblemParser';
 import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
 import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeProblemParser';
@@ -89,7 +90,6 @@ import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LSYOIProblemParser } from './problem/LSYOIProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
-import { MAANGProblemParser } from './problem/MAANGProblemParser';
 import { MendoProblemParser } from './problem/MendoProblemParser';
 import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
@@ -138,7 +138,8 @@ export const parsers: Parser[] = [
   new AizuOnlineJudgeProblemParser(),
   new AizuOnlineJudgeBetaProblemParser(),
 
-  new AlgoZenithProblemParser(),
+  new AlgoZenithNewProblemParser(),
+  new AlgoZenithOldProblemParser(),
 
   new AnarchyGolfProblemParser(),
 
@@ -249,8 +250,6 @@ export const parsers: Parser[] = [
 
   new LuoguProblemParser(),
   new LuoguContestParser(),
-
-  new MAANGProblemParser(),
 
   new MendoProblemParser(),
 

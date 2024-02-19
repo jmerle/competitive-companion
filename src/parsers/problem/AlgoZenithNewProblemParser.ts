@@ -3,14 +3,14 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class MAANGProblemParser extends Parser {
+export class AlgoZenithNewProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://maang.in/problems/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('MAANG').setUrl(url);
+    const task = new TaskBuilder('AlgoZenith').setUrl(url);
 
     task.setName(elem.querySelector('h4').textContent);
 
