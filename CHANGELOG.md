@@ -1,7 +1,7 @@
 # Changelog
 
-## Unreleased
-- Added support for the maang.in version of AlgoZenith (thanks [@GandharvJain](https://github.com/GandharvJain))
+## [2.50.1](https://github.com/jmerle/competitive-companion/releases/tag/2.50.1) (2024-02-19)
+- Fixed the parsing of AlgoZenith problems on its maang.in website (thanks [@GandharvJain](https://github.com/GandharvJain))
 - Fixed the parsing of beecrowd problems and contests
 - Fixed the parsing of USACO Training problems
 
