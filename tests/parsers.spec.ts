@@ -96,13 +96,13 @@ let pagePool: Pool<Page>;
 
 beforeAll(async () => {
   browser = await launch({
-    headless: process.env.HEADLESS !== 'false' ? 'new' : false,
+    headless: process.env.HEADLESS !== 'false',
   });
 
   pagePool = createPool<Page>(
     {
       create: async () => {
-        const context = await browser.createIncognitoBrowserContext();
+        const context = await browser.createBrowserContext();
         return context.newPage();
       },
       destroy: page => page.close(),

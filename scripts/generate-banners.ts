@@ -124,7 +124,7 @@ const requiredBanners: [string, number, number][] = [
 ];
 
 const browser = await puppeteer.launch({
-  headless: 'new',
+  headless: true,
 });
 
 const page = await browser.newPage();
