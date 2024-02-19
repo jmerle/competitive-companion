@@ -8,6 +8,7 @@ import { uuidv4 } from './random';
 export const requiredPermissions: Record<string, string> = {
   'https://codingcompetitions.withgoogle.com/': 'https://codejam.googleapis.com/dashboard/get_file/*',
   'https://tlx.toki.id/': 'https://api.tlx.toki.id/v2/*',
+  'https://judge.beecrowd.com/': 'https://resources.beecrowd.com/*',
 };
 
 /**

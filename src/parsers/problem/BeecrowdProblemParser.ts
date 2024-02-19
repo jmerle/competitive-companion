@@ -1,15 +1,12 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
-import { request } from '../../utils/request';
+import { requestInBackground } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class BeecrowdProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://www.beecrowd.com.br/judge/*/problems/view/*',
-      'https://www.beecrowd.com.br/judge/*/challenges/view/*',
-    ];
+    return ['https://judge.beecrowd.com/*/problems/view/*', 'https://judge.beecrowd.com/*/challenges/view/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -32,7 +29,7 @@ export class BeecrowdProblemParser extends Parser {
         link = elem.querySelector<HTMLLinkElement>('.full-screen').href;
       }
 
-      html = await request(link);
+      html = await requestInBackground(link);
     }
 
     return this.parseFullscreen(task, html);

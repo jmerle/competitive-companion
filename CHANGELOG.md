@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Added support for the maang.in version of AlgoZenith (thanks [@GandharvJain](https://github.com/GandharvJain))
+- Fixed the parsing of beecrowd problems and contests
 
 ## [2.50.0](https://github.com/jmerle/competitive-companion/releases/tag/2.50.0) (2024-01-24)
 - Added support for Mendo (thanks [@EntityPlantt](https://github.com/EntityPlantt))
