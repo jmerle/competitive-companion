@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Added support for the maang.in version of AlgoZenith (thanks [@GandharvJain](https://github.com/GandharvJain))
+
 ## [2.50.0](https://github.com/jmerle/competitive-companion/releases/tag/2.50.0) (2024-01-24)
 - Added support for Mendo (thanks [@EntityPlantt](https://github.com/EntityPlantt))
 - Fixed the parsing of sample cases on Firefox for online judges using DOMjudge
