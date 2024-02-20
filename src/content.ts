@@ -43,7 +43,7 @@ async function getParserToUse(): Promise<Parser> {
 }
 
 function getParserByName(name: string): Parser {
-  // Vite prefixes classes with an underscore when they have one or more static members
+  // ESBuild prefixes classes with an underscore when they have one or more static members
   const prefixedName = '_' + name;
   return parsers.find(parser => parser.constructor.name === name || parser.constructor.name === prefixedName);
 }
