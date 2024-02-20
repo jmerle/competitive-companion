@@ -1,8 +1,8 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { toLatin } from '../../utils/tolatin';
 import { Parser } from '../Parser';
-import toLatin from '../utils/tolatin';
 
 export class MendoProblemParser extends Parser {
   public getMatchPatterns(): string[] {

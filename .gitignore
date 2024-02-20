@@ -133,3 +133,6 @@ dist
 build-*/
 dist/
 firefox-tmp/
+
+# VSCode info directory
+.vscode
