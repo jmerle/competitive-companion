@@ -2,6 +2,7 @@ import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
+import toLatin from '../utils/tolatin';
 
 export class MendoProblemParser extends Parser {
   public getMatchPatterns(): string[] {
@@ -14,7 +15,7 @@ export class MendoProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Mendo').setUrl(url);
 
-    task.setName(elem.querySelector('.pagetitle').textContent);
+    task.setName(toLatin(elem.querySelector('.pagetitle').textContent));
 
     elem.querySelectorAll('.taskContentView > h3').forEach(x => {
       const text = x.textContent.trim();
