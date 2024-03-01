@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 2.51.0 (Unreleased)
+- Removved the Baekjoon Online Judge contest parser because Baekjoon Online Judge has started to block requests to their problems made through the browser's [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - Fixed the parsing of USACO problems
 
 ## [2.50.2](https://github.com/jmerle/competitive-companion/releases/tag/2.50.2) (2024-02-20)
