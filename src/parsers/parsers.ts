@@ -1,5 +1,6 @@
 import { A2OnlineJudgeContestParser } from './contest/A2OnlineJudgeContestParser';
 import { AtCoderContestParser } from './contest/AtCoderContestParser';
+import { BaekjoonOnlineJudgeContestParser } from './contest/BaekjoonOnlineJudgeContestParser';
 import { BeecrowdContestParser } from './contest/BeecrowdContestParser';
 import { BUCTOJContestParser } from './contest/BUCTOJContestParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
@@ -146,6 +147,7 @@ export const parsers: Parser[] = [
   new AtCoderContestParser(),
 
   new BaekjoonOnlineJudgeProblemParser(),
+  new BaekjoonOnlineJudgeContestParser(),
 
   new BAPSOJProblemParser(),
 
