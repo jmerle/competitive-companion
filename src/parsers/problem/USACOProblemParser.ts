@@ -6,10 +6,10 @@ import { Parser } from '../Parser';
 export class USACOProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
-      'http://www.usaco.org/current/index.php*',
-      'http://www.usaco.org/index.php*',
-      'http://usaco.org/current/index.php*',
-      'http://usaco.org/index.php*',
+      'https://www.usaco.org/current/index.php*',
+      'https://www.usaco.org/index.php*',
+      'https://usaco.org/current/index.php*',
+      'https://usaco.org/index.php*',
     ];
   }
 

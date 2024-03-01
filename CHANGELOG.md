@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of USACO problems
+
 ## [2.50.2](https://github.com/jmerle/competitive-companion/releases/tag/2.50.2) (2024-02-20)
 - Fixed custom rules that target the UOJProblemParser or VirtualJudgeProblemParser
 
