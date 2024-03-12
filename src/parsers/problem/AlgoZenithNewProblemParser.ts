@@ -14,13 +14,15 @@ export class AlgoZenithNewProblemParser extends Parser {
 
     task.setName(elem.querySelector('h4').textContent);
 
-    const timeLimitStr = elem.querySelector('h4 + div > div:nth-child(2) > p').textContent;
+    const timeLimitStr =
+      elem.querySelector('h4').parentElement.parentElement.childNodes[1].childNodes[1].childNodes[0].textContent;
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1]) * 1000);
 
-    const memoryLimitStr = elem.querySelector('h4 + div > div:nth-child(3) > p').textContent;
+    const memoryLimitStr =
+      elem.querySelector('h4').parentElement.parentElement.childNodes[1].childNodes[2].childNodes[0].textContent;
     task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1]) / 1000);
 
-    const blocks = elem.querySelectorAll('.mt-4 .coding_input_format__v5xo8');
+    const blocks = elem.querySelectorAll('.mt-4 .coding_input_format__pv9fS');
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
