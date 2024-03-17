@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.51.1 (Unreleased)
+- Fixed the parsing of AlgoZenith problems on its maang.in website (thanks [@rohitzerofour](https://github.com/rohitzerofour))
+- Fixed the parsing of Baekjoon Online Judge problems in active contests
+- Fixed the parsing of certain Mendo problems
+
 ## [2.51.0](https://github.com/jmerle/competitive-companion/releases/tag/2.51.0) (2024-03-01)
 - Removed the Baekjoon Online Judge contest parser because Baekjoon Online Judge has started to block requests to their problems made through the browser's [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - Fixed the parsing of USACO problems
