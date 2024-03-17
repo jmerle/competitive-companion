@@ -37,15 +37,20 @@ export class MendoProblemParser extends Parser {
       task.setMemoryLimit(parseInt(results[5]));
     });
 
-    if (elem.querySelector('.taskContentView tbody')) {
-      elem.querySelector('.taskContentView tbody').childNodes.forEach(x => {
-        const parsed = /^(?:input|влез)\n(.*)(?:output|излез)\n(.*)$/s.exec(x.textContent);
+    const sampleCasePattern = /^(?:input|влез)\n(.*)(?:output|излез)\n(.*)$/s;
+    for (const tbody of elem.querySelectorAll('.taskContentView tbody')) {
+      if ([...tbody.childNodes].some(child => !sampleCasePattern.test(child.textContent))) {
+        continue;
+      }
+
+      for (const child of tbody.childNodes) {
+        const parsed = sampleCasePattern.exec(child.textContent);
         task.addTest(parsed[1] + '\n', parsed[2] + '\n');
-      });
-    } else {
-      // As of now there isn't a better discovered way of checking if it's interactive :rofl:
-      task.setInteractive(true);
+      }
     }
+
+    // As of now there isn't a better discovered way of checking if it's interactive :rofl:
+    task.setInteractive(task.tests.length === 0);
 
     return task.build();
   }
