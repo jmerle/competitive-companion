@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.51.1 (Unreleased)
+## [2.51.1](https://github.com/jmerle/competitive-companion/releases/tag/2.51.1) (2024-03-17)
 - Fixed the parsing of AlgoZenith problems on its maang.in website (thanks [@rohitzerofour](https://github.com/rohitzerofour))
 - Fixed the parsing of Baekjoon Online Judge problems in active contests
 - Fixed the parsing of certain Mendo problems
