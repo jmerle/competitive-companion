@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class PTAProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://pintia.cn/problem-sets/*/problems/\\d{1,}'];
+    return ['https://pintia.cn/problem-sets/*/problems/\\d{1,}*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
