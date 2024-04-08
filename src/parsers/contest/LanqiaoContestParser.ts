@@ -19,7 +19,12 @@ export class LanqiaoContestParser extends ContestParser<[string, string, string,
     const elem = htmlToElement(html);
 
     const contestId = /contest_detail:{id:(\d+),/.exec(html)[1];
-    const contestTitle = elem.querySelector('.contest-info-panel > .title').textContent.trim().split('\n')[0].trim();
+    const contestTitle = elem
+      .querySelector('.contest-info-panel > .title')
+      .textContent.trim()
+      .split('\n')[0]
+      .trim()
+      .replace(/\s+/g, ' ');
 
     return [...elem.querySelectorAll(this.taskSelector)].map((el, i) => [
       contestId,
