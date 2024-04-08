@@ -7,11 +7,15 @@ import { VirtualJudgeProblemParser } from '../problem/VirtualJudgeProblemParser'
 
 export class VirtualJudgeContestParser extends ContestParser<[string, string, any]> {
   public getMatchPatterns(): string[] {
-    return ['https://vjudge.net/contest/*', 'https://vjudge.csgrandeur.cn/contest/*'];
+    return [
+      'https://vjudge.net/contest/*',
+      'https://vjudge.net.cn/contest/*',
+      'https://vjudge.csgrandeur.cn/contest/*',
+    ];
   }
 
   public canHandlePage(): boolean {
-    return document.querySelector('#contest-problems tr > .prob-origin > a') !== null;
+    return document.querySelector('#contest-problems tr > .prob-title > a') !== null;
   }
 
   protected async getTasksToParse(html: string, url: string): Promise<[string, string, any][]> {
@@ -37,7 +41,7 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
     }
 
     const descriptionUrl = `https://vjudge.net/problem/description/${data.publicDescId}?${data.publicDescVersion}`;
-    const description = await request(descriptionUrl);
+    const description = await request(descriptionUrl, { credentials: 'same-origin' });
     const jsonContainer = htmlToElement(description).querySelector('.data-json-container');
     const json = JSON.parse(jsonContainer.textContent);
 
