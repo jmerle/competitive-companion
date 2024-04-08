@@ -83,6 +83,7 @@ import { HydroProblemParser } from './problem/HydroProblemParser';
 import { ITCoderHUTECHProblemParser } from './problem/ITCoderHUTECHProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
+import { LanqiaoProblemParser } from './problem/LanqiaoProblemParser';
 import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProblemParser';
 import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemParser';
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
@@ -235,6 +236,8 @@ export const parsers: Parser[] = [
 
   new KattisProblemParser(),
   new KattisContestParser(),
+
+  new LanqiaoProblemParser(),
 
   new LibraryCheckerProblemParser(),
   new LibraryCheckerOldProblemParser(),

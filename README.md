@@ -3,10 +3,10 @@
 [link-cws]: https://chrome.google.com/webstore/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl
 [link-amo]: https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/
 
-[![Build Status](https://github.com/jmerle/competitive-companion/workflows/Build/badge.svg)](https://github.com/jmerle/competitive-companion/actions/workflows/build.yml)  
+[![Build Status](https://github.com/jmerle/competitive-companion/workflows/Build/badge.svg)](https://github.com/jmerle/competitive-companion/actions/workflows/build.yml)
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)][link-cws]
 [![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)][link-cws]
-[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)][link-cws]  
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)][link-cws]
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/competitive-companion.svg)][link-amo]
 [![Mozilla Add-on Users](https://img.shields.io/amo/users/competitive-companion.svg)][link-amo]
 [![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)][link-amo]
@@ -81,6 +81,7 @@ A browser extension which parses competitive programming problems from various o
 | ITCoder HUTECH             | ✔              |                |
 | Jutge                      | ✔              |                |
 | Kattis                     | ✔              | ✔              |
+| Lanqiao                    | ✔              |                |
 | Library Checker            | ✔              |                |
 | LibreOJ                    | ✔              | ✔              |
 | LightOJ                    | ✔              |                |
@@ -246,11 +247,11 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 ## Mozilla reviewers
 The information provided below is meant for Mozilla volunteers.
 
-Software versions used:  
-Node.js: 20.11.1  
+Software versions used:
+Node.js: 20.11.1
 PNPM: 8.15.4
 
-Third-party libraries that can be found in the minified extension:  
+Third-party libraries that can be found in the minified extension:
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
 - [pdfjs-dist 4.0.379](https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.379/build/pdf.mjs)
