@@ -10,7 +10,6 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
     return [
       'https://vjudge.net/contest/*',
       'https://vjudge.net.cn/contest/*',
-      'https://vjudge.csgrandeur.cn/contest/*',
     ];
   }
 
