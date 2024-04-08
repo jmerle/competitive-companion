@@ -23,6 +23,7 @@ import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { HKOIOnlineJudgeContestParser } from './contest/HKOIOnlineJudgeContestParser';
 import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
+import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
@@ -238,6 +239,7 @@ export const parsers: Parser[] = [
   new KattisContestParser(),
 
   new LanqiaoProblemParser(),
+  new LanqiaoContestParser(),
 
   new LibraryCheckerProblemParser(),
   new LibraryCheckerOldProblemParser(),

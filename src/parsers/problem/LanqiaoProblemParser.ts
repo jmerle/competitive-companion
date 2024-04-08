@@ -21,7 +21,7 @@ export class LanqiaoProblemParser extends Parser {
     task.setMemoryLimit(parseInt(memory, 10));
 
     const blocks = doc.querySelectorAll('pre > code');
-    for (let i = 0; i < blocks.length - 1; i += 2) {
+    for (let i = blocks.length % 2 === 0 ? 0 : 1; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
 
