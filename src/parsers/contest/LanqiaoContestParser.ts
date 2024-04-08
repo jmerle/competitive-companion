@@ -15,6 +15,7 @@ export class LanqiaoContestParser extends ContestParser<[string, string, string,
     return document.querySelector(this.taskSelector) !== null;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected async getTasksToParse(html: string, url: string): Promise<[string, string, string, string][]> {
     const elem = htmlToElement(html);
 
