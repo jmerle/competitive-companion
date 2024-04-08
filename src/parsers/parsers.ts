@@ -13,7 +13,8 @@ import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeConte
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { DOMjudgeContestParser } from './contest/DOMjudgeContestParser';
 import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
-import { EolympContestParser } from './contest/EolympContestParser';
+import { EolympBasecampContestParser } from './contest/EolympBasecampContestParser';
+import { EolympNormalContestParser } from './contest/EolympNormalContestParser';
 import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
 import { HackerRankContestParser } from './contest/HackerRankContestParser';
@@ -199,7 +200,8 @@ export const parsers: Parser[] = [
 
   new EolympNormalProblemParser(),
   new EolympBasecampProblemParser(),
-  new EolympContestParser(),
+  new EolympNormalContestParser(),
+  new EolympBasecampContestParser(),
 
   new FZUOnlineJudgeProblemParser(),
   new FZUOnlineJudgeContestParser(),

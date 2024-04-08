@@ -1,6 +1,6 @@
 {
   "url": "https://www.eolymp.com/en/contests/7837",
-  "parser": "EolympContestParser",
+  "parser": "EolympNormalContestParser",
   "result": [
     {
       "name": "What is the Median?",

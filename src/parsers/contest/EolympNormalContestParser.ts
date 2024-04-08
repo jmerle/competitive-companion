@@ -1,7 +1,7 @@
 import { EolympNormalProblemParser } from '../problem/EolympNormalProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
 
-export class EolympContestParser extends SimpleContestParser {
+export class EolympNormalContestParser extends SimpleContestParser {
   protected linkSelector = '.eo-problem-row__name';
   protected problemParser = new EolympNormalProblemParser();
 
