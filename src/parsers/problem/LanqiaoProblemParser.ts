@@ -10,7 +10,7 @@ export class LanqiaoProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const doc = htmlToElement(html);
-    const task = new TaskBuilder('Some OJ').setUrl(url);
+    const task = new TaskBuilder('Lanqiao').setUrl(url);
 
     const title = doc.querySelector('.course-name').textContent;
     task.setName(title.replace(/\s+/g, ' ').trim());
