@@ -1,6 +1,6 @@
 {
   "url": "https://www.eolymp.com/en/problems/5",
-  "parser": "EolympProblemParser",
+  "parser": "EolympNormalProblemParser",
   "result": {
     "name": "Two factors",
     "group": "Eolymp",

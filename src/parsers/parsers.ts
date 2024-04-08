@@ -13,7 +13,8 @@ import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeConte
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { DOMjudgeContestParser } from './contest/DOMjudgeContestParser';
 import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
-import { EolympContestParser } from './contest/EolympContestParser';
+import { EolympBasecampContestParser } from './contest/EolympBasecampContestParser';
+import { EolympNormalContestParser } from './contest/EolympNormalContestParser';
 import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
 import { HackerRankContestParser } from './contest/HackerRankContestParser';
@@ -67,7 +68,8 @@ import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProbl
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
-import { EolympProblemParser } from './problem/EolympProblemParser';
+import { EolympBasecampProblemParser } from './problem/EolympBasecampProblemParser';
+import { EolympNormalProblemParser } from './problem/EolympNormalProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
 import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCompetitionsProblemParser';
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
@@ -196,8 +198,10 @@ export const parsers: Parser[] = [
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
 
-  new EolympProblemParser(),
-  new EolympContestParser(),
+  new EolympNormalProblemParser(),
+  new EolympBasecampProblemParser(),
+  new EolympNormalContestParser(),
+  new EolympBasecampContestParser(),
 
   new FZUOnlineJudgeProblemParser(),
   new FZUOnlineJudgeContestParser(),

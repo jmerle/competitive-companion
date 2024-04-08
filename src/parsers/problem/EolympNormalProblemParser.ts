@@ -3,7 +3,7 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
-export class EolympProblemParser extends Parser {
+export class EolympNormalProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://www.eolymp.com/*/problems/*'];
   }
