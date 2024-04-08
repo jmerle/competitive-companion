@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.52.0](https://github.com/jmerle/competitive-companion/releases/tag/2.52.0) (2024-04-08)
+- Added support for Lanqiao (thanks [@touhidurrr](https://github.com/touhidurrr) for the problem parser)
+- Added support for Eolymp Basecamp (thanks [@touhidurrr](https://github.com/touhidurrr) for the problem parser)
+- Added support for the vjudge.net.cn Virtual Judge mirror (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the parsing of PTA problems (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the parsing of TLX problems (thanks [@touhidurrr](https://github.com/touhidurrr))
+
 ## [2.51.1](https://github.com/jmerle/competitive-companion/releases/tag/2.51.1) (2024-03-17)
 - Fixed the parsing of AlgoZenith problems on its maang.in website (thanks [@rohitzerofour](https://github.com/rohitzerofour))
 - Fixed the parsing of Baekjoon Online Judge problems in active contests
