@@ -6,7 +6,7 @@ import { Parser } from '../Parser';
 
 export class EolympProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.eolymp.com/*/problems/*', 'https://basecamp.eolymp.com/*/problems/*'];
+    return ['https://www.eolymp.com/*/problems/*', 'https://basecamp.eolymp.com/*/problem/*'];
   }
 
   private mainSiteParser(elem: Element, task: TaskBuilder): Task {
