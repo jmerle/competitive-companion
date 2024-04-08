@@ -20,11 +20,10 @@ export class LanqiaoProblemParser extends Parser {
     task.setTimeLimit(parseFloat(cpu) * 1000);
     task.setMemoryLimit(parseInt(memory, 10));
 
-    // The problems on this OJ seems to have only one test case.
-    // No counter-example found.
-    const input = doc.querySelector('#输入样例 + pre > code, #样例输入 + pre > code').textContent;
-    const output = doc.querySelector('#输出样例 + pre > code, #样例输出 + pre > code').textContent;
-    task.addTest(input, output);
+    const blocks = doc.querySelectorAll('pre > code');
+    for (let i = 0; i < blocks.length - 1; i += 2) {
+      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
+    }
 
     return task.build();
   }
