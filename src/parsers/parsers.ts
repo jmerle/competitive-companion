@@ -13,6 +13,7 @@ import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeConte
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { DOMjudgeContestParser } from './contest/DOMjudgeContestParser';
 import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
+import { EolympBasecampProblemParser } from './contest/EolympBasecampProblemParser';
 import { EolympContestParser } from './contest/EolympContestParser';
 import { FZUOnlineJudgeContestParser } from './contest/FZUOnlineJudgeContestParser';
 import { HackerEarthContestParser } from './contest/HackerEarthContestParser';
@@ -67,7 +68,7 @@ import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProbl
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
-import { EolympProblemParser } from './problem/EolympProblemParser';
+import { EolympNormalProblemParser } from './problem/EolympNormalProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
 import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCompetitionsProblemParser';
 import { HackerEarthCodeArenaParser } from './problem/HackerEarthCodeArenaParser';
@@ -196,7 +197,8 @@ export const parsers: Parser[] = [
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
 
-  new EolympProblemParser(),
+  new EolympNormalProblemParser(),
+  new EolympBasecampProblemParser(),
   new EolympContestParser(),
 
   new FZUOnlineJudgeProblemParser(),
