@@ -55,13 +55,13 @@ export class TLXProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('TLX').setUrl(url);
 
-    const name = [...elem.querySelector('.chapter-problem-page__title h3').childNodes]
+    const name = [...elem.querySelector('h2.programming-problem-statement__name').childNodes]
       .filter(node => node.nodeType === Node.TEXT_NODE)
       .map(node => node.textContent)
       .join('')
       .trim();
     task.setName(name);
-
+      
     const categoryElem = elem.querySelector(
       '.single-problemset-problem-routes__title--link, .single-contest-routes__header > .single-contest-routes__heading > h2',
     );
@@ -81,7 +81,7 @@ export class TLXProblemParser extends Parser {
       task.setName(breadcrumbText[breadcrumbText.length - 1] + '. ' + task.name);
     }
 
-    const limitNodes = elem.querySelector('.statement-header__limits');
+    const limitNodes = elem.querySelector('.programming-problem-statement__limits');
 
     const [, timeLimit, timeLimitUnit] = /([0-9.]+) ?(s|ms)/.exec(limitNodes.textContent);
     task.setTimeLimit(timeLimitUnit === 's' ? parseFloat(timeLimit) * 1000 : parseFloat(timeLimit));
