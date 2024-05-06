@@ -6,15 +6,22 @@ import { Parser } from '../Parser';
 
 export class KilonovaProblemParser extends Parser {
     public getMatchPatterns(): string[] {
-        return ['https://kilonova.ro/contests/*/problems/*', 'https://kilonova.ro/problems/*'];
+        return ['https://kilonova.ro/problems/*', 'https://kilonova.ro/contests/*/problems/*'];
     }
 
     public async parse(url: string, html: string): Promise<Sendable> {
         const elem = htmlToElement(html);
         const task = new TaskBuilder('Kilonova').setUrl(url);
 
-        task.setName(elem.querySelector('div.segment-panel > h1 > b').textContent.trim());
-        task.setCategory(elem.querySelector('summary > h2 > a').textContent.trim());
+        const title = elem.querySelector('div.segment-panel > h1 > b').textContent.trim();
+        if (!title.match(/|/)) {
+            task.setName(title)
+            task.setCategory(elem.querySelector('summary > h2 > a').textContent.trim());
+        } else {
+            const [category, name] = title.split(" | ")
+            task.setName(name.trim())
+            task.setCategory(category.trim())
+        }
 
         const [timeLimit, memoryLimit, input, output] =
             Array.from(elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center h5'))
@@ -50,6 +57,8 @@ export class KilonovaProblemParser extends Parser {
         // It's too hard to parse from a problem statement whether it is single
         // or multiNumber, so I'll set it as false and call it a day.
         task.setTestType(TestType.Single);
+
+        console.log(task)
 
         return task.build();
     }
