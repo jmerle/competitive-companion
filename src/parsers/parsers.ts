@@ -24,6 +24,7 @@ import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { HKOIOnlineJudgeContestParser } from './contest/HKOIOnlineJudgeContestParser';
 import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
+import { KilonovaContestParser } from './contest/KilonovaContestParser';
 import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
@@ -244,6 +245,7 @@ export const parsers: Parser[] = [
   new KattisContestParser(),
 
   new KilonovaProblemParser(),
+  new KilonovaContestParser(),
 
   new LanqiaoProblemParser(),
   new LanqiaoContestParser(),

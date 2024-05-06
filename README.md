@@ -80,8 +80,8 @@ A browser extension which parses competitive programming problems from various o
 | ICPC Live Archive          | ✔              |                |
 | ITCoder HUTECH             | ✔              |                |
 | Jutge                      | ✔              |                |
-| Kilonova                   | ✔              |                |
 | Kattis                     | ✔              | ✔              |
+| Kilonova                   | ✔              | ✔              |
 | Lanqiao                    | ✔              | ✔              |
 | Library Checker            | ✔              |                |
 | LibreOJ                    | ✔              | ✔              |
