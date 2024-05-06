@@ -1,6 +1,5 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
-import { TestType } from '../../models/TestType';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
@@ -10,57 +9,88 @@ export class KilonovaProblemParser extends Parser {
     }
 
     public async parse(url: string, html: string): Promise<Sendable> {
-        const elem = htmlToElement(html);
-        const task = new TaskBuilder('Kilonova').setUrl(url);
+        try {
+            const elem = htmlToElement(html);
+            const task = new TaskBuilder('Kilonova').setUrl(url);
 
-        const title = elem.querySelector('div.segment-panel > h1 > b').textContent.trim();
-        if (!title.match(/|/)) {
+            this.parseTitle(elem, task);
+            this.parseDetails(elem, task);
+            this.parseInputOutput(elem, task);
+            this.parseTests(html, task);
+
+            return task.build();
+        } catch (error) {
+            console.error("An error occurred during parsing:", error);
+            throw error;
+        }
+    }
+
+    private parseTitle(elem: Element, task: TaskBuilder) {
+        const titleElement = elem.querySelector('div.segment-panel > h1 > b');
+        if (!titleElement) {
+            throw new Error("Title element not found.");
+        }
+        const title = titleElement.textContent.trim();
+        if (title.indexOf(" | ") === -1) {
             task.setName(title)
-            task.setCategory(elem.querySelector('summary > h2 > a').textContent.trim());
+            task.setCategory(elem.querySelector('summary > h2 > a[href^="/"]').textContent.trim());
         } else {
             const [category, name] = title.split(" | ")
             task.setName(name.trim())
             task.setCategory(category.trim())
         }
+    }
 
-        const [timeLimit, memoryLimit, input, output] =
-            Array.from(elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center h5'))
-                .map(h3 => {
-                    return h3.textContent.trim()
-                });
-
-        // As of now, there's no definitive way to check if a problem is
-        // interactive or not. I could check the tags, but that would be 
-        // more of an heuristic than anything solid I can rely on.
-        task.setInteractive(false);
-
-        task.setTimeLimit(parseFloat(/([0-9.]+)s/.exec(timeLimit)[1]) * 1000);
-        task.setMemoryLimit(parseInt(/(\d+)MB/.exec(memoryLimit)[1], 10));
-
-        var inputFile = input.match(/:\s+(.*)/)[1];
-        var outputFile = output.match(/:\s+(.*)/)[1];
-
-        if (!inputFile.endsWith(".in")) {
-            task.setInput({ type: "stdin" })
-        } else {
-            task.setInput({ type: "file", fileName: inputFile })
+    private parseDetails(elem: Element, task: TaskBuilder): void {
+        const details = elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center h5');
+        if (details.length < 4) {
+            throw new Error("Details not found or incomplete.");
         }
 
-        if (!outputFile.endsWith(".out")) {
-            task.setOutput({ type: "stdout" })
-        } else {
-            task.setOutput({ type: "file", fileName: outputFile })
+        const timeLimitMatch = /(\d+(?:\.\d+)?)\s*s/i.exec(details[0].textContent.trim());
+        const memoryLimitMatch = /(\d+)\s*MB/i.exec(details[1].textContent.trim());
+
+        if (!timeLimitMatch || !memoryLimitMatch) {
+            throw new Error("Failed to parse time limit or memory limit.");
         }
 
-        this.parseTests(html, task);
+        const timeLimitSeconds = parseFloat(timeLimitMatch[1]);
+        const memoryLimitMB = parseInt(memoryLimitMatch[1], 10);
 
-        // It's too hard to parse from a problem statement whether it is single
-        // or multiNumber, so I'll set it as false and call it a day.
-        task.setTestType(TestType.Single);
+        task.setTimeLimit(timeLimitSeconds * 1000); // Convert to milliseconds
+        task.setMemoryLimit(memoryLimitMB);
+    }
 
-        console.log(task)
+    private parseInputOutput(elem: Element, task: TaskBuilder): void {
+        const details = elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center h5');
+        if (details.length < 4) {
+            throw new Error("Details not found or incomplete.");
+        }
 
-        return task.build();
+        const inputFileMatch = /:\s*(\S+)/.exec(details[2].textContent.trim());
+        const outputFileMatch = /:\s*(\S+)/.exec(details[3].textContent.trim());
+    
+        if (!inputFileMatch || !outputFileMatch) {
+            throw new Error("Failed to parse input file or output file.");
+        }
+    
+        const inputFile = inputFileMatch[1];
+        const outputFile = outputFileMatch[1];
+
+        const isStdin = details[2]?.querySelector('kn-glossary[content="stdin"]');
+        const isStdout = details[3]?.querySelector('kn-glossary[content="stdout"]');
+
+        if (isStdin) {
+            task.setInput({ type: "stdin" });
+        } else {
+            task.setInput({ type: "file", fileName: inputFile });
+        }
+
+        if (isStdout) {
+            task.setOutput({ type: "stdout" });
+        } else {
+            task.setOutput({ type: "file", fileName: outputFile });
+        }
     }
 
     public parseTests(html: string, task: TaskBuilder): void {
