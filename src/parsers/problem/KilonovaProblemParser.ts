@@ -18,6 +18,7 @@ export class KilonovaProblemParser extends Parser {
             this.parseInputOutput(elem, task);
             this.parseTests(html, task);
 
+            console.log(task);
             return task.build();
         } catch (error) {
             console.error("An error occurred during parsing:", error);
@@ -33,7 +34,12 @@ export class KilonovaProblemParser extends Parser {
         const title = titleElement.textContent.trim();
         if (title.indexOf(" | ") === -1) {
             task.setName(title)
-            task.setCategory(elem.querySelector('summary > h2 > a[href^="/"]').textContent.trim());
+            const x = elem.querySelector('summary > h2 > a[href^="/"]')
+            if (x) {
+                task.setCategory(x.textContent.trim());
+            } else {
+                console.log(titleElement)
+            }
         } else {
             const [category, name] = title.split(" | ")
             task.setName(name.trim())
@@ -57,7 +63,7 @@ export class KilonovaProblemParser extends Parser {
         const timeLimitSeconds = parseFloat(timeLimitMatch[1]);
         const memoryLimitMB = parseInt(memoryLimitMatch[1], 10);
 
-        task.setTimeLimit(timeLimitSeconds * 1000); // Convert to milliseconds
+        task.setTimeLimit(timeLimitSeconds * 1000);
         task.setMemoryLimit(memoryLimitMB);
     }
 
@@ -67,29 +73,27 @@ export class KilonovaProblemParser extends Parser {
             throw new Error("Details not found or incomplete.");
         }
 
-        const inputFileMatch = /:\s*(\S+)/.exec(details[2].textContent.trim());
-        const outputFileMatch = /:\s*(\S+)/.exec(details[3].textContent.trim());
-    
-        if (!inputFileMatch || !outputFileMatch) {
-            throw new Error("Failed to parse input file or output file.");
-        }
-    
-        const inputFile = inputFileMatch[1];
-        const outputFile = outputFileMatch[1];
-
-        const isStdin = details[2]?.querySelector('kn-glossary[content="stdin"]');
-        const isStdout = details[3]?.querySelector('kn-glossary[content="stdout"]');
+        const isStdin = (details[2]?.lastChild.nodeName === "kn-glossary".toUpperCase());
+        const isStdout = (details[3]?.lastChild.nodeName === "kn-glossary".toUpperCase());
 
         if (isStdin) {
-            task.setInput({ type: "stdin" });
+            task.setInput({ type: "stdin" });    
         } else {
-            task.setInput({ type: "file", fileName: inputFile });
+            const inputFileMatch = /:\s*(\S+)/.exec(details[2].textContent.trim());
+            if (!inputFileMatch) {
+                throw new Error("Failed to parse input file.");
+            }
+            task.setInput({ type: "file", fileName: inputFileMatch[1] });
         }
 
         if (isStdout) {
-            task.setOutput({ type: "stdout" });
+            task.setOutput({ type: "stdout" });    
         } else {
-            task.setOutput({ type: "file", fileName: outputFile });
+            const outputFileMatch = /:\s*(\S+)/.exec(details[3].textContent.trim());
+            if (!outputFileMatch) {
+                throw new Error("Failed to parse input file.");
+            }
+            task.setOutput({ type: "file", fileName: outputFileMatch[1] });
         }
     }
 

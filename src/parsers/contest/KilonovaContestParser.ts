@@ -7,9 +7,8 @@ export class KilonovaContestParser extends SimpleContestParser {
 
     public getMatchPatterns(): string[] {
         return [
-            'https://kilonova.ro/*problems/*',
+            'https://kilonova.ro/contests/*',
+            'https://kilonova.ro/problems/*',
         ];
     }
-
-
 }
