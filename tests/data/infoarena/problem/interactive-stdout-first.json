@@ -1,0 +1,35 @@
+{
+  "url": "https://www.infoarena.ro/problema/interact",
+  "parser": "InfoArenaProblemParser",
+  "result": {
+    "name": "Interact",
+    "group": "InfoArena - FMI No Stress 8",
+    "url": "https://www.infoarena.ro/problema/interact",
+    "interactive": true,
+    "memoryLimit": 256,
+    "timeLimit": 500,
+    "tests": [
+      {
+        "input": "1\n0\n1\n1\n-1\n",
+        "output": "? a\n? ba\n? ac\n? abc\n! abc\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Interact"
+      }
+    },
+    "batch": {
+      "id": "965f80d0-fdb6-45d2-9849-b976b6492ccc",
+      "size": 1
+    }
+  }
+}

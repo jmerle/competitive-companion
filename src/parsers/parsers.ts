@@ -84,6 +84,7 @@ import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemPars
 import { HKOIOnlineJudgeProblemParser } from './problem/HKOIOnlineJudgeProblemParser';
 import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
 import { HydroProblemParser } from './problem/HydroProblemParser';
+import { InfoArenaProblemParser } from './problem/InfoArenaProblemParser';
 import { ITCoderHUTECHProblemParser } from './problem/ITCoderHUTECHProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
@@ -100,6 +101,7 @@ import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompeti
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
 import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
+import { NerdArenaProblemParser } from './problem/NerdArenaProblemParser';
 import { NewtonSchoolProblemParser } from './problem/NewtonSchoolProblemParser';
 import { NOJProblemParser } from './problem/NOJProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
@@ -237,6 +239,8 @@ export const parsers: Parser[] = [
   new HydroProblemParser(),
   new HydroContestParser(),
 
+  new InfoArenaProblemParser(),
+
   new ITCoderHUTECHProblemParser(),
 
   new JutgeProblemParser(),
@@ -273,6 +277,8 @@ export const parsers: Parser[] = [
 
   new NepsAcademyProblemParser(),
 
+  new NerdArenaProblemParser(),
+  
   new NewtonSchoolProblemParser(),
 
   new NOJProblemParser(),

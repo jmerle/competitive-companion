@@ -78,6 +78,7 @@ A browser extension which parses competitive programming problems from various o
 | Hrbust Online Judge        | ✔              |                |
 | Hydro                      | ✔              | ✔              |
 | ICPC Live Archive          | ✔              |                |
+| InfoArena                  | ✔              |                |
 | ITCoder HUTECH             | ✔              |                |
 | Jutge                      | ✔              |                |
 | Kattis                     | ✔              | ✔              |
@@ -94,6 +95,7 @@ A browser extension which parses competitive programming problems from various o
 | mrJudge                    | ✔              |                |
 | MSK Informatics            | ✔              |                |
 | Neps Academy               | ✔              |                |
+| NerdArena                  | ✔              |                |
 | Newton School              | ✔              |                |
 | NOJ                        | ✔              | ✔              |
 | NowCoder                   | ✔              |                |

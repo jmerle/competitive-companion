@@ -1,0 +1,37 @@
+{
+  "url": "https://www.infoarena.ro/problema/biscuiti",
+  "parser": "InfoArenaProblemParser",
+  "result": {
+    "name": "Biscuiti",
+    "group": "InfoArena - info-arena 1.0",
+    "url": "https://www.infoarena.ro/problema/biscuiti",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 175,
+    "tests": [
+      {
+        "input": "7\n9\n10\n6\n6\n4\n9\n8\n",
+        "output": "36\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "biscuiti.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "biscuiti.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Biscuiti"
+      }
+    },
+    "batch": {
+      "id": "4d582d88-0997-4208-bdc8-64ea27493807",
+      "size": 1
+    }
+  }
+}
