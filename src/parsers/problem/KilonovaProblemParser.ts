@@ -17,8 +17,7 @@ export class KilonovaProblemParser extends Parser {
             this.parseDetails(elem, task);
             this.parseInputOutput(elem, task);
             this.parseTests(html, task);
-
-            console.log(task);
+            
             return task.build();
         } catch (error) {
             console.error("An error occurred during parsing:", error);
