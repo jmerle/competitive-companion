@@ -38,7 +38,7 @@
     "cyrillic-to-translit-js": "3.2.1",
     "jszip": "3.10.1",
     "nanobar": "0.4.2",
-    "pdfjs-dist": "4.0.379",
+    "pdfjs-dist": "4.2.67",
     "snarkdown": "2.0.0"
   },
   "devDependencies": {
