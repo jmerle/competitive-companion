@@ -109,6 +109,7 @@ import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { OpenJudgeProblemParser } from './problem/OpenJudgeProblemParser';
 import { OTOGProblemParser } from './problem/OTOGProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
+import { PbInfoProblemParser } from './problem/PbInfoProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
 import { PTAProblemParser } from './problem/PTAProblemParser';
@@ -294,6 +295,8 @@ export const parsers: Parser[] = [
   new OTOGProblemParser(),
 
   new PandaOnlineJudgeProblemParser(),
+
+  new PbInfoProblemParser(),
 
   new PEGJudgeProblemParser(),
   new PEGJudgeContestParser(),
