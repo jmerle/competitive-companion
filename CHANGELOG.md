@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Fixed the parsing of TLX problems (thanks [@adrieljss](https://github.com/adrieljss))
 - Fixed the parsing of CodeChef problems
 
 ## [2.52.0](https://github.com/jmerle/competitive-companion/releases/tag/2.52.0) (2024-04-08)
