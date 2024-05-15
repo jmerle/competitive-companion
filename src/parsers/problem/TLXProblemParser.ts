@@ -61,7 +61,7 @@ export class TLXProblemParser extends Parser {
       .join('')
       .trim();
     task.setName(name);
-      
+
     const categoryElem = elem.querySelector(
       '.single-problemset-problem-routes__title--link, .single-contest-routes__header > .single-contest-routes__heading > h2',
     );
