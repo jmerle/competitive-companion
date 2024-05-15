@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fixed the parsing of CodeChef problems
+
 ## [2.52.0](https://github.com/jmerle/competitive-companion/releases/tag/2.52.0) (2024-04-08)
 - Added support for Lanqiao (thanks [@touhidurrr](https://github.com/touhidurrr) for the problem parser)
 - Added support for Eolymp Basecamp (thanks [@touhidurrr](https://github.com/touhidurrr) for the problem parser)
