@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.52.1](https://github.com/jmerle/competitive-companion/releases/tag/2.52.1) (2024-05-16)
 - Fixed the parsing of TLX problems (thanks [@adrieljss](https://github.com/adrieljss))
 - Fixed the parsing of CodeChef problems
 

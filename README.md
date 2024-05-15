@@ -249,7 +249,7 @@ The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
 Node.js: 20.12.2  
-PNPM: 9.0.6
+PNPM: 9.1.1
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
