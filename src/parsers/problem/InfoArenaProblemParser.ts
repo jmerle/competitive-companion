@@ -30,24 +30,12 @@ export class InfoArenaProblemParser extends Parser {
   }
 
   private parseTitle(elem: Element, task: TaskBuilder): void {
-    const titleElement = elem.querySelectorAll('h1')[1];
-    if (!titleElement) {
-      throw new Error('Title element not found.');
-    }
-    const title = titleElement.textContent.trim();
-    task.setName(title);
+    task.setName(elem.querySelectorAll('h1')[1].textContent.trim());
   }
 
   private parseDetails(elem: Element, task: TaskBuilder): void {
-    const detailsTable = elem.querySelector('table[cellspacing="0"] tbody');
-    if (!detailsTable) {
-      throw new Error('Details table not found.');
-    }
-
+    const detailsTable = elem.querySelector('.wiki_text_block > table tbody');
     const cells = Array.from(detailsTable.querySelectorAll('td')).map(cell => cell.textContent.trim());
-    if (cells.length < 12) {
-      throw new Error('Insufficient details found in the table.');
-    }
 
     const files = cells[1].split(', ');
     const timeLimitMatch = /(\d+(?:\.\d+)?)\s*sec/i.exec(cells[9]);
@@ -105,14 +93,7 @@ export class InfoArenaProblemParser extends Parser {
     const elem = htmlToElement(html);
 
     const exampleTable = elem.querySelector('h2 + table.example');
-    if (!exampleTable) {
-      throw new Error('Example table not found.');
-    }
-
     const rows = exampleTable.querySelectorAll('tbody tr');
-    if (rows.length === 0) {
-      throw new Error('No test cases found in the example table.');
-    }
 
     const isInteractive = elem.querySelector('h2').textContent.startsWith('Interac');
 
@@ -133,6 +114,7 @@ export class InfoArenaProblemParser extends Parser {
           output += rightText + '\n';
         }
       }
+
       input = input.replaceAll(/\n\n/g, '\n');
       output = output.replaceAll(/\n\n/g, '\n');
       task.addTest(isStdinFirst ? input : output, isStdinFirst ? output : input);

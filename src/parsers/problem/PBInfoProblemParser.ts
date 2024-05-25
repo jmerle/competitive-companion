@@ -35,20 +35,12 @@ export class PBInfoProblemParser extends Parser {
     const titleElement = isNew
       ? elem.querySelector('h1.py-5 > div').lastChild
       : elem.querySelector('h1.text-primary > a');
-    const title = titleElement.textContent.trim();
-    task.setName(title);
+    task.setName(titleElement.textContent.trim());
   }
 
   private parseDetails(elem: Element, task: TaskBuilder, isNew: boolean): void {
     const detailsTable = document.querySelector('table tbody');
-    if (!detailsTable) {
-      throw new Error('Details table not found.');
-    }
-
     const cells = Array.from(detailsTable.querySelectorAll('td')).map(cell => cell.textContent.trim());
-    if (cells.length < 8) {
-      throw new Error('Insufficient details found in the table.');
-    }
 
     let details: ProblemDetails;
 
@@ -108,6 +100,7 @@ export class PBInfoProblemParser extends Parser {
 
   public parseTests(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
+
     const tests = Array.from(elem.querySelectorAll('pre[contenteditable="true"]')).map(x => x.textContent);
     for (let i = 0; i < tests.length; i += 2) {
       if (i + 1 < tests.length) {
