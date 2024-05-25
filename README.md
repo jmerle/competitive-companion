@@ -78,9 +78,11 @@ A browser extension which parses competitive programming problems from various o
 | Hrbust Online Judge        | ✔              |                |
 | Hydro                      | ✔              | ✔              |
 | ICPC Live Archive          | ✔              |                |
+| InfoArena                  | ✔              |                |
 | ITCoder HUTECH             | ✔              |                |
 | Jutge                      | ✔              |                |
 | Kattis                     | ✔              | ✔              |
+| Kilonova                   | ✔              | ✔              |
 | Lanqiao                    | ✔              | ✔              |
 | Library Checker            | ✔              |                |
 | LibreOJ                    | ✔              | ✔              |
@@ -93,6 +95,7 @@ A browser extension which parses competitive programming problems from various o
 | mrJudge                    | ✔              |                |
 | MSK Informatics            | ✔              |                |
 | Neps Academy               | ✔              |                |
+| NerdArena                  | ✔              |                |
 | Newton School              | ✔              |                |
 | NOJ                        | ✔              | ✔              |
 | NowCoder                   | ✔              |                |
@@ -101,6 +104,7 @@ A browser extension which parses competitive programming problems from various o
 | OpenJudge                  | ✔              | ✔              |
 | OTOG                       | ✔              |                |
 | Panda Online Judge         | ✔              |                |
+| PBInfo                     | ✔              |                |
 | PEG Judge                  | ✔              | ✔              |
 | POJ                        | ✔              | ✔              |
 | PTA                        | ✔              |                |

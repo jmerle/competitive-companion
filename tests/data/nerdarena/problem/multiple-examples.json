@@ -1,0 +1,41 @@
+{
+  "url": "https://www.nerdarena.ro/problema/aranjamente",
+  "parser": "InfoArenaProblemParser",
+  "result": {
+    "name": "Aranjamente (clasele 7 - 8)",
+    "group": "NerdArena - ad-hoc",
+    "url": "https://www.nerdarena.ro/problema/aranjamente",
+    "interactive": false,
+    "memoryLimit": 1,
+    "timeLimit": 450,
+    "tests": [
+      {
+        "input": "3 2 2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "4 2 3\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "aranjamente.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "aranjamente.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AranjamenteClasele78"
+      }
+    },
+    "batch": {
+      "id": "5f03cdb0-f3e1-4e2a-a94e-8e5f93282d5d",
+      "size": 1
+    }
+  }
+}

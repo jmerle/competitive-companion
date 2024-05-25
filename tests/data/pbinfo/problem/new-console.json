@@ -1,0 +1,35 @@
+{
+  "url": "https://new.pbinfo.ro/probleme/2/suma-n",
+  "parser": "PBInfoProblemParser",
+  "result": {
+    "name": "suma_n",
+    "group": "PBInfo",
+    "url": "https://new.pbinfo.ro/probleme/2/suma-n/",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n6 2 0 4 1\n",
+        "output": "13\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SumaN"
+      }
+    },
+    "batch": {
+      "id": "56c3b252-ba92-4331-8614-2078c529e1b6",
+      "size": 1
+    }
+  }
+}

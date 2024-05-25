@@ -1,0 +1,35 @@
+{
+  "url": "https://www.infoarena.ro/problema/cbinteractiv",
+  "parser": "InfoArenaProblemParser",
+  "result": {
+    "name": "Cbinteractiv",
+    "group": "InfoArena - ad-hoc",
+    "url": "https://www.infoarena.ro/problema/cbinteractiv",
+    "interactive": true,
+    "memoryLimit": 128,
+    "timeLimit": 200,
+    "tests": [
+      {
+        "input": "10\n1\n0\n",
+        "output": "\n? 5\n? 4\n! 5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Cbinteractiv"
+      }
+    },
+    "batch": {
+      "id": "3bb3bd4d-08c9-455b-b82b-43c6312db058",
+      "size": 1
+    }
+  }
+}

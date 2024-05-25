@@ -1,0 +1,45 @@
+{
+  "url": "https://kilonova.ro/problems/29",
+  "parser": "KilonovaProblemParser",
+  "result": {
+    "name": "elicoptere",
+    "group": "Kilonova - OJI 2016 XI-XII",
+    "url": "https://kilonova.ro/problems/29",
+    "interactive": false,
+    "memoryLimit": 4,
+    "timeLimit": 30,
+    "tests": [
+      {
+        "input": "1\n6 11\n100 20 100 30 105 30\n20 20 30 30 20 30\n200 20 200 30 205 30\n100 40 100 50 105 40\n10 40 5 40 10 50\n10 20 5 30 10 30\n",
+        "output": "3\n"
+      },
+      {
+        "input": "2\n6 11\n100 20 100 30 105 30\n20 20 30 30 20 30\n200 20 200 30 205 30\n100 40 100 50 105 40\n10 40 5 40 10 50\n10 20 5 30 10 30\n",
+        "output": "4\n"
+      },
+      {
+        "input": "3\n6 11\n100 20 100 30 105 30\n20 20 30 30 20 30\n200 20 200 30 205 30\n100 40 100 50 105 40\n10 40 5 40 10 50\n10 20 5 30 10 30\n",
+        "output": "30\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "elicoptere.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "elicoptere.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Elicoptere"
+      }
+    },
+    "batch": {
+      "id": "92defe75-0040-4bad-a5de-4c60b86c4d8f",
+      "size": 1
+    }
+  }
+}

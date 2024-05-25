@@ -1,0 +1,37 @@
+{
+  "url": "https://new.pbinfo.ro/probleme/4640/segalt",
+  "parser": "PBInfoProblemParser",
+  "result": {
+    "name": "Segalt",
+    "group": "PBInfo - CNER CODE clasa a IX-a",
+    "url": "https://new.pbinfo.ro/probleme/4640/segalt/",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 200,
+    "tests": [
+      {
+        "input": "2\nABC\nCCC\nAABBACCBCCBC\nCCCCCCCCC\n",
+        "output": "DA\nNU\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "segalt.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "segalt.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Segalt"
+      }
+    },
+    "batch": {
+      "id": "a1d93cf6-b8c2-4f20-a516-80fe21298725",
+      "size": 1
+    }
+  }
+}

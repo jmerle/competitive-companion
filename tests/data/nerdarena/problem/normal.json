@@ -1,0 +1,37 @@
+{
+  "url": "https://www.nerdarena.ro/problema/permfix",
+  "parser": "InfoArenaProblemParser",
+  "result": {
+    "name": "Permfix",
+    "group": "NerdArena - ad-hoc",
+    "url": "https://www.nerdarena.ro/problema/permfix",
+    "interactive": false,
+    "memoryLimit": 1,
+    "timeLimit": 100,
+    "tests": [
+      {
+        "input": "3 2\n1 2\n",
+        "output": "2 3 1\n3 1 2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "permfix.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "permfix.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Permfix"
+      }
+    },
+    "batch": {
+      "id": "651d35e0-a599-4257-b347-f7b306714cc6",
+      "size": 1
+    }
+  }
+}

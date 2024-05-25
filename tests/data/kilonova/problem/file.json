@@ -1,0 +1,37 @@
+{
+  "url": "https://kilonova.ro/problems/48",
+  "parser": "KilonovaProblemParser",
+  "result": {
+    "name": "cezar",
+    "group": "Kilonova - OJI 2007 XI-XII",
+    "url": "https://kilonova.ro/problems/48",
+    "interactive": false,
+    "memoryLimit": 16,
+    "timeLimit": 30,
+    "tests": [
+      {
+        "input": "13 3\n1 2\n2 3\n2 8\n7 8\n7 5\n5 4\n5 6\n8 9\n8 10\n10 11\n10 12\n10 13\n",
+        "output": "11\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "cezar.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "cezar.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Cezar"
+      }
+    },
+    "batch": {
+      "id": "780ae77c-8607-4a22-959b-61cc96acb65d",
+      "size": 1
+    }
+  }
+}

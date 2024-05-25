@@ -1,0 +1,41 @@
+{
+  "url": "https://www.infoarena.ro/problema/loto",
+  "parser": "InfoArenaProblemParser",
+  "result": {
+    "name": "Loto",
+    "group": "InfoArena - preONI 2004",
+    "url": "https://www.infoarena.ro/problema/loto",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 90,
+    "tests": [
+      {
+        "input": "3 13\n1 2 3\n",
+        "output": "1 1 2 3 3 3\n"
+      },
+      {
+        "input": "3 19\n1 2 3\n",
+        "output": "-1\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "file",
+      "fileName": "loto.in"
+    },
+    "output": {
+      "type": "file",
+      "fileName": "loto.out"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Loto"
+      }
+    },
+    "batch": {
+      "id": "22892e9e-a5da-4cdd-8c84-198a57e9e9ee",
+      "size": 1
+    }
+  }
+}

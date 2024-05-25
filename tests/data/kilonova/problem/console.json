@@ -1,0 +1,35 @@
+{
+  "url": "https://kilonova.ro/problems/1",
+  "parser": "KilonovaProblemParser",
+  "result": {
+    "name": "sum",
+    "group": "Kilonova",
+    "url": "https://kilonova.ro/problems/1",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 200,
+    "tests": [
+      {
+        "input": "100 200\n",
+        "output": "300\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Sum"
+      }
+    },
+    "batch": {
+      "id": "f46dd8f1-97ef-43c2-af02-a03253b55beb",
+      "size": 1
+    }
+  }
+}
