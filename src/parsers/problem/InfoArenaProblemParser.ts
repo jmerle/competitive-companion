@@ -14,18 +14,22 @@ interface ProblemDetails {
 }
 
 export class InfoArenaProblemParser extends Parser {
-  protected getJudgeName(): string {
-    return 'InfoArena';
-  }
-
   public getMatchPatterns(): string[] {
-    const domain = this.getJudgeName().toLowerCase();
-    return ['', 'www.'].map(prefix => `https://${prefix}${domain}.ro/problema/*`);
+    const patterns: string[] = [];
+    for (const domain of ['infoarena', 'nerdarena']) {
+      for (const prefix of ['', 'www.']) {
+        patterns.push(`https://${prefix}${domain}.ro/problema/*`);
+      }
+    }
+
+    return patterns;
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
+    const judge = new URL(url).hostname.includes('infoarena.ro') ? 'InfoArena' : 'NerdArena';
+
     const elem = htmlToElement(html);
-    const task = new TaskBuilder(this.getJudgeName()).setUrl(url);
+    const task = new TaskBuilder(judge).setUrl(url);
 
     this.parseTitle(elem, task);
     this.parseDetails(elem, task);
