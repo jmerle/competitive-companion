@@ -13,7 +13,7 @@ interface ProblemDetails {
   memory: number;
 }
 
-export class PbInfoProblemParser extends Parser {
+export class PBInfoProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['', 'www.', 'new.'].map(domain => `https://${domain}pbinfo.ro/probleme/*`);
   }

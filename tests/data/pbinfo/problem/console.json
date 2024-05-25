@@ -1,6 +1,6 @@
 {
   "url": "https://www.pbinfo.ro/probleme/2/suma-n",
-  "parser": "PbInfoProblemParser",
+  "parser": "PBInfoProblemParser",
   "result": {
     "name": "suma_n",
     "group": "PBInfo",

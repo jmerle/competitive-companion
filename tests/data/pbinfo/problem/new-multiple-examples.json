@@ -1,6 +1,6 @@
 {
   "url": "https://new.pbinfo.ro/probleme/4661/dominoes",
-  "parser": "PbInfoProblemParser",
+  "parser": "PBInfoProblemParser",
   "result": {
     "name": "dominoes",
     "group": "PBInfo - ONI 2024, clasa a 10-a",

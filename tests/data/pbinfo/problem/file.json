@@ -1,6 +1,6 @@
 {
   "url": "https://www.pbinfo.ro/probleme/4640/segalt",
-  "parser": "PbInfoProblemParser",
+  "parser": "PBInfoProblemParser",
   "result": {
     "name": "Segalt",
     "group": "PBInfo - CNER CODE clasa a IX-a",
