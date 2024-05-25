@@ -14,13 +14,18 @@ interface ProblemDetails {
 }
 
 export class InfoArenaProblemParser extends Parser {
+  protected getJudgeName(): string {
+    return 'InfoArena';
+  }
+
   public getMatchPatterns(): string[] {
-    return ['', 'www.'].map(domain => `https://${domain}infoarena.ro/problema/*`);
+    const domain = this.getJudgeName().toLowerCase();
+    return ['', 'www.'].map(prefix => `https://${prefix}${domain}.ro/problema/*`);
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('InfoArena').setUrl(url);
+    const task = new TaskBuilder(this.getJudgeName()).setUrl(url);
 
     this.parseTitle(elem, task);
     this.parseDetails(elem, task);
@@ -30,23 +35,25 @@ export class InfoArenaProblemParser extends Parser {
   }
 
   private parseTitle(elem: Element, task: TaskBuilder): void {
-    task.setName(elem.querySelectorAll('h1')[1].textContent.trim());
+    task.setName(elem.querySelector('.wiki_text_block > h1').textContent.trim());
   }
 
   private parseDetails(elem: Element, task: TaskBuilder): void {
     const detailsTable = elem.querySelector('.wiki_text_block > table tbody');
-    const cells = Array.from(detailsTable.querySelectorAll('td')).map(cell => cell.textContent.trim());
+    const cells = Array.from(detailsTable.querySelectorAll('tr > td:nth-child(2n)')).map(cell =>
+      cell.textContent.trim(),
+    );
 
-    const files = cells[1].split(', ');
-    const timeLimitMatch = /(\d+(?:\.\d+)?)\s*sec/i.exec(cells[9]);
-    const memoryLimitMatch = /(\d+(?:\.\d+)?)\s*KB/i.exec(cells[11]);
+    const files = cells[0].split(', ');
+    const timeLimitMatch = /(\d+(?:\.\d+)?)\s*sec/i.exec(cells[4]);
+    const memoryLimitMatch = /(\d+(?:\.\d+)?)\s*KB/i.exec(cells[5]);
 
     const details: ProblemDetails = {
       files: {
         input: this.trimZeroWidth(files[0]),
         output: this.trimZeroWidth(files[1]),
       },
-      source: cells[3],
+      source: cells[1],
       time: parseFloat(timeLimitMatch ? timeLimitMatch[1] : '0'),
       memory: parseInt(memoryLimitMatch ? memoryLimitMatch[1] : '0'),
     };
