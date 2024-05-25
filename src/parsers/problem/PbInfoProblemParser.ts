@@ -21,13 +21,13 @@ export class PbInfoProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     try {
       const elem = htmlToElement(html);
-      var task = new TaskBuilder('PBInfo').setUrl(url);
+      const task = new TaskBuilder('PBInfo').setUrl(url);
 
       const isNew = url.includes('new');
 
       this.parseTitle(elem, task, isNew);
       this.parseDetails(elem, task, isNew);
-      this.parseTests(html, task, isNew);
+      this.parseTests(html, task);
 
       return task.build();
     } catch (error) {
@@ -36,7 +36,7 @@ export class PbInfoProblemParser extends Parser {
     }
   }
 
-  private parseTitle(elem: Element, task: TaskBuilder, isNew: Boolean) {
+  private parseTitle(elem: Element, task: TaskBuilder, isNew: boolean): void {
     const titleElement = isNew
       ? elem.querySelector('h1.py-5 > div').lastChild
       : elem.querySelector('h1.text-primary > a');
@@ -44,7 +44,7 @@ export class PbInfoProblemParser extends Parser {
     task.setName(title);
   }
 
-  private parseDetails(elem: Element, task: TaskBuilder, isNew: Boolean): void {
+  private parseDetails(elem: Element, task: TaskBuilder, isNew: boolean): void {
     const detailsTable = document.querySelector('table tbody');
     if (!detailsTable) {
       throw new Error('Details table not found.');
@@ -55,7 +55,7 @@ export class PbInfoProblemParser extends Parser {
       throw new Error('Insufficient details found in the table.');
     }
 
-    var details: ProblemDetails;
+    let details: ProblemDetails;
 
     if (!isNew) {
       const files = cells[2].split(' / ');
@@ -67,7 +67,7 @@ export class PbInfoProblemParser extends Parser {
           input: this.trimZeroWidth(files[0]),
           output: this.trimZeroWidth(files[1]),
         },
-        source: cells[5] === '-' ? "" : cells[5],
+        source: cells[5] === '-' ? '' : cells[5],
         time: parseFloat(timeLimitMatch ? timeLimitMatch[1] : '0'),
         memory: parseInt(memoryLimitMatch ? memoryLimitMatch[1] : '0'),
       };
@@ -86,7 +86,7 @@ export class PbInfoProblemParser extends Parser {
             input: this.trimZeroWidth(fileName.textContent),
             output: this.trimZeroWidth(fileName.textContent.replace('.in', '.out')),
           },
-          source: cells[6] === '-' ? "" : cells[6],
+          source: cells[6] === '-' ? '' : cells[6],
           time: parseFloat(timeLimitMatch ? timeLimitMatch[1] : '0'),
           memory: parseInt(memoryLimitMatch ? memoryLimitMatch[1] : '0'),
         };
@@ -111,7 +111,7 @@ export class PbInfoProblemParser extends Parser {
     task.setMemoryLimit(details.memory);
   }
 
-  public parseTests(html: string, task: TaskBuilder, isNew: Boolean): void {
+  public parseTests(html: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
     const tests = Array.from(elem.querySelectorAll('pre[contenteditable="true"]')).map(x => x.textContent);
     for (let i = 0; i < tests.length; i += 2) {
@@ -121,7 +121,7 @@ export class PbInfoProblemParser extends Parser {
     }
   }
 
-  private trimZeroWidth(text: string) {
+  private trimZeroWidth(text: string): string {
     return text.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
   }
 }

@@ -21,7 +21,7 @@ export class NerdArenaProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     try {
       const elem = htmlToElement(html);
-      var task = new TaskBuilder('NerdArena').setUrl(url);
+      const task = new TaskBuilder('NerdArena').setUrl(url);
 
       this.parseTitle(elem, task);
       this.parseDetails(elem, task);
@@ -34,7 +34,7 @@ export class NerdArenaProblemParser extends Parser {
     }
   }
 
-  private parseTitle(elem: Element, task: TaskBuilder) {
+  private parseTitle(elem: Element, task: TaskBuilder): void {
     const titleElement = elem.querySelectorAll('h1')[0];
     if (!titleElement) {
       throw new Error('Title element not found.');
@@ -49,7 +49,7 @@ export class NerdArenaProblemParser extends Parser {
       throw new Error('Details table not found.');
     }
 
-    var cells = Array.from(detailsTable.querySelectorAll('td')).map(cell => cell.textContent.trim());
+    const cells = Array.from(detailsTable.querySelectorAll('td')).map(cell => cell.textContent.trim());
     if (cells.length < 8) {
       throw new Error('Insufficient details found in the table.');
     }
@@ -123,8 +123,8 @@ export class NerdArenaProblemParser extends Parser {
 
     // Interactive problems need a bit more care, since the examples alternate
     // between stdin and stdout
-    var input = '';
-    var output = '';
+    let input = '';
+    let output = '';
     const thCells = Array.from(rows[0].querySelectorAll('th')).map(cell => this.trimZeroWidth(cell.textContent));
     const isStdinFirst = thCells[0] === 'stdin';
 
@@ -154,7 +154,7 @@ export class NerdArenaProblemParser extends Parser {
     }
   }
 
-  private trimZeroWidth(text: string) {
+  private trimZeroWidth(text: string): string {
     return text.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
   }
 }

@@ -279,7 +279,7 @@ export const parsers: Parser[] = [
   new NepsAcademyProblemParser(),
 
   new NerdArenaProblemParser(),
-  
+
   new NewtonSchoolProblemParser(),
 
   new NOJProblemParser(),
