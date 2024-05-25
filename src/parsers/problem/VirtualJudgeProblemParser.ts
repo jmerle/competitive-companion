@@ -90,62 +90,29 @@ export class VirtualJudgeProblemParser extends Parser {
   }
 
   public static getCodeBlocksFromDescription(json: any): string[] {
-    if (json.sections.length === 1) {
-      const block = htmlToElement(json.sections[0].value.content);
+    const html = `<div>\n${(json.sections as any[]).map(s => s.value.content).join('\n')}\n</div>`;
+    const block = htmlToElement(html);
 
-      const preTags = [...block.querySelectorAll('pre')]
-        .map(el => {
-          if (el.querySelector('strong, b') !== null) {
-            return [...el.childNodes]
-              .filter((node: ChildNode) => node.nodeType === Node.TEXT_NODE)
-              .map((node: ChildNode) => node.textContent.trim());
-          }
+    const preTags = [...block.querySelectorAll('pre')]
+      .map(el => {
+        if (el.querySelector('strong, b') !== null) {
+          return [...el.childNodes]
+            .filter((node: ChildNode) => node.nodeType === Node.TEXT_NODE)
+            .map((node: ChildNode) => node.textContent.trim());
+        }
 
-          if (el.querySelector('code') !== null) {
-            return [el.querySelector('code').innerHTML.trim()];
-          }
+        if (el.querySelector('code') !== null) {
+          return [el.querySelector('code').innerHTML.trim()];
+        }
 
-          return [el.innerHTML.trim()];
-        })
-        .reduce((a, b) => [...a, ...b], []);
+        return [el.innerHTML.trim()];
+      })
+      .reduce((a, b) => [...a, ...b], []);
 
-      const monospaceSelector = 'div[style="font-family:Monospace, Courier;"] > b';
-      const monospaceBlocks = [...block.querySelectorAll(monospaceSelector)].map(el => el.innerHTML.trim());
+    const monospaceSelector = 'div[style="font-family:Monospace, Courier;"] > b';
+    const monospaceBlocks = [...block.querySelectorAll(monospaceSelector)].map(el => el.innerHTML.trim());
 
-      return [].concat(preTags, monospaceBlocks);
-    } else {
-      const blocks = (json.sections as any[])
-        .filter(section => section.title.includes('ample'))
-        .map(section => htmlToElement(section.value.content));
-
-      const preTags = blocks
-        .map(el => [...el.querySelectorAll('pre')])
-        .reduce((a, b) => [...a, ...b], [])
-        .filter(el => el.querySelector('pre') === null)
-        .map(el => el.innerHTML.trim());
-
-      const paragraphs = blocks
-        .filter(el => el.children.length === 1 && el.querySelector('p') !== null)
-        .map(el => el.querySelector('p').innerHTML.trim());
-
-      const spanTags = blocks
-        .map(el => {
-          return [...el.querySelectorAll('span[style=\'font-family:"Courier New"\']')]
-            .map((span: Element) => span.textContent)
-            .join('\n');
-        })
-        .filter(str => str.length > 0);
-
-      const codeBlocks = [].concat(preTags, paragraphs, spanTags);
-
-      if (codeBlocks.length > 0) {
-        return codeBlocks;
-      }
-
-      return blocks.map((el: Element) => {
-        return VirtualJudgeProblemParser.getTextFromElement(el);
-      });
-    }
+    return [].concat(preTags, monospaceBlocks);
   }
 
   private static getTextFromElement(el: Element): string {
