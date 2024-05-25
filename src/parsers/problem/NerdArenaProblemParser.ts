@@ -19,19 +19,14 @@ export class NerdArenaProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    try {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder('NerdArena').setUrl(url);
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder('NerdArena').setUrl(url);
 
-      this.parseTitle(elem, task);
-      this.parseDetails(elem, task);
-      this.parseTests(html, task);
+    this.parseTitle(elem, task);
+    this.parseDetails(elem, task);
+    this.parseTests(html, task);
 
-      return task.build();
-    } catch (error) {
-      console.error('An error occurred during parsing:', error);
-      throw error;
-    }
+    return task.build();
   }
 
   private parseTitle(elem: Element, task: TaskBuilder): void {

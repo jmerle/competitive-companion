@@ -19,21 +19,16 @@ export class PbInfoProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    try {
-      const elem = htmlToElement(html);
-      const task = new TaskBuilder('PBInfo').setUrl(url);
+    const elem = htmlToElement(html);
+    const task = new TaskBuilder('PBInfo').setUrl(url);
 
-      const isNew = url.includes('new');
+    const isNew = url.includes('new');
 
-      this.parseTitle(elem, task, isNew);
-      this.parseDetails(elem, task, isNew);
-      this.parseTests(html, task);
+    this.parseTitle(elem, task, isNew);
+    this.parseDetails(elem, task, isNew);
+    this.parseTests(html, task);
 
-      return task.build();
-    } catch (error) {
-      console.error('An error occurred during parsing:', error);
-      throw error;
-    }
+    return task.build();
   }
 
   private parseTitle(elem: Element, task: TaskBuilder, isNew: boolean): void {
