@@ -24,7 +24,11 @@ export class KilonovaProblemParser extends Parser {
     const title = elem.querySelector('div.segment-panel > h1 > b').textContent.trim();
     if (title.indexOf(' | ') === -1) {
       task.setName(title);
-      task.setCategory(elem.querySelector('summary > h2 > a[href^="/"]').textContent.trim());
+
+      const categoryElem = elem.querySelector('summary > h2 > a[href^="/"]');
+      if (categoryElem !== null) {
+        task.setCategory(categoryElem.textContent.trim());
+      }
     } else {
       const [category, name] = title.split(' | ');
       task.setName(name.trim());
@@ -33,7 +37,7 @@ export class KilonovaProblemParser extends Parser {
   }
 
   private parseDetails(elem: Element, task: TaskBuilder): void {
-    const details = elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center h5');
+    const details = elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center span.block');
 
     const timeLimitMatch = /(\d+(?:\.\d+)?)\s*s/i.exec(details[0].textContent.trim());
     const memoryLimitMatch = /(\d+)\s*MB/i.exec(details[1].textContent.trim());
@@ -46,7 +50,7 @@ export class KilonovaProblemParser extends Parser {
   }
 
   private parseInputOutput(elem: Element, task: TaskBuilder): void {
-    const details = elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center h5');
+    const details = elem.querySelectorAll('div.w-full.mb-6.mt-2.text-center span.block');
 
     const isStdin = details[2]?.lastChild.nodeName === 'kn-glossary'.toUpperCase();
     const isStdout = details[3]?.lastChild.nodeName === 'kn-glossary'.toUpperCase();

@@ -7,7 +7,7 @@
     "url": "https://kilonova.ro/problems/1",
     "interactive": false,
     "memoryLimit": 64,
-    "timeLimit": 50,
+    "timeLimit": 200,
     "tests": [
       {
         "input": "100 200\n",
