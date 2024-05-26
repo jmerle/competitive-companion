@@ -252,7 +252,7 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 20.12.2  
+Node.js: 20.13.1  
 PNPM: 9.1.1
 
 Third-party libraries that can be found in the minified extension:  
