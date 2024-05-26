@@ -67,7 +67,7 @@ export class UVaOnlineJudgeProblemParser extends Parser {
     await this.parseTestsFromPdf(task, lines);
   }
 
-  private async parseTestsFromPdf(task: TaskBuilder, lines: string[]): Promise<void> {
+  public async parseTestsFromPdf(task: TaskBuilder, lines: string[]): Promise<void> {
     const interactiveKeywords = ['interaction protocol', 'sample interaction'];
     task.setInteractive(lines.some(line => interactiveKeywords.indexOf(line.toLowerCase()) > -1));
 

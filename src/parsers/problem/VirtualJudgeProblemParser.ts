@@ -1,8 +1,10 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { readPdf } from '../../utils/pdf';
 import { request } from '../../utils/request';
 import { Parser } from '../Parser';
+import { UVaOnlineJudgeProblemParser } from './UVaOnlineJudgeProblemParser';
 
 export class VirtualJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
@@ -66,8 +68,20 @@ export class VirtualJudgeProblemParser extends Parser {
       });
     }
 
-    if (!url.includes('TopCoder-')) {
-      try {
+    try {
+      if (url.includes('UVA-') || url.includes('UVALive-')) {
+        const iframe = [...elem.querySelectorAll<HTMLIFrameElement>('#prob-right-panel iframe')].find(
+          el => el.style.display !== 'none',
+        );
+
+        const iframeContent = await request(iframe.src);
+        const pdfId = /CDN_BASE_URL\/([^?]+)\?v/.exec(iframeContent)[1];
+
+        const pdfLines = await readPdf(`https://vj.csgrandeur.cn/${pdfId}`);
+
+        const uvaParser = new UVaOnlineJudgeProblemParser();
+        await uvaParser.parseTestsFromPdf(task, pdfLines);
+      } else if (!url.includes('TopCoder-')) {
         const iframe = [...elem.querySelectorAll<HTMLIFrameElement>('#prob-right-panel iframe')].find(
           el => el.style.display !== 'none',
         );
@@ -81,9 +95,9 @@ export class VirtualJudgeProblemParser extends Parser {
         for (let i = 0; i < codeBlocks.length - 1; i += 2) {
           task.addTest(codeBlocks[i], codeBlocks[i + 1]);
         }
-      } catch (err) {
-        // Do nothing
       }
+    } catch (err) {
+      // Do nothing
     }
 
     return task.build();
