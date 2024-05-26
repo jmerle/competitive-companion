@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.53.0](https://github.com/jmerle/competitive-companion/releases/tag/2.53.0) (2024-05-26)
+- Added support for Kilonova, PBInfo, InfoArena, and NerdArena (thanks [@overanalytcl](https://github.com/overanalytcl))
+- Fixed the parsing of Virtual Judge sample cases on Chinese problems
+- Fixed the parsing of Virtual Judge titles containing unwanted whitespace
+- Fixed the parsing of Virtual Judge sample cases on UVA and UVALive problems (does not work on Firefox until [Firefox bug #1757836](https://bugzilla.mozilla.org/show_bug.cgi?id=1757836) is resolved)
+
 ## [2.52.1](https://github.com/jmerle/competitive-companion/releases/tag/2.52.1) (2024-05-16)
 - Fixed the parsing of TLX problems (thanks [@adrieljss](https://github.com/adrieljss))
 - Fixed the parsing of CodeChef problems
