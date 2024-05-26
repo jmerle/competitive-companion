@@ -19,10 +19,10 @@ export class VirtualJudgeProblemParser extends Parser {
     const task = new TaskBuilder('Virtual Judge').setUrl(url);
 
     if (elem.querySelector('#problem-title') === null) {
-      task.setName(elem.querySelector('#prob-title > h2').textContent);
+      task.setName(elem.querySelector('#prob-title > h2').textContent.trim());
       task.setCategory(window.location.href.split('/').pop().split('-')[0]);
     } else {
-      task.setName(elem.querySelector('h2#problem-title').textContent);
+      task.setName(elem.querySelector('h2#problem-title').textContent.trim());
       task.setCategory(elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
     }
 
@@ -49,7 +49,7 @@ export class VirtualJudgeProblemParser extends Parser {
 
     if (memoryLimitDt !== undefined) {
       const memoryLimitStr = memoryLimitDt.nextElementSibling.textContent;
-      task.setMemoryLimit(parseFloat(memoryLimitStr.split(' ')[0]) / 1024);
+      task.setMemoryLimit((parseFloat(memoryLimitStr.split(' ')[0]) + 1) / 1024);
     }
 
     if (inputFileDt !== undefined) {
@@ -77,7 +77,7 @@ export class VirtualJudgeProblemParser extends Parser {
         const jsonContainer = htmlToElement(iframeContent).querySelector('.data-json-container');
         const json = JSON.parse(jsonContainer.textContent);
 
-        const codeBlocks = VirtualJudgeProblemParser.getCodeBlocksFromDescription(json);
+        const codeBlocks = this.getCodeBlocksFromDescription(json);
         for (let i = 0; i < codeBlocks.length - 1; i += 2) {
           task.addTest(codeBlocks[i], codeBlocks[i + 1]);
         }
@@ -89,7 +89,15 @@ export class VirtualJudgeProblemParser extends Parser {
     return task.build();
   }
 
-  public static getCodeBlocksFromDescription(json: any): string[] {
+  public getCodeBlocksFromDescription(json: any): string[] {
+    const html = `<div>${json.sections.map((section: any) => section.value.content).join('')}</div>`;
+    const elem = htmlToElement(html);
+
+    const tableBlocks = [...elem.querySelectorAll('.vjudge_sample pre')].map(el => el.textContent);
+    if (tableBlocks.length > 0) {
+      return tableBlocks;
+    }
+
     if (json.sections.length === 1) {
       const block = htmlToElement(json.sections[0].value.content);
 
@@ -137,18 +145,17 @@ export class VirtualJudgeProblemParser extends Parser {
         .filter(str => str.length > 0);
 
       const codeBlocks = [].concat(preTags, paragraphs, spanTags);
-
       if (codeBlocks.length > 0) {
         return codeBlocks;
       }
 
       return blocks.map((el: Element) => {
-        return VirtualJudgeProblemParser.getTextFromElement(el);
+        return this.getTextFromElement(el);
       });
     }
   }
 
-  private static getTextFromElement(el: Element): string {
+  private getTextFromElement(el: Element): string {
     if (el.childNodes.length === 0 || el.nodeType === Node.TEXT_NODE) {
       return el.textContent.replace(/<br>/g, '\n').trim();
     }

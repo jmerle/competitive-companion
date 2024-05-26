@@ -1,0 +1,31 @@
+{
+  "url": "https://vjudge.net.cn/problem/Gym-104385A#author=GPT_zh",
+  "parser": "VirtualJudgeProblemParser",
+  "result": {
+    "name": "Drill Wood to Make Fire",
+    "group": "Virtual Judge - Gym",
+    "url": "https://vjudge.net.cn/problem/Gym-104385A#author=GPT_zh",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n15 14 13\n12 11 10\n9 8 7\n6 5 4\n3 2 1\n",
+        "output": "1\n1\n1\n1\n0\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "DrillWoodToMakeFire"
+      }
+    }
+  }
+}

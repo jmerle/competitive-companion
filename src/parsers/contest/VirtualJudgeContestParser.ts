@@ -6,6 +6,8 @@ import { ContestParser } from '../ContestParser';
 import { VirtualJudgeProblemParser } from '../problem/VirtualJudgeProblemParser';
 
 export class VirtualJudgeContestParser extends ContestParser<[string, string, any]> {
+  private problemParser = new VirtualJudgeProblemParser();
+
   public getMatchPatterns(): string[] {
     return ['https://vjudge.net/contest/*', 'https://vjudge.net.cn/contest/*'];
   }
@@ -41,7 +43,7 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
     const jsonContainer = htmlToElement(description).querySelector('.data-json-container');
     const json = JSON.parse(jsonContainer.textContent);
 
-    const codeBlocks = VirtualJudgeProblemParser.getCodeBlocksFromDescription(json);
+    const codeBlocks = this.problemParser.getCodeBlocksFromDescription(json);
     for (let i = 0; i < codeBlocks.length - 1; i += 2) {
       task.addTest(codeBlocks[i], codeBlocks[i + 1]);
     }
