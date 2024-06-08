@@ -87,16 +87,25 @@ async function sendTask(tabId: number, messageId: string, data: string): Promise
     return;
   }
 
-  try {
-    const hosts = await getHosts();
-    for (const host of hosts) {
-      try {
-        await host.send(data);
-      } catch (err) {
-        //
-      }
+  // Build requests to all hosts while firing them in parallel.
+  const hosts = await getHosts();
+  const requests = [];
+  for (const host of hosts) {
+    try {
+      requests.push(host.send(data));
+    } catch (err) {
+      //
     }
+  }
 
+  // Wait for all requests to finish.
+  try {
+    await Promise.allSettled(requests);
+  } catch (err) {
+    //
+  }
+
+  try {
     sendToContent(tabId, MessageAction.SendTaskDone, { messageId });
   } catch (err) {
     const message = err instanceof Error ? err.message : `${err}`;
