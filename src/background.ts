@@ -1,3 +1,4 @@
+import pLimit from 'p-limit';
 import type { Menus, Runtime, Tabs } from 'webextension-polyfill';
 import { getHosts } from './hosts/hosts';
 import { Message, MessageAction } from './models/messaging';
@@ -88,14 +89,14 @@ async function sendTask(tabId: number, messageId: string, data: string): Promise
   }
 
   try {
-    // Build requests to all hosts while firing them in parallel.
     const hosts = await getHosts();
-    const requests = [];
-    for (const host of hosts) {
-      requests.push(host.send(data));
-    }
 
-    // Wait for all requests to finish.
+    // Browsers have a limit on the max. number of open connections per hostname
+    // See https://github.com/jmerle/competitive-companion/issues/38 and the answers on https://stackoverflow.com/q/985431 for more information
+    // Setting the limit to 6 should ensure there are no problems on all modern versions of Chrome and Firefox
+    const limit = pLimit(6);
+    const requests = hosts.map(host => limit(() => host.send(data)));
+
     try {
       await Promise.allSettled(requests);
     } catch (err) {
