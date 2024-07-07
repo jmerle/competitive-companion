@@ -9,6 +9,7 @@ import { COJContestParser } from './contest/COJContestParser';
 import { ContestHunterContestParser } from './contest/ContestHunterContestParser';
 import { CPythonUZContestParser } from './contest/CPythonUZContestParser';
 import { CSESContestParser } from './contest/CSESContestParser';
+import { CSESProblemSetContestParser } from './contest/CSESProblemSetContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { DOMjudgeContestParser } from './contest/DOMjudgeContestParser';
@@ -189,6 +190,7 @@ export const parsers: Parser[] = [
   new CSAcademyProblemParser(),
 
   new CSESProblemParser(),
+  new CSESProblemSetContestParser(),
   new CSESContestParser(),
 
   new CSUACMOnlineJudgeProblemParser(),
