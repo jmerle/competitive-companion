@@ -5,16 +5,16 @@ import { Parser } from '../Parser';
 
 export class TophProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://toph.co/p/*', 'https://toph.co/arena?contest=*/p/*'];
+    return ['https://toph.co/p/*', 'https://toph.co/arena?*=*/p/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Toph').setUrl(url);
 
-    task.setName(elem.querySelector('.artifact h1').textContent);
+    task.setName(elem.querySelector('.artifact h1').textContent.replace(/\s+/g, ' ').trim());
 
-    const limitsStr = elem.querySelector('span.dotted[data-target="#mdlFactors"]').textContent;
+    const limitsStr = elem.querySelector('span.dotted.limits').textContent;
 
     const [, timeAmount, timeUnit] = /([0-9.]+)(.*),/.exec(limitsStr);
     task.setTimeLimit(parseFloat(timeAmount) * (timeUnit === 'ms' ? 1 : 1000));
