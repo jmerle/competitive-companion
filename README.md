@@ -110,6 +110,7 @@ A browser extension which parses competitive programming problems from various o
 | PTA                        | ✔              |                |
 | Public Judge               | ✔              | ✔              |
 | QDUOJ                      | ✔              | ✔              |
+| QQWhale                    | ✔              |                |
 | RoboContest                | ✔              | ✔              |
 | SDUT OnlineJudge           | ✔              |                |
 | Sort Me                    | ✔              |                |
