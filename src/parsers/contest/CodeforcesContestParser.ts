@@ -1,5 +1,6 @@
 import { Contest } from '../../models/Contest';
 import { Sendable } from '../../models/Sendable';
+import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { CodeforcesProblemParser } from '../problem/CodeforcesProblemParser';
@@ -31,12 +32,24 @@ export class CodeforcesContestParser extends SimpleContestParser {
 
   public getRegularExpressions(): RegExp[] {
     return [
-      /^https?:\/\/(.*\.)?codeforces[.](com|ml|es)\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)(\?.*)?$/,
-      /^https?:\/\/(.*\.)?codeforces[.](com|ml|es)\/edu\/course\/\d+\/lesson\/\d+\/\d+\/practice(\?.*)?$/,
+      /^https?:\/\/(.*\.)?codeforces\.(com|ml|es)\/(group\/[a-zA-Z0-9]+\/)?(contest|gym)\/(\d+)(\/problems)?(\?.*)?$/,
+      /^https?:\/\/(.*\.)?codeforces\.(com|ml|es)\/edu\/course\/\d+\/lesson\/\d+\/\d+\/practice(\?.*)?$/,
     ];
   }
 
+  public canHandlePage(): boolean {
+    if (window.location.pathname.endsWith('/problems')) {
+      return true;
+    }
+
+    return super.canHandlePage();
+  }
+
   public async parse(url: string, html: string): Promise<Sendable> {
+    if (new URL(url).pathname.endsWith('/problems')) {
+      return this.parseCompleteProblemset(url, html);
+    }
+
     // Some contests provide the problem statements inside a PDF file.
     // These cannot be parsed with the regular CodeforcesProblemParser.
     //
@@ -74,6 +87,22 @@ export class CodeforcesContestParser extends SimpleContestParser {
 
       return task.build();
     });
+
+    return new Contest(tasks);
+  }
+
+  private async parseCompleteProblemset(url: string, html: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+
+    const category = elem.querySelector('.caption').textContent;
+
+    const tasks: Task[] = [];
+    for (const problemElem of [...elem.querySelectorAll('.problem-frames > div')]) {
+      const task = (await this.problemParser.parse(url, problemElem.innerHTML)) as Task;
+      task.group = `${task.group} - ${category}`;
+
+      tasks.push(task);
+    }
 
     return new Contest(tasks);
   }

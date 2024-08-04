@@ -1,0 +1,87 @@
+{
+  "url": "https://codeforces.com/contest/1/problems?locale=en",
+  "parser": "CodeforcesContestParser",
+  "result": [
+    {
+      "name": "A. Theatre Square",
+      "group": "Codeforces - Codeforces Beta Round 1",
+      "url": "https://codeforces.com/contest/1/problems?locale=en",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "6 6 4\n",
+          "output": "4\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ATheatreSquare"
+        }
+      }
+    },
+    {
+      "name": "B. Spreadsheets",
+      "group": "Codeforces - Codeforces Beta Round 1",
+      "url": "https://codeforces.com/contest/1/problems?locale=en",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 10000,
+      "tests": [
+        {
+          "input": "2\nR23C55\nBC23\n",
+          "output": "BC23\nR23C55\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BSpreadsheets"
+        }
+      }
+    },
+    {
+      "name": "C. Ancient Berland Circus",
+      "group": "Codeforces - Codeforces Beta Round 1",
+      "url": "https://codeforces.com/contest/1/problems?locale=en",
+      "interactive": false,
+      "memoryLimit": 64,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "0.000000 0.000000\n1.000000 1.000000\n0.000000 1.000000\n",
+          "output": "1.00000000\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CAncientBerlandCircus"
+        }
+      }
+    }
+  ]
+}

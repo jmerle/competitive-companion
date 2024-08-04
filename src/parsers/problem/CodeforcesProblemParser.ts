@@ -85,7 +85,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setMemoryLimit(parseInt(memoryLimitStr, 10));
 
     const inputFile = this.getLastTextNode(elem, '.problem-statement > .header > .input-file').textContent;
-    if (inputFile !== 'standard input' && inputFile !== 'стандартный ввод') {
+    if (inputFile !== 'stdin' && inputFile !== 'standard input' && inputFile !== 'стандартный ввод') {
       task.setInput({
         fileName: inputFile,
         type: 'file',
@@ -93,7 +93,7 @@ export class CodeforcesProblemParser extends Parser {
     }
 
     const outputFile = this.getLastTextNode(elem, '.problem-statement > .header > .output-file').textContent;
-    if (outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
+    if (outputFile !== 'stdout' && outputFile !== 'standard output' && outputFile !== 'стандартный вывод') {
       task.setOutput({
         fileName: outputFile,
         type: 'file',
