@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.54.0](https://github.com/jmerle/competitive-companion/releases/tag/2.54.0) (2024-08-05)
+- Added support for QQWhale
+- Added support for the "Complete problemset" pages in Codeforces contests
+- Improved performance of sending contest problems to external tools by sending them in parallel (thanks [@rsalesc](https://github.com/rsalesc))
+- Fixed the parsing of ACMP sample cases with mid-line whitespaces (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the Toph parser
+- Fixed the input/output parsing on certain Codeforces problems
+
 ## [2.53.0](https://github.com/jmerle/competitive-companion/releases/tag/2.53.0) (2024-05-26)
 - Added support for Kilonova, PBInfo, InfoArena, and NerdArena (thanks [@overanalytcl](https://github.com/overanalytcl))
 - Added support for parsing sample cases on UVA and UVALive problems on Virtual Judge (does not work on Firefox until [Firefox bug #1757836](https://bugzilla.mozilla.org/show_bug.cgi?id=1757836) is resolved)
