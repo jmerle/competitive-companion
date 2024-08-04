@@ -20,7 +20,7 @@
     "package:firefox": "pnpm build:firefox && web-ext build -s build-firefox/ -a dist/ -o -n {name}-{version}-firefox.zip",
     "generate-banners": "tsx scripts/generate-banners.ts",
     "lint": "pnpm run \"/^lint:.*/\"",
-    "lint:eslint": "eslint --format codeframe 'src/**' 'tests/**' 'scripts/**' jest.config.ts",
+    "lint:eslint": "eslint --format codeframe 'src/**/*.ts' 'tests/**/*.ts' 'scripts/**/*.ts' jest.config.ts",
     "lint:prettier": "prettier --check --ignore-path .gitignore '**/*.{ts,js,html,yml,json}'",
     "lint:tsc": "tsc --noEmit",
     "lint:package": "pnpm build:firefox && web-ext lint -s build-firefox/ -o text",
@@ -106,6 +106,12 @@
         "error",
         {
           "allowArgumentsExplicitlyTypedAsAny": true
+        }
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "caughtErrors": "none"
         }
       ],
       "import/order": [
