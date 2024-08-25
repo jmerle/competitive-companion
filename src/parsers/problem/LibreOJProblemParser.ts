@@ -22,8 +22,10 @@ export class LibreOJProblemParser extends Parser {
   }
 
   private parseNormalProblem(elem: Element, task: TaskBuilder): void {
-    const nbsp = new RegExp(String.fromCharCode(160), 'g');
-    task.setName(elem.querySelector('.ui.header > span').textContent.replace(nbsp, ' '));
+    const urls = location.href.split('/');
+    const pid = (urls[urls.length - 2] + ' ' + urls[urls.length - 1]).toUpperCase();
+
+    task.setName('Libre ' + pid);
 
     const timeLimitIcon = elem.querySelector('.label > .clock.icon');
     const timeLimitStr = timeLimitIcon.parentElement.textContent.trim();

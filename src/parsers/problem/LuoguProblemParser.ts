@@ -22,7 +22,9 @@ export class LuoguProblemParser extends Parser {
   }
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
-    task.setName(elem.querySelector('h1 > span').textContent.trim());
+    const urls = location.href.split('/');
+
+    task.setName('Luogu ' + urls[urls.length - 1]);
 
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);

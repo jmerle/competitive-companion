@@ -53,8 +53,14 @@ export class CodeforcesProblemParser extends Parser {
 
   private parseMainProblem(html: string, url: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
+    const url_list = url.split('/');
+    const problem_id = url_list[url_list.length - 3] + ' ' + url_list[url_list.length - 1];
 
-    task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
+    if(url.includes('/gym/')) {
+      task.setName('CF GYM ' + problem_id);
+    } else {
+      task.setName('CF ' + problem_id);
+    }
 
     if (url.includes('/edu/')) {
       const breadcrumbs = [...elem.querySelectorAll('.eduBreadcrumb > a')].map(el => el.textContent.trim());

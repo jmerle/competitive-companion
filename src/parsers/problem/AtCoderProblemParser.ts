@@ -11,12 +11,10 @@ export class AtCoderProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AtCoder').setUrl(url);
+    const url_list = url.split('/');
+    const problem_id = url_list[url_list.length - 1].toUpperCase();
 
-    const name = [...elem.querySelector('h2, .h2').childNodes]
-      .filter(node => node.nodeType === Node.TEXT_NODE)
-      .map(node => node.textContent)
-      .join('')
-      .trim();
+    const name = 'AT ' + problem_id.split('_').join(' ');
 
     task.setName(name);
     task.setCategory(elem.querySelector('.contest-name, .contest-title').textContent);
