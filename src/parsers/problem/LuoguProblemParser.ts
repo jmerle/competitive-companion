@@ -23,8 +23,14 @@ export class LuoguProblemParser extends Parser {
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
     const urls = location.href.split('/');
+    const pid = urls[urls.length - 1];
 
-    task.setName('Luogu ' + urls[urls.length - 1]);
+    if(pid.includes('contestId')) {
+      const cid = /\?contestId=[0-9]*/.exec(pid).at(0);
+      task.setName('Luogu C' + cid.replace('?contestId=','') + ' ' + pid.replace(cid, ''));
+    } else {
+      task.setName('Luogu ' + pid);
+    }
 
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);

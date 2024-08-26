@@ -23,7 +23,7 @@ export class LibreOJProblemParser extends Parser {
 
   private parseNormalProblem(elem: Element, task: TaskBuilder): void {
     const urls = location.href.split('/');
-    const pid = (urls[urls.length - 2] + ' ' + urls[urls.length - 1]).toUpperCase();
+    const pid = (urls[urls.length - 2] + urls[urls.length - 1]).toUpperCase();
 
     task.setName('Libre ' + pid);
 

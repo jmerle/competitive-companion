@@ -11,8 +11,16 @@ export class HydroProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Hydro').setUrl(url);
+    const url_list = url.split('/');
 
-    task.setName(elem.querySelector('.section__title').lastChild.textContent.trim());
+    if(url.includes('/d/')) {
+      const domain = url_list[url_list.length - 3];
+      const pid = url_list[url_list.length - 1];
+      task.setName('Hydro ' + domain + ' ' + pid);
+    } else {
+      const pid = url_list[url_list.length - 1];
+      task.setName('Hydro P' + pid);
+    }
 
     const blocks = [...elem.querySelectorAll('pre > code')];
     for (let i = 0; i < blocks.length - 1; i += 2) {

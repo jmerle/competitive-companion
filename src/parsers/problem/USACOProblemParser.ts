@@ -22,8 +22,11 @@ export class USACOProblemParser extends Parser {
     const task = new TaskBuilder('USACO').setUrl(url);
 
     const headers = elem.querySelectorAll('.panel > h2');
-    task.setName(headers[1].textContent.trim());
-    task.setCategory(headers[0].textContent.trim());
+    const pid = headers[1].textContent.trim();
+    const cid = headers[0].textContent.trim();
+
+    task.setName(cid.replace(' Contest','') + ' ' + pid.replace('Problem ','P'));
+    task.setCategory(cid);
 
     const inputSpec = elem.querySelector('.prob-in-spec h4');
     const outputSpec = elem.querySelector('.prob-out-spec h4');
