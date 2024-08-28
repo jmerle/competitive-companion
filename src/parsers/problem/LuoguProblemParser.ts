@@ -12,6 +12,16 @@ export class LuoguProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Luogu').setUrl(url);
 
+    const urls = url.split('/');
+    const pid = urls[urls.length - 1];
+
+    if(pid.includes('contestId')) {
+      const cid = /\?contestId=\d+/.exec(pid).at(0);
+      task.setName('Luogu C' + cid.replace('?contestId=','') + ' ' + pid.replace(cid, ''));
+    } else {
+      task.setName('Luogu ' + pid);
+    }
+
     if (elem.querySelector('.main-container') !== null) {
       this.parseFromPage(task, elem);
     } else {
@@ -22,16 +32,6 @@ export class LuoguProblemParser extends Parser {
   }
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
-    const urls = location.href.split('/');
-    const pid = urls[urls.length - 1];
-
-    if(pid.includes('contestId')) {
-      const cid = /\?contestId=[0-9]*/.exec(pid).at(0);
-      task.setName('Luogu C' + cid.replace('?contestId=','') + ' ' + pid.replace(cid, ''));
-    } else {
-      task.setName('Luogu ' + pid);
-    }
-
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 

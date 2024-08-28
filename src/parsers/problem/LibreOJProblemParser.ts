@@ -12,6 +12,11 @@ export class LibreOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('LibreOJ').setUrl(url);
 
+    const urls = url.split('/');
+    const pid = (urls[urls.length - 2] + urls[urls.length - 1]).toUpperCase();
+
+    task.setName('Libre ' + pid);
+
     if (!url.includes('contest/')) {
       this.parseNormalProblem(elem, task);
     } else {
@@ -22,10 +27,6 @@ export class LibreOJProblemParser extends Parser {
   }
 
   private parseNormalProblem(elem: Element, task: TaskBuilder): void {
-    const urls = location.href.split('/');
-    const pid = (urls[urls.length - 2] + urls[urls.length - 1]).toUpperCase();
-
-    task.setName('Libre ' + pid);
 
     const timeLimitIcon = elem.querySelector('.label > .clock.icon');
     const timeLimitStr = timeLimitIcon.parentElement.textContent.trim();

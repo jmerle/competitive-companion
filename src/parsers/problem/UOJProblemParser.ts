@@ -30,7 +30,7 @@ export class UOJProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder(UOJProblemParser.domains[new URL(url).hostname]).setUrl(url);
-    const urls = location.href.split('/');
+    const urls = url.split('/');
     const pid = urls[urls.length - 1];
     const domain = new URL(url).hostname;
 
