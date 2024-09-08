@@ -1,9 +1,9 @@
 {
-  "name": "competitive-companion-customed",
-  "productName": "Competitive Companion Customed",
+  "name": "competitive-companion-customized",
+  "productName": "Competitive Companion Customized",
   "version": "1.1.0",
   "description": "Parses competitive programming problems and sends them to various tools like CP Editor and CPH.",
-  "repository": "https://github.com/lnw143/competitive-companion-customed",
+  "repository": "https://github.com/lnw143/competitive-companion-customized",
   "author": "Jasper van Merle & lnw143",
   "license": "MIT",
   "type": "module",
