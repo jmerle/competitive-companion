@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Added support for the Challenge mode on Kattis
+
 ## [2.54.0](https://github.com/jmerle/competitive-companion/releases/tag/2.54.0) (2024-08-05)
 - Added support for QQWhale
 - Added support for the "Complete problemset" pages in Codeforces contests
