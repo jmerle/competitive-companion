@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Added support for the Challenge mode on Kattis
+- Fixed the Timus Online Judge parser to work with the acm-judge.urfu.ru domain
 
 ## [2.54.0](https://github.com/jmerle/competitive-companion/releases/tag/2.54.0) (2024-08-05)
 - Added support for QQWhale

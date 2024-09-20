@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class TimusOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://acm.timus.ru/problem.aspx*', 'https://timus.online/problem.aspx*'];
+    return ['acm.timus.ru', 'timus.online', 'acm-judge.urfu.ru'].map(domain => `https://${domain}/problem.aspx*`);
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

@@ -6,7 +6,7 @@ export class TimusOnlineJudgeContestParser extends SimpleContestParser {
   protected problemParser = new TimusOnlineJudgeProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://acm.timus.ru/problemset.aspx*', 'https://timus.online/problemset.aspx*'];
+    return ['acm.timus.ru', 'timus.online', 'acm-judge.urfu.ru'].map(domain => `https://${domain}/problemset.aspx*`);
   }
 
   public getRegularExpressions(): RegExp[] {
