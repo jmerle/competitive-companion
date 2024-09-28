@@ -38,7 +38,8 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
       }
     }
 
-    const descriptionUrl = `https://vjudge.net/problem/description/${data.publicDescId}?${data.publicDescVersion}`;
+    const latestVersion = data.descBriefs[data.descBriefs.length - 1];
+    const descriptionUrl = `https://vjudge.net/problem/description/${latestVersion.key}?${latestVersion.version}`;
     const description = await request(descriptionUrl, { credentials: 'same-origin' });
     const jsonContainer = htmlToElement(description).querySelector('.data-json-container');
     const json = JSON.parse(jsonContainer.textContent);
