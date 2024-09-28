@@ -28,6 +28,7 @@ import { KilonovaContestParser } from './contest/KilonovaContestParser';
 import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
+import { NBUTOnlineJudgeContestParser } from './contest/NBUTOnlineJudgeContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
 import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
@@ -100,6 +101,7 @@ import { MendoProblemParser } from './problem/MendoProblemParser';
 import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
+import { NBUTOnlineJudgeProblemParser } from './problem/NBUTOnlineJudgeProblemParser';
 import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
 import { NewtonSchoolProblemParser } from './problem/NewtonSchoolProblemParser';
 import { NOJProblemParser } from './problem/NOJProblemParser';
@@ -275,6 +277,9 @@ export const parsers: Parser[] = [
   new MrJudgeProblemParser(),
 
   new MSKInformaticsProblemParser(),
+
+  new NBUTOnlineJudgeProblemParser(),
+  new NBUTOnlineJudgeContestParser(),
 
   new NepsAcademyProblemParser(),
 
