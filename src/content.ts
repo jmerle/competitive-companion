@@ -86,7 +86,7 @@ async function parse(parser: Parser): Promise<void> {
   }
 }
 
-function handleMessage(message: Message | any, sender: Runtime.MessageSender): void {
+async function handleMessage(message: Message | any, sender: Runtime.MessageSender): Promise<void> {
   if (sender.tab) {
     return;
   }

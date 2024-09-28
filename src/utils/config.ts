@@ -17,7 +17,7 @@ class Config {
 
   public async get<T extends keyof ConfigItems>(key: T): Promise<ConfigItems[T]> {
     const data = await browser.storage.local.get(key);
-    return data[key] || this.defaults[key];
+    return (data[key] || this.defaults[key]) as ConfigItems[T];
   }
 
   public set<T extends keyof ConfigItems>(key: T, value: ConfigItems[T]): Promise<void> {

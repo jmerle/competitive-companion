@@ -44,7 +44,7 @@ export async function requestInBackground(
   return new Promise((resolve, reject) => {
     const messageId = uuidv4();
 
-    const handleMessage = (message: Message, sender: Runtime.MessageSender): void => {
+    const handleMessage = async (message: Message | any, sender: Runtime.MessageSender): Promise<void> => {
       if (sender.tab) {
         return;
       }
