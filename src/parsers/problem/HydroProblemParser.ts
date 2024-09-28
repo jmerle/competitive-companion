@@ -22,7 +22,7 @@ export class HydroProblemParser extends Parser {
 
     task.setName(elem.querySelector('.section__title').lastChild.textContent.trim());
 
-    const blocks = [...elem.querySelectorAll('pre > code')];
+    const blocks = [...elem.querySelectorAll('.sample > pre > code')];
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }
