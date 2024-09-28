@@ -14,7 +14,7 @@ export class TophProblemParser extends Parser {
 
     task.setName(elem.querySelector('.artifact h1').textContent.replace(/\s+/g, ' ').trim());
 
-    const limitsStr = elem.querySelector('span.dotted.limits').textContent;
+    const limitsStr = elem.querySelector('.artifact span[data-tippy-content]').textContent;
 
     const [, timeAmount, timeUnit] = /([0-9.]+)(.*),/.exec(limitsStr);
     task.setTimeLimit(parseFloat(timeAmount) * (timeUnit === 'ms' ? 1 : 1000));
