@@ -5,7 +5,15 @@ import { Parser } from '../Parser';
 
 export class HydroProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://hydro.ac/p/*', 'https://hydro.ac/d/*/p/*', 'https://hydro.ac/contest/*/p/*'];
+    const patterns = [];
+
+    for (const domain of ['hydro.ac', 'oiclass.com']) {
+      for (const path of ['p/*', 'd/*/p/*', 'contest/*/p/*']) {
+        patterns.push(`https://${domain}/${path}`);
+      }
+    }
+
+    return patterns;
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
