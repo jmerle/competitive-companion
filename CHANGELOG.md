@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.55.0](https://github.com/jmerle/competitive-companion/releases/tag/2.55.0) (2024-09-28)
 - Added support for oiClass, Le Quy Don Online Judge, VNOI Online Judge, and NBUT Online Judge
 - Added support for the Challenge mode on Kattis
 - Fixed the Timus Online Judge parser to work with the acm-judge.urfu.ru domain
