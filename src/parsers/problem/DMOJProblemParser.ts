@@ -4,12 +4,19 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class DMOJProblemParser extends Parser {
+  public static DOMAINS = {
+    'dmoj.ca': 'DMOJ',
+    'arena.moi': 'MOI Arena',
+    'lqdoj.edu.vn': 'Le Quy Don Online Judge',
+    'oj.vnoi.info': 'VNOI Online Judge',
+  };
+
   public getMatchPatterns(): string[] {
-    return ['https://dmoj.ca/problem/*', 'https://arena.moi/problem/*'];
+    return Object.keys(DMOJProblemParser.DOMAINS).map(domain => `https://${domain}/problem/*`);
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    const judge = url.startsWith('https://arena.moi/') ? 'MOI Arena' : 'DMOJ';
+    const judge = Object.entries(DMOJProblemParser.DOMAINS).find(entry => url.startsWith(`https://${entry[0]}`))[1];
 
     const elem = htmlToElement(html);
     const task = new TaskBuilder(judge).setUrl(url);
@@ -31,7 +38,7 @@ export class DMOJProblemParser extends Parser {
       task.setCategory(contestName);
     }
 
-    const inputs = [...elem.querySelectorAll('h4')].filter(el => {
+    const inputs: Element[] = [...elem.querySelectorAll('h4')].filter(el => {
       const text = el.textContent.toLowerCase();
 
       if (text.includes('output') || text.includes('explanation')) {
@@ -41,7 +48,7 @@ export class DMOJProblemParser extends Parser {
       return text.includes('sample input');
     });
 
-    const outputs = [...elem.querySelectorAll('h4')].filter(el => {
+    const outputs: Element[] = [...elem.querySelectorAll('h4')].filter(el => {
       const text = el.textContent.toLowerCase();
 
       if (text.includes('explanation')) {
@@ -50,6 +57,9 @@ export class DMOJProblemParser extends Parser {
 
       return text.includes('sample output') || text.includes('output for sample input');
     });
+
+    inputs.push(...elem.querySelectorAll('.admonition.question > details:first-of-type > pre'));
+    outputs.push(...elem.querySelectorAll('.admonition.question > details:last-of-type > pre'));
 
     for (let i = 0; i < inputs.length && i < outputs.length; i++) {
       let inputElem: Element = inputs[i];
@@ -62,21 +72,32 @@ export class DMOJProblemParser extends Parser {
         outputElem = outputElem.nextElementSibling;
       }
 
+      inputElem = inputElem.querySelector('code') || inputElem;
+      outputElem = outputElem.querySelector('code') || outputElem;
+
       task.addTest(inputElem.textContent, outputElem.textContent);
     }
 
-    const timeLimitStr = [...elem.querySelectorAll('.problem-info-entry')]
-      .find(el => el.querySelector('.fa-clock-o') !== null)
-      .textContent.split('\n')[2]
-      .slice(0, -1);
-    task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
+    const timeLimit = this.getProblemInfoValue(elem, '.fa-clock-o, .fa-clock');
+    if (timeLimit !== null) {
+      task.setTimeLimit(Math.floor(timeLimit * 1000));
+    }
 
-    const memoryLimitStr = [...elem.querySelectorAll('.problem-info-entry')]
-      .find(el => el.querySelector('.fa-server') !== null)
-      .textContent.split('\n')[2]
-      .slice(0, -1);
-    task.setMemoryLimit(parseInt(memoryLimitStr, 10));
+    const memoryLimit = this.getProblemInfoValue(elem, '.fa-server');
+    if (memoryLimit !== null) {
+      task.setMemoryLimit(Math.floor(memoryLimit));
+    }
 
     return task.build();
+  }
+
+  private getProblemInfoValue(elem: Element, icons: string): number | null {
+    const entryElem = [...elem.querySelectorAll('.problem-info-entry')].find(el => el.querySelector(icons) !== null);
+
+    if (entryElem === undefined) {
+      return null;
+    }
+
+    return parseFloat(entryElem.textContent.split('\n')[2].slice(0, -1));
   }
 }
