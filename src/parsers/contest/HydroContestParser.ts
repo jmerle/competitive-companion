@@ -5,13 +5,9 @@ export class HydroContestParser extends SimpleContestParser {
   protected linkSelector = '.col--problem.col--problem-name > a';
   protected problemParser = new HydroProblemParser();
 
+  protected domain = 'hydro.ac';
+
   public getMatchPatterns(): string[] {
-    const patterns = [];
-
-    for (const domain of ['hydro.ac', 'oiclass.com']) {
-      patterns.push(`https://${domain}/contest/*`);
-    }
-
-    return patterns;
+    return [`https://${this.domain}/contest/*`];
   }
 }

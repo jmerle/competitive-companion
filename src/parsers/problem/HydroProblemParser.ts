@@ -4,21 +4,16 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class HydroProblemParser extends Parser {
+  protected domain = 'hydro.ac';
+  protected judge = 'Hydro';
+
   public getMatchPatterns(): string[] {
-    const patterns = [];
-
-    for (const domain of ['hydro.ac', 'oiclass.com']) {
-      for (const path of ['p/*', 'd/*/p/*', 'contest/*/p/*']) {
-        patterns.push(`https://${domain}/${path}`);
-      }
-    }
-
-    return patterns;
+    return [`https://${this.domain}/p/*`, `https://${this.domain}/d/*/p/*`, `https://${this.domain}/contest/*/p/*`];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('Hydro').setUrl(url);
+    const task = new TaskBuilder(this.judge).setUrl(url);
 
     task.setName(elem.querySelector('.section__title').lastChild.textContent.trim());
 

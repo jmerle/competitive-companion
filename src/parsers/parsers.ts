@@ -29,6 +29,7 @@ import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
+import { OIClassContestParser } from './contest/OIClassContestParser';
 import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
@@ -104,6 +105,7 @@ import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
 import { NewtonSchoolProblemParser } from './problem/NewtonSchoolProblemParser';
 import { NOJProblemParser } from './problem/NOJProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
+import { OIClassProblemParser } from './problem/OIClassProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { OpenJudgeProblemParser } from './problem/OpenJudgeProblemParser';
 import { OTOGProblemParser } from './problem/OTOGProblemParser';
@@ -284,6 +286,9 @@ export const parsers: Parser[] = [
   new NOJContestParser(),
 
   new NowCoderProblemParser(),
+
+  new OIClassProblemParser(),
+  new OIClassContestParser(),
 
   new OmegaUpProblemParser(),
 
