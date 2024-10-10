@@ -27,6 +27,7 @@ import { KattisContestParser } from './contest/KattisContestParser';
 import { KilonovaContestParser } from './contest/KilonovaContestParser';
 import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
+import { LightOJContestParser } from './contest/LightOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
 import { NBUTOnlineJudgeContestParser } from './contest/NBUTOnlineJudgeContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
@@ -264,6 +265,7 @@ export const parsers: Parser[] = [
   new LibreOJContestParser(),
 
   new LightOJProblemParser(),
+  new LightOJContestParser(),
 
   new LSYOIProblemParser(),
 
