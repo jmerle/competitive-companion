@@ -1,6 +1,6 @@
-import JSZip from 'jszip';
 import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { fetchZip } from '../../utils/zip';
 import { ContestParser } from '../ContestParser';
 
 export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
@@ -73,31 +73,16 @@ export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
 
   private async fetchTestCases(zipUrl: string): Promise<{ input: string; output: string }[]> {
     try {
-      const response = await fetch(zipUrl);
-      if (!response.ok) {
-        throw new Error(`Failed to download ZIP file from ${zipUrl}`);
-      }
-
-      const blob = await response.blob();
-      const processedBlob = await this.processBlob(blob);
-
-      const zip = new JSZip();
-      const content = await zip.loadAsync(processedBlob);
+      const files = await fetchZip(zipUrl, ['.in', '.out', '.ans']);
 
       const testCases: Record<string, { input: string; output: string }> = {};
+      for (const [fileName, fileContent] of Object.entries(files)) {
+        const fileNumber = fileName.match(/(\d+[a-zA-Z]*)/)?.[0];
 
-      for (const fileName in content.files) {
-        if (Object.prototype.hasOwnProperty.call(content.files, fileName)) {
-          if (fileName.endsWith('.in') || fileName.endsWith('.out') || fileName.endsWith('.ans')) {
-            const fileContent = await content.files[fileName].async('string');
-            const fileNumber = fileName.match(/(\d+[a-zA-Z]*)/)?.[0];
-
-            if (fileNumber) {
-              testCases[fileNumber] = testCases[fileNumber] || { input: '', output: '' };
-              const fileType = fileName.endsWith('.in') ? 'input' : 'output';
-              testCases[fileNumber][fileType] = fileContent;
-            }
-          }
+        if (fileNumber) {
+          testCases[fileNumber] = testCases[fileNumber] || { input: '', output: '' };
+          const fileType = fileName.endsWith('.in') ? 'input' : 'output';
+          testCases[fileNumber][fileType] = fileContent;
         }
       }
 
@@ -119,19 +104,5 @@ export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
     const memory = memoryMatch ? parseInt(memoryMatch[1]) * (memoryMatch[2] === 'GB' ? 1024 : 1) : defaultMemory;
 
     return [time, memory];
-  }
-
-  // JSZip doesn't seem to work properly in Firefox addons, this is a workaround to the issue
-  // See https://github.com/Stuk/jszip/issues/759 for more information
-  private processBlob(blob: Blob): Promise<ArrayBuffer | string> {
-    return new Promise(resolve => {
-      const fileReader = new FileReader();
-
-      fileReader.onload = event => {
-        resolve(event.target.result);
-      };
-
-      fileReader.readAsBinaryString(blob);
-    });
   }
 }
