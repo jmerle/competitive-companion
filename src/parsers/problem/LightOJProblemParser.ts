@@ -14,12 +14,9 @@ export class LightOJProblemParser extends Parser {
 
     task.setName(elem.querySelector('.title').textContent.trim());
 
-    const limitsStr = elem.querySelector('.limit-section, p.subtitle').textContent.trim();
-
-    if (limitsStr) {
-      task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limitsStr)[1]) * 1000);
-      task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
-    }
+    const limitElems = elem.querySelectorAll('.tooltip-trigger > span');
+    task.setTimeLimit(parseFloat(/([0-9.]+)/.exec(limitElems[0].textContent)[1]) * 1000);
+    task.setMemoryLimit(parseInt(/(\d+)/.exec(limitElems[1].textContent)[1], 10));
 
     const blocks = elem.querySelectorAll('.sample-dataset-section .dataset-container');
     for (let i = 0; i < blocks.length - 1; i += 2) {
