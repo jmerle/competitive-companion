@@ -12,25 +12,25 @@ export class EolympBasecampProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Eolymp').setUrl(url);
 
-    const contentDivSelector = url.includes('compete') ? '.tab-content' : '.content';
+    const contentElem = elem.querySelector(url.includes('compete') ? '.tab-content' : '.content');
 
-    task.setName(elem.querySelector(`${contentDivSelector} h1 > span.ecm-span`).textContent);
+    task.setName(contentElem.querySelector('h1 > span.ecm-span').textContent);
 
     const contestName = elem.querySelector('.drawer span.MuiTypography-headlineSmall')?.textContent;
-    if (contestName && contestName !== task.name) {
+    if (contestName && contestName !== task.name && contestName !== 'Basecamp') {
       task.setCategory(`Basecamp - ${contestName}`);
     } else {
       task.setCategory('Basecamp');
     }
 
     const [timeLimit, memoryLimit] = [
-      ...document.querySelectorAll(`${contentDivSelector} span.MuiTypography-bodyMedium`),
-    ].map(span => span.childNodes[1]?.textContent);
+      ...contentElem.querySelectorAll('span.MuiTypography-bodyMedium'),
+    ].map(span => span.textContent);
 
     task.setTimeLimit(parseFloat(/\d+/.exec(timeLimit)[0]) * 1000);
     task.setMemoryLimit(parseInt(/\d+/.exec(memoryLimit)[0], 10));
 
-    const inputOutputBlocks = [...document.querySelectorAll(`${contentDivSelector} pre`)];
+    const inputOutputBlocks = [...contentElem.querySelectorAll('pre')];
     for (let i = 1; i < inputOutputBlocks.length; i += 2) {
       task.addTest(inputOutputBlocks[i - 1].textContent, inputOutputBlocks[i].textContent);
     }
