@@ -23,12 +23,9 @@ export class EolympBasecampProblemParser extends Parser {
       task.setCategory('Basecamp');
     }
 
-    const [timeLimit, memoryLimit] = [
-      ...contentElem.querySelectorAll('span.MuiTypography-bodyMedium'),
-    ].map(span => span.textContent);
-
-    task.setTimeLimit(parseFloat(/\d+/.exec(timeLimit)[0]) * 1000);
-    task.setMemoryLimit(parseInt(/\d+/.exec(memoryLimit)[0], 10));
+    const [timeLimit, memoryLimit] = [...contentElem.querySelectorAll('span.MuiTypography-bodyMedium')];
+    task.setTimeLimit(parseFloat(/\d+/.exec(timeLimit.textContent)[0]) * 1000);
+    task.setMemoryLimit(parseInt(/\d+/.exec(memoryLimit.textContent)[0], 10));
 
     const inputOutputBlocks = [...contentElem.querySelectorAll('pre')];
     for (let i = 1; i < inputOutputBlocks.length; i += 2) {
