@@ -15,7 +15,7 @@ export class QBXTOJProblemParser extends Parser {
     task.setName(doc.querySelector('h1.ui.header').textContent);
 
     const [, , timeMs, memMB] = [...doc.querySelector('table > tbody > tr').children].map(
-      td => td.children[0].textContent,
+      td => td.childNodes[0].textContent,
     );
 
     task.setTimeLimit(parseFloat(timeMs.trim()));
