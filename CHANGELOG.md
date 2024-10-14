@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.56.0](https://github.com/jmerle/competitive-companion/releases/tag/2.56.0) (2024-10-14)
+- Added support for QBXTOJ and Universal Cup (thanks [@touhidurrr](https://github.com/touhidurrr) for the QBXTOJ parser)
+- Added support for LightOJ contests (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the Eolymp Basecamp parser (thanks [@touhidurrr](https://github.com/touhidurrr))
+
 ## [2.55.0](https://github.com/jmerle/competitive-companion/releases/tag/2.55.0) (2024-09-28)
 - Added support for oiClass, Le Quy Don Online Judge, VNOI Online Judge, and NBUT Online Judge
 - Added support for the Challenge mode on Kattis
