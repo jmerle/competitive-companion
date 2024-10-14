@@ -48,8 +48,6 @@
     "@types/jest": "^29.5.13",
     "@types/node": "^22.7.5",
     "@types/webextension-polyfill": "^0.12.1",
-    "@typescript-eslint/eslint-plugin": "^8.9.0",
-    "@typescript-eslint/parser": "^8.9.0",
     "chrome-launcher": "^1.1.2",
     "concurrently": "^9.0.1",
     "cross-env": "^7.0.3",
