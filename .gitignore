@@ -135,6 +135,5 @@ dist/
 firefox-tmp/
 
 # Custom
-.vscode
 .cph
 *.cpp
