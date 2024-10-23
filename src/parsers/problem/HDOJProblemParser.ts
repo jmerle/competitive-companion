@@ -14,10 +14,11 @@ export class HDOJProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HDOJ').setUrl(url);
+    const pid = /\?pid=\d+/g.exec(location.href).at(0).replace('?pid=','');
 
     const contentElem = elem.querySelector('tr:nth-child(4)') || elem.querySelector('#contest_nav + div');
 
-    task.setName(contentElem.querySelector('h1').textContent);
+    task.setName('HDU ' + pid);
 
     task.setTimeLimit(parseInt(/Time Limit: (\d+)/.exec(html)[1], 10));
     task.setMemoryLimit(parseInt(/Memory Limit: (\d+)/.exec(html)[1], 10) / 1000);
