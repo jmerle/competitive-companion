@@ -70,7 +70,7 @@ export class Task implements Sendable {
 
       const messageId = uuidv4();
 
-      const handleMessage = (message: Message | any, sender: Runtime.MessageSender): void => {
+      const handleMessage = async (message: Message | any, sender: Runtime.MessageSender): Promise<void> => {
         if (sender.tab) {
           return;
         }

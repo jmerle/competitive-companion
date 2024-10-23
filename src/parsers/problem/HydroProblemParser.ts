@@ -4,13 +4,28 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class HydroProblemParser extends Parser {
+  public static DOMAINS = {
+    'hydro.ac': 'Hydro',
+    'oiclass.com': 'oiClass',
+  };
+
   public getMatchPatterns(): string[] {
-    return ['https://hydro.ac/p/*', 'https://hydro.ac/d/*/p/*', 'https://hydro.ac/contest/*/p/*'];
+    const patterns = [];
+
+    for (const domain of Object.keys(HydroProblemParser.DOMAINS)) {
+      for (const path of ['p/*', 'd/*/p/*', 'contest/*/p/*']) {
+        patterns.push(`https://${domain}/${path}`);
+      }
+    }
+
+    return patterns;
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
+    const judge = Object.entries(HydroProblemParser.DOMAINS).find(entry => url.startsWith(`https://${entry[0]}`))[1];
+
     const elem = htmlToElement(html);
-    const task = new TaskBuilder('Hydro').setUrl(url);
+    const task = new TaskBuilder(judge).setUrl(url);
     const url_list = url.split('/');
 
     if(url.includes('/d/')) {
@@ -22,7 +37,7 @@ export class HydroProblemParser extends Parser {
       task.setName('Hydro P' + pid);
     }
 
-    const blocks = [...elem.querySelectorAll('pre > code')];
+    const blocks = [...elem.querySelectorAll('.sample > pre > code')];
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
     }

@@ -9,6 +9,7 @@ export class KattisProblemParser extends Parser {
       'https://*.kattis.com/problems/*',
       'https://*.kattis.com/contests/*/problems/*',
       'https://*.kattis.com/sessions/*/problems/*',
+      'https://*.kattis.com/challenge/*',
     ];
   }
 
@@ -18,7 +19,7 @@ export class KattisProblemParser extends Parser {
 
     task.setName(elem.querySelector('h1').innerHTML.replace(/<br>/, ' - '));
 
-    if (elem.querySelector('.breadcrumb > .breadcrumb-link:first-child').textContent === 'Contests') {
+    if (elem.querySelector('.breadcrumb > .breadcrumb-link:first-child')?.textContent === 'Contests') {
       task.setCategory(elem.querySelector('.breadcrumb > .breadcrumb-link:nth-of-type(2)').textContent);
     }
 

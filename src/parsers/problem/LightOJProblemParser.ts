@@ -1,22 +1,22 @@
-import { Sendable } from '../../models/Sendable';
+import type { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class LightOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://lightoj.com/problem/*'];
+    return ['https://lightoj.com/problem/*', 'https://lightoj.com/contest/*/arena/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('LightOJ').setUrl(url);
 
-    task.setName(elem.querySelector('.title > p').textContent.trim());
+    task.setName(elem.querySelector('.title').textContent.trim());
 
-    const limitsStr = elem.querySelector('.limit-section').textContent.trim();
-    task.setTimeLimit(parseFloat(/([0-9.]+) second/.exec(limitsStr)[1]) * 1000);
-    task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
+    const limitElems = elem.querySelectorAll('.tooltip-trigger > span');
+    task.setTimeLimit(parseFloat(/([0-9.]+)/.exec(limitElems[0].textContent)[1]) * 1000);
+    task.setMemoryLimit(parseInt(/(\d+)/.exec(limitElems[1].textContent)[1], 10));
 
     const blocks = elem.querySelectorAll('.sample-dataset-section .dataset-container');
     for (let i = 0; i < blocks.length - 1; i += 2) {

@@ -14,7 +14,6 @@ export class CodeChefContestParser extends ContestParser<string> {
     return document.querySelector('.cc-problem-name a') !== null;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected async getTasksToParse(html: string, url: string): Promise<string[]> {
     const elem = htmlToElement(html);
     const contestId = new URL(url).pathname.split('/').pop();

@@ -27,7 +27,9 @@ import { KattisContestParser } from './contest/KattisContestParser';
 import { KilonovaContestParser } from './contest/KilonovaContestParser';
 import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
+import { LightOJContestParser } from './contest/LightOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
+import { NBUTOnlineJudgeContestParser } from './contest/NBUTOnlineJudgeContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
 import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
@@ -36,6 +38,7 @@ import { QDUOJContestParser } from './contest/QDUOJContestParser';
 import { RoboContestContestParser } from './contest/RoboContestContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { TLXContestParser } from './contest/TLXContestParser';
+import { UniversalCupContestParser } from './contest/UniversalCupContestParser';
 import { UOJContestParser } from './contest/UOJContestParser';
 import { VirtualJudgeContestParser } from './contest/VirtualJudgeContestParser';
 import { YandexContestParser } from './contest/YandexContestParser';
@@ -101,6 +104,7 @@ import { MendoProblemParser } from './problem/MendoProblemParser';
 import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
 import { MSKInformaticsProblemParser } from './problem/MSKInformaticsProblemParser';
+import { NBUTOnlineJudgeProblemParser } from './problem/NBUTOnlineJudgeProblemParser';
 import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
 import { NewtonSchoolProblemParser } from './problem/NewtonSchoolProblemParser';
 import { NOJProblemParser } from './problem/NOJProblemParser';
@@ -113,6 +117,7 @@ import { PBInfoProblemParser } from './problem/PBInfoProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
 import { PTAProblemParser } from './problem/PTAProblemParser';
+import { QBXTOJProblemParser } from './problem/QBXTOJProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { QQWhaleProblemParser } from './problem/QQWhaleProblemParser';
 import { RoboContestProblemParser } from './problem/RoboContestProblemParser';
@@ -125,6 +130,7 @@ import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblem
 import { TLXProblemParser } from './problem/TLXProblemParser';
 import { TophProblemParser } from './problem/TophProblemParser';
 import { UDebugProblemParser } from './problem/UDebugProblemParser';
+import { UniversalCupProblemParser } from './problem/UniversalCupProblemParser';
 import { UOJProblemParser } from './problem/UOJProblemParser';
 import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
@@ -265,6 +271,7 @@ export const parsers: Parser[] = [
   new LibreOJContestParser(),
 
   new LightOJProblemParser(),
+  new LightOJContestParser(),
 
   new LSYOIProblemParser(),
 
@@ -278,6 +285,9 @@ export const parsers: Parser[] = [
   new MrJudgeProblemParser(),
 
   new MSKInformaticsProblemParser(),
+
+  new NBUTOnlineJudgeProblemParser(),
+  new NBUTOnlineJudgeContestParser(),
 
   new NepsAcademyProblemParser(),
 
@@ -307,6 +317,8 @@ export const parsers: Parser[] = [
 
   new PTAProblemParser(),
 
+  new QBXTOJProblemParser(),
+
   new QDUOJProblemParser(),
   new QDUOJContestParser(),
 
@@ -334,6 +346,9 @@ export const parsers: Parser[] = [
   new TophProblemParser(),
 
   new UDebugProblemParser(),
+
+  new UniversalCupProblemParser(),
+  new UniversalCupContestParser(),
 
   new UOJProblemParser(),
   new UOJContestParser(),

@@ -84,9 +84,10 @@ A browser extension which parses competitive programming problems from various o
 | Kattis                     | ✔              | ✔              |
 | Kilonova                   | ✔              | ✔              |
 | Lanqiao                    | ✔              | ✔              |
+| Le Quy Don Online Judge    | ✔              | ✔              |
 | Library Checker            | ✔              |                |
 | LibreOJ                    | ✔              | ✔              |
-| LightOJ                    | ✔              |                |
+| LightOJ                    | ✔              | ✔              |
 | LSYOI                      | ✔              |                |
 | Luogu                      | ✔              | ✔              |
 | Mendo                      | ✔              |                |
@@ -94,12 +95,14 @@ A browser extension which parses competitive programming problems from various o
 | MOI Arena                  | ✔              | ✔              |
 | mrJudge                    | ✔              |                |
 | MSK Informatics            | ✔              |                |
+| NBUT Online Judge          | ✔              | ✔              |
 | Neps Academy               | ✔              |                |
 | NerdArena                  | ✔              |                |
 | Newton School              | ✔              |                |
 | NOJ                        | ✔              | ✔              |
 | NowCoder                   | ✔              |                |
 | NYTD Online Judge          | ✔              | ✔              |
+| oiClass                    | ✔              | ✔              |
 | omegaUp                    | ✔              |                |
 | OpenJudge                  | ✔              | ✔              |
 | OTOG                       | ✔              |                |
@@ -109,6 +112,7 @@ A browser extension which parses competitive programming problems from various o
 | POJ                        | ✔              | ✔              |
 | PTA                        | ✔              |                |
 | Public Judge               | ✔              | ✔              |
+| QBXTOJ                     | ✔              |                |
 | QDUOJ                      | ✔              | ✔              |
 | QQWhale                    | ✔              |                |
 | RoboContest                | ✔              | ✔              |
@@ -121,11 +125,13 @@ A browser extension which parses competitive programming problems from various o
 | TLX                        | ✔              | ✔              |
 | Toph                       | ✔              |                |
 | uDebug                     | ✔              |                |
+| Universal Cup              | ✔              | ✔              |
 | UOJ                        | ✔              | ✔              |
 | USACO                      | ✔              |                |
 | USACO Training             | ✔              |                |
 | UVa Online Judge           | ✔              |                |
 | Virtual Judge              | ✔              | ✔              |
+| VNOI Online Judge          | ✔              | ✔              |
 | Yandex                     | ✔              | ✔              |
 | XXM                        | ✔              |                |
 | yukicoder                  | ✔              | ✔              |
@@ -253,8 +259,8 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 20.16.0  
-PNPM: 9.6.0
+Node.js: 22.9.0  
+PNPM: 9.12.1
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)

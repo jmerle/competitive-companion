@@ -6,6 +6,6 @@ export class HydroContestParser extends SimpleContestParser {
   protected problemParser = new HydroProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://hydro.ac/contest/*'];
+    return Object.keys(HydroProblemParser.DOMAINS).map(domain => `https://${domain}/contest/*`);
   }
 }

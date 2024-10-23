@@ -43,94 +43,31 @@
     "snarkdown": "2.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.14.14",
-    "@types/webextension-polyfill": "^0.10.7",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
+    "@eslint/js": "^9.12.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.5",
+    "@types/webextension-polyfill": "^0.12.1",
     "chrome-launcher": "^1.1.2",
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.0.1",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.23.0",
-    "eslint": "^8.57.1",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-formatter-codeframe": "^7.32.1",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import": "^2.31.0",
     "generic-pool": "^3.9.0",
+    "globals": "^15.11.0",
     "jest": "^29.7.0",
     "prettier": "^3.3.3",
-    "puppeteer": "^22.15.0",
+    "puppeteer": "^23.5.3",
     "rimraf": "^6.0.1",
-    "ts-jest": "^29.2.4",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "tsx": "^4.16.5",
+    "tsx": "^4.19.1",
     "typescript": "^5.5.4",
-    "web-ext": "^8.2.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "plugin:import/typescript",
-      "prettier"
-    ],
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "ignorePatterns": [
-      "*.html"
-    ],
-    "rules": {
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/explicit-member-accessibility": "error",
-      "@typescript-eslint/no-inferrable-types": "off",
-      "@typescript-eslint/no-var-requires": "off",
-      "@typescript-eslint/explicit-function-return-type": [
-        "error",
-        {
-          "allowExpressions": true
-        }
-      ],
-      "@typescript-eslint/explicit-module-boundary-types": [
-        "error",
-        {
-          "allowArgumentsExplicitlyTypedAsAny": true
-        }
-      ],
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "caughtErrors": "none"
-        }
-      ],
-      "import/order": [
-        "error",
-        {
-          "alphabetize": {
-            "order": "asc",
-            "caseInsensitive": true
-          }
-        }
-      ],
-      "sort-imports": [
-        "error",
-        {
-          "ignoreCase": true,
-          "ignoreDeclarationSort": true
-        }
-      ]
-    }
+    "typescript-eslint": "^8.9.0",
+    "web-ext": "^8.3.0"
   },
   "prettier": {
     "singleQuote": true,

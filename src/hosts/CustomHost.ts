@@ -9,7 +9,6 @@ export class CustomHost extends Host {
     await this.doSend(`http://localhost:${this.port}/`, {
       body: data,
       headers: {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         'Content-Type': 'application/json',
       },
     });
