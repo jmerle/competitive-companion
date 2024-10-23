@@ -28,7 +28,7 @@ export class HydroProblemParser extends Parser {
     const task = new TaskBuilder(judge).setUrl(url);
     const url_list = url.split('/');
 
-    if(url.includes('/d/')) {
+    if (url.includes('/d/')) {
       const domain = url_list[url_list.length - 3];
       const pid = url_list[url_list.length - 1];
       task.setName('Hydro ' + domain + ' ' + pid);

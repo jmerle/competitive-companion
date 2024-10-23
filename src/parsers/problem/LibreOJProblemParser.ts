@@ -27,7 +27,6 @@ export class LibreOJProblemParser extends Parser {
   }
 
   private parseNormalProblem(elem: Element, task: TaskBuilder): void {
-
     const timeLimitIcon = elem.querySelector('.label > .clock.icon');
     const timeLimitStr = timeLimitIcon.parentElement.textContent.trim();
     task.setTimeLimit(parseInt(timeLimitStr.split(' ')[0]));

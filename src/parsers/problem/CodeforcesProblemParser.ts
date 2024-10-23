@@ -56,7 +56,7 @@ export class CodeforcesProblemParser extends Parser {
     const url_list = url.split('/');
     const problem_id = url_list[url_list.length - 3] + ' ' + url_list[url_list.length - 1];
 
-    if(url.includes('/gym/')) {
+    if (url.includes('/gym/')) {
       task.setName('CF GYM ' + problem_id);
     } else {
       task.setName('CF ' + problem_id);

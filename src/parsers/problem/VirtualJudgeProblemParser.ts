@@ -20,11 +20,12 @@ export class VirtualJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Virtual Judge').setUrl(url);
     const url_list = url.split('/');
-    var pid = url_list[url_list.length - 1];
+    let pid = url_list[url_list.length - 1];
 
-    pid = pid.replace('%E6%B4%9B%E8%B0%B7', 'LG')
-    .replace('%E9%BB%91%E6%9A%97%E7%88%86%E7%82%B8', 'DarkBZOJ')
-    .replace('%E8%AE%A1%E8%92%9C%E5%AE%A2', 'JSK');
+    pid = pid
+      .replace('%E6%B4%9B%E8%B0%B7', 'LG')
+      .replace('%E9%BB%91%E6%9A%97%E7%88%86%E7%82%B8', 'DarkBZOJ')
+      .replace('%E8%AE%A1%E8%92%9C%E5%AE%A2', 'JSK');
 
     task.setName('Vjudge ' + pid);
     if (elem.querySelector('#problem-title') === null) {

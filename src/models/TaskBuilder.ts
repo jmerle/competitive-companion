@@ -46,7 +46,7 @@ export class TaskBuilder {
   }
 
   public setName(name: string): TaskBuilder {
-    this.name = prompt('Please set a name for this problem:',name);
+    this.name = prompt('Please set a name for this problem:', name);
     return this.updateJavaTaskClassFromName();
   }
 

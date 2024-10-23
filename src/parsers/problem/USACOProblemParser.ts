@@ -25,7 +25,7 @@ export class USACOProblemParser extends Parser {
     const pid = headers[1].textContent.trim();
     const cid = headers[0].textContent.trim();
 
-    task.setName(cid.replace(' Contest','') + ' ' + pid.replace('Problem ','P'));
+    task.setName(cid.replace(' Contest', '') + ' ' + pid.replace('Problem ', 'P'));
     task.setCategory(cid);
 
     const inputSpec = elem.querySelector('.prob-in-spec h4');

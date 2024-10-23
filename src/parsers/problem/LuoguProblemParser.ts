@@ -15,9 +15,9 @@ export class LuoguProblemParser extends Parser {
     const urls = url.split('/');
     const pid = urls[urls.length - 1];
 
-    if(pid.includes('contestId')) {
+    if (pid.includes('contestId')) {
       const cid = /\?contestId=\d+/.exec(pid).at(0);
-      task.setName('Luogu C' + cid.replace('?contestId=','') + ' ' + pid.replace(cid, ''));
+      task.setName('Luogu C' + cid.replace('?contestId=', '') + ' ' + pid.replace(cid, ''));
     } else {
       task.setName('Luogu ' + pid);
     }
