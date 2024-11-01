@@ -7,6 +7,7 @@ export class HydroProblemParser extends Parser {
   public static DOMAINS = {
     'hydro.ac': 'Hydro',
     'oiclass.com': 'oiClass',
+    'newoj.cyezoi.com': 'CYEZOJ',
   };
 
   public getMatchPatterns(): string[] {
