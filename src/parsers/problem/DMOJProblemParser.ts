@@ -4,7 +4,7 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class DMOJProblemParser extends Parser {
-  public static DOMAINS = {
+  private static DOMAINS = {
     'dmoj.ca': 'DMOJ',
     'arena.moi': 'MOI Arena',
     'lqdoj.edu.vn': 'Le Quy Don Online Judge',
@@ -16,7 +16,8 @@ export class DMOJProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    const judge = Object.entries(DMOJProblemParser.DOMAINS).find(entry => url.startsWith(`https://${entry[0]}`))[1];
+    const domain = Object.entries(DMOJProblemParser.DOMAINS).find(entry => url.startsWith(`https://${entry[0]}`));
+    const judge = domain !== undefined ? domain[1] : 'DMOJ';
 
     const elem = htmlToElement(html);
     const task = new TaskBuilder(judge).setUrl(url);
