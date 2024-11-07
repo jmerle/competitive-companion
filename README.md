@@ -39,6 +39,7 @@ A browser extension which parses competitive programming problems from various o
 ## Supported websites
 | Website                    | Problem parser | Contest parser |
 |----------------------------|----------------|----------------|
+| 33OJ                       | ✔              | ✔              |
 | A2 Online Judge            | ✔              | ✔              |
 | ACMP                       | ✔              |                |
 | AcWing                     | ✔              |                |
@@ -61,6 +62,7 @@ A browser extension which parses competitive programming problems from various o
 | CS Academy                 | ✔              |                |
 | CSES                       | ✔              | ✔              |
 | CSU-ACM Online Judge       | ✔              | ✔              |
+| CYEZOJ                     | ✔              | ✔              |
 | Daimayuan Online Judge     | ✔              | ✔              |
 | Dimik OJ                   | ✔              |                |
 | DMOJ                       | ✔              | ✔              |
