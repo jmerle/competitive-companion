@@ -4,7 +4,7 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class HydroProblemParser extends Parser {
-  private static DOMAINS = {
+  public static DOMAINS = {
     'hydro.ac': 'Hydro',
     'oiclass.com': 'oiClass',
     'newoj.cyezoi.com': 'CYEZOJ',

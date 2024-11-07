@@ -4,7 +4,7 @@ import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
 export class DMOJProblemParser extends Parser {
-  private static DOMAINS = {
+  public static DOMAINS = {
     'dmoj.ca': 'DMOJ',
     'arena.moi': 'MOI Arena',
     'lqdoj.edu.vn': 'Le Quy Don Online Judge',
