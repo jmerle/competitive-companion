@@ -7,6 +7,8 @@ export class HydroProblemParser extends Parser {
   public static DOMAINS = {
     'hydro.ac': 'Hydro',
     'oiclass.com': 'oiClass',
+    'newoj.cyezoi.com': 'CYEZOJ',
+    'oj.33dai.cn': '33OJ',
   };
 
   public getMatchPatterns(): string[] {
@@ -22,7 +24,8 @@ export class HydroProblemParser extends Parser {
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
-    const judge = Object.entries(HydroProblemParser.DOMAINS).find(entry => url.startsWith(`https://${entry[0]}`))[1];
+    const domain = Object.entries(HydroProblemParser.DOMAINS).find(entry => url.startsWith(`https://${entry[0]}`));
+    const judge = domain !== undefined ? domain[1] : 'Hydro';
 
     const elem = htmlToElement(html);
     const task = new TaskBuilder(judge).setUrl(url);
