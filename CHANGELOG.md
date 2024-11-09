@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Added support for CYEZOJ, 33OJ, and Algotester (thanks [@langningchen](https://github.com/langningchen) for the CYEZOJ support)
+- Added support for CYEZOJ, 33OJ, Algotester, and SeriousOJ (thanks [@langningchen](https://github.com/langningchen) for the CYEZOJ support)
 - Fixed using the Hydro and DMOJ parsers on unsupported websites through the "Parse with" functionality and in custom rules
 
 ## [2.56.0](https://github.com/jmerle/competitive-companion/releases/tag/2.56.0) (2024-10-14)
