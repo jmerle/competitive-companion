@@ -85,7 +85,7 @@ interface BAPSOJProblemInfo {
 
 export class BAPSOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://bapsoj.org/contests/*/problems/*', 'https://bapsoj.org/contests/*/problems/*'];
+    return ['https://bapsoj.org/contests/*/problems/*'];
   }
 
   private async getProblemInfo(contest: string, problem: string): Promise<BAPSOJProblemInfo> {
