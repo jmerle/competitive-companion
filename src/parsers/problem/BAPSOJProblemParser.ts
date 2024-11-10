@@ -85,21 +85,27 @@ interface BAPSOJProblemInfo {
 
 export class BAPSOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://bapsoj.org/contests/*/problems/*', 'https://bapsoj.org/contests/*/problems/*'];
+    return ['https://bapsoj.org/contests/*/problems/*'];
   }
 
   private async getProblemInfo(contest: string, problem: string): Promise<BAPSOJProblemInfo> {
-    const contestInfoAPIResponse = await request(`https://api.bapsoj.org/api/judge/contests/${contest}/?format=json`, {
+    const config: RequestInit = {
       credentials: 'omit',
-    });
+      headers: {
+        Authorization: `token ${localStorage.getItem('@baps-oj/user/token')}`,
+      },
+    };
+
+    const contestInfoAPIResponse = await request(`https://api.bapsoj.org/api/judge/contests/${contest}/`, config);
     const contestInfo = JSON.parse(contestInfoAPIResponse) as BAPSOJContestInfo;
     const problemId = contestInfo.problem_set.find(p => p.problem_order_character === problem).problem_id;
+
     const problemInfoAPIResponse = await request(
-      `https://api.bapsoj.org/api/judge/problems/${problemId}/?format=json`,
-      { credentials: 'omit' },
+      `https://api.bapsoj.org/api/judge/problems/${problemId}/?problem_set_id=${problemId}`,
+      config,
     );
-    const problemInfo = JSON.parse(problemInfoAPIResponse) as BAPSOJProblemInfo;
-    return problemInfo;
+
+    return JSON.parse(problemInfoAPIResponse) as BAPSOJProblemInfo;
   }
 
   public async parse(url: string): Promise<Sendable> {
