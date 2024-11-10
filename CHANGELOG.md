@@ -1,8 +1,10 @@
 # Changelog
 
-## Unreleased
+## [2.57.0](https://github.com/jmerle/competitive-companion/releases/tag/2.57.0) (2024-11-10)
 - Added support for CYEZOJ, 33OJ, Algotester, and SeriousOJ (thanks [@langningchen](https://github.com/langningchen) for the CYEZOJ support)
 - Fixed using the Hydro and DMOJ parsers on unsupported websites through the "Parse with" functionality and in custom rules
+- Fixed the BAPS OJ problem parser and added a contest parser (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the yukicoder contest parser
 
 ## [2.56.0](https://github.com/jmerle/competitive-companion/releases/tag/2.56.0) (2024-10-14)
 - Added support for QBXTOJ and Universal Cup (thanks [@touhidurrr](https://github.com/touhidurrr) for the QBXTOJ parser)
