@@ -1,5 +1,5 @@
 import type { Runtime } from 'webextension-polyfill';
-import { productName, version } from '../../package.json';
+import { version } from '../../package.json';
 import { Message, MessageAction } from '../models/messaging';
 import { browser } from './browser';
 import { sendToBackground } from './messaging';
@@ -12,11 +12,8 @@ export const requiredPermissions: Record<string, string> = {
   'https://judge.beecrowd.com/': 'https://resources.beecrowd.com/*',
 };
 
-/*
- * Default headers to be sent with every request
- */
 const defaultHeaders = {
-  'User-Agent': `${productName}/${version}`,
+  'X-Competitive-Companion': version,
 } as const;
 
 /**
