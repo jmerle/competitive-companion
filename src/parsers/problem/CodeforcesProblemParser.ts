@@ -54,12 +54,13 @@ export class CodeforcesProblemParser extends Parser {
   private parseMainProblem(html: string, url: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
     const url_list = url.split('/');
-    const problem_id = url_list[url_list.length - 3] + ' ' + url_list[url_list.length - 1];
 
     if (url.includes('/gym/')) {
-      task.setName('CF GYM ' + problem_id);
+      const pid = url_list[url_list.length - 3] + ' ' + url_list[url_list.length - 1];
+      task.setName('CF GYM ' + pid);
     } else {
-      task.setName('CF ' + problem_id);
+      const pid = url_list[url_list.length - 2] + ' ' + url_list[url_list.length - 1];
+      task.setName('CF ' + pid);
     }
 
     if (url.includes('/edu/')) {
