@@ -1,7 +1,7 @@
 {
   "name": "competitive-companion-customized",
   "productName": "Competitive Companion Customized",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Parses competitive programming problems and sends them to various tools like CP Editor and CPH.",
   "repository": "https://github.com/lnw143/competitive-companion-customized",
   "author": "Jasper van Merle & lnw143",
