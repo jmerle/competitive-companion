@@ -39,15 +39,17 @@ A browser extension which parses competitive programming problems from various o
 ## Supported websites
 | Website                    | Problem parser | Contest parser |
 |----------------------------|----------------|----------------|
+| 33OJ                       | ✔              | ✔              |
 | A2 Online Judge            | ✔              | ✔              |
 | ACMP                       | ✔              |                |
 | AcWing                     | ✔              |                |
 | Aizu Online Judge          | ✔              |                |
+| Algotester                 | ✔              |                |
 | AlgoZenith                 | ✔              |                |
 | Anarchy Golf               | ✔              |                |
 | AtCoder                    | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              |                |
-| BAPS OJ                    | ✔              |                |
+| BAPS OJ                    | ✔              | ✔              |
 | beecrowd                   | ✔              | ✔              |
 | Bloomberg CodeCon          | ✔              |                |
 | BUCTOJ                     | ✔              | ✔              |
@@ -61,6 +63,7 @@ A browser extension which parses competitive programming problems from various o
 | CS Academy                 | ✔              |                |
 | CSES                       | ✔              | ✔              |
 | CSU-ACM Online Judge       | ✔              | ✔              |
+| CYEZOJ                     | ✔              | ✔              |
 | Daimayuan Online Judge     | ✔              | ✔              |
 | Dimik OJ                   | ✔              |                |
 | DMOJ                       | ✔              | ✔              |
@@ -117,6 +120,7 @@ A browser extension which parses competitive programming problems from various o
 | QQWhale                    | ✔              |                |
 | RoboContest                | ✔              | ✔              |
 | SDUT OnlineJudge           | ✔              |                |
+| SeriousOJ                  | ✔              | ✔              |
 | Sort Me                    | ✔              |                |
 | SPOJ                       | ✔              |                |
 | SSOIER                     | ✔              |                |
@@ -259,7 +263,7 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 22.9.0  
+Node.js: 22.10.0  
 PNPM: 9.12.1
 
 Third-party libraries that can be found in the minified extension:  

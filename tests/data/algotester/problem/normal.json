@@ -1,0 +1,35 @@
+{
+  "url": "https://algotester.com/en/ArchiveProblem/DisplayWithFile/20024",
+  "parser": "AlgotesterProblemParser",
+  "result": {
+    "name": "A plus B",
+    "group": "Algotester",
+    "url": "https://algotester.com/en/ArchiveProblem/DisplayWithFile/20024",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "4 7\n",
+        "output": "11\n"
+      },
+      {
+        "input": "47 74\n",
+        "output": "121\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "APlusB"
+      }
+    }
+  }
+}

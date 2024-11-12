@@ -1,5 +1,6 @@
 import { A2OnlineJudgeContestParser } from './contest/A2OnlineJudgeContestParser';
 import { AtCoderContestParser } from './contest/AtCoderContestParser';
+import { BAPSOJContestParser } from './contest/BAPSOJContestParser';
 import { BeecrowdContestParser } from './contest/BeecrowdContestParser';
 import { BUCTOJContestParser } from './contest/BUCTOJContestParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
@@ -36,6 +37,7 @@ import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
 import { RoboContestContestParser } from './contest/RoboContestContestParser';
+import { SeriousOJContestParser } from './contest/SeriousOJContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { TLXContestParser } from './contest/TLXContestParser';
 import { UniversalCupContestParser } from './contest/UniversalCupContestParser';
@@ -50,6 +52,7 @@ import { ACMPProblemParser } from './problem/ACMPProblemParser';
 import { AcWingProblemParser } from './problem/AcWingProblemParser';
 import { AizuOnlineJudgeBetaProblemParser } from './problem/AizuOnlineJudgeBetaProblemParser';
 import { AizuOnlineJudgeProblemParser } from './problem/AizuOnlineJudgeProblemParser';
+import { AlgotesterProblemParser } from './problem/AlgotesterProblemParser';
 import { AlgoZenithNewProblemParser } from './problem/AlgoZenithNewProblemParser';
 import { AlgoZenithOldProblemParser } from './problem/AlgoZenithOldProblemParser';
 import { AnarchyGolfProblemParser } from './problem/AnarchyGolfProblemParser';
@@ -122,6 +125,7 @@ import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { QQWhaleProblemParser } from './problem/QQWhaleProblemParser';
 import { RoboContestProblemParser } from './problem/RoboContestProblemParser';
 import { SDUTOnlineJudgeProblemParser } from './problem/SDUTOnlineJudgeProblemParser';
+import { SeriousOJProblemParser } from './problem/SeriousOJProblemParser';
 import { SortMeProblemParser } from './problem/SortMeProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
@@ -153,6 +157,8 @@ export const parsers: Parser[] = [
   new AizuOnlineJudgeProblemParser(),
   new AizuOnlineJudgeBetaProblemParser(),
 
+  new AlgotesterProblemParser(),
+
   new AlgoZenithNewProblemParser(),
   new AlgoZenithOldProblemParser(),
 
@@ -164,6 +170,7 @@ export const parsers: Parser[] = [
   new BaekjoonOnlineJudgeProblemParser(),
 
   new BAPSOJProblemParser(),
+  new BAPSOJContestParser(),
 
   new BeecrowdProblemParser(),
   new BeecrowdContestParser(),
@@ -328,6 +335,9 @@ export const parsers: Parser[] = [
   new RoboContestContestParser(),
 
   new SDUTOnlineJudgeProblemParser(),
+
+  new SeriousOJProblemParser(),
+  new SeriousOJContestParser(),
 
   new SortMeProblemParser(),
 
