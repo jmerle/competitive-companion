@@ -1,7 +1,7 @@
 # Changelog
 
 ## [2.57.1](https://github.com/jmerle/competitive-companion/releases/tag/2.57.1) (2024-11-15)
-- Added the `X-Competitive-Companion` header to HTTP requests sent by Competitive Companion to indicate to the receiving end that the request is coming from Competitive Companion
+- Added the `X-Competitive-Companion` header to HTTP requests sent by Competitive Companion to indicate to the receiving end that the request is coming from Competitive Companion (thanks [@touhidurrr](https://github.com/touhidurrr))
 
 ## [2.57.0](https://github.com/jmerle/competitive-companion/releases/tag/2.57.0) (2024-11-10)
 - Added support for CYEZOJ, 33OJ, Algotester, and SeriousOJ (thanks [@langningchen](https://github.com/langningchen) for the CYEZOJ support)
