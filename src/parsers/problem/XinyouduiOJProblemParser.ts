@@ -5,7 +5,12 @@ import { Parser } from '../Parser';
 
 export class XinyouduiOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://www.xinyoudui.com/ac/contest/*/problem/*', 'https://contest.xinyoudui.com/contest/*/problem/*'];
+    return [
+      'https://www.xinyoudui.com/ac/contest/*/problem/*',
+      'https://xinyoudui.com/ac/contest/*/problem/*',
+      'https://contest.xinyoudui.com/contest/*/problem/*',
+      'https://learn.x-camp.org/ac/contest/*/problem/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
