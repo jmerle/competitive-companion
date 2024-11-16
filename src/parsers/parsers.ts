@@ -67,6 +67,7 @@ import { CodeChefOldProblemParser } from './problem/CodeChefOldProblemParser';
 import { CodeDrillsProblemParser } from './problem/CodeDrillsProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
+import { COGSOnlineJudgeProblemParser } from './problem/COGSOnlineJudgeProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser';
 import { CPythonUZProblemParser } from './problem/CPythonUZProblemParser';
@@ -192,6 +193,8 @@ export const parsers: Parser[] = [
 
   new CodeMarshalProblemParser(),
   new CodeMarshalContestParser(),
+
+  new COGSOnlineJudgeProblemParser(),
 
   new COJProblemParser(),
   new COJContestParser(),
