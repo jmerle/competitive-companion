@@ -53,15 +53,12 @@ export class CodeforcesProblemParser extends Parser {
 
   private parseMainProblem(html: string, url: string, task: TaskBuilder): void {
     const elem = htmlToElement(html);
-    const url_list = url.split('/');
-    if (url.includes('problemset')) {
-      const pid = url_list[url_list.length - 2] + ' ' + url_list[url_list.length - 1];
+
+    const pid = /\d+/.exec(url).at(0) + ' ' + /[A-Z]/.exec(url).at(0);
+
+    if (!url.includes('group') && (url.includes('problemset') || url.includes('contest'))) {
       task.setName('CF ' + pid);
-    } else if(url.includes('contest')) {
-      const pid = url_list[url_list.length - 3] + ' ' + url_list[url_list.length - 1];
-      task.setName('CF ' + pid);
-    } else if(url.includes('gym')) {
-      const pid = url_list[url_list.length - 3] + ' ' + url_list[url_list.length - 1];
+    } else if (url.includes('gym')) {
       task.setName('CF GYM ' + pid);
     } else {
       task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
