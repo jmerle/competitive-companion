@@ -1,4 +1,5 @@
 import type { Runtime } from 'webextension-polyfill';
+import { version } from '../../package.json';
 import { Message, MessageAction } from '../models/messaging';
 import { browser } from './browser';
 import { sendToBackground } from './messaging';
@@ -11,10 +12,15 @@ export const requiredPermissions: Record<string, string> = {
   'https://judge.beecrowd.com/': 'https://resources.beecrowd.com/*',
 };
 
+const defaultHeaders = {
+  'X-Competitive-Companion': version,
+} as const;
+
 /**
  * Fetches a URL using a GET request and resolves into the HTML body.
  */
 export async function request(url: string, options: RequestInit = {}, retries: number = 3): Promise<string> {
+  options.headers = { ...defaultHeaders, ...options.headers };
   const response = await fetch(url, { credentials: 'include', ...options });
 
   if (response.ok && response.status === 200) {

@@ -17,7 +17,7 @@ A browser extension which parses competitive programming problems from various o
 - [**Chrome** extension][link-cws] [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg?label=%20">][link-cws]
 - [**Firefox** add-on][link-amo] [<img valign="middle" src="https://img.shields.io/amo/v/competitive-companion.svg?label=%20">][link-amo]
 
-## Supported tools
+## Tools that use Competitive Companion
 - [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
 - [AutoCp](https://pushpavel.github.io/AutoCp/)
@@ -264,7 +264,7 @@ The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
 Node.js: 22.10.0  
-PNPM: 9.12.1
+PNPM: 9.13.2
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
