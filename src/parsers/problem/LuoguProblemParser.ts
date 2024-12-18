@@ -38,12 +38,28 @@ export class LuoguProblemParser extends Parser {
     const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
     task.setMemoryLimit(parseInt(memoryLimitStr));
 
-    elem.querySelectorAll('.sample').forEach(sample => {
-      const input = sample.querySelector('.input > pre').textContent;
-      const output = sample.querySelector('.output > pre').textContent;
-
-      task.addTest(input, output);
-    });
+    let c = null;
+    for (const f of elem.querySelectorAll('script')) {
+      const x = f.textContent;
+      if (x.startsWith('window._feInjection')) {
+        try {
+          const h = x.indexOf('"'),
+            m = x.slice(h + 1).indexOf('"'),
+            b = x.slice(h + 1, h + m + 1);
+          console.warn(b);
+          c = JSON.parse(decodeURIComponent(b)).currentData.problem;
+        } catch (err) {
+          console.error(err);
+        }
+        break;
+      }
+    }
+    if (c == null) {
+      throw new Error('Luogu Problem Parser: Failed to find problem data');
+    }
+    for (const f of c.samples) {
+      task.addTest(f[0], f[1]);
+    }
   }
 
   private parseFromScript(task: TaskBuilder, elem: Element): void {
