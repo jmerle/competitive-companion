@@ -15,7 +15,7 @@ export class LanqiaoProblemParser extends Parser {
     const title = doc.querySelector('.course-name').textContent;
     task.setName(title.replace(/\s+/g, ' ').trim());
 
-    const limitStr = doc.querySelector('#运行限制 + table > tbody > tr').textContent;
+    const limitStr = doc.querySelector('#运行限制').nextElementSibling.textContent;
     const [cpu, memory] = limitStr.match(/\d+/g);
     task.setTimeLimit(parseFloat(cpu) * 1000);
     task.setMemoryLimit(parseInt(memory, 10));
