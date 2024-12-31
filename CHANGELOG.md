@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Added support for StarryCoding
 - Added support for the codeforces.net mirror of Codeforces and fixed support for the codeforc.es mirror on problem pages
 - Fixed the Lanqiao problem parser
 - Fixed the Kattis parser for samples containing only output

@@ -128,6 +128,7 @@ import { SeriousOJProblemParser } from './problem/SeriousOJProblemParser';
 import { SortMeProblemParser } from './problem/SortMeProblemParser';
 import { SPOJProblemParser } from './problem/SPOJProblemParser';
 import { SSOIERProblemParser } from './problem/SSOIERProblemParser';
+import { StarryCodingProblemParser } from './problem/StarryCodingProblemParser';
 import { TheJobOverflowProblemParser } from './problem/TheJobOverflowProblemParser';
 import { TimusOnlineJudgeProblemParser } from './problem/TimusOnlineJudgeProblemParser';
 import { TLXProblemParser } from './problem/TLXProblemParser';
@@ -341,6 +342,8 @@ export const parsers: Parser[] = [
   new SPOJProblemParser(),
 
   new SSOIERProblemParser(),
+
+  new StarryCodingProblemParser(),
 
   new TheJobOverflowProblemParser(),
 
