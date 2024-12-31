@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.58.0](https://github.com/jmerle/competitive-companion/releases/tag/2.58.0) (2024-12-31)
 - Added support for StarryCoding
 - Added support for the codeforces.net mirror of Codeforces and fixed support for the codeforc.es mirror on problem pages
 - Fixed the Lanqiao problem parser
