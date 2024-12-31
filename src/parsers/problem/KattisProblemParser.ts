@@ -30,10 +30,13 @@ export class KattisProblemParser extends Parser {
     task.setMemoryLimit(parseInt(/(\d+) MB/.exec(limitsStr)[1], 10));
 
     elem.querySelectorAll('.sample').forEach(table => {
-      const blocks = table.querySelectorAll('pre');
-      if (blocks.length > 0) {
-        task.addTest(blocks[0].textContent, blocks.length > 1 ? blocks[1].textContent : '', false);
-      }
+      const inputBlock = table.querySelector('tbody > tr:last-child > td:first-child > pre');
+      const outputBlock = table.querySelector('tbody > tr:last-child > td:last-child > pre');
+
+      const input = inputBlock !== null ? inputBlock.textContent : '';
+      const output = outputBlock !== null ? outputBlock.textContent : '';
+
+      task.addTest(input, output, false);
     });
 
     return task.build();

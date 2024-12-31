@@ -20,6 +20,6 @@ export class Test {
         .trimEnd();
     }
 
-    return data.endsWith('\n') ? data : data + '\n';
+    return data.endsWith('\n') || data.length === 0 ? data : data + '\n';
   }
 }
