@@ -129,9 +129,9 @@ customPortsInput.addEventListener('input', function (): void {
   const errorElem = document.querySelector('#custom-ports-error');
 
   if (uniquePorts.some(isNaN) || uniquePorts.some(x => x < 0)) {
-    errorElem.classList.add('hidden');
-  } else {
     errorElem.classList.remove('hidden');
+  } else {
+    errorElem.classList.add('hidden');
 
     config.set('customPorts', uniquePorts).then(noop).catch(noop);
   }
