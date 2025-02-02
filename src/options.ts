@@ -7,6 +7,21 @@ const customRulesContainer = document.querySelector<HTMLDivElement>('#custom-rul
 const requestTimeoutInput = document.querySelector<HTMLInputElement>('#request-timeout');
 const debugModeInput = document.querySelector<HTMLInputElement>('#debug-mode');
 
+async function fillCustomValues(): Promise<void> {
+  const customHosts = await config.get('customHosts');
+  const customPorts = await config.get('customPorts');
+  const customRules = await config.get('customRules');
+
+  customHostsInput.value = customHosts.join(',');
+  customPortsInput.value = customPorts.join(',');
+  customRulesContainer.innerHTML = '';
+  for (const rule of customRules) {
+    addCustomRulesRow(rule[0], rule[1]);
+  }
+  addCustomRulesRow();
+}
+window.addEventListener('load', fillCustomValues);
+
 function updateCustomRules(): void {
   const rows = customRulesContainer.querySelectorAll('.custom-rules-row');
   const rules: [string, string][] = [];
