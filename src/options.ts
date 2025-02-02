@@ -1,6 +1,7 @@
 import { config } from './utils/config';
 import { noop } from './utils/noop';
 
+const customHostsInput = document.querySelector<HTMLInputElement>('#custom-hosts');
 const customPortsInput = document.querySelector<HTMLInputElement>('#custom-ports');
 const customRulesContainer = document.querySelector<HTMLDivElement>('#custom-rules-container');
 const requestTimeoutInput = document.querySelector<HTMLInputElement>('#request-timeout');
@@ -96,6 +97,25 @@ function addCustomRulesRow(regex?: string, parserName?: string): void {
 
   customRulesContainer.appendChild(row);
 }
+
+customHostsInput.addEventListener('input', function (): void {
+  const hosts = this.value
+    .split(',')
+    .map(x => x.trim())
+    .filter(x => x.length > 0);
+
+  const uniqueHosts = [...new Set(hosts)];
+
+  const errorElem = document.querySelector('#custom-hosts-error');
+
+  if (uniqueHosts.some(x => x.includes('https://') || x.includes('http://'))) {
+    errorElem.classList.remove('hidden');
+  } else {
+    errorElem.classList.add('hidden');
+
+    config.set('customHosts', uniqueHosts).then(noop).catch(noop);
+  }
+});
 
 customPortsInput.addEventListener('input', function (): void {
   const ports = this.value
