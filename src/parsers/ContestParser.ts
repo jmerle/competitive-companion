@@ -13,7 +13,7 @@ export abstract class ContestParser<T> extends Parser {
 
     const taskPromises: Promise<Task | null>[] = inputs.map((input, i) =>
       this.parseTask(input)
-        .catch(err => {
+        .catch((err: Error): null => {
           console.error(`Failed to parse task ${i + 1}:`, err);
           return null;
         })
