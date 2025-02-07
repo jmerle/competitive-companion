@@ -22,12 +22,13 @@ export class CodeforcesProblemParser extends Parser {
     });
 
     const mlPatterns = patterns.map(pattern => pattern.replace('.com', '.ml'));
-    const esPatterns = patterns.map(pattern => pattern.replace('.com', '.es'));
+    const esPatterns = patterns.map(pattern => pattern.replace('es.com', '.es'));
+    const netPatterns = patterns.map(pattern => pattern.replace('.com', '.net'));
 
-    const httpsPatterns = patterns.concat(mlPatterns).concat(esPatterns);
+    const httpsPatterns = [...patterns, ...mlPatterns, ...esPatterns, ...netPatterns];
     const httpPatterns = httpsPatterns.map(pattern => pattern.replace('https://', 'http://'));
 
-    return httpsPatterns.concat(httpPatterns);
+    return [...httpsPatterns, ...httpPatterns];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

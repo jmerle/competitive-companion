@@ -21,7 +21,21 @@ export async function readPdf(pdfUrl: string): Promise<string[]> {
 
   for (let i = 0; i < pdf._pdfInfo.numPages; i++) {
     const page = await pdf.getPage(i + 1);
-    const textContent = await page.getTextContent();
+
+    let textContent;
+    try {
+      textContent = await page.getTextContent();
+    } catch (err) {
+      if ((err as any)?.message === 'Permission denied to access property "autoAllocateChunkSize"') {
+        console.trace(err);
+        console.warn(
+          'Competitive Companion cannot read PDFs in Firefox due to Firefox bug 1757836: https://bugzilla.mozilla.org/show_bug.cgi?id=1757836',
+        );
+        return [];
+      }
+
+      throw err;
+    }
 
     let currentLine = '';
     let lastX = -1;

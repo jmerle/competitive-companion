@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.58.0](https://github.com/jmerle/competitive-companion/releases/tag/2.58.0) (2024-12-31)
+- Added support for StarryCoding
+- Added support for the codeforces.net mirror of Codeforces and fixed support for the codeforc.es mirror on problem pages
+- Fixed the Lanqiao problem parser
+- Fixed the Kattis parser for samples containing only output
+- Changed the behavior of parsers that need to read PDFs (like the ones on UVa Online Judge) to parse as much of the problem as possible on Firefox, rather than crashing due to [Firefox bug 1757836](https://bugzilla.mozilla.org/show_bug.cgi?id=1757836)
+
 ## [2.57.1](https://github.com/jmerle/competitive-companion/releases/tag/2.57.1) (2024-11-15)
 - Added the `X-Competitive-Companion` header to HTTP requests sent by Competitive Companion to indicate to the receiving end that the request is coming from Competitive Companion (thanks [@touhidurrr](https://github.com/touhidurrr))
 

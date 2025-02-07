@@ -25,9 +25,13 @@ export class CodeforcesContestParser extends SimpleContestParser {
     });
 
     const mlPatterns = patterns.map(pattern => pattern.replace('.com', '.ml'));
-    const esPatterns = patterns.map(pattern => pattern.replace('codeforces.com', 'codeforc.es'));
+    const esPatterns = patterns.map(pattern => pattern.replace('es.com', '.es'));
+    const netPatterns = patterns.map(pattern => pattern.replace('.com', '.net'));
 
-    return patterns.concat(mlPatterns).concat(esPatterns);
+    const httpsPatterns = [...patterns, ...mlPatterns, ...esPatterns, ...netPatterns];
+    const httpPatterns = httpsPatterns.map(pattern => pattern.replace('https://', 'http://'));
+
+    return [...httpsPatterns, ...httpPatterns];
   }
 
   public getRegularExpressions(): RegExp[] {
