@@ -25,11 +25,11 @@ export class EtigerProblemParser extends Parser {
     task.setName(elem.querySelector('.question-list-title > span').textContent.trim());
 
     // const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
-    const timeLimitStr = "1.00s";
+    const timeLimitStr = '1.00s';
     task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
 
     // const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
-    const memoryLimitStr = "512.00MB"
+    const memoryLimitStr = '512.00MB';
     task.setMemoryLimit(parseInt(memoryLimitStr));
 
     elem.querySelectorAll('.question-detail-output-sample-con').forEach(sample => {

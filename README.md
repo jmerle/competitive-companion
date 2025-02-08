@@ -14,10 +14,12 @@
 A browser extension which parses competitive programming problems from various online judges (like AtCoder and Codeforces) and sends them to various tools (like CP Editor and CPH). Capable of parsing problems and contests and extracting data like the example testcases and the time and memory constraints.
 
 ## Install
+
 - [**Chrome** extension][link-cws] [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg?label=%20">][link-cws]
 - [**Firefox** add-on][link-amo] [<img valign="middle" src="https://img.shields.io/amo/v/competitive-companion.svg?label=%20">][link-amo]
 
 ## Tools that use Competitive Companion
+
 - [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
 - [AutoCp](https://pushpavel.github.io/AutoCp/)
@@ -37,118 +39,121 @@ A browser extension which parses competitive programming problems from various o
 - Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
+
 | Website                    | Problem parser | Contest parser |
-|----------------------------|----------------|----------------|
-| 33OJ                       | ✔              | ✔              |
-| A2 Online Judge            | ✔              | ✔              |
-| ACMP                       | ✔              |                |
-| AcWing                     | ✔              |                |
-| Aizu Online Judge          | ✔              |                |
-| Algotester                 | ✔              |                |
-| AlgoZenith                 | ✔              |                |
-| Anarchy Golf               | ✔              |                |
-| AtCoder                    | ✔              | ✔              |
-| Baekjoon Online Judge      | ✔              |                |
-| BAPS OJ                    | ✔              | ✔              |
-| beecrowd                   | ✔              | ✔              |
-| Bloomberg CodeCon          | ✔              |                |
-| BUCTOJ                     | ✔              | ✔              |
-| CodeChef                   | ✔              | ✔              |
-| CodeDrills                 | ✔              |                |
-| Codeforces                 | ✔              | ✔              |
-| CodeMarshal                | ✔              | ✔              |
-| COJ                        | ✔              | ✔              |
-| Contest Hunter             | ✔              | ✔              |
-| CPython.uz                 | ✔              | ✔              |
-| CS Academy                 | ✔              |                |
-| CSES                       | ✔              | ✔              |
-| CSU-ACM Online Judge       | ✔              | ✔              |
-| CYEZOJ                     | ✔              | ✔              |
-| Daimayuan Online Judge     | ✔              | ✔              |
-| Dimik OJ                   | ✔              |                |
-| DMOJ                       | ✔              | ✔              |
-| DOMjudge                   |                | ✔              |
-| Eolymp                     | ✔              | ✔              |
-| ECNU Online Judge          | ✔              | ✔              |
-| FZU Online Judge           | ✔              | ✔              |
-| Google Coding Competitions | ✔              |                |
-| HackerEarth                | ✔              | ✔              |
-| HackerRank                 | ✔              | ✔              |
-| HDOJ                       | ✔              | ✔              |
-| HIT Online Judge           | ✔              |                |
-| hihoCoder                  | ✔              | ✔              |
-| HKOI Online Judge          | ✔              | ✔              |
-| Hrbust Online Judge        | ✔              |                |
-| Hydro                      | ✔              | ✔              |
-| ICPC Live Archive          | ✔              |                |
-| InfoArena                  | ✔              |                |
-| ITCoder HUTECH             | ✔              |                |
-| Jutge                      | ✔              |                |
-| Kattis                     | ✔              | ✔              |
-| Kilonova                   | ✔              | ✔              |
-| Lanqiao                    | ✔              | ✔              |
-| Le Quy Don Online Judge    | ✔              | ✔              |
-| Library Checker            | ✔              |                |
-| LibreOJ                    | ✔              | ✔              |
-| LightOJ                    | ✔              | ✔              |
-| LSYOI                      | ✔              |                |
-| Luogu                      | ✔              | ✔              |
-| Mendo                      | ✔              |                |
-| Meta Coding Competitions   | ✔              |                |
-| MOI Arena                  | ✔              | ✔              |
-| mrJudge                    | ✔              |                |
-| MSK Informatics            | ✔              |                |
-| NBUT Online Judge          | ✔              | ✔              |
-| Neps Academy               | ✔              |                |
-| NerdArena                  | ✔              |                |
-| Newton School              | ✔              |                |
-| NOJ                        | ✔              | ✔              |
-| NowCoder                   | ✔              |                |
-| NYTD Online Judge          | ✔              | ✔              |
-| oiClass                    | ✔              | ✔              |
-| omegaUp                    | ✔              |                |
-| OpenJudge                  | ✔              | ✔              |
-| OTOG                       | ✔              |                |
-| Panda Online Judge         | ✔              |                |
-| PBInfo                     | ✔              |                |
-| PEG Judge                  | ✔              | ✔              |
-| POJ                        | ✔              | ✔              |
-| PTA                        | ✔              |                |
-| Public Judge               | ✔              | ✔              |
-| QBXTOJ                     | ✔              |                |
-| QDUOJ                      | ✔              | ✔              |
-| QQWhale                    | ✔              |                |
-| RoboContest                | ✔              | ✔              |
-| SDUT OnlineJudge           | ✔              |                |
-| SeriousOJ                  | ✔              | ✔              |
-| Sort Me                    | ✔              |                |
-| SPOJ                       | ✔              |                |
-| SSOIER                     | ✔              |                |
-| StarryCoding               | ✔              |                |
-| TheJobOverflow             | ✔              |                |
-| Timus Online Judge         | ✔              | ✔              |
-| TLX                        | ✔              | ✔              |
-| Toph                       | ✔              |                |
-| uDebug                     | ✔              |                |
-| Universal Cup              | ✔              | ✔              |
-| UOJ                        | ✔              | ✔              |
-| USACO                      | ✔              |                |
-| USACO Training             | ✔              |                |
-| UVa Online Judge           | ✔              |                |
-| Virtual Judge              | ✔              | ✔              |
-| VNOI Online Judge          | ✔              | ✔              |
-| Yandex                     | ✔              | ✔              |
-| XXM                        | ✔              |                |
-| yukicoder                  | ✔              | ✔              |
-| ZOJ                        | ✔              |                |
-| ZUFEOJ                     | ✔              | ✔              |
+| -------------------------- | -------------- | -------------- |
+| 33OJ                       | ✔             | ✔             |
+| A2 Online Judge            | ✔             | ✔             |
+| ACMP                       | ✔             |                |
+| AcWing                     | ✔             |                |
+| Aizu Online Judge          | ✔             |                |
+| Algotester                 | ✔             |                |
+| AlgoZenith                 | ✔             |                |
+| Anarchy Golf               | ✔             |                |
+| AtCoder                    | ✔             | ✔             |
+| Baekjoon Online Judge      | ✔             |                |
+| BAPS OJ                    | ✔             | ✔             |
+| beecrowd                   | ✔             | ✔             |
+| Bloomberg CodeCon          | ✔             |                |
+| BUCTOJ                     | ✔             | ✔             |
+| CodeChef                   | ✔             | ✔             |
+| CodeDrills                 | ✔             |                |
+| Codeforces                 | ✔             | ✔             |
+| CodeMarshal                | ✔             | ✔             |
+| COJ                        | ✔             | ✔             |
+| Contest Hunter             | ✔             | ✔             |
+| CPython.uz                 | ✔             | ✔             |
+| CS Academy                 | ✔             |                |
+| CSES                       | ✔             | ✔             |
+| CSU-ACM Online Judge       | ✔             | ✔             |
+| CYEZOJ                     | ✔             | ✔             |
+| Daimayuan Online Judge     | ✔             | ✔             |
+| Dimik OJ                   | ✔             |                |
+| DMOJ                       | ✔             | ✔             |
+| DOMjudge                   |                | ✔             |
+| Eolymp                     | ✔             | ✔             |
+| ECNU Online Judge          | ✔             | ✔             |
+| FZU Online Judge           | ✔             | ✔             |
+| Google Coding Competitions | ✔             |                |
+| HackerEarth                | ✔             | ✔             |
+| HackerRank                 | ✔             | ✔             |
+| HDOJ                       | ✔             | ✔             |
+| HIT Online Judge           | ✔             |                |
+| hihoCoder                  | ✔             | ✔             |
+| HKOI Online Judge          | ✔             | ✔             |
+| Hrbust Online Judge        | ✔             |                |
+| Hydro                      | ✔             | ✔             |
+| ICPC Live Archive          | ✔             |                |
+| InfoArena                  | ✔             |                |
+| ITCoder HUTECH             | ✔             |                |
+| Jutge                      | ✔             |                |
+| Kattis                     | ✔             | ✔             |
+| Kilonova                   | ✔             | ✔             |
+| Lanqiao                    | ✔             | ✔             |
+| Le Quy Don Online Judge    | ✔             | ✔             |
+| Library Checker            | ✔             |                |
+| LibreOJ                    | ✔             | ✔             |
+| LightOJ                    | ✔             | ✔             |
+| LSYOI                      | ✔             |                |
+| Luogu                      | ✔             | ✔             |
+| Mendo                      | ✔             |                |
+| Meta Coding Competitions   | ✔             |                |
+| MOI Arena                  | ✔             | ✔             |
+| mrJudge                    | ✔             |                |
+| MSK Informatics            | ✔             |                |
+| NBUT Online Judge          | ✔             | ✔             |
+| Neps Academy               | ✔             |                |
+| NerdArena                  | ✔             |                |
+| Newton School              | ✔             |                |
+| NOJ                        | ✔             | ✔             |
+| NowCoder                   | ✔             |                |
+| NYTD Online Judge          | ✔             | ✔             |
+| oiClass                    | ✔             | ✔             |
+| omegaUp                    | ✔             |                |
+| OpenJudge                  | ✔             | ✔             |
+| OTOG                       | ✔             |                |
+| Panda Online Judge         | ✔             |                |
+| PBInfo                     | ✔             |                |
+| PEG Judge                  | ✔             | ✔             |
+| POJ                        | ✔             | ✔             |
+| PTA                        | ✔             |                |
+| Public Judge               | ✔             | ✔             |
+| QBXTOJ                     | ✔             |                |
+| QDUOJ                      | ✔             | ✔             |
+| QQWhale                    | ✔             |                |
+| RoboContest                | ✔             | ✔             |
+| SDUT OnlineJudge           | ✔             |                |
+| SeriousOJ                  | ✔             | ✔             |
+| Sort Me                    | ✔             |                |
+| SPOJ                       | ✔             |                |
+| SSOIER                     | ✔             |                |
+| StarryCoding               | ✔             |                |
+| TheJobOverflow             | ✔             |                |
+| Timus Online Judge         | ✔             | ✔             |
+| TLX                        | ✔             | ✔             |
+| Toph                       | ✔             |                |
+| uDebug                     | ✔             |                |
+| Universal Cup              | ✔             | ✔             |
+| UOJ                        | ✔             | ✔             |
+| USACO                      | ✔             |                |
+| USACO Training             | ✔             |                |
+| UVa Online Judge           | ✔             |                |
+| Virtual Judge              | ✔             | ✔             |
+| VNOI Online Judge          | ✔             | ✔             |
+| Yandex                     | ✔             | ✔             |
+| XXM                        | ✔             |                |
+| yukicoder                  | ✔             | ✔             |
+| ZOJ                        | ✔             |                |
+| ZUFEOJ                     | ✔             | ✔             |
 
 ## Custom tools
+
 Competitive Companion can send the parsed data in JSON format to your own tools. To do this, start an HTTP server listening for POST requests to / on any of the ports listed in [`./src/hosts/hosts.ts`](./src/hosts/hosts.ts). An example on how to accomplish this can be found in [jmerle/competitive-companion-example](https://github.com/jmerle/competitive-companion-example).
 
 If you want your own tool added to the released version of Competitive Companion, [create an issue](https://github.com/jmerle/competitive-companion/issues/new) in this repository specifying the name and a link to the tool.
 
 ### The format
+
 Here's an example of the data sent when parsing [Codeforces 954G](https://codeforces.com/problemset/problem/954/G):
 
 ```json
@@ -221,6 +226,7 @@ It's not required for a tool to parse all these options, since some of them are 
     - **size**: The size of the batch, which is 1 when using a problem parser and the amount of problems in the contest when using a contest parser.
 
 ## Running locally
+
 The following commands can be used to start working on Competitive Companion locally. Additionally, make sure you got [Node.js](https://nodejs.org/en/) and [PNPM](https://pnpm.io/) installed.
 
 ```bash
@@ -258,16 +264,19 @@ pnpm dev:firefox
 ```
 
 ## Testing
+
 To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with the Chrome instance visible. Append `-- -t <pattern>` to the command to only run tests with names matching the given pattern.
 
 ## Mozilla reviewers
+
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
 Node.js: 22.12.0  
 PNPM: 9.15.2
 
-Third-party libraries that can be found in the minified extension:  
+Third-party libraries that can be found in the minified extension:
+
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
 - [snarkdown 2.0.0](https://github.com/developit/snarkdown/blob/2.0.0/src/index.js)
 - [pdfjs-dist 4.2.67](https://cdn.jsdelivr.net/npm/pdfjs-dist@4.2.67/build/pdf.mjs)
