@@ -30,35 +30,30 @@ export class LuoguProblemParser extends Parser {
     const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
     task.setMemoryLimit(parseInt(memoryLimitStr));
 
-    elem.querySelectorAll('.sample').forEach(sample => {
-      const input = sample.querySelector('.input > pre').textContent;
-      const output = sample.querySelector('.output > pre').textContent;
+    elem.querySelectorAll('.io-sample').forEach(sample => {
+      const input = sample.querySelector('div:nth-child(1) > pre.lfe-code').textContent;
+      const output = sample.querySelector('div:nth-child(2) > pre.lfe-code').textContent;
 
       task.addTest(input, output);
     });
   }
 
   private parseFromScript(task: TaskBuilder, elem: Element): void {
-    for (const scriptElem of elem.querySelectorAll('script')) {
-      const script = scriptElem.textContent;
-      if (script.startsWith('window._feInjection')) {
-        const startQuoteIndex = script.indexOf('"');
-        const endQuoteIndex = script.substr(startQuoteIndex + 1).indexOf('"');
-        const encodedData = script.substr(startQuoteIndex + 1, endQuoteIndex);
+    const jsonElem = elem.querySelector('#lentille-context');
+    if (jsonElem) {
+      const json = jsonElem.textContent;
+      const data = JSON.parse(json).data.problem;
 
-        const data = JSON.parse(decodeURIComponent(encodedData)).currentData.problem;
+      task.setName(`${data.pid} ${data.title}`.trim());
 
-        task.setName(`${data.pid} ${data.title}`.trim());
+      task.setTimeLimit(Math.max(...data.limits.time));
+      task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);
 
-        task.setTimeLimit(Math.max(...data.limits.time));
-        task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);
-
-        for (const sample of data.samples) {
-          task.addTest(sample[0], sample[1]);
-        }
-
-        return;
+      for (const sample of data.samples) {
+        task.addTest(sample[0], sample[1]);
       }
+
+      return;
     }
 
     throw new Error('Failed to find problem data');
