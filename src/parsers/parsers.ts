@@ -25,6 +25,7 @@ import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { HKOIOnlineJudgeContestParser } from './contest/HKOIOnlineJudgeContestParser';
 import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
+import { KEPUZContestParser } from './contest/KEPUZContestParser';
 import { KilonovaContestParser } from './contest/KilonovaContestParser';
 import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
@@ -95,6 +96,7 @@ import { InfoArenaProblemParser } from './problem/InfoArenaProblemParser';
 import { ITCoderHUTECHProblemParser } from './problem/ITCoderHUTECHProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
+import { KEPUZProblemParser } from './problem/KEPUZProblemParser';
 import { KilonovaProblemParser } from './problem/KilonovaProblemParser';
 import { LanqiaoProblemParser } from './problem/LanqiaoProblemParser';
 import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProblemParser';
@@ -267,6 +269,9 @@ export const parsers: Parser[] = [
 
   new KattisProblemParser(),
   new KattisContestParser(),
+
+  new KEPUZProblemParser(),
+  new KEPUZContestParser(),
 
   new KilonovaProblemParser(),
   new KilonovaContestParser(),

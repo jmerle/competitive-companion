@@ -86,6 +86,7 @@ A browser extension which parses competitive programming problems from various o
 | ITCoder HUTECH             | ✔              |                |
 | Jutge                      | ✔              |                |
 | Kattis                     | ✔              | ✔              |
+| KEP.uz                     | ✔              | ✔              |
 | Kilonova                   | ✔              | ✔              |
 | Lanqiao                    | ✔              | ✔              |
 | Le Quy Don Online Judge    | ✔              | ✔              |
