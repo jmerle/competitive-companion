@@ -141,6 +141,7 @@ import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
 import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemParser';
 import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
+import { XCampProblemParser } from './problem/XCampProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
@@ -373,6 +374,8 @@ export const parsers: Parser[] = [
 
   new VirtualJudgeProblemParser(),
   new VirtualJudgeContestParser(),
+
+  new XCampProblemParser(),
 
   new XXMProblemParser(),
 
