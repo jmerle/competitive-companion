@@ -32,7 +32,6 @@ await Promise.all(
           homepage_url: packageJson.repository,
 
           permissions: ['activeTab', 'contextMenus', 'storage', 'scripting'],
-          host_permissions: ['http://localhost/'],
 
           icons: {
             '16': 'icons/icon-16.png',
