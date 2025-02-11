@@ -3,8 +3,7 @@ import { CHelperHost } from './CHelperHost';
 import { CustomHost } from './CustomHost';
 import { Host } from './Host';
 
-const defaultHosts: Host[] = [new CHelperHost()];
-const defaultHostnames = ['localhost'];
+const defaultHosts = ['localhost'];
 const defaultPorts = [
   1327, // cpbooster
   4244, // Hightail
@@ -16,18 +15,18 @@ const defaultPorts = [
 ];
 
 export async function getHosts(): Promise<Host[]> {
-  const customHostnames = await config.get('customHosts');
-  const uniqueHostnames = [...new Set(defaultHostnames.concat(customHostnames))];
+  const customHosts = await config.get('customHosts');
+  const uniqueHosts = [...new Set(defaultHosts.concat(customHosts))];
 
   const customPorts = await config.get('customPorts');
   const uniquePorts = [...new Set(defaultPorts.concat(customPorts))];
 
-  const hosts: CustomHost[] = [];
-  uniqueHostnames.map(hostname => {
+  const hosts: Host[] = [new CHelperHost()];
+  uniqueHosts.map(host => {
     uniquePorts.map(port => {
-      hosts.push(new CustomHost(hostname, port));
+      hosts.push(new CustomHost(host, port));
     });
   });
 
-  return defaultHosts.concat(hosts);
+  return hosts;
 }
