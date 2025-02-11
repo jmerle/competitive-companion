@@ -139,7 +139,7 @@ A browser extension which parses competitive programming problems from various o
 | VNOI Online Judge          | ✔              | ✔              |
 | Yandex                     | ✔              | ✔              |
 | XXM                        | ✔              |                |
-| X-Camp                        | ✔              |                |
+| X-Camp                     | ✔              |                |
 | yukicoder                  | ✔              | ✔              |
 | ZOJ                        | ✔              |                |
 | ZUFEOJ                     | ✔              | ✔              |

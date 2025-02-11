@@ -13,10 +13,9 @@ export class XCampProblemParser extends Parser {
     const task = new TaskBuilder('X-Camp').setUrl(url);
 
     const nameElem = elem.querySelector('h4.contest-ant-typography');
-    task.setName(nameElem.textContent.replace( /\s\s+/g, ' ' ).trim());
+    task.setName(nameElem.textContent.replace(/\s\s+/g, ' ').trim());
 
-    const blocks = [...elem.querySelectorAll('.contest-ant-typography-copy')]
-      .map(elem => elem.parentElement);
+    const blocks = [...elem.querySelectorAll('.contest-ant-typography-copy')].map(elem => elem.parentElement);
 
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
