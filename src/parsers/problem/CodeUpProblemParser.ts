@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class CodeUpProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://codeup.kr/problem.php*'];
+    return ['https://codeup.kr/problem.php*', 'https://www.codeup.kr/problem.php*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
