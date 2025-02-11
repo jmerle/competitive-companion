@@ -13,6 +13,7 @@ export abstract class Host {
       await fetch(url, {
         method: 'POST',
         signal: abortController.signal,
+        mode: 'no-cors',
         ...options,
       });
     } catch (err) {

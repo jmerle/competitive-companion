@@ -44,8 +44,7 @@ function createContextMenu(): void {
 }
 
 async function loadContentScript(tab: Tabs.Tab, parserName: string): Promise<void> {
-  const permissionOrigins: string[] = ['http://localhost/'];
-
+  const permissionOrigins: string[] = [];
   for (const prefix in requiredPermissions) {
     if (tab.url.startsWith(prefix)) {
       permissionOrigins.push(requiredPermissions[prefix]);
@@ -78,16 +77,6 @@ function onContextMenu(info: Menus.OnClickData, tab: Tabs.Tab): void {
 }
 
 async function sendTask(tabId: number, messageId: string, data: string): Promise<void> {
-  const permissionGranted = await browser.permissions.contains({ origins: ['http://localhost/'] });
-  if (!permissionGranted) {
-    sendToContent(tabId, MessageAction.SendTaskFailed, {
-      messageId,
-      message: 'Competitive Companion does not have permission to send problems to localhost',
-    });
-
-    return;
-  }
-
   try {
     const hosts = await getHosts();
 
