@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.59.0](https://github.com/jmerle/competitive-companion/releases/tag/2.59.0) (2025-02-12)
+- Added support for MarisaOJ, X-Camp, CodeUp, KEP.uz, and CodeRun (thanks [@dqhieuu](https://github.com/dqhieuu) for the MarisaOJ parser and [@AksLolCoding](https://github.com/AksLolCoding) for the X-Camp parser)
+- Added support for sending extracted problem data to custom hosts, configured on the extension's options page (thanks [@Koderpark](https://github.com/Koderpark))
+- Added support for Kattis problems in courses (thanks [@ericli18](https://github.com/ericli18))
+- Fixed the Luogu parser
+- Fixed the parsing of Library Checker sample cases
+
 ## [2.58.0](https://github.com/jmerle/competitive-companion/releases/tag/2.58.0) (2024-12-31)
 - Added support for StarryCoding
 - Added support for the codeforces.net mirror of Codeforces and fixed support for the codeforc.es mirror on problem pages
