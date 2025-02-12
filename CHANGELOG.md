@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.60.0](https://github.com/jmerle/competitive-companion/releases/tag/2.60.0) (2025-02-12)
+- Added support for A.Y. Jackson Online Judge (thanks [@aicheye](https://github.com/aicheye))
+- Removed support for custom hosts introduced 2.59.0 as it breaks CP Editor's Competitive Companion integration
+
 ## [2.59.0](https://github.com/jmerle/competitive-companion/releases/tag/2.59.0) (2025-02-12)
 - Added support for MarisaOJ, X-Camp, CodeUp, KEP.uz, and CodeRun (thanks [@dqhieuu](https://github.com/dqhieuu) for the MarisaOJ parser and [@AksLolCoding](https://github.com/AksLolCoding) for the X-Camp parser)
 - Added support for sending extracted problem data to custom hosts, configured on the extension's options page (thanks [@Koderpark](https://github.com/Koderpark))
