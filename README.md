@@ -48,6 +48,7 @@ A browser extension which parses competitive programming problems from various o
 | AlgoZenith                 | ✔              |                |
 | Anarchy Golf               | ✔              |                |
 | AtCoder                    | ✔              | ✔              |
+| A.Y. Jackson Online Judge  | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              |                |
 | BAPS OJ                    | ✔              | ✔              |
 | beecrowd                   | ✔              | ✔              |
