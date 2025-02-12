@@ -9,6 +9,7 @@ export class DMOJProblemParser extends Parser {
     'arena.moi': 'MOI Arena',
     'lqdoj.edu.vn': 'Le Quy Don Online Judge',
     'oj.vnoi.info': 'VNOI Online Judge',
+    'ayjcoding.club': 'A.Y. Jackson Online Judge',
   };
 
   public getMatchPatterns(): string[] {
