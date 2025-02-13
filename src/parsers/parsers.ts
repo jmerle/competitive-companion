@@ -32,6 +32,7 @@ import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
 import { LightOJContestParser } from './contest/LightOJContestParser';
 import { LuoguContestParser } from './contest/LuoguContestParser';
+import { MarisaOJContestParser } from './contest/MarisaOJContestParser';
 import { NBUTOnlineJudgeContestParser } from './contest/NBUTOnlineJudgeContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
 import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
@@ -299,6 +300,7 @@ export const parsers: Parser[] = [
   new LuoguContestParser(),
 
   new MarisaOJProblemParser(),
+  new MarisaOJContestParser(),
 
   new MendoProblemParser(),
 
