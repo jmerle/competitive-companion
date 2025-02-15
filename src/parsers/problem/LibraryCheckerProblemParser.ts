@@ -21,10 +21,10 @@ export class LibraryCheckerProblemParser extends Parser {
 
     task.setMemoryLimit(1024);
 
-    const blocks = container.querySelectorAll('.uk-grid-small > div > pre');
-    for (let i = 0; i < blocks.length - 1; i += 2) {
-      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
-    }
+    container.querySelectorAll('pre + pre').forEach(outputBlock => {
+      const inputBlock = outputBlock.previousElementSibling;
+      task.addTest(inputBlock.textContent, outputBlock.textContent);
+    });
 
     return task.build();
   }

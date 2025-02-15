@@ -7,6 +7,7 @@ export class KattisProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
       'https://*.kattis.com/problems/*',
+      'https://*.kattis.com/*/problems/*',
       'https://*.kattis.com/contests/*/problems/*',
       'https://*.kattis.com/sessions/*/problems/*',
       'https://*.kattis.com/challenge/*',

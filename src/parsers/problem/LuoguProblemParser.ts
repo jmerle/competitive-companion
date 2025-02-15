@@ -38,53 +38,23 @@ export class LuoguProblemParser extends Parser {
     const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
     task.setMemoryLimit(parseInt(memoryLimitStr));
 
-    let c = null;
-    for (const f of elem.querySelectorAll('script')) {
-      const x = f.textContent;
-      if (x.startsWith('window._feInjection')) {
-        try {
-          const h = x.indexOf('"'),
-            m = x.slice(h + 1).indexOf('"'),
-            b = x.slice(h + 1, h + m + 1);
-          console.warn(b);
-          c = JSON.parse(decodeURIComponent(b)).currentData.problem;
-        } catch (err) {
-          console.error(err);
-        }
-        break;
-      }
-    }
-    if (c == null) {
-      throw new Error('Luogu Problem Parser: Failed to find problem data');
-    }
-    for (const f of c.samples) {
-      task.addTest(f[0], f[1]);
-    }
+    elem.querySelectorAll('.io-sample').forEach(sample => {
+      const blocks = sample.querySelectorAll('pre');
+      task.addTest(blocks[0].textContent, blocks[1].textContent);
+    });
   }
 
   private parseFromScript(task: TaskBuilder, elem: Element): void {
-    for (const scriptElem of elem.querySelectorAll('script')) {
-      const script = scriptElem.textContent;
-      if (script.startsWith('window._feInjection')) {
-        const startQuoteIndex = script.indexOf('"');
-        const endQuoteIndex = script.substr(startQuoteIndex + 1).indexOf('"');
-        const encodedData = script.substr(startQuoteIndex + 1, endQuoteIndex);
+    const script = elem.querySelector('#lentille-context').textContent;
+    const data = JSON.parse(script).data.problem;
 
-        const data = JSON.parse(decodeURIComponent(encodedData)).currentData.problem;
+    task.setName(`${data.pid} ${data.title}`.trim());
 
-        task.setName(`${data.pid} ${data.title}`.trim());
+    task.setTimeLimit(Math.max(...data.limits.time));
+    task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);
 
-        task.setTimeLimit(Math.max(...data.limits.time));
-        task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);
-
-        for (const sample of data.samples) {
-          task.addTest(sample[0], sample[1]);
-        }
-
-        return;
-      }
+    for (const sample of data.samples) {
+      task.addTest(sample[0], sample[1]);
     }
-
-    throw new Error('Failed to find problem data');
   }
 }

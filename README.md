@@ -48,6 +48,7 @@ A browser extension which parses competitive programming problems from various o
 | AlgoZenith                 | ✔              |                |
 | Anarchy Golf               | ✔              |                |
 | AtCoder                    | ✔              | ✔              |
+| A.Y. Jackson Online Judge  | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              |                |
 | BAPS OJ                    | ✔              | ✔              |
 | beecrowd                   | ✔              | ✔              |
@@ -57,6 +58,8 @@ A browser extension which parses competitive programming problems from various o
 | CodeDrills                 | ✔              |                |
 | Codeforces                 | ✔              | ✔              |
 | CodeMarshal                | ✔              | ✔              |
+| CodeRun                    | ✔              | ✔              |
+| CodeUp                     | ✔              |                |
 | COJ                        | ✔              | ✔              |
 | Contest Hunter             | ✔              | ✔              |
 | CPython.uz                 | ✔              | ✔              |
@@ -85,6 +88,7 @@ A browser extension which parses competitive programming problems from various o
 | ITCoder HUTECH             | ✔              |                |
 | Jutge                      | ✔              |                |
 | Kattis                     | ✔              | ✔              |
+| KEP.uz                     | ✔              | ✔              |
 | Kilonova                   | ✔              | ✔              |
 | Lanqiao                    | ✔              | ✔              |
 | Le Quy Don Online Judge    | ✔              | ✔              |
@@ -93,6 +97,7 @@ A browser extension which parses competitive programming problems from various o
 | LightOJ                    | ✔              | ✔              |
 | LSYOI                      | ✔              |                |
 | Luogu                      | ✔              | ✔              |
+| MarisaOJ                   | ✔              |                |
 | Mendo                      | ✔              |                |
 | Meta Coding Competitions   | ✔              |                |
 | MOI Arena                  | ✔              | ✔              |
@@ -139,6 +144,7 @@ A browser extension which parses competitive programming problems from various o
 | VNOI Online Judge          | ✔              | ✔              |
 | Yandex                     | ✔              | ✔              |
 | XXM                        | ✔              |                |
+| X-Camp                     | ✔              |                |
 | yukicoder                  | ✔              | ✔              |
 | ZOJ                        | ✔              |                |
 | ZUFEOJ                     | ✔              | ✔              |
@@ -265,7 +271,7 @@ The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
 Node.js: 22.12.0  
-PNPM: 9.15.2
+PNPM: 10.2.0
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)

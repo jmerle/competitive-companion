@@ -6,6 +6,7 @@ import { BUCTOJContestParser } from './contest/BUCTOJContestParser';
 import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { CodeMarshalContestParser } from './contest/CodeMarshalContestParser';
+import { CodeRunContestParser } from './contest/CodeRunContestParser';
 import { COJContestParser } from './contest/COJContestParser';
 import { ContestHunterContestParser } from './contest/ContestHunterContestParser';
 import { CPythonUZContestParser } from './contest/CPythonUZContestParser';
@@ -25,6 +26,7 @@ import { HihoCoderContestParser } from './contest/HihoCoderContestParser';
 import { HKOIOnlineJudgeContestParser } from './contest/HKOIOnlineJudgeContestParser';
 import { HydroContestParser } from './contest/HydroContestParser';
 import { KattisContestParser } from './contest/KattisContestParser';
+import { KEPUZContestParser } from './contest/KEPUZContestParser';
 import { KilonovaContestParser } from './contest/KilonovaContestParser';
 import { LanqiaoContestParser } from './contest/LanqiaoContestParser';
 import { LibreOJContestParser } from './contest/LibreOJContestParser';
@@ -67,6 +69,8 @@ import { CodeChefOldProblemParser } from './problem/CodeChefOldProblemParser';
 import { CodeDrillsProblemParser } from './problem/CodeDrillsProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
+import { CodeRunProblemParser } from './problem/CodeRunProblemParser';
+import { CodeUpProblemParser } from './problem/CodeUpProblemParser';
 import { COGSOnlineJudgeProblemParser } from './problem/COGSOnlineJudgeProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser';
@@ -96,6 +100,7 @@ import { InfoArenaProblemParser } from './problem/InfoArenaProblemParser';
 import { ITCoderHUTECHProblemParser } from './problem/ITCoderHUTECHProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
+import { KEPUZProblemParser } from './problem/KEPUZProblemParser';
 import { KilonovaProblemParser } from './problem/KilonovaProblemParser';
 import { LanqiaoProblemParser } from './problem/LanqiaoProblemParser';
 import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProblemParser';
@@ -104,6 +109,7 @@ import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
 import { LSYOIProblemParser } from './problem/LSYOIProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
+import { MarisaOJProblemParser } from './problem/MarisaOJProblemParser';
 import { MendoProblemParser } from './problem/MendoProblemParser';
 import { MetaCodingCompetitionsProblemParser } from './problem/MetaCodingCompetitionsProblemParser';
 import { MrJudgeProblemParser } from './problem/MrJudgeProblemParser';
@@ -142,6 +148,7 @@ import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
 import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemParser';
 import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
+import { XCampProblemParser } from './problem/XCampProblemParser';
 import { XinyouduiOJProblemParser } from './problem/XinyouduiOJProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
@@ -194,6 +201,11 @@ export const parsers: Parser[] = [
 
   new CodeMarshalProblemParser(),
   new CodeMarshalContestParser(),
+
+  new CodeRunProblemParser(),
+  new CodeRunContestParser(),
+
+  new CodeUpProblemParser(),
 
   new COGSOnlineJudgeProblemParser(),
 
@@ -270,6 +282,9 @@ export const parsers: Parser[] = [
   new KattisProblemParser(),
   new KattisContestParser(),
 
+  new KEPUZProblemParser(),
+  new KEPUZContestParser(),
+
   new KilonovaProblemParser(),
   new KilonovaContestParser(),
 
@@ -289,6 +304,8 @@ export const parsers: Parser[] = [
 
   new LuoguProblemParser(),
   new LuoguContestParser(),
+
+  new MarisaOJProblemParser(),
 
   new MendoProblemParser(),
 
@@ -377,6 +394,8 @@ export const parsers: Parser[] = [
 
   new VirtualJudgeProblemParser(),
   new VirtualJudgeContestParser(),
+
+  new XCampProblemParser(),
 
   new XinyouduiOJProblemParser(),
 
