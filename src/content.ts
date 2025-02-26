@@ -2,12 +2,12 @@
 import Nanobar from 'nanobar';
 import type { Runtime } from 'webextension-polyfill';
 import { Message, MessageAction } from './models/messaging';
+import { Reporter } from './models/TaskBuilder';
 import { Parser } from './parsers/Parser';
 import { parsers } from './parsers/parsers';
 import { browser } from './utils/browser';
 import { config } from './utils/config';
 import { noop } from './utils/noop';
-import { Reporter } from './models/TaskBuilder';
 
 declare global {
   interface Window {

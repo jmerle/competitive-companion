@@ -11,8 +11,8 @@ const cyrillicToLatin = cyrillicToTranslit();
 
 export class Reporter {
   public message: string;
-  
-  constructor(message: string) {
+
+  public constructor(message: string) {
     this.message = message;
   }
 }
