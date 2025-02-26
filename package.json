@@ -51,7 +51,7 @@
     "chrome-launcher": "^1.1.2",
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.0",
     "eslint": "9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-formatter-codeframe": "^7.32.1",
