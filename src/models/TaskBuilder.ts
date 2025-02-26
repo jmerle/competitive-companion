@@ -9,6 +9,14 @@ import { TestType } from './TestType';
 
 const cyrillicToLatin = cyrillicToTranslit();
 
+export class Reporter {
+  public message: string;
+  
+  constructor(message: string) {
+    this.message = message;
+  }
+}
+
 export class TaskBuilder {
   public name: string = '';
 
@@ -47,6 +55,9 @@ export class TaskBuilder {
 
   public setName(name: string): TaskBuilder {
     this.name = prompt('Please set a name for this problem:', name);
+    if (this.name == null) {
+      throw new Reporter('Parser was cancelled by user.');
+    }
     return this.updateJavaTaskClassFromName();
   }
 

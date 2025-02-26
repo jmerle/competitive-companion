@@ -7,6 +7,7 @@ import { parsers } from './parsers/parsers';
 import { browser } from './utils/browser';
 import { config } from './utils/config';
 import { noop } from './utils/noop';
+import { Reporter } from './models/TaskBuilder';
 
 declare global {
   interface Window {
@@ -72,13 +73,17 @@ async function parse(parser: Parser): Promise<void> {
   } catch (err) {
     console.error(err);
 
-    alert(
-      [
-        `Something went wrong while running Competitive Companion Customized's ${parser.constructor.name}.`,
-        'Open the browser console to see the error.',
-        'Please open an issue at https://github.com/lnw143/competitive-companion-customized/issues if you think this is a bug (make sure to include a link to this page).',
-      ].join(' '),
-    );
+    if (err instanceof Reporter) {
+      alert(err.message);
+    } else {
+      alert(
+        [
+          `Something went wrong while running Competitive Companion Customized's ${parser.constructor.name}.`,
+          'Open the browser console to see the error.',
+          'Please open an issue at https://github.com/lnw143/competitive-companion-customized/issues if you think this is a bug (make sure to include a link to this page).',
+        ].join(' '),
+      );
+    }
   }
 
   if (bar.total < 100) {
