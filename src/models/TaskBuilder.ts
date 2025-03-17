@@ -169,8 +169,6 @@ export class TaskBuilder {
   }
 
   public build(): Task {
-    console.warn('here', this.name);
-
     return new Task(
       this.name,
       this.group,
