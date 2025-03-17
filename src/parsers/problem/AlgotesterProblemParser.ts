@@ -13,7 +13,7 @@ export class AlgotesterProblemParser extends Parser {
     const task = new TaskBuilder('Algotester').setUrl(url);
 
     const nameElem = elem.querySelector('.problem-name');
-    task.setName(nameElem.textContent);
+    await task.setName(nameElem.textContent);
 
     const limitsStr = nameElem.nextElementSibling.nextElementSibling.textContent;
     const limits = [...limitsStr.matchAll(/(\d+)/g)].map(v => parseInt(v[1]));

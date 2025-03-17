@@ -14,7 +14,7 @@ export class HDOJNewProblemParser extends Parser {
 
     const sidebar = elem.querySelector('.problem-sidebar');
 
-    task.setName(sidebar.querySelector('h3').textContent);
+    await task.setName(sidebar.querySelector('h3').textContent);
 
     const limits = sidebar.querySelectorAll('.info-value');
 

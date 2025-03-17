@@ -12,7 +12,7 @@ export class NewtonSchoolProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Newton School').setUrl(url);
 
-    task.setName(elem.querySelector('.question-title > div').textContent.trim().split(' (')[0]);
+    await task.setName(elem.querySelector('.question-title > div').textContent.trim().split(' (')[0]);
     task.setCategory(elem.querySelector('.playground-title').textContent.trim().split(' - ')[0]);
 
     const limitsStr = elem.querySelector('.question-limits').textContent;

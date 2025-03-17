@@ -52,17 +52,17 @@ export class CodeforcesProblemParser extends Parser {
     return task.build();
   }
 
-  private parseMainProblem(html: string, url: string, task: TaskBuilder): void {
+  private async parseMainProblem(html: string, url: string, task: TaskBuilder): Promise<void> {
     const elem = htmlToElement(html);
 
     const pid = /\d+/.exec(url).at(0) + ' ' + /[A-Z]/.exec(url).at(0);
 
     if (!url.includes('group') && (url.includes('problemset') || url.includes('contest'))) {
-      task.setName('CF ' + pid);
+      await task.setName('CF ' + pid);
     } else if (url.includes('gym')) {
-      task.setName('CF GYM ' + pid);
+      await task.setName('CF GYM ' + pid);
     } else {
-      task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
+      await task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
     }
 
     if (url.includes('/edu/')) {
@@ -129,10 +129,10 @@ export class CodeforcesProblemParser extends Parser {
     return [...lines].map(el => decodeHtml(el.innerHTML)).join('\n');
   }
 
-  private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder): void {
+  private async parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder): Promise<void> {
     const elem = htmlToElement(html);
 
-    task.setName(elem.querySelector('.problemindexholder h3').textContent.trim());
+    await task.setName(elem.querySelector('.problemindexholder h3').textContent.trim());
     task.setCategory('acm.sgu.ru archive');
 
     task.setTimeLimit(parseFloat(/time limit per test: ([0-9.]+)\s+sec/.exec(html)[1]) * 1000);
@@ -144,10 +144,10 @@ export class CodeforcesProblemParser extends Parser {
     }
   }
 
-  private parseAcmSguRuProblemNotInsideTable(html: string, task: TaskBuilder): void {
+  private async parseAcmSguRuProblemNotInsideTable(html: string, task: TaskBuilder): Promise<void> {
     const elem = htmlToElement(html);
 
-    task.setName(elem.querySelector('.problemindexholder h4').textContent.trim());
+    await task.setName(elem.querySelector('.problemindexholder h4').textContent.trim());
     task.setCategory('acm.sgu.ru archive');
 
     task.setTimeLimit(parseFloat(/Time\s+limit per test: ([0-9.]+)\s+sec/i.exec(html)[1]) * 1000);
@@ -184,7 +184,7 @@ export class CodeforcesProblemParser extends Parser {
     this.parseContestRow(rowElem, task);
   }
 
-  public parseContestRow(elem: Element, task: TaskBuilder): void {
+  public async parseContestRow(elem: Element, task: TaskBuilder): Promise<void> {
     const columns = elem.querySelectorAll('td');
 
     task.setUrl(columns[0].querySelector('a').href);
@@ -192,7 +192,7 @@ export class CodeforcesProblemParser extends Parser {
     const letter = columns[0].querySelector('a').text.trim();
     const name = columns[1].querySelector('a').text.trim();
 
-    task.setName(`${letter}. ${name}`);
+    await task.setName(`${letter}. ${name}`);
 
     const detailsStr = columns[1].querySelector('div > div:not(:first-child)').textContent;
     const detailsMatches = /([^/]+)\/([^\n]+)\s+(\d+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));

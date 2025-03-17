@@ -38,8 +38,8 @@ export class InfoArenaProblemParser extends Parser {
     return task.build();
   }
 
-  private parseTitle(elem: Element, task: TaskBuilder): void {
-    task.setName(elem.querySelector('.wiki_text_block > h1').textContent.trim());
+  private async parseTitle(elem: Element, task: TaskBuilder): Promise<void> {
+    await task.setName(elem.querySelector('.wiki_text_block > h1').textContent.trim());
   }
 
   private parseDetails(elem: Element, task: TaskBuilder): void {

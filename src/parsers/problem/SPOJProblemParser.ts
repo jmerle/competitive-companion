@@ -12,7 +12,7 @@ export class SPOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('SPOJ').setUrl(url);
 
-    task.setName('SPOJ ' + elem.querySelector('#problem-name').textContent.split(' - ')[0]);
+    await task.setName('SPOJ ' + elem.querySelector('#problem-name').textContent.split(' - ')[0]);
 
     const breadcrumb = elem.querySelector('ol.breadcrumb > li:nth-child(2)').textContent;
     task.setCategory(breadcrumb.charAt(0).toUpperCase() + breadcrumb.slice(1));

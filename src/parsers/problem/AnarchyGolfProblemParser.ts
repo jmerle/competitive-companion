@@ -12,7 +12,7 @@ export class AnarchyGolfProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Anarchy Golf').setUrl(url);
 
-    task.setName(elem.querySelector('h1').textContent);
+    await task.setName(elem.querySelector('h1').textContent);
 
     task.setTimeLimit(10000);
     task.setMemoryLimit(8192);

@@ -15,7 +15,7 @@ export class LibreOJProblemParser extends Parser {
     const urls = url.split('/');
     const pid = (urls[urls.length - 2] + urls[urls.length - 1]).toUpperCase();
 
-    task.setName('Libre ' + pid);
+    await task.setName('Libre ' + pid);
 
     if (!url.includes('contest/')) {
       this.parseNormalProblem(elem, task);
@@ -41,8 +41,8 @@ export class LibreOJProblemParser extends Parser {
     }
   }
 
-  private parseContestProblem(elem: Element, task: TaskBuilder): void {
-    task.setName(elem.querySelector('.ui.header').textContent.trim());
+  private async parseContestProblem(elem: Element, task: TaskBuilder): Promise<void> {
+    await task.setName(elem.querySelector('.ui.header').textContent.trim());
     task.setCategory(elem.querySelector('title').text.split('-')[1].trim());
 
     const timeLimitStr = elem.querySelector('.row > .ui.label:nth-child(2)').textContent;

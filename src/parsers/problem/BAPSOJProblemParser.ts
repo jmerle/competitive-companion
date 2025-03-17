@@ -113,7 +113,7 @@ export class BAPSOJProblemParser extends Parser {
     const [contest, , problem] = url.split('/').slice(-3);
     const problemInfo = await this.getProblemInfo(contest, problem);
 
-    task.setName(`${problem}. ${problemInfo.title}`);
+    await task.setName(`${problem}. ${problemInfo.title}`);
     task.setTimeLimit(problemInfo.time_limit);
     task.setMemoryLimit(problemInfo.memory_limit);
 

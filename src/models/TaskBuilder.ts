@@ -1,4 +1,5 @@
 import cyrillicToTranslit from 'cyrillic-to-translit-js';
+import { config } from '../utils/config';
 import { uuidv4 } from '../utils/random';
 import { Batch } from './Batch';
 import { InputConfiguration, OutputConfiguration } from './IOConfiguration';
@@ -53,10 +54,14 @@ export class TaskBuilder {
     this.updateGroupFromJudgeCategory();
   }
 
-  public setName(name: string): TaskBuilder {
-    this.name = prompt('Please set a name for this problem:', name);
-    if (this.name == null) {
-      throw new Reporter('Parser was cancelled by user.');
+  public async setName(name: string): Promise<TaskBuilder> {
+    if (await config.get('nameConfirm')) {
+      this.name = prompt('Please set a name for this problem:', name);
+      if (this.name == null) {
+        throw new Reporter('Parser was cancelled by user.');
+      }
+    } else {
+      this.name = name;
     }
     return this.updateJavaTaskClassFromName();
   }
@@ -164,6 +169,8 @@ export class TaskBuilder {
   }
 
   public build(): Task {
+    console.warn('here', this.name);
+
     return new Task(
       this.name,
       this.group,

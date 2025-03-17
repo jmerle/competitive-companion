@@ -13,7 +13,7 @@ export class UniversalCupProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Universal Cup').setUrl(url);
 
-    task.setName(elem.querySelector('h1.text-center').textContent.replace(/\s+/g, ' ').trim());
+    await task.setName(elem.querySelector('h1.text-center').textContent.replace(/\s+/g, ' ').trim());
     task.setCategory(elem.querySelector('h1.text-left').textContent.replace(/\s+/g, ' ').trim());
 
     const attachmentsUrl = elem.querySelector<HTMLLinkElement>('a.nav-link[href^="/download"]').href;

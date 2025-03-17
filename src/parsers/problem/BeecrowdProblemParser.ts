@@ -35,10 +35,10 @@ export class BeecrowdProblemParser extends Parser {
     return this.parseFullscreen(task, html);
   }
 
-  private parseFullscreen(task: TaskBuilder, html: string): Sendable {
+  private async parseFullscreen(task: TaskBuilder, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
 
-    task.setName(elem.querySelector('.header > h1').textContent);
+    await task.setName(elem.querySelector('.header > h1').textContent);
 
     elem.querySelectorAll('table').forEach(table => {
       const columns = table.querySelectorAll('tbody > tr > td');

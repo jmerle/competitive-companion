@@ -21,11 +21,11 @@ export class PBInfoProblemParser extends Parser {
     return task.build();
   }
 
-  private parseTitle(elem: Element, task: TaskBuilder, isNew: boolean): void {
+  private async parseTitle(elem: Element, task: TaskBuilder, isNew: boolean): Promise<void> {
     const titleElement = isNew
       ? elem.querySelector('h1.py-5 > div').lastChild
       : elem.querySelector('h1.text-primary > a');
-    task.setName(titleElement.textContent.trim());
+    await task.setName(titleElement.textContent.trim());
   }
 
   private parseDetails(elem: Element, task: TaskBuilder, isNew: boolean): void {

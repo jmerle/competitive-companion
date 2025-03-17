@@ -12,7 +12,7 @@ export class TimusOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Timus Online Judge').setUrl(url);
 
-    task.setName(elem.querySelector('.problem_title').textContent);
+    await task.setName(elem.querySelector('.problem_title').textContent);
 
     const limits = elem.querySelector('.problem_limits').textContent.trim();
     task.setTimeLimit(parseFloat(/([0-9.]+) (second|секунды)/.exec(limits)[1]) * 1000);

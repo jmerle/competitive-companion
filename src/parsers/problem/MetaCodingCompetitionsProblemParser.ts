@@ -18,7 +18,7 @@ export class MetaCodingCompetitionsProblemParser extends Parser {
       name = name.substr('Problem '.length);
     }
 
-    task.setName(name);
+    await task.setName(name);
 
     const lastBreadcrumb = elem.querySelector('a + i + span, a + img + span');
     const breadcrumbs = lastBreadcrumb.parentElement.querySelectorAll('a, span');

@@ -12,7 +12,7 @@ export class NBUTOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('NBUT Online Judge').setUrl(url);
 
-    task.setName(elem.querySelector('#title > h3').textContent);
+    await task.setName(elem.querySelector('#title > h3').textContent);
 
     const limitsStr = elem.querySelector('#limit').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1]));

@@ -14,7 +14,7 @@ export class CodeChefOldProblemParser extends Parser {
 
     const name = [...elem.querySelectorAll('h1')].pop().textContent.trim().split('\n')[0];
 
-    task.setName(name);
+    await task.setName(name);
 
     const infoStr = elem.querySelector('.problem-info').textContent;
 

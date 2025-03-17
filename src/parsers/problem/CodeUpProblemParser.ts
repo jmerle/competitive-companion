@@ -12,7 +12,7 @@ export class CodeUpProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CodeUp').setUrl(url);
 
-    task.setName(elem.querySelector('h2').textContent);
+    await task.setName(elem.querySelector('h2').textContent);
 
     const limitsStr = elem.querySelector('h2 + div').textContent;
     task.setTimeLimit(Math.floor(parseFloat(/([0-9.]+) Sec/.exec(limitsStr)[1]) * 1000));

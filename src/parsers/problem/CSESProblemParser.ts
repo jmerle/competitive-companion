@@ -12,7 +12,7 @@ export class CSESProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CSES').setUrl(url);
 
-    task.setName(elem.querySelector('.title-block > h1').textContent);
+    await task.setName(elem.querySelector('.title-block > h1').textContent);
     task.setCategory(elem.querySelector('.title-block > h3 > a').textContent);
 
     const limitsStr = elem.querySelector('.task-constraints').textContent;

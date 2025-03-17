@@ -55,7 +55,7 @@ export class TLXContestParser extends ContestParser<ProblemDescription> {
 
     const worksheet = JSON.parse(await requestInBackground(fetchUrl)).worksheet;
 
-    task.setName(worksheet.statement.title);
+    await task.setName(worksheet.statement.title);
     task.setTimeLimit(worksheet.limits.timeLimit);
     task.setMemoryLimit(worksheet.limits.memoryLimit / 1024);
     this.problemParser.parseTests(task, htmlToElement(worksheet.statement.text));

@@ -17,7 +17,7 @@ export class KEPUZProblemParser extends Parser {
 
     const containerElem = elem.querySelector('problem-body').parentElement;
 
-    task.setName(containerElem.querySelector('.problem-title > h3, h2').textContent.trim());
+    await task.setName(containerElem.querySelector('.problem-title > h3, h2').textContent.trim());
 
     task.setTimeLimit(parseInt(elem.querySelector('.limits .bg-info').textContent.trim().split(' ')[0]));
     task.setMemoryLimit(parseInt(elem.querySelector('.limits .bg-primary').textContent.trim().split(' ')[0]));

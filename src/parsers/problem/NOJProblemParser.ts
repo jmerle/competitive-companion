@@ -15,7 +15,7 @@ export class NOJProblemParser extends Parser {
     const container = elem.querySelector('paper-card, left-side');
 
     const titleNodes = container.querySelector('h1').childNodes;
-    task.setName(titleNodes[titleNodes.length - 1].textContent.trim());
+    await task.setName(titleNodes[titleNodes.length - 1].textContent.trim());
 
     const timeLimitStr = container.querySelector(
       'info-badge[title="Time Limit"], info-badge[data-original-title="Time Limit"]',

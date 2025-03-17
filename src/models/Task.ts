@@ -14,12 +14,12 @@ import { Test } from './Test';
 import { TestType } from './TestType';
 
 export class Task implements Sendable {
-  public static fromJSON(data: string): Task {
+  public static async fromJSON(data: string): Promise<Task> {
     const task = new TaskBuilder('');
 
     const obj = JSON.parse(data);
 
-    task.setName(obj.name);
+    await task.setName(obj.name);
     task.setGroup(obj.group);
 
     task.setUrl(obj.url);

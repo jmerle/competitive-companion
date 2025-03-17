@@ -18,7 +18,7 @@ export class JutgeProblemParser extends Parser {
 
     const name = elem.querySelector('h1.my-trim').textContent.trim().split('\n')[0];
 
-    task.setName(name);
+    await task.setName(name);
     task.setInteractive(name.includes('(Interactivo)'));
 
     const blocks = elem.querySelectorAll('.list-group-item pre');

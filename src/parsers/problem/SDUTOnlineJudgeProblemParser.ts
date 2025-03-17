@@ -16,7 +16,7 @@ export class SDUTOnlineJudgeProblemParser extends Parser {
     const task = new TaskBuilder('SDUT OnlineJudge').setUrl(url);
 
     const titleNodes = elem.querySelector('.problem-content > h2').childNodes;
-    task.setName(titleNodes[titleNodes.length - 1].textContent.trim());
+    await task.setName(titleNodes[titleNodes.length - 1].textContent.trim());
 
     const limitsStr = elem.querySelector('div[class^="ant-card infoBoard___"]').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1], 10));

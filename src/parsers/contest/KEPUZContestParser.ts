@@ -36,7 +36,7 @@ export class KEPUZContestParser extends ContestParser<ProblemDescription> {
     );
     const data = JSON.parse(body).problem;
 
-    task.setName(`${problem.problemSymbol}. ${data.title}`);
+    await task.setName(`${problem.problemSymbol}. ${data.title}`);
 
     task.setTimeLimit(data.timeLimit);
     task.setMemoryLimit(data.memoryLimit);

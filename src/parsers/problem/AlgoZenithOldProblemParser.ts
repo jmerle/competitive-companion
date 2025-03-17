@@ -12,7 +12,7 @@ export class AlgoZenithOldProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AlgoZenith').setUrl(url);
 
-    task.setName(elem.querySelector('#home .tab_card_header p').textContent.trim());
+    await task.setName(elem.querySelector('#home .tab_card_header p').textContent.trim());
 
     const timeLimitStr = elem.querySelector('.fa-stopwatch').parentElement.textContent;
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1]) * 1000);

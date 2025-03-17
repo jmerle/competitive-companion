@@ -13,7 +13,7 @@ export class XCampProblemParser extends Parser {
     const task = new TaskBuilder('X-Camp').setUrl(url);
 
     const nameElem = elem.querySelector('h4.contest-ant-typography');
-    task.setName(nameElem.textContent.replace(/\s\s+/g, ' ').trim());
+    await task.setName(nameElem.textContent.replace(/\s\s+/g, ' ').trim());
 
     const blocks = [...elem.querySelectorAll('.contest-ant-typography-copy')].map(elem => elem.parentElement);
 

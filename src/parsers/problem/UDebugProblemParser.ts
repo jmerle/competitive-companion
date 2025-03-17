@@ -14,7 +14,7 @@ export class UDebugProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('uDebug').setUrl(url);
 
-    task.setName(elem.querySelector('.problem-title').textContent);
+    await task.setName(elem.querySelector('.problem-title').textContent);
     task.setCategory(elem.querySelector('.category').textContent);
 
     if (task.category === 'Facebook Hacker Cup' || task.category === 'Google Code Jam') {

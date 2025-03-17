@@ -12,7 +12,7 @@ export class LibraryCheckerOldProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Library Checker').setUrl(url);
 
-    task.setName(elem.querySelector('.uk-container > h1').textContent);
+    await task.setName(elem.querySelector('.uk-container > h1').textContent);
 
     task.setTimeLimit(5000);
     task.setMemoryLimit(1024);

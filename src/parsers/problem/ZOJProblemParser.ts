@@ -14,7 +14,7 @@ export class ZOJProblemParser extends Parser {
 
     const container = elem.querySelector('div[class^="problemSetContainer"]');
 
-    task.setName(container.querySelector('div[class^="title"]').textContent.trim());
+    await task.setName(container.querySelector('div[class^="title"]').textContent.trim());
 
     const limits = container.querySelectorAll('div[class*="limitations"] span');
     const timeLimitStr = limits[0].textContent;

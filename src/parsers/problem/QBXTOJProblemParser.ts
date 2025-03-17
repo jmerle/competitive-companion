@@ -12,7 +12,7 @@ export class QBXTOJProblemParser extends Parser {
     const doc = htmlToElement(html);
     const task = new TaskBuilder('QBXTOJ').setUrl(url);
 
-    task.setName(doc.querySelector('h1.ui.header').textContent);
+    await task.setName(doc.querySelector('h1.ui.header').textContent);
 
     const [, , timeMs, memMB] = [...doc.querySelector('table > tbody > tr').children].map(
       td => td.childNodes[0].textContent,

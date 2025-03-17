@@ -60,7 +60,7 @@ export class TLXProblemParser extends Parser {
       .map(node => node.textContent)
       .join('')
       .trim();
-    task.setName(name);
+    await task.setName(name);
 
     const categoryElem = elem.querySelector(
       '.single-problemset-problem-routes__title--link, .single-contest-routes__header > .single-contest-routes__heading > h2',
@@ -78,7 +78,7 @@ export class TLXProblemParser extends Parser {
     // Problems in the problemset don't include the letter in the title, so we add it here
     if (!task.name.includes('. ')) {
       const breadcrumbText = elem.querySelector('.single-problemset-problem-routes__title').textContent;
-      task.setName(breadcrumbText[breadcrumbText.length - 1] + '. ' + task.name);
+      await task.setName(breadcrumbText[breadcrumbText.length - 1] + '. ' + task.name);
     }
 
     const limitNodes = elem.querySelector('.programming-problem-statement__limits');

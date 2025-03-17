@@ -5,6 +5,7 @@ interface ConfigItems {
   customRules: [string, string][];
   requestTimeout: number;
   debugMode: boolean;
+  nameConfirm: boolean;
 }
 
 class Config {
@@ -13,6 +14,7 @@ class Config {
     customRules: [],
     requestTimeout: 500,
     debugMode: false,
+    nameConfirm: false,
   };
 
   public async get<T extends keyof ConfigItems>(key: T): Promise<ConfigItems[T]> {

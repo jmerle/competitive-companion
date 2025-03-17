@@ -12,7 +12,7 @@ export class PandaOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Panda Online Judge').setUrl(url);
 
-    task.setName(elem.querySelector('.mat-card-title').textContent);
+    await task.setName(elem.querySelector('.mat-card-title').textContent);
 
     const blocks = elem.querySelectorAll('pre.sample-box');
     for (let i = 0; i < blocks.length - 1; i += 2) {

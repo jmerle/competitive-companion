@@ -12,7 +12,7 @@ export class HackerRankProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HackerRank').setUrl(url);
 
-    task.setName(elem.querySelector('h1.page-label, h2.hr_tour-challenge-name').textContent.trim());
+    await task.setName(elem.querySelector('h1.page-label, h2.hr_tour-challenge-name').textContent.trim());
 
     const breadCrumbsSelector = '.breadcrumb-item-text, #breadcrumb [itemprop="item"] > span';
     const breadCrumbs = [...elem.querySelectorAll(breadCrumbsSelector)].map(el => el.textContent);

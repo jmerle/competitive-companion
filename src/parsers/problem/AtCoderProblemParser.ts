@@ -16,7 +16,7 @@ export class AtCoderProblemParser extends Parser {
 
     const name = 'AT ' + problem_id.split('_').join(' ');
 
-    task.setName(name);
+    await await task.setName(name);
     task.setCategory(elem.querySelector('.contest-name, .contest-title').textContent);
 
     const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];

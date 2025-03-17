@@ -12,7 +12,7 @@ export class CSAcademyProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CS Academy').setUrl(url);
 
-    task.setName(elem.querySelector('h1').textContent.trim());
+    await task.setName(elem.querySelector('h1').textContent.trim());
     task.setCategory(elem.querySelector('title').textContent.replace(task.name, '').trim());
 
     task.setInteractive(elem.querySelector('span[title="This task is interactive"]') !== null);

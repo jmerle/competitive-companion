@@ -15,7 +15,7 @@ export class MSKInformaticsProblemParser extends Parser {
     const title = elem.querySelector('.statements_toc_alpha strong');
     const text = title.textContent;
     const regex = / ([A-Z])\. /;
-    task.setName(regex.exec(text) ? regex.exec(text)[1] + '. ' + text.split('. ')[1] : text);
+    await task.setName(regex.exec(text) ? regex.exec(text)[1] + '. ' + text.split('. ')[1] : text);
 
     elem.querySelectorAll('.sample-test').forEach(testElem => {
       const input = testElem.querySelector('.input > .content').textContent;

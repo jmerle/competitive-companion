@@ -16,11 +16,11 @@ export class HackerEarthProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HackerEarth').setUrl(url);
 
-    task.setName('Task');
+    await task.setName('Task');
     for (const selector of ['.title-panel > .title, #problem-title', '.problem-statement > div > div.large']) {
       const titleElem = elem.querySelector(selector);
       if (titleElem !== null) {
-        task.setName(titleElem.textContent.trim());
+        await task.setName(titleElem.textContent.trim());
         break;
       }
     }

@@ -12,7 +12,7 @@ export class QQWhaleProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('QQWhale').setUrl(url);
 
-    task.setName(elem.querySelector('.home-title').textContent);
+    await task.setName(elem.querySelector('.home-title').textContent);
 
     const limitsStr = elem.querySelector('.problem-content > .content-desc').textContent;
     task.setTimeLimit(parseInt(/Time Limit：\s*(\d+)MS/.exec(limitsStr)[1]));

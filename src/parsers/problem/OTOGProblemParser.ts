@@ -13,7 +13,7 @@ export class OTOGProblemParser extends Parser {
     const task = new TaskBuilder('OTOG').setUrl(url);
 
     const problemName = elem.querySelector('#problem-name').textContent;
-    task.setName(problemName);
+    await task.setName(problemName);
 
     const memoryLimit = Number(elem.querySelector('#memory-limit').textContent);
     task.setMemoryLimit(memoryLimit);

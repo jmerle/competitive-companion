@@ -30,7 +30,7 @@ export class CPythonUZContestParser extends ContestParser<[string, string, strin
     task.setUrl(`https://cpython.uz/competitions/contests/contest/${problemId}/problem/${symbol}`);
     task.setCategory(title);
 
-    task.setName(`${symbol}. ${data.problem.title}`);
+    await task.setName(`${symbol}. ${data.problem.title}`);
 
     task.setTimeLimit(data.problem.timeLimit);
     task.setMemoryLimit(data.problem.memoryLimit);

@@ -13,7 +13,7 @@ export class YukicoderProblemParser extends Parser {
     const task = new TaskBuilder('yukicoder').setUrl(url);
 
     const title = elem.querySelector('#content h3').textContent;
-    task.setName(title.replace(/([^ ]) {2}([^ ])/g, '$1 $2'));
+    await task.setName(title.replace(/([^ ]) {2}([^ ])/g, '$1 $2'));
 
     const limitsStr = elem.querySelector('#content > div').textContent;
     task.setTimeLimit(parseFloat(/([0-9.]+)秒/.exec(limitsStr)[1]) * 1000);

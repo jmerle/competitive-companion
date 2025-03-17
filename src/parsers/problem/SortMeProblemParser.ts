@@ -12,7 +12,7 @@ export class SortMeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Sort Me').setUrl(url);
 
-    task.setName(elem.querySelector('.task-content > h2').textContent);
+    await task.setName(elem.querySelector('.task-content > h2').textContent);
 
     const categoryElem = elem.querySelector('.task-archive-dropdown.open > .task-archive-dropdown-title > p');
     if (categoryElem !== null) {

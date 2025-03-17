@@ -20,10 +20,10 @@ export class KilonovaProblemParser extends Parser {
     return task.build();
   }
 
-  private parseTitle(elem: Element, task: TaskBuilder): void {
+  private async parseTitle(elem: Element, task: TaskBuilder): Promise<void> {
     const title = elem.querySelector('div.segment-panel > h1 > b').textContent.trim();
     if (title.indexOf(' | ') === -1) {
-      task.setName(title);
+      await task.setName(title);
 
       const categoryElem = elem.querySelector('summary > h2 > a[href^="/"]');
       if (categoryElem !== null) {
@@ -31,7 +31,7 @@ export class KilonovaProblemParser extends Parser {
       }
     } else {
       const [category, name] = title.split(' | ');
-      task.setName(name.trim());
+      await task.setName(name.trim());
       task.setCategory(category.trim());
     }
   }

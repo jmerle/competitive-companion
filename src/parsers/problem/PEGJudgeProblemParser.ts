@@ -12,7 +12,7 @@ export class PEGJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('PEG Judge').setUrl(url);
 
-    task.setName(elem.querySelector('#descContent h2').textContent);
+    await task.setName(elem.querySelector('#descContent h2').textContent);
     task.setCategory(elem.querySelector('#descContent h3').textContent);
 
     task.setTimeLimit(parseFloat(/Time Limit:<\/b> ([0-9.]+)s/.exec(html)[1]) * 1000);

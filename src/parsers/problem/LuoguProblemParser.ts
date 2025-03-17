@@ -17,9 +17,9 @@ export class LuoguProblemParser extends Parser {
 
     if (pid.includes('contestId')) {
       const cid = /\?contestId=\d+/.exec(pid).at(0);
-      task.setName('Luogu C' + cid.replace('?contestId=', '') + ' ' + pid.replace(cid, ''));
+      await task.setName('Luogu C' + cid.replace('?contestId=', '') + ' ' + pid.replace(cid, ''));
     } else {
-      task.setName('Luogu ' + pid);
+      await task.setName('Luogu ' + pid);
     }
 
     if (elem.querySelector('.main-container') !== null) {
@@ -44,11 +44,11 @@ export class LuoguProblemParser extends Parser {
     });
   }
 
-  private parseFromScript(task: TaskBuilder, elem: Element): void {
+  private async parseFromScript(task: TaskBuilder, elem: Element): Promise<void> {
     const script = elem.querySelector('#lentille-context').textContent;
     const data = JSON.parse(script).data.problem;
 
-    task.setName(`${data.pid} ${data.title}`.trim());
+    await task.setName(`${data.pid} ${data.title}`.trim());
 
     task.setTimeLimit(Math.max(...data.limits.time));
     task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);

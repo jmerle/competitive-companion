@@ -18,7 +18,7 @@ export class HDOJProblemParser extends Parser {
 
     const contentElem = elem.querySelector('tr:nth-child(4)') || elem.querySelector('#contest_nav + div');
 
-    task.setName('HDU ' + pid);
+    await task.setName('HDU ' + pid);
 
     task.setTimeLimit(parseInt(/Time Limit: (\d+)/.exec(html)[1], 10));
     task.setMemoryLimit(parseInt(/Memory Limit: (\d+)/.exec(html)[1], 10) / 1000);

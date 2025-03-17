@@ -14,7 +14,7 @@ export class HihoCoderProblemParser extends Parser {
 
     const main = elem.querySelector('#main > .panel');
 
-    task.setName(main.querySelector('h3').textContent.replace(':', '-'));
+    await task.setName(main.querySelector('h3').textContent.replace(':', '-'));
 
     if (elem.querySelector('.tl-site-header-title')) {
       task.setCategory(elem.querySelector('.tl-site-header-title > h3').childNodes[0].textContent.trim());

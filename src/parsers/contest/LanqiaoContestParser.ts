@@ -46,7 +46,7 @@ export class LanqiaoContestParser extends ContestParser<[string, string, string,
 
     const task = new TaskBuilder('Lanqiao').setUrl(url);
 
-    task.setName(problemName);
+    await task.setName(problemName);
     task.setCategory(contestTitle);
 
     // Parsing using regex is a bit wonky, but is probably the most readable way to parse the JS code containing the problem data

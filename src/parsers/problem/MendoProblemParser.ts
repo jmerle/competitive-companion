@@ -14,7 +14,7 @@ export class MendoProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Mendo').setUrl(url);
 
-    task.setName(elem.querySelector('.pagetitle').textContent);
+    await task.setName(elem.querySelector('.pagetitle').textContent);
 
     elem.querySelectorAll('.taskContentView > h3').forEach(x => {
       const text = x.textContent.trim();

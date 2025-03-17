@@ -28,7 +28,7 @@ export class XinyouduiOJProblemParser extends Parser {
       .item(0)?.textContent;
     const pid = filein == undefined ? 'XYD ' + urls[urls.length - 1] : filein.split('.').at(0);
 
-    task.setName(pid);
+    await task.setName(pid);
 
     const blocks = elem.querySelectorAll('pre ' + (type ? '.ac-ant-typography' : '.contest-ant-typography'));
 

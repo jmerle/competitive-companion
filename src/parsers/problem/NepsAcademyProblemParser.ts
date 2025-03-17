@@ -19,7 +19,7 @@ export class NepsAcademyProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Neps Academy').setUrl(url);
 
-    task.setName(elem.querySelector('.grid-item-main .v-card h1').textContent);
+    await task.setName(elem.querySelector('.grid-item-main .v-card h1').textContent);
 
     const blocks = elem.querySelectorAll('.exercise-table .table-column > div');
     for (let i = 0; i < blocks.length - 1; i += 2) {

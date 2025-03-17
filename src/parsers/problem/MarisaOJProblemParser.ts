@@ -12,7 +12,7 @@ export class MarisaOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('MarisaOJ').setUrl(url);
 
-    task.setName(elem.querySelector('.header > h2').textContent.trim());
+    await task.setName(elem.querySelector('.header > h2').textContent.trim());
     task.setCategory(elem.querySelector('#module-info > .problem-table > caption').textContent.trim());
 
     const [timeLimitElem, memoryLimitElem] = [...elem.querySelectorAll('.header > div')];

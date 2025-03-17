@@ -12,7 +12,7 @@ export class XXMProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('XXM').setUrl(url);
 
-    task.setName(elem.querySelector('.el-card__body > div').textContent.trim());
+    await task.setName(elem.querySelector('.el-card__body > div').textContent.trim());
 
     const blocks = [...elem.querySelectorAll('.el-card__body > pre')];
     for (let i = 0; i < blocks.length - 1; i += 2) {

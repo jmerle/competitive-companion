@@ -14,7 +14,7 @@ export class DimikOJProblemParser extends Parser {
 
     const headerText = doc.querySelector('.card-header').textContent;
     const problemTitle = headerText.slice(headerText.indexOf('—') + 1).trim();
-    task.setName(problemTitle);
+    await task.setName(problemTitle);
 
     const submissionDiv = doc.querySelector('#submission');
     const codeBlocks = [...submissionDiv.previousElementSibling.querySelectorAll('code')];

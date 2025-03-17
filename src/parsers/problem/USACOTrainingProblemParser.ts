@@ -18,7 +18,7 @@ export class USACOTrainingProblemParser extends Parser {
       .filter(el => el !== null)
       .map(el => el.textContent.trim());
 
-    task.setName(names[0] || 'Unknown');
+    await task.setName(names[0] || 'Unknown');
     task.setCategory('Training');
 
     const taskId = [...elem.querySelectorAll('h3')]

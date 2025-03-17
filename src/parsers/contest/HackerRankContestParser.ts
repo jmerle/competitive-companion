@@ -38,7 +38,7 @@ export class HackerRankContestParser extends ContestParser<[string, string]> {
     const taskUrl = apiUrl.replace('www.hackerrank.com/rest/', 'www.hackerrank.com/');
     const task = new TaskBuilder('HackerRank').setUrl(taskUrl);
 
-    task.setName(model.name);
+    await task.setName(model.name);
     if (contestName) {
       task.setCategory(contestName);
     } else if (model.primary_contest) {

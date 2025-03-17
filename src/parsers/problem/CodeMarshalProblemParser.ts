@@ -14,7 +14,7 @@ export class CodeMarshalProblemParser extends Parser {
 
     const content = elem.querySelector('#main div div');
 
-    task.setName(content.querySelector('div.h1').textContent);
+    await task.setName(content.querySelector('div.h1').textContent);
 
     if (elem.querySelector('.panel-contest-timer') !== null) {
       task.setCategory(elem.querySelector('.panel-contest-timer > .panel-heading > h3').textContent.trim());

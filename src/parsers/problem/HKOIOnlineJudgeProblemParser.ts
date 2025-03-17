@@ -12,7 +12,7 @@ export class HKOIOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HKOI Online Judge').setUrl(url);
 
-    task.setName(elem.querySelector('a.print-nolink').innerHTML);
+    await task.setName(elem.querySelector('a.print-nolink').innerHTML);
 
     const info = elem.querySelectorAll('div.task-info button');
     if (info != null && info.length == 4) {

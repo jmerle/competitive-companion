@@ -25,7 +25,7 @@ export class DMOJProblemParser extends Parser {
 
     const titleParts = elem.querySelector('.problem-title h2').textContent.split(/ - | — |(?<=Contest \d+ [A-Z#]\d+) /);
     if (titleParts.length === 1) {
-      task.setName(titleParts[0]);
+      await task.setName(titleParts[0]);
     } else {
       let contestName = titleParts[0];
       let taskName = titleParts.slice(1).join(' - ');
@@ -36,7 +36,7 @@ export class DMOJProblemParser extends Parser {
         taskName = `${problemMatches[0]} - ${taskName}`;
       }
 
-      task.setName(taskName);
+      await task.setName(taskName);
       task.setCategory(contestName);
     }
 

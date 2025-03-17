@@ -12,7 +12,7 @@ export class EolympNormalProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Eolymp').setUrl(url);
 
-    task.setName(elem.querySelector('.eo-problem-statement h1').textContent);
+    await task.setName(elem.querySelector('.eo-problem-statement h1').textContent);
 
     const contestName = elem.querySelector('h1.eo-title__header').textContent;
     if (contestName !== task.name) {

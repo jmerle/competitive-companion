@@ -22,7 +22,7 @@ export class OmegaUpProblemParser extends Parser {
 
     const problem = elem.querySelector('#problem') || elem;
 
-    task.setName(problem.querySelector('.title, h3[data-problem-title]').textContent.trim());
+    await task.setName(problem.querySelector('.title, h3[data-problem-title]').textContent.trim());
 
     const contestTitleElem = elem.querySelector('.contest-title');
     if (contestTitleElem !== null) {

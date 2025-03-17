@@ -48,7 +48,7 @@ export class DOMjudgeContestParser extends ContestParser<HTMLDivElement> {
     let zipUrl = taskElement.querySelector('a[href$=".zip"]')?.getAttribute('href');
 
     const taskBuilder = new TaskBuilder('DOMjudge');
-    taskBuilder.setName(subtitle ? `${title}: ${subtitle}` : title);
+    await taskBuilder.setName(subtitle ? `${title}: ${subtitle}` : title);
     taskBuilder.setTimeLimit(timeLimit);
     taskBuilder.setMemoryLimit(memoryLimit);
     taskBuilder.interactive = taskElement.textContent.includes('testing');

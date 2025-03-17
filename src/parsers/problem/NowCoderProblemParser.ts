@@ -25,8 +25,8 @@ export class NowCoderProblemParser extends Parser {
     return task.build();
   }
 
-  private parseACM(elem: Element, task: TaskBuilder): void {
-    task.setName(elem.querySelector('.terminal-topic-title').textContent.trim());
+  private async parseACM(elem: Element, task: TaskBuilder): Promise<void> {
+    await task.setName(elem.querySelector('.terminal-topic-title').textContent.trim());
 
     const timeLimitStr = elem.querySelector('.question-intr > .subject-item-wrap > span').textContent.split('，').pop();
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10) * 1000);
@@ -43,8 +43,8 @@ export class NowCoderProblemParser extends Parser {
     });
   }
 
-  private parsePAT(elem: Element, task: TaskBuilder): void {
-    task.setName(elem.querySelector('.pat-content h3').textContent.trim().split(' (')[0]);
+  private async parsePAT(elem: Element, task: TaskBuilder): Promise<void> {
+    await task.setName(elem.querySelector('.pat-content h3').textContent.trim().split(' (')[0]);
 
     const limitsStr = elem.querySelector('.pat-content .pat-detail-info').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1]));

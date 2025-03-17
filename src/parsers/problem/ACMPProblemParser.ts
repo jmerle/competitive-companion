@@ -18,7 +18,7 @@ export class ACMPProblemParser extends Parser {
 
     const main = elem.querySelector('tr[valign="top"] > td[background="/images/notepad2.gif"]');
 
-    task.setName(main.querySelector('h1').textContent);
+    await task.setName(main.querySelector('h1').textContent);
 
     const limitsStr = main.querySelector('center > i').textContent;
     const limits = /: (\d+).*: (\d+).*: (\d+)/.exec(limitsStr);

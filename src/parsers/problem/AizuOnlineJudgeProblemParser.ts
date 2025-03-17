@@ -12,7 +12,7 @@ export class AizuOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Aizu Online Judge').setUrl(url);
 
-    task.setName(elem.querySelector('#problemTitle').textContent);
+    await task.setName(elem.querySelector('#problemTitle').textContent);
 
     const breadcrumbContainer = elem.querySelector('#pwd');
     const breadcrumbs = [...breadcrumbContainer.querySelectorAll('.now')].map(el => el.textContent);

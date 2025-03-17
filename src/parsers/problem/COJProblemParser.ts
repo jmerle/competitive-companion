@@ -14,7 +14,7 @@ export class COJProblemParser extends Parser {
 
     const content = elem.querySelector('.postcontent');
 
-    task.setName(content.querySelector('h3.text-center > b').textContent.split('- ')[1]);
+    await task.setName(content.querySelector('h3.text-center > b').textContent.split('- ')[1]);
 
     const contestTitleElem = elem.querySelector('h2.postheader > a.linkheader');
     if (contestTitleElem !== null) {

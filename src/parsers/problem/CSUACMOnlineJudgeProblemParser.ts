@@ -26,10 +26,10 @@ export class CSUACMOnlineJudgeProblemParser extends Parser {
 
       const contest = main.querySelector('h1').textContent;
 
-      task.setName(name);
+      await task.setName(name);
       task.setCategory(contest);
     } else {
-      task.setName(main.querySelector('a').textContent.trim());
+      await task.setName(main.querySelector('a').textContent.trim());
     }
 
     const mainStr = main.textContent;

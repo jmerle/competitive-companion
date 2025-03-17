@@ -13,7 +13,7 @@ export class LanqiaoProblemParser extends Parser {
     const task = new TaskBuilder('Lanqiao').setUrl(url);
 
     const title = doc.querySelector('.course-name').textContent;
-    task.setName(title.replace(/\s+/g, ' ').trim());
+    await task.setName(title.replace(/\s+/g, ' ').trim());
 
     const limitStr = doc.querySelector('#运行限制').nextElementSibling.textContent;
     const [cpu, memory] = limitStr.match(/\d+/g);

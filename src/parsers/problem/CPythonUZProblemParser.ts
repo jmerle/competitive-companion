@@ -18,7 +18,7 @@ export class CPythonUZProblemParser extends Parser {
 
     const nameSelector =
       url.includes('contests/contest') || url.includes('duels/duel') ? 'h2.text-center' : 'h2.content-header-title';
-    task.setName(elem.querySelector(nameSelector).textContent.trim());
+    await task.setName(elem.querySelector(nameSelector).textContent.trim());
 
     if (url.includes('contests/contest')) {
       const title = elem.querySelector('title').textContent;

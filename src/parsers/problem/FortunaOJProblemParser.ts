@@ -22,10 +22,10 @@ export class FortunaOJProblemParser extends Parser {
     if (link_limits == null) {
       console.assert(downloads != null, 'No link_limits or downloads found!');
       const pid = downloads[0].replace('showdownload/', '');
-      task.setName(FortunaOJProblemParser.domains[domain] + pid);
+      await task.setName(FortunaOJProblemParser.domains[domain] + pid);
     } else {
       const pid = /\d+/.exec(link_limits.href)[0];
-      task.setName(FortunaOJProblemParser.domains[domain] + pid);
+      await task.setName(FortunaOJProblemParser.domains[domain] + pid);
     }
 
     if (downloads != null) alert("Don't forgot to download the sample!");

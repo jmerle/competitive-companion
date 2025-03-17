@@ -14,7 +14,7 @@ export class HITOnlineJudgeProblemParser extends Parser {
 
     const main = elem.querySelector('.ant-layout-content');
 
-    task.setName(main.querySelector('h2').textContent);
+    await task.setName(main.querySelector('h2').textContent);
 
     const mainStr = main.textContent;
     task.setTimeLimit(parseInt(/Time limit : (\d+) s/.exec(mainStr)[1], 10) * 1000);

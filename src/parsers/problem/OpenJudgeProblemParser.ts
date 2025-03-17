@@ -16,7 +16,7 @@ export class OpenJudgeProblemParser extends Parser {
     const contestName = elem.querySelector('.contest-title-tab > h2:nth-of-type(2)').textContent;
     task.setCategory(`${groupName} - ${contestName}`);
 
-    task.setName(elem.querySelector('#pageTitle > h2').textContent);
+    await task.setName(elem.querySelector('#pageTitle > h2').textContent);
 
     const limitsStr = elem.querySelector('dl.problem-params').textContent;
     task.setTimeLimit(parseInt(/(\d+)ms/.exec(limitsStr)[1], 10));

@@ -19,7 +19,7 @@ export class FZUOnlineJudgeProblemParser extends Parser {
       name = name.substring(8);
     }
 
-    task.setName(name);
+    await task.setName(name);
 
     const limitsStr = container.querySelector('h3').textContent;
     task.setTimeLimit(parseInt(/(\d+) mSec/.exec(limitsStr)[1], 10));

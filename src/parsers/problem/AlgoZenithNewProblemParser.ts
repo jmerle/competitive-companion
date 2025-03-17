@@ -12,7 +12,7 @@ export class AlgoZenithNewProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AlgoZenith').setUrl(url);
 
-    task.setName(elem.querySelector('h4').textContent);
+    await task.setName(elem.querySelector('h4').textContent);
 
     const timeLimitStr = this.getLimit(elem, 'Time Limit');
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1]) * 1000);

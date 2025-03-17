@@ -14,7 +14,7 @@ export class POJProblemParser extends Parser {
 
     const content = elem.querySelector('body > table:last-of-type tr');
 
-    task.setName(content.querySelector('.ptt').textContent);
+    await task.setName(content.querySelector('.ptt').textContent);
 
     const sourceElem = [...elem.querySelectorAll('p.pst')].filter(el => el.textContent === 'Source');
     if (sourceElem.length > 0) {

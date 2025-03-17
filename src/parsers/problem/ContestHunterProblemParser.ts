@@ -12,7 +12,7 @@ export class ContestHunterProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('ContestHunter').setUrl(url);
 
-    task.setName(elem.querySelector('title').textContent.trim());
+    await task.setName(elem.querySelector('title').textContent.trim());
 
     const blocks = [...elem.querySelectorAll('article pre')];
     for (let i = 0; i < blocks.length - 1; i += 2) {

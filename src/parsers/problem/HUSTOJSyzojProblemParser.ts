@@ -15,7 +15,7 @@ export abstract class HUSTOJSyzojProblemParser extends Parser {
       name = name.substr(3);
     }
 
-    task.setName(name);
+    await task.setName(name);
 
     const blocks = [...elem.querySelectorAll('span.copy')].map(el => el.getAttribute('data-clipboard-text'));
     for (let i = 0; i < blocks.length - 1; i += 2) {

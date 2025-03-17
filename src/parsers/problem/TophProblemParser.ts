@@ -12,7 +12,7 @@ export class TophProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Toph').setUrl(url);
 
-    task.setName(elem.querySelector('.artifact h1').textContent.replace(/\s+/g, ' ').trim());
+    await task.setName(elem.querySelector('.artifact h1').textContent.replace(/\s+/g, ' ').trim());
 
     const limitsStr = elem.querySelector('.artifact span[data-tippy-content]').textContent;
 

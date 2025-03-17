@@ -22,8 +22,8 @@ export class ITCoderHUTECHProblemParser extends Parser {
     return task.build();
   }
 
-  private parseNormalProblem(task: TaskBuilder, doc: Element): void {
-    task.setName(doc.querySelector('h2').textContent.trim());
+  private async parseNormalProblem(task: TaskBuilder, doc: Element): Promise<void> {
+    await task.setName(doc.querySelector('h2').textContent.trim());
 
     const [timeLimit, memoryLimit] = [...doc.querySelectorAll('.card-body .float-right')].map(el =>
       parseInt(el.textContent.match(/\d+/)[0]),
@@ -40,7 +40,7 @@ export class ITCoderHUTECHProblemParser extends Parser {
     const iframeContent = await request(iframe.src);
     const iframeDoc = htmlToElement(iframeContent);
 
-    task.setName(iframeDoc.querySelector('.problem-view > h3').textContent.trim());
+    await task.setName(iframeDoc.querySelector('.problem-view > h3').textContent.trim());
     task.setCategory(doc.querySelector('h3.contest-title').textContent.trim());
 
     this.parseTests(task, iframeDoc);

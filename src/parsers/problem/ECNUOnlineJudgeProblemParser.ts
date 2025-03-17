@@ -15,10 +15,10 @@ export class ECNUOnlineJudgeProblemParser extends Parser {
     if (elem.querySelector('a.active.item[href^="/contest/"]')) {
       const contest = elem.querySelector('.ui.header').textContent;
 
-      task.setName(elem.querySelector('div.ui.header').textContent);
+      await task.setName(elem.querySelector('div.ui.header').textContent);
       task.setCategory(contest);
     } else {
-      task.setName(elem.querySelector('.ui.header').textContent);
+      await task.setName(elem.querySelector('.ui.header').textContent);
     }
 
     const limitsStr = elem.querySelector('.property').textContent;

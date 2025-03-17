@@ -12,7 +12,7 @@ export class LightOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('LightOJ').setUrl(url);
 
-    task.setName(elem.querySelector('.title').textContent.trim());
+    await task.setName(elem.querySelector('.title').textContent.trim());
 
     const limitElems = elem.querySelectorAll('.tooltip-trigger > span');
     task.setTimeLimit(parseFloat(/([0-9.]+)/.exec(limitElems[0].textContent)[1]) * 1000);

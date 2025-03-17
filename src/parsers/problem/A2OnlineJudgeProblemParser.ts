@@ -13,7 +13,7 @@ export class A2OnlineJudgeProblemParser extends Parser {
     const task = new TaskBuilder('A2 Online Judge').setUrl(url);
 
     const nameElem = elem.querySelector('#page > center > div');
-    task.setName(nameElem.childNodes[nameElem.childNodes.length - 1].textContent.trim());
+    await task.setName(nameElem.childNodes[nameElem.childNodes.length - 1].textContent.trim());
 
     const blocks = [...elem.querySelectorAll('#page > div')]
       .filter(elem => elem.textContent.includes('ample'))

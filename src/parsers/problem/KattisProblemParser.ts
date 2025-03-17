@@ -18,7 +18,7 @@ export class KattisProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Kattis').setUrl(url);
 
-    task.setName(elem.querySelector('h1').innerHTML.replace(/<br>/, ' - '));
+    await task.setName(elem.querySelector('h1').innerHTML.replace(/<br>/, ' - '));
 
     if (elem.querySelector('.breadcrumb > .breadcrumb-link:first-child')?.textContent === 'Contests') {
       task.setCategory(elem.querySelector('.breadcrumb > .breadcrumb-link:nth-of-type(2)').textContent);

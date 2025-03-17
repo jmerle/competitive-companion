@@ -12,7 +12,7 @@ export class CodeRunProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CodeRun').setUrl(url);
 
-    task.setName(elem.querySelector('h1').textContent);
+    await task.setName(elem.querySelector('h1').textContent);
 
     const limitsElems = elem.querySelectorAll('dl[class^="Description_description-runtime-limits"] > dd > p');
     task.setTimeLimit(parseInt(limitsElems[0].textContent.split(' ')[0]) * 1000);

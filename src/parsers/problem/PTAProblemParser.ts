@@ -14,7 +14,7 @@ export class PTAProblemParser extends Parser {
 
     const container = elem.querySelector('div[class^="mn"] div[class^="left"]');
 
-    task.setName(container.querySelector('span.font-bold').textContent.trim());
+    await task.setName(container.querySelector('span.font-bold').textContent.trim());
 
     const limits = [...container.querySelectorAll('div[class*="problemInfo"] .pc-text-raw')].map(l => l.textContent);
     const timeLimitStr = limits.find(text => text.includes('MB'));

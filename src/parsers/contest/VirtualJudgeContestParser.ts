@@ -27,7 +27,7 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
   protected async parseTask([url, category, data]: [string, string, any]): Promise<Task> {
     const task = new TaskBuilder('Virtual Judge').setUrl(`${url.split('#')[0]}#problem/${data.num}`);
 
-    task.setName(`${data.num} - ${data.title}`);
+    await task.setName(`${data.num} - ${data.title}`);
     task.setCategory(category);
 
     for (const property of data.properties) {

@@ -31,7 +31,7 @@ export class CodeChefContestParser extends ContestParser<string> {
     const taskUrl = apiUrl.replace('www.codechef.com/api/contests/', 'www.codechef.com/');
     const task = new TaskBuilder('CodeChef').setUrl(taskUrl);
 
-    task.setName(model.problem_name);
+    await task.setName(model.problem_name);
     task.setCategory(model.contest_code);
 
     task.setInteractive(model.body.includes('This is an interactive problem'));

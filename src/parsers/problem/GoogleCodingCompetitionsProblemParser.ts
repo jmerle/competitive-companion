@@ -17,7 +17,7 @@ export class GoogleCodingCompetitionsProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Google Coding Competitions').setUrl(url);
 
-    task.setName(elem.querySelector('title').textContent.split(' - ')[0].trim());
+    await task.setName(elem.querySelector('title').textContent.split(' - ')[0].trim());
     task.setCategory(elem.querySelector('.competition-nav p.headline-5').textContent);
 
     const container = elem.querySelector('.problem-description');

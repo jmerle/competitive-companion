@@ -12,7 +12,7 @@ export class BloombergCodeConProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Bloomberg CodeCon').setUrl(url);
 
-    task.setName(elem.querySelector('.problem-page-pane > h1').textContent.trim());
+    await task.setName(elem.querySelector('.problem-page-pane > h1').textContent.trim());
     task.setCategory(elem.querySelector('.sidebar-title').textContent.trim());
 
     const timeLimitStr = elem

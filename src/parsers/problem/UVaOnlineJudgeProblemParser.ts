@@ -41,7 +41,7 @@ export class UVaOnlineJudgeProblemParser extends Parser {
     const container = elem.querySelector('#col3_content_wrapper, td.main');
 
     const header = container.querySelector('h3');
-    task.setName(header.textContent);
+    await task.setName(header.textContent);
 
     task.setTimeLimit(parseFloat(/Time limit: ([0-9.]+) seconds/.exec(header.nextSibling.textContent)[1]) * 1000);
     task.setMemoryLimit(32);
@@ -62,7 +62,7 @@ export class UVaOnlineJudgeProblemParser extends Parser {
     const lines = await readPdf(pdfUrl);
 
     const problemName = lines[1][0] === '\\' ? '"' + lines[1].substr(1) : lines[1];
-    task.setName(`${lines[0]} - ${problemName}`);
+    await task.setName(`${lines[0]} - ${problemName}`);
 
     await this.parseTestsFromPdf(task, lines);
   }

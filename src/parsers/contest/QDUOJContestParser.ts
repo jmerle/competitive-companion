@@ -34,7 +34,7 @@ export class QDUOJContestParser extends ContestParser<[string, string]> {
 
     task.setUrl(`https://qduoj.com/contest/${data.contest}/problem/${data._id}`);
 
-    task.setName(data.title);
+    await task.setName(data.title);
 
     task.setTimeLimit(data.time_limit);
     task.setMemoryLimit(data.memory_limit);

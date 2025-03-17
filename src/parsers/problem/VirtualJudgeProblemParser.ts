@@ -27,12 +27,12 @@ export class VirtualJudgeProblemParser extends Parser {
       .replace('%E9%BB%91%E6%9A%97%E7%88%86%E7%82%B8', 'DarkBZOJ')
       .replace('%E8%AE%A1%E8%92%9C%E5%AE%A2', 'JSK');
 
-    task.setName('Vjudge ' + pid);
+    await task.setName('Vjudge ' + pid);
     if (elem.querySelector('#problem-title') === null) {
-      // task.setName(elem.querySelector('#prob-title > h2').textContent.trim());
+      // await task.setName(elem.querySelector('#prob-title > h2').textContent.trim());
       task.setCategory(window.location.href.split('/').pop().split('-')[0]);
     } else {
-      // task.setName(elem.querySelector('h2#problem-title').textContent.trim());
+      // await task.setName(elem.querySelector('h2#problem-title').textContent.trim());
       task.setCategory(elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
     }
 

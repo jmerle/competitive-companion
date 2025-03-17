@@ -20,7 +20,7 @@ export class COGSOnlineJudgeProblemParser extends Parser {
     const pid = elem.querySelector('h1')?.textContent.split('.').at(0);
     const hid = /\?pid=\S+/.exec(url).at(0).split('=').at(1);
 
-    task.setName('COGS ' + (pid == undefined ? hid : pid));
+    await task.setName('COGS ' + (pid == undefined ? hid : pid));
 
     const blocks = elem.querySelectorAll('pre');
 

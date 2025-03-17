@@ -12,7 +12,7 @@ export class MrJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('mrJudge').setUrl(url);
 
-    task.setName(elem.querySelector('.content-header > h1 > a').textContent);
+    await task.setName(elem.querySelector('.content-header > h1 > a').textContent);
 
     const limitRows = [...elem.querySelectorAll('#subtask_details > tr')];
 

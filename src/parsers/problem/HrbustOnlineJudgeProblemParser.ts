@@ -18,7 +18,7 @@ export class HrbustOnlineJudgeProblemParser extends Parser {
 
     const main = elem.querySelector('.right_table');
 
-    task.setName(main.querySelector('.problem_mod_name').textContent);
+    await task.setName(main.querySelector('.problem_mod_name').textContent);
 
     const limitsStr = main.querySelector('.problem_mod_info tr').textContent;
     task.setTimeLimit(parseInt(/(\d+) MS/.exec(limitsStr)[1], 10));

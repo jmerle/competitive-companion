@@ -14,7 +14,7 @@ export class RoboContestProblemParser extends Parser {
 
     const container = elem.querySelector('.card.mb-3');
 
-    task.setName(container.querySelector('h1.h4').textContent.trim());
+    await task.setName(container.querySelector('h1.h4').textContent.trim());
 
     if (elem.querySelector('.breadcrumb > .breadcrumb-item:nth-child(2) > a').textContent === 'Olimpiadalar') {
       task.setCategory(elem.querySelector('.breadcrumb-item.active').textContent);

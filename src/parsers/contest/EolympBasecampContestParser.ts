@@ -46,7 +46,7 @@ export class EolympBasecampContestParser extends ContestParser<[string, string]>
     for (const row of data.statement.contentTree.children) {
       switch (row.type) {
         case 'heading':
-          task.setName(row.children[0].attr.text);
+          await task.setName(row.children[0].attr.text);
           break;
         case 'problem-constraints':
           task.setTimeLimit(parseInt(row.attr['time-limit-max']));

@@ -14,7 +14,7 @@ export class StarryCodingProblemParser extends Parser {
 
     const containerElem = elem.querySelector('.px-4.py-5');
 
-    task.setName(containerElem.querySelector('div').textContent.trim());
+    await task.setName(containerElem.querySelector('div').textContent.trim());
 
     const limitsStr = containerElem.querySelector('.el-descriptions').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1]));

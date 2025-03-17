@@ -19,7 +19,7 @@ export class QDUOJProblemParser extends Parser {
 
     const main = elem.querySelector('#problem-main');
 
-    task.setName(main.querySelector('.panel-title > div').textContent);
+    await task.setName(main.querySelector('.panel-title > div').textContent);
 
     const limitsStr = elem.querySelector('#info').textContent;
     task.setTimeLimit(parseInt(/(\d+)MS/.exec(limitsStr)[1], 10));

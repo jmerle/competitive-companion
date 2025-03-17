@@ -14,7 +14,7 @@ export class SSOIERProblemParser extends Parser {
 
     const container = elem.querySelector('td.pcontent');
 
-    task.setName(container.querySelector('h3').textContent);
+    await task.setName(container.querySelector('h3').textContent);
 
     const limitsStr = container.querySelector('font').textContent;
     task.setTimeLimit(parseInt(/(\d+) ms/.exec(limitsStr)[1], 10));

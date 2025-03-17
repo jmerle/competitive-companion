@@ -13,7 +13,7 @@ export class TheJobOverflowProblemParser extends Parser {
     const task = new TaskBuilder('TheJobOverflow').setUrl(url);
 
     const titleStr = doc.querySelector('#nav-problem h5').textContent;
-    task.setName(titleStr.replace(/\s*:$/, ''));
+    await task.setName(titleStr.replace(/\s*:$/, ''));
 
     const inputs = [...doc.querySelectorAll('.sample-test > .input > .content')];
     const outputs = [...doc.querySelectorAll('.sample-test > .output > .content')];

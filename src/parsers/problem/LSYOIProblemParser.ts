@@ -12,7 +12,7 @@ export class LSYOIProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('LSYOI').setUrl(url);
 
-    task.setName(elem.querySelector('.container > .panel').childNodes[1].childNodes[1].textContent.trim());
+    await task.setName(elem.querySelector('.container > .panel').childNodes[1].childNodes[1].textContent.trim());
 
     task.addTest(elem.querySelector('#sampleinput').textContent, document.querySelector('#sampleoutput').textContent);
 

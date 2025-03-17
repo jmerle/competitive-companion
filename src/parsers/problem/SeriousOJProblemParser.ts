@@ -12,7 +12,7 @@ export class SeriousOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('SeriousOJ').setUrl(url);
 
-    task.setName(elem.querySelector('h1').textContent);
+    await task.setName(elem.querySelector('h1').textContent);
     task.setCategory(elem.querySelector('.location-path > a:last-of-type').textContent);
 
     const limitsElem = elem.querySelector('.problem-content > .section__body > blockquote');
