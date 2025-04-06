@@ -55,7 +55,13 @@ export class CodeforcesProblemParser extends Parser {
   private async parseMainProblem(html: string, url: string, task: TaskBuilder): Promise<void> {
     const elem = htmlToElement(html);
 
-    const pid = /\d+/.exec(url).at(0) + ' ' + /[A-Z]/.exec(url).at(0);
+    let urls = url.split('/');
+
+    while(urls.at(-1).trim() == '') {
+      urls.pop();
+    }
+
+    const pid = /\d+/.exec(url).at(0) + ' ' + (urls.at(-1) == '0' ? 'A' : urls.at(-1));
 
     if (!url.includes('group') && (url.includes('problemset') || url.includes('contest'))) {
       await task.setName('CF ' + pid);
