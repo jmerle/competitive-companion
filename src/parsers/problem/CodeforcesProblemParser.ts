@@ -55,9 +55,9 @@ export class CodeforcesProblemParser extends Parser {
   private async parseMainProblem(html: string, url: string, task: TaskBuilder): Promise<void> {
     const elem = htmlToElement(html);
 
-    let urls = url.split('/');
+    const urls = url.split('/');
 
-    while(urls.at(-1).trim() == '') {
+    while (urls.at(-1).trim() == '') {
       urls.pop();
     }
 
