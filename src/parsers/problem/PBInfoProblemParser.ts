@@ -14,7 +14,7 @@ export class PBInfoProblemParser extends Parser {
 
     const isNew = url.includes('new');
 
-    this.parseTitle(elem, task, isNew);
+    await this.parseTitle(elem, task, isNew);
     this.parseDetails(elem, task, isNew);
     this.parseTests(html, task);
 

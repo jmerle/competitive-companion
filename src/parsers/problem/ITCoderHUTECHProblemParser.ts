@@ -14,7 +14,7 @@ export class ITCoderHUTECHProblemParser extends Parser {
     const task = new TaskBuilder('ITCoder HUTECH').setUrl(url);
 
     if (!url.includes('/contest/')) {
-      this.parseNormalProblem(task, doc);
+      await this.parseNormalProblem(task, doc);
     } else {
       await this.parseContestProblem(task, doc);
     }

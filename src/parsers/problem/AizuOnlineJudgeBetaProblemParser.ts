@@ -19,11 +19,11 @@ export class AizuOnlineJudgeBetaProblemParser extends Parser {
     if (url.includes('services/room.html')) {
       this.parseArenaCategory(task, elem);
       this.parseLimits(task, elem.querySelectorAll('#description_info > .limit'));
-      this.parseBody(task, elem.querySelector('#description_html'));
+      await this.parseBody(task, elem.querySelector('#description_html'));
     } else {
       this.parseNormalCategory(task, elem);
       this.parseLimits(task, elem.querySelectorAll('.problemInfo > .el-tag'));
-      this.parseBody(task, elem.querySelector('.problemBody'));
+      await this.parseBody(task, elem.querySelector('.problemBody'));
     }
 
     return task.build();

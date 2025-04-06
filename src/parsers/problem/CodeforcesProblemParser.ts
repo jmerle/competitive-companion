@@ -39,14 +39,14 @@ export class CodeforcesProblemParser extends Parser {
       const table = elem.querySelector('.problemindexholder > .ttypography > table');
 
       if (table) {
-        this.parseAcmSguRuProblemInsideTable(html, task);
+        await this.parseAcmSguRuProblemInsideTable(html, task);
       } else {
-        this.parseAcmSguRuProblemNotInsideTable(html, task);
+        await this.parseAcmSguRuProblemNotInsideTable(html, task);
       }
     } else if (html.startsWith('%PDF') || htmlToElement(html).querySelector('embed[type="application/pdf"]') !== null) {
       await this.parsePdfProblem(url, task);
     } else {
-      this.parseMainProblem(html, url, task);
+      await this.parseMainProblem(html, url, task);
     }
 
     return task.build();
@@ -181,7 +181,7 @@ export class CodeforcesProblemParser extends Parser {
       return link !== null && link.textContent.trim() === letter;
     });
 
-    this.parseContestRow(rowElem, task);
+    await this.parseContestRow(rowElem, task);
   }
 
   public async parseContestRow(elem: Element, task: TaskBuilder): Promise<void> {

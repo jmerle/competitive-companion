@@ -17,9 +17,9 @@ export class NowCoderProblemParser extends Parser {
     const task = new TaskBuilder('NowCoder').setUrl(url);
 
     if (url.includes('/acm/')) {
-      this.parseACM(elem, task);
+      await this.parseACM(elem, task);
     } else {
-      this.parsePAT(elem, task);
+      await this.parsePAT(elem, task);
     }
 
     return task.build();

@@ -31,7 +31,7 @@ export class InfoArenaProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder(judge).setUrl(url);
 
-    this.parseTitle(elem, task);
+    await this.parseTitle(elem, task);
     this.parseDetails(elem, task);
     this.parseTests(html, task);
 

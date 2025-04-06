@@ -20,7 +20,7 @@ export class LibreOJProblemParser extends Parser {
     if (!url.includes('contest/')) {
       this.parseNormalProblem(elem, task);
     } else {
-      this.parseContestProblem(elem, task);
+      await this.parseContestProblem(elem, task);
     }
 
     return task.build();
