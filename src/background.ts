@@ -43,6 +43,12 @@ function createContextMenu(): void {
   }
 }
 
+async function openOptionsPage(details: Runtime.OnInstalledDetailsType): Promise<void> {
+  if (details.reason === 'install') {
+    await browser.runtime.openOptionsPage();
+  }
+}
+
 async function loadContentScript(tab: Tabs.Tab, parserName: string): Promise<void> {
   const permissionOrigins: string[] = ['http://localhost/'];
 
@@ -158,3 +164,4 @@ browser.action.onClicked.addListener(onAction);
 browser.contextMenus.onClicked.addListener(onContextMenu);
 browser.runtime.onMessage.addListener(handleMessage);
 browser.runtime.onInstalled.addListener(createContextMenu);
+browser.runtime.onInstalled.addListener(openOptionsPage);
