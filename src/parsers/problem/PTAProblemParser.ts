@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class PTAProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://pintia.cn/problem-sets/*/problems/\\d{1,}*'];
+    return ['https://pintia.cn/problem-sets/*/exam/problems/type/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -23,11 +23,7 @@ export class PTAProblemParser extends Parser {
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10));
     task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10));
 
-    const blocks = [...container.querySelectorAll('.rendered-markdown > pre > code:not(.hljs)')].filter(
-      el =>
-        el.parentElement.previousElementSibling.tagName === 'H3' &&
-        el.parentElement.previousElementSibling.textContent.includes('样例'),
-    );
+    const blocks = [...container.querySelectorAll('.rendered-markdown > pre > code:not(.hljs)')];
 
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
