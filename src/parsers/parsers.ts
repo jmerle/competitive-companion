@@ -76,6 +76,7 @@ import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser
 import { CPythonUZProblemParser } from './problem/CPythonUZProblemParser';
 import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSESProblemParser } from './problem/CSESProblemParser';
+import { CSGOJProblemParser } from './problem/CSGOJProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
@@ -217,6 +218,8 @@ export const parsers: Parser[] = [
 
   new CSESProblemParser(),
   new CSESContestParser(),
+
+  new CSGOJProblemParser(),
 
   new CSUACMOnlineJudgeProblemParser(),
   new CSUACMOnlineJudgeContestParser(),
