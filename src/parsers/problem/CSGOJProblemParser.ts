@@ -14,6 +14,11 @@ export class CSGOJProblemParser extends Parser {
 
     task.setName(elem.querySelector('h1').textContent.replace(/\s+/g, ' ').trim());
 
+    const category = elem.querySelector('[name="Source"] a')?.textContent?.trim();
+    if (category) {
+      task.setCategory(category);
+    }
+
     const infoList = elem.querySelectorAll('.inline_span');
 
     task.setTimeLimit(Number(infoList[1].textContent.replace(' Sec', '')) * 1000);
