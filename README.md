@@ -27,6 +27,7 @@ A browser extension which parses competitive programming problems from various o
 - [Competitive Programming Gradle Plugin](https://github.com/saurabh73/competitive-programming)
 - [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
 - [CompetiTest.nvim](https://github.com/xeluxee/competitest.nvim)
+- [CP-Assist](https://github.com/tsych0/cp-assist)
 - [CP Editor](https://github.com/coder3101/cp-editor)
 - [cpbooster](https://www.npmjs.com/package/cpbooster)
 - [cphelper.nvim](https://github.com/p00f/cphelper.nvim)
