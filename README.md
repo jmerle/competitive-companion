@@ -20,6 +20,7 @@ A browser extension which parses competitive programming problems from various o
 ## Tools that use Competitive Companion
 - [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
+- [Assistant.nvim](https://github.com/A7Lavinraj/assistant.nvim)
 - [AutoCp](https://pushpavel.github.io/AutoCp/)
 - [Caide](https://github.com/slycelote/caide)
 - [CHelper](https://plugins.jetbrains.com/plugin/7091-chelper)
