@@ -30,6 +30,7 @@ A browser extension which parses competitive programming problems from various o
 - [CP Editor](https://github.com/coder3101/cp-editor)
 - [cpbooster](https://www.npmjs.com/package/cpbooster)
 - [cphelper.nvim](https://github.com/p00f/cphelper.nvim)
+- [Fast Olympic Coding](https://github.com/sam20908/vscode-fastolympiccoding)
 - [Hightail](https://github.com/dj3500/hightail)
 - [JHelper](https://plugins.jetbrains.com/plugin/7541-jhelper)
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
