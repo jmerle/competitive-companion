@@ -30,7 +30,7 @@ export class AtCoderProblemParser extends Parser {
     task.setTimeLimit(parseFloat(/([0-9.]+) ?sec/.exec(timeLimitStr)[1]) * 1000);
 
     const memoryLimitStr = limitNodes.textContent;
-    task.setMemoryLimit(parseInt(/(\d+) ?MB/.exec(memoryLimitStr)[1], 10));
+    task.setMemoryLimit(parseInt(/(\d+) ?Mi?B/.exec(memoryLimitStr)[1], 10));
 
     const inputs = [...elem.querySelectorAll('h3')]
       .filter(el => el.textContent.includes('入力例'))
