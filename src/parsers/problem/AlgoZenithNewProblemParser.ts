@@ -29,7 +29,7 @@ export class AlgoZenithNewProblemParser extends Parser {
   }
 
   private getLimit(elem: Element, label: string): string {
-    const labelElem = [...elem.querySelectorAll('.problem_paragraph')].find(el => el.textContent.trim() === label);
+    const labelElem = [...elem.querySelectorAll('p.dmsans')].find(el => el.textContent.trim() === label);
     return labelElem.previousElementSibling.textContent;
   }
 }
