@@ -12,7 +12,7 @@ export class EolympBasecampProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Eolymp').setUrl(url);
 
-    const contentElem = elem.querySelector(url.includes('compete') ? '.tab-content' : '.content');
+    const contentElem = elem.querySelector('.MuiContainer-root > div[class^="ui-"]');
 
     task.setName(contentElem.querySelector('h1 > span.ecm-span').textContent);
 
