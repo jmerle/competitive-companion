@@ -1,6 +1,7 @@
 import { browser } from './browser';
 
 interface ConfigItems {
+  customHosts: string[];
   customPorts: number[];
   customRules: [string, string][];
   requestTimeout: number;
@@ -9,6 +10,7 @@ interface ConfigItems {
 
 class Config {
   private readonly defaults: Partial<ConfigItems> = {
+    customHosts: [],
     customPorts: [],
     customRules: [],
     requestTimeout: 500,
