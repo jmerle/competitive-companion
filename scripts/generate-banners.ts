@@ -10,8 +10,8 @@ interface BaseImage {
 }
 
 interface BannerImage {
-  svgPath: string;
-  pngPath: string;
+  svgPath: `${string}.svg`;
+  pngPath: `${string}.png`;
 }
 
 const horizontalBaseImage: BaseImage = {
@@ -108,8 +108,8 @@ async function generateBanner(name: string, width: number, height: number): Prom
     }
   }
 
-  const svgPath = path.resolve(projectRoot, `media/banners/${name}.svg`);
-  const pngPath = path.resolve(projectRoot, `media/banners/${name}.png`);
+  const svgPath = path.resolve(projectRoot, `media/banners/${name}.svg`) as BannerImage['svgPath'];
+  const pngPath = path.resolve(projectRoot, `media/banners/${name}.png`) as BannerImage['pngPath'];
 
   fs.writeFileSync(svgPath, bestImage.trim() + '\n');
 
