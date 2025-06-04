@@ -46,10 +46,16 @@ export class CodeforcesProblemParser extends Parser {
       return await this.parseContestOverview(html, url, task);
     }
 
-    // Check if it's an upcoming contests page (/contests/ URL)
-    const upcomingContestsMatch = url.match(/\/contests\/(\d+)?\??\/?(\?.*)?$/);
+    // Check if it's the general upcoming contests page (/contests/ URL without specific contest ID)
+    const upcomingContestsMatch = url.match(/\/contests\/?(\?.*)?$/);
     if (upcomingContestsMatch) {
       return await this.parseUpcomingContests(html, url);
+    }
+
+    // Check if it's a specific upcoming contest page (/contests/XXXX)
+    const specificContestMatch = url.match(/\/contests\/(\d+)\/?(\?.*)?$/);
+    if (specificContestMatch) {
+      return await this.parseSpecificUpcomingContest(html, url, specificContestMatch[1]);
     }
 
     if (url.includes('/problemsets/acmsguru')) {
@@ -219,15 +225,14 @@ export class CodeforcesProblemParser extends Parser {
       const row = link.closest('tr');
       
       try {
-        // 获取每个题目的完整内容
-        console.log(`正在获取题目: ${href}`);
+        // Fetch problem details for complete parsing
         const problemHtml = await request(href);
         
-        // 使用现有的parseMainProblem方法解析完整内容
+        // Parse the complete problem content using existing method
         const problemTask = new TaskBuilder('Codeforces').setUrl(href);
         this.parseMainProblem(problemHtml, href, problemTask);
         
-        // 设置比赛分组信息
+        // Set contest category information
         if (contestName) {
           problemTask.setCategory(contestName);
         }
@@ -235,9 +240,7 @@ export class CodeforcesProblemParser extends Parser {
         tasks.push(problemTask.build());
         
       } catch (error) {
-        console.error(`解析题目失败: ${href}`, error);
-        
-        // 如果获取失败，回退到基本信息解析
+        // Fallback to basic information parsing if fetch fails
         const problemTask = new TaskBuilder('Codeforces').setUrl(href);
         if (contestName) {
           problemTask.setCategory(contestName);
@@ -277,8 +280,9 @@ export class CodeforcesProblemParser extends Parser {
     for (const table of Array.from(tables)) {
       const rows = table.querySelectorAll('tbody tr');
       
-      Array.from(rows).forEach(row => {
+      Array.from(rows).forEach((row) => {
         const cells = row.querySelectorAll('td');
+        
         if (cells.length >= 4) { // Contest table should have at least 4 columns
           // Column structure: [Contest name, Writers, Start time, Duration, Status, Registration]
           const firstCell = cells[0];
@@ -301,7 +305,7 @@ export class CodeforcesProblemParser extends Parser {
               
               // Calculate end time if both start time and duration are available
               let endTime: string | undefined;
-              if (startTime && duration && startTime !== 'TBD') {
+              if (startTime && duration && startTime !== 'TBD' && startTime !== '待定') {
                 endTime = this.calculateEndTime(startTime, duration);
               }
               
@@ -376,6 +380,137 @@ export class CodeforcesProblemParser extends Parser {
     }
   }
 
+  private async parseSpecificUpcomingContest(html: string, url: string, contestId: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+
+    // Extract the single contest information from the page
+    const contest = this.extractSingleContestFromPage(elem, contestId);
+    
+    // Show calendar integration dialog in the browser
+    this.showCalendarDialog([contest], url);
+
+    // Return a simple task indicating calendar integration was triggered
+    const task = new TaskBuilder('Codeforces Calendar')
+      .setUrl(url)
+      .setName(`Calendar Integration - ${contest.name}`)
+      .setCategory('Codeforces Contest');
+
+    return task.build();
+  }
+
+  private extractSingleContestFromPage(elem: Element, contestId: string): {id: string, name: string, startTime?: string, endTime?: string} {
+    // First try to find contest info in table structure (similar to contests list)
+    const tables = elem.querySelectorAll('table');
+    
+    for (const table of Array.from(tables)) {
+      const rows = table.querySelectorAll('tbody tr');
+      
+      for (const row of Array.from(rows)) {
+        const cells = row.querySelectorAll('td');
+        if (cells.length >= 4) {
+          const firstCell = cells[0];
+          const contestLink = firstCell.querySelector('a[href*="/contest/"]') as HTMLAnchorElement;
+          
+          if (contestLink) {
+            const href = contestLink.getAttribute('href') || '';
+            const contestIdMatch = href.match(/\/contest(?:s)?\/(\d+)/);
+            if (contestIdMatch && contestIdMatch[1] === contestId) {
+              const name = contestLink.textContent?.trim() || `Contest ${contestId}`;
+              const startTimeCell = cells[2];
+              const startTime = startTimeCell?.textContent?.trim();
+              const durationCell = cells[3];
+              const duration = durationCell?.textContent?.trim();
+              
+              let endTime: string | undefined;
+              if (startTime && duration && startTime !== 'TBD') {
+                endTime = this.calculateEndTime(startTime, duration);
+              }
+              
+              return {
+                id: contestId,
+                name,
+                startTime,
+                endTime
+              };
+            }
+          }
+        }
+      }
+    }
+
+    // Try to extract from contest header or title area
+    let contestName = `Contest ${contestId}`;
+    let startTime: string | undefined;
+    let duration: string | undefined;
+
+    // Look for contest title in various locations
+    const titleSelectors = [
+      'h1',
+      'h2', 
+      '.contest-title',
+      '.title',
+      '.datatable tr td',
+      '.rtable tr td'
+    ];
+    
+    for (const selector of titleSelectors) {
+      const elements = elem.querySelectorAll(selector);
+      for (const element of Array.from(elements)) {
+        const text = element.textContent?.trim();
+        if (text && (text.includes('Contest') || text.includes('Round') || text.includes('Div'))) {
+          contestName = text;
+          break;
+        }
+      }
+      if (contestName !== `Contest ${contestId}`) break;
+    }
+
+    // Enhanced time extraction - look for time patterns in the entire page
+    const pageText = elem.textContent || '';
+    
+    // Look for Codeforces time patterns: "Jun/08/2025 17:35"
+    const timePatterns = [
+      /(\w{3}\/\d{2}\/\d{4} \d{2}:\d{2})/g,
+      /(\d{2}\/\d{2}\/\d{4} \d{2}:\d{2})/g,
+      /(\w{3} \d{1,2}, \d{4} \d{2}:\d{2})/g
+    ];
+
+    for (const pattern of timePatterns) {
+      const matches = pageText.match(pattern);
+      if (matches && matches.length > 0) {
+        startTime = matches[0];
+        break;
+      }
+    }
+
+    // Look for duration pattern
+    const durationPattern = /(?:Duration|Length):\s*(\d{1,2}:\d{2})/i;
+    const durationMatch = pageText.match(durationPattern);
+    if (durationMatch) {
+      duration = durationMatch[1];
+    } else {
+      // Look for standalone time patterns that might be duration
+      const timeMatches = pageText.match(/(\d{1,2}:\d{2})/g);
+      if (timeMatches && timeMatches.length > 1) {
+        // Second time pattern might be duration
+        duration = timeMatches[1];
+      }
+    }
+
+    // Calculate end time if both start time and duration are available
+    let endTime: string | undefined;
+    if (startTime && duration && startTime !== 'TBD') {
+      endTime = this.calculateEndTime(startTime, duration);
+    }
+
+    return {
+      id: contestId,
+      name: contestName,
+      startTime,
+      endTime
+    };
+  }
+
   private getLastTextNode(elem: Element, selector: string): ChildNode {
     let selectedNode = elem.querySelector(selector);
 
@@ -431,7 +566,7 @@ export class CodeforcesProblemParser extends Parser {
       color: #333;
       font-size: 24px;
     `;
-    title.textContent = '📅 添加比赛到日历';
+    title.textContent = '📅 Add Contest to Calendar';
 
     const description = document.createElement('p');
     description.style.cssText = `
@@ -439,7 +574,7 @@ export class CodeforcesProblemParser extends Parser {
       color: #666;
       line-height: 1.5;
     `;
-    description.textContent = '选择要添加到日历的比赛，系统将生成 .ics 文件供您导入到日历应用中。';
+    description.textContent = 'Select contests to add to your calendar. System will generate .ics file for importing into calendar applications.';
 
     dialog.appendChild(title);
     dialog.appendChild(description);
@@ -447,7 +582,7 @@ export class CodeforcesProblemParser extends Parser {
     if (contests.length === 0) {
       const noContests = document.createElement('p');
       noContests.style.cssText = 'color: #999; text-align: center; padding: 20px;';
-      noContests.textContent = '未找到即将开始的比赛';
+      noContests.textContent = 'No upcoming contests found';
       dialog.appendChild(noContests);
     } else {
       // Check if URL targets a specific contest
@@ -478,7 +613,7 @@ export class CodeforcesProblemParser extends Parser {
       margin-top: 20px;
       margin-right: 10px;
     `;
-    closeButton.textContent = '取消';
+    closeButton.textContent = 'Cancel';
     closeButton.onclick = () => overlay.remove();
 
     dialog.appendChild(closeButton);
@@ -510,7 +645,7 @@ export class CodeforcesProblemParser extends Parser {
 
     const contestTime = document.createElement('p');
     contestTime.style.cssText = 'margin: 0 0 15px 0; color: #666;';
-    contestTime.textContent = `开始时间: ${contest.startTime || '待定'}`;
+    contestTime.textContent = `Start Time: ${contest.startTime || 'TBD'}`;
 
     const addButton = document.createElement('button');
     addButton.style.cssText = `
@@ -523,7 +658,7 @@ export class CodeforcesProblemParser extends Parser {
       font-size: 16px;
       width: 100%;
     `;
-    addButton.textContent = '🔔 添加到日历并设置提醒';
+    addButton.textContent = '🔔 Add to Calendar with Reminders';
     
     addButton.onclick = () => {
       this.generateAndDownloadICS([contest]);
@@ -547,7 +682,7 @@ export class CodeforcesProblemParser extends Parser {
       cursor: pointer;
       margin-bottom: 15px;
     `;
-    selectAll.textContent = '📋 添加所有比赛到日历';
+    selectAll.textContent = '📋 Add All Contests to Calendar';
     selectAll.onclick = () => {
       this.generateAndDownloadICS(contests);
       dialog.closest('[style*="position: fixed"]')?.remove();
@@ -571,7 +706,7 @@ export class CodeforcesProblemParser extends Parser {
 
       const contestTime = document.createElement('p');
       contestTime.style.cssText = 'margin: 0 0 10px 0; color: #666; font-size: 14px;';
-      contestTime.textContent = `开始时间: ${contest.startTime || '待定'}`;
+      contestTime.textContent = `Start Time: ${contest.startTime || 'TBD'}`;
 
       const addButton = document.createElement('button');
       addButton.style.cssText = `
@@ -583,7 +718,7 @@ export class CodeforcesProblemParser extends Parser {
         cursor: pointer;
         font-size: 14px;
       `;
-      addButton.textContent = '🔔 添加此比赛';
+      addButton.textContent = '🔔 Add This Contest';
       
       addButton.onclick = () => {
         this.generateAndDownloadICS([contest]);
@@ -682,7 +817,7 @@ METHOD:PUBLISH
             }
           }
         } catch (e) {
-          console.warn('Failed to parse contest time:', contest.startTime, e);
+          // Silent fallback - use default times if parsing fails
         }
       }
 
@@ -734,7 +869,7 @@ END:VEVENT
       font-family: Arial, sans-serif;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     `;
-    message.textContent = `✅ 成功生成 ${contestCount} 个比赛的日历文件！请检查下载文件夹。`;
+    message.textContent = `✅ Successfully generated calendar file for ${contestCount} contest${contestCount > 1 ? 's' : ''}! Check your downloads folder.`;
     
     document.body.appendChild(message);
     
@@ -747,7 +882,9 @@ END:VEVENT
     try {
       // Parse duration (format like "02:15" or "2:00")
       const durationMatch = duration.match(/(\d+):(\d+)/);
-      if (!durationMatch) return undefined;
+      if (!durationMatch) {
+        return undefined;
+      }
       
       const hours = parseInt(durationMatch[1]);
       const minutes = parseInt(durationMatch[2]);
@@ -756,10 +893,28 @@ END:VEVENT
       // Parse start time - handle various formats
       let startDate: Date;
       
-      // Try different date formats that Codeforces might use
+      // Handle Codeforces date format: "Jun/08/2025 17:35"
       if (startTime.includes('/')) {
-        // Format: "Jun/08/2025 17:35"
-        startDate = new Date(startTime.replace(/\//g, ' '));
+        const parts = startTime.split(' ');
+        if (parts.length === 2) {
+          const datePart = parts[0]; // "Jun/08/2025"
+          const timePart = parts[1]; // "17:35"
+          
+          // Convert to standard format
+          const [month, day, year] = datePart.split('/');
+          const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          const monthIndex = monthNames.indexOf(month);
+          
+          if (monthIndex !== -1) {
+            startDate = new Date(parseInt(year), monthIndex, parseInt(day));
+            const [hours, minutes] = timePart.split(':');
+            startDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+          } else {
+            startDate = new Date(startTime);
+          }
+        } else {
+          startDate = new Date(startTime);
+        }
       } else {
         // Try parsing as-is
         startDate = new Date(startTime);
@@ -772,7 +927,6 @@ END:VEVENT
       const endDate = new Date(startDate.getTime() + durationMs);
       return endDate.toISOString();
     } catch (e) {
-      console.warn('Failed to calculate end time:', e);
       return undefined;
     }
   }
