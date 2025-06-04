@@ -1,7 +1,10 @@
+import { Contest } from '../../models/Contest';
 import { Sendable } from '../../models/Sendable';
+import { Task } from '../../models/Task';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { decodeHtml, htmlToElement } from '../../utils/dom';
 import { request } from '../../utils/request';
+import CodeforcesCalendarGenerator from '../../utils/calendar';
 import { Parser } from '../Parser';
 
 export class CodeforcesProblemParser extends Parser {
@@ -9,8 +12,11 @@ export class CodeforcesProblemParser extends Parser {
     const patterns: string[] = [];
 
     [
+      'https://codeforces.com/contest/*',
       'https://codeforces.com/contest/*/problem/*',
+      'https://codeforces.com/contests/*',
       'https://codeforces.com/problemset/problem/*/*',
+      'https://codeforces.com/gym/*',
       'https://codeforces.com/gym/*/problem/*',
       'https://codeforces.com/group/*/contest/*/problem/*',
       'https://codeforces.com/problemsets/acmsguru/problem/*/*',
@@ -33,6 +39,18 @@ export class CodeforcesProblemParser extends Parser {
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const task = new TaskBuilder('Codeforces').setUrl(url);
+
+    // Check if it's a contest overview page (contest/xxxx without /problem/)
+    const contestOverviewMatch = url.match(/\/contest\/\d+\/?(\?.*)?$/);
+    if (contestOverviewMatch) {
+      return await this.parseContestOverview(html, url, task);
+    }
+
+    // Check if it's an upcoming contests page (/contests/ URL)
+    const upcomingContestsMatch = url.match(/\/contests\/(\d+)?\??\/?(\?.*)?$/);
+    if (upcomingContestsMatch) {
+      return await this.parseUpcomingContests(html, url);
+    }
 
     if (url.includes('/problemsets/acmsguru')) {
       const elem = htmlToElement(html);
@@ -58,7 +76,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
 
     if (url.includes('/edu/')) {
-      const breadcrumbs = [...elem.querySelectorAll('.eduBreadcrumb > a')].map(el => el.textContent.trim());
+      const breadcrumbs = Array.from(elem.querySelectorAll('.eduBreadcrumb > a')).map(el => el.textContent.trim());
       breadcrumbs.pop();
       task.setCategory(breadcrumbs.join(' - '));
     } else {
@@ -71,7 +89,7 @@ export class CodeforcesProblemParser extends Parser {
     }
 
     const interactiveKeywords = ['Interaction', 'Протокол взаимодействия'];
-    const isInteractive = [...elem.querySelectorAll('.section-title')].some(
+    const isInteractive = Array.from(elem.querySelectorAll('.section-title')).some(
       el => interactiveKeywords.indexOf(el.textContent) > -1,
     );
 
@@ -110,7 +128,7 @@ export class CodeforcesProblemParser extends Parser {
   }
 
   private parseMainTestBlock(block: Element): string {
-    const lines = [...block.querySelectorAll('.test-example-line')].filter(
+    const lines = Array.from(block.querySelectorAll('.test-example-line')).filter(
       el => el.querySelector('.test-example-line, br') === null,
     );
 
@@ -118,7 +136,7 @@ export class CodeforcesProblemParser extends Parser {
       return decodeHtml(block.innerHTML);
     }
 
-    return [...lines].map(el => decodeHtml(el.innerHTML)).join('\n');
+    return Array.from(lines).map(el => decodeHtml(el.innerHTML)).join('\n');
   }
 
   private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder): void {
@@ -168,7 +186,7 @@ export class CodeforcesProblemParser extends Parser {
     task.setCategory(contestName);
 
     const letter = url[url.length - 1].toUpperCase();
-    const rowElem = [...elem.querySelectorAll('table.problems > tbody > tr')].find(el => {
+    const rowElem = Array.from(elem.querySelectorAll('table.problems > tbody > tr')).find(el => {
       const link = el.querySelector('.id > a');
       return link !== null && link.textContent.trim() === letter;
     });
@@ -176,40 +194,186 @@ export class CodeforcesProblemParser extends Parser {
     this.parseContestRow(rowElem, task);
   }
 
+  private async parseContestOverview(html: string, url: string, task: TaskBuilder): Promise<Sendable> {
+    const elem = htmlToElement(html);
+
+    const contestName = elem
+      .querySelector('#sidebar > div > .rtable')
+      ?.querySelector('a')
+      ?.textContent?.replace('\n', ' ')
+      ?.trim();
+
+    // Use the same selector as CodeforcesContestParser
+    const linkSelector = '.problems > tbody > tr > td:first-child > a, ._ProblemsPage_problems > table > tbody > tr > td:first-child > a';
+    const problemLinks = Array.from(elem.querySelectorAll(linkSelector));
+    
+    if (problemLinks.length === 0) {
+      // If no problems found, return a single empty task
+      return task.setName('Contest Overview').setCategory(contestName || 'Contest').build();
+    }
+
+    const tasks: Task[] = [];
+    
+    for (const link of problemLinks) {
+      const href = (link as HTMLAnchorElement).href;
+      const row = link.closest('tr');
+      
+      try {
+        // 获取每个题目的完整内容
+        console.log(`正在获取题目: ${href}`);
+        const problemHtml = await request(href);
+        
+        // 使用现有的parseMainProblem方法解析完整内容
+        const problemTask = new TaskBuilder('Codeforces').setUrl(href);
+        this.parseMainProblem(problemHtml, href, problemTask);
+        
+        // 设置比赛分组信息
+        if (contestName) {
+          problemTask.setCategory(contestName);
+        }
+        
+        tasks.push(problemTask.build());
+        
+      } catch (error) {
+        console.error(`解析题目失败: ${href}`, error);
+        
+        // 如果获取失败，回退到基本信息解析
+        const problemTask = new TaskBuilder('Codeforces').setUrl(href);
+        if (contestName) {
+          problemTask.setCategory(contestName);
+        }
+        this.parseContestRow(row, problemTask);
+        tasks.push(problemTask.build());
+      }
+    }
+
+    return new Contest(tasks);
+  }
+
+  private async parseUpcomingContests(html: string, url: string): Promise<Sendable> {
+    const elem = htmlToElement(html);
+
+    // Extract contests from the page
+    const contests = this.extractContestsFromPage(elem);
+    
+    // Show calendar integration dialog in the browser
+    this.showCalendarDialog(contests, url);
+
+    // Return a simple task indicating calendar integration was triggered
+    const task = new TaskBuilder('Codeforces Calendar')
+      .setUrl(url)
+      .setName('Calendar Integration Activated')
+      .setCategory('Codeforces Contests');
+
+    return task.build();
+  }
+
+  private extractContestsFromPage(elem: Element): Array<{id: string, name: string, startTime?: string, endTime?: string}> {
+    const contests: Array<{id: string, name: string, startTime?: string, endTime?: string}> = [];
+    
+    // Look for contest tables - Codeforces has both upcoming and past contests
+    const tables = elem.querySelectorAll('table');
+    
+    for (const table of Array.from(tables)) {
+      const rows = table.querySelectorAll('tbody tr');
+      
+      Array.from(rows).forEach(row => {
+        const cells = row.querySelectorAll('td');
+        if (cells.length >= 4) { // Contest table should have at least 4 columns
+          // Column structure: [Contest name, Writers, Start time, Duration, Status, Registration]
+          const firstCell = cells[0];
+          const contestLink = firstCell.querySelector('a[href*="/contest/"]') as HTMLAnchorElement;
+          
+          if (contestLink) {
+            const href = contestLink.getAttribute('href') || '';
+            const contestIdMatch = href.match(/\/contest(?:s)?\/(\d+)/);
+            if (contestIdMatch) {
+              const id = contestIdMatch[1];
+              const name = contestLink.textContent?.trim() || `Contest ${id}`;
+              
+              // Extract start time from the third column (index 2)
+              const startTimeCell = cells[2];
+              const startTime = startTimeCell?.textContent?.trim();
+              
+              // Extract duration from the fourth column (index 3) 
+              const durationCell = cells[3];
+              const duration = durationCell?.textContent?.trim();
+              
+              // Calculate end time if both start time and duration are available
+              let endTime: string | undefined;
+              if (startTime && duration && startTime !== 'TBD') {
+                endTime = this.calculateEndTime(startTime, duration);
+              }
+              
+              contests.push({
+                id,
+                name,
+                startTime,
+                endTime
+              });
+            }
+          }
+        }
+      });
+    }
+    
+    return contests;
+  }
+
   public parseContestRow(elem: Element, task: TaskBuilder): void {
     const columns = elem.querySelectorAll('td');
 
-    task.setUrl(columns[0].querySelector('a').href);
+    if (columns.length < 2) {
+      return; // Not enough columns, skip this row
+    }
 
-    const letter = columns[0].querySelector('a').text.trim();
-    const name = columns[1].querySelector('a').text.trim();
+    // URL is already set by caller, don't override it
+    // task.setUrl(columns[0].querySelector('a').href);
+
+    const letterLink = columns[0].querySelector('a');
+    const nameLink = columns[1].querySelector('a');
+    
+    if (!letterLink || !nameLink) {
+      return; // Missing required links
+    }
+
+    const letter = letterLink.textContent?.trim() || '';
+    const name = nameLink.textContent?.trim() || '';
 
     task.setName(`${letter}. ${name}`);
 
-    const detailsStr = columns[1].querySelector('div > div:not(:first-child)').textContent;
-    const detailsMatches = /([^/]+)\/([^\n]+)\s+([0-9.]+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));
+    // Try to parse time and memory limits from the details
+    const detailsDiv = columns[1].querySelector('div > div:not(:first-child)');
+    if (detailsDiv) {
+      const detailsStr = detailsDiv.textContent;
+      if (detailsStr) {
+        const detailsMatches = /([^/]+)\/([^\n]+)\s+([0-9.]+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));
+        
+        if (detailsMatches) {
+          const inputFile = detailsMatches[1].trim();
+          const outputFile = detailsMatches[2].trim();
+          const timeLimit = Math.floor(parseFloat(detailsMatches[3].trim()) * 1000);
+          const memoryLimit = parseInt(detailsMatches[4].trim());
 
-    const inputFile = detailsMatches[1].trim();
-    const outputFile = detailsMatches[2].trim();
-    const timeLimit = Math.floor(parseFloat(detailsMatches[3].trim()) * 1000);
-    const memoryLimit = parseInt(detailsMatches[4].trim());
+          if (inputFile.includes('.')) {
+            task.setInput({
+              fileName: inputFile,
+              type: 'file',
+            });
+          }
 
-    if (inputFile.includes('.')) {
-      task.setInput({
-        fileName: inputFile,
-        type: 'file',
-      });
+          if (outputFile.includes('.')) {
+            task.setOutput({
+              fileName: outputFile,
+              type: 'file',
+            });
+          }
+
+          task.setTimeLimit(timeLimit);
+          task.setMemoryLimit(memoryLimit);
+        }
+      }
     }
-
-    if (outputFile.includes('.')) {
-      task.setOutput({
-        fileName: outputFile,
-        type: 'file',
-      });
-    }
-
-    task.setTimeLimit(timeLimit);
-    task.setMemoryLimit(memoryLimit);
   }
 
   private getLastTextNode(elem: Element, selector: string): ChildNode {
@@ -220,7 +384,396 @@ export class CodeforcesProblemParser extends Parser {
       selectedNode = styledNode;
     }
 
-    const textNodes = [...selectedNode.childNodes].filter(node => node.nodeType === Node.TEXT_NODE);
+    const textNodes = Array.from(selectedNode.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
     return textNodes[textNodes.length - 1];
+  }
+
+  private showCalendarDialog(contests: Array<{id: string, name: string, startTime?: string, endTime?: string}>, url: string): void {
+    // Create a modal dialog for calendar integration
+    const dialog = this.createCalendarDialog(contests, url);
+    document.body.appendChild(dialog);
+    
+    // Show the dialog
+    dialog.style.display = 'block';
+  }
+
+  private createCalendarDialog(contests: Array<{id: string, name: string, startTime?: string, endTime?: string}>, url: string): HTMLElement {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+    `;
+
+    const dialog = document.createElement('div');
+    dialog.style.cssText = `
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    `;
+
+    const title = document.createElement('h2');
+    title.style.cssText = `
+      margin: 0 0 20px 0;
+      color: #333;
+      font-size: 24px;
+    `;
+    title.textContent = '📅 添加比赛到日历';
+
+    const description = document.createElement('p');
+    description.style.cssText = `
+      margin: 0 0 20px 0;
+      color: #666;
+      line-height: 1.5;
+    `;
+    description.textContent = '选择要添加到日历的比赛，系统将生成 .ics 文件供您导入到日历应用中。';
+
+    dialog.appendChild(title);
+    dialog.appendChild(description);
+
+    if (contests.length === 0) {
+      const noContests = document.createElement('p');
+      noContests.style.cssText = 'color: #999; text-align: center; padding: 20px;';
+      noContests.textContent = '未找到即将开始的比赛';
+      dialog.appendChild(noContests);
+    } else {
+      // Check if URL targets a specific contest
+      const contestIdMatch = url.match(/\/contests\/(\d+)/);
+      
+      if (contestIdMatch) {
+        // Single contest
+        const contestId = contestIdMatch[1];
+        const targetContest = contests.find(contest => contest.id === contestId);
+        
+        if (targetContest) {
+          this.createSingleContestSection(dialog, targetContest);
+        }
+      } else {
+        // Multiple contests
+        this.createMultipleContestsSection(dialog, contests);
+      }
+    }
+
+    // Close button
+    const closeButton = document.createElement('button');
+    closeButton.style.cssText = `
+      background: #ccc;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      margin-right: 10px;
+    `;
+    closeButton.textContent = '取消';
+    closeButton.onclick = () => overlay.remove();
+
+    dialog.appendChild(closeButton);
+    overlay.appendChild(dialog);
+
+    // Close on overlay click
+    overlay.onclick = (e) => {
+      if (e.target === overlay) {
+        overlay.remove();
+      }
+    };
+
+    return overlay;
+  }
+
+  private createSingleContestSection(dialog: HTMLElement, contest: {id: string, name: string, startTime?: string, endTime?: string}): void {
+    const contestDiv = document.createElement('div');
+    contestDiv.style.cssText = `
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 10px 0;
+      background: #f9f9f9;
+    `;
+
+    const contestName = document.createElement('h3');
+    contestName.style.cssText = 'margin: 0 0 10px 0; color: #333;';
+    contestName.textContent = contest.name;
+
+    const contestTime = document.createElement('p');
+    contestTime.style.cssText = 'margin: 0 0 15px 0; color: #666;';
+    contestTime.textContent = `开始时间: ${contest.startTime || '待定'}`;
+
+    const addButton = document.createElement('button');
+    addButton.style.cssText = `
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    `;
+    addButton.textContent = '🔔 添加到日历并设置提醒';
+    
+    addButton.onclick = () => {
+      this.generateAndDownloadICS([contest]);
+      dialog.closest('[style*="position: fixed"]')?.remove();
+    };
+
+    contestDiv.appendChild(contestName);
+    contestDiv.appendChild(contestTime);
+    contestDiv.appendChild(addButton);
+    dialog.appendChild(contestDiv);
+  }
+
+  private createMultipleContestsSection(dialog: HTMLElement, contests: Array<{id: string, name: string, startTime?: string, endTime?: string}>): void {
+    const selectAll = document.createElement('button');
+    selectAll.style.cssText = `
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    `;
+    selectAll.textContent = '📋 添加所有比赛到日历';
+    selectAll.onclick = () => {
+      this.generateAndDownloadICS(contests);
+      dialog.closest('[style*="position: fixed"]')?.remove();
+    };
+
+    dialog.appendChild(selectAll);
+
+    contests.forEach(contest => {
+      const contestDiv = document.createElement('div');
+      contestDiv.style.cssText = `
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 15px;
+        margin: 10px 0;
+        background: #f9f9f9;
+      `;
+
+      const contestName = document.createElement('h4');
+      contestName.style.cssText = 'margin: 0 0 5px 0; color: #333;';
+      contestName.textContent = contest.name;
+
+      const contestTime = document.createElement('p');
+      contestTime.style.cssText = 'margin: 0 0 10px 0; color: #666; font-size: 14px;';
+      contestTime.textContent = `开始时间: ${contest.startTime || '待定'}`;
+
+      const addButton = document.createElement('button');
+      addButton.style.cssText = `
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      `;
+      addButton.textContent = '🔔 添加此比赛';
+      
+      addButton.onclick = () => {
+        this.generateAndDownloadICS([contest]);
+        dialog.closest('[style*="position: fixed"]')?.remove();
+      };
+
+      contestDiv.appendChild(contestName);
+      contestDiv.appendChild(contestTime);
+      contestDiv.appendChild(addButton);
+      dialog.appendChild(contestDiv);
+    });
+  }
+
+  private generateAndDownloadICS(contests: Array<{id: string, name: string, startTime?: string, endTime?: string}>): void {
+    const icsContent = this.generateICSContent(contests);
+    
+    // Create blob and download
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = contests.length === 1 
+      ? `codeforces-${contests[0].name.replace(/[^a-zA-Z0-9]/g, '_')}.ics`
+      : 'codeforces-contests.ics';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    URL.revokeObjectURL(url);
+    
+    // Show success message
+    this.showSuccessMessage(contests.length);
+  }
+
+  private generateICSContent(contests: Array<{id: string, name: string, startTime?: string, endTime?: string}>): string {
+    const now = new Date();
+    const nowFormatted = this.formatDateForICS(now);
+    
+    let icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Competitive Companion//Codeforces Contests//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+`;
+
+    contests.forEach((contest, index) => {
+      const uid = `codeforces-${contest.id}-${now.getTime()}@competitive-companion`;
+      
+      // Parse start time and end time
+      let startTimeFormatted = nowFormatted;
+      let endTimeFormatted = this.formatDateForICS(new Date(now.getTime() + 2.5 * 60 * 60 * 1000));
+      
+      if (contest.startTime && contest.startTime !== 'TBD' && contest.startTime !== '待定') {
+        try {
+          let startDate: Date;
+          
+          // Handle Codeforces date format: "Jun/08/2025 17:35"
+          if (contest.startTime.includes('/')) {
+            const parts = contest.startTime.split(' ');
+            if (parts.length === 2) {
+              const datePart = parts[0]; // "Jun/08/2025"
+              const timePart = parts[1]; // "17:35"
+              
+              // Convert to standard format
+              const [month, day, year] = datePart.split('/');
+              const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+              const monthIndex = monthNames.indexOf(month);
+              
+              if (monthIndex !== -1) {
+                startDate = new Date(parseInt(year), monthIndex, parseInt(day));
+                const [hours, minutes] = timePart.split(':');
+                startDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+              } else {
+                startDate = new Date(contest.startTime);
+              }
+            } else {
+              startDate = new Date(contest.startTime);
+            }
+          } else {
+            startDate = new Date(contest.startTime);
+          }
+          
+          if (!isNaN(startDate.getTime())) {
+            startTimeFormatted = this.formatDateForICS(startDate);
+            
+            // Use calculated end time if available, otherwise default to 2.5 hours
+            if (contest.endTime) {
+              const endDate = new Date(contest.endTime);
+              if (!isNaN(endDate.getTime())) {
+                endTimeFormatted = this.formatDateForICS(endDate);
+              }
+            } else {
+              endTimeFormatted = this.formatDateForICS(new Date(startDate.getTime() + 2.5 * 60 * 60 * 1000));
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to parse contest time:', contest.startTime, e);
+        }
+      }
+
+      icsContent += `BEGIN:VEVENT
+UID:${uid}
+DTSTART:${startTimeFormatted}
+DTEND:${endTimeFormatted}
+DTSTAMP:${nowFormatted}
+SUMMARY:${contest.name}
+DESCRIPTION:Codeforces Programming Contest\\n\\nRegister at: https://codeforces.com/contest/${contest.id}
+URL:https://codeforces.com/contest/${contest.id}
+LOCATION:Online (Codeforces)
+CATEGORIES:Programming Contest
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Reminder: ${contest.name} starts in 30 minutes
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT5M
+ACTION:DISPLAY
+DESCRIPTION:Reminder: ${contest.name} starts in 5 minutes
+END:VALARM
+END:VEVENT
+`;
+    });
+
+    icsContent += 'END:VCALENDAR';
+    return icsContent;
+  }
+
+  private formatDateForICS(date: Date): string {
+    return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  }
+
+  private showSuccessMessage(contestCount: number): void {
+    const message = document.createElement('div');
+    message.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 4px;
+      z-index: 10001;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    `;
+    message.textContent = `✅ 成功生成 ${contestCount} 个比赛的日历文件！请检查下载文件夹。`;
+    
+    document.body.appendChild(message);
+    
+    setTimeout(() => {
+      message.remove();
+    }, 5000);
+  }
+
+  private calculateEndTime(startTime: string, duration: string): string | undefined {
+    try {
+      // Parse duration (format like "02:15" or "2:00")
+      const durationMatch = duration.match(/(\d+):(\d+)/);
+      if (!durationMatch) return undefined;
+      
+      const hours = parseInt(durationMatch[1]);
+      const minutes = parseInt(durationMatch[2]);
+      const durationMs = (hours * 60 + minutes) * 60 * 1000;
+      
+      // Parse start time - handle various formats
+      let startDate: Date;
+      
+      // Try different date formats that Codeforces might use
+      if (startTime.includes('/')) {
+        // Format: "Jun/08/2025 17:35"
+        startDate = new Date(startTime.replace(/\//g, ' '));
+      } else {
+        // Try parsing as-is
+        startDate = new Date(startTime);
+      }
+      
+      if (isNaN(startDate.getTime())) {
+        return undefined;
+      }
+      
+      const endDate = new Date(startDate.getTime() + durationMs);
+      return endDate.toISOString();
+    } catch (e) {
+      console.warn('Failed to calculate end time:', e);
+      return undefined;
+    }
   }
 }
