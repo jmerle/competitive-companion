@@ -7,6 +7,16 @@ import { request } from '../../utils/request';
 import CodeforcesCalendarGenerator from '../../utils/calendar';
 import { Parser } from '../Parser';
 
+// Special class for calendar integration that doesn't send data to backend
+class CalendarIntegration implements Sendable {
+  constructor(public name: string) {}
+  
+  public async send(): Promise<void> {
+    // Do nothing - calendar integration shouldn't send data to backend
+    return Promise.resolve();
+  }
+}
+
 export class CodeforcesProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     const patterns: string[] = [];
@@ -262,13 +272,8 @@ export class CodeforcesProblemParser extends Parser {
     // Show calendar integration dialog in the browser
     this.showCalendarDialog(contests, url);
 
-    // Return a simple task indicating calendar integration was triggered
-    const task = new TaskBuilder('Codeforces Calendar')
-      .setUrl(url)
-      .setName('Calendar Integration Activated')
-      .setCategory('Codeforces Contests');
-
-    return task.build();
+    // Return a non-sending calendar object that doesn't trigger any backend requests
+    return new CalendarIntegration('Codeforces Contests Calendar Integration');
   }
 
   private extractContestsFromPage(elem: Element): Array<{id: string, name: string, startTime?: string, endTime?: string}> {
@@ -389,13 +394,8 @@ export class CodeforcesProblemParser extends Parser {
     // Show calendar integration dialog in the browser
     this.showCalendarDialog([contest], url);
 
-    // Return a simple task indicating calendar integration was triggered
-    const task = new TaskBuilder('Codeforces Calendar')
-      .setUrl(url)
-      .setName(`Calendar Integration - ${contest.name}`)
-      .setCategory('Codeforces Contest');
-
-    return task.build();
+    // Return a non-sending calendar object that doesn't trigger any backend requests
+    return new CalendarIntegration(`Codeforces Contest ${contest.name} Calendar Integration`);
   }
 
   private extractSingleContestFromPage(elem: Element, contestId: string): {id: string, name: string, startTime?: string, endTime?: string} {
