@@ -8,7 +8,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>Competitive Companion Options</title>
+    <title>Competitive Companion Customized Options</title>
 
     <style>
       /* Adapted from https://github.com/sindresorhus/notifier-for-github/blob/master/source/options.html */
@@ -52,46 +52,75 @@
       .hidden {
         display: none;
       }
+
+      .en {
+        display: none;
+      }
+
+      .zh {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <section>
-      <h3>Preferences</h3>
+      <h3 class="en">Language</h3>
+      <h3 class="zh">语言设置</h3>
 
-      <input type="checkbox" id="name-confirm" />
-      <label for="name-confirm">Ask the user to confirm the name before parsing the problem.</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+      </select>
     </section>
 
     <section>
-      <h3>Custom tools</h3>
-      <label for="custom-ports">Custom ports</label>
+      <h3 class="en">Preferences</h3>
+      <h3 class="zh">偏好设置</h3>
+
+      <input type="checkbox" id="name-confirm" />
+      <label class="en" for="name-confirm">Ask the user to confirm the name before parsing the problem.</label>
+      <label class="zh" for="name-confirm">在解析题目前询问用户题目名。</label>
+    </section>
+
+    <section>
+      <h3 class="en">Custom tools</h3>
+      <h3 class="zh">自定义</h3>
+      <label class="en" for="custom-ports">Custom ports</label>
+      <label class="zh" for="custom-ports">自定义发送端口</label>
 
       <br />
 
       <input type="text" id="custom-ports" title="Port numbers" />
 
-      <p id="custom-ports-error" class="error hidden">
-        Please make sure all ports are valid, and multiple ports are separated by commas.
-      </p>
+      <div id="custom-ports-error" class="error hidden">
+        <p class="en">Please make sure all ports are valid, and multiple ports are separated by commas.</p>
+        <p class="zh">请确保所有端口号都是有效的，多个端口号请用逗号分隔。</p>
+      </div>
 
-      <p class="description">Specify custom ports to send the parsed data to, separated by commas.</p>
+      <p class="description en">Specify custom ports to send the parsed data to, separated by commas.</p>
+      <p class="description zh">指定自定义端口，多个端口请用逗号分隔。</p>
     </section>
 
     <section>
-      <h3>Custom rules</h3>
+      <h3 class="en">Custom rules</h3>
+      <h3 class="zh">自定义解析规则</h3>
 
       <div id="custom-rules-container"></div>
 
       <p id="custom-rules-error" class="error hidden"></p>
 
-      <p class="description">
+      <p class="description en">
         Custom rules can be used to override the parser selection. When a rule's regular expression matches with the url
         of the problem that is being parsed, the parser configured in that rule is used instead of the default parser.
+      </p>
+      <p class="description zh">
+        自定义解析规则可用于覆盖默认的解析器。当一个规则的正则表达式匹配到正在解析的题目的url时，将使用该规则中配置的解析器进行解析。
       </p>
     </section>
 
     <section>
-      <h3>Request timeout</h3>
+      <h3 class="en">Request timeout</h3>
+      <h3 class="zh">请求超时时间</h3>
 
       <label for="request-timeout">Request timeout:</label>
       <input type="number" id="request-timeout" min="1" />
@@ -104,14 +133,16 @@
     </section>
 
     <section>
-      <h3>Debugging</h3>
+      <h3 class="en">Debugging</h3>
+      <h3 class="zh">调试模式</h3>
 
       <input type="checkbox" id="debug-mode" />
       <label for="debug-mode">Debug mode</label>
 
-      <p class="description">
+      <p class="description en">
         If debug mode is enabled, all the JSON data that is sent is logged to the console as well.
       </p>
+      <p class="description zh">如果启用调试模式，则会将发送的JSON数据记录到控制台。</p>
     </section>
 
     <script src="js/options.js"></script>
