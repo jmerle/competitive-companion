@@ -20,15 +20,18 @@ A browser extension which parses competitive programming problems from various o
 ## Tools that use Competitive Companion
 - [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
+- [Assistant.nvim](https://github.com/A7Lavinraj/assistant.nvim)
 - [AutoCp](https://pushpavel.github.io/AutoCp/)
 - [Caide](https://github.com/slycelote/caide)
 - [CHelper](https://plugins.jetbrains.com/plugin/7091-chelper)
 - [Competitive Programming Gradle Plugin](https://github.com/saurabh73/competitive-programming)
 - [Competitive Programming Helper](https://marketplace.visualstudio.com/items?itemName=DivyanshuAgrawal.competitive-programming-helper)
 - [CompetiTest.nvim](https://github.com/xeluxee/competitest.nvim)
+- [CP-Assist](https://github.com/tsych0/cp-assist)
 - [CP Editor](https://github.com/coder3101/cp-editor)
 - [cpbooster](https://www.npmjs.com/package/cpbooster)
 - [cphelper.nvim](https://github.com/p00f/cphelper.nvim)
+- [Fast Olympic Coding](https://github.com/sam20908/vscode-fastolympiccoding)
 - [Hightail](https://github.com/dj3500/hightail)
 - [JHelper](https://plugins.jetbrains.com/plugin/7541-jhelper)
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
@@ -65,6 +68,7 @@ A browser extension which parses competitive programming problems from various o
 | CPython.uz                 | ✔              | ✔              |
 | CS Academy                 | ✔              |                |
 | CSES                       | ✔              | ✔              |
+| CSGOJ                      | ✔              |                |
 | CSU-ACM Online Judge       | ✔              | ✔              |
 | CYEZOJ                     | ✔              | ✔              |
 | Daimayuan Online Judge     | ✔              | ✔              |
@@ -97,7 +101,7 @@ A browser extension which parses competitive programming problems from various o
 | LightOJ                    | ✔              | ✔              |
 | LSYOI                      | ✔              |                |
 | Luogu                      | ✔              | ✔              |
-| MarisaOJ                   | ✔              |                |
+| MarisaOJ                   | ✔              | ✔              |
 | Mendo                      | ✔              |                |
 | Meta Coding Competitions   | ✔              |                |
 | MOI Arena                  | ✔              | ✔              |
@@ -270,8 +274,8 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 22.12.0  
-PNPM: 10.2.0
+Node.js: 22.15.1  
+PNPM: 10.11.0
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)

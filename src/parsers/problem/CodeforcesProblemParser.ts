@@ -201,11 +201,11 @@ export class CodeforcesProblemParser extends Parser {
     await task.setName(`${letter}. ${name}`);
 
     const detailsStr = columns[1].querySelector('div > div:not(:first-child)').textContent;
-    const detailsMatches = /([^/]+)\/([^\n]+)\s+(\d+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));
+    const detailsMatches = /([^/]+)\/([^\n]+)\s+([0-9.]+) s,\s+(\d+) MB/.exec(detailsStr.replace('\n', ' '));
 
     const inputFile = detailsMatches[1].trim();
     const outputFile = detailsMatches[2].trim();
-    const timeLimit = parseInt(detailsMatches[3].trim()) * 1000;
+    const timeLimit = Math.floor(parseFloat(detailsMatches[3].trim()) * 1000);
     const memoryLimit = parseInt(detailsMatches[4].trim());
 
     if (inputFile.includes('.')) {
