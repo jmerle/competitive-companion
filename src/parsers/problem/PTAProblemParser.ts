@@ -6,6 +6,7 @@ import { Parser } from '../Parser';
 export class PTAProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['https://pintia.cn/problem-sets/*/exam/problems/type/*'];
+    return ['https://pintia.cn/problem-sets/*/exam/problems/type/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -24,6 +25,7 @@ export class PTAProblemParser extends Parser {
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1], 10));
     task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1], 10));
 
+    const blocks = [...container.querySelectorAll('.rendered-markdown > pre > code:not(.hljs)')];
     const blocks = [...container.querySelectorAll('.rendered-markdown > pre > code:not(.hljs)')];
 
     for (let i = 0; i < blocks.length - 1; i += 2) {
