@@ -79,6 +79,7 @@ import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSESProblemParser } from './problem/CSESProblemParser';
 import { CSGOJProblemParser } from './problem/CSGOJProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
+import { DaimayuanOJProblemParser } from './problem/DaimayuanOJProblemParser';
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
@@ -151,6 +152,7 @@ import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
 import { XCampProblemParser } from './problem/XCampProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
+import { ybtOJProblemParser } from './problem/ybtOJProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
 import { ZUFEOJProblemParser } from './problem/ZUFEOJProblemParser';
@@ -224,6 +226,8 @@ export const parsers: Parser[] = [
 
   new CSUACMOnlineJudgeProblemParser(),
   new CSUACMOnlineJudgeContestParser(),
+
+  new DaimayuanOJProblemParser(),
 
   new DimikOJProblemParser(),
 
@@ -399,6 +403,8 @@ export const parsers: Parser[] = [
 
   new YandexProblemParser(),
   new YandexContestParser(),
+
+  new ybtOJProblemParser(),
 
   new YukicoderProblemParser(),
   new YukicoderContestParser(),
