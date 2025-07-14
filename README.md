@@ -1,3 +1,17 @@
+# Competitive Companion Customized
+
+Competitive Companion Customized is a browser extension specifically designed for competitive programming enthusiasts, based on the widely acclaimed Competitive Companion (https://github.com/jmerle/competitive-companion). It aims to help contestants quickly extract key information from online contest problems and generate personalized code templates, thereby enhancing coding efficiency and competitive performance.
+
+It works on more Online Judges, and some preferences are changed.
+
+You can install it from the following links:
+
+- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/competitive-companion-cus/acmkjajhbedbffpmmakkegochjenpeeg)
+
+This project still follows MIT license.
+
+Here is README.md of Competitive Companion:
+
 # Competitive Companion
 
 [link-cws]: https://chromewebstore.google.com/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl
@@ -239,6 +253,9 @@ git clone https://github.com/jmerle/competitive-companion.git
 
 # cd into the extension folder
 cd competitive-companion
+
+# install submodules
+git submodule update --init --recursive
 
 # Install the dependencies
 pnpm install
