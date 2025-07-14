@@ -29,15 +29,17 @@ export class HydroProblemParser extends Parser {
 
     const elem = htmlToElement(html);
     const task = new TaskBuilder(judge).setUrl(url);
+
+    const fullName = elem.querySelector('.section__title').lastChild.textContent.trim();
     const url_list = url.split('/');
 
     if (url.includes('/d/')) {
       const domain = url_list[url_list.length - 3];
       const pid = url_list[url_list.length - 1];
-      await task.setName('Hydro ' + domain + ' ' + pid);
+      await task.setName(fullName, 'Hydro ' + domain + ' ' + pid);
     } else {
       const pid = url_list[url_list.length - 1];
-      await task.setName('Hydro P' + pid);
+      await task.setName(fullName, 'Hydro P' + pid);
     }
 
     const blocks = [...elem.querySelectorAll('.sample > pre > code')];

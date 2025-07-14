@@ -6,6 +6,7 @@ const customRulesContainer = document.querySelector<HTMLDivElement>('#custom-rul
 const requestTimeoutInput = document.querySelector<HTMLInputElement>('#request-timeout');
 const debugModeInput = document.querySelector<HTMLInputElement>('#debug-mode');
 const nameConfirmInput = document.querySelector<HTMLInputElement>('#name-confirm');
+const shortNameInput = document.querySelector<HTMLInputElement>('#short-name');
 
 function updateCustomRules(): void {
   const rows = customRulesContainer.querySelectorAll('.custom-rules-row');
@@ -138,6 +139,10 @@ nameConfirmInput.addEventListener('change', function (): void {
   config.set('nameConfirm', this.checked).then(noop).catch(noop);
 });
 
+shortNameInput.addEventListener('change', function (): void {
+  config.set('shortName', this.checked).then(noop).catch(noop);
+});
+
 config
   .get('customPorts')
   .then(value => {
@@ -174,6 +179,13 @@ config
   .get('nameConfirm')
   .then(value => {
     nameConfirmInput.checked = value;
+  })
+  .catch(noop);
+
+config
+  .get('shortName')
+  .then(value => {
+    shortNameInput.checked = value;
   })
   .catch(noop);
 

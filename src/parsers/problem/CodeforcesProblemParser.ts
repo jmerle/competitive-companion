@@ -55,6 +55,9 @@ export class CodeforcesProblemParser extends Parser {
   private async parseMainProblem(html: string, url: string, task: TaskBuilder): Promise<void> {
     const elem = htmlToElement(html);
 
+    const fullName = elem.querySelector('.problem-statement > .header > .title').textContent.trim();
+    let shortName = null;
+
     const urls = url.split('/');
 
     while (urls.at(-1).trim() == '') {
@@ -64,12 +67,12 @@ export class CodeforcesProblemParser extends Parser {
     const pid = /\d+/.exec(url).at(0) + ' ' + (urls.at(-1) == '0' ? 'A' : urls.at(-1));
 
     if (!url.includes('group') && (url.includes('problemset') || url.includes('contest'))) {
-      await task.setName('CF ' + pid);
+      shortName = 'CF ' + pid;
     } else if (url.includes('gym')) {
-      await task.setName('CF GYM ' + pid);
-    } else {
-      await task.setName(elem.querySelector('.problem-statement > .header > .title').textContent.trim());
+      shortName = 'CF GYM ' + pid;
     }
+    
+    await task.setName(fullName, shortName);
 
     if (url.includes('/edu/')) {
       const breadcrumbs = [...elem.querySelectorAll('.eduBreadcrumb > a')].map(el => el.textContent.trim());

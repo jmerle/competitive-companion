@@ -5,20 +5,15 @@ import { Parser } from '../Parser';
 
 export class LibreOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://loj.ac/p/*', 'https://libreoj.github.io/contest/*/problem/*'];
+    return ['https://loj.ac/p/*', 'https://libreoj.github.io/contest/*/problem/*', 'https://contest-archive.loj.ac/contest/*/problem/'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('LibreOJ').setUrl(url);
 
-    const urls = url.split('/');
-    const pid = (urls[urls.length - 2] + urls[urls.length - 1]).toUpperCase();
-
-    await task.setName('Libre ' + pid);
-
     if (!url.includes('contest/')) {
-      this.parseNormalProblem(elem, task);
+      await this.parseNormalProblem(url, elem, task);
     } else {
       await this.parseContestProblem(elem, task);
     }
@@ -26,7 +21,16 @@ export class LibreOJProblemParser extends Parser {
     return task.build();
   }
 
-  private parseNormalProblem(elem: Element, task: TaskBuilder): void {
+  private async parseNormalProblem(url: string, elem: Element, task: TaskBuilder): Promise<void> {
+    const nbsp = new RegExp(String.fromCharCode(160), 'g');
+    const fullName = elem.querySelector('.ui.header > span').textContent.replace(nbsp, ' ');
+    
+    const urls = url.split('/');
+    const pid = (urls[urls.length - 2] + urls[urls.length - 1]).toUpperCase();
+    const shortName = 'Libre ' + pid;
+
+    await task.setName(fullName, shortName);
+
     const timeLimitIcon = elem.querySelector('.label > .clock.icon');
     const timeLimitStr = timeLimitIcon.parentElement.textContent.trim();
     task.setTimeLimit(parseInt(timeLimitStr.split(' ')[0]));

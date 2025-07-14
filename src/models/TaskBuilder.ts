@@ -54,7 +54,11 @@ export class TaskBuilder {
     this.updateGroupFromJudgeCategory();
   }
 
-  public async setName(name: string): Promise<TaskBuilder> {
+  public async setName(fullName: string, shortName?: string): Promise<TaskBuilder> {
+    let name = fullName;
+    if (await config.get('shortName')) {
+      name = shortName || fullName;
+    }
     if (await config.get('nameConfirm')) {
       this.name = prompt('Please set a name for this problem:', name);
       if (this.name == null) {

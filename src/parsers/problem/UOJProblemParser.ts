@@ -37,11 +37,11 @@ export class UOJProblemParser extends Parser {
     const container = elem.querySelector('.uoj-content');
 
     const header = container.querySelector('.page-header');
-    await task.setName(UOJProblemParser.domains[domain] + ' ' + pid);
+    const shortName = UOJProblemParser.domains[domain] + ' ' + pid;
     if (header.tagName === 'H1') {
-      // await task.setName(this.getTitle(header));
+      await task.setName(this.getTitle(header), shortName);
     } else {
-      // await task.setName(this.getTitle(header.querySelector('h1 + h1')));
+      await task.setName(this.getTitle(header.querySelector('h1 + h1')), shortName);
       task.setCategory(this.getTitle(header.querySelector('h1 > small')));
     }
 

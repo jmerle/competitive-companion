@@ -11,12 +11,19 @@ export class AtCoderProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AtCoder').setUrl(url);
+
+    const fullName = [...elem.querySelector('h2, .h2').childNodes]
+      .filter(node => node.nodeType === Node.TEXT_NODE)
+      .map(node => node.textContent)
+      .join('')
+      .trim();
+
     const url_list = url.split('/');
     const problem_id = url_list[url_list.length - 1].toUpperCase();
 
-    const name = 'AT ' + problem_id.split('_').join(' ');
+    const shortName = 'AT ' + problem_id.split('_').join(' ');
 
-    await await task.setName(name);
+    await task.setName(fullName, shortName);
     task.setCategory(elem.querySelector('.contest-name, .contest-title').textContent);
 
     const interactiveSentences = ['This is an interactive task', 'This is a reactive problem'];

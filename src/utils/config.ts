@@ -6,6 +6,7 @@ interface ConfigItems {
   requestTimeout: number;
   debugMode: boolean;
   nameConfirm: boolean;
+  shortName: boolean;
 }
 
 class Config {
@@ -15,6 +16,7 @@ class Config {
     requestTimeout: 500,
     debugMode: false,
     nameConfirm: false,
+    shortName: false,
   };
 
   public async get<T extends keyof ConfigItems>(key: T): Promise<ConfigItems[T]> {
