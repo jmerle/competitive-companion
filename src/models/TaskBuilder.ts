@@ -63,7 +63,6 @@ export class TaskBuilder {
     } else {
       this.name = name;
     }
-    console.warn(this.name);
     return this.updateJavaTaskClassFromName();
   }
 
@@ -170,7 +169,6 @@ export class TaskBuilder {
   }
 
   public build(): Task {
-    console.warn('c', this.name);
     return new Task(
       this.name,
       this.group,

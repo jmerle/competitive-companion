@@ -33,6 +33,9 @@ importers:
       '@types/jest':
         specifier: ^29.5.14
         version: 29.5.14
+      '@types/jquery':
+        specifier: ^3.5.32
+        version: 3.5.32
       '@types/node':
         specifier: ^22.15.26
         version: 22.15.26
@@ -742,6 +745,9 @@ packages:
   '@types/jest@29.5.14':
     resolution: {integrity: sha512-ZN+4sdnLUbo8EVvVc2ao0GFW6oVrQRPn4K2lglySj7APvSrgzxHiNNK99us4WDMi57xxA2yggblIAMNhXOotLQ==}
 
+  '@types/jquery@3.5.32':
+    resolution: {integrity: sha512-b9Xbf4CkMqS02YH8zACqN1xzdxc3cO735Qe5AbSUFmyOiaWAbcpqh9Wna+Uk0vgACvoQHpWDg2rGdHkYPLmCiQ==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
@@ -753,6 +759,9 @@ packages:
 
   '@types/node@22.15.26':
     resolution: {integrity: sha512-lgISkNrqdQ5DAzjBhnDNGKDuXDNo7/1V4FhNzsKREhWLZTOELQAptuAnJMzHtUl1qyEBBy9lNBKQ9WjyiSloTw==}
+
+  '@types/sizzle@2.3.9':
+    resolution: {integrity: sha512-xzLEyKB50yqCUPUJkIsrVvoWNfFUbIZI+RspLWt8u+tIW/BetMBZtgV2LY/2o+tYH8dRvQ+eoPf3NdhQCcLE2w==}
 
   '@types/stack-utils@2.0.1':
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
@@ -4319,6 +4328,10 @@ snapshots:
       expect: 29.7.0
       pretty-format: 29.7.0
 
+  '@types/jquery@3.5.32':
+    dependencies:
+      '@types/sizzle': 2.3.9
+
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
@@ -4328,6 +4341,8 @@ snapshots:
   '@types/node@22.15.26':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/sizzle@2.3.9': {}
 
   '@types/stack-utils@2.0.1': {}
 

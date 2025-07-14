@@ -15,8 +15,6 @@ export class COGSOnlineJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('COGSOnlineJudge').setUrl(url);
 
-    console.log('parsing COGS');
-
     const pid = elem.querySelector('h1')?.textContent.split('.').at(0);
     const hid = /\?pid=\S+/.exec(url).at(0).split('=').at(1);
 
