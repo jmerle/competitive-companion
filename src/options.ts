@@ -6,7 +6,6 @@ const customRulesContainer = document.querySelector<HTMLDivElement>('#custom-rul
 const requestTimeoutInput = document.querySelector<HTMLInputElement>('#request-timeout');
 const debugModeInput = document.querySelector<HTMLInputElement>('#debug-mode');
 const nameConfirmInput = document.querySelector<HTMLInputElement>('#name-confirm');
-const languageInput = document.querySelector<HTMLInputElement>('#language');
 
 function updateCustomRules(): void {
   const rows = customRulesContainer.querySelectorAll('.custom-rules-row');
@@ -27,19 +26,20 @@ function updateCustomRules(): void {
   });
 
   if (rules[rules.length - 1][0].length > 0) {
-    rows[rows.length - 1].querySelector('button').classList.remove('hidden');
+    rows[rows.length - 1].querySelector('button').classList.remove('disabled');
     addCustomRulesRow();
   }
 
   const errorElem = document.querySelector('#custom-rules-error');
+  const errorText = document.querySelector('#custom-rules-error > p');
 
   if (invalidExpressions.length > 0) {
     const formattedExpressions = invalidExpressions.map(expression => `'${expression}'`);
     if (formattedExpressions.length === 1) {
-      errorElem.textContent = `The following regular expression is invalid: ${formattedExpressions[0]}`;
+      errorText.textContent = `The following regular expression is invalid: ${formattedExpressions[0]}`;
     } else {
       const expressionList = formattedExpressions.slice(0, -1).join(', ') + ' and ' + formattedExpressions.slice(-1);
-      errorElem.textContent = `The following regular expressions are invalid: ${expressionList}`;
+      errorText.textContent = `The following regular expressions are invalid: ${expressionList}`;
     }
 
     errorElem.classList.remove('hidden');
@@ -55,7 +55,7 @@ function updateCustomRules(): void {
 
 function addCustomRulesRow(regex?: string, parserName?: string): void {
   const row = document.createElement('div');
-  row.classList.add('custom-rules-row');
+  row.classList.add('custom-rules-row', 'two', 'fields');
 
   const input = document.createElement('input');
   input.placeholder = 'Regular expression';
@@ -76,14 +76,17 @@ function addCustomRulesRow(regex?: string, parserName?: string): void {
   }
 
   const button = document.createElement('button');
-  button.textContent = 'X';
+  button.classList.add('ui', 'button', 'icon', 'red', 'basic');
+  const icon = document.createElement('i');
+  icon.classList.add('close', 'icon');
+  button.appendChild(icon);
 
   if (regex === undefined) {
-    button.classList.add('hidden');
+    button.classList.add('disabled');
   }
 
   button.addEventListener('click', () => {
-    if (!button.classList.contains('hidden')) {
+    if (!button.classList.contains('disabled')) {
       row.remove();
       updateCustomRules();
     }
@@ -111,9 +114,9 @@ customPortsInput.addEventListener('input', function (): void {
   const errorElem = document.querySelector('#custom-ports-error');
 
   if (uniquePorts.some(isNaN) || uniquePorts.some(x => x < 0)) {
-    errorElem.classList.add('hidden');
-  } else {
     errorElem.classList.remove('hidden');
+  } else {
+    errorElem.classList.add('hidden');
 
     config.set('customPorts', uniquePorts).then(noop).catch(noop);
   }
@@ -127,16 +130,12 @@ requestTimeoutInput.addEventListener('input', function (): void {
     .catch(noop);
 });
 
-debugModeInput.addEventListener('input', function (): void {
+debugModeInput.addEventListener('change', function (): void {
   config.set('debugMode', this.checked).then(noop).catch(noop);
 });
 
-nameConfirmInput.addEventListener('input', function (): void {
+nameConfirmInput.addEventListener('change', function (): void {
   config.set('nameConfirm', this.checked).then(noop).catch(noop);
-});
-
-languageInput.addEventListener('input', function (): void {
-  config.set('language', this.value).then(noop).catch(noop);
 });
 
 config
@@ -178,13 +177,6 @@ config
   })
   .catch(noop);
 
-config
-  .get('language')
-  .then(value => {
-    languageInput.value = value;
-    const elem = document.querySelectorAll(`.${value}`);
-    for (const e of elem) {
-      e.classList.remove(value);
-    }
-  })
-  .catch(noop);
+$('.ui.checkbox')
+  .checkbox()
+;

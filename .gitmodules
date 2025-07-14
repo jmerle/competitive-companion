@@ -1,0 +1,3 @@
+[submodule "src/fomantic"]
+	path = src/fomantic
+	url = https://github.com/fomantic/Fomantic-UI-CSS.git

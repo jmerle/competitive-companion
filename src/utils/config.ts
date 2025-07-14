@@ -6,7 +6,6 @@ interface ConfigItems {
   requestTimeout: number;
   debugMode: boolean;
   nameConfirm: boolean;
-  language: string;
 }
 
 class Config {
@@ -16,7 +15,6 @@ class Config {
     requestTimeout: 500,
     debugMode: false,
     nameConfirm: false,
-    language: navigator.language.split('-')[0] == 'zh' ? 'zh' : 'en',
   };
 
   public async get<T extends keyof ConfigItems>(key: T): Promise<ConfigItems[T]> {
