@@ -1,37 +1,21 @@
 # Competitive Companion Customized
 
+[link-mea]: https://microsoftedge.microsoft.com/addons/detail/competitive-companion-cus/acmkjajhbedbffpmmakkegochjenpeeg
+
+[![Microsoft Edge Add-ons Version](https://img.shields.io/badge/dynamic/json?label=microsoft%20edge%20add-on&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Facmkjajhbedbffpmmakkegochjenpeeg)][link-mea]
+[![Microsoft Edge Add-ons Users](https://img.shields.io/badge/dynamic/json?label=users&query=%24.activeInstallCount&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Facmkjajhbedbffpmmakkegochjenpeeg)][link-mea]
+[![Microsoft Edge Add-ons Rating](https://img.shields.io/badge/dynamic/json?label=rating&query=%24.averageRating&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Facmkjajhbedbffpmmakkegochjenpeeg)][link-mea]
+
 Competitive Companion Customized is a browser extension specifically designed for competitive programming enthusiasts, based on the widely acclaimed Competitive Companion (https://github.com/jmerle/competitive-companion). It aims to help contestants quickly extract key information from online contest problems and generate personalized code templates, thereby enhancing coding efficiency and competitive performance.
 
 It works on more Online Judges, and some preferences are changed.
 
-You can install it from the following links:
-
-- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/competitive-companion-cus/acmkjajhbedbffpmmakkegochjenpeeg)
-
 This project still follows MIT license.
 
-Here is README.md of Competitive Companion:
-
-# Competitive Companion
-
-[link-cws]: https://chromewebstore.google.com/detail/competitive-companion/cjnmckjndlpiamhfimnnjmnckgghkjbl
-[link-amo]: https://addons.mozilla.org/en-US/firefox/addon/competitive-companion/
-
-[![Build Status](https://github.com/jmerle/competitive-companion/workflows/Build/badge.svg)](https://github.com/jmerle/competitive-companion/actions/workflows/build.yml)  
-[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)][link-cws]
-[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)][link-cws]
-[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/rating/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg)][link-cws]  
-[![Mozilla Add-on Version](https://img.shields.io/amo/v/competitive-companion.svg)][link-amo]
-[![Mozilla Add-on Users](https://img.shields.io/amo/users/competitive-companion.svg)][link-amo]
-[![Mozilla Add-on Rating](https://img.shields.io/amo/rating/competitive-companion.svg)][link-amo]
-
-A browser extension which parses competitive programming problems from various online judges (like AtCoder and Codeforces) and sends them to various tools (like CP Editor and CPH). Capable of parsing problems and contests and extracting data like the example testcases and the time and memory constraints.
-
 ## Install
-- [**Chrome** extension][link-cws] [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/cjnmckjndlpiamhfimnnjmnckgghkjbl.svg?label=%20">][link-cws]
-- [**Firefox** add-on][link-amo] [<img valign="middle" src="https://img.shields.io/amo/v/competitive-companion.svg?label=%20">][link-amo]
+- [**Microsoft** Edge Add-ons][link-mea] [![Competitive Companion Customized](https://img.shields.io/badge/dynamic/json?label=Competitive%20Companion%20Customized&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Facmkjajhbedbffpmmakkegochjenpeeg)][link-mea]
 
-## Tools that use Competitive Companion
+## Tools that use Competitive Companion Customized
 - [acmX](https://marketplace.visualstudio.com/items?itemName=marx24.acmx)
 - [AI Virtual Assistant](https://github.com/Saurav-Paul/AI-virtual-assistant-python)
 - [Assistant.nvim](https://github.com/A7Lavinraj/assistant.nvim)
