@@ -71,7 +71,7 @@ export class CodeforcesProblemParser extends Parser {
     } else if (url.includes('gym')) {
       shortName = 'CF GYM ' + pid;
     }
-    
+
     await task.setName(fullName, shortName);
 
     if (url.includes('/edu/')) {

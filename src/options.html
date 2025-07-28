@@ -11,7 +11,7 @@
     <title>Competitive Companion Customized Options</title>
 
     <script src="jquery/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="fomantic/semantic.min.css">
+    <link rel="stylesheet" href="fomantic/semantic.min.css" />
     <script src="fomantic/semantic.min.js"></script>
   </head>
   <body>
@@ -23,54 +23,56 @@
           <label>Preferences</label>
 
           <div class="ui checkbox">
-            <input type="checkbox" id="name-confirm" tabindex="0" class="hidden">
+            <input type="checkbox" id="name-confirm" tabindex="0" class="hidden" />
             <label>Ask the user to confirm the name before parsing the problem.</label>
           </div>
 
           <div class="ui checkbox">
-            <input type="checkbox" id="short-name" tabindex="0" class="hidden">
+            <input type="checkbox" id="short-name" tabindex="0" class="hidden" />
             <label>Use short name (usually is pid) instead of full name (usually is problem name).</label>
           </div>
         </div>
-        
+
         <div class="field">
           <label>Custom ports</label>
 
-          <input type="text" id="custom-ports" placeholder="Port numbers">
+          <input type="text" id="custom-ports" placeholder="Port numbers" />
 
           <div id="custom-ports-error" class="ui negative message hidden">
             <div class="header">Ports are not valid</div>
             <p>Please make sure all ports are valid, and multiple ports are separated by commas.</p>
           </div>
-    
+
           <p>Specify custom ports to send the parsed data to, separated by commas.</p>
         </div>
 
         <div class="field">
           <label>Custom rules</label>
-    
+
           <div id="custom-rules-container"></div>
-    
+
           <div id="custom-rules-error" class="ui negative message hidden">
             <div class="header">Rules are not valid</div>
             <p></p>
           </div>
-    
+
           <p>
-            Custom rules can be used to override the parser selection. When a rule's regular expression matches with the url
-            of the problem that is being parsed, the parser configured in that rule is used instead of the default parser.
+            Custom rules can be used to override the parser selection. When a rule's regular expression matches with the
+            url of the problem that is being parsed, the parser configured in that rule is used instead of the default
+            parser.
           </p>
         </div>
 
         <div class="field">
           <label>Request timeout</label>
-  
+
           <input type="number" id="request-timeout" min="1" />
-    
+
           <p>
-            When a problem is sent to the ports a tool could possibly be listening on a timeout is set so requests sent to
-            ports with no listening tools aren't kept alive for too long. You should not change this value unless you are
-            facing issues with your tools not receiving the problem data after clicking the "+" button when they should be.
+            When a problem is sent to the ports a tool could possibly be listening on a timeout is set so requests sent
+            to ports with no listening tools aren't kept alive for too long. You should not change this value unless you
+            are facing issues with your tools not receiving the problem data after clicking the "+" button when they
+            should be.
           </p>
         </div>
 
@@ -78,13 +80,11 @@
           <label>Debugging</label>
 
           <div class="ui checkbox">
-            <input type="checkbox" id="debug-mode" tabindex="0" class="hidden">
+            <input type="checkbox" id="debug-mode" tabindex="0" class="hidden" />
             <label>Debug mode</label>
           </div>
 
-          <p>
-            If debug mode is enabled, all the JSON data that is sent is logged to the console as well.
-          </p>
+          <p>If debug mode is enabled, all the JSON data that is sent is logged to the console as well.</p>
         </div>
       </div>
     </div>

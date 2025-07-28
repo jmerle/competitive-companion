@@ -11,10 +11,13 @@ export class HDOJNewProblemParser extends Parser {
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('HDOJ').setUrl(url);
+    const cid = /cid=\d+/g.exec(url).at(0).slice(4);
+    const pid = /pid=\d+/g.exec(url).at(0).slice(4);
+    const shortName = `C${cid} P${pid}`;
 
     const sidebar = elem.querySelector('.problem-sidebar');
 
-    await task.setName(sidebar.querySelector('h3').textContent);
+    await task.setName(sidebar.querySelector('h3').textContent, shortName);
 
     const limits = sidebar.querySelectorAll('.info-value');
 

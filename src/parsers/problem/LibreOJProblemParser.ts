@@ -5,7 +5,11 @@ import { Parser } from '../Parser';
 
 export class LibreOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://loj.ac/p/*', 'https://libreoj.github.io/contest/*/problem/*', 'https://contest-archive.loj.ac/contest/*/problem/'];
+    return [
+      'https://loj.ac/p/*',
+      'https://libreoj.github.io/contest/*/problem/*',
+      'https://contest-archive.loj.ac/contest/*/problem/',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -24,7 +28,7 @@ export class LibreOJProblemParser extends Parser {
   private async parseNormalProblem(url: string, elem: Element, task: TaskBuilder): Promise<void> {
     const nbsp = new RegExp(String.fromCharCode(160), 'g');
     const fullName = elem.querySelector('.ui.header > span').textContent.replace(nbsp, ' ');
-    
+
     const urls = url.split('/');
     const pid = (urls[urls.length - 2] + urls[urls.length - 1]).toUpperCase();
     const shortName = 'Libre ' + pid;
