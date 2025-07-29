@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Added support for Olympicode (thanks [@EntityPlantt](https://github.com/EntityPlantt))
+- Added support for HOJ (thanks [@Introl-ljl](https://github.com/Introl-ljl))
 - Added support for Daimayuan Online Judge's bs.daimayuan.top interface
 - Fixed the SSOIER parser not working on https URLs
 
