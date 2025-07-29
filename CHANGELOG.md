@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Added support for Daimayuan Onlikne Judge's bs.daimayuan.top interface
+- Fixed the SSOIER parser not working on https URLs
+
 ## [2.61.0](https://github.com/jmerle/competitive-companion/releases/tag/2.61.0) (2025-05-30)
 - Added a problem parser for CSGOJ (thanks [@xiaowhang](https://github.com/xiaowhang))
 - Added a contest parser for MarisaOJ (thanks [@dqhieuu](https://github.com/dqhieuu))

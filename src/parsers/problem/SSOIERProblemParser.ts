@@ -5,7 +5,11 @@ import { Parser } from '../Parser';
 
 export class SSOIERProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://ybt.ssoier.cn/problem_show.php*', 'http://oj.woj.ac.cn:8088/problem_show.php*'];
+    return [
+      'http://ybt.ssoier.cn/problem_show.php*',
+      'https://ybt.ssoier.cn/problem_show.php*',
+      'http://oj.woj.ac.cn:8088/problem_show.php*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
