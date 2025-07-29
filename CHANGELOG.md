@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Added support for Daimayuan Onlikne Judge's bs.daimayuan.top interface
+- Added support for Daimayuan Online Judge's bs.daimayuan.top interface
 - Fixed the SSOIER parser not working on https URLs
 
 ## [2.61.0](https://github.com/jmerle/competitive-companion/releases/tag/2.61.0) (2025-05-30)
