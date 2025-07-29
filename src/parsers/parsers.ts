@@ -94,6 +94,7 @@ import { HDOJProblemParser } from './problem/HDOJProblemParser';
 import { HihoCoderProblemParser } from './problem/HihoCoderProblemParser';
 import { HITOnlineJudgeProblemParser } from './problem/HITOnlineJudgeProblemParser';
 import { HKOIOnlineJudgeProblemParser } from './problem/HKOIOnlineJudgeProblemParser';
+import { HOJProblemParser } from './problem/HOJProblemParser';
 import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProblemParser';
 import { HydroProblemParser } from './problem/HydroProblemParser';
 import { InfoArenaProblemParser } from './problem/InfoArenaProblemParser';
@@ -154,7 +155,6 @@ import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
 import { ZUFEOJProblemParser } from './problem/ZUFEOJProblemParser';
-import { HOJProblemParser } from './problem/HOJProblemParser';  
 
 export const parsers: Parser[] = [
   new A2OnlineJudgeProblemParser(),
@@ -243,7 +243,7 @@ export const parsers: Parser[] = [
 
   new FZUOnlineJudgeProblemParser(),
   new FZUOnlineJudgeContestParser(),
-  new HOJProblemParser(),
+
   new GoogleCodingCompetitionsProblemParser(),
 
   new HackerEarthProblemParser(),
@@ -265,6 +265,8 @@ export const parsers: Parser[] = [
 
   new HKOIOnlineJudgeProblemParser(),
   new HKOIOnlineJudgeContestParser(),
+
+  new HOJProblemParser(),
 
   new HrbustOnlineJudgeProblemParser(),
 
