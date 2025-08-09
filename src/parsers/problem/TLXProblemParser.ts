@@ -8,8 +8,8 @@ export class TLXProblemParser extends Parser {
     return [
       'https://tlx.toki.id/contests/*/problems/*',
       'https://tlx.toki.id/problems/*/*',
-      'https://tlx.toki.id/courses/basic/chapters/*/problems/*',
-      'https://tlx.toki.id/courses/competitive/chapters/*/problems/*',
+      'https://tlx.toki.id/courses/basic*/chapters/*/problems/*',
+      'https://tlx.toki.id/courses/competitive*/chapters/*/problems/*',
     ];
   }
 
@@ -55,7 +55,7 @@ export class TLXProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('TLX').setUrl(url);
 
-    const name = [...elem.querySelector('h2.programming-problem-statement__name').childNodes]
+    const name = [...elem.querySelector('.chapter-problem-page__title > h3').childNodes]
       .filter(node => node.nodeType === Node.TEXT_NODE)
       .map(node => node.textContent)
       .join('')
@@ -71,7 +71,12 @@ export class TLXProblemParser extends Parser {
     } else {
       const breadcrumbs = elem.querySelectorAll('.chapter-problem-page__title--link');
       if (breadcrumbs.length > 0) {
-        task.setCategory([...breadcrumbs].map(el => el.textContent).join(' - '));
+        task.setCategory(
+          [...breadcrumbs]
+            .map(el => el.textContent)
+            .filter(v => v.length > 0)
+            .join(' - '),
+        );
       }
     }
 
@@ -81,7 +86,7 @@ export class TLXProblemParser extends Parser {
       task.setName(breadcrumbText[breadcrumbText.length - 1] + '. ' + task.name);
     }
 
-    const limitNodes = elem.querySelector('.programming-problem-statement__limits');
+    const limitNodes = elem.querySelector('.statement-header__limits');
 
     const [, timeLimit, timeLimitUnit] = /([0-9.]+) ?(s|ms)/.exec(limitNodes.textContent);
     task.setTimeLimit(timeLimitUnit === 's' ? parseFloat(timeLimit) * 1000 : parseFloat(timeLimit));
