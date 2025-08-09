@@ -152,6 +152,7 @@ A browser extension which parses competitive programming problems from various o
 | XXM                        | ✔              |                |
 | X-Camp                     | ✔              |                |
 | yukicoder                  | ✔              | ✔              |
+| Yun Dou Xue Yuan           | ✔              | ✔              |
 | ZOJ                        | ✔              |                |
 | ZUFEOJ                     | ✔              | ✔              |
 
