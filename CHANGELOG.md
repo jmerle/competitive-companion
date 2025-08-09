@@ -7,6 +7,7 @@
 - Added support for Yun Dou Xue Yuan
 - Fixed the SSOIER parser not working on https URLs
 - Fixed the TLX parser
+- Fixed the Codeforces parser omitting empty lines in sample cases
 
 ## [2.61.0](https://github.com/jmerle/competitive-companion/releases/tag/2.61.0) (2025-05-30)
 - Added a problem parser for CSGOJ (thanks [@xiaowhang](https://github.com/xiaowhang))

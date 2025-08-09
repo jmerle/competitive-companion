@@ -110,15 +110,13 @@ export class CodeforcesProblemParser extends Parser {
   }
 
   private parseMainTestBlock(block: Element): string {
-    const lines = [...block.querySelectorAll('.test-example-line')].filter(
-      el => el.querySelector('.test-example-line, br') === null,
-    );
+    const lines = [...block.querySelectorAll('.test-example-line')];
 
     if (lines.length === 0) {
       return decodeHtml(block.innerHTML);
     }
 
-    return [...lines].map(el => decodeHtml(el.innerHTML)).join('\n');
+    return [...lines].map(el => (el.querySelector('br') === null ? decodeHtml(el.innerHTML) : '')).join('\n');
   }
 
   private parseAcmSguRuProblemInsideTable(html: string, task: TaskBuilder): void {
