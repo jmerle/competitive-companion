@@ -6,7 +6,7 @@ import { Parser } from '../Parser';
 export class KEPUZProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
-      'https://kep.uz/practice/problems/problem/2105*',
+      'https://kep.uz/practice/problems/problem/*',
       'https://kep.uz/competitions/contests/contest/*/problem/*',
     ];
   }

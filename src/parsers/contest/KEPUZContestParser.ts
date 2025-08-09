@@ -20,7 +20,7 @@ export class KEPUZContestParser extends ContestParser<ProblemDescription> {
     const urlParts = url.split('/');
     const contestId = urlParts[urlParts.length - 2];
 
-    const linkElems = [...elem.querySelectorAll<HTMLAnchorElement>('contest-problem-card > a')];
+    const linkElems = [...elem.querySelectorAll<HTMLAnchorElement>('td > a[href^="/competitions/contests/contest/"]')];
     return linkElems.map(linkElem => ({
       contestId,
       problemSymbol: linkElem.href.split('/').pop(),
