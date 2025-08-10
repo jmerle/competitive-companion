@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## [2.62.0](https://github.com/jmerle/competitive-companion/releases/tag/2.62.0) (2025-08-10)
 - Added support for Olympicode (thanks [@EntityPlantt](https://github.com/EntityPlantt))
 - Added support for HOJ (thanks [@Introl-ljl](https://github.com/Introl-ljl))
 - Added support for Daimayuan Online Judge's bs.daimayuan.top interface
