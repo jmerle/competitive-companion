@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class KEPUZProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://kep.uz/practice/problems/problem/*',
-      'https://kep.uz/competitions/contests/contest/*/problem/*',
-    ];
+    return ['https://kep.uz/practice/problems/problem/*', 'https://kep.uz/competitions/contests/contest/*/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
