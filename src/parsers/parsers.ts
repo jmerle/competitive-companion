@@ -14,6 +14,7 @@ import { CSESContestParser } from './contest/CSESContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { DOMjudgeContestParser } from './contest/DOMjudgeContestParser';
+import { DotOJContestParser } from './contest/DotOJContestParser';
 import { ECNUOnlineJudgeContestParser } from './contest/ECNUOnlineJudgeContestParser';
 import { EolympBasecampContestParser } from './contest/EolympBasecampContestParser';
 import { EolympNormalContestParser } from './contest/EolympNormalContestParser';
@@ -81,6 +82,7 @@ import { CSGOJProblemParser } from './problem/CSGOJProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
+import { DotOJProblemParser } from './problem/DotOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EolympBasecampProblemParser } from './problem/EolympBasecampProblemParser';
 import { EolympNormalProblemParser } from './problem/EolympNormalProblemParser';
@@ -233,6 +235,9 @@ export const parsers: Parser[] = [
   new DMOJContestParser(),
 
   new DOMjudgeContestParser(),
+  
+  new DotOJProblemParser(),
+  new DotOJContestParser(),
 
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
