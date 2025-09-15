@@ -235,7 +235,7 @@ export const parsers: Parser[] = [
   new DMOJContestParser(),
 
   new DOMjudgeContestParser(),
-  
+
   new DotOJProblemParser(),
   new DotOJContestParser(),
 
