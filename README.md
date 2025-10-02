@@ -148,6 +148,7 @@ A browser extension which parses competitive programming problems from various o
 | UVa Online Judge           | ✔              |                |
 | Virtual Judge              | ✔              | ✔              |
 | VNOI Online Judge          | ✔              | ✔              |
+| YACS                       | ✔              |                |
 | Yandex                     | ✔              | ✔              |
 | XXM                        | ✔              |                |
 | X-Camp                     | ✔              |                |
