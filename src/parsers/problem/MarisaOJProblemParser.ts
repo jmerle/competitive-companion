@@ -5,7 +5,12 @@ import { Parser } from '../Parser';
 
 export class MarisaOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://marisaoj.com/problem/*', 'https://marisaoj.com/mashup/*/problem/*'];
+    return [
+      'https://marisaoj.com/problem/*',
+      'https://marisaoj.com/mashup/*/problem/*',
+      'https://m.marisaoj.com/problem/*',
+      'https://m.marisaoj.com/mashup/*/problem/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
