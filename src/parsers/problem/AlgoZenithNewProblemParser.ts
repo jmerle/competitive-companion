@@ -14,11 +14,13 @@ export class AlgoZenithNewProblemParser extends Parser {
 
     task.setName(elem.querySelector('h4').textContent);
 
-    const timeLimitStr = this.getLimit(elem, 'Time Limit');
+    const limitElems = elem.querySelectorAll('span.dmsans ~ span.fw-bold');
+
+    const timeLimitStr = limitElems[0].textContent;
     task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1]) * 1000);
 
-    const memoryLimitStr = this.getLimit(elem, 'Memory');
-    task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1]) / 1000);
+    const memoryLimitStr = limitElems[1].textContent;
+    task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1]));
 
     const blocks = elem.querySelectorAll('.mt-4 div[class^="coding_input_format__"]');
     for (let i = 0; i < blocks.length - 1; i += 2) {
@@ -26,10 +28,5 @@ export class AlgoZenithNewProblemParser extends Parser {
     }
 
     return task.build();
-  }
-
-  private getLimit(elem: Element, label: string): string {
-    const labelElem = [...elem.querySelectorAll('p.dmsans')].find(el => el.textContent.trim() === label);
-    return labelElem.previousElementSibling.textContent;
   }
 }
