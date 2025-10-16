@@ -16,10 +16,13 @@ export class UniversalCupProblemParser extends Parser {
     task.setName(elem.querySelector('h1.text-center').textContent.replace(/\s+/g, ' ').trim());
     task.setCategory(elem.querySelector('h1.text-left').textContent.replace(/\s+/g, ' ').trim());
 
-    const attachmentsUrl = elem.querySelector<HTMLLinkElement>('a.nav-link[href^="/download"]').href;
+    const attachmentsUrlElem = elem.querySelector<HTMLLinkElement>('a.nav-link[href^="/download"]');
+    if (attachmentsUrlElem === null) {
+      return task.build();
+    }
 
     try {
-      const files = await fetchZip(attachmentsUrl, ['.in', '.ans']);
+      const files = await fetchZip(attachmentsUrlElem.href, ['.in', '.ans']);
 
       const testCases: Record<string, { input: string; output: string }> = {};
       for (const [fileName, fileContent] of Object.entries(files)) {
