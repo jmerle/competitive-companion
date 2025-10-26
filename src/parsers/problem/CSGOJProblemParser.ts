@@ -8,11 +8,6 @@ export class CSGOJProblemParser extends Parser {
     return [
       'https://cpc.csgrandeur.cn/csgoj/problemset/problem*',
       'https://acm.sztu.edu.cn/csgoj/problemset/problem*',
-
-      // 'https://acm.sztu.edu.cn/*/*/problem?*',
-      // 'http://acm.sztu.edu.cn:40080/*/*/problem?*',
-      // 'http://acm.sztu.edu.cn:50100/*/*/problem?*',
-      // 'https://cpc.csgrandeur.cn/*/contest/problem?*',
     ];
   }
 
