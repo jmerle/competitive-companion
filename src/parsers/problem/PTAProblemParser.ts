@@ -14,15 +14,11 @@ export class PTAProblemParser extends Parser {
 
     const container = elem.querySelector('.scroll');
 
-    task.setName(
-      container.querySelector('.text-darkest.font-bold.text-lg')!.textContent!.trim()
-    );
+    task.setName(container.querySelector('.text-darkest.font-bold.text-lg')!.textContent!.trim());
     const categoryEl = elem.querySelector('.fixed.top-0.w-full .text-lg.ellipsis');
     task.setCategory(categoryEl ? categoryEl.textContent!.trim() : '');
 
-    const limits = [...elem.querySelectorAll('.problemInfo_tfBoz .pc-text-raw')].map(
-      (l) => l.textContent || ''
-    );
+    const limits = [...elem.querySelectorAll('.problemInfo_tfBoz .pc-text-raw')].map(l => l.textContent || '');
 
     const timeLimitStr = limits.find(text => text.includes('ms'));
     const memoryLimitStr = limits.find(text => text.includes('MB'));
@@ -32,11 +28,11 @@ export class PTAProblemParser extends Parser {
 
     const inputHeader = elem.querySelector('h3[id*="输入样例"]');
     const outputHeader = elem.querySelector('h3[id*="输出样例"]');
-    
+
     if (inputHeader && outputHeader) {
       const inputCode = inputHeader.nextElementSibling?.querySelector('code')?.textContent?.trim();
       const outputCode = outputHeader.nextElementSibling?.querySelector('code')?.textContent?.trim();
-      
+
       if (inputCode && outputCode) {
         task.addTest(inputCode, outputCode);
       }
