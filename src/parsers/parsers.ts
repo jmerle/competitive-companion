@@ -152,6 +152,7 @@ import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemPars
 import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
 import { XCampProblemParser } from './problem/XCampProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
+import { YACSProblemParser } from './problem/YACSProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
@@ -405,6 +406,8 @@ export const parsers: Parser[] = [
 
   new YandexProblemParser(),
   new YandexContestParser(),
+
+  new YACSProblemParser(),
 
   new YukicoderProblemParser(),
   new YukicoderContestParser(),
