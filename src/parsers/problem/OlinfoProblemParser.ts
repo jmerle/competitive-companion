@@ -21,9 +21,12 @@ export class OlinfoProblemParser extends Parser {
     if (/\/terry\/\w+$/.test(url)) {
       // Special task format for regionals
       let input = '';
-      elem.querySelectorAll('main>div>p').forEach(e => {
+      elem.querySelectorAll('main > div > p').forEach(e => {
         let f = e.querySelector('strong')?.textContent;
-        if (typeof f !== 'string') return;
+        if (typeof f !== 'string') {
+          return;
+        }
+
         f = f.trim();
         if (f === 'Input:') {
           input = e.nextElementSibling.textContent;
@@ -31,13 +34,14 @@ export class OlinfoProblemParser extends Parser {
           task.addTest(input, e.nextElementSibling.textContent);
         }
       });
+
       // Turns out they don't have a time/memory limit on the regionals because the program is only running on the
       // competitors' computers... the website gives an input and you have 10 minutes to upload the output (and the source??)
       // Still, the tasks are batch format and are applicable for this
       return task.build();
     }
 
-    for (const c of elem.querySelector('header>.grid').children) {
+    for (const c of elem.querySelector('header > .grid').children) {
       const d = c.childNodes[c.childNodes.length - 1].textContent;
       if (['Limite di tempo:', 'Time limit:'].includes(c.querySelector('span').textContent.trim())) {
         task.setTimeLimit(parseFloat(/(\d+)/.exec(d)[1]) * 1e3);
@@ -51,16 +55,22 @@ export class OlinfoProblemParser extends Parser {
       const name = a.textContent;
       if (/input\d+.txt$/.test(name)) {
         const i = parseInt(/(\d+)/.exec(name)[1]);
-        while (tests.length <= i) tests.push(['', '']);
+        while (tests.length <= i) {
+          tests.push(['', '']);
+        }
+
         tests[i][0] = await fetch(a.href).then(x => x.text());
       } else if (/output\d+.txt$/.test(name)) {
         const i = parseInt(/(\d+)/.exec(name)[1]);
-        while (tests.length <= i) tests.push(['', '']);
+        while (tests.length <= i) {
+          tests.push(['', '']);
+        }
+
         tests[i][1] = await fetch(a.href).then(x => x.text());
       }
     }
-    tests.forEach(x => task.addTest(...x));
 
+    tests.forEach(x => task.addTest(...x));
     return task.build();
   }
 }
