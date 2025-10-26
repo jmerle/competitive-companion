@@ -5,10 +5,7 @@ import { Parser } from '../Parser';
 
 export class CSGOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return [
-      'https://cpc.csgrandeur.cn/csgoj/problemset/problem*',
-      'https://acm.sztu.edu.cn/csgoj/problemset/problem*',
-    ];
+    return ['https://cpc.csgrandeur.cn/csgoj/problemset/problem*', 'https://acm.sztu.edu.cn/csgoj/problemset/problem*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
