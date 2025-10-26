@@ -24,7 +24,7 @@ export class CSGOJContestParser extends ContestParser<ProblemStub> {
     const contestTitleSelector = 'body > main > h1:nth-child(2)';
     const candidateSelector = 'body > main > div:nth-child(1) > div > div > h1';
     const linksSelector = 'div.fixed-table-body tbody tr td:nth-child(3) a';
-    
+
     const contestTitleElem = document.querySelector(contestTitleSelector) || document.querySelector(candidateSelector);
     const links = document.querySelectorAll(linksSelector);
 
@@ -33,7 +33,7 @@ export class CSGOJContestParser extends ContestParser<ProblemStub> {
     }
 
     const contestTitle = contestTitleElem.textContent.trim().replace(/^\d+:\s*/, '');
-    
+
     const stubs = [...links].map(link => {
       const a = link as HTMLAnchorElement;
       return {
@@ -58,8 +58,14 @@ export class CSGOJContestParser extends ContestParser<ProblemStub> {
     task.setTimeLimit(Number(infoList[1].textContent.replace(' Sec', '')) * 1000);
     task.setMemoryLimit(Number(infoList[3].textContent.replace(' MB', '')));
 
-    const inputs = [...elem.querySelectorAll('.sample_input_area')][0].textContent.split('##CASE##').map(s => s.trim()).filter(Boolean);
-    const outputs = [...elem.querySelectorAll('.sample_output_area')][0].textContent.split('##CASE##').map(s => s.trim()).filter(Boolean);
+    const inputs = [...elem.querySelectorAll('.sample_input_area')][0].textContent
+      .split('##CASE##')
+      .map(s => s.trim())
+      .filter(Boolean);
+    const outputs = [...elem.querySelectorAll('.sample_output_area')][0].textContent
+      .split('##CASE##')
+      .map(s => s.trim())
+      .filter(Boolean);
 
     for (let i = 0; i < inputs.length || i < outputs.length; i++) {
       task.addTest(inputs[i] || '', outputs[i] || '');
@@ -68,4 +74,3 @@ export class CSGOJContestParser extends ContestParser<ProblemStub> {
     return task.build();
   }
 }
-

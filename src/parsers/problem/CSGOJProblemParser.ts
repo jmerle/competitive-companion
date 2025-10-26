@@ -8,7 +8,7 @@ export class CSGOJProblemParser extends Parser {
     return [
       'https://cpc.csgrandeur.cn/csgoj/problemset/problem*',
       'https://acm.sztu.edu.cn/csgoj/problemset/problem*',
-      
+
       // 'https://acm.sztu.edu.cn/*/*/problem?*',
       // 'http://acm.sztu.edu.cn:40080/*/*/problem?*',
       // 'http://acm.sztu.edu.cn:50100/*/*/problem?*',
@@ -23,7 +23,10 @@ export class CSGOJProblemParser extends Parser {
     const titleSelector1 = 'body > main > h2';
     const titleSelector2 = 'h1';
     const titleElem = elem.querySelector(titleSelector1) || elem.querySelector(titleSelector2);
-    const title = titleElem.textContent.trim().replace(/^(\d+|[A-Z]):\s*/, '').replace(/\s+/g, '');
+    const title = titleElem.textContent
+      .trim()
+      .replace(/^(\d+|[A-Z]):\s*/, '')
+      .replace(/\s+/g, '');
     task.setName(title);
 
     const category = elem.querySelector('[name="Source"] a')?.textContent?.trim();
