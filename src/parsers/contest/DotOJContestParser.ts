@@ -9,8 +9,7 @@ export class DotOJContestParser extends ContestParser<[string, string, string]> 
     return DotOJProblemParser.DOMAINS.map(domain => `https://${domain}/contest/*`);
   }
 
-  protected async getTasksToParse(_: string, url: string): Promise<[string, string, string][]> {
-    void _;
+  protected async getTasksToParse(html: string, url: string): Promise<[string, string, string][]> {
     const auth = JSON.parse(localStorage.getItem('dotoj-auth') || 'null');
     if (!auth) {
       throw new Error('Please login to DotOJ first.');

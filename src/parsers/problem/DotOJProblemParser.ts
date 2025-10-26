@@ -23,8 +23,8 @@ export class DotOJProblemParser extends Parser {
     return DotOJProblemParser.DOMAINS.map(domain => `https://${domain}/contest/*/problem/*`);
   }
 
-  public async parse(url: string, _: string): Promise<Sendable> {
-    void _;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public async parse(url: string, html: string): Promise<Sendable> {
     const auth = JSON.parse(localStorage.getItem('dotoj-auth') || 'null');
     if (!auth) {
       throw new Error('Please login to DotOJ first.');
