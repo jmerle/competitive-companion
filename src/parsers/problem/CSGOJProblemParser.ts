@@ -12,7 +12,14 @@ export class CSGOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('CSGOJ').setUrl(url);
 
-    task.setName(elem.querySelector('h1').textContent.replace(/\s+/g, ' ').trim());
+    const titleSelector1 = 'body > main > h2';
+    const titleSelector2 = 'h1';
+    const titleElem = elem.querySelector(titleSelector1) || elem.querySelector(titleSelector2);
+    const title = titleElem.textContent
+      .trim()
+      .replace(/^(\d+|[A-Z]):\s*/, '')
+      .replace(/\s+/g, '');
+    task.setName(title);
 
     const category = elem.querySelector('[name="Source"] a')?.textContent?.trim();
     if (category) {
