@@ -1,6 +1,7 @@
 import { config } from './utils/config';
 import { noop } from './utils/noop';
 
+const customHostsInput = document.querySelector<HTMLInputElement>('#custom-hosts');
 const customPortsInput = document.querySelector<HTMLInputElement>('#custom-ports');
 const customRulesContainer = document.querySelector<HTMLDivElement>('#custom-rules-container');
 const requestTimeoutInput = document.querySelector<HTMLInputElement>('#request-timeout');
@@ -97,6 +98,43 @@ function addCustomRulesRow(regex?: string, parserName?: string): void {
   customRulesContainer.appendChild(row);
 }
 
+async function fillCustomValues(): Promise<void> {
+  const customHosts = await config.get('customHosts');
+  const customPorts = await config.get('customPorts');
+  const customRules = await config.get('customRules');
+
+  customHostsInput.value = customHosts.join(',');
+  customPortsInput.value = customPorts.join(',');
+  customRulesContainer.innerHTML = '';
+
+  for (const rule of customRules) {
+    addCustomRulesRow(rule[0], rule[1]);
+  }
+
+  addCustomRulesRow();
+}
+
+window.addEventListener('load', fillCustomValues);
+
+customHostsInput.addEventListener('input', function (): void {
+  const hosts = this.value
+    .split(',')
+    .map(x => x.trim())
+    .filter(x => x.length > 0);
+
+  const uniqueHosts = [...new Set(hosts)];
+
+  const errorElem = document.querySelector('#custom-hosts-error');
+
+  if (uniqueHosts.some(x => x.includes('https://') || x.includes('http://'))) {
+    errorElem.classList.remove('hidden');
+  } else {
+    errorElem.classList.add('hidden');
+
+    config.set('customHosts', uniqueHosts).then(noop).catch(noop);
+  }
+});
+
 customPortsInput.addEventListener('input', function (): void {
   const ports = this.value
     .split(',')
@@ -109,9 +147,9 @@ customPortsInput.addEventListener('input', function (): void {
   const errorElem = document.querySelector('#custom-ports-error');
 
   if (uniquePorts.some(isNaN) || uniquePorts.some(x => x < 0)) {
-    errorElem.classList.add('hidden');
-  } else {
     errorElem.classList.remove('hidden');
+  } else {
+    errorElem.classList.add('hidden');
 
     config.set('customPorts', uniquePorts).then(noop).catch(noop);
   }
