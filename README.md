@@ -68,13 +68,14 @@ A browser extension which parses competitive programming problems from various o
 | CPython.uz                 | ✔              | ✔              |
 | CS Academy                 | ✔              |                |
 | CSES                       | ✔              | ✔              |
-| CSGOJ                      | ✔              |                |
+| CSGOJ                      | ✔              | ✔              |
 | CSU-ACM Online Judge       | ✔              | ✔              |
 | CYEZOJ                     | ✔              | ✔              |
 | Daimayuan Online Judge     | ✔              | ✔              |
 | Dimik OJ                   | ✔              |                |
 | DMOJ                       | ✔              | ✔              |
 | DOMjudge                   |                | ✔              |
+| DotOJ                      | ✔              | ✔              |
 | Eolymp                     | ✔              | ✔              |
 | ECNU Online Judge          | ✔              | ✔              |
 | FZU Online Judge           | ✔              | ✔              |

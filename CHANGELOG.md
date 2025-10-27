@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.63.0](https://github.com/jmerle/competitive-companion/releases/tag/2.63.0) (2025-10-27)
+- Add support for DotOJ (thanks [@wsq4](https://github.com/wsq4))
+- Add support for Olinfo (thanks [@EntityPlantt](https://github.com/EntityPlantt))
+- Add support for YACS (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Add support for CSGOJ contests (thanks [@linyisu](https://github.com/linyisu))
+- Fixed the AlgoZenith parser (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the MarisaOJ parser (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the PTA parser (thanks [@kasinglee](https://github.com/kasinglee))
+- Fixed the TLX parser (thanks [@touhidurrr](https://github.com/touhidurrr))
+- Fixed the Universal Cup parser on test cases without an attachments zip
+
 ## [2.62.0](https://github.com/jmerle/competitive-companion/releases/tag/2.62.0) (2025-08-10)
 - Added support for Olympicode (thanks [@EntityPlantt](https://github.com/EntityPlantt))
 - Added support for HOJ (thanks [@Introl-ljl](https://github.com/Introl-ljl))
