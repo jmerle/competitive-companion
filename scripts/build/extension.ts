@@ -93,6 +93,9 @@ await Promise.all(
           manifest.browser_specific_settings = {
             gecko: {
               id: '{74e326aa-c645-4495-9287-b6febc5565a7}',
+              data_collection_permissions: {
+                required: ['websiteContent'],
+              },
             },
           };
         }
