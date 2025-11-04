@@ -37,6 +37,7 @@ import { LuoguContestParser } from './contest/LuoguContestParser';
 import { MarisaOJContestParser } from './contest/MarisaOJContestParser';
 import { NBUTOnlineJudgeContestParser } from './contest/NBUTOnlineJudgeContestParser';
 import { NOJContestParser } from './contest/NOJContestParser';
+import { NowCoderContestParser } from './contest/NowCoderContestParser';
 import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
@@ -337,6 +338,7 @@ export const parsers: Parser[] = [
   new NOJContestParser(),
 
   new NowCoderProblemParser(),
+  new NowCoderContestParser(),
 
   new OlinfoProblemParser(),
 
