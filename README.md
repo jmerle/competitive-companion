@@ -37,6 +37,7 @@ A browser extension which parses competitive programming problems from various o
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
 - [Red Panda Dev-C++](https://github.com/royqh1979/RedPanda-CPP)
 - [rust-competitive-helper](https://github.com/rust-competitive-helper/rust-competitive-helper)
+- [lazycph](https://github.com/TheComputerM/lazycph)
 - Any other tool that can parse the data that is being sent, read more about that [below](#custom-tools)
 
 ## Supported websites
