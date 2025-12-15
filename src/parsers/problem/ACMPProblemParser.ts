@@ -31,8 +31,8 @@ export class ACMPProblemParser extends Parser {
         return;
       }
 
-      const input = row.querySelector('td:nth-child(2)').textContent;
-      const output = row.querySelector('td:nth-child(3)').textContent;
+      const input = (row.querySelector('td:nth-child(2)') as HTMLElement).innerText;
+      const output = (row.querySelector('td:nth-child(3)') as HTMLElement).innerText;
 
       task.addTest(input, output);
     });
