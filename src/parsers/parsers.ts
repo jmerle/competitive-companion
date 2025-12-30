@@ -127,6 +127,7 @@ import { OlinfoProblemParser } from './problem/OlinfoProblemParser';
 import { OlympicodeProblemParser } from './problem/OlympicodeProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
 import { OpenJudgeProblemParser } from './problem/OpenJudgeProblemParser';
+import { ORAC2ProblemParser } from './problem/ORAC2ProblemParser';
 import { OTOGProblemParser } from './problem/OTOGProblemParser';
 import { PandaOnlineJudgeProblemParser } from './problem/PandaOnlineJudgeProblemParser';
 import { PBInfoProblemParser } from './problem/PBInfoProblemParser';
@@ -346,6 +347,8 @@ export const parsers: Parser[] = [
 
   new OpenJudgeProblemParser(),
   new OpenJudgeContestParser(),
+
+  new ORAC2ProblemParser(),
 
   new OTOGProblemParser(),
 
