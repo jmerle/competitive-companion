@@ -6,6 +6,6 @@ export class SeriousOJContestParser extends SimpleContestParser {
   protected problemParser = new SeriousOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://judge.eluminatis-of-lu.com/contest/*'];
+    return ['https://serious-oj.com/contest/*'];
   }
 }
