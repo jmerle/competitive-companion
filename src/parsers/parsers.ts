@@ -161,6 +161,7 @@ import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
 import { ZUFEOJProblemParser } from './problem/ZUFEOJProblemParser';
+import { JvUmsaProblemParser } from './problem/JvUmsaProblemParser';
 
 export const parsers: Parser[] = [
   new A2OnlineJudgeProblemParser(),
@@ -426,4 +427,6 @@ export const parsers: Parser[] = [
 
   new ZUFEOJProblemParser(),
   new ZUFEOJContestParser(),
+
+  new JvUmsaProblemParser(),
 ];
