@@ -25,7 +25,9 @@ export class LuoguProblemParser extends Parser {
     task.setName(elem.querySelector('h1').textContent.trim());
 
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
-    task.setTimeLimit(parseFloat(timeLimitStr) * 1000);
+    const timeAmount = parseFloat(timeLimitStr);
+    const timeMultiplier = timeLimitStr.endsWith('ms') ? 1 : 1000;
+    task.setTimeLimit(timeAmount * timeMultiplier);
 
     const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
     const memoryLimitAmount = parseFloat(memoryLimitStr.substring(0, memoryLimitStr.length - 2));
