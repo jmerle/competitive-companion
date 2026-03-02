@@ -5,7 +5,13 @@ import { Parser } from '../Parser';
 
 export class BJTUOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://icpc.bjtu.edu.cn/problem/*', 'https://citel.bjtu.edu.cn/acm/problem/*'];
+    return [
+      'https://icpc.bjtu.edu.cn/problem/*',
+      'https://icpc.bjtu.edu.cn/problemlist/*/problem/*',
+      'https://icpc.bjtu.edu.cn/contest/*/problem/*',
+      'https://citel.bjtu.edu.cn/acm/problem/*',
+      'https://citel.bjtu.edu.cn/acm/contest/*/problem/*',
+    ];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
