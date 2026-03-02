@@ -1,0 +1,31 @@
+{
+  "url": "https://icpc.bjtu.edu.cn/problem/1000",
+  "parser": "BJTUOJProblemParser",
+  "result": {
+    "name": "1000.A+B Problem with sample answers",
+    "group": "BJTU OJ",
+    "url": "https://icpc.bjtu.edu.cn/problem/1000",
+    "interactive": false,
+    "memoryLimit": 125,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 2\n",
+        "output": "3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABProblemWithSampleAnswers"
+      }
+    }
+  }
+}

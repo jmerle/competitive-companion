@@ -65,6 +65,7 @@ import { AtCoderProblemParser } from './problem/AtCoderProblemParser';
 import { BaekjoonOnlineJudgeProblemParser } from './problem/BaekjoonOnlineJudgeProblemParser';
 import { BAPSOJProblemParser } from './problem/BAPSOJProblemParser';
 import { BeecrowdProblemParser } from './problem/BeecrowdProblemParser';
+import { BJTUOJProblemParser } from './problem/BJTUOJProblemParser';
 import { BloombergCodeConProblemParser } from './problem/BloombergCodeConProblemParser';
 import { BUCTOJProblemParser } from './problem/BUCTOJProblemParser';
 import { CodeChefNewProblemParser } from './problem/CodeChefNewProblemParser';
@@ -187,6 +188,8 @@ export const parsers: Parser[] = [
 
   new BAPSOJProblemParser(),
   new BAPSOJContestParser(),
+
+  new BJTUOJProblemParser(),
 
   new BeecrowdProblemParser(),
   new BeecrowdContestParser(),
