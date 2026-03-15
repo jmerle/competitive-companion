@@ -20,7 +20,13 @@ export class CodeChefNewProblemParser extends Parser {
 
     task.setName(
       elem.querySelector(
-        ['_problem__title_', '_contestProblemTitle_', '_titleStatus__container_', '_problemBody_']
+        [
+          '_problem__title_',
+          '_contestProblemTitle_',
+          '_titleStatus__container_',
+          '_problemBody_',
+          '_problemBodyContent_',
+        ]
           .map(prefix => `div[class^="${prefix}"] > h1, div[class^="${prefix}"] > h2, div[class^="${prefix}"] > h3`)
           .join(', '),
       ).textContent,
