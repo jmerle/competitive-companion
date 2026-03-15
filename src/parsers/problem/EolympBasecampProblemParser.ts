@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class EolympBasecampProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://basecamp.eolymp.com/*/problems/*', 'https://basecamp.eolymp.com/*/compete/*/problem/*'];
+    return ['https://eolymp.com/*/problems/*', 'https://eolymp.com/*/compete/*/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
