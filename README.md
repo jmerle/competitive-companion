@@ -57,6 +57,7 @@ A browser extension which parses competitive programming problems from various o
 | Baekjoon Online Judge      | ✔              |                |
 | BAPS OJ                    | ✔              | ✔              |
 | beecrowd                   | ✔              | ✔              |
+| BJTU OJ                    | ✔              |                |
 | Bloomberg CodeCon          | ✔              |                |
 | BUCTOJ                     | ✔              | ✔              |
 | CodeChef                   | ✔              | ✔              |
