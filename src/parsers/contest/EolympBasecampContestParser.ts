@@ -8,7 +8,7 @@ export class EolympBasecampContestParser extends ContestParser<[string, string]>
   private linkSelector = '.MuiPaper-elevation > .MuiList-root > a.MuiButtonBase-root';
 
   public getMatchPatterns(): string[] {
-    return ['https://basecamp.eolymp.com/*/compete/*'];
+    return ['https://eolymp.com/*/compete/*'];
   }
 
   public canHandlePage(): boolean {
