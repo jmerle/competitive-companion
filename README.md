@@ -34,6 +34,7 @@ A browser extension which parses competitive programming problems from various o
 - [Fast Olympic Coding](https://github.com/sam20908/vscode-fastolympiccoding)
 - [Hightail](https://github.com/dj3500/hightail)
 - [JHelper](https://plugins.jetbrains.com/plugin/7541-jhelper)
+- [LazyCPH](https://github.com/TheComputerM/lazycph)
 - [Mind Sport](https://plugins.jetbrains.com/plugin/10688-mind-sport)
 - [Red Panda Dev-C++](https://github.com/royqh1979/RedPanda-CPP)
 - [rust-competitive-helper](https://github.com/rust-competitive-helper/rust-competitive-helper)
