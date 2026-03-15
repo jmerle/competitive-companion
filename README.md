@@ -283,8 +283,8 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 22.20.0  
-PNPM: 10.15.1
+Node.js: 24.11.1  
+PNPM: 10.32.1
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
@@ -292,6 +292,6 @@ Third-party libraries that can be found in the minified extension:
 - [pdfjs-dist 4.2.67](https://cdn.jsdelivr.net/npm/pdfjs-dist@4.2.67/build/pdf.mjs)
 - [jszip 3.10.1](https://github.com/Stuk/jszip/blob/v3.10.1/dist/jszip.js)
 - [cyrillic-to-translit-js 3.2.1](https://github.com/greybax/cyrillic-to-translit-js/blob/05f02e9e1df6d338f35258443f2e9c910bd8ccd4/CyrillicToTranslit.js)
-- [p-limit 7.2.0](https://github.com/sindresorhus/p-limit/blob/v7.2.0/index.js)
+- [p-limit 7.3.0](https://github.com/sindresorhus/p-limit/blob/v7.3.0/index.js)
 
 Package the extension by `cd`'ing into the source code submission directory, installing the dependencies with `pnpm install` and packaging with `pnpm package:firefox`. The result can be found in the `dist/` directory.
