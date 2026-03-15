@@ -53,9 +53,9 @@ A browser extension which parses competitive programming problems from various o
 | AtCoder                    | ✔              | ✔              |
 | A.Y. Jackson Online Judge  | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              |                |
-| BAPS OJ                    | ✔              | ✔              |
-| BJTU OJ                    | ✔              |                |
+| BAPS OJ                    | ✔              | ✔              
 | beecrowd                   | ✔              | ✔              |
+| BJTU OJ                    | ✔              |                ||
 | Bloomberg CodeCon          | ✔              |                |
 | BUCTOJ                     | ✔              | ✔              |
 | CodeChef                   | ✔              | ✔              |
