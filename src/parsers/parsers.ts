@@ -189,10 +189,10 @@ export const parsers: Parser[] = [
   new BAPSOJProblemParser(),
   new BAPSOJContestParser(),
 
-  new BJTUOJProblemParser(),
-
   new BeecrowdProblemParser(),
   new BeecrowdContestParser(),
+
+  new BJTUOJProblemParser(),
 
   new BloombergCodeConProblemParser(),
 
