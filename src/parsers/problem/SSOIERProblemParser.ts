@@ -16,7 +16,7 @@ export class SSOIERProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('SSOIER').setUrl(url);
 
-    const container = elem.querySelector('body>center>center td');
+    const container = elem.querySelector('body > center > center td');
 
     task.setName(container.querySelector('h3').textContent);
 
