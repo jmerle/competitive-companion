@@ -7,9 +7,20 @@ export class CSGOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
       'https://acm.sztu.edu.cn/csgoj/problemset/problem*',
+      'https://acm.sztu.edu.cn/*/contest/problem*',
+      'https://acm.sztu.edu.cn:40080/*/contest/problem*',
       'https://cpc.csgrandeur.cn/csgoj/problemset/problem*',
-      // 'https://acm.sztu.edu.cn/*/contest/problem*',
-      // 'https://cpc.csgrandeur.cn/*/contest/problem*'
+      'https://cpc.csgrandeur.cn/*/contest/problem*',
+      'http://acm.sztu.edu.cn:50100/*/*/problem*',
+    ];
+  }
+
+  public getExcludedMatchPatterns(): string[] {
+    return [
+      'https://acm.sztu.edu.cn/*/contest/problemset*',
+      'https://acm.sztu.edu.cn:40080/*/contest/problemset*',
+      'https://cpc.csgrandeur.cn/*/contest/problemset*',
+      'http://acm.sztu.edu.cn:50100/*/*/problemset*',
     ];
   }
 
@@ -25,22 +36,29 @@ export class CSGOJProblemParser extends Parser {
     const inElem = elem.querySelector('#sample_input_hidden');
     const outElem = elem.querySelector('#sample_output_hidden');
     if (inElem && outElem) {
-      let ipt = [], opt = [];
+      let ipt = [],
+        opt = [];
       try {
         ipt = JSON.parse(inElem.textContent).data;
         opt = JSON.parse(outElem.textContent).data;
-      } catch(e) {
-        const separator = "##CASE##";
-        ipt = inElem.textContent.split(separator).map(s => s.trim()).filter(s => s.length > 0);
-        opt = outElem.textContent.split(separator).map(s => s.trim()).filter(s => s.length > 0);
+      } catch (e) {
+        const separator = '##CASE##';
+        ipt = inElem.textContent
+          .split(separator)
+          .map(s => s.trim())
+          .filter(s => s.length > 0);
+        opt = outElem.textContent
+          .split(separator)
+          .map(s => s.trim())
+          .filter(s => s.length > 0);
       }
-      for (let i = 0; i < ipt.length && i < opt.length; i ++) {
+      for (let i = 0; i < ipt.length && i < opt.length; i++) {
         task.addTest(ipt[i], opt[i]);
       }
     } else {
-      const sampledatas = [...elem.querySelectorAll('.sampledata')];
-      for (let i = 0; i < sampledatas.length / 2; i ++) {
-        task.addTest(sampledatas[i << 1].textContent, sampledatas[i << 1 | 1].textContent);
+      const sampledatas = Array.from(elem.querySelectorAll('.sampledata'));
+      for (let i = 0; i < sampledatas.length / 2; i++) {
+        task.addTest(sampledatas[i << 1].textContent, sampledatas[(i << 1) | 1].textContent);
       }
     }
 
