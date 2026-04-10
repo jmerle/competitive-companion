@@ -20,14 +20,35 @@ export class VirtualJudgeProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Virtual Judge').setUrl(url);
 
-    if (elem.querySelector('#problem-title') === null) {
-      task.setName(elem.querySelector('#prob-title > h2').textContent.trim());
-      task.setCategory(window.location.href.split('/').pop().split('-')[0]);
-    } else {
+    // --- Title ---
+    // Old UI had #problem-title (standalone problem page) or #prob-title > h2 (contest page).
+    // New UI renders a plain <h2> in the problem content area on contest pages;
+    // standalone /problem/* pages still use h2#problem-title.
+    if (elem.querySelector('h2#problem-title') !== null) {
       task.setName(elem.querySelector('h2#problem-title').textContent.trim());
-      task.setCategory(elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
+    } else {
+      // New contest UI: first <h2> inside the main problem content panel.
+      const h2 = elem.querySelector<HTMLElement>('.prob-main h2, #prob-main h2, h2');
+      task.setName(h2 ? h2.textContent.trim() : '');
     }
 
+    // --- Category ---
+    // Old UI: #time-info > .row > .col-xs-6 > h3 (now gone from contests).
+    // New UI: a plain <h3> directly inside #time-info (contest title area).
+    // Standalone /problem/* pages: derive from URL as before.
+    if (url.includes('/contest/')) {
+      const catEl =
+        elem.querySelector<HTMLElement>('#time-info h3') ??
+        elem.querySelector<HTMLElement>('h3');
+      task.setCategory(catEl ? catEl.textContent.trim() : 'Virtual Judge');
+    } else {
+      // Standalone problem page: category is the OJ prefix, e.g. "CodeForces" from "CodeForces-1A".
+      task.setCategory(window.location.href.split('/').pop().split('-')[0]);
+    }
+
+    // --- Time / Memory limits ---
+    // The <dt> labels have stayed; however the sibling is now a plain <div class="value">
+    // instead of a <dd> in the new sidebar layout. We handle both via nextElementSibling.
     const timeLimitDt = [...elem.querySelectorAll('dt')].find(el =>
       el.textContent.toLowerCase().includes('time limit'),
     );
@@ -68,32 +89,71 @@ export class VirtualJudgeProblemParser extends Parser {
       });
     }
 
+    // --- Sample tests ---
     try {
       if (url.includes('UVA-') || url.includes('UVALive-')) {
-        const iframe = [...elem.querySelectorAll<HTMLIFrameElement>('#prob-right-panel iframe')].find(
-          el => el.style.display !== 'none',
+        // UVa problems are delivered as PDFs.
+        // Old UI: embedded via an iframe whose src pointed to a CDN PDF.
+        // New UI: a direct PDF link with id="btn-contest-problem-pdf" or similar.
+        const pdfBtn = elem.querySelector<HTMLAnchorElement>(
+          '#btn-contest-problem-pdf, a[href*="problemPdf"], a[href$=".pdf"]',
         );
 
-        const iframeContent = await request(iframe.src);
-        const pdfId = /CDN_BASE_URL\/([^?]+)\?v/.exec(iframeContent)[1];
-
-        const pdfLines = await readPdf(`https://vj.csgrandeur.cn/${pdfId}`);
-
-        const uvaParser = new UVaOnlineJudgeProblemParser();
-        await uvaParser.parseTestsFromPdf(task, pdfLines);
+        if (pdfBtn !== null) {
+          const pdfContent = await request(pdfBtn.href);
+          const pdfId = /CDN_BASE_URL\/([^?]+)\?v/.exec(pdfContent)?.[1];
+          if (pdfId) {
+            const pdfLines = await readPdf(`https://vj.csgrandeur.cn/${pdfId}`);
+            const uvaParser = new UVaOnlineJudgeProblemParser();
+            await uvaParser.parseTestsFromPdf(task, pdfLines);
+          }
+        } else {
+          // Fallback to old iframe approach in case the old UI is encountered.
+          const iframe = [...elem.querySelectorAll<HTMLIFrameElement>('#prob-right-panel iframe')].find(
+            el => el.style.display !== 'none',
+          );
+          if (iframe !== undefined) {
+            const iframeContent = await request(iframe.src);
+            const pdfId = /CDN_BASE_URL\/([^?]+)\?v/.exec(iframeContent)[1];
+            const pdfLines = await readPdf(`https://vj.csgrandeur.cn/${pdfId}`);
+            const uvaParser = new UVaOnlineJudgeProblemParser();
+            await uvaParser.parseTestsFromPdf(task, pdfLines);
+          }
+        }
       } else if (!url.includes('TopCoder-')) {
-        const iframe = [...elem.querySelectorAll<HTMLIFrameElement>('#prob-right-panel iframe')].find(
-          el => el.style.display !== 'none',
-        );
+        // New UI: the descKey is embedded in the PDF download button href as
+        // `/contest/{id}/problemPdf/{letter}?descKey={key}`.
+        // Standalone problem pages use a different button.
+        const descKey = this.extractDescKey(elem);
 
-        const iframeUrl = iframe.src;
-        const iframeContent = await request(iframeUrl);
-        const jsonContainer = htmlToElement(iframeContent).querySelector('.data-json-container');
-        const json = JSON.parse(jsonContainer.textContent);
+        if (descKey !== null) {
+          const descriptionUrl = `https://vjudge.net/problem/description/${descKey}`;
+          const description = await request(descriptionUrl, { credentials: 'same-origin' });
+          const jsonContainer = htmlToElement(description).querySelector('.data-json-container');
+          if (jsonContainer !== null) {
+            const json = JSON.parse(jsonContainer.textContent);
+            const codeBlocks = this.getCodeBlocksFromDescription(json);
+            for (let i = 0; i < codeBlocks.length - 1; i += 2) {
+              task.addTest(codeBlocks[i], codeBlocks[i + 1]);
+            }
+          }
+        } else {
+          // Fallback: try the old iframe-based approach (old UI compatibility).
+          const iframe = [...elem.querySelectorAll<HTMLIFrameElement>('#prob-right-panel iframe')].find(
+            el => el.style.display !== 'none',
+          );
 
-        const codeBlocks = this.getCodeBlocksFromDescription(json);
-        for (let i = 0; i < codeBlocks.length - 1; i += 2) {
-          task.addTest(codeBlocks[i], codeBlocks[i + 1]);
+          if (iframe !== undefined) {
+            const iframeUrl = iframe.src;
+            const iframeContent = await request(iframeUrl);
+            const jsonContainer = htmlToElement(iframeContent).querySelector('.data-json-container');
+            const json = JSON.parse(jsonContainer.textContent);
+
+            const codeBlocks = this.getCodeBlocksFromDescription(json);
+            for (let i = 0; i < codeBlocks.length - 1; i += 2) {
+              task.addTest(codeBlocks[i], codeBlocks[i + 1]);
+            }
+          }
         }
       }
     } catch (err) {
@@ -101,6 +161,41 @@ export class VirtualJudgeProblemParser extends Parser {
     }
 
     return task.build();
+  }
+
+  /**
+   * Extracts the description key from the page.
+   *
+   * New UI: the key is in the PDF download button href, e.g.
+   *   /contest/802878/problemPdf/A?descKey=2672272863153537
+   *
+   * Returns null when no such link is found (old UI fallback).
+   */
+  private extractDescKey(elem: Element): string | null {
+    // Contest problem page: PDF button with id or href pattern.
+    const pdfLink = elem.querySelector<HTMLAnchorElement>(
+      '#btn-contest-problem-pdf, a[href*="problemPdf"][href*="descKey"]',
+    );
+    if (pdfLink !== null) {
+      try {
+        return new URL(pdfLink.href, 'https://vjudge.net').searchParams.get('descKey');
+      } catch {
+        // href may be relative or malformed; fall through.
+      }
+    }
+
+    // Standalone /problem/* page: look for a similar link with descKey.
+    const descLinks = [...elem.querySelectorAll<HTMLAnchorElement>('a[href*="descKey"]')];
+    for (const link of descLinks) {
+      try {
+        const key = new URL(link.href, 'https://vjudge.net').searchParams.get('descKey');
+        if (key) return key;
+      } catch {
+        // continue
+      }
+    }
+
+    return null;
   }
 
   public getCodeBlocksFromDescription(json: any): string[] {
