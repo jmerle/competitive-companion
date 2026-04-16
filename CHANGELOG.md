@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.64.0](https://github.com/jmerle/competitive-companion/releases/tag/2.64.0) (2026-03-15)
+- Add support for BJTU OJ (thanks [@MengPaul07](https://github.com/MengPaul07))
+- Fix the SSOIER parser (thanks [@archtaurus](https://github.com/archtaurus))
+- Fix Luogu time limit parsing (thanks [@gi-b716](https://github.com/gi-b716))
+- Fix Eolymp parsers now that Basecamp replaced the previous platform
+- Fix CodeChef parser
+
 ## [2.63.0](https://github.com/jmerle/competitive-companion/releases/tag/2.63.0) (2025-10-27)
 - Add support for DotOJ (thanks [@wsq4](https://github.com/wsq4))
 - Add support for Olinfo (thanks [@EntityPlantt](https://github.com/EntityPlantt))
