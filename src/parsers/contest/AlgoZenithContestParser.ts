@@ -7,8 +7,6 @@ export class AlgoZenithContestParser extends SimpleContestParser {
   protected linkSelector = 'a[href*="/problems/"]';
 
   public getMatchPatterns(): string[] {
-    return [
-      'https://maang.in/*',
-    ];
+    return ['https://maang.in/*'];
   }
 }

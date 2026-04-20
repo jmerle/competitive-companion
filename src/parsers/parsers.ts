@@ -167,7 +167,7 @@ export const parsers: Parser[] = [
   new A2OnlineJudgeProblemParser(),
   new A2OnlineJudgeContestParser(),
 
-  new AlgoZenithNewProblemParser(),
+  // new AlgoZenithNewProblemParser(),
   new AlgoZenithContestParser(),
 
   new ACMPProblemParser(),
