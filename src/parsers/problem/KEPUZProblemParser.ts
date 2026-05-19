@@ -5,24 +5,42 @@ import { Parser } from '../Parser';
 
 export class KEPUZProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://kep.uz/practice/problems/problem/*', 'https://kep.uz/competitions/contests/contest/*/problem/*'];
+    return ['https://kep.uz/problems/*', 'https://kep.uz/contests/*/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('KEP.uz').setUrl(url);
 
-    const containerElem = elem.querySelector('problem-body').parentElement;
+    task.setName(elem.querySelector('h5').textContent.trim());
 
-    task.setName(containerElem.querySelector('.problem-title > h3, h2').textContent.trim());
+    for (const chip of elem.querySelectorAll('.MuiChip-label')) {
+      const text = chip.textContent.trim();
+      const timeMatch = text.match(/Time limit:\s*(\d+)\s*ms/i);
+      if (timeMatch !== null) {
+        task.setTimeLimit(parseInt(timeMatch[1], 10));
+        continue;
+      }
+      const memoryMatch = text.match(/Memory limit:\s*(\d+)\s*MB/i);
+      if (memoryMatch !== null) {
+        task.setMemoryLimit(parseInt(memoryMatch[1], 10));
+      }
+    }
 
-    task.setTimeLimit(parseInt(elem.querySelector('.limits .bg-info').textContent.trim().split(' ')[0]));
-    task.setMemoryLimit(parseInt(elem.querySelector('.limits .bg-primary').textContent.trim().split(' ')[0]));
-
-    containerElem.querySelectorAll('.sample-test').forEach(tableElem => {
-      const blocks = tableElem.querySelectorAll('pre');
-      task.addTest(blocks[0].innerHTML, blocks[1].innerHTML);
-    });
+    const sampleHeader = [...elem.querySelectorAll('h6')].find(h => /Sample tests/i.test(h.textContent));
+    if (sampleHeader !== undefined) {
+      const samplesContainer = sampleHeader.nextElementSibling;
+      if (samplesContainer !== null) {
+        for (const card of samplesContainer.querySelectorAll(':scope > [class*="MuiPaper"]')) {
+          const textBlocks = [...card.querySelectorAll('div[class*="MuiBox"]')].filter(
+            box => box.children.length === 0,
+          );
+          if (textBlocks.length >= 2) {
+            task.addTest(textBlocks[0].textContent, textBlocks[1].textContent);
+          }
+        }
+      }
+    }
 
     return task.build();
   }
