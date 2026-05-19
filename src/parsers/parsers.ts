@@ -86,6 +86,7 @@ import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { DotOJProblemParser } from './problem/DotOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
+import { EldarVerseProblemParser } from './problem/EldarVerseProblemParser';
 import { EolympBasecampProblemParser } from './problem/EolympBasecampProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
 import { GoogleCodingCompetitionsProblemParser } from './problem/GoogleCodingCompetitionsProblemParser';
@@ -248,6 +249,8 @@ export const parsers: Parser[] = [
 
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
+
+  new EldarVerseProblemParser(),
 
   new EolympBasecampProblemParser(),
   new EolympBasecampContestParser(),

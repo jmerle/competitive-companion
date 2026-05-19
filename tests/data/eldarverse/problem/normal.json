@@ -1,0 +1,31 @@
+{
+  "url": "https://www.eldarverse.com/problem/halloween25-1A",
+  "parser": "EldarVerseProblemParser",
+  "result": {
+    "name": "Werewolf Clans",
+    "group": "EldarVerse - October 2025 Long Challenge - Halloween",
+    "url": "https://www.eldarverse.com/problem/halloween25-1A",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "4\n7 158\n10 777\n12 012345\n1 235\n",
+        "output": "Case #1: 3 2\nCase #2: 10 10\nCase #3: 2 2\nCase #4: 1 0\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "WerewolfClans"
+      }
+    }
+  }
+}
