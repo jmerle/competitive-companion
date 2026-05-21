@@ -18,16 +18,38 @@ export class LuoguProblemParser extends Parser {
       this.parseFromScript(task, elem);
     }
 
+    this.setContestCategory(task, elem);
+
     return task.build();
+  }
+
+  private setContestCategory(task: TaskBuilder, elem: Element): void {
+    const script = elem.querySelector('#lentille-context');
+    if (script === null) {
+      return;
+    }
+    try {
+      const name = JSON.parse(script.textContent).data?.contest?.name;
+      if (typeof name === 'string' && name.length > 0) {
+        task.setCategory(name);
+      }
+    } catch {
+      // ignore parse errors and leave the category unset
+    }
   }
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
     task.setName(elem.querySelector('h1').textContent.trim());
 
-    const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
-    const timeAmount = parseFloat(timeLimitStr);
-    const timeMultiplier = timeLimitStr.endsWith('ms') ? 1 : 1000;
-    task.setTimeLimit(timeAmount * timeMultiplier);
+    const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent.trim();
+    // The value may be a single limit ("1.00s", "500ms") or a range showing min and
+    // max across testdata ("500ms ~ 3.00s"). Use the last number-unit pair, which is
+    // the upper bound the solution actually has to fit in.
+    const timeMatch = /([0-9.]+)\s*(ms|s)\s*$/i.exec(timeLimitStr);
+    if (timeMatch !== null) {
+      const value = parseFloat(timeMatch[1]);
+      task.setTimeLimit(Math.round(timeMatch[2].toLowerCase() === 'ms' ? value : value * 1000));
+    }
 
     const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
     const memoryLimitAmount = parseFloat(memoryLimitStr.substring(0, memoryLimitStr.length - 2));

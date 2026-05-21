@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Fix the Luogu problem parser reading the lower bound of a per-testdata time-limit range (e.g. "500ms ~ 3.00s" was treated as 500s instead of 3s) and set the contest name as the group when parsing contest-scoped problem URLs
+- Fix the Luogu contest parser link selector after the page markup changed
+
 ## [2.64.0](https://github.com/jmerle/competitive-companion/releases/tag/2.64.0) (2026-03-15)
 - Add support for BJTU OJ (thanks [@MengPaul07](https://github.com/MengPaul07))
 - Fix the SSOIER parser (thanks [@archtaurus](https://github.com/archtaurus))
