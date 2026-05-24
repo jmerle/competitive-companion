@@ -7,9 +7,10 @@ export class DMOJProblemParser extends Parser {
   public static DOMAINS = {
     'dmoj.ca': 'DMOJ',
     'arena.moi': 'MOI Arena',
-    'lqdoj.edu.vn': 'Le Quy Don Online Judge',
     'oj.vnoi.info': 'VNOI Online Judge',
     'ayjcoding.club': 'A.Y. Jackson Online Judge',
+    'oj.unicornsedu.com': 'Unicorns Online Judge',
+    'oj.clue.edu.vn': 'Clue Online Judge',
   };
 
   public getMatchPatterns(): string[] {

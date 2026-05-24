@@ -160,10 +160,12 @@ import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
 import { ZUFEOJProblemParser } from './problem/ZUFEOJProblemParser';
-
+import { LQDOJProblemParser } from './problem/LQDOJProblemParser'
 export const parsers: Parser[] = [
   new A2OnlineJudgeProblemParser(),
   new A2OnlineJudgeContestParser(),
+
+  new LQDOJProblemParser(),
 
   new ACMPProblemParser(),
 
