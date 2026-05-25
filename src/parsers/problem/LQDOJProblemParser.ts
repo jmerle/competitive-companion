@@ -15,13 +15,13 @@ export class LQDOJProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('LQDOJ').setUrl(url);
 
-    // 1. Cào tên bài toán
+    // Get name
     const titleElem = elem.querySelector('.problem-title .title-row');
     if (titleElem) {
       task.setName(titleElem.textContent.trim());
     }
 
-    // 2. Cào Time Limit và Memory Limit
+    // Get time and limit
     const infoBlocks = elem.querySelectorAll('.info-block');
     for (const block of infoBlocks) {
       const piName = block.querySelector('.pi-name');
@@ -32,15 +32,22 @@ export class LQDOJProblemParser extends Parser {
         const value = piValue.textContent.trim();
 
         if (text.includes('time limit')) {
-          task.setTimeLimit(parseFloat(value) * 1000); // Đổi từ giây (s) sang mili-giây (ms)
+          task.setTimeLimit(parseFloat(value) * 1000);
         } else if (text.includes('memory limit')) {
-          task.setMemoryLimit(parseInt(value, 10)); // Lấy trực tiếp phần số của "256M"
+          task.setMemoryLimit(parseInt(value, 10));
         }
       }
     }
 
-    // 3. Cào Test Cases (Input / Output)
-    const details = elem.querySelectorAll('details');
+    // Remove Comment
+    elem.querySelectorAll('#comments, .comments, [id*="comment"], [class*="comment"]').forEach(el => el.remove());
+
+    const problemBody = elem.querySelector('.content-description') || elem.querySelector('.problem-statement') || elem;
+
+    let foundTests = false;
+
+    // New UI
+    const details = problemBody.querySelectorAll('details');
     let currentInput = '';
 
     for (const detail of details) {
@@ -48,7 +55,7 @@ export class LQDOJProblemParser extends Parser {
       if (!summary) continue;
 
       const summaryText = summary.textContent.trim().toLowerCase();
-      const codeBlock = detail.querySelector('pre > code');
+      const codeBlock = detail.querySelector('pre > code') || detail.querySelector('pre');
 
       if (!codeBlock) continue;
 
@@ -57,6 +64,18 @@ export class LQDOJProblemParser extends Parser {
       } else if (summaryText.includes('output') && currentInput !== '') {
         task.addTest(currentInput, codeBlock.textContent);
         currentInput = '';
+        foundTests = true;
+      }
+    }
+
+    // Old UI
+    if (!foundTests) {
+      const highlightBlocks = problemBody.querySelectorAll('.highlight pre');
+
+      for (let i = 0; i < highlightBlocks.length - 1; i += 2) {
+        const inputCode = highlightBlocks[i].textContent;
+        const outputCode = highlightBlocks[i + 1].textContent;
+        task.addTest(inputCode, outputCode);
       }
     }
 

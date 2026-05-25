@@ -9,7 +9,6 @@ export class DMOJProblemParser extends Parser {
     'arena.moi': 'MOI Arena',
     'oj.vnoi.info': 'VNOI Online Judge',
     'ayjcoding.club': 'A.Y. Jackson Online Judge',
-    'oj.unicornsedu.com': 'Unicorns Online Judge',
     'oj.clue.edu.vn': 'Clue Online Judge',
   };
 
