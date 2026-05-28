@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class YACSProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://iai.sh.cn/problem/*'];
+    return ['https://iai.sh.cn/problem/*', 'https://www.iai.sh.cn/problem/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
