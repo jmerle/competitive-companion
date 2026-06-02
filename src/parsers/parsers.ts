@@ -84,6 +84,7 @@ import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProbl
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { DotOJProblemParser } from './problem/DotOJProblemParser';
+import { DOJProblemParser } from './problem/DOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EolympBasecampProblemParser } from './problem/EolympBasecampProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
@@ -160,7 +161,6 @@ import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
 import { ZUFEOJProblemParser } from './problem/ZUFEOJProblemParser';
-import { DOJProblemParser } from './problem/DOJProblemParser';
 
 export const parsers: Parser[] = [
   new A2OnlineJudgeProblemParser(),
@@ -244,7 +244,9 @@ export const parsers: Parser[] = [
 
   new DotOJProblemParser(),
   new DotOJContestParser(),
-
+  
+  new DOJProblemParser(),
+  
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
 
@@ -426,6 +428,4 @@ export const parsers: Parser[] = [
 
   new ZUFEOJProblemParser(),
   new ZUFEOJContestParser(),
-
-  new DOJProblemParser(),
 ];
