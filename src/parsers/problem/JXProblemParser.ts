@@ -26,7 +26,7 @@ export class JXProblemParser extends Parser {
         if (match) task.setTimeLimit(parseInt(match[1], 10));
       } else if (text.includes('内存限制')) {
         const match = text.match(/(\d+)\s*MiB/);
-        if (match) task.setMemoryLimit(parseInt(match[1], 10) * 1024 * 1024);
+        if (match) task.setMemoryLimit(parseInt(match[1], 10));
       }
     }
 
