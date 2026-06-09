@@ -136,6 +136,7 @@ import { PTAProblemParser } from './problem/PTAProblemParser';
 import { QBXTOJProblemParser } from './problem/QBXTOJProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { QQWhaleProblemParser } from './problem/QQWhaleProblemParser';
+import { RepoviveProblemParser } from './problem/RepoviveProblemParser';
 import { RoboContestProblemParser } from './problem/RoboContestProblemParser';
 import { SDUTOnlineJudgeProblemParser } from './problem/SDUTOnlineJudgeProblemParser';
 import { SeriousOJProblemParser } from './problem/SeriousOJProblemParser';
@@ -368,6 +369,8 @@ export const parsers: Parser[] = [
   new QDUOJContestParser(),
 
   new QQWhaleProblemParser(),
+
+  new RepoviveProblemParser(),
 
   new RoboContestProblemParser(),
   new RoboContestContestParser(),
