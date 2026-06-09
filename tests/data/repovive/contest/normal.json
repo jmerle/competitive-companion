@@ -1,0 +1,227 @@
+{
+  "url": "https://repovive.com/contests/10",
+  "parser": "RepoviveContestParser",
+  "result": [
+    {
+      "name": "10A. Two Waves",
+      "group": "Repovive - Career Starter Round 2",
+      "url": "https://repovive.com/contests/10/problems/A",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2 6\n",
+          "output": "Yes\n"
+        },
+        {
+          "input": "3 8\n",
+          "output": "No\n"
+        },
+        {
+          "input": "0 0\n",
+          "output": "Yes\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ATwoWaves"
+        }
+      }
+    },
+    {
+      "name": "10B. Class Photo Groups",
+      "group": "Repovive - Career Starter Round 2",
+      "url": "https://repovive.com/contests/10/problems/B",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "5 3\n150 153 160 162 161\n",
+          "output": "Yes\n"
+        },
+        {
+          "input": "5 3\n150 154 160 161 162\n",
+          "output": "No\n"
+        },
+        {
+          "input": "4 0\n170 180 170 180\n",
+          "output": "Yes\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BClassPhotoGroups"
+        }
+      }
+    },
+    {
+      "name": "10C. Hannah's Brain",
+      "group": "Repovive - Career Starter Round 2",
+      "url": "https://repovive.com/contests/10/problems/C",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2\n2 6\n",
+          "output": "2\n"
+        },
+        {
+          "input": "3\n3 3 3\n",
+          "output": "0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CHannahsBrain"
+        }
+      }
+    },
+    {
+      "name": "10D. Ice Cream",
+      "group": "Repovive - Career Starter Round 2",
+      "url": "https://repovive.com/contests/10/problems/D",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2 2\n4 4\n",
+          "output": "Yes\n"
+        },
+        {
+          "input": "1 1\n1\n",
+          "output": "No\n"
+        },
+        {
+          "input": "3 2\n2 4 4\n",
+          "output": "Yes\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DIceCream"
+        }
+      }
+    },
+    {
+      "name": "10E. L-Toggle Table",
+      "group": "Repovive - Career Starter Round 2",
+      "url": "https://repovive.com/contests/10/problems/E",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 1000,
+      "tests": [
+        {
+          "input": "2 3\n101\n010\n",
+          "output": "3\n1 2 2\n2 2 3\n2 3 4\n"
+        },
+        {
+          "input": "3 3\n010\n101\n010\n",
+          "output": "2\n2 2 1\n2 2 4\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ELToggleTable"
+        }
+      }
+    },
+    {
+      "name": "10F. Pair Increment Ranges",
+      "group": "Repovive - Career Starter Round 2",
+      "url": "https://repovive.com/contests/10/problems/F",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "5\n1\n5\n5\n2\n1 0\n0 1\n3\n2 0 0\n0 1 1\n4\n1 2 1 2\n1 2 1 2\n5\n2 0 0 1 0\n0 1 1 0 1\n",
+          "output": "1\n1\n1\n10\n3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "FPairIncrementRanges"
+        }
+      }
+    },
+    {
+      "name": "10G. Dynamic Tree Beauty",
+      "group": "Repovive - Career Starter Round 2",
+      "url": "https://repovive.com/contests/10/problems/G",
+      "interactive": false,
+      "memoryLimit": 512,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "5\n2 3\n1\n2 2 2\n3 3\n1 2\n2 3 2\n4 4\n1 1 1\n2 3 2 4\n5 4\n1 1 3 3\n4 5 2 4\n6 5\n1 1 2 2 3\n4 6 5 6 2\n",
+          "output": "1 1 1\n3 2 4\n8 5 8 5\n24 14 8 14\n60 36 20 34 17\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "GDynamicTreeBeauty"
+        }
+      }
+    }
+  ]
+}

@@ -40,6 +40,7 @@ import { OpenJudgeContestParser } from './contest/OpenJudgeContestParser';
 import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
+import { RepoviveContestParser } from './contest/RepoviveContestParser';
 import { RoboContestContestParser } from './contest/RoboContestContestParser';
 import { SeriousOJContestParser } from './contest/SeriousOJContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
@@ -371,6 +372,7 @@ export const parsers: Parser[] = [
   new QQWhaleProblemParser(),
 
   new RepoviveProblemParser(),
+  new RepoviveContestParser(),
 
   new RoboContestProblemParser(),
   new RoboContestContestParser(),
