@@ -22,7 +22,7 @@ export class LuoguProblemParser extends Parser {
   }
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
-    task.setName(elem.querySelector('h1').textContent.trim());
+    task.setName(elem.querySelector('h2.title.lfe-h2').textContent.trim());
 
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
     const timeAmount = parseFloat(timeLimitStr);
@@ -45,7 +45,7 @@ export class LuoguProblemParser extends Parser {
     const script = elem.querySelector('#lentille-context').textContent;
     const data = JSON.parse(script).data.problem;
 
-    task.setName(`${data.pid} ${data.title}`.trim());
+    task.setName(`${data.pid} ${data.name}`.trim());
 
     task.setTimeLimit(Math.max(...data.limits.time));
     task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);
