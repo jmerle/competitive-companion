@@ -22,7 +22,8 @@ export class LuoguProblemParser extends Parser {
   }
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
-    task.setName(elem.querySelector('h2.title.lfe-h2').textContent.trim());
+    const titleEl = elem.querySelector('h1') ?? elem.querySelector('h2.title.lfe-h2');
+    task.setName(titleEl.textContent.trim());
 
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
     const timeAmount = parseFloat(timeLimitStr);
