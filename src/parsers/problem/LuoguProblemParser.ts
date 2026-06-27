@@ -39,7 +39,9 @@ export class LuoguProblemParser extends Parser {
   }
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
-    task.setName(elem.querySelector('h1').textContent.trim());
+    // The header used to be an <h1>; Luogu reworked it into <h2 class="title">
+    // alongside the rest of the problem header card.
+    task.setName(elem.querySelector('h2.title').textContent.trim());
 
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent.trim();
     // The value may be a single limit ("1.00s", "500ms") or a range showing min and
@@ -67,7 +69,9 @@ export class LuoguProblemParser extends Parser {
     const script = elem.querySelector('#lentille-context').textContent;
     const data = JSON.parse(script).data.problem;
 
-    task.setName(`${data.pid} ${data.title}`.trim());
+    // The embedded JSON used to expose the title under `data.problem.title`;
+    // it has since been renamed to `data.problem.name`.
+    task.setName(`${data.pid} ${data.name}`.trim());
 
     task.setTimeLimit(Math.max(...data.limits.time));
     task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);
