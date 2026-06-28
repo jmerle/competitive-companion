@@ -133,3 +133,4 @@ dist
 build-*/
 dist/
 firefox-tmp/
+pnpm-workspace.yaml
