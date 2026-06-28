@@ -34,13 +34,11 @@ export class LuoguProblemParser extends Parser {
         task.setCategory(name);
       }
     } catch {
-      // ignore parse errors and leave the category unset
+      // Ignore parse errors and leave the category unset
     }
   }
 
   private parseFromPage(task: TaskBuilder, elem: Element): void {
-    // The header used to be an <h1>; Luogu reworked it into <h2 class="title">
-    // alongside the rest of the problem header card.
     task.setName(elem.querySelector('h2.title').textContent.trim());
 
     const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent.trim();
@@ -69,8 +67,6 @@ export class LuoguProblemParser extends Parser {
     const script = elem.querySelector('#lentille-context').textContent;
     const data = JSON.parse(script).data.problem;
 
-    // The embedded JSON used to expose the title under `data.problem.title`;
-    // it has since been renamed to `data.problem.name`.
     task.setName(`${data.pid} ${data.name}`.trim());
 
     task.setTimeLimit(Math.max(...data.limits.time));
