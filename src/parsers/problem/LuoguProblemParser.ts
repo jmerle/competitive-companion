@@ -12,10 +12,10 @@ export class LuoguProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Luogu').setUrl(url);
 
-    if (elem.querySelector('.main-container') !== null) {
-      this.parseFromPage(task, elem);
-    } else {
+    if (elem.querySelector('#lentille-context') !== null) {
       this.parseFromScript(task, elem);
+    } else {
+      this.parseFromPage(task, elem);
     }
 
     return task.build();
@@ -45,7 +45,7 @@ export class LuoguProblemParser extends Parser {
     const script = elem.querySelector('#lentille-context').textContent;
     const data = JSON.parse(script).data.problem;
 
-    task.setName(`${data.pid} ${data.title}`.trim());
+    task.setName(`${data.pid} ${data.name}`.trim());
 
     task.setTimeLimit(Math.max(...data.limits.time));
     task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);
