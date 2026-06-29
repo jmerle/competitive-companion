@@ -1,0 +1,31 @@
+{
+  "url": "https://jv.umsa.bo/problem.php?id=1090",
+  "parser": "JvUmsaProblemParser",
+  "result": {
+    "name": "SUMA3",
+    "group": "JV UMSA",
+    "url": "https://jv.umsa.bo/problem.php?id=1090",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "9\n",
+        "output": "9\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SUMA3"
+      }
+    }
+  }
+}
