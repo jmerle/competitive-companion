@@ -84,6 +84,7 @@ import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProbl
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { DotOJProblemParser } from './problem/DotOJProblemParser';
+import { DOJProblemParser } from './problem/DOJProblemParser';
 import { ECNUOnlineJudgeProblemParser } from './problem/ECNUOnlineJudgeProblemParser';
 import { EolympBasecampProblemParser } from './problem/EolympBasecampProblemParser';
 import { FZUOnlineJudgeProblemParser } from './problem/FZUOnlineJudgeProblemParser';
@@ -243,7 +244,9 @@ export const parsers: Parser[] = [
 
   new DotOJProblemParser(),
   new DotOJContestParser(),
-
+  
+  new DOJProblemParser(),
+  
   new ECNUOnlineJudgeProblemParser(),
   new ECNUOnlineJudgeContestParser(),
 
