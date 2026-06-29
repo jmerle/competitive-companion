@@ -23,7 +23,7 @@ export class WincentDragonByteProblemParser extends Parser {
 
     const roundSlug = archiveMatch !== null ? archiveMatch[1] : this.detectRoundFromPage(elem);
     if (roundSlug.length > 0) {
-      task.setCategory(formatRound(roundSlug));
+      task.setCategory(this.formatRound(roundSlug));
     }
 
     for (const table of elem.querySelectorAll('table.io')) {
@@ -60,27 +60,27 @@ export class WincentDragonByteProblemParser extends Parser {
     const match = /\/static\/([^/]+)\//.exec(href);
     return match !== null ? match[1] : '';
   }
-}
 
-function formatRound(slug: string): string {
-  const match = /^([a-z]+)(\d{4})$/i.exec(slug);
-  if (match === null) {
-    return slug;
+  private formatRound(slug: string): string {
+    const match = /^([a-z]+)(\d{4})$/i.exec(slug);
+    if (match === null) {
+      return slug;
+    }
+    const type = match[1].toLowerCase();
+    const year = match[2];
+    const labels: Record<string, string> = {
+      qual: 'Qualification',
+      quals: 'Qualifications',
+      qualifier: 'Qualifier',
+      qualification: 'Qualification',
+      final: 'Final',
+      finals: 'Finals',
+      semifinal: 'Semifinal',
+      semifinals: 'Semifinals',
+      round: 'Round',
+      practice: 'Practice',
+    };
+    const label = labels[type] !== undefined ? labels[type] : type.charAt(0).toUpperCase() + type.slice(1);
+    return `${label} ${year}`;
   }
-  const type = match[1].toLowerCase();
-  const year = match[2];
-  const labels: Record<string, string> = {
-    qual: 'Qualification',
-    quals: 'Qualifications',
-    qualifier: 'Qualifier',
-    qualification: 'Qualification',
-    final: 'Final',
-    finals: 'Finals',
-    semifinal: 'Semifinal',
-    semifinals: 'Semifinals',
-    round: 'Round',
-    practice: 'Practice',
-  };
-  const label = labels[type] !== undefined ? labels[type] : type.charAt(0).toUpperCase() + type.slice(1);
-  return `${label} ${year}`;
 }
