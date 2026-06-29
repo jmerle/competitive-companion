@@ -5,6 +5,7 @@
 - Fix the Luogu problem parser reading the lower bound of a per-testdata time-limit range (e.g. "500ms ~ 3.00s" was treated as 500s instead of 3s) and set the contest name as the group when parsing contest-scoped problem URLs
 - Fix the Luogu contest parser link selector after the page markup changed
 - Fix the Luogu problem parser failing to read the problem title after the title element was reworked from `<h1>` to `<h2 class="title">` and the embedded `data.problem.title` field was renamed to `data.problem.name`
+- Fix Virtual Judge parsers
 
 ## [2.64.0](https://github.com/jmerle/competitive-companion/releases/tag/2.64.0) (2026-03-15)
 - Add support for BJTU OJ (thanks [@MengPaul07](https://github.com/MengPaul07))

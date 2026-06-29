@@ -18,7 +18,7 @@ export class VirtualJudgeContestParser extends ContestParser<[string, string, an
 
   protected async getTasksToParse(html: string, url: string): Promise<[string, string, any][]> {
     const elem = htmlToElement(html);
-    const category = elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim();
+    const category = elem.querySelector('#time-info > .row > .col-6 > h3').textContent.trim();
 
     const data = JSON.parse(elem.querySelector<HTMLTextAreaElement>('textarea[name="dataJson"]').value);
     return data.problems.map((problem: any) => [url, category, problem]);

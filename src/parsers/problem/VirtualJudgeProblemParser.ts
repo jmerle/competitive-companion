@@ -25,7 +25,7 @@ export class VirtualJudgeProblemParser extends Parser {
       task.setCategory(window.location.href.split('/').pop().split('-')[0]);
     } else {
       task.setName(elem.querySelector('h2#problem-title').textContent.trim());
-      task.setCategory(elem.querySelector('#time-info > .row > .col-xs-6 > h3').textContent.trim());
+      task.setCategory(elem.querySelector('#time-info > .row > .col-6 > h3').textContent.trim());
     }
 
     const timeLimitDt = [...elem.querySelectorAll('dt')].find(el =>
