@@ -102,7 +102,12 @@ export class CodeforcesContestParser extends SimpleContestParser {
 
     const tasks: Task[] = [];
     for (const problemElem of [...elem.querySelectorAll('.problem-frames > div')]) {
-      const task = (await this.problemParser.parse(url, problemElem.innerHTML)) as Task;
+      const problemIndex = problemElem.querySelector('.problemindexholder')?.getAttribute('problemindex');
+      const problemUrl = new URL(url);
+      if (problemIndex !== null) {
+        problemUrl.pathname = problemUrl.pathname.replace(/\/problems$/, `/problem/${problemIndex}`);
+      }
+      const task = (await this.problemParser.parse(problemUrl.toString(), problemElem.innerHTML)) as Task;
       task.group = `${task.group} - ${category}`;
 
       tasks.push(task);
