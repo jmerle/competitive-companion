@@ -31,10 +31,25 @@ export class ACMPProblemParser extends Parser {
         return;
       }
 
-      const input = row.querySelector('td:nth-child(2)').textContent;
-      const output = row.querySelector('td:nth-child(3)').textContent;
+      const inputEl = row.querySelector('td:nth-child(2)') as HTMLElement;
+      const outputEl = row.querySelector('td:nth-child(3)') as HTMLElement;
 
-      task.addTest(input, output);
+      const getText = (el: HTMLElement): string => {
+        const div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.style.left = '-9999px';
+        document.body.appendChild(div);
+
+        const clone = el.cloneNode(true);
+        div.appendChild(clone);
+
+        const text = (clone as HTMLElement).innerText;
+
+        document.body.removeChild(div);
+        return text;
+      };
+
+      task.addTest(getText(inputEl), getText(outputEl));
     });
 
     return task.build();
