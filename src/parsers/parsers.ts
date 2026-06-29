@@ -132,6 +132,7 @@ import { PBInfoProblemParser } from './problem/PBInfoProblemParser';
 import { PEGJudgeProblemParser } from './problem/PEGJudgeProblemParser';
 import { POJProblemParser } from './problem/POJProblemParser';
 import { PTAProblemParser } from './problem/PTAProblemParser';
+import { PutongOJProblemParser } from './problem/PutongOJProblemParser';
 import { QBXTOJProblemParser } from './problem/QBXTOJProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { QQWhaleProblemParser } from './problem/QQWhaleProblemParser';
@@ -357,6 +358,8 @@ export const parsers: Parser[] = [
 
   new POJProblemParser(),
   new POJContestParser(),
+
+  new PutongOJProblemParser(),
 
   new PTAProblemParser(),
 
