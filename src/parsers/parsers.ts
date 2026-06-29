@@ -160,6 +160,8 @@ import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
 import { ZUFEOJProblemParser } from './problem/ZUFEOJProblemParser';
+import { JXProblemParser } from './problem/JXProblemParser';
+import { JXContestParser } from './contest/JXContestParser';
 
 export const parsers: Parser[] = [
   new A2OnlineJudgeProblemParser(),
@@ -287,6 +289,9 @@ export const parsers: Parser[] = [
   new ITCoderHUTECHProblemParser(),
 
   new JutgeProblemParser(),
+
+  new JXProblemParser(),
+  new JXContestParser(),
 
   new KattisProblemParser(),
   new KattisContestParser(),
