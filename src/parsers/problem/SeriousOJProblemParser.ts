@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class SeriousOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://judge.eluminatis-of-lu.com/p/*', 'https://judge.eluminatis-of-lu.com/contest/*/*'];
+    return ['https://serious-oj.com/p/*', 'https://serious-oj.com/contest/*/*'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -38,10 +38,10 @@ export class SeriousOJProblemParser extends Parser {
   }
 
   // Sample case formats supported by this method:
-  // https://judge.eluminatis-of-lu.com/p/1002
-  // https://judge.eluminatis-of-lu.com/p/1003
-  // https://judge.eluminatis-of-lu.com/p/1037
-  // https://judge.eluminatis-of-lu.com/p/1063
+  // https://serious-oj.com/p/1002
+  // https://serious-oj.com/p/1003
+  // https://serious-oj.com/p/1037
+  // https://serious-oj.com/p/1063
   private getSampleBlocks(elem: Element, type: 'input' | 'output'): string[] {
     const blocksInTable = [...elem.querySelectorAll(`.test-case-${type} code`)].map(preElem => preElem.textContent);
 
