@@ -12,19 +12,31 @@ export class AlgoZenithNewProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AlgoZenith').setUrl(url);
 
-    task.setName(elem.querySelector('h4').textContent);
+    // Title
+    task.setName(elem.querySelector('h1, h2, h3, h4').textContent.trim());
 
-    const limitElems = elem.querySelectorAll('span.dmsans ~ span.fw-bold');
+    // Time and Memory limits
+    const limitSpans = elem.querySelectorAll('span.body-m-open-sans.text-fg-grey-secondary, span.font-open-sans.text-fg-grey-primary.font');
+    let timeLimitStr = '';
+    let memoryLimitStr = '';
 
-    const timeLimitStr = limitElems[0].textContent;
-    task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1]) * 1000);
+    limitSpans.forEach(span => {
+      const text = span.textContent.trim();
+      if (text.includes('sec')) timeLimitStr = text;
+      if (text.includes('MB')) memoryLimitStr = text;
+    });
 
-    const memoryLimitStr = limitElems[1].textContent;
-    task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1]));
+    if (timeLimitStr) {
+      task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1]) * 1000);
+    }
+    if (memoryLimitStr) {
+      task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1]));
+    }
 
-    const blocks = elem.querySelectorAll('.mt-4 div[class^="coding_input_format__"]');
+    // Sample test cases
+    const blocks = elem.querySelectorAll('div.custom-scrollbar.max-h-80.overflow-auto.whitespace-pre-wrap');
     for (let i = 0; i < blocks.length - 1; i += 2) {
-      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
+      task.addTest(blocks[i].textContent.trim(), blocks[i + 1].textContent.trim());
     }
 
     return task.build();
