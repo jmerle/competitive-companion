@@ -284,8 +284,8 @@ To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with 
 The information provided below is meant for Mozilla volunteers.
 
 Software versions used:  
-Node.js: 24.11.1  
-PNPM: 10.32.1
+Node.js: 26.4.0  
+PNPM: 11.9.0
 
 Third-party libraries that can be found in the minified extension:  
 - [nanobar 0.4.2](https://github.com/jacoborus/nanobar/blob/v0.4.2/nanobar.js)
