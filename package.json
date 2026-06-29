@@ -72,14 +72,5 @@
     "trailingComma": "all",
     "printWidth": 120,
     "arrowParens": "avoid"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "canvas",
-      "esbuild",
-      "puppeteer",
-      "spawn-sync",
-      "unrs-resolver"
-    ]
   }
 }
