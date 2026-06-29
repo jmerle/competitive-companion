@@ -8,8 +8,8 @@ export class MarisaOJProblemParser extends Parser {
     return [
       'https://marisaoj.com/problem/*',
       'https://marisaoj.com/mashup/*/problem/*',
-      'https://m.marisaoj.com/problem/*',
-      'https://m.marisaoj.com/mashup/*/problem/*',
+      'https://*.marisaoj.com/problem/*',
+      'https://*.marisaoj.com/mashup/*/problem/*',
     ];
   }
 
@@ -25,13 +25,10 @@ export class MarisaOJProblemParser extends Parser {
     task.setTimeLimit(parseInt(timeLimitElem.textContent.match(/\d+/)[0], 10));
     task.setMemoryLimit(parseInt(memoryLimitElem.textContent.match(/\d+/)[0], 10));
 
-    const bodyElems = elem.querySelector('.math-content').children;
+    const testBlocks = [...elem.querySelectorAll('.math-content :is(#example, #sample-test) ~ .code-wrapper pre')];
 
-    for (let i = 0; i < bodyElems.length; i++) {
-      if (bodyElems[i].textContent.includes('Input:')) {
-        task.addTest(bodyElems[i + 1].textContent, bodyElems[i + 3].textContent);
-        i += 3;
-      }
+    for (let i = 0; i < testBlocks.length; i += 2) {
+      task.addTest(testBlocks[i].textContent, testBlocks[i + 1].textContent);
     }
 
     return task.build();

@@ -6,6 +6,6 @@ export class MarisaOJContestParser extends SimpleContestParser {
   protected problemParser = new MarisaOJProblemParser();
 
   public getMatchPatterns(): string[] {
-    return ['https://marisaoj.com/mashup/*'];
+    return ['https://marisaoj.com/mashup/*', 'https://*.marisaoj.com/mashup/*'];
   }
 }
