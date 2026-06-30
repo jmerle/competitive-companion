@@ -36,9 +36,9 @@ export class RepoviveProblemParser extends Parser {
       }
     }
 
-    const cards = [...elem.querySelectorAll('.rounded-lg.border')];
+    const cards = [...elem.querySelectorAll('.problem-sample-card')];
     const cardsByLabel = (label: string): Element[] =>
-      cards.filter(c => c.querySelector('span.uppercase')?.textContent?.trim() === label);
+      cards.filter(c => c.querySelector('span.problem-sample-card-title')?.textContent?.trim() === label);
     const inputCards = cardsByLabel('Input');
     const outputCards = cardsByLabel('Output');
 
