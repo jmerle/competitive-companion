@@ -1,0 +1,36 @@
+{
+  "url": "https://kep.uz/problems/1",
+  "parser": "KEPUZProblemParser",
+  "before": "beforeKEPUZ",
+  "result": {
+    "name": "1. Sum of Two Numbers",
+    "group": "KEP.uz",
+    "url": "https://kep.uz/problems/1",
+    "interactive": false,
+    "memoryLimit": 512,
+    "timeLimit": 3000,
+    "tests": [
+      {
+        "input": "2\n2\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5\n10\n",
+        "output": "15\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SumOfTwoNumbers"
+      }
+    }
+  }
+}
