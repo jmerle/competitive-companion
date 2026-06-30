@@ -158,6 +158,7 @@ import { WincentDragonByteProblemParser } from './problem/WincentDragonByteProbl
 import { XCampProblemParser } from './problem/XCampProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
 import { YACSProblemParser } from './problem/YACSProblemParser';
+import { YandexNewProblemParser } from './problem/YandexNewProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
 import { YukicoderProblemParser } from './problem/YukicoderProblemParser';
 import { ZOJProblemParser } from './problem/ZOJProblemParser';
@@ -420,6 +421,7 @@ export const parsers: Parser[] = [
 
   new YandexProblemParser(),
   new YandexContestParser(),
+  new YandexNewProblemParser(),
 
   new YACSProblemParser(),
 
