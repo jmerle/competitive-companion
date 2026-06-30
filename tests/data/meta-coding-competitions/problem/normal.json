@@ -18,11 +18,11 @@
     "testType": "multiNumber",
     "input": {
       "type": "regex",
-      "pattern": "leapfrog_ch__.*input[.]txt"
+      "pattern": "leapfrog_ch_1_.*input[.]txt"
     },
     "output": {
       "type": "file",
-      "fileName": "leapfrog_ch__output.txt"
+      "fileName": "leapfrog_ch_1_output.txt"
     },
     "languages": {
       "java": {

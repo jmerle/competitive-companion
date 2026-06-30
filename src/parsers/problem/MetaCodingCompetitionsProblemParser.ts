@@ -31,7 +31,7 @@ export class MetaCodingCompetitionsProblemParser extends Parser {
     const filename = nameWithoutPrefix
       .toLowerCase()
       .replace(/[^a-zA-Z0-9 ]/g, '')
-      .replace(/[^a-zA-Z]+/g, '_');
+      .replace(/[^a-zA-Z0-9]+/g, '_');
 
     task.setInput({
       pattern: `${filename}_.*input[.]txt`,
