@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Fix the CodeRun parser on the redesigned problem page layout and support seasons/tracks URLs
+
 ## [2.65.0](https://github.com/jmerle/competitive-companion/releases/tag/2.65.0) (2026-06-29)
 - Add support for Wincent DragonByte (thanks [@EgorKulikov](https://github.com/EgorKulikov))
 - Fix the Luogu problem parser reading the lower bound of a per-testdata time-limit range (e.g. "500ms ~ 3.00s" was treated as 500s instead of 3s) and set the contest name as the group when parsing contest-scoped problem URLs (thanks [@EgorKulikov](https://github.com/EgorKulikov))

@@ -25,6 +25,10 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
     await page.waitForSelector('main .container .v-sheet > .row:last-child');
   },
 
+  async beforeCodeRun(page: Page): Promise<void> {
+    await page.waitForSelector('.io-sample .input-snippet code');
+  },
+
   async beforeCOJContest(page: Page): Promise<void> {
     await page.waitForSelector('#problem td > a');
   },
