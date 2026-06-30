@@ -62,12 +62,14 @@ export class CodeChefNewProblemParser extends Parser {
   private async parseCategory(url: string, elem: Element): Promise<string> {
     const contestIdFromPage = elem.querySelector('a[class^="_contest__link_"]');
     if (contestIdFromPage !== null) {
-      return contestIdFromPage.childNodes[0].textContent.trim();
+      const text = contestIdFromPage.childNodes[0].textContent.trim();
+      return (await this.lookupContestName(text)) ?? text;
     }
 
     const contestIdFromUrl = /https:\/\/www\.codechef\.com\/([^/]+)\/problems\/([^/]+)/.exec(url);
     if (contestIdFromUrl !== null) {
-      return contestIdFromUrl[1];
+      const code = contestIdFromUrl[1];
+      return (await this.lookupContestName(code)) ?? code;
     }
 
     const syllabusName = elem.querySelector('div[class^="_syllabusName_"]');
@@ -77,6 +79,26 @@ export class CodeChefNewProblemParser extends Parser {
 
     const problemId = new URL(url).pathname.split('/').pop();
     const response = await request(`https://www.codechef.com/api/contests/PRACTICE/problems/${problemId}`);
-    return JSON.parse(response).intended_contest_code || 'Practice';
+    const code = JSON.parse(response).intended_contest_code;
+    if (!code) {
+      return 'Practice';
+    }
+    return (await this.lookupContestName(code)) ?? code;
+  }
+
+  private async lookupContestName(code: string): Promise<string | null> {
+    if (code === '' || code.toUpperCase() === 'PRACTICE') {
+      return null;
+    }
+    try {
+      const response = await request(`https://www.codechef.com/api/contests/${code}`);
+      const data = JSON.parse(response);
+      if (data.status === 'success' && typeof data.name === 'string' && data.name.length > 0) {
+        return data.name;
+      }
+    } catch {
+      // fall through to null
+    }
+    return null;
   }
 }
