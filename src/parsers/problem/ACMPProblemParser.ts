@@ -21,9 +21,9 @@ export class ACMPProblemParser extends Parser {
     task.setName(main.querySelector('h1').textContent);
 
     const limitsStr = main.querySelector('center > i').textContent;
-    const limits = /: (\d+).*: (\d+).*: (\d+)/.exec(limitsStr);
+    const limits = /: (\d+(?:[.|,]\d*)?).*: (\d+).*: (\d+)/.exec(limitsStr);
 
-    task.setTimeLimit(parseInt(limits[1], 10) * 1000);
+    task.setTimeLimit(parseFloat(limits[1].replace(',', '.')) * 1000);
     task.setMemoryLimit(parseInt(limits[2], 10));
 
     elem.querySelectorAll('table.main tbody > tr:not(:first-child)').forEach(row => {
