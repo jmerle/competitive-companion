@@ -11,7 +11,7 @@ interface ProblemDescription {
 
 export class KEPUZContestParser extends ContestParser<ProblemDescription> {
   public getMatchPatterns(): string[] {
-    return ['https://kep.uz/competitions/contests/contest/*/problems'];
+    return ['https://kep.uz/contests/*/problems'];
   }
 
   protected async getTasksToParse(html: string, url: string): Promise<ProblemDescription[]> {
@@ -20,7 +20,9 @@ export class KEPUZContestParser extends ContestParser<ProblemDescription> {
     const urlParts = url.split('/');
     const contestId = urlParts[urlParts.length - 2];
 
-    const linkElems = [...elem.querySelectorAll<HTMLAnchorElement>('td > a[href^="/competitions/contests/contest/"]')];
+    const linkElems = [
+      ...elem.querySelectorAll<HTMLAnchorElement>('a[href^="/contests/"][href*="/problem/"]'),
+    ];
     return linkElems.map(linkElem => ({
       contestId,
       problemSymbol: linkElem.href.split('/').pop(),
@@ -28,7 +30,7 @@ export class KEPUZContestParser extends ContestParser<ProblemDescription> {
   }
 
   protected async parseTask(problem: ProblemDescription): Promise<Task> {
-    const url = `https://kep.uz/competitions/contests/contest/${problem.contestId}/problem/${problem.problemSymbol}`;
+    const url = `https://kep.uz/contests/${problem.contestId}/problem/${problem.problemSymbol}`;
     const task = new TaskBuilder('KEP.uz').setUrl(url);
 
     const body = await request(

@@ -57,6 +57,12 @@ export const beforeFunctions: { [name: string]: (page: Page) => Promise<void> } 
     await page.waitForSelector('.problem-io-wrapper pre.io-content, .problem-io-wrapper-new pre.sample-content-text');
   },
 
+  async beforeKEPUZ(page: Page): Promise<void> {
+    await page.waitForFunction(
+      "document.querySelectorAll('.MuiChip-label').length > 0 && [...document.querySelectorAll('h6')].some(h => /Sample tests/i.test(h.textContent))",
+    );
+  },
+
   async beforeLibraryChecker(page: Page): Promise<void> {
     await page.waitForSelector('.MuiContainer-root.MuiContainer-maxWidthLg .MuiTypography-h2');
   },
