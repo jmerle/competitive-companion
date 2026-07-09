@@ -6,7 +6,7 @@ import { Parser } from '../Parser';
 
 export class WincentDragonByteProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['https://wincentdragonbyte.com/problem/*', 'https://wincentdragonbyte.com/static/*/*_statement.html'];
+    return ['https://wincentdragonbyte.com/problem/*', 'https://wincentdragonbyte.com/archive/*/*/statement'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {
@@ -14,7 +14,7 @@ export class WincentDragonByteProblemParser extends Parser {
     const task = new TaskBuilder('Wincent DragonByte').setUrl(url);
 
     const liveMatch = /\/problem\/([^/?#]+)/.exec(url);
-    const archiveMatch = /\/static\/([^/]+)\/([^_/]+)_statement\.html/.exec(url);
+    const archiveMatch = /\/archive\/([^/]+)\/([^/]+)\/statement/.exec(url);
     const letter = liveMatch !== null ? liveMatch[1] : archiveMatch !== null ? archiveMatch[2] : '';
 
     const heading = elem.querySelector('#problem_statement h1, h1');
