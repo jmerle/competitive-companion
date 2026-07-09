@@ -33,6 +33,7 @@ await Promise.all(
 
           permissions: ['activeTab', 'contextMenus', 'storage', 'scripting'],
           host_permissions: ['http://localhost/'],
+          optional_host_permissions: ['*://*/'],
 
           icons: {
             '16': 'icons/icon-16.png',
