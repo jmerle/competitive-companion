@@ -1,5 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { createPool, Pool } from 'generic-pool';
 import { Browser, launch, Page } from 'puppeteer';
 import { Contest } from '../src/models/Contest';
@@ -12,10 +13,13 @@ interface TestData {
   url: string;
   parser: string;
   before?: string;
+  html?: string;
   result: Task | Task[];
 }
 
-const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/expose-parsers.js'), {
+const dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const exposeParsersScript = fs.readFileSync(path.resolve(dirname, '../build-test/expose-parsers.js'), {
   encoding: 'utf-8',
 });
 
@@ -24,7 +28,11 @@ async function runTest(pagePool: Pool<Page>, data: TestData): Promise<void> {
   let result: Sendable;
 
   try {
-    await page.goto(data.url, { timeout: 15000 });
+    if (data.html === undefined) {
+      await page.goto(data.url, { timeout: 15000 });
+    } else {
+      await page.setContent(data.html);
+    }
 
     if (data.before) {
       await beforeFunctions[data.before](page);
@@ -32,26 +40,28 @@ async function runTest(pagePool: Pool<Page>, data: TestData): Promise<void> {
 
     await page.evaluate(exposeParsersScript);
 
-    result = await page.evaluate(parserName => {
-      const url = window.location.href;
-      const html = document.documentElement.outerHTML;
+    result = await page.evaluate(
+      ({ parserName, url }) => {
+        const html = document.documentElement.outerHTML;
 
-      const parser: Parser = (window as any)[parserName];
+        const parser: Parser = (window as any)[parserName];
 
-      if (!parser.getRegularExpressions().some(r => r.test(url))) {
-        throw new Error(`parser.getRegularExpressions() returns no regular expressions matching ${url}`);
-      }
+        if (!parser.getRegularExpressions().some(r => r.test(url))) {
+          throw new Error(`parser.getRegularExpressions() returns no regular expressions matching ${url}`);
+        }
 
-      if (parser.getExcludedRegularExpressions().some(r => r.test(url))) {
-        throw new Error(`parser.getExcludedRegularExpressions() returns a regular expressions matching ${url}`);
-      }
+        if (parser.getExcludedRegularExpressions().some(r => r.test(url))) {
+          throw new Error(`parser.getExcludedRegularExpressions() returns a regular expressions matching ${url}`);
+        }
 
-      if (!parser.canHandlePage()) {
-        throw new Error(`parser.canHandlePage() returns false`);
-      }
+        if (!parser.canHandlePage()) {
+          throw new Error(`parser.canHandlePage() returns false`);
+        }
 
-      return parser.parse(url, html);
-    }, data.parser);
+        return parser.parse(url, html);
+      },
+      { parserName: data.parser, url: data.url },
+    );
   } finally {
     await pagePool.destroy(page);
   }
@@ -118,12 +128,12 @@ afterAll(async () => {
   await browser.close();
 });
 
-for (const website of fs.readdirSync(path.resolve(__dirname, 'data'))) {
-  for (const category of fs.readdirSync(path.resolve(__dirname, 'data', website))) {
-    for (const file of fs.readdirSync(path.resolve(__dirname, 'data', website, category))) {
+for (const website of fs.readdirSync(path.resolve(dirname, 'data'))) {
+  for (const category of fs.readdirSync(path.resolve(dirname, 'data', website))) {
+    for (const file of fs.readdirSync(path.resolve(dirname, 'data', website, category))) {
       const testName = `${website}/${category}/${file.substring(0, file.length - 5)}`;
 
-      const filePath = path.resolve(__dirname, 'data', website, category, file);
+      const filePath = path.resolve(dirname, 'data', website, category, file);
       const data = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf-8' }));
 
       test.concurrent(testName, () => runTest(pagePool, data));

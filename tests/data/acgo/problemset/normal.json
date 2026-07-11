@@ -1,0 +1,21 @@
+{
+  "url": "https://www.acgo.cn/problemset/info/1463",
+  "parser": "ACGOProblemParser",
+  "html": "<html><body><main><div><h1>A1463. REZ</h1></div><div class=\"info_sumary__w84hZ\"><div class=\"info_source__7ii3R\">COCI</div></div><p class=\"info_passRate___BSjW\"><span>时间限制：</span>1.00s</p><p class=\"info_passRate___BSjW\"><span>内存限制：</span>128MB</p><h4>输入输出样例</h4><pre class=\"Example_exampleContent__2sQ_8\">1</pre><pre class=\"Example_exampleContent__2sQ_8\">0</pre><pre class=\"Example_exampleContent__2sQ_8\">4</pre><pre class=\"Example_exampleContent__2sQ_8\">2\n-5000 -5000 5000 5000</pre></main></body></html>",
+  "result": {
+    "name": "A1463. REZ",
+    "group": "ACGO - COCI",
+    "url": "https://www.acgo.cn/problemset/info/1463",
+    "interactive": false,
+    "memoryLimit": 128,
+    "timeLimit": 1000,
+    "tests": [
+      { "input": "1\n", "output": "0\n" },
+      { "input": "4\n", "output": "2\n-5000 -5000 5000 5000\n" }
+    ],
+    "testType": "single",
+    "input": { "type": "stdin" },
+    "output": { "type": "stdout" },
+    "languages": { "java": { "mainClass": "Main", "taskClass": "A1463REZ" } }
+  }
+}
