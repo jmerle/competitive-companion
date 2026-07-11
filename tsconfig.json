@@ -5,6 +5,6 @@
     "target": "ES2022",
     "strict": true,
     "strictNullChecks": false,
-    "types": ["jest"]
+    "types": ["jest", "node", "webextension-polyfill"]
   }
 }
