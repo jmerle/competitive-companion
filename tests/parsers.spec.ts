@@ -40,25 +40,28 @@ async function runTest(pagePool: Pool<Page>, data: TestData): Promise<void> {
 
     await page.evaluate(exposeParsersScript);
 
-    result = await page.evaluate(({ parserName, url }) => {
-      const html = document.documentElement.outerHTML;
+    result = await page.evaluate(
+      ({ parserName, url }) => {
+        const html = document.documentElement.outerHTML;
 
-      const parser: Parser = (window as any)[parserName];
+        const parser: Parser = (window as any)[parserName];
 
-      if (!parser.getRegularExpressions().some(r => r.test(url))) {
-        throw new Error(`parser.getRegularExpressions() returns no regular expressions matching ${url}`);
-      }
+        if (!parser.getRegularExpressions().some(r => r.test(url))) {
+          throw new Error(`parser.getRegularExpressions() returns no regular expressions matching ${url}`);
+        }
 
-      if (parser.getExcludedRegularExpressions().some(r => r.test(url))) {
-        throw new Error(`parser.getExcludedRegularExpressions() returns a regular expressions matching ${url}`);
-      }
+        if (parser.getExcludedRegularExpressions().some(r => r.test(url))) {
+          throw new Error(`parser.getExcludedRegularExpressions() returns a regular expressions matching ${url}`);
+        }
 
-      if (!parser.canHandlePage()) {
-        throw new Error(`parser.canHandlePage() returns false`);
-      }
+        if (!parser.canHandlePage()) {
+          throw new Error(`parser.canHandlePage() returns false`);
+        }
 
-      return parser.parse(url, html);
-    }, { parserName: data.parser, url: data.url });
+        return parser.parse(url, html);
+      },
+      { parserName: data.parser, url: data.url },
+    );
   } finally {
     await pagePool.destroy(page);
   }

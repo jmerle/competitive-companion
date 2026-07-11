@@ -1,7 +1,7 @@
 {
   "url": "https://www.acgo.cn/exam/87385",
   "parser": "ACGOProblemParser",
-  "html": "<html><body><div class=\"xm-header\"><span class=\"xm-header-name\">NOIP衔接版 csp s 模拟赛-4(补题)</span></div><main><h1>【noip 衔接模拟赛4 T1】晶体共振</h1><blockquote><p>时间限制：1000ms<br>内存限制：512MB</p></blockquote><h4>输入输出样例</h4><pre>3\n3 1</pre><pre>YES</pre><pre>见附件中的 resonance2.in</pre><pre></pre><pre class=\"CodeMirror-line\">编辑器内容</pre></main></body></html>",
+  "html": "<html><body><div class=\"xm-header\"><span class=\"xm-header-name\">NOIP衔接版 csp s 模拟赛-4(补题)</span></div><main><h1>【noip 衔接模拟赛4 T1】晶体共振</h1><blockquote><p>时间限制：1000ms<br>内存限制：512MB</p></blockquote><h4>输入输出样例</h4><div class=\"ActiveQProgrammingCard__QPSampleBox-sc-1ncbu6v-3\"><pre>3\n3 1</pre></div><div class=\"ActiveQProgrammingCard__QPSampleBox-sc-1ncbu6v-3\"><pre>YES</pre></div><div class=\"CodeMirror-measure\"><pre class=\"CodeMirror-line-like\">xxxxxxxxxx</pre></div><div class=\"CodeMirror-activeline\"><pre class=\"CodeMirror-line\">\u200b</pre></div></main></body></html>",
   "result": {
     "name": "【noip 衔接模拟赛4 T1】晶体共振",
     "group": "ACGO - NOIP衔接版 csp s 模拟赛-4(补题)",

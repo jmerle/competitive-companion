@@ -30,7 +30,7 @@ export class ACGOProblemParser extends Parser {
     task.setMemoryLimit(Number(memory[1]));
 
     const blocks = isExam
-      ? [...elem.querySelectorAll('pre')]
+      ? [...elem.querySelectorAll('[class*="QPSampleBox"] > pre')]
       : [...elem.querySelectorAll('[class*="Example_exampleContent"]')];
     for (let i = 0; i + 1 < blocks.length; i += 2) {
       const input = blocks[i].textContent;
