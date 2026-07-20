@@ -5,7 +5,7 @@ import { Parser } from '../Parser';
 
 export class LSYOIProblemParser extends Parser {
   public getMatchPatterns(): string[] {
-    return ['http://lsyoi.top:88/problem.php?*'];
+    return ['http://lsyoi.top:81/p'];
   }
 
   public async parse(url: string, html: string): Promise<Sendable> {

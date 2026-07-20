@@ -111,6 +111,7 @@ import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProbl
 import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemParser';
 import { LibreOJProblemParser } from './problem/LibreOJProblemParser';
 import { LightOJProblemParser } from './problem/LightOJProblemParser';
+import { LSYOIContestParser } from './contest/LSYOIContestParser';
 import { LSYOIProblemParser } from './problem/LSYOIProblemParser';
 import { LuoguProblemParser } from './problem/LuoguProblemParser';
 import { MarisaOJProblemParser } from './problem/MarisaOJProblemParser';
@@ -312,6 +313,7 @@ export const parsers: Parser[] = [
   new LightOJContestParser(),
 
   new LSYOIProblemParser(),
+  new LSYOIContestParser(),
 
   new LuoguProblemParser(),
   new LuoguContestParser(),
