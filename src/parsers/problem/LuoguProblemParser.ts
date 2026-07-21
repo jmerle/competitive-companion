@@ -12,10 +12,12 @@ export class LuoguProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Luogu').setUrl(url);
 
-    if (elem.querySelector('.main-container') !== null) {
-      this.parseFromPage(task, elem);
-    } else {
+    // Prefer the JSON data from the page context (both old and new frontends provide it),
+    // falling back to DOM-based parsing only when the script is absent.
+    if (elem.querySelector('#lentille-context') !== null) {
       this.parseFromScript(task, elem);
+    } else if (elem.querySelector('.main-container') !== null) {
+      this.parseFromPage(task, elem);
     }
 
     this.setContestCategory(task, elem);
