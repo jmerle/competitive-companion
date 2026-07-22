@@ -1,0 +1,31 @@
+{
+  "url": "https://jungol.co.kr/problem/6078",
+  "parser": "JungolProblemParser",
+  "result": {
+    "name": "재귀함수는 출력을 좋아해",
+    "group": "JUNGOL",
+    "url": "https://jungol.co.kr/problem/6078",
+    "interactive": true,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n",
+        "output": "5 4 3 2 1\n1 2 3 4 5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

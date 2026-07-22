@@ -1,0 +1,26 @@
+{
+  "url": "https://jungol.co.kr/problem/9650",
+  "parser": "JungolProblemParser",
+  "result": {
+    "name": "미술 수집품",
+    "group": "JUNGOL",
+    "url": "https://jungol.co.kr/problem/9650",
+    "interactive": true,
+    "memoryLimit": 512,
+    "timeLimit": 3000,
+    "tests": [],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

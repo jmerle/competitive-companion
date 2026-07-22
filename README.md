@@ -96,6 +96,7 @@ A browser extension which parses competitive programming problems from various o
 | ICPC Live Archive          | ✔              |                |
 | InfoArena                  | ✔              |                |
 | ITCoder HUTECH             | ✔              |                |
+| JUNGOL                     | ✔              |                |
 | Jutge                      | ✔              |                |
 | Kattis                     | ✔              | ✔              |
 | KEP.uz                     | ✔              | ✔              |

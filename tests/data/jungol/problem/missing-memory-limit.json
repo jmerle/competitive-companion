@@ -1,0 +1,31 @@
+{
+  "url": "https://jungol.co.kr/problem/502",
+  "parser": "JungolProblemParser",
+  "result": {
+    "name": "출력 - 자가진단2",
+    "group": "JUNGOL",
+    "url": "https://jungol.co.kr/problem/502",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "",
+        "output": "Programming! It's fun.\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}

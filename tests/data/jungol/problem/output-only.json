@@ -1,0 +1,31 @@
+{
+  "url": "https://jungol.co.kr/problem/9001",
+  "parser": "JungolProblemParser",
+  "result": {
+    "name": "출력 - 연습문제1",
+    "group": "JUNGOL",
+    "url": "https://jungol.co.kr/problem/9001",
+    "interactive": false,
+    "memoryLimit": 4,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "",
+        "output": "첫 번째 프로그램입니다.\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}
