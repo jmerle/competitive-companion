@@ -1,0 +1,6 @@
+allowBuilds:
+  canvas: true
+  esbuild: true
+  puppeteer: true
+  spawn-sync: true
+  unrs-resolver: true

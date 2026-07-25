@@ -18,16 +18,38 @@ export class LuoguProblemParser extends Parser {
       this.parseFromScript(task, elem);
     }
 
+    this.setContestCategory(task, elem);
+
     return task.build();
   }
 
-  private parseFromPage(task: TaskBuilder, elem: Element): void {
-    task.setName(elem.querySelector('h1').textContent.trim());
+  private setContestCategory(task: TaskBuilder, elem: Element): void {
+    const script = elem.querySelector('#lentille-context');
+    if (script === null) {
+      return;
+    }
+    try {
+      const name = JSON.parse(script.textContent).data?.contest?.name;
+      if (typeof name === 'string' && name.length > 0) {
+        task.setCategory(name);
+      }
+    } catch {
+      // Ignore parse errors and leave the category unset
+    }
+  }
 
-    const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent;
-    const timeAmount = parseFloat(timeLimitStr);
-    const timeMultiplier = timeLimitStr.endsWith('ms') ? 1 : 1000;
-    task.setTimeLimit(timeAmount * timeMultiplier);
+  private parseFromPage(task: TaskBuilder, elem: Element): void {
+    task.setName(elem.querySelector('h2.title').textContent.trim());
+
+    const timeLimitStr = elem.querySelector('.stat > .field:nth-child(3) > .value').textContent.trim();
+    // The value may be a single limit ("1.00s", "500ms") or a range showing min and
+    // max across testdata ("500ms ~ 3.00s"). Use the last number-unit pair, which is
+    // the upper bound the solution actually has to fit in.
+    const timeMatch = /([0-9.]+)\s*(ms|s)\s*$/i.exec(timeLimitStr);
+    if (timeMatch !== null) {
+      const value = parseFloat(timeMatch[1]);
+      task.setTimeLimit(Math.round(timeMatch[2].toLowerCase() === 'ms' ? value : value * 1000));
+    }
 
     const memoryLimitStr = elem.querySelector('.stat > .field:nth-child(4) > .value').textContent;
     const memoryLimitAmount = parseFloat(memoryLimitStr.substring(0, memoryLimitStr.length - 2));
@@ -45,7 +67,7 @@ export class LuoguProblemParser extends Parser {
     const script = elem.querySelector('#lentille-context').textContent;
     const data = JSON.parse(script).data.problem;
 
-    task.setName(`${data.pid} ${data.title}`.trim());
+    task.setName(`${data.pid} ${data.name}`.trim());
 
     task.setTimeLimit(Math.max(...data.limits.time));
     task.setMemoryLimit(Math.max(...data.limits.memory) / 1024);

@@ -47,6 +47,7 @@ import { TLXContestParser } from './contest/TLXContestParser';
 import { UniversalCupContestParser } from './contest/UniversalCupContestParser';
 import { UOJContestParser } from './contest/UOJContestParser';
 import { VirtualJudgeContestParser } from './contest/VirtualJudgeContestParser';
+import { WincentDragonByteContestParser } from './contest/WincentDragonByteContestParser';
 import { YandexContestParser } from './contest/YandexContestParser';
 import { YukicoderContestParser } from './contest/YukicoderContestParser';
 import { ZUFEOJContestParser } from './contest/ZUFEOJContestParser';
@@ -153,6 +154,7 @@ import { USACOProblemParser } from './problem/USACOProblemParser';
 import { USACOTrainingProblemParser } from './problem/USACOTrainingProblemParser';
 import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemParser';
 import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
+import { WincentDragonByteProblemParser } from './problem/WincentDragonByteProblemParser';
 import { XCampProblemParser } from './problem/XCampProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
 import { YACSProblemParser } from './problem/YACSProblemParser';
@@ -408,6 +410,9 @@ export const parsers: Parser[] = [
 
   new VirtualJudgeProblemParser(),
   new VirtualJudgeContestParser(),
+
+  new WincentDragonByteProblemParser(),
+  new WincentDragonByteContestParser(),
 
   new XCampProblemParser(),
 

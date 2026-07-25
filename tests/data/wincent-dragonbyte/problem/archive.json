@@ -1,0 +1,31 @@
+{
+  "url": "https://wincentdragonbyte.com/static/finals2025/M_statement.html",
+  "parser": "WincentDragonByteProblemParser",
+  "result": {
+    "name": "M: Minimum Edit Area",
+    "group": "Wincent DragonByte - Finals 2025",
+    "url": "https://wincentdragonbyte.com/static/finals2025/M_statement.html",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 60000,
+    "tests": [
+      {
+        "input": "2\n47 47\n4200 7017\n",
+        "output": "0\n0\n47\n6\n5\n4200 420 417 174 7014 7017\n"
+      }
+    ],
+    "testType": "multiNumber",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "MMinimumEditArea"
+      }
+    }
+  }
+}
