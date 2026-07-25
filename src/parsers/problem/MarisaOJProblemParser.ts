@@ -25,7 +25,7 @@ export class MarisaOJProblemParser extends Parser {
     task.setTimeLimit(parseInt(timeLimitElem.textContent.match(/\d+/)[0], 10));
     task.setMemoryLimit(parseInt(memoryLimitElem.textContent.match(/\d+/)[0], 10));
 
-    const testBlocks = [...elem.querySelectorAll('.math-content :is(#example, #sample-test) ~ .code-wrapper pre')];
+    const testBlocks = [...elem.querySelectorAll('.math-content :is(#example, #exampl, #sample-test) ~ .code-wrapper pre')];
 
     for (let i = 0; i < testBlocks.length; i += 2) {
       task.addTest(testBlocks[i].textContent, testBlocks[i + 1].textContent);
