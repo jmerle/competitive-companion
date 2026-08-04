@@ -1,0 +1,35 @@
+{
+  "url": "https://jungol.co.kr/problem/1000",
+  "parser": "JUNGOLProblemParser",
+  "result": {
+    "name": "1000. 두 정수 더하기 (A+B)",
+    "group": "JUNGOL",
+    "url": "https://jungol.co.kr/problem/1000",
+    "interactive": false,
+    "memoryLimit": 4,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1 2\n",
+        "output": "3\n"
+      },
+      {
+        "input": "3 4\n",
+        "output": "7\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "AB"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://jungol.co.kr/problem/1004",
+  "parser": "JUNGOLProblemParser",
+  "result": {
+    "name": "1004. 합과 평균 표준편차",
+    "group": "JUNGOL",
+    "url": "https://jungol.co.kr/problem/1004",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3\n1500\n2000\n2500\n",
+        "output": "6000\n2000\n408.2\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}
