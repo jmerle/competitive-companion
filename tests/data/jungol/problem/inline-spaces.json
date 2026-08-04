@@ -1,0 +1,31 @@
+{
+  "url": "https://jungol.co.kr/problem/2224",
+  "parser": "JUNGOLProblemParser",
+  "result": {
+    "name": "2224. 시저 암호",
+    "group": "JUNGOL",
+    "url": "https://jungol.co.kr/problem/2224",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "NS BFW, JAJSYX TK NRUTWYFSHJ FWJ YMJ WJXZQY TK YWNANFQ HFZXJX.\n",
+        "output": "IN WAR, EVENTS OF IMPORTANCE ARE THE RESULT OF TRIVIAL CAUSES.\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}
