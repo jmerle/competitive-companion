@@ -156,6 +156,7 @@ import { UVaOnlineJudgeProblemParser } from './problem/UVaOnlineJudgeProblemPars
 import { VirtualJudgeProblemParser } from './problem/VirtualJudgeProblemParser';
 import { WincentDragonByteProblemParser } from './problem/WincentDragonByteProblemParser';
 import { XCampProblemParser } from './problem/XCampProblemParser';
+import { XinyouduiProblemParser } from './problem/XinyouduiProblemParser';
 import { XXMProblemParser } from './problem/XXMProblemParser';
 import { YACSProblemParser } from './problem/YACSProblemParser';
 import { YandexProblemParser } from './problem/YandexProblemParser';
@@ -415,6 +416,8 @@ export const parsers: Parser[] = [
   new WincentDragonByteContestParser(),
 
   new XCampProblemParser(),
+
+  new XinyouduiProblemParser(),
 
   new XXMProblemParser(),
 
