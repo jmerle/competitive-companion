@@ -12,29 +12,48 @@ export class XinyouduiProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('Xinyoudui').setUrl(url);
 
-    this.parseTitle(task, elem, url);
+    const problemItem = this.findProblemItem(elem, url);
+
+    this.parseTitle(task, elem, problemItem);
+    this.parseProblemId(task, elem);
     this.parseLimits(task, elem);
     this.parseSamples(task, elem);
 
     return task.build();
   }
 
-  private parseTitle(task: TaskBuilder, elem: Element, url: string): void {
+  private findProblemItem(elem: Element, url: string): Element | null {
     const problemIdMatch = /\/problem\/(\d+)/.exec(url);
-    if (problemIdMatch !== null) {
-      const problemItem = elem.querySelector(`[id="problem-${problemIdMatch[1]}"]`);
-      if (problemItem !== null) {
-        const titleElem = problemItem.querySelector('[class*="_problemTitle_"]');
-        if (titleElem !== null) {
-          task.setName(titleElem.textContent.replace(/^\d+\.\s*/, '').trim());
-          return;
-        }
+    if (problemIdMatch === null) {
+      return null;
+    }
+
+    return elem.querySelector(`[id="problem-${problemIdMatch[1]}"]`);
+  }
+
+  private parseTitle(task: TaskBuilder, elem: Element, problemItem: Element | null): void {
+    if (problemItem !== null) {
+      const titleElem = problemItem.querySelector('[class*="_problemTitle_"]');
+      if (titleElem !== null) {
+        task.setName(titleElem.textContent.replace(/^\s*\d+\.\s*/, '').trim());
+        return;
       }
     }
 
     const navTitle = elem.querySelector('#titleLink-id strong');
     if (navTitle !== null) {
       task.setName(navTitle.textContent.trim());
+    }
+  }
+
+  private parseProblemId(task: TaskBuilder, elem: Element): void {
+    // Xinyoudui displays the actual problem ID in the page, which differs from
+    // the numeric ID used in the URL (e.g. URL has /problem/10222 while the
+    // real problem ID shown on the page is 20747). Use the page value so that
+    // the editor receives the correct identifier.
+    const realProblemIdMatch = /题目ID[：:]\s*(\d+)/.exec(elem.textContent);
+    if (realProblemIdMatch !== null) {
+      task.setCategory(realProblemIdMatch[1]);
     }
   }
 
@@ -76,7 +95,11 @@ export class XinyouduiProblemParser extends Parser {
     const outputs: string[] = [];
     let currentType: 'input' | 'output' | null = null;
 
-    for (let node = sampleHeader.nextElementSibling; node !== null && node.tagName !== 'H3'; node = node.nextElementSibling) {
+    for (
+      let node = sampleHeader.nextElementSibling;
+      node !== null && node.tagName !== 'H3';
+      node = node.nextElementSibling
+    ) {
       if (node.tagName === 'H4') {
         if (/^input-/i.test(node.id)) {
           currentType = 'input';

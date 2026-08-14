@@ -133,3 +133,6 @@ dist
 build-*/
 dist/
 firefox-tmp/
+
+# Local sample web pages used for manual testing
+信友队题目网页样例/
