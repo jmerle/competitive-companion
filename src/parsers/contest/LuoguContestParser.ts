@@ -2,7 +2,7 @@ import { LuoguProblemParser } from '../problem/LuoguProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
 
 export class LuoguContestParser extends SimpleContestParser {
-  protected linkSelector = 'div.title > a';
+  protected linkSelector = 'a[href*="/problem/"]:not([href$="/list"]):not([href$="/list/"])';
   protected problemParser = new LuoguProblemParser();
 
   public getMatchPatterns(): string[] {
