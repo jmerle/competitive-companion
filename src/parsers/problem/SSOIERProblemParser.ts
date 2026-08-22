@@ -16,7 +16,13 @@ export class SSOIERProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('SSOIER').setUrl(url);
 
-    const container = elem.querySelector('body > center > center td');
+    /**
+     * 该网站会不定期调整HTML结构，导致单一选择器容易失效。
+     * 此处提供多个备选选择器，按优先级依次尝试匹配，提高鲁棒性。
+     * The website changes its HTML structure from time to time,
+     * so we try multiple selectors as fallbacks to keep the parser working.
+     */
+    const container = elem.querySelector('center table td') || elem.querySelector('body > center > table td');
 
     task.setName(container.querySelector('h3').textContent);
 
