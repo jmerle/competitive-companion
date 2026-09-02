@@ -1,0 +1,31 @@
+{
+  "url": "https://koistudy.net/prob_page?NO=4319",
+  "parser": "KOISTUDYProblemParser",
+  "result": {
+    "name": "[휴리스틱] GSHS 우주 탐사대 (3D TSP)",
+    "group": "KOISTUDY",
+    "url": "https://koistudy.net/prob_page?NO=4319",
+    "interactive": false,
+    "memoryLimit": 128,
+    "timeLimit": 5000,
+    "tests": [
+      {
+        "input": "4\n0 0 0\n10 0 0\n0 10 0\n0 0 10\n",
+        "output": "1\n2\n4\n3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "GSHS3DTSP"
+      }
+    }
+  }
+}
