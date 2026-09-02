@@ -6,6 +6,7 @@ import { Parser } from '../Parser';
 export class AizuOnlineJudgeBetaProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
+      'https://onlinejudge.u-aizu.ac.jp/problems/*',
       'https://onlinejudge.u-aizu.ac.jp/challenges/sources/*/*/*',
       'https://onlinejudge.u-aizu.ac.jp/courses/lesson/*/*/*/*',
       'https://onlinejudge.u-aizu.ac.jp/services/room.html#*/*/*',
