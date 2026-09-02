@@ -6,8 +6,8 @@ import { Parser } from '../Parser';
 export class DOJProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
-      'https://dojoi.xyz/*/problems/*',
-      'https://dojoi.xyz/problems/*',
+      'https://doj.kr/*/problems/*',
+      'https://doj.kr/problems/*',
     ];
   }
 
