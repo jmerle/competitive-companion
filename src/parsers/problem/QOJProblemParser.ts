@@ -1,5 +1,6 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
+import { Test } from '../../models/Test';
 import { htmlToElement } from '../../utils/dom';
 import { request } from '../../utils/request';
 import { Parser } from '../Parser';
@@ -38,72 +39,185 @@ export class QOJProblemParser extends Parser {
       }
     }
 
-    let statement = elem.querySelector('#tab-statement article');
-    if (statement === null && elem.querySelector('#tab-statement iframe') !== null) {
-      // QOJ exposes HTML translations alongside many of its original PDF statements.
-      const translation = [...elem.querySelectorAll('.nav-tabs a[href]')].find(link =>
-        new URL(link.getAttribute('href'), url).pathname.endsWith('/statement/en'),
-      );
-      if (translation !== undefined) {
-        const translationUrl = new URL(translation.getAttribute('href'), url);
-        const version = new URL(url).searchParams.get('v');
-        if (version !== null && !translationUrl.searchParams.has('v')) {
-          translationUrl.searchParams.set('v', version);
-        }
-        const translatedPage = htmlToElement(await request(translationUrl.href));
-        statement = translatedPage.querySelector('#tab-statement article');
-      }
-
-      if (statement === null) {
-        throw new Error('Cannot parse this QOJ PDF statement. Open an English or Chinese HTML statement to parse it.');
-      }
-    }
-
-    if (statement !== null) {
-      task.setInteractive(
-        [...statement.querySelectorAll('h1, h2, h3, h4, p')].some(el =>
-          /^(?:interaction(?: protocol)?|sample interaction|交互(?:协议|協議|格式|过程|過程)?)$|^(?:this is an interactive (?:problem|task)\b|这是一道交互题|這是一道互動題)/i.test(
-            el.textContent.trim(),
-          ),
+    const { statement, tests } = await this.getStatement(url, elem);
+    task.tests = tests;
+    task.setInteractive(
+      [...statement.querySelectorAll('h1, h2, h3, h4, p')].some(el =>
+        /^(?:interaction(?: protocol)?|sample interaction|交互(?:协议|協議|格式|过程|過程)?)$|^(?:this is an interactive (?:problem|task)\b|这是一道交互题|這是一道互動題)/i.test(
+          el.textContent.trim(),
         ),
-      );
-      this.parseTests(statement, task);
-    }
+      ),
+    );
 
     return task.build();
   }
 
-  private parseTests(statement: Element, task: TaskBuilder): void {
-    for (const row of statement.querySelectorAll('table tr')) {
-      const blocks = row.querySelectorAll('td pre');
-      if (blocks.length === 2) {
-        task.addTest(blocks[0].textContent, blocks[1].textContent);
+  private async getStatement(url: string, elem: Element): Promise<{ statement: Element; tests: Test[] }> {
+    let fallback: { statement: Element; tests: Test[] } = null;
+    const currentStatement = elem.querySelector('#tab-statement article');
+    if (currentStatement?.textContent.trim()) {
+      fallback = { statement: currentStatement, tests: this.parseTests(currentStatement) };
+      if (fallback.tests.length > 0) {
+        return fallback;
       }
     }
 
-    let input: string = null;
+    const currentUrl = new URL(url);
+    currentUrl.hash = '';
+    currentUrl.pathname = currentUrl.pathname.replace(/\/$/, '');
+    const problemPath = /^\/(?:contest\/\d+\/)?problem\/\d+(?=\/|$)/.exec(currentUrl.pathname)[0];
+
+    const candidates: URL[] = [];
+    for (const language of ['en', 'zh_cn']) {
+      const pathname = `${problemPath}/statement/${language}`;
+      let candidate = new URL(pathname, currentUrl);
+
+      for (const link of elem.querySelectorAll('.nav-tabs a[href*="/statement/"]')) {
+        let advertisedUrl: URL;
+        try {
+          advertisedUrl = new URL(link.getAttribute('href'), currentUrl);
+        } catch {
+          continue;
+        }
+        if (advertisedUrl.origin === currentUrl.origin && advertisedUrl.pathname.replace(/\/$/, '') === pathname) {
+          candidate = advertisedUrl;
+          break;
+        }
+      }
+
+      for (const key of currentUrl.searchParams.keys()) {
+        candidate.searchParams.delete(key);
+      }
+      for (const [key, value] of currentUrl.searchParams) {
+        candidate.searchParams.append(key, value);
+      }
+      candidate.hash = '';
+      candidate.pathname = candidate.pathname.replace(/\/$/, '');
+      candidates.push(candidate);
+    }
+
+    const currentKey = new URL(currentUrl.href);
+    currentKey.searchParams.sort();
+    const visited = new Set<string>([currentKey.href]);
+    for (const candidate of candidates) {
+      const key = new URL(candidate.href);
+      key.searchParams.sort();
+      if (visited.has(key.href)) {
+        continue;
+      }
+      visited.add(key.href);
+
+      let page: Element;
+      try {
+        // Missing translations are normal; try each language once before moving on.
+        page = htmlToElement(await request(candidate.href, {}, 0));
+      } catch {
+        continue;
+      }
+
+      const statement = page.querySelector('#tab-statement article');
+      if (!statement?.textContent.trim()) {
+        continue;
+      }
+
+      const result = { statement, tests: this.parseTests(statement) };
+      if (result.tests.length > 0) {
+        return result;
+      }
+      fallback ??= result;
+    }
+
+    if (fallback !== null) {
+      return fallback;
+    }
+    throw new Error('No supported QOJ HTML statement was found. PDF-only statements cannot be parsed.');
+  }
+
+  private parseTests(statement: Element): Test[] {
+    const tests: Test[] = [];
+    let input: { text: string; index: number | null } = null;
     for (const block of statement.querySelectorAll('pre:not(.sh_sourceCode)')) {
-      if (block.closest('table') !== null) {
+      const table = block.closest('table');
+      if (table !== null) {
+        const row = block.closest('tr');
+        if (row === null) {
+          continue;
+        }
+        const blocks = [...row.querySelectorAll('td pre:not(.sh_sourceCode)')].filter(pre => pre.closest('tr') === row);
+        if (block === blocks[0] && blocks.length === 2 && this.isSampleTable(table, statement)) {
+          tests.push(new Test(this.getSampleText(blocks[0]), this.getSampleText(blocks[1]), false));
+        }
         continue;
       }
 
       const heading = block.previousElementSibling;
-      if (heading === null || !/^H[1-6]$/.test(heading.tagName)) {
+      if (heading === null || !/^(?:H[1-6]|P|STRONG|B)$/.test(heading.tagName)) {
         continue;
       }
 
-      const text = heading.textContent
-        .toLowerCase()
-        .replace(/sample|example|样例|樣例/g, '')
-        .replace(/[\s\d#:：]/g, '');
-      if (['input', '输入', '輸入'].includes(text)) {
-        input = block.textContent;
-      } else if (['output', '输出', '輸出'].includes(text)) {
-        if (input !== null) {
-          task.addTest(input, block.textContent);
-          input = null;
+      const label = this.getSampleLabel(heading.textContent);
+      if (label?.type === 'input') {
+        input = { text: this.getSampleText(block), index: label.index };
+      } else if (label?.type === 'output') {
+        if (input !== null && (input.index === null || label.index === null || input.index === label.index)) {
+          tests.push(new Test(input.text, this.getSampleText(block), false));
         }
+        input = null;
       }
     }
+    return tests;
+  }
+
+  private isSampleTable(table: Element, statement: Element): boolean {
+    for (const row of table.querySelectorAll('tr')) {
+      if (row.closest('table') !== table) {
+        continue;
+      }
+      const cells = [...row.children];
+      if (
+        cells.length === 2 &&
+        cells.every(cell => cell.querySelector('pre') === null) &&
+        this.getSampleLabel(cells[0].textContent)?.type === 'input' &&
+        this.getSampleLabel(cells[1].textContent)?.type === 'output'
+      ) {
+        return true;
+      }
+    }
+
+    const heading = [...statement.querySelectorAll('h1, h2, h3, h4, h5, h6')]
+      .filter(el => table.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING)
+      .at(-1);
+    return (
+      heading !== undefined &&
+      /^(?:samples?|examples?|样例|樣例)\s*#?\s*\d*\s*[:：]?$/i.test(heading.textContent.trim())
+    );
+  }
+
+  private getSampleLabel(text: string): { type: 'input' | 'output'; index: number | null } | null {
+    const normalized = text
+      .toLowerCase()
+      .replace(/sample|example|样例|樣例/g, '')
+      .replace(/[\s\d#:：]/g, '');
+    const index = /\d+/.exec(text);
+    if (['input', '输入', '輸入'].includes(normalized)) {
+      return { type: 'input', index: index === null ? null : Number(index[0]) };
+    }
+    if (['output', '输出', '輸出'].includes(normalized)) {
+      return { type: 'output', index: index === null ? null : Number(index[0]) };
+    }
+    return null;
+  }
+
+  private getSampleText(block: Element): string {
+    const copy = block.cloneNode(true) as Element;
+    for (const br of copy.querySelectorAll('br')) {
+      br.replaceWith('\n');
+    }
+    // Normalize whitespace without treating literal sample text as HTML a second time.
+    return copy.textContent
+      .split('\n')
+      .map(line => line.trimEnd())
+      .join('\n')
+      .trimEnd();
   }
 }

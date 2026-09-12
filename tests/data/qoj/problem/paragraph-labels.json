@@ -1,0 +1,31 @@
+{
+  "url": "https://qoj.ac/problem/6/statement/en",
+  "parser": "QOJProblemParser",
+  "result": {
+    "name": "#6. Malygos",
+    "group": "QOJ",
+    "url": "https://qoj.ac/problem/6/statement/en",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "4 2\n0\n1\n2\n3\n",
+        "output": "3.5\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Malygos"
+      }
+    }
+  }
+}

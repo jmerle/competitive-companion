@@ -18,16 +18,33 @@ export class QOJContestParser extends SimpleContestParser {
     const elem = htmlToElement(html);
     const version = new URL(url).searchParams.get('v');
     const patterns = this.problemParser.getRegularExpressions();
-    const links = [...elem.querySelectorAll(this.linkSelector)]
-      .map(link => new URL(link.getAttribute('href'), url))
-      .filter(link => patterns.some(pattern => pattern.test(link.href)))
-      .map(link => {
-        if (version !== null && !link.searchParams.has('v')) {
-          link.searchParams.set('v', version);
-        }
-        return link.href;
-      });
+    const links: string[] = [];
+    const seen = new Set<string>();
+    for (const element of elem.querySelectorAll(this.linkSelector)) {
+      let link: URL;
+      try {
+        link = new URL(element.getAttribute('href'), url);
+      } catch {
+        continue;
+      }
+      if (!patterns.some(pattern => pattern.test(link.href))) {
+        continue;
+      }
+      if (version !== null) {
+        link.searchParams.set('v', version);
+      }
 
-    return [...new Set(links)];
+      const key = new URL(link.href);
+      key.hash = '';
+      key.pathname = key.pathname.replace(/\/$/, '');
+      key.searchParams.sort();
+      if (seen.has(key.href)) {
+        continue;
+      }
+      seen.add(key.href);
+      links.push(link.href);
+    }
+
+    return links;
   }
 }
