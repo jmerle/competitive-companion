@@ -27,7 +27,7 @@
     "fix": "pnpm run --sequential \"/^fix:.*/\"",
     "fix:eslint": "pnpm lint:eslint --fix",
     "fix:prettier": "prettier --write --ignore-path .gitignore \"**/*.{ts,js,cts,html,yml,json}\"",
-    "test": "pnpm build:test && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "pnpm build:test && jest tests/parsers.spec.ts",
     "test:no-headless": "cross-env HEADLESS=false pnpm test",
     "start:chrome": "tsx scripts/start/chrome.ts",
     "start:firefox": "tsx scripts/start/firefox.ts",
