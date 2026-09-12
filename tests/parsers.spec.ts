@@ -1,5 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { createPool, Pool } from 'generic-pool';
 import { Browser, launch, Page } from 'puppeteer';
 import { Contest } from '../src/models/Contest';
@@ -15,7 +16,8 @@ interface TestData {
   result: Task | Task[];
 }
 
-const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/expose-parsers.js'), {
+const testDirectory = path.dirname(fileURLToPath(import.meta.url));
+const exposeParsersScript = fs.readFileSync(path.resolve(testDirectory, '../build-test/expose-parsers.js'), {
   encoding: 'utf-8',
 });
 
@@ -118,12 +120,12 @@ afterAll(async () => {
   await browser.close();
 });
 
-for (const website of fs.readdirSync(path.resolve(__dirname, 'data'))) {
-  for (const category of fs.readdirSync(path.resolve(__dirname, 'data', website))) {
-    for (const file of fs.readdirSync(path.resolve(__dirname, 'data', website, category))) {
+for (const website of fs.readdirSync(path.resolve(testDirectory, 'data'))) {
+  for (const category of fs.readdirSync(path.resolve(testDirectory, 'data', website))) {
+    for (const file of fs.readdirSync(path.resolve(testDirectory, 'data', website, category))) {
       const testName = `${website}/${category}/${file.substring(0, file.length - 5)}`;
 
-      const filePath = path.resolve(__dirname, 'data', website, category, file);
+      const filePath = path.resolve(testDirectory, 'data', website, category, file);
       const data = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf-8' }));
 
       test.concurrent(testName, () => runTest(pagePool, data));
