@@ -26,10 +26,17 @@ export class MarisaOJProblemParser extends Parser {
     task.setMemoryLimit(parseInt(memoryLimitElem.textContent.match(/\d+/)[0], 10));
 
     const bodyElems = elem.querySelector('.math-content').children;
-
+    const cleanText = (str: string) => {
+      return str
+        .replace(/^(Copy|Sao chép)\s*/i, '')
+        .replace(/\s*(Copy|Sao chép)$/i, '')
+        .trim();
+    };
     for (let i = 0; i < bodyElems.length; i++) {
       if (bodyElems[i].textContent.includes('Input:')) {
-        task.addTest(bodyElems[i + 1].textContent, bodyElems[i + 3].textContent);
+        const inputData = cleanText(bodyElems[i + 1].textContent);
+        const outputData = cleanText(bodyElems[i + 3].textContent);
+        task.addTest(inputData, outputData);
         i += 3;
       }
     }
