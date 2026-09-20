@@ -1,10 +1,10 @@
 {
-  "url": "https://repovive.com/contests/10/problems/a",
+  "url": "https://repovive.com/contests/10/problems/A",
   "parser": "RepoviveProblemParser",
   "result": {
     "name": "10A. Two Waves",
     "group": "Repovive - Starter Round 2",
-    "url": "https://repovive.com/contests/10/problems/a",
+    "url": "https://repovive.com/contests/10/problems/A",
     "interactive": false,
     "memoryLimit": 256,
     "timeLimit": 1000,

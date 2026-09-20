@@ -11,7 +11,7 @@ import { SimpleContestParser } from '../SimpleContestParser';
 const limit = pLimit(1);
 
 export class RepoviveContestParser extends SimpleContestParser {
-  protected linkSelector = 'a[href^="/contests/"][href*="/problems/"]:not([data-slot])';
+  protected linkSelector = 'a[href^="/contests/"][href*="/problems/"]:not([data-slot="breadcrumb-link"])';
   protected problemParser = new RepoviveProblemParser();
 
   public getMatchPatterns(): string[] {
