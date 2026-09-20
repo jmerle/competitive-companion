@@ -1,0 +1,35 @@
+{
+  "url": "https://eolymp.com/problems/11800",
+  "parser": "EolympBasecampProblemParser",
+  "result": {
+    "name": "A*B*C",
+    "group": "Eolymp - Basecamp",
+    "url": "https://eolymp.com/problems/11800",
+    "interactive": false,
+    "memoryLimit": 256,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "24\n",
+        "output": "4 2 3\n"
+      },
+      {
+        "input": "72\n",
+        "output": "12 2 3\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ABC"
+      }
+    }
+  }
+}
