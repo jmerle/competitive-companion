@@ -1,0 +1,31 @@
+{
+  "url": "https://eolymp.com/problems/1",
+  "parser": "EolympBasecampProblemParser",
+  "result": {
+    "name": "Simple problem",
+    "group": "Eolymp - Basecamp",
+    "url": "https://eolymp.com/problems/1",
+    "interactive": false,
+    "memoryLimit": 128,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "24\n",
+        "output": "2 4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "SimpleProblem"
+      }
+    }
+  }
+}

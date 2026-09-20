@@ -1,0 +1,31 @@
+{
+  "url": "https://eolymp.com/problems/3",
+  "parser": "EolympBasecampProblemParser",
+  "result": {
+    "name": "Match’s model",
+    "group": "Eolymp - Basecamp",
+    "url": "https://eolymp.com/problems/3",
+    "interactive": false,
+    "memoryLimit": 128,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "1\n",
+        "output": "12\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "MatchsModel"
+      }
+    }
+  }
+}
