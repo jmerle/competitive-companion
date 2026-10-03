@@ -106,6 +106,7 @@ import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
 import { KEPUZProblemParser } from './problem/KEPUZProblemParser';
 import { KilonovaProblemParser } from './problem/KilonovaProblemParser';
+import { KOISTUDYProblemParser } from './problem/KOISTUDYProblemParser';
 import { LanqiaoProblemParser } from './problem/LanqiaoProblemParser';
 import { LibraryCheckerOldProblemParser } from './problem/LibraryCheckerOldProblemParser';
 import { LibraryCheckerProblemParser } from './problem/LibraryCheckerProblemParser';
@@ -298,6 +299,8 @@ export const parsers: Parser[] = [
 
   new KilonovaProblemParser(),
   new KilonovaContestParser(),
+
+  new KOISTUDYProblemParser(),
 
   new LanqiaoProblemParser(),
   new LanqiaoContestParser(),
