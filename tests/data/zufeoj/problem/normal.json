@@ -1,17 +1,17 @@
 {
-  "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=0",
+  "url": "https://acm.ocrosoft.com/problem.php?id=1001",
   "parser": "ZUFEOJProblemParser",
   "result": {
-    "name": "A: 硕鼠",
+    "name": "1001: 向屏幕上输出字符",
     "group": "ZUFEOJ",
-    "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=0",
+    "url": "https://acm.ocrosoft.com/problem.php?id=1001",
     "interactive": false,
     "memoryLimit": 128,
     "timeLimit": 1000,
     "tests": [
       {
-        "input": "5 3\n7 2\n4 3\n5 2\n20 3\n25 18\n24 15\n15 10\n-1 -1\n",
-        "output": "13.333\n31.500\n"
+        "input": "",
+        "output": "***********************\nWelcome to C/C++!\n***********************\n"
       }
     ],
     "testType": "single",
@@ -24,7 +24,7 @@
     "languages": {
       "java": {
         "mainClass": "Main",
-        "taskClass": "A"
+        "taskClass": "Task"
       }
     }
   }
