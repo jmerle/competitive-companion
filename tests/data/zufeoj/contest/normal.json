@@ -1,18 +1,18 @@
 {
-  "url": "http://acm.ocrosoft.com/contest.php?cid=3659",
+  "url": "https://acm.ocrosoft.com/contest.php?cid=6396",
   "parser": "ZUFEOJContestParser",
   "result": [
     {
-      "name": "A: 硕鼠",
+      "name": "8627: Black Magic",
       "group": "ZUFEOJ",
-      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=0",
+      "url": "https://acm.ocrosoft.com/problem.php?id=8627",
       "interactive": false,
       "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {
-          "input": "5 3\n7 2\n4 3\n5 2\n20 3\n25 18\n24 15\n15 10\n-1 -1\n",
-          "output": "13.333\n31.500\n"
+          "input": "3\n1 1 1 1\n1 2 3 4\n3 4 5 6\n",
+          "output": "2 4\n4 8\n8 16\n"
         }
       ],
       "testType": "single",
@@ -25,21 +25,21 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "A"
+          "taskClass": "BlackMagic"
         }
       }
     },
     {
-      "name": "B: 购买贺年卡(card)",
+      "name": "8631: Triangle Game",
       "group": "ZUFEOJ",
-      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=1",
+      "url": "https://acm.ocrosoft.com/problem.php?id=8631",
       "interactive": false,
       "memoryLimit": 128,
       "timeLimit": 1000,
       "tests": [
         {
-          "input": "10 4\n4 3\n6 2\n8 10\n3 6\n",
-          "output": "36\n"
+          "input": "3\n2 2 3\n2 3 4\n5 3 4\n",
+          "output": "Win\nLose\nWin\n"
         }
       ],
       "testType": "single",
@@ -52,21 +52,21 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "BCard"
+          "taskClass": "TriangleGame"
         }
       }
     },
     {
-      "name": "C: 计算鞍点",
+      "name": "8626: Counting Stickmen",
       "group": "ZUFEOJ",
-      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=2",
+      "url": "https://acm.ocrosoft.com/problem.php?id=8626",
       "interactive": false,
       "memoryLimit": 128,
-      "timeLimit": 1000,
+      "timeLimit": 9000,
       "tests": [
         {
-          "input": "11 3 5 6 9\n12 4 7 8 10\n10 5 6 9 11\n8  6 4 7 2\n15 10 11 20 25\n",
-          "output": "4 1 8\n"
+          "input": "1\n9\n1 2\n2 3\n3 4\n2 5\n5 6\n2 7\n7 8\n7 9\n",
+          "output": "1\n"
         }
       ],
       "testType": "single",
@@ -79,21 +79,21 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "C"
+          "taskClass": "CountingStickmen"
         }
       }
     },
     {
-      "name": "D: 输出亲朋字符串",
+      "name": "8629: Sumire",
       "group": "ZUFEOJ",
-      "url": "http://acm.ocrosoft.com/problem.php?cid=3659&pid=3",
+      "url": "https://acm.ocrosoft.com/problem.php?id=8629",
       "interactive": false,
       "memoryLimit": 128,
-      "timeLimit": 1000,
+      "timeLimit": 3000,
       "tests": [
         {
-          "input": "1234\n",
-          "output": "cege\n"
+          "input": "3\n2 2 0 1 5\n1 4 3 11 45\n10 14 11 19 198\n",
+          "output": "6\n19\n1049\n"
         }
       ],
       "testType": "single",
@@ -106,7 +106,61 @@
       "languages": {
         "java": {
           "mainClass": "Main",
-          "taskClass": "D"
+          "taskClass": "Sumire"
+        }
+      }
+    },
+    {
+      "name": "8625: Independent Feedback Vertex Set",
+      "group": "ZUFEOJ",
+      "url": "https://acm.ocrosoft.com/problem.php?id=8625",
+      "interactive": false,
+      "memoryLimit": 128,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "3\n4\n3 3 2 2\n1 2\n4\n2 5 5 2\n2 3\n5\n3 1 1 1 1\n1 2\n1 3\n",
+          "output": "4\n5\n3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "IndependentFeedbackVertexSet"
+        }
+      }
+    },
+    {
+      "name": "8630: Weighted Beautiful Tree",
+      "group": "ZUFEOJ",
+      "url": "https://acm.ocrosoft.com/problem.php?id=8630",
+      "interactive": false,
+      "memoryLimit": 128,
+      "timeLimit": 5000,
+      "tests": [
+        {
+          "input": "2\n3\n2 1 2\n9 9 10\n1 2 10\n1 3 11\n3\n1 1 2\n9 9 10\n1 2 10\n1 3 11\n",
+          "output": "3\n2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "WeightedBeautifulTree"
         }
       }
     }
