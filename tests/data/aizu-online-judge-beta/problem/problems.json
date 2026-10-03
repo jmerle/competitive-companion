@@ -1,0 +1,40 @@
+{
+  "url": "https://onlinejudge.u-aizu.ac.jp/problems/1404",
+  "parser": "AizuOnlineJudgeBetaProblemParser",
+  "before": "beforeAizuOnlineJudgeBetaNormal",
+  "result": {
+    "name": "Reordering the Documents",
+    "group": "Aizu Online Judge - 1404",
+    "url": "https://onlinejudge.u-aizu.ac.jp/problems/1404",
+    "interactive": false,
+    "memoryLimit": 262,
+    "timeLimit": 4000,
+    "tests": [
+      {
+        "input": "6 3\n1 3 4 2 6 5\n",
+        "output": "4\n"
+      },
+      {
+        "input": "6 6\n1 3 4 2 6 5\n",
+        "output": "8\n"
+      },
+      {
+        "input": "4 4\n4 3 1 2\n",
+        "output": "0\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ReorderingTheDocuments"
+      }
+    }
+  }
+}
