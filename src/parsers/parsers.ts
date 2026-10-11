@@ -7,6 +7,7 @@ import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { CodeMarshalContestParser } from './contest/CodeMarshalContestParser';
 import { CodeRunContestParser } from './contest/CodeRunContestParser';
+import { CodeSourceContestParser } from './contest/CodeSourceContestParser';
 import { COJContestParser } from './contest/COJContestParser';
 import { ContestHunterContestParser } from './contest/ContestHunterContestParser';
 import { CPythonUZContestParser } from './contest/CPythonUZContestParser';
@@ -74,6 +75,7 @@ import { CodeDrillsProblemParser } from './problem/CodeDrillsProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
 import { CodeRunProblemParser } from './problem/CodeRunProblemParser';
+import { CodeSourceProblemParser } from './problem/CodeSourceProblemParser';
 import { CodeUpProblemParser } from './problem/CodeUpProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser';
@@ -213,6 +215,9 @@ export const parsers: Parser[] = [
 
   new CodeRunProblemParser(),
   new CodeRunContestParser(),
+
+  new CodeSourceProblemParser(),
+  new CodeSourceContestParser(),
 
   new CodeUpProblemParser(),
 
