@@ -1,12 +1,13 @@
 /// <reference types="jest" />
 
 import * as fs from 'node:fs';
+import * as path from 'node:path';
 import { Browser, launch, Page } from 'puppeteer';
 import { Task } from '../src/models/Task';
 import { Parser } from '../src/parsers/Parser';
 
 const publicUrl = 'https://jungol.co.kr/problem/1000';
-const exposeParsersScript = fs.readFileSync(new URL('../build-test/expose-parsers.js', import.meta.url), 'utf-8');
+const exposeParsersScript = fs.readFileSync(path.resolve(__dirname, '../build-test/expose-parsers.js'), 'utf-8');
 
 function metadata(problem: Record<string, unknown> = {}): Record<string, unknown> {
   return {
