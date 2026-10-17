@@ -29,3 +29,10 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      # These are fixture-based browser tests; the full parser suite also visits third-party websites.
+      - name: Install Chrome for JUNGOL tests
+        run: pnpm exec puppeteer browsers install chrome
+
+      - name: Test JUNGOL parser
+        run: pnpm test:jungol

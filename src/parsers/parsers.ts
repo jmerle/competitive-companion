@@ -102,6 +102,7 @@ import { HrbustOnlineJudgeProblemParser } from './problem/HrbustOnlineJudgeProbl
 import { HydroProblemParser } from './problem/HydroProblemParser';
 import { InfoArenaProblemParser } from './problem/InfoArenaProblemParser';
 import { ITCoderHUTECHProblemParser } from './problem/ITCoderHUTECHProblemParser';
+import { JungolProblemParser } from './problem/JungolProblemParser';
 import { JutgeProblemParser } from './problem/JutgeProblemParser';
 import { KattisProblemParser } from './problem/KattisProblemParser';
 import { KEPUZProblemParser } from './problem/KEPUZProblemParser';
@@ -287,6 +288,8 @@ export const parsers: Parser[] = [
   new InfoArenaProblemParser(),
 
   new ITCoderHUTECHProblemParser(),
+
+  new JungolProblemParser(),
 
   new JutgeProblemParser(),
 
