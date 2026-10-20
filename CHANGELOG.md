@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Add support for BeCoder problem pages, including contest-scoped URLs, output-only samples, and file input/output.
+- Add support for BeCoder.
 - Update the test runner for ESM-only Puppeteer and explicitly configure TypeScript test types.
 
 ## [2.65.0](https://github.com/jmerle/competitive-companion/releases/tag/2.65.0) (2026-06-29)

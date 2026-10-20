@@ -164,8 +164,6 @@ A browser extension which parses competitive programming problems from various o
 | ZOJ                        | ✔              |                |
 | ZUFEOJ                     | ✔              | ✔              |
 
-BeCoder supports individual problem pages at `https://[www.]becoder.com.cn/front-v2/problems/<id>`, including problems opened from a contest. Log in to BeCoder in the same browser first when access requires an account; the parser reuses that session. Contest-wide import is not supported.
-
 ## Custom tools
 Competitive Companion can send the parsed data in JSON format to your own tools. To do this, start an HTTP server listening for POST requests to / on any of the ports listed in [`./src/hosts/hosts.ts`](./src/hosts/hosts.ts). An example on how to accomplish this can be found in [jmerle/competitive-companion-example](https://github.com/jmerle/competitive-companion-example).
 
@@ -282,8 +280,6 @@ pnpm dev:firefox
 
 ## Testing
 To run the tests, use `pnpm test`, or `pnpm test:no-headless` to run tests with the Chrome instance visible. Append `-- -t <pattern>` to the command to only run tests with names matching the given pattern.
-
-The BeCoder regression tests use intercepted API responses and do not require an account or network access to BeCoder. After `pnpm build:test`, run `node --experimental-vm-modules node_modules/jest/bin/jest.js tests/becoder.spec.ts` to execute only these tests.
 
 ## Mozilla reviewers
 The information provided below is meant for Mozilla volunteers.
