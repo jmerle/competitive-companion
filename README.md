@@ -57,6 +57,7 @@ A browser extension which parses competitive programming problems from various o
 | A.Y. Jackson Online Judge  | ✔              | ✔              |
 | Baekjoon Online Judge      | ✔              |                |
 | BAPS OJ                    | ✔              | ✔              |
+| BeCoder                    | ✔              |                |
 | beecrowd                   | ✔              | ✔              |
 | BJTU OJ                    | ✔              |                |
 | Bloomberg CodeCon          | ✔              |                |
