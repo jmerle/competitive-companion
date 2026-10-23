@@ -3,6 +3,12 @@ import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
 import { Parser } from '../Parser';
 
+function getSampleText(element: Element): string {
+  const sample = element.cloneNode(true) as Element;
+  sample.querySelectorAll('br').forEach(lineBreak => lineBreak.replaceWith('\n'));
+  return sample.textContent;
+}
+
 export class ACMPProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return ['http://acmp.ru/*/index.asp*', 'https://acmp.ru/*/index.asp*'];
@@ -31,8 +37,8 @@ export class ACMPProblemParser extends Parser {
         return;
       }
 
-      const input = row.querySelector('td:nth-child(2)').textContent;
-      const output = row.querySelector('td:nth-child(3)').textContent;
+      const input = getSampleText(row.querySelector('td:nth-child(2)'));
+      const output = getSampleText(row.querySelector('td:nth-child(3)'));
 
       task.addTest(input, output);
     });

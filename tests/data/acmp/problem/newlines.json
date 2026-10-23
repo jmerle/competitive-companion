@@ -1,0 +1,35 @@
+{
+  "url": "https://acmp.ru/index.asp?main=task&id_task=35",
+  "parser": "ACMPProblemParser",
+  "result": {
+    "name": "Конечные автоматы",
+    "group": "ACMP",
+    "url": "https://acmp.ru/index.asp?main=task&id_task=35",
+    "interactive": false,
+    "memoryLimit": 16,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "4\n2 0\n13 20\n5 23\n18 6\n",
+        "output": "44344\n48134\n45699\n49458\n"
+      },
+      {
+        "input": "2\n15 20\n1000 26000\n",
+        "output": "48767\n1340237\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "KonechnieAvtomati"
+      }
+    }
+  }
+}
