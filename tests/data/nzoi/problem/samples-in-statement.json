@@ -1,0 +1,31 @@
+{
+  "url": "https://train.nzoi.org.nz/problems/35",
+  "parser": "NZOIProblemParser",
+  "result": {
+    "name": "Counting Students",
+    "group": "NZOI",
+    "url": "https://train.nzoi.org.nz/problems/35",
+    "interactive": false,
+    "memoryLimit": 16,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "5\n2\n2\n4\n4\n1\n",
+        "output": "2\n4\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "CountingStudents"
+      }
+    }
+  }
+}

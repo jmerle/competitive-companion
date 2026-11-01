@@ -1,0 +1,35 @@
+{
+  "url": "https://train.nzoi.org.nz/problems/800",
+  "parser": "NZOIProblemParser",
+  "result": {
+    "name": "Hopscotch",
+    "group": "NZOI",
+    "url": "https://train.nzoi.org.nz/problems/800",
+    "interactive": false,
+    "memoryLimit": 32,
+    "timeLimit": 5000,
+    "tests": [
+      {
+        "input": "10\nS\nS\nS\nE\nN\nS\nS\nS\nE\nN\n",
+        "output": "plausible\n"
+      },
+      {
+        "input": "10\nE\nN\nN\nE\nE\nN\nS\nS\nE\nN\n",
+        "output": "impossible\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Hopscotch"
+      }
+    }
+  }
+}
