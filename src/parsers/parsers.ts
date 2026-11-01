@@ -123,6 +123,7 @@ import { NepsAcademyProblemParser } from './problem/NepsAcademyProblemParser';
 import { NewtonSchoolProblemParser } from './problem/NewtonSchoolProblemParser';
 import { NOJProblemParser } from './problem/NOJProblemParser';
 import { NowCoderProblemParser } from './problem/NowCoderProblemParser';
+import { NZOIProblemParser } from './problem/NZOIProblemParser';
 import { OlinfoProblemParser } from './problem/OlinfoProblemParser';
 import { OlympicodeProblemParser } from './problem/OlympicodeProblemParser';
 import { OmegaUpProblemParser } from './problem/OmegaUpProblemParser';
@@ -338,6 +339,8 @@ export const parsers: Parser[] = [
   new NOJContestParser(),
 
   new NowCoderProblemParser(),
+
+  new NZOIProblemParser(),
 
   new OlinfoProblemParser(),
 
