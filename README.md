@@ -138,6 +138,7 @@ A browser extension which parses competitive programming problems from various o
 | RoboContest                | ✔              | ✔              |
 | SDUT OnlineJudge           | ✔              |                |
 | SeriousOJ                  | ✔              | ✔              |
+| SJTU Online Judge          | ✔              |                |
 | Sort Me                    | ✔              |                |
 | SPOJ                       | ✔              |                |
 | SSOIER                     | ✔              |                |

@@ -28,6 +28,7 @@
     "fix:eslint": "pnpm lint:eslint --fix",
     "fix:prettier": "prettier --write --ignore-path .gitignore \"**/*.{ts,js,cts,html,yml,json}\"",
     "test": "pnpm build:test && jest tests/parsers.spec.ts",
+    "test:sjtu": "pnpm build:test && tsx --test tests/sjtu-online-judge.test.ts",
     "test:no-headless": "cross-env HEADLESS=false pnpm test",
     "start:chrome": "tsx scripts/start/chrome.ts",
     "start:firefox": "tsx scripts/start/firefox.ts",
