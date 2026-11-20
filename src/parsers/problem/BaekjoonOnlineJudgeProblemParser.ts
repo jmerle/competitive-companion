@@ -7,6 +7,7 @@ export class BaekjoonOnlineJudgeProblemParser extends Parser {
   public getMatchPatterns(): string[] {
     return [
       'https://www.acmicpc.net/problem/*',
+      'https://acmicpc.net/problem/*',
       'https://stack.acmicpc.net/problem/preview/*',
       'https://www.acmicpc.net/contest/problem/*/*',
     ];
