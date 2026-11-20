@@ -26,3 +26,21 @@ class Config {
 }
 
 export const config = new Config();
+
+/**
+ * Reads the configured request timeout. The fallback is used when storage is
+ * unavailable (for example when parsers are run outside of an extension
+ * context, such as in the test harness).
+ */
+export async function getRequestTimeout(fallback: number): Promise<number> {
+  try {
+    const value = await config.get('requestTimeout');
+    if (typeof value === 'number' && Number.isFinite(value) && value > 0) {
+      return value;
+    }
+  } catch (err) {
+    // Storage is not available in this context.
+  }
+
+  return fallback;
+}

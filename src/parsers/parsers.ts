@@ -7,12 +7,14 @@ import { CodeChefContestParser } from './contest/CodeChefContestParser';
 import { CodeforcesContestParser } from './contest/CodeforcesContestParser';
 import { CodeMarshalContestParser } from './contest/CodeMarshalContestParser';
 import { CodeRunContestParser } from './contest/CodeRunContestParser';
+import { CodeSourceContestParser } from './contest/CodeSourceContestParser';
 import { COJContestParser } from './contest/COJContestParser';
 import { ContestHunterContestParser } from './contest/ContestHunterContestParser';
 import { CPythonUZContestParser } from './contest/CPythonUZContestParser';
 import { CSESContestParser } from './contest/CSESContestParser';
 import { CSGOJContestParser } from './contest/CSGOJContestParser';
 import { CSUACMOnlineJudgeContestParser } from './contest/CSUACMOnlineJudgeContestParser';
+import { DaimayuanContestParser } from './contest/DaimayuanContestParser';
 import { DMOJContestParser } from './contest/DMOJContestParser';
 import { DOMjudgeContestParser } from './contest/DOMjudgeContestParser';
 import { DotOJContestParser } from './contest/DotOJContestParser';
@@ -74,6 +76,7 @@ import { CodeDrillsProblemParser } from './problem/CodeDrillsProblemParser';
 import { CodeforcesProblemParser } from './problem/CodeforcesProblemParser';
 import { CodeMarshalProblemParser } from './problem/CodeMarshalProblemParser';
 import { CodeRunProblemParser } from './problem/CodeRunProblemParser';
+import { CodeSourceProblemParser } from './problem/CodeSourceProblemParser';
 import { CodeUpProblemParser } from './problem/CodeUpProblemParser';
 import { COJProblemParser } from './problem/COJProblemParser';
 import { ContestHunterProblemParser } from './problem/ContestHunterProblemParser';
@@ -82,6 +85,7 @@ import { CSAcademyProblemParser } from './problem/CSAcademyProblemParser';
 import { CSESProblemParser } from './problem/CSESProblemParser';
 import { CSGOJProblemParser } from './problem/CSGOJProblemParser';
 import { CSUACMOnlineJudgeProblemParser } from './problem/CSUACMOnlineJudgeProblemParser';
+import { DaimayuanProblemParser } from './problem/DaimayuanProblemParser';
 import { DimikOJProblemParser } from './problem/DimikOJProblemParser';
 import { DMOJProblemParser } from './problem/DMOJProblemParser';
 import { DotOJProblemParser } from './problem/DotOJProblemParser';
@@ -214,6 +218,9 @@ export const parsers: Parser[] = [
   new CodeRunProblemParser(),
   new CodeRunContestParser(),
 
+  new CodeSourceProblemParser(),
+  new CodeSourceContestParser(),
+
   new CodeUpProblemParser(),
 
   new COJProblemParser(),
@@ -235,6 +242,9 @@ export const parsers: Parser[] = [
 
   new CSUACMOnlineJudgeProblemParser(),
   new CSUACMOnlineJudgeContestParser(),
+
+  new DaimayuanProblemParser(),
+  new DaimayuanContestParser(),
 
   new DimikOJProblemParser(),
 

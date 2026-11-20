@@ -90,9 +90,10 @@
       <input type="number" id="request-timeout" min="1" />
 
       <p class="description">
-        When a problem is sent to the ports a tool could possibly be listening on a timeout is set so requests sent to
-        ports with no listening tools aren't kept alive for too long. You should not change this value unless you are
-        facing issues with your tools not receiving the problem data after clicking the "+" button when they should be.
+        This timeout is applied both when a problem is sent to the ports a tool could possibly be listening on and when
+        a parser fetches problem pages (for example when parsing a whole contest). It prevents requests to ports with no
+        listening tools, or to slow judges, from being kept alive for too long. Increase it if your tools do not receive
+        the problem data after clicking the "+" button, or if contest parsing times out.
       </p>
     </section>
 
