@@ -2,6 +2,7 @@ import type { Runtime } from 'webextension-polyfill';
 import { version } from '../../package.json';
 import { Message, MessageAction } from '../models/messaging';
 import { browser } from './browser';
+import { getRequestTimeout } from './config';
 import { sendToBackground } from './messaging';
 import { uuidv4 } from './random';
 
@@ -21,7 +22,19 @@ const defaultHeaders = {
  */
 export async function request(url: string, options: RequestInit = {}, retries: number = 3): Promise<string> {
   options.headers = { ...defaultHeaders, ...options.headers };
-  const response = await fetch(url, { credentials: 'include', ...options });
+
+  // Use the same timeout that is configured for sending problem data, so that
+  // changing the "Request timeout" setting also affects page requests.
+  const requestTimeout = await getRequestTimeout(10000);
+  const abortController = new AbortController();
+  const timeoutId = setTimeout(() => abortController.abort(), requestTimeout);
+
+  let response: Response;
+  try {
+    response = await fetch(url, { credentials: 'include', ...options, signal: abortController.signal });
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (response.ok && response.status === 200) {
     return response.text();

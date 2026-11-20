@@ -68,46 +68,84 @@ export class CodeSourceProblemParser extends Parser {
       }
     }
 
-    const blocks: string[] = [];
     const statement = elem.querySelector('.card-body.typo.richmedia');
-
-    if (statement !== null) {
-      for (const heading of statement.children) {
-        if (!/^H[1-6]$/.test(heading.tagName)) {
-          continue;
-        }
-
-        const headingText = heading.textContent;
-        const isInput = /样例\s*输入|输入样例|sample\s*input/i.test(headingText);
-        const isOutput = /样例\s*输出|输出样例|sample\s*output/i.test(headingText);
-        if (!isInput && !isOutput) {
-          continue;
-        }
-
-        const container = heading.nextElementSibling;
-        if (container === null) {
-          continue;
-        }
-
-        let code: Element = null;
-        if (container.matches('.code-toolbar')) {
-          // After the page's JavaScript runs, code blocks are wrapped in a toolbar container
-          code = container.querySelector('pre > code');
-        } else if (container.matches('pre')) {
-          // In the raw HTML (e.g. when fetched by the contest parser), the pre follows the heading directly
-          code = container.querySelector('code');
-        }
-
-        if (code !== null) {
-          blocks.push(code.textContent);
-        }
-      }
-    }
+    const blocks = statement === null ? [] : CodeSourceProblemParser.getSamples(statement);
 
     for (let i = 0; i < blocks.length - 1; i += 2) {
       task.addTest(blocks[i], blocks[i + 1]);
     }
 
     return task.build();
+  }
+
+  private static getSamples(statement: Element): string[] {
+    // Newer problems use language-inputN / language-outputN classes on the
+    // sample code blocks themselves. This works both in the live DOM (where
+    // blocks are wrapped in .code-toolbar) and in raw HTML fetched by the
+    // contest parser (where the pre follows the heading directly).
+    const byClass: string[] = [];
+
+    for (const code of statement.querySelectorAll('pre > code')) {
+      if (/language-input\d*/i.test(code.className) || /language-output\d*/i.test(code.className)) {
+        byClass.push(code.textContent);
+      }
+    }
+
+    if (byClass.length > 1) {
+      return byClass;
+    }
+
+    // Other problems use headings such as "输入 1" / "输出 1", "输入数据 1",
+    // "样例输入", or "Sample Input", with plain code blocks. Some of those
+    // headings are nested inside the code toolbar added by the page's scripts.
+    const byHeading: string[] = [];
+
+    for (const heading of statement.querySelectorAll('h1, h2, h3, h4, h5, h6')) {
+      const headingText = heading.textContent.trim();
+      const isInput =
+        /样例\s*输入|输入\s*样例|sample\s*input/i.test(headingText) ||
+        /^输入(\s*数据)?\s*[#＃]?\s*\d*\s*$/.test(headingText) ||
+        /^input(\s*data)?\s*#?\s*\d*\s*$/i.test(headingText);
+      const isOutput =
+        /样例\s*输出|输出\s*样例|sample\s*output/i.test(headingText) ||
+        /^输出(\s*数据)?\s*[#＃]?\s*\d*\s*$/.test(headingText) ||
+        /^output(\s*data)?\s*#?\s*\d*\s*$/i.test(headingText);
+
+      if (!isInput && !isOutput) {
+        continue;
+      }
+
+      const code = CodeSourceProblemParser.getCodeForHeading(heading);
+      if (code !== null) {
+        byHeading.push(code.textContent);
+      }
+    }
+
+    return byHeading;
+  }
+
+  private static getCodeForHeading(heading: Element): Element | null {
+    const parent = heading.parentElement;
+    let container: Element | null = null;
+
+    if (parent !== null && /code-toolbar|syntax-hl|sample/i.test(parent.className)) {
+      // The heading itself was moved inside the code toolbar by the page scripts
+      container = parent;
+    } else {
+      container = heading.nextElementSibling;
+      while (
+        container !== null &&
+        container.matches('pre') === false &&
+        container.querySelector('pre > code') === null
+      ) {
+        container = container.nextElementSibling;
+      }
+    }
+
+    if (container === null) {
+      return null;
+    }
+
+    return container.matches('pre') ? container.querySelector('code') : container.querySelector('pre > code');
   }
 }
