@@ -4,6 +4,7 @@
     "moduleResolution": "Bundler",
     "target": "ES2022",
     "strict": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "types": ["jest", "node", "webextension-polyfill"]
   }
 }
