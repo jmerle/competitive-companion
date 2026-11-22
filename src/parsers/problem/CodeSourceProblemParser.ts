@@ -126,7 +126,7 @@ export class CodeSourceProblemParser extends Parser {
 
   private static getCodeForHeading(heading: Element): Element | null {
     const parent = heading.parentElement;
-    let container: Element | null = null;
+    let container: Element | null;
 
     if (parent !== null && /code-toolbar|syntax-hl|sample/i.test(parent.className)) {
       // The heading itself was moved inside the code toolbar by the page scripts
