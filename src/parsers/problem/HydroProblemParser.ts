@@ -9,7 +9,6 @@ export class HydroProblemParser extends Parser {
     'oiclass.com': 'oiClass',
     'newoj.cyezoi.com': 'CYEZOJ',
     'oj.33dai.cn': '33OJ',
-    'bs.daimayuan.top': 'Daimayuan Online Judge',
     'yundouxueyuan.com': 'Yun Dou Xue Yuan',
   };
 

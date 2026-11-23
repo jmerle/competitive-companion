@@ -2,6 +2,7 @@ import type { Runtime } from 'webextension-polyfill';
 import { version } from '../../package.json';
 import { Message, MessageAction } from '../models/messaging';
 import { browser } from './browser';
+import { getRequestTimeout } from './config';
 import { sendToBackground } from './messaging';
 import { uuidv4 } from './random';
 
@@ -21,7 +22,21 @@ const defaultHeaders = {
  */
 export async function request(url: string, options: RequestInit = {}, retries: number = 3): Promise<string> {
   options.headers = { ...defaultHeaders, ...options.headers };
-  const response = await fetch(url, { credentials: 'include', ...options });
+
+  // The configured "Request timeout" defaults to 500ms, which is meant for
+  // sends to localhost and is far too short for fetching judge pages. Keep a
+  // generous minimum so slow judges don't abort mid-request, while still
+  // honouring larger configured values.
+  const requestTimeout = Math.max(await getRequestTimeout(10000), 15000);
+  const abortController = new AbortController();
+  const timeoutId = setTimeout(() => abortController.abort(), requestTimeout);
+
+  let response: Response;
+  try {
+    response = await fetch(url, { credentials: 'include', ...options, signal: abortController.signal });
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (response.ok && response.status === 200) {
     return response.text();
