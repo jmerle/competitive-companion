@@ -4,7 +4,7 @@
 - Added problem and contest parsers for 代码源 OJ (newoj.daimayuan.top)
 - Fixed sample extraction for newoj.daimayuan.top after the site changed its sample markup ("输入 N"/"输出 N" and "输入数据 N" headings, code blocks wrapped in .code-toolbar)
 - Fixed parsing of bs.daimayuan.top after the site's redesign: problem and contest parsers now read samples from the new page markup (including the older "样例输入/输出" heading layout)
-- The "Request timeout" setting is now also applied to page requests made by parsers when fetching problems and contests, so changing it has a visible effect
+- The "Request timeout" setting is now also applied to page requests made by parsers when fetching problems and contests, with a 15 second minimum so slow judges (e.g. Virtual Judge description endpoints) don't abort mid-request
 
 ## [2.65.0](https://github.com/jmerle/competitive-companion/releases/tag/2.65.0) (2026-06-29)
 - Add support for Wincent DragonByte (thanks [@EgorKulikov](https://github.com/EgorKulikov))

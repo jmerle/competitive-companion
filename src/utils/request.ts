@@ -23,9 +23,11 @@ const defaultHeaders = {
 export async function request(url: string, options: RequestInit = {}, retries: number = 3): Promise<string> {
   options.headers = { ...defaultHeaders, ...options.headers };
 
-  // Use the same timeout that is configured for sending problem data, so that
-  // changing the "Request timeout" setting also affects page requests.
-  const requestTimeout = await getRequestTimeout(10000);
+  // The configured "Request timeout" defaults to 500ms, which is meant for
+  // sends to localhost and is far too short for fetching judge pages. Keep a
+  // generous minimum so slow judges don't abort mid-request, while still
+  // honouring larger configured values.
+  const requestTimeout = Math.max(await getRequestTimeout(10000), 15000);
   const abortController = new AbortController();
   const timeoutId = setTimeout(() => abortController.abort(), requestTimeout);
 
