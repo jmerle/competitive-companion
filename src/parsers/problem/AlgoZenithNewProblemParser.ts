@@ -12,19 +12,28 @@ export class AlgoZenithNewProblemParser extends Parser {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('AlgoZenith').setUrl(url);
 
-    task.setName(elem.querySelector('h4').textContent);
+    const titleElem = elem.querySelector('h4.font-rubik');
+    task.setName(titleElem.textContent.trim());
 
-    const limitElems = elem.querySelectorAll('span.dmsans ~ span.fw-bold');
+    // Match on text, the only styling hooks are Tailwind utility classes
+    for (const limitElem of titleElem.parentElement.parentElement.querySelectorAll('span, p')) {
+      const [, value, unit] = /^(\d+(?:\.\d+)?) (sec|MB)$/.exec(limitElem.textContent.trim()) || [];
 
-    const timeLimitStr = limitElems[0].textContent;
-    task.setTimeLimit(parseInt(/(\d+)/.exec(timeLimitStr)[1]) * 1000);
+      // The page shows 0 MB when the limit is unknown
+      if (Number(value) > 0) {
+        if (unit === 'sec') {
+          task.setTimeLimit(Number(value) * 1000);
+        } else {
+          task.setMemoryLimit(Number(value));
+        }
+      }
+    }
 
-    const memoryLimitStr = limitElems[1].textContent;
-    task.setMemoryLimit(parseInt(/(\d+)/.exec(memoryLimitStr)[1]));
-
-    const blocks = elem.querySelectorAll('.mt-4 div[class^="coding_input_format__"]');
+    const blocks = [...elem.querySelectorAll('h5')]
+      .filter(heading => /^Sample (Input|Output) \d+$/.test(heading.textContent.trim()))
+      .map(heading => heading.parentElement.nextElementSibling);
     for (let i = 0; i < blocks.length - 1; i += 2) {
-      task.addTest(blocks[i].textContent, blocks[i + 1].textContent);
+      task.addTest(blocks[i].firstElementChild.textContent, blocks[i + 1].firstElementChild.textContent);
     }
 
     return task.build();
