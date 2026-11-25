@@ -1,0 +1,200 @@
+{
+  "url": "https://doj.kr/en/contests/dc10",
+  "parser": "DOJContestParser",
+  "result": [
+    {
+      "name": "Erase the Minimum",
+      "group": "DOJ - DOJ Contest 10",
+      "url": "https://doj.kr/en/problems/1001",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "5 2\n3 1 2 5 4\n3 5\n",
+          "output": "YES\n"
+        },
+        {
+          "input": "5 2\n3 1 2 5 4\n5 3\n",
+          "output": "NO\n"
+        },
+        {
+          "input": "4 2\n1 4 2 3\n1 3\n",
+          "output": "NO\n"
+        },
+        {
+          "input": "3 3\n2 3 1\n2 3 1\n",
+          "output": "YES\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "EraseTheMinimum"
+        }
+      }
+    },
+    {
+      "name": "Grid Sorting",
+      "group": "DOJ - DOJ Contest 10",
+      "url": "https://doj.kr/en/problems/1002",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 5000,
+      "tests": [
+        {
+          "input": "2\n",
+          "output": "7\n2 1 1\n1 1 2\n4 2 1\n2 1 1\n1 1 2\n2 1 1\n2 2 1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "GridSorting"
+        }
+      }
+    },
+    {
+      "name": "I need ㅠ",
+      "group": "DOJ - DOJ Contest 10",
+      "url": "https://doj.kr/en/problems/1003",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "4\n2 3 1 3\n",
+          "output": "5\n1 2\n2 3\n3 4\n"
+        },
+        {
+          "input": "3\n1 2 3\n",
+          "output": "0\n1 2\n2 3\n"
+        },
+        {
+          "input": "2\n2 1\n",
+          "output": "2\n1 2\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "INeed"
+        }
+      }
+    },
+    {
+      "name": "Cannon",
+      "group": "DOJ - DOJ Contest 10",
+      "url": "https://doj.kr/en/problems/1004",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "5 5 4\n3 2\n3 4\n2 3\n4 3\n",
+          "output": "4\n"
+        },
+        {
+          "input": "1 7 3\n1 2\n1 4\n1 6\n",
+          "output": "4\n"
+        },
+        {
+          "input": "1 1 1\n1 1\n",
+          "output": "0\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Cannon"
+        }
+      }
+    },
+    {
+      "name": "012",
+      "group": "DOJ - DOJ Contest 10",
+      "url": "https://doj.kr/en/problems/1005",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 15000,
+      "tests": [
+        {
+          "input": "3 3\n-1\n1\n-1\n",
+          "output": "A\n? 1 2\n? 3 1\n? 3 2\n! 0 2 1\n"
+        },
+        {
+          "input": "3 2\n? 1 2\n? 2 3\n!\n",
+          "output": "D\n-1\n1\n!\n1 2 0\n0 2 1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "Task"
+        }
+      }
+    },
+    {
+      "name": "Dadas at Work",
+      "group": "DOJ - DOJ Contest 10",
+      "url": "https://doj.kr/en/problems/1006",
+      "interactive": false,
+      "memoryLimit": 1024,
+      "timeLimit": 3000,
+      "tests": [
+        {
+          "input": "3 3\n2 3 5 1 1\n1 4 2\n2 2 1 5 10\n1 2\n2 3\n1 3\n",
+          "output": "30\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DadasAtWork"
+        }
+      }
+    }
+  ]
+}

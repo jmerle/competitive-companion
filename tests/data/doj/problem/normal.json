@@ -1,0 +1,31 @@
+{
+  "url": "https://doj.kr/en/problems/100",
+  "parser": "DOJProblemParser",
+  "result": {
+    "name": "Maximize AND",
+    "group": "DOJ",
+    "url": "https://doj.kr/en/problems/100",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 3000,
+    "tests": [
+      {
+        "input": "2\n3 4\n5 2 7\n0\n1\n6\n7\n2 3\n8 3\n10\n7\n15\n",
+        "output": "0\n1\n6\n7\n8\n3\n8\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "MaximizeAND"
+      }
+    }
+  }
+}

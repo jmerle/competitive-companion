@@ -1,0 +1,35 @@
+{
+  "url": "https://doj.kr/ko/problems/lemongame",
+  "parser": "DOJProblemParser",
+  "result": {
+    "name": "레몬 게임",
+    "group": "DOJ - User Contest Lemon Cup",
+    "url": "https://doj.kr/ko/problems/lemongame",
+    "interactive": false,
+    "memoryLimit": 1024,
+    "timeLimit": 2000,
+    "tests": [
+      {
+        "input": "7\n2 1 1 1 2 1 1\n",
+        "output": "Yes\n"
+      },
+      {
+        "input": "3\n2 1 1\n",
+        "output": "No\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "Task"
+      }
+    }
+  }
+}
