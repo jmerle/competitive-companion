@@ -1,6 +1,7 @@
 import { Sendable } from '../../models/Sendable';
 import { TaskBuilder } from '../../models/TaskBuilder';
 import { htmlToElement } from '../../utils/dom';
+import { request } from '../../utils/request';
 import { Parser } from '../Parser';
 
 export class DOJProblemParser extends Parser {
@@ -12,7 +13,7 @@ export class DOJProblemParser extends Parser {
     return ['https://doj.kr/*/problems/*/*'];
   }
 
-  public async parse(url: string, html: string): Promise<Sendable> {
+  public async parse(url: string, html: string, contestName?: string): Promise<Sendable> {
     const elem = htmlToElement(html);
     const task = new TaskBuilder('DOJ').setUrl(url);
 
@@ -23,15 +24,10 @@ export class DOJProblemParser extends Parser {
 
     task.setName(title.textContent.replace(/\s+/g, ' ').trim());
 
-    // The category path looks like "DOJ / DOJ Contest / DOJ Contest 10" or "ICPC / Asia Pacific / Bangkok Regional / 2025"
-    // Segments that are repeated by the segment following them are dropped
-    const sourcePath = elem.querySelector('.problem-source-path');
-    if (sourcePath !== null) {
-      const segments = [...sourcePath.querySelectorAll('.problem-source-link')].map(el => el.textContent.trim());
-      const category = segments.filter((segment, i) => i === segments.length - 1 || !segments[i + 1].includes(segment));
-      if (category.length > 0) {
-        task.setCategory(category.join(' '));
-      }
+    // Problems of a running contest are not part of a category yet, so the contest name is preferred when available
+    const category = contestName ?? (await this.getContestName(url)) ?? this.getCategoryPath(elem);
+    if (category) {
+      task.setCategory(category);
     }
 
     for (const dd of elem.querySelectorAll('.judge-list dd')) {
@@ -59,5 +55,44 @@ export class DOJProblemParser extends Parser {
     }
 
     return task.build();
+  }
+
+  public extractContestName(elem: Element): string | undefined {
+    return elem.querySelector('h1.page-title')?.textContent.replace(/\s+/g, ' ').trim() || undefined;
+  }
+
+  /**
+   * Problems opened from a contest have a "?contest=<id>" query parameter, but do not mention the contest
+   * anywhere on the page. The contest page is available at "/<locale>/contests/<id>" and has the name on it.
+   */
+  private async getContestName(url: string): Promise<string | undefined> {
+    const parsedUrl = new URL(url);
+    const contestId = parsedUrl.searchParams.get('contest');
+    if (!contestId) {
+      return undefined;
+    }
+
+    try {
+      const locale = parsedUrl.pathname.split('/')[1];
+      const body = await request(`${parsedUrl.origin}/${locale}/contests/${encodeURIComponent(contestId)}`);
+      return this.extractContestName(htmlToElement(body));
+    } catch (err) {
+      return undefined;
+    }
+  }
+
+  /**
+   * The category path looks like "DOJ / DOJ Contest / DOJ Contest 10" or "ICPC / Asia Pacific / Bangkok Regional / 2025".
+   * Segments that are repeated by the segment following them are dropped.
+   */
+  private getCategoryPath(elem: Element): string | undefined {
+    const sourcePath = elem.querySelector('.problem-source-path');
+    if (sourcePath === null) {
+      return undefined;
+    }
+
+    const segments = [...sourcePath.querySelectorAll('.problem-source-link')].map(el => el.textContent.trim());
+    const category = segments.filter((segment, i) => i === segments.length - 1 || !segments[i + 1].includes(segment));
+    return category.join(' ') || undefined;
   }
 }

@@ -1,5 +1,6 @@
 import pLimit from 'p-limit';
 import { Task } from '../../models/Task';
+import { htmlToElement } from '../../utils/dom';
 import { request } from '../../utils/request';
 import { DOJProblemParser } from '../problem/DOJProblemParser';
 import { SimpleContestParser } from '../SimpleContestParser';
@@ -16,6 +17,13 @@ export class DOJContestParser extends SimpleContestParser {
     return ['https://doj.kr/*/contests/*'];
   }
 
+  private contestName: string | undefined;
+
+  protected async getTasksToParse(html: string, url: string): Promise<string[]> {
+    this.contestName = this.problemParser.extractContestName(htmlToElement(html));
+    return super.getTasksToParse(html, url);
+  }
+
   protected async parseTask(url: string): Promise<Task> {
     return limit(async () => {
       // The contest links to "/problems/<id>?contest=<uuid>", which is only served to contest participants
@@ -27,7 +35,7 @@ export class DOJContestParser extends SimpleContestParser {
       for (const candidate of urls) {
         try {
           const body = await request(candidate);
-          return (await this.problemParser.parse(candidate, body)) as Task;
+          return (await this.problemParser.parse(candidate, body, this.contestName)) as Task;
         } catch (err) {
           lastError = err;
         }
