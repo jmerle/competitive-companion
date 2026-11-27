@@ -41,6 +41,7 @@ import { PEGJudgeContestParser } from './contest/PEGJudgeContestParser';
 import { POJContestParser } from './contest/POJContestParser';
 import { QDUOJContestParser } from './contest/QDUOJContestParser';
 import { RoboContestContestParser } from './contest/RoboContestContestParser';
+import { SamCodingContestParser } from './contest/SamCodingContestParser';
 import { SeriousOJContestParser } from './contest/SeriousOJContestParser';
 import { TimusOnlineJudgeContestParser } from './contest/TimusOnlineJudgeContestParser';
 import { TLXContestParser } from './contest/TLXContestParser';
@@ -137,6 +138,7 @@ import { QBXTOJProblemParser } from './problem/QBXTOJProblemParser';
 import { QDUOJProblemParser } from './problem/QDUOJProblemParser';
 import { QQWhaleProblemParser } from './problem/QQWhaleProblemParser';
 import { RoboContestProblemParser } from './problem/RoboContestProblemParser';
+import { SamCodingProblemParser } from './problem/SamCodingProblemParser';
 import { SDUTOnlineJudgeProblemParser } from './problem/SDUTOnlineJudgeProblemParser';
 import { SeriousOJProblemParser } from './problem/SeriousOJProblemParser';
 import { SortMeProblemParser } from './problem/SortMeProblemParser';
@@ -371,6 +373,9 @@ export const parsers: Parser[] = [
 
   new RoboContestProblemParser(),
   new RoboContestContestParser(),
+
+  new SamCodingProblemParser(),
+  new SamCodingContestParser(),
 
   new SDUTOnlineJudgeProblemParser(),
 

@@ -1,0 +1,43 @@
+{
+  "url": "https://samcoding.uz/problems/12/A",
+  "parser": "SamCodingProblemParser",
+  "result": {
+    "name": "A. Secret Bunker",
+    "group": "SamCoding - SamCoding Round 4 (Div. 4)",
+    "url": "https://samcoding.uz/problems/12/A",
+    "interactive": false,
+    "memoryLimit": 64,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "25 777 3\n",
+        "output": "Bunker ochildi!\n"
+      },
+      {
+        "input": "15 100 7\n",
+        "output": "Sen hali yoshsan!\n"
+      },
+      {
+        "input": "20 100 3\n",
+        "output": "Kuchli agent, kodni tekshiring!\n"
+      },
+      {
+        "input": "20 100 7\n",
+        "output": "Kirish taqiqlangan!\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ASecretBunker"
+      }
+    }
+  }
+}

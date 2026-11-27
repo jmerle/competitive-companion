@@ -1,0 +1,278 @@
+{
+  "url": "https://samcoding.uz/contests/57",
+  "parser": "SamCodingContestParser",
+  "result": [
+    {
+      "name": "A. Solar Panels",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/A",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "5\n7 3\n*..*..*\n6 4\n.*.**.\n5 5\n.....\n8 2\n***.**.*\n4 1\n*.**\n",
+          "output": "3\n1\n0\n4\n3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "ASolarPanels"
+        }
+      }
+    },
+    {
+      "name": "B. Cave Explorer",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/B",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4\n1\n3 4\n2\n2 5\n6 1\n1\n1 1\n3\n10 7\n8 10\n12 1\n",
+          "output": "4\n4\n1\n12\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "BCaveExplorer"
+        }
+      }
+    },
+    {
+      "name": "C. Quantum Measurement",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/C",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4\n2 7\n1 2\n1 3\n2 1\n",
+          "output": "6\n"
+        },
+        {
+          "input": "4\n2 9\n3 3\n3 2\n3 6\n",
+          "output": "6\n"
+        },
+        {
+          "input": "6\n1 3\n1 4\n2 2\n2 3\n3 5\n3 6\n",
+          "output": "8\n"
+        },
+        {
+          "input": "3\n1 1\n2 1\n3 1\n",
+          "output": "-1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "CQuantumMeasurement"
+        }
+      }
+    },
+    {
+      "name": "D. Neuromorphic Chip",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/D",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4 4\n1 2 0\n2 3 0\n3 4 0\n4 1 0\n",
+          "output": "36\n"
+        },
+        {
+          "input": "4 4\n1 2 0\n2 3 0\n3 1 0\n3 4 0\n",
+          "output": "24\n"
+        },
+        {
+          "input": "2 1\n1 2 2\n",
+          "output": "0\n"
+        },
+        {
+          "input": "3 3\n1 2 0\n2 3 1\n3 1 2\n",
+          "output": "132\n"
+        },
+        {
+          "input": "3 3\n1 2 5\n2 3 123456789\n3 1 1000000000\n",
+          "output": "424930197\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "DNeuromorphicChip"
+        }
+      }
+    },
+    {
+      "name": "E. Password Check",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/E",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "Future2030!\n",
+          "output": "0\n"
+        },
+        {
+          "input": "robot\n",
+          "output": "4\n"
+        },
+        {
+          "input": "AI2026\n",
+          "output": "3\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "EPasswordCheck"
+        }
+      }
+    },
+    {
+      "name": "F. Scanner Robot",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/F",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4\nURDL\n",
+          "output": "4\n"
+        },
+        {
+          "input": "5\nRRUUL\n",
+          "output": "-1\n"
+        },
+        {
+          "input": "4\nUDUD\n",
+          "output": "2\n"
+        },
+        {
+          "input": "11\nRRRUULLLDDR\n",
+          "output": "10\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "FScannerRobot"
+        }
+      }
+    },
+    {
+      "name": "G. Chat Model Marathon",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/G",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "4\n3\n2 4 1\n5 1 7\n1\n50\n30\n4\n3 6 2 6\n8 4 9 4\n5\n1 2 3 4 5\n10 6 4 3 2\n",
+          "output": "3 2 0\n1500\n0 0 0 0\n0 0 1 2 1\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "GChatModelMarathon"
+        }
+      }
+    },
+    {
+      "name": "H. Two-Qubit Lab",
+      "group": "SamCoding - SamCoding Round 12 (Div. 2)",
+      "url": "https://samcoding.uz/problems/57/H",
+      "interactive": false,
+      "memoryLimit": 256,
+      "timeLimit": 2000,
+      "tests": [
+        {
+          "input": "0 0\n2\nH 1\nCNOT 1 2\n",
+          "output": "50 0 0 50\n"
+        },
+        {
+          "input": "0 0\n3\nH 1\nZ 1\nH 1\n",
+          "output": "0 0 100 0\n"
+        },
+        {
+          "input": "1 0\n2\nH 2\nH 1\n",
+          "output": "25 25 25 25\n"
+        }
+      ],
+      "testType": "single",
+      "input": {
+        "type": "stdin"
+      },
+      "output": {
+        "type": "stdout"
+      },
+      "languages": {
+        "java": {
+          "mainClass": "Main",
+          "taskClass": "HTwoQubitLab"
+        }
+      }
+    }
+  ]
+}
