@@ -1,0 +1,31 @@
+{
+  "url": "https://samcoding.uz/problems/53/A",
+  "parser": "SamCodingProblemParser",
+  "result": {
+    "name": "A. Lamps and Switches",
+    "group": "SamCoding - SamCoding Round 11 (Div. 1)",
+    "url": "https://samcoding.uz/problems/53/A",
+    "interactive": false,
+    "memoryLimit": 128,
+    "timeLimit": 1000,
+    "tests": [
+      {
+        "input": "3\n1 8\n5 8\n99999999 100000000\n",
+        "output": "2\n0\n1\n"
+      }
+    ],
+    "testType": "single",
+    "input": {
+      "type": "stdin"
+    },
+    "output": {
+      "type": "stdout"
+    },
+    "languages": {
+      "java": {
+        "mainClass": "Main",
+        "taskClass": "ALampsAndSwitches"
+      }
+    }
+  }
+}
